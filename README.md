@@ -1,2 +1,2 @@
-# Moonwards-Godot
-All the code to build the Moonwards space colonies in Godot
+# Moonwards Virtual Moon
+Everything to build the Moonwards space colonies in Godot and Blender.
