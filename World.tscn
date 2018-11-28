@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/maujoe.camera_control/scripts/camera_control.gd" type="Script" id=3]
 [ext_resource path="res://scripts/PerformanceMonitor.tscn" type="PackedScene" id=4]
 
-[node name="Spatial" type="Spatial" index="0"]
+[node name="world" type="Spatial" index="0"]
 
 [node name="Scene" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -86,14 +86,10 @@ gui_action = "ui_cancel"
 
 [node name="Control" parent="." index="4" instance=ExtResource( 4 )]
 
-anchor_left = 0.0
-anchor_top = 0.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 source_xyz = NodePath("../Camera")
+
+[node name="players" type="Spatial" parent="." index="5"]
+
+[node name="spawnpoints" type="Spatial" parent="." index="6"]
 
 

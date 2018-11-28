@@ -8,14 +8,15 @@
 
 config_version=3
 
-_global_script_classes=null
-_global_script_class_icons=null
-
 [application]
 
 config/name="CernansPromise"
 run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+gamestate="*res://gamestate.gd"
 
 [compression]
 

@@ -40,6 +40,11 @@ var max_speed = 0.0
 var linear_velocity=Vector3()
 var hspeed
 
+##Networking
+slave var slave_translation
+slave var slave_transform
+slave var slave_linear_vel
+
 
 #Rotates the model to where the camera points
 func adjust_facing(p_facing, p_target, p_step, p_adjust_rate, current_gn):
@@ -68,6 +73,9 @@ func adjust_facing(p_facing, p_target, p_step, p_adjust_rate, current_gn):
 
 func _input(event):
 	########################### MUST BE CHANGED TO RAYCAST
+	#Raycast WIP
+	#get_viewport().get_camera().project_ray_origin(Vector2(0,0))
+	
 	if Input.is_action_pressed("ui_page_up"):
 		if Captured:
 			Captured = false
@@ -77,7 +85,7 @@ func _input(event):
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			#############################
 			
-			
+	
 	if (Input.is_action_pressed("run")):
 		if not flies: 
 			max_speed=RUNSPEED
@@ -124,35 +132,43 @@ func _physics_process(delta):
 	
 #THIS BLOCK IS INTENDED FOR FPS CONTROLLER USE ONLY
 	var aim = $Pivot/FPSCamera.get_global_transform().basis
-	if (Input.is_action_pressed("ui_up")):
-		ismoving = true
-		if not flies:
-			dir -= aim[2]
+	if is_network_master():
+		if (Input.is_action_pressed("ui_up")):
+			ismoving = true
+			if not flies:
+				dir -= aim[2]
 			
+			else:
+				dir += AbsView
 		else:
-			dir += AbsView
-	else:
-		ismoving = false
-	if (Input.is_action_pressed("ui_down")):
-		if not flies:
-			dir += aim[2]
+			ismoving = false
+		if (Input.is_action_pressed("ui_down")):
+			if not flies:
+				dir += aim[2]
+			else:
+				dir -= AbsView
+			ismoving = true
 		else:
-			dir -= AbsView
-		ismoving = true
-	else:
-		ismoving = false
-	if (Input.is_action_pressed("ui_left")):
-		dir -= aim[0]
+			ismoving = false
+		if (Input.is_action_pressed("ui_left")):
+			dir -= aim[0]
 
-		$Pivot/FPSCamera.Znoice =  1*hspeed
+			$Pivot/FPSCamera.Znoice =  1*hspeed
 
-	if (Input.is_action_pressed("ui_right")):
-		dir += aim[0]
-		$Pivot/FPSCamera.Znoice =  -1*hspeed
+		if (Input.is_action_pressed("ui_right")):
+			dir += aim[0]
+			$Pivot/FPSCamera.Znoice =  -1*hspeed
 		
 	
-	if flies:
-		vertical_velocity += dir.y
+		if flies:
+			vertical_velocity += dir.y
+		rset("slave_translation", translation)
+		rset("slave_transform", $Yaw.transform)
+		rset("slave_linear_vel", linear_velocity)
+	else:
+		translation = slave_translation
+		$Yaw.transform = slave_transform
+		linear_velocity = slave_linear_vel
 
 	var jump_attempt = Input.is_action_pressed("jump") or (Input.is_action_pressed("ui_page_up") and flies)
 	var crouch_attempt = Input.is_action_pressed("ui_mlook") or (Input.is_action_pressed("ui_page_down") and flies)
