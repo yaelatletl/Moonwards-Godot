@@ -1,5 +1,5 @@
 extends Control
-
+export(String) var SceneToLoad = "res://World.tscn"
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -18,7 +18,7 @@ func _on_Run_pressed():
 	$load_timer.start()
 
 func _on_Timer_timeout():
-	get_tree().change_scene("res://MainFlyCamera.tscn")
+	get_tree().change_scene(SceneToLoad)
 
 
 func _on_Help_pressed():
