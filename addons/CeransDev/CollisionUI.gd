@@ -12,6 +12,9 @@ signal grp_list
 signal lg_scale
 signal bl_scale
 
+signal mh_save
+signal fx_mat
+
 var collisions
 var col
 var console
@@ -138,3 +141,15 @@ func _on_BL_scale_pressed():
 	emit_signal("bl_scale", self)
 	yield(plugin, "end_processing")
 # 	find_node("BL_scale").pressed = false
+
+
+func _on_FX_Mat_toggled(button_pressed):
+	emit_signal("fx_mat", self)
+	yield(plugin, "end_processing")
+	find_node("FX_Mat").pressed = false
+
+
+func _on_MH_Save_toggled(button_pressed):
+	emit_signal("mh_save", self)
+	yield(plugin, "end_processing")
+	find_node("MH_Save").pressed = false

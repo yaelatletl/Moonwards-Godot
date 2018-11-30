@@ -10,7 +10,9 @@ var options = {
 	cs_groups = [ "cs", "cs_convex", "floor", "wall"],
 	cs_convex = ["cs_convex"],
 	cs_trimesh = ["cs", "floor", "wall"],
-	bakedlight = {path = "lightmaps", ext = "_bldata.res" }
+	bakedlight = {path = "lightmaps", ext = "_bldata.res" },
+	material_dir = "res://materials",
+	mesh_dir = "meshes"
 }
 
 #
@@ -18,6 +20,10 @@ var options = {
 #
 func get_scene():
 	return get_editor_interface().get_edited_scene_root()
+
+func get_scene_filename():
+	return get_editor_interface().get_edited_scene_root().filename
+
 
 func array_add(a, b):
 	for i in b:
@@ -220,6 +226,78 @@ func grp_list(dock):
 	yield(get_tree().create_timer(0.1), "timeout")
 	emit_signal("end_processing")
 
+func fx_mat_replace(obj, name, mindex):
+	var dir = Directory.new()
+	var dir_name = options["material_dir"]
+	var res = false
+	if not dir.dir_exists(dir_name):
+		print("no material directory to look at: %s" % dir_name)
+		return res
+	if name.get_extension():
+		print("%s %s %s" % [name, name.get_extension(), name.get_basename()])
+		name = name.get_basename()
+		print("set material name to %s" % name)
+	var fname = "%s/%s.tres" % [dir_name, name]
+	if dir.file_exists(fname):
+		var material = ResourceLoader.load(fname)
+		obj.mesh.surface_set_material(mindex, material)
+		print("%s %s %s" % [obj, obj.name, fname])
+		res = true
+	else:
+		print("no material: %s" % fname)
+	return res
+
+func fx_mat(dock):
+	var scene = get_scene()
+	var nodes = get_nodes_type(scene, "MeshInstance", false)
+	var save = false
+	print(nodes)
+	for path in nodes:
+		var obj = scene.get_node(path)
+		var scount = obj.mesh.get_surface_count()
+		print(obj)
+		for i in range(0, scount):
+			var material = obj.mesh.surface_get_material(i)
+			if material == null:
+				print("material is not set for: %s" % path)
+				continue
+			#print("%s %s %s" % [material, material.resource_path, material.resource_name])
+			if res_path_is_local(material.resource_path):
+				if fx_mat_replace(obj, material.resource_name, i):
+					save = true
+	if save :
+		get_editor_interface().save_scene()
+	yield(get_tree().create_timer(0.1), "timeout")
+	emit_signal("end_processing")
+
+func mh_save(dock):
+	var scene = get_scene()
+	var nodes = get_nodes_type(scene, "MeshInstance", false)
+	var scene_file = get_scene_filename()
+	var save = false
+	var meshes = {}
+	for path in nodes:
+		var obj = scene.get_node(path)
+		if obj.mesh == null:
+			continue
+		if  meshes.has(obj.mesh.resource_path):
+			obj.mesh = meshes[obj.mesh.resource_path]
+		elif res_path_is_local(obj.mesh.resource_path):
+			var dir = Directory.new()
+			var fname = "%s/%s/%s__%s.mesh" % [scene_file.get_base_dir(), options["mesh_dir"], scene_file.get_file().get_basename(), String(path).replace("/", "_")]
+			if not dir.dir_exists(fname.get_base_dir()):
+				dir.make_dir_recursive(fname.get_base_dir())
+			ResourceSaver.save(fname, obj.mesh)
+			var mesh = ResourceLoader.load(fname)
+			meshes[obj.mesh.resource_path] = mesh
+			obj.mesh = mesh
+			print("saved to: %s" % fname)
+			save = true
+	if save :
+		get_editor_interface().save_scene()
+	yield(get_tree().create_timer(0.1), "timeout")
+	emit_signal("end_processing")
+
 #
 # Sustem events
 #
@@ -235,6 +313,8 @@ func _ready():
 	bt_connect("cs_make")
 	bt_connect("cs_delete")
 	bt_connect("cs_save")
+	bt_connect("fx_mat")
+	bt_connect("mh_save")
 
 func _enter_tree():
 	print("dev plugin enter_tree")
