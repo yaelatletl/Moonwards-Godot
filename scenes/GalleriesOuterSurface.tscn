@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/meshes/GalleriesOuterSurface__LT-Large-pole.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://scenes/meshes/GalleriesOuterSurface__LT-Large-pole_LightTube-FiberoptCable-Armature003.mesh" type="ArrayMesh" id=2]
@@ -8,19 +8,17 @@
 [ext_resource path="res://scenes/meshes/GalleriesOuterSurface__LT-Large-pole_LightTubeLarge-DishPivot_LT-Large-Dish.mesh" type="ArrayMesh" id=6]
 [ext_resource path="res://scenes/meshes/GalleriesOuterSurface__LT-Large-pole_LightTubeLarge-DishPivot_LT-Large=LIghtInlet.mesh" type="ArrayMesh" id=7]
 [ext_resource path="res://scenes/meshes/GalleriesOuterSurface__OverlayLowerGalleries.mesh" type="ArrayMesh" id=8]
-[ext_resource path="res://scenes/meshes/GalleriesOuterSurface__OverlayLowerGalleries_OverlayFirstGallery.mesh" type="ArrayMesh" id=9]
-[ext_resource path="res://scenes/meshes/GalleriesOuterSurface__OverlayLowerGalleries_OverlayUpperGallery.mesh" type="ArrayMesh" id=10]
-[ext_resource path="res://scenes/meshes/GalleriesOuterSurface__LightTubeLarge-DishPivot001.mesh" type="ArrayMesh" id=11]
-[ext_resource path="res://scenes/meshes/GalleriesOuterSurface__LightTubeLarge-DishPivot001_LightTube-FiberoptCable-Armature001.mesh" type="ArrayMesh" id=12]
-[ext_resource path="res://scenes/meshes/GalleriesOuterSurface__LightTubeLarge-DishPivot001_LT-Large-Cable-Supports001.mesh" type="ArrayMesh" id=13]
-[ext_resource path="res://scenes/meshes/GalleriesOuterSurface__LightTubeLarge-DishPivot001_LT-Large-Dish001.mesh" type="ArrayMesh" id=14]
-[ext_resource path="res://scenes/meshes/GalleriesOuterSurface__LightTubeLarge-DishPivot001_LT-Large=LIghtInlet001.mesh" type="ArrayMesh" id=15]
-[ext_resource path="res://scenes/meshes/GalleriesOuterSurface__LightTube-FiberoptCable-Armature000.mesh" type="ArrayMesh" id=16]
+[ext_resource path="res://model_assets/LightTube_Large.tscn" type="PackedScene" id=9]
+[ext_resource path="res://model_assets/LightTube_Setof3.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/meshes/GalleriesOuterSurface__OverlayLowerGalleries_OverlayFirstGallery.mesh" type="ArrayMesh" id=11]
+[ext_resource path="res://scenes/meshes/GalleriesOuterSurface__OverlayLowerGalleries_OverlayUpperGallery.mesh" type="ArrayMesh" id=12]
+[ext_resource path="res://model_assets/BoatRadiator_70Scale.tscn" type="PackedScene" id=13]
 
 [node name="Scene" type="Spatial" index="0"]
 
 [node name="LT-Large-pole" type="MeshInstance" parent="." index="0"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 82.8193, 48.8937, -43.8687 )
 layers = 1
 material_override = null
@@ -83,11 +81,7 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 blend_times = [  ]
 
-[node name="Empty-LightTubeLarge" type="Spatial" parent="LT-Large-pole" index="1"]
-
-transform = Transform( 0.0155842, -0.0269926, 1.98399e-09, 0.0269926, 0.0155842, -1.23805e-09, 1.05328e-10, 2.35173e-09, 0.0311684, -0.241219, 1.76929, -0.0285645 )
-
-[node name="LightTube-FiberoptCable-Armature003" type="MeshInstance" parent="LT-Large-pole" index="2"]
+[node name="LightTube-FiberoptCable-Armature003" type="MeshInstance" parent="LT-Large-pole" index="1"]
 
 transform = Transform( 1, 5.51343e-09, -2.75672e-09, -5.51343e-09, 1, -1.1083e-08, 2.75672e-09, 1.20143e-08, 1, -2.28882e-05, 1.66736, 0 )
 layers = 1
@@ -103,7 +97,7 @@ mesh = ExtResource( 2 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="LightTubeLarge-DishPivot" type="MeshInstance" parent="LT-Large-pole" index="3"]
+[node name="LightTubeLarge-DishPivot" type="MeshInstance" parent="LT-Large-pole" index="2"]
 
 transform = Transform( 0.0925, -0.160215, 1.1776e-08, 0.160215, 0.0925, -9.82104e-10, -4.88826e-09, 1.07755e-08, 0.185, -7.62939e-06, 1.62867, -0.560059 )
 layers = 1
@@ -206,261 +200,395 @@ _sections_unfolded = [ "material" ]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 72.9536, 47.0138, -46.0837 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge" index="0" instance=ExtResource( 9 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25256 )
+
 [node name="LightTubeLarge-Setof3" type="Spatial" parent="OverlayLowerGalleries" index="1"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 68.5498, 43.8995, -47.5425 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3" index="0" instance=ExtResource( 10 )]
 
 [node name="LightTubeLarge-Setof3001" type="Spatial" parent="OverlayLowerGalleries" index="2"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64.5318, 41.0912, -48.0713 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3001" index="0" instance=ExtResource( 10 )]
+
 [node name="LightTubeLarge-Setof3002" type="Spatial" parent="OverlayLowerGalleries" index="3"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.6534, 38.053, -48.572 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3002" index="0" instance=ExtResource( 10 )]
 
 [node name="LightTubeLarge-Setof3003" type="Spatial" parent="OverlayLowerGalleries" index="4"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 56.8706, 34.8215, -49.0574 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3003" index="0" instance=ExtResource( 10 )]
+
 [node name="LightTubeLarge-Setof3004" type="Spatial" parent="OverlayLowerGalleries" index="5"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.0269, 31.6803, -49.553 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3004" index="0" instance=ExtResource( 10 )]
 
 [node name="LightTubeLarge-Setof3005" type="Spatial" parent="OverlayLowerGalleries" index="6"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49.1885, 28.394, -50.0593 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3005" index="0" instance=ExtResource( 10 )]
+
 [node name="LightTubeLarge-Setof3006" type="Spatial" parent="OverlayLowerGalleries" index="7"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.4292, 25.2211, -50.5481 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3006" index="0" instance=ExtResource( 10 )]
 
 [node name="LightTubeLarge-Setof3007" type="Spatial" parent="OverlayLowerGalleries" index="8"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.4346, 21.7819, -51.0586 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3007" index="0" instance=ExtResource( 10 )]
+
 [node name="LightTubeLarge-Setof3008" type="Spatial" parent="OverlayLowerGalleries" index="9"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.524, 18.5352, -51.5679 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3008" index="0" instance=ExtResource( 10 )]
 
 [node name="LightTubeLarge-Setof3009" type="Spatial" parent="OverlayLowerGalleries" index="10"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.6914, 15.2159, -52.073 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3009" index="0" instance=ExtResource( 10 )]
+
 [node name="LightTubeLarge-Setof3010" type="Spatial" parent="OverlayLowerGalleries" index="11"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8501, 12.1139, -52.5623 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3010" index="0" instance=ExtResource( 10 )]
 
 [node name="LightTubeLarge-Setof3011" type="Spatial" parent="OverlayLowerGalleries" index="12"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2808, 8.60558, -53.0264 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3011" index="0" instance=ExtResource( 10 )]
+
 [node name="LightTubeLarge-Setof3012" type="Spatial" parent="OverlayLowerGalleries" index="13"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5474, 4.90576, -53.5181 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3012" index="0" instance=ExtResource( 10 )]
 
 [node name="LightTubeLarge-Setof3013" type="Spatial" parent="OverlayLowerGalleries" index="14"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8604, 1.35192, -53.9834 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3013" index="0" instance=ExtResource( 10 )]
+
 [node name="LightTubeLarge-Setof3014" type="Spatial" parent="OverlayLowerGalleries" index="15"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1704, -2.25086, -54.4626 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3014" index="0" instance=ExtResource( 10 )]
 
 [node name="LightTubeLarge-Setof3015" type="Spatial" parent="OverlayLowerGalleries" index="16"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5249, -5.86426, -54.9355 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3015" index="0" instance=ExtResource( 10 )]
+
 [node name="LightTubeLarge-Setof3016" type="Spatial" parent="OverlayLowerGalleries" index="17"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.16702, -9.12733, -55.3684 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3016" index="0" instance=ExtResource( 10 )]
 
 [node name="LightTubeLarge001" type="Spatial" parent="OverlayLowerGalleries" index="18"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 77.2808, 46.4445, -43.3208 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge001" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge002" type="Spatial" parent="OverlayLowerGalleries" index="19"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 73.1109, 47.0135, -47.6592 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge002" index="0" instance=ExtResource( 9 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.195477 )
 
 [node name="LightTubeLarge003" type="Spatial" parent="OverlayLowerGalleries" index="20"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 73.8814, 47.2853, -46.9292 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge003" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge004" type="Spatial" parent="OverlayLowerGalleries" index="21"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 75.0264, 45.1146, -43.679 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge004" index="0" instance=ExtResource( 9 )]
 
 [node name="LightTubeLarge005" type="Spatial" parent="OverlayLowerGalleries" index="22"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 72.8941, 43.7274, -43.9233 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge005" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge006" type="Spatial" parent="OverlayLowerGalleries" index="23"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 70.5464, 42.411, -44.2402 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge006" index="0" instance=ExtResource( 9 )]
 
 [node name="LightTubeLarge007" type="Spatial" parent="OverlayLowerGalleries" index="24"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 68.2461, 40.7624, -44.5571 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge007" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge008" type="Spatial" parent="OverlayLowerGalleries" index="25"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 66.0279, 39.4524, -44.9211 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge008" index="0" instance=ExtResource( 9 )]
 
 [node name="LightTubeLarge009" type="Spatial" parent="OverlayLowerGalleries" index="26"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 63.7276, 37.4449, -45.2263 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge009" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge010" type="Spatial" parent="OverlayLowerGalleries" index="27"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 61.5201, 35.5046, -45.4231 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge010" index="0" instance=ExtResource( 9 )]
 
 [node name="LightTubeLarge011" type="Spatial" parent="OverlayLowerGalleries" index="28"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 59.3096, 33.3652, -45.6931 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge011" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge012" type="Spatial" parent="OverlayLowerGalleries" index="29"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 56.9971, 31.6256, -45.9866 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge012" index="0" instance=ExtResource( 9 )]
 
 [node name="LightTubeLarge013" type="Spatial" parent="OverlayLowerGalleries" index="30"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 54.5679, 29.4014, -46.3738 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge013" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge014" type="Spatial" parent="OverlayLowerGalleries" index="31"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 52.3379, 27.7031, -46.679 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge014" index="0" instance=ExtResource( 9 )]
 
 [node name="LightTubeLarge015" type="Spatial" parent="OverlayLowerGalleries" index="32"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 50.1783, 26.0122, -47.0547 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge015" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge016" type="Spatial" parent="OverlayLowerGalleries" index="33"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 48.3296, 25.1168, -47.2874 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge016" index="0" instance=ExtResource( 9 )]
 
 [node name="LightTubeLarge017" type="Spatial" parent="OverlayLowerGalleries" index="34"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80.7816, 48.7421, -48.1981 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge017" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge018" type="Spatial" parent="OverlayLowerGalleries" index="35"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.1057, 48.7421, -48.0116 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge018" index="0" instance=ExtResource( 9 )]
 
 [node name="LightTubeLarge020" type="Spatial" parent="OverlayLowerGalleries" index="36"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 44.9834, 22.2798, -47.8828 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge020" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge021" type="Spatial" parent="OverlayLowerGalleries" index="37"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 43.021, 20.317, -48.1443 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge021" index="0" instance=ExtResource( 9 )]
 
 [node name="LightTubeLarge022" type="Spatial" parent="OverlayLowerGalleries" index="38"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 40.6983, 18.5991, -48.5205 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge022" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge023" type="Spatial" parent="OverlayLowerGalleries" index="39"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 38.2779, 16.6722, -48.8313 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge023" index="0" instance=ExtResource( 9 )]
 
 [node name="LightTubeLarge024" type="Spatial" parent="OverlayLowerGalleries" index="40"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 36.0293, 14.599, -49.0903 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge024" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge025" type="Spatial" parent="OverlayLowerGalleries" index="41"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 33.9566, 12.5336, -49.2739 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge025" index="0" instance=ExtResource( 9 )]
 
 [node name="LightTubeLarge026" type="Spatial" parent="OverlayLowerGalleries" index="42"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 31.8472, 10.8473, -49.6453 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge026" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge027" type="Spatial" parent="OverlayLowerGalleries" index="43"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 29.7325, 9.4508, -49.958 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge027" index="0" instance=ExtResource( 9 )]
 
 [node name="LightTubeLarge028" type="Spatial" parent="OverlayLowerGalleries" index="44"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 27.7779, 6.82446, -50.1902 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge028" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge029" type="Spatial" parent="OverlayLowerGalleries" index="45"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 25.6787, 4.98937, -50.4219 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge029" index="0" instance=ExtResource( 9 )]
 
 [node name="LightTubeLarge030" type="Spatial" parent="OverlayLowerGalleries" index="46"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 23.648, 2.71386, -50.6262 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge030" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge031" type="Spatial" parent="OverlayLowerGalleries" index="47"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 21.5904, 0.715203, -50.8306 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge031" index="0" instance=ExtResource( 9 )]
 
 [node name="LightTubeLarge032" type="Spatial" parent="OverlayLowerGalleries" index="48"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 19.4776, -1.19031, -51.1169 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge032" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge033" type="Spatial" parent="OverlayLowerGalleries" index="49"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 17.4195, -3.35059, -51.3621 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge033" index="0" instance=ExtResource( 9 )]
 
 [node name="LightTubeLarge034" type="Spatial" parent="OverlayLowerGalleries" index="50"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 15.2251, -5.13685, -51.6892 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge034" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge035" type="Spatial" parent="OverlayLowerGalleries" index="51"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 13.0992, -7.51246, -51.989 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge035" index="0" instance=ExtResource( 9 )]
 
 [node name="LightTubeLarge036" type="Spatial" parent="OverlayLowerGalleries" index="52"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 10.8506, -9.79237, -52.2207 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge036" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge037" type="Spatial" parent="OverlayLowerGalleries" index="53"]
 
 transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 8.63284, -11.7755, -52.5349 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge037" index="0" instance=ExtResource( 9 )]
 
 [node name="LightTubeLarge038" type="Spatial" parent="OverlayLowerGalleries" index="54"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.7193, 7.05346, -45.3972 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge038" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge040" type="Spatial" parent="OverlayLowerGalleries" index="55"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.9497, 11.2965, -59.2056 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge040" index="0" instance=ExtResource( 9 )]
 
 [node name="LightTubeLarge041" type="Spatial" parent="OverlayLowerGalleries" index="56"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.3701, 11.3202, -62.2722 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge041" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge042" type="Spatial" parent="OverlayLowerGalleries" index="57"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 67.9268, 40.6782, -57.5125 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge042" index="0" instance=ExtResource( 9 )]
 
 [node name="LightTubeLarge043" type="Spatial" parent="OverlayLowerGalleries" index="58"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 67.5064, 40.6545, -54.446 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge043" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge044" type="Spatial" parent="OverlayLowerGalleries" index="59"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.20365, -10.9102, -60.3069 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge044" index="0" instance=ExtResource( 9 )]
 
 [node name="LightTubeLarge045" type="Spatial" parent="OverlayLowerGalleries" index="60"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.73392, -10.9098, -63.501 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge045" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge046" type="Spatial" parent="OverlayLowerGalleries" index="61"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.26419, -10.9094, -66.7192 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge046" index="0" instance=ExtResource( 9 )]
 
 [node name="LightTubeLarge047" type="Spatial" parent="OverlayLowerGalleries" index="62"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 78.1035, 48.7938, -44.0469 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge047" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge048" type="Spatial" parent="OverlayLowerGalleries" index="63"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80.4532, 48.7938, -43.8931 )
 
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge048" index="0" instance=ExtResource( 9 )]
+
 [node name="LightTubeLarge052" type="Spatial" parent="OverlayLowerGalleries" index="64"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 78.5562, 48.8076, -48.3567 )
+
+[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge052" index="0" instance=ExtResource( 9 )]
 
 [node name="OverlayFirstGallery" type="MeshInstance" parent="OverlayLowerGalleries" index="65"]
 
@@ -474,13 +602,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 9 )
+mesh = ExtResource( 11 )
 skeleton = NodePath("..")
 material/0 = null
-
-[node name="EmptyMarker" type="Spatial" parent="OverlayLowerGalleries/OverlayFirstGallery" index="0"]
-
-transform = Transform( 1, 0, 0, 1.79511e-06, 1, 0, 8.3603e-09, 0, 1, 8.1245, 0.940796, 2.87354 )
 
 [node name="OverlayUpperGallery" type="MeshInstance" parent="OverlayLowerGalleries" index="66"]
 
@@ -494,158 +618,38 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 10 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="LightTubeLarge-DishPivot001" type="MeshInstance" parent="." index="2"]
-
-transform = Transform( 0.0925, -0.160215, 1.1776e-08, 0.160215, 0.0925, -9.82104e-10, -5.03747e-09, 1.06894e-08, 0.185, -229.797, -1943.5, 20.4153 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 11 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="LightTube-FiberoptCable-Armature001" type="MeshInstance" parent="LightTubeLarge-DishPivot001" index="0"]
-
-transform = Transform( 5.4054, -2.14577e-06, -2.9728e-07, -9.53674e-07, 5.4054, -4.01844e-08, 2.82704e-07, 9.08053e-08, 5.4054, -0.000976562, 0.209961, 3.02734 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 12 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="LT-Large-Cable-Supports001" type="MeshInstance" parent="LightTubeLarge-DishPivot001" index="1"]
+[node name="BoatRadiator_70Scale-001" parent="OverlayLowerGalleries" index="67" instance=ExtResource( 13 )]
 
-transform = Transform( 5.4054, -2.14577e-06, -2.9063e-09, -9.53674e-07, 5.4054, 1.72065e-08, -1.16691e-08, 3.34143e-08, 5.4054, 0, 4.32471, 0.00131226 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 13 )
-skeleton = NodePath("..")
-material/0 = null
-material/1 = null
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 66.447, 45.4481, -1.265 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="LT-Large-Dish001" type="MeshInstance" parent="LightTubeLarge-DishPivot001" index="2"]
+[node name="BoatRadiator_70Scale-005" parent="OverlayLowerGalleries" index="68" instance=ExtResource( 13 )]
 
-transform = Transform( 5.4054, -2.14577e-06, -2.9063e-09, -9.53674e-07, 5.4054, 1.72065e-08, -1.16691e-08, 3.34143e-08, 5.4054, 0, 4.32471, 0.00131226 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 14 )
-skeleton = NodePath("..")
-material/0 = null
-material/1 = null
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 77.2936, 50.0129, -46.8188 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="LT-Large=LIghtInlet001" type="MeshInstance" parent="LightTubeLarge-DishPivot001" index="3"]
+[node name="BoatRadiator_70Scale-006" parent="OverlayLowerGalleries" index="69" instance=ExtResource( 13 )]
 
-transform = Transform( 1, -5.06639e-07, 4.70735e-14, -5.96046e-08, 1, 1.37668e-14, -2.69648e-09, 9.36484e-09, 1, -0.000976562, 4.44922, 0.00131226 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 15 )
-skeleton = NodePath("..")
-material/0 = null
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.937, 50.0129, -46.4044 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="Empty-LightTubeLarge001" type="Spatial" parent="." index="3"]
+[node name="BoatRadiator_70Scale-002" parent="OverlayLowerGalleries" index="70" instance=ExtResource( 13 )]
 
-transform = Transform( 0.0155842, -0.0269926, 1.98399e-09, 0.0269926, 0.0155842, -1.23805e-09, 8.01891e-11, 2.33721e-09, 0.0311684, -230.039, -1943.36, 20.9468 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.2688, 45.4481, -2.02082 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="Armature000" type="Skeleton" parent="." index="4"]
+[node name="BoatRadiator_70Scale-003" parent="OverlayLowerGalleries" index="71" instance=ExtResource( 13 )]
 
-transform = Transform( 1, 5.51343e-09, -2.75672e-09, -5.51343e-09, 1, -4.65661e-10, 2.75672e-09, 4.65661e-10, 1, -229.797, -1943.46, 20.9753 )
-bones/0/name = "Bone"
-bones/0/parent = -1
-bones/0/rest = Transform( 0.999947, 0.000251281, -0.0102529, -0.0102541, 0.00504919, -0.999935, -0.000199496, 0.999987, 0.00505132, -0.000249086, -0.00161906, -7.31362e-10 )
-bones/0/enabled = true
-bones/0/bound_children = [  ]
-bones/1/name = "Bone.001"
-bones/1/parent = 0
-bones/1/rest = Transform( 0.999928, 0.0117809, -0.00224534, -0.00410003, 0.15986, -0.987131, -0.0112703, 0.987069, 0.159897, 1.98858e-11, 6.35184e-12, -0.0242941 )
-bones/1/enabled = true
-bones/1/bound_children = [  ]
-bones/2/name = "Bone.002"
-bones/2/parent = 1
-bones/2/rest = Transform( 0.999985, -0.00538363, 0.00140547, 0.00332825, 0.781186, 0.624289, -0.00445888, -0.624275, 0.781192, -1.81899e-11, 1.18786e-09, -0.0533243 )
-bones/2/enabled = true
-bones/2/bound_children = [  ]
-bones/3/name = "Bone.003"
-bones/3/parent = 2
-bones/3/rest = Transform( 0.99998, -0.00463962, -0.00428201, 0.00624114, 0.62394, 0.781447, -0.000953901, -0.781458, 0.623957, -1.09139e-11, -3.55465e-09, -0.0502702 )
-bones/3/enabled = true
-bones/3/bound_children = [  ]
-bones/4/name = "Bone.004"
-bones/4/parent = 3
-bones/4/rest = Transform( 0.999993, -0.000766068, 0.00373622, -0.00161981, 0.801574, 0.597893, -0.00345288, -0.597895, 0.801567, -2.91038e-11, -3.24985e-09, -0.0484464 )
-bones/4/enabled = true
-bones/4/bound_children = [  ]
-bones/5/name = "Bone.005"
-bones/5/parent = 4
-bones/5/rest = Transform( 0.999987, -0.00381688, 0.00330352, 0.00388531, 0.999773, -0.0209619, -0.00322276, 0.0209745, 0.999775, 0, 1.1363e-08, -0.0562065 )
-bones/5/enabled = true
-bones/5/bound_children = [  ]
-bones/6/name = "Bone.006"
-bones/6/parent = 5
-bones/6/rest = Transform( 0.999861, 0.00828394, -0.0144775, -0.0113064, 0.974725, -0.223122, 0.0122632, 0.223254, 0.974683, -2.59206e-11, 1.26865e-08, -0.0526733 )
-bones/6/enabled = true
-bones/6/bound_children = [  ]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61.3692, 50.2651, 33.9152 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Armature000" index="0"]
+[node name="BoatRadiator_70Scale-004" parent="OverlayLowerGalleries" index="72" instance=ExtResource( 13 )]
 
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
-blend_times = [  ]
-
-[node name="LightTube-FiberoptCable-Armature000" type="MeshInstance" parent="." index="5"]
-
-transform = Transform( 1, 5.51343e-09, -2.75672e-09, -5.51343e-09, 1, -1.1083e-08, 2.75672e-09, 1.1083e-08, 1, -229.797, -1943.46, 20.9753 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 16 )
-skeleton = NodePath("..")
-material/0 = null
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 56.8417, 50.2651, 32.2837 )
+_sections_unfolded = [ "Transform" ]
 
 

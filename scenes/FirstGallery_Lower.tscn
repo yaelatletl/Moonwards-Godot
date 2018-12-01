@@ -1,22 +1,26 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000.mesh" type="ArrayMesh" id=1]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_FirstGalleryColumns.mesh" type="ArrayMesh" id=2]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_FirstGalleryConduitMain.mesh" type="ArrayMesh" id=3]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_FirstGalleryFloor_Bottom.mesh" type="ArrayMesh" id=4]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_FirstGalleryWalls_Bottom.mesh" type="ArrayMesh" id=5]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Cap002.mesh" type="ArrayMesh" id=6]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Cap003.mesh" type="ArrayMesh" id=7]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Cap004.mesh" type="ArrayMesh" id=8]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Entrance001.mesh" type="ArrayMesh" id=9]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Entrance002.mesh" type="ArrayMesh" id=10]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Entrance003.mesh" type="ArrayMesh" id=11]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Entrance014.mesh" type="ArrayMesh" id=12]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Entrance021.mesh" type="ArrayMesh" id=13]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_UpperGalleryRoof-Bottom-Beams001.mesh" type="ArrayMesh" id=14]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_UpperGalleryRoof-Middle-Beams003.mesh" type="ArrayMesh" id=15]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_UpperGalleryRoof-Middle001.mesh" type="ArrayMesh" id=16]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_UpperGalleryRoof-TopMiddleCap001.mesh" type="ArrayMesh" id=17]
+[ext_resource path="res://model_assets/FirstGalleryAnchors_NorthWall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://model_assets/FirstGalleryAnchors_SouthWall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://model_assets/TubeHab.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_FirstGalleryColumns.mesh" type="ArrayMesh" id=5]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_FirstGalleryConduitMain.mesh" type="ArrayMesh" id=6]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_FirstGalleryFloor_Bottom.mesh" type="ArrayMesh" id=7]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_FirstGalleryWalls_Bottom.mesh" type="ArrayMesh" id=8]
+[ext_resource path="res://model_assets/LightTube_Large.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Cap002.mesh" type="ArrayMesh" id=10]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Cap003.mesh" type="ArrayMesh" id=11]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Cap004.mesh" type="ArrayMesh" id=12]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Entrance001.mesh" type="ArrayMesh" id=13]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Entrance002.mesh" type="ArrayMesh" id=14]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Entrance003.mesh" type="ArrayMesh" id=15]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Entrance014.mesh" type="ArrayMesh" id=16]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Entrance021.mesh" type="ArrayMesh" id=17]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_UpperGalleryRoof-Bottom-Beams001.mesh" type="ArrayMesh" id=18]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_UpperGalleryRoof-Middle-Beams003.mesh" type="ArrayMesh" id=19]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_UpperGalleryRoof-Middle001.mesh" type="ArrayMesh" id=20]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_UpperGalleryRoof-TopMiddleCap001.mesh" type="ArrayMesh" id=21]
 
 [node name="Scene" type="Spatial" index="0"]
 
@@ -41,389 +45,514 @@ material/1 = null
 
 transform = Transform( 0.991674, 1.1688e-06, 0.128773, -2.07954e-06, 1, -1.29035e-07, -0.128773, -2.05424e-08, 0.991674, 54.3377, 40.7411, -1.83401 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North014" index="0" instance=ExtResource( 2 )]
+
 [node name="Empty_FirstGalleryAnchor_North015" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="1"]
 
 transform = Transform( 0.991674, 1.1688e-06, 0.128773, -2.07954e-06, 1, -1.29035e-07, -0.128773, -2.05424e-08, 0.991674, 53.4085, 39.7867, -1.83287 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North015" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_FirstGalleryAnchor_North016" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="2"]
 
 transform = Transform( 0.991674, 1.1688e-06, 0.128773, -2.07954e-06, 1, -1.29035e-07, -0.128773, -2.05424e-08, 0.991674, 51.9142, 38.3015, -1.83354 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North016" index="0" instance=ExtResource( 2 )]
+
 [node name="Empty_FirstGalleryAnchor_North017" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="3"]
 
 transform = Transform( 0.991674, 1.1688e-06, 0.128773, -2.07954e-06, 1, -1.29035e-07, -0.128773, -2.05424e-08, 0.991674, 50.7907, 37.1632, -1.8352 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North017" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_FirstGalleryAnchor_North018" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="4"]
 
 transform = Transform( 0.991674, 1.1688e-06, 0.128773, -2.07954e-06, 1, -1.29035e-07, -0.128773, -2.05424e-08, 0.991674, 49.7602, 36.1588, -1.83257 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North018" index="0" instance=ExtResource( 2 )]
+
 [node name="Empty_FirstGalleryAnchor_North019" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="5"]
 
 transform = Transform( 0.991674, 1.1688e-06, 0.128773, -2.07954e-06, 1, -1.29035e-07, -0.128773, -2.05424e-08, 0.991674, 48.4026, 34.8024, -1.83955 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North019" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_FirstGalleryAnchor_North020" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="6"]
 
 transform = Transform( 0.991674, 9.30442e-07, 0.128773, -1.84848e-06, 1, -5.74505e-08, -0.128773, -6.17762e-08, 0.991674, 47.3096, 33.6727, -1.83435 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North020" index="0" instance=ExtResource( 2 )]
+
 [node name="Empty_FirstGalleryAnchor_North021" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="7"]
 
 transform = Transform( 0.991674, 9.30442e-07, 0.128773, -1.84848e-06, 1, -5.74505e-08, -0.128773, -6.17762e-08, 0.991674, 46.4247, 32.8287, -1.84748 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North021" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_FirstGalleryAnchor_North022" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="8"]
 
 transform = Transform( 0.991674, 9.30442e-07, 0.128773, -1.84848e-06, 1, -5.74505e-08, -0.128773, -6.17762e-08, 0.991674, 45.0364, 31.3845, -1.84185 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North022" index="0" instance=ExtResource( 2 )]
+
 [node name="Empty_FirstGalleryAnchor_North023" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="9"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 43.7436, 30.104, -1.83687 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North023" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_FirstGalleryAnchor_North024" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="10"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 42.8902, 29.2035, -1.85137 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North024" index="0" instance=ExtResource( 2 )]
+
 [node name="Empty_FirstGalleryAnchor_North025" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="11"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 41.4677, 27.8044, -1.84677 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North025" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_FirstGalleryAnchor_North026" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="12"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 39.7749, 26.577, -1.83573 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North026" index="0" instance=ExtResource( 2 )]
+
 [node name="Empty_FirstGalleryAnchor_North027" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="13"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 38.7502, 25.8787, -1.83508 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North027" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_FirstGalleryAnchor_North028" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="14"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 37.0681, 24.7567, -1.83567 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North028" index="0" instance=ExtResource( 2 )]
+
 [node name="Empty_FirstGalleryAnchor_North029" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="15"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 35.5649, 23.7712, -1.83618 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North029" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_FirstGalleryAnchor_North030" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="16"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 34.5269, 23.0778, -1.83652 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North030" index="0" instance=ExtResource( 2 )]
+
 [node name="Empty_FirstGalleryAnchor_North031" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="17"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 32.8535, 21.9467, -1.83709 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North031" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_FirstGalleryAnchor_North032" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="18"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 31.3129, 20.9548, -1.83756 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North032" index="0" instance=ExtResource( 2 )]
+
 [node name="Empty_FirstGalleryAnchor_North033" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="19"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 30.2856, 20.2732, -1.83807 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North033" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_FirstGalleryAnchor_North034" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="20"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 28.605, 19.1542, -1.8389 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North034" index="0" instance=ExtResource( 2 )]
+
 [node name="Empty_FirstGalleryAnchor_North035" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="21"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 27.1853, 18.2181, -1.83975 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North035" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_FirstGalleryAnchor_North036" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="22"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 26.1244, 17.462, -1.8423 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North036" index="0" instance=ExtResource( 2 )]
+
 [node name="Empty_FirstGalleryAnchor_North037" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="23"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 24.3705, 16.3231, -1.84486 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North037" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_FirstGalleryAnchor_North038" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="24"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 23.3956, 15.1328, -1.84825 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North038" index="0" instance=ExtResource( 2 )]
+
 [node name="Empty_FirstGalleryAnchor_North039" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="25"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 22.3843, 13.8527, -1.84834 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North039" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_FirstGalleryAnchor_North040" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="26"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 21.251, 12.3732, -1.84588 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North040" index="0" instance=ExtResource( 2 )]
+
 [node name="Empty_FirstGalleryAnchor_North041" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="27"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 20.1964, 11.0002, -1.84639 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North041" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_FirstGalleryAnchor_North042" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="28"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 19.3197, 9.85059, -1.84732 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North042" index="0" instance=ExtResource( 2 )]
+
 [node name="Empty_FirstGalleryAnchor_North043" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="29"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 18.0961, 8.2301, -1.84863 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North043" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_FirstGalleryAnchor_North044" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="30"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 17.0484, 6.88452, -1.84972 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North044" index="0" instance=ExtResource( 2 )]
+
 [node name="Empty_FirstGalleryAnchor_North045" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="31"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 16.1511, 5.71399, -1.85061 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North045" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_FirstGalleryAnchor_North046" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="32"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 14.796, 4.23035, -1.8518 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North046" index="0" instance=ExtResource( 2 )]
+
 [node name="Empty_FirstGalleryAnchor_North047" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="33"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 13.5215, 3.12097, -1.85277 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North047" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_FirstGalleryAnchor_North048" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="34"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 12.4488, 2.13391, -1.85349 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North048" index="0" instance=ExtResource( 2 )]
+
 [node name="Empty_FirstGalleryAnchor_North049" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="35"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 10.9507, 0.790893, -1.85449 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North049" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_FirstGalleryAnchor_North050" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="36"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 9.68938, -0.321167, -1.85532 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North050" index="0" instance=ExtResource( 2 )]
+
 [node name="Empty_FirstGalleryAnchor_North051" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="37"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 8.61017, -1.31067, -1.85612 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North051" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_FirstGalleryAnchor_North052" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="38"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 7.11799, -2.65723, -1.85721 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North052" index="0" instance=ExtResource( 2 )]
+
 [node name="Empty_FirstGalleryAnchor_North053" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="39"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 5.85516, -3.80042, -1.85813 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_North053" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_FirstGalleryAnchor_South014" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="40"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 54.3413, 40.712, 1.78702 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South014" index="0" instance=ExtResource( 3 )]
+
 [node name="Empty_FirstGalleryAnchor_South015" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="41"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 53.4122, 39.7577, 1.78815 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South015" index="0" instance=ExtResource( 3 )]
 
 [node name="Empty_FirstGalleryAnchor_South016" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="42"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 51.9179, 38.2725, 1.78748 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South016" index="0" instance=ExtResource( 3 )]
+
 [node name="Empty_FirstGalleryAnchor_South017" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="43"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 50.7944, 37.134, 1.78582 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South017" index="0" instance=ExtResource( 3 )]
 
 [node name="Empty_FirstGalleryAnchor_South018" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="44"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 49.7639, 36.1298, 1.78845 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South018" index="0" instance=ExtResource( 3 )]
+
 [node name="Empty_FirstGalleryAnchor_South019" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="45"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 48.4062, 34.7733, 1.78147 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South019" index="0" instance=ExtResource( 3 )]
 
 [node name="Empty_FirstGalleryAnchor_South020" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="46"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 47.3132, 33.6437, 1.78667 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South020" index="0" instance=ExtResource( 3 )]
+
 [node name="Empty_FirstGalleryAnchor_South021" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="47"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 46.4284, 32.7997, 1.77354 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South021" index="0" instance=ExtResource( 3 )]
 
 [node name="Empty_FirstGalleryAnchor_South022" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="48"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 45.0401, 31.3553, 1.77917 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South022" index="0" instance=ExtResource( 3 )]
+
 [node name="Empty_FirstGalleryAnchor_South023" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="49"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 43.7472, 30.075, 1.78415 )
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South023" index="0" instance=ExtResource( 3 )]
 
 [node name="Empty_FirstGalleryAnchor_South024" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="50"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 42.8939, 29.1744, 1.76965 )
 
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South024" index="0" instance=ExtResource( 3 )]
+
 [node name="Empty_FirstGalleryAnchor_South025" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="51"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 41.4714, 27.7754, 1.77426 )
 
-[node name="Empty_FirstGalleryAnchor_South026" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="52"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South025" index="0" instance=ExtResource( 3 )]
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000" index="52" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South026" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="53"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 39.7786, 26.5479, 1.78529 )
 
-[node name="Empty_FirstGalleryAnchor_South027" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="53"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South026" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South027" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="54"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 38.7539, 25.8496, 1.78594 )
 
-[node name="Empty_FirstGalleryAnchor_South028" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="54"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South027" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South028" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="55"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 37.0718, 24.7277, 1.78535 )
 
-[node name="Empty_FirstGalleryAnchor_South029" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="55"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South028" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South029" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="56"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 35.5686, 23.7422, 1.78485 )
 
-[node name="Empty_FirstGalleryAnchor_South030" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="56"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South029" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South030" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="57"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 34.5306, 23.0487, 1.7845 )
 
-[node name="Empty_FirstGalleryAnchor_South031" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="57"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South030" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South031" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="58"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 32.8572, 21.9176, 1.78393 )
 
-[node name="Empty_FirstGalleryAnchor_South032" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="58"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South031" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South032" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="59"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 31.3165, 20.9258, 1.78346 )
 
-[node name="Empty_FirstGalleryAnchor_South033" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="59"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South032" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South033" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="60"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 30.2893, 20.244, 1.78295 )
 
-[node name="Empty_FirstGalleryAnchor_South034" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="60"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South033" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South034" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="61"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 28.6087, 19.1251, 1.78212 )
 
-[node name="Empty_FirstGalleryAnchor_South035" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="61"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South034" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South035" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="62"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 27.189, 18.189, 1.78127 )
 
-[node name="Empty_FirstGalleryAnchor_South036" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="62"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South035" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South036" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="63"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 26.1281, 17.4329, 1.77872 )
 
-[node name="Empty_FirstGalleryAnchor_South037" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="63"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South036" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South037" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="64"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 24.3742, 16.2939, 1.77616 )
 
-[node name="Empty_FirstGalleryAnchor_South038" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="64"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South037" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South038" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="65"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 23.3993, 15.1036, 1.77277 )
 
-[node name="Empty_FirstGalleryAnchor_South039" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="65"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South038" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South039" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="66"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 22.388, 13.8235, 1.77268 )
 
-[node name="Empty_FirstGalleryAnchor_South040" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="66"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South039" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South040" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="67"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 21.2547, 12.344, 1.77514 )
 
-[node name="Empty_FirstGalleryAnchor_South041" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="67"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South040" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South041" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="68"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 20.2001, 10.9711, 1.77463 )
 
-[node name="Empty_FirstGalleryAnchor_South042" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="68"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South041" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South042" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="69"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 19.3233, 9.82153, 1.7737 )
 
-[node name="Empty_FirstGalleryAnchor_South043" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="69"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South042" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South043" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="70"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 18.0998, 8.20105, 1.77239 )
 
-[node name="Empty_FirstGalleryAnchor_South044" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="70"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South043" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South044" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="71"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 17.0521, 6.85535, 1.7713 )
 
-[node name="Empty_FirstGalleryAnchor_South045" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="71"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South044" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South045" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="72"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 16.1549, 5.68494, 1.77041 )
 
-[node name="Empty_FirstGalleryAnchor_South046" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="72"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South045" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South046" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="73"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 14.7997, 4.20117, 1.76921 )
 
-[node name="Empty_FirstGalleryAnchor_South047" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="73"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South046" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South047" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="74"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 13.5252, 3.09192, 1.76825 )
 
-[node name="Empty_FirstGalleryAnchor_South048" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="74"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South047" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South048" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="75"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 12.4525, 2.10474, 1.76753 )
 
-[node name="Empty_FirstGalleryAnchor_South049" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="75"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South048" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South049" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="76"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 10.9544, 0.761841, 1.76653 )
 
-[node name="Empty_FirstGalleryAnchor_South050" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="76"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South049" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South050" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="77"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 9.69307, -0.35022, 1.7657 )
 
-[node name="Empty_FirstGalleryAnchor_South051" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="77"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South050" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South051" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="78"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 8.61387, -1.33984, 1.7649 )
 
-[node name="Empty_FirstGalleryAnchor_South052" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="78"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South051" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South052" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="79"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 7.12168, -2.68628, 1.76381 )
 
-[node name="Empty_FirstGalleryAnchor_South053" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="79"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South052" index="0" instance=ExtResource( 3 )]
+
+[node name="Empty_FirstGalleryAnchor_South053" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="80"]
 
 transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 5.85886, -3.82959, 1.76289 )
 
-[node name="Empty_TubeHabLarge" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="80"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_FirstGalleryAnchor_South053" index="0" instance=ExtResource( 3 )]
 
-transform = Transform( -0.99998, -6.35096e-07, 0.00628315, 1.54606e-06, -1, 1.41233e-07, 0.00628315, 3.16573e-08, 0.99998, 43.6014, 34.7362, 10.2083 )
+[node name="Empty_TubeHabLarge" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="81"]
 
-[node name="Empty_TubeHabLarge001" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="81"]
+transform = Transform( 1.49997, -3.28985e-10, -0.00942472, 0, 1.5, -5.23599e-08, -0.00942472, -5.23588e-08, -1.49997, 43.6014, 34.7362, 10.2083 )
+_sections_unfolded = [ "Transform" ]
 
-transform = Transform( 0.999564, 4.72114e-07, -0.0295111, -1.37689e-06, 1, 1.98974e-07, 0.0295111, -3.89662e-08, 0.999564, 0.245218, -2.93042, -6.42343 )
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_TubeHabLarge" index="0" instance=ExtResource( 4 )]
 
-[node name="Empty_TubeHabSmall" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="82"]
+[node name="Empty_TubeHabLarge001" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="82"]
 
-transform = Transform( -0.999978, -6.35513e-07, -0.00659318, 1.54453e-06, -1, 1.62025e-07, -0.0065932, 3.25511e-08, 0.999978, 21.6077, 16.3973, 8.93743 )
+transform = Transform( 1.49935, 2.06678e-06, -0.0442667, -2.06534e-06, 1.5, 7.93228e-08, 0.0442667, -1.83379e-08, 1.49935, 0.245218, -2.93042, -6.42343 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="Empty_TubeHabSmall001" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="83"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_TubeHabLarge001" index="0" instance=ExtResource( 4 )]
+
+[node name="Empty_TubeHabSmall" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="83"]
+
+transform = Transform( 0.999978, 2.30146e-10, 0.0065932, 0, 1, -3.49066e-08, 0.0065932, -3.49058e-08, -0.999978, 21.6077, 16.3973, 8.93743 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_TubeHabSmall" index="0" instance=ExtResource( 4 )]
+
+[node name="Empty_TubeHabSmall001" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="84"]
 
 transform = Transform( 0.999856, 4.72129e-07, -0.0169516, -1.37935e-06, 1, 1.78734e-07, 0.0169516, -3.60395e-08, 0.999856, 27.0762, 20.3723, -7.21054 )
 
-[node name="FirstGalleryColumns" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="84"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_TubeHabSmall001" index="0" instance=ExtResource( 4 )]
+
+[node name="FirstGalleryColumns" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="85"]
 
 transform = Transform( 0.991669, 0.00325403, 0.128773, -0.003228, 0.999995, -0.000417947, -0.128773, -1.09277e-06, 0.991674, 72.7068, 58.7229, -1.83968 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 2 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="FirstGalleryConduitMain" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="85"]
-
-transform = Transform( 0.999998, 4.66841e-07, 0.00173286, -1.37715e-06, 1, 1.48665e-07, -0.00173286, -3.1764e-08, 0.999999, 41.0682, 27.1899, -0.0513663 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 3 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="FirstGalleryFloor_Bottom" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="86"]
-
-transform = Transform( 0.999998, 4.71171e-07, 0.00173278, -1.38148e-06, 1, 1.4852e-07, -0.00173278, -3.16269e-08, 0.999998, 41.0682, 27.0614, -0.0513663 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 4 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="FirstGalleryWalls_Bottom" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="87"]
-
-transform = Transform( 0.999998, 4.71171e-07, 0.00173278, -1.38148e-06, 1, 1.4852e-07, -0.00173278, -3.16269e-08, 0.999998, 41.0682, 27.1857, -0.0513663 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -437,25 +566,9 @@ mesh = ExtResource( 5 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="LightTubeLarge017" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="88"]
+[node name="FirstGalleryConduitMain" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="86"]
 
-transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 44.3017, 37.6696, 6.93342 )
-
-[node name="LightTubeLarge018" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="89"]
-
-transform = Transform( -0.991674, -6.37472e-07, 0.128773, 1.55304e-06, -1, -5.75885e-08, 0.128773, 2.35936e-08, 0.991674, 44.3206, 37.6696, 10.1952 )
-
-[node name="LightTubeLarge019" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="90"]
-
-transform = Transform( -0.991674, -6.37472e-07, 0.128773, 1.55304e-06, -1, -5.75885e-08, 0.128773, 2.35936e-08, 0.991674, 44.3357, 37.6696, 13.4326 )
-
-[node name="LightTubeLarge039" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="91"]
-
-transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 21.9253, 18.5552, 10.6025 )
-
-[node name="TubeHab-Cap002" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="92"]
-
-transform = Transform( 0.999925, 4.72134e-07, -0.0122226, -1.3802e-06, 1, 1.71108e-07, 0.0122226, -3.49384e-08, 0.999925, 27.4998, 20.5112, -11.9754 )
+transform = Transform( 0.999998, 4.66841e-07, 0.00173286, -1.37715e-06, 1, 1.48665e-07, -0.00173286, -3.1764e-08, 0.999999, 41.0682, 27.1899, -0.0513663 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -469,9 +582,9 @@ mesh = ExtResource( 6 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="TubeHab-Cap003" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="93"]
+[node name="FirstGalleryFloor_Bottom" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="87"]
 
-transform = Transform( 0.999404, 4.72109e-07, -0.0345149, -1.37583e-06, 1, 2.0703e-07, 0.0345149, -4.01333e-08, 0.999404, 0.96955, -2.71899, -13.5782 )
+transform = Transform( 0.999998, 4.71171e-07, 0.00173278, -1.38148e-06, 1, 1.4852e-07, -0.00173278, -3.16269e-08, 0.999998, 41.0682, 27.0614, -0.0513663 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -485,9 +598,9 @@ mesh = ExtResource( 7 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="TubeHab-Cap004" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="94"]
+[node name="FirstGalleryWalls_Bottom" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="88"]
 
-transform = Transform( -0.999955, -5.71441e-07, 0.00951353, 1.48285e-06, -1, 1.36013e-07, 0.00951353, 3.08271e-08, 0.999955, 44.1587, 34.9362, 17.374 )
+transform = Transform( 0.999998, 4.71171e-07, 0.00173278, -1.38148e-06, 1, 1.4852e-07, -0.00173278, -3.16269e-08, 0.999998, 41.0682, 27.1857, -0.0513663 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -501,25 +614,33 @@ mesh = ExtResource( 8 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="TubeHab-Entrance001" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="95"]
+[node name="LightTubeLarge017" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="89"]
 
-transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 21.9249, 16.5354, 13.7312 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 9 )
-skeleton = NodePath("..")
-material/0 = null
+transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 44.3017, 37.6696, 6.93342 )
 
-[node name="TubeHab-Entrance002" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="96"]
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/LightTubeLarge017" index="0" instance=ExtResource( 9 )]
 
-transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 22.0458, 16.397, 1.82743 )
+[node name="LightTubeLarge018" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="90"]
+
+transform = Transform( 0.991674, 6.74254e-09, 0.128773, 0, 1, -5.23599e-08, -0.128773, 5.19239e-08, 0.991674, 44.3206, 37.6696, 10.1952 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/LightTubeLarge018" index="0" instance=ExtResource( 9 )]
+
+[node name="LightTubeLarge019" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="91"]
+
+transform = Transform( 0.991674, 6.74254e-09, 0.128773, 0, 1, -5.23599e-08, -0.128773, 5.19239e-08, 0.991674, 44.3357, 37.6696, 13.4326 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Scene" parent="UpperGalleryRoof-Bottom000/LightTubeLarge019" index="0" instance=ExtResource( 9 )]
+
+[node name="LightTubeLarge039" type="Spatial" parent="UpperGalleryRoof-Bottom000" index="92"]
+
+transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 21.9253, 18.5552, 10.6025 )
+
+[node name="TubeHab-Cap002" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="93"]
+
+transform = Transform( 0.999925, 4.72134e-07, -0.0122226, -1.3802e-06, 1, 1.71108e-07, 0.0122226, -3.49384e-08, 0.999925, 27.4998, 20.5112, -11.9754 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -533,9 +654,9 @@ mesh = ExtResource( 10 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="TubeHab-Entrance003" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="97"]
+[node name="TubeHab-Cap003" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="94"]
 
-transform = Transform( -0.999856, -0.0169827, 8.73929e-08, 1.10538e-06, -6.34631e-06, 1, -0.0169828, 0.999856, 6.48345e-06, 43.8562, 34.7264, 3.65761 )
+transform = Transform( 0.999404, 4.72109e-07, -0.0345149, -1.37583e-06, 1, 2.0703e-07, 0.0345149, -4.01333e-08, 0.999404, 0.96955, -2.71899, -13.5782 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -549,9 +670,9 @@ mesh = ExtResource( 11 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="TubeHab-Entrance014" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="98"]
+[node name="TubeHab-Cap004" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="95"]
 
-transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 0.639856, -2.75232, -1.7008 )
+transform = Transform( -0.999955, -5.71441e-07, 0.00951353, 1.48285e-06, -1, 1.36013e-07, 0.00951353, 3.08271e-08, 0.999955, 44.1587, 34.9362, 17.374 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -565,9 +686,9 @@ mesh = ExtResource( 12 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="TubeHab-Entrance021" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="99"]
+[node name="TubeHab-Entrance001" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="96"]
 
-transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 27.3574, 20.5059, -1.82939 )
+transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 21.9249, 16.5354, 13.7312 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -581,9 +702,9 @@ mesh = ExtResource( 13 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="UpperGalleryRoof-Bottom-Beams001" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="100"]
+[node name="TubeHab-Entrance002" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="97"]
 
-transform = Transform( 1, 4.67818e-07, 2.98023e-08, -1.37787e-06, 1, 1.51515e-07, -2.98023e-08, -3.22278e-08, 1, 2.77361, -0.657593, 1.62422e-05 )
+transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 22.0458, 16.397, 1.82743 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -597,9 +718,9 @@ mesh = ExtResource( 14 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="UpperGalleryRoof-Middle-Beams003" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="101"]
+[node name="TubeHab-Entrance003" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="98"]
 
-transform = Transform( 1, 4.67818e-07, 2.98023e-08, -1.37787e-06, 1, 1.51515e-07, -2.98023e-08, -3.22278e-08, 1, 28.618, 24.1829, -0.00485372 )
+transform = Transform( -0.999856, -0.0169827, 8.73929e-08, 1.10538e-06, -6.34631e-06, 1, -0.0169828, 0.999856, 6.48345e-06, 43.8562, 34.7264, 3.65761 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -613,9 +734,9 @@ mesh = ExtResource( 15 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="UpperGalleryRoof-Middle001" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="102"]
+[node name="TubeHab-Entrance014" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="99"]
 
-transform = Transform( 1, 4.67818e-07, 1.49012e-08, -1.37787e-06, 1, 1.51515e-07, -1.49012e-08, -3.22278e-08, 1, 28.618, 24.1829, -0.00485372 )
+transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 0.639856, -2.75232, -1.7008 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -628,9 +749,73 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 16 )
 skeleton = NodePath("..")
 material/0 = null
+
+[node name="TubeHab-Entrance021" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="100"]
+
+transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 27.3574, 20.5059, -1.82939 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 17 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="UpperGalleryRoof-Bottom-Beams001" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="101"]
+
+transform = Transform( 1, 4.67818e-07, 2.98023e-08, -1.37787e-06, 1, 1.51515e-07, -2.98023e-08, -3.22278e-08, 1, 2.77361, -0.657593, 1.62422e-05 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 18 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="UpperGalleryRoof-Middle-Beams003" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="102"]
+
+transform = Transform( 1, 4.67818e-07, 2.98023e-08, -1.37787e-06, 1, 1.51515e-07, -2.98023e-08, -3.22278e-08, 1, 28.618, 24.1829, -0.00485372 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 19 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="UpperGalleryRoof-Middle001" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="103"]
+
+transform = Transform( 1, 4.67818e-07, 1.49012e-08, -1.37787e-06, 1, 1.51515e-07, -1.49012e-08, -3.22278e-08, 1, 28.618, 24.1829, -0.00485372 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 20 )
+skeleton = NodePath("..")
+material/0 = null
 material/1 = null
 
-[node name="UpperGalleryRoof-TopMiddleCap001" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="103"]
+[node name="UpperGalleryRoof-TopMiddleCap001" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" index="104"]
 
 transform = Transform( 1, 4.67818e-07, 2.98023e-08, -1.37787e-06, 1, 1.51515e-07, -2.98023e-08, -3.22278e-08, 1, 24.9203, 20.9407, -0.00475359 )
 layers = 1
@@ -642,7 +827,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 17 )
+mesh = ExtResource( 21 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null

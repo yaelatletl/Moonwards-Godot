@@ -1,17 +1,18 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/meshes/FifthGallery__GalleryRoof-TopEnd003.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://scenes/meshes/FifthGallery__GalleryRoof-TopEnd003_3rdUpperGalleryFloor.mesh" type="ArrayMesh" id=2]
 [ext_resource path="res://scenes/meshes/FifthGallery__GalleryRoof-TopEnd003_3rdUpperGalleryWalls.mesh" type="ArrayMesh" id=3]
-[ext_resource path="res://scenes/meshes/FifthGallery__GalleryRoof-TopEnd003_GreenMan1013.mesh" type="ArrayMesh" id=4]
-[ext_resource path="res://scenes/meshes/FifthGallery__GalleryRoof-TopEnd003_TubeHab-Cap009.mesh" type="ArrayMesh" id=5]
-[ext_resource path="res://scenes/meshes/FifthGallery__GalleryRoof-TopEnd003_TubeHab-Entrance012.mesh" type="ArrayMesh" id=6]
-[ext_resource path="res://scenes/meshes/FifthGallery__GalleryRoof-TopEnd003_TubeHab-Entrance018.mesh" type="ArrayMesh" id=7]
-[ext_resource path="res://scenes/meshes/FifthGallery__GalleryRoof-TopEnd003_TubeHab-Entrance019.mesh" type="ArrayMesh" id=8]
-[ext_resource path="res://scenes/meshes/FifthGallery__GalleryRoof-TopEnd003_UpperGalleryRoof-Middle-Beams005.mesh" type="ArrayMesh" id=9]
-[ext_resource path="res://scenes/meshes/FifthGallery__GalleryRoof-TopEnd003_UpperGalleryRoof-Middle002.mesh" type="ArrayMesh" id=10]
-[ext_resource path="res://scenes/meshes/FifthGallery__GalleryRoof-TopEnd003_UpperGalleryRoof-Top-Beams005.mesh" type="ArrayMesh" id=11]
-[ext_resource path="res://scenes/meshes/FifthGallery__GalleryRoof-TopEnd003_UpperGalleryRoof-Top002.mesh" type="ArrayMesh" id=12]
+[ext_resource path="res://model_assets/TubeHab_Long.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/meshes/FifthGallery__GalleryRoof-TopEnd003_GreenMan1013.mesh" type="ArrayMesh" id=5]
+[ext_resource path="res://scenes/meshes/FifthGallery__GalleryRoof-TopEnd003_TubeHab-Cap009.mesh" type="ArrayMesh" id=6]
+[ext_resource path="res://scenes/meshes/FifthGallery__GalleryRoof-TopEnd003_TubeHab-Entrance012.mesh" type="ArrayMesh" id=7]
+[ext_resource path="res://scenes/meshes/FifthGallery__GalleryRoof-TopEnd003_TubeHab-Entrance018.mesh" type="ArrayMesh" id=8]
+[ext_resource path="res://scenes/meshes/FifthGallery__GalleryRoof-TopEnd003_TubeHab-Entrance019.mesh" type="ArrayMesh" id=9]
+[ext_resource path="res://scenes/meshes/FifthGallery__GalleryRoof-TopEnd003_UpperGalleryRoof-Middle-Beams005.mesh" type="ArrayMesh" id=10]
+[ext_resource path="res://scenes/meshes/FifthGallery__GalleryRoof-TopEnd003_UpperGalleryRoof-Middle002.mesh" type="ArrayMesh" id=11]
+[ext_resource path="res://scenes/meshes/FifthGallery__GalleryRoof-TopEnd003_UpperGalleryRoof-Top-Beams005.mesh" type="ArrayMesh" id=12]
+[ext_resource path="res://scenes/meshes/FifthGallery__GalleryRoof-TopEnd003_UpperGalleryRoof-Top002.mesh" type="ArrayMesh" id=13]
 
 [node name="Scene" type="Spatial" index="0"]
 
@@ -66,15 +67,24 @@ material/0 = null
 
 [node name="Empty_TubeHab_Long001" type="Spatial" parent="GalleryRoof-TopEnd003" index="2"]
 
-transform = Transform( 0.999716, 0, 0.0238118, 4.28823e-07, 1, -1.32841e-07, -0.0238118, 0, 0.999716, -29.1486, -20.8384, -11.3193 )
+transform = Transform( 1.50357, -6.44767e-07, 0.035813, 6.4495e-07, 1.504, -4.27463e-14, -0.035813, 1.53575e-08, 1.50357, -29.1486, -20.8384, -11.3193 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Scene" parent="GalleryRoof-TopEnd003/Empty_TubeHab_Long001" index="0" instance=ExtResource( 4 )]
 
 [node name="Empty_TubeHab_Long002" type="Spatial" parent="GalleryRoof-TopEnd003" index="3"]
 
-transform = Transform( 0.999716, 0, 0.0238118, 4.28823e-07, 1, -1.32841e-07, -0.0238118, 0, 0.999716, -57.1145, -42.7013, -9.56306 )
+transform = Transform( 1.66453, -7.13788e-07, 0.0396467, 7.13991e-07, 1.665, -4.73222e-14, -0.0396467, 1.70015e-08, 1.66453, -57.1145, -42.7013, -9.56306 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Scene" parent="GalleryRoof-TopEnd003/Empty_TubeHab_Long002" index="0" instance=ExtResource( 4 )]
 
 [node name="Empty_TubeHab_Long003" type="Spatial" parent="GalleryRoof-TopEnd003" index="4"]
 
-transform = Transform( 0.99281, 0, -0.119703, 4.05359e-07, 1, -1.92925e-07, 0.119703, 0, 0.99281, -19.3235, -10.3329, 20.982 )
+transform = Transform( 1.49319, -6.05276e-07, -0.180033, 6.0966e-07, 1.504, -6.41194e-14, 0.180033, -7.2978e-08, 1.49319, -19.3235, -10.3329, 20.982 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Scene" parent="GalleryRoof-TopEnd003/Empty_TubeHab_Long003" index="0" instance=ExtResource( 4 )]
 
 [node name="GreenMan1013" type="MeshInstance" parent="GalleryRoof-TopEnd003" index="5"]
 
@@ -88,7 +98,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 4 )
+mesh = ExtResource( 5 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -104,7 +114,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 4 )
+mesh = ExtResource( 5 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -120,7 +130,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 5 )
+mesh = ExtResource( 6 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -136,7 +146,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 6 )
+mesh = ExtResource( 7 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -152,7 +162,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 7 )
+mesh = ExtResource( 8 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -168,7 +178,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 8 )
+mesh = ExtResource( 9 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -184,7 +194,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 9 )
+mesh = ExtResource( 10 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -200,7 +210,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 10 )
+mesh = ExtResource( 11 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
@@ -217,7 +227,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 11 )
+mesh = ExtResource( 12 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -233,7 +243,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 12 )
+mesh = ExtResource( 13 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null

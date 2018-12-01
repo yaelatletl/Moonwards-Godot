@@ -1,21 +1,23 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass.mesh" type="ArrayMesh" id=1]
-[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_HalfDomeGround.mesh" type="ArrayMesh" id=2]
-[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_HalfDomeHab-Glass001.mesh" type="ArrayMesh" id=3]
-[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_HalfDomeHab-Skin.mesh" type="ArrayMesh" id=4]
-[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_HalfDomeHab-Skin001.mesh" type="ArrayMesh" id=5]
-[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_HalfDomeHab-Structural.mesh" type="ArrayMesh" id=6]
-[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_HalfDomeHab-WindowFrame.mesh" type="ArrayMesh" id=7]
-[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_LowerGalleryRoof.mesh" type="ArrayMesh" id=8]
-[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_LowerGalleryRoof001.mesh" type="ArrayMesh" id=9]
-[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_LowerGalleryWalls.mesh" type="ArrayMesh" id=10]
-[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_TubeHab-Cap005.mesh" type="ArrayMesh" id=11]
-[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_TubeHab-Cap006.mesh" type="ArrayMesh" id=12]
-[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_TubeHab-Entrance005.mesh" type="ArrayMesh" id=13]
-[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_TubeHab-Entrance006.mesh" type="ArrayMesh" id=14]
-[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_TubeHab-Entrance007.mesh" type="ArrayMesh" id=15]
-[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_TubeHab-Entrance009.mesh" type="ArrayMesh" id=16]
+[ext_resource path="res://model_assets/TubeHab.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_HalfDomeGround.mesh" type="ArrayMesh" id=3]
+[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_HalfDomeHab-Glass001.mesh" type="ArrayMesh" id=4]
+[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_HalfDomeHab-Skin.mesh" type="ArrayMesh" id=5]
+[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_HalfDomeHab-Skin001.mesh" type="ArrayMesh" id=6]
+[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_HalfDomeHab-Structural.mesh" type="ArrayMesh" id=7]
+[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_HalfDomeHab-WindowFrame.mesh" type="ArrayMesh" id=8]
+[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_LowerGalleryRoof.mesh" type="ArrayMesh" id=9]
+[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_LowerGalleryRoof001.mesh" type="ArrayMesh" id=10]
+[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_LowerGalleryWalls.mesh" type="ArrayMesh" id=11]
+[ext_resource path="res://model_assets/TriangularWindow.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_TubeHab-Cap005.mesh" type="ArrayMesh" id=13]
+[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_TubeHab-Cap006.mesh" type="ArrayMesh" id=14]
+[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_TubeHab-Entrance005.mesh" type="ArrayMesh" id=15]
+[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_TubeHab-Entrance006.mesh" type="ArrayMesh" id=16]
+[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_TubeHab-Entrance007.mesh" type="ArrayMesh" id=17]
+[ext_resource path="res://scenes/meshes/SecondGallery__HalfDomeHab-Glass_TubeHab-Entrance009.mesh" type="ArrayMesh" id=18]
 
 [node name="Scene" type="Spatial" index="0"]
 
@@ -37,15 +39,24 @@ material/0 = null
 
 [node name="Empty_TubeHabLarge002" type="Spatial" parent="HalfDomeHab-Glass" index="0"]
 
-transform = Transform( 0.999444, 0, 0.0333328, -9.74048e-07, 1, -8.43004e-08, -0.0333328, 0, 0.999444, 51.6084, 26.9198, -14.4992 )
+transform = Transform( 1.49917, 1.46026e-06, 0.0499992, -1.46107e-06, 1.5, -2.13163e-14, -0.0499992, -4.87016e-08, 1.49917, 51.6084, 26.9198, -14.4992 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Scene" parent="HalfDomeHab-Glass/Empty_TubeHabLarge002" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_TubeHabLarge003" type="Spatial" parent="HalfDomeHab-Glass" index="1"]
 
-transform = Transform( -0.999801, -1.50966e-07, 0.0199369, 1.12609e-06, -1, -7.12403e-08, 0.0199369, 3.01039e-09, 0.999801, 64.9884, 36.8934, 11.2977 )
+transform = Transform( 1.4997, 0, -0.0299054, 0, 1.5, 0, -0.0299054, 0, -1.4997, 64.9884, 36.8934, 11.2977 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Scene" parent="HalfDomeHab-Glass/Empty_TubeHabLarge003" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_TubeHabLarge004" type="Spatial" parent="HalfDomeHab-Glass" index="2"]
 
-transform = Transform( -0.997299, -1.50588e-07, 0.0734548, 1.12087e-06, -1, -1.23361e-07, 0.0734548, 1.10914e-08, 0.997299, 31.0914, 13.0062, 11.9183 )
+transform = Transform( 1.49595, 0, -0.110182, 0, 1.5, 0, -0.110182, 0, -1.49595, 31.0914, 13.0062, 11.9183 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Scene" parent="HalfDomeHab-Glass/Empty_TubeHabLarge004" index="0" instance=ExtResource( 2 )]
 
 [node name="HalfDomeGround" type="MeshInstance" parent="HalfDomeHab-Glass" index="3"]
 
@@ -59,7 +70,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 2 )
+mesh = ExtResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -75,7 +86,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 3 )
+mesh = ExtResource( 4 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -91,7 +102,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 4 )
+mesh = ExtResource( 5 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -107,7 +118,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 5 )
+mesh = ExtResource( 6 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -123,7 +134,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 6 )
+mesh = ExtResource( 7 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -139,7 +150,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 7 )
+mesh = ExtResource( 8 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -155,7 +166,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 8 )
+mesh = ExtResource( 9 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -171,7 +182,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 9 )
+mesh = ExtResource( 10 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -187,7 +198,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 10 )
+mesh = ExtResource( 11 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -195,81 +206,121 @@ material/0 = null
 
 transform = Transform( 0.999734, -0.0112385, 0.0201409, 0.0111561, 0.999929, 0.0041485, -0.0201861, -0.00392275, 0.999789, 82.4532, 47.7716, -7.22494 )
 
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow002" index="0" instance=ExtResource( 12 )]
+
 [node name="TriangularWindow003" type="Spatial" parent="HalfDomeHab-Glass" index="13"]
 
 transform = Transform( 0.999734, -0.0112385, 0.0201409, 0.0111561, 0.999929, 0.0041485, -0.0201861, -0.00392275, 0.999789, 74.98, 42.9896, -7.06608 )
+
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow003" index="0" instance=ExtResource( 12 )]
 
 [node name="TriangularWindow004" type="Spatial" parent="HalfDomeHab-Glass" index="14"]
 
 transform = Transform( 0.999734, -0.0112385, 0.0201409, 0.0111561, 0.999929, 0.0041485, -0.0201861, -0.00392275, 0.999789, 67.4678, 38.167, -6.89269 )
 
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow004" index="0" instance=ExtResource( 12 )]
+
 [node name="TriangularWindow005" type="Spatial" parent="HalfDomeHab-Glass" index="15"]
 
 transform = Transform( 0.999734, -0.0112385, 0.0201409, 0.0111561, 0.999929, 0.0041485, -0.0201861, -0.00392275, 0.999789, 61.0661, 34.0007, -6.75433 )
+
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow005" index="0" instance=ExtResource( 12 )]
 
 [node name="TriangularWindow006" type="Spatial" parent="HalfDomeHab-Glass" index="16"]
 
 transform = Transform( 0.999734, -0.0112385, 0.0201409, 0.0111561, 0.999929, 0.0041485, -0.0201861, -0.00392275, 0.999789, 54.6547, 29.938, -6.61161 )
 
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow006" index="0" instance=ExtResource( 12 )]
+
 [node name="TriangularWindow007" type="Spatial" parent="HalfDomeHab-Glass" index="17"]
 
 transform = Transform( 0.999734, -0.0112385, 0.0201409, 0.0111561, 0.999929, 0.0041485, -0.0201861, -0.00392275, 0.999789, 46.219, 24.573, -6.4323 )
+
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow007" index="0" instance=ExtResource( 12 )]
 
 [node name="TriangularWindow008" type="Spatial" parent="HalfDomeHab-Glass" index="18"]
 
 transform = Transform( 0.999734, -0.0112385, 0.0201409, 0.0111561, 0.999929, 0.0041485, -0.0201861, -0.00392275, 0.999789, 38.9901, 19.9076, -6.26298 )
 
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow008" index="0" instance=ExtResource( 12 )]
+
 [node name="TriangularWindow009" type="Spatial" parent="HalfDomeHab-Glass" index="19"]
 
 transform = Transform( 0.999734, -0.0112385, 0.0201409, 0.0111561, 0.999929, 0.0041485, -0.0201861, -0.00392275, 0.999789, 30.5016, 14.3828, -6.08884 )
+
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow009" index="0" instance=ExtResource( 12 )]
 
 [node name="TriangularWindow010" type="Spatial" parent="HalfDomeHab-Glass" index="20"]
 
 transform = Transform( 0.999734, -0.0112385, 0.0201409, 0.0111561, 0.999929, 0.0041485, -0.0201861, -0.00392275, 0.999789, 23.0646, 9.64966, -5.91265 )
 
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow010" index="0" instance=ExtResource( 12 )]
+
 [node name="TriangularWindow011" type="Spatial" parent="HalfDomeHab-Glass" index="21"]
 
 transform = Transform( 0.999734, -0.0112385, 0.0201409, 0.0111561, 0.999929, 0.0041485, -0.0201861, -0.00392275, 0.999789, 16.8715, 5.65857, -5.77033 )
+
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow011" index="0" instance=ExtResource( 12 )]
 
 [node name="TriangularWindow012" type="Spatial" parent="HalfDomeHab-Glass" index="22"]
 
 transform = Transform( -0.999734, -0.0112381, -0.020142, -0.0111557, 0.999929, -0.00414851, 0.0201872, -0.00392276, -0.999789, 17.0808, 5.68201, 4.16277 )
 
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow012" index="0" instance=ExtResource( 12 )]
+
 [node name="TriangularWindow013" type="Spatial" parent="HalfDomeHab-Glass" index="23"]
 
 transform = Transform( -0.999734, -0.0112381, -0.020142, -0.0111557, 0.999929, -0.00414851, 0.0201872, -0.00392276, -0.999789, 23.2871, 9.66553, 4.01713 )
+
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow013" index="0" instance=ExtResource( 12 )]
 
 [node name="TriangularWindow014" type="Spatial" parent="HalfDomeHab-Glass" index="24"]
 
 transform = Transform( -0.999734, -0.0112381, -0.020142, -0.0111557, 0.999929, -0.00414851, 0.0201872, -0.00392276, -0.999789, 30.7159, 14.3915, 3.86268 )
 
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow014" index="0" instance=ExtResource( 12 )]
+
 [node name="TriangularWindow015" type="Spatial" parent="HalfDomeHab-Glass" index="25"]
 
 transform = Transform( -0.999734, -0.0112381, -0.020142, -0.0111557, 0.999929, -0.00414851, 0.0201872, -0.00392276, -0.999789, 39.1966, 19.9244, 3.67413 )
+
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow015" index="0" instance=ExtResource( 12 )]
 
 [node name="TriangularWindow016" type="Spatial" parent="HalfDomeHab-Glass" index="26"]
 
 transform = Transform( -0.999734, -0.0112381, -0.020142, -0.0111557, 0.999929, -0.00414851, 0.0201872, -0.00392276, -0.999789, 46.4392, 24.582, 3.50364 )
 
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow016" index="0" instance=ExtResource( 12 )]
+
 [node name="TriangularWindow017" type="Spatial" parent="HalfDomeHab-Glass" index="27"]
 
 transform = Transform( -0.999734, -0.0112381, -0.020142, -0.0111557, 0.999929, -0.00414851, 0.0201872, -0.00392276, -0.999789, 54.9135, 29.934, 3.32803 )
+
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow017" index="0" instance=ExtResource( 12 )]
 
 [node name="TriangularWindow018" type="Spatial" parent="HalfDomeHab-Glass" index="28"]
 
 transform = Transform( -0.999734, -0.0112381, -0.020142, -0.0111557, 0.999929, -0.00414851, 0.0201872, -0.00392276, -0.999789, 61.3008, 34.0179, 3.17953 )
 
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow018" index="0" instance=ExtResource( 12 )]
+
 [node name="TriangularWindow019" type="Spatial" parent="HalfDomeHab-Glass" index="29"]
 
 transform = Transform( -0.999734, -0.0112381, -0.020142, -0.0111557, 0.999929, -0.00414851, 0.0201872, -0.00392276, -0.999789, 67.6959, 38.1598, 3.04248 )
+
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow019" index="0" instance=ExtResource( 12 )]
 
 [node name="TriangularWindow020" type="Spatial" parent="HalfDomeHab-Glass" index="30"]
 
 transform = Transform( -0.999734, -0.0112381, -0.020142, -0.0111557, 0.999929, -0.00414851, 0.0201872, -0.00392276, -0.999789, 75.1957, 42.9978, 2.87199 )
 
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow020" index="0" instance=ExtResource( 12 )]
+
 [node name="TriangularWindow021" type="Spatial" parent="HalfDomeHab-Glass" index="31"]
 
 transform = Transform( -0.999734, -0.0112381, -0.020142, -0.0111557, 0.999929, -0.00414851, 0.0201872, -0.00392276, -0.999789, 82.6594, 47.7722, 2.72093 )
+
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow021" index="0" instance=ExtResource( 12 )]
 
 [node name="TubeHab-Cap005" type="MeshInstance" parent="HalfDomeHab-Glass" index="32"]
 
@@ -283,7 +334,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 11 )
+mesh = ExtResource( 13 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -299,7 +350,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 12 )
+mesh = ExtResource( 14 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -315,7 +366,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 13 )
+mesh = ExtResource( 15 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -331,7 +382,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 14 )
+mesh = ExtResource( 16 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -347,7 +398,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 15 )
+mesh = ExtResource( 17 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -363,7 +414,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 16 )
+mesh = ExtResource( 18 )
 skeleton = NodePath("..")
 material/0 = null
 

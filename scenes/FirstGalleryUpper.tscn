@@ -1,95 +1,97 @@
-[gd_scene load_steps=91 format=2]
+[gd_scene load_steps=93 format=2]
 
 [ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Circle010.mesh" type="ArrayMesh" id=2]
 [ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Circle013.mesh" type="ArrayMesh" id=3]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_FirstGalleryColumns-Top.mesh" type="ArrayMesh" id=4]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_FirstGalleryConduitTop.mesh" type="ArrayMesh" id=5]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_FirstGalleryConduitUpper.mesh" type="ArrayMesh" id=6]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_FirstGalleryFloor_Top.mesh" type="ArrayMesh" id=7]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_FirstGalleryWalls_Top.mesh" type="ArrayMesh" id=8]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Entrance-1.mesh" type="ArrayMesh" id=9]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Entrance-2.mesh" type="ArrayMesh" id=10]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Entrance-3.mesh" type="ArrayMesh" id=11]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Entrance-4.mesh" type="ArrayMesh" id=12]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Entrance-5.mesh" type="ArrayMesh" id=13]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Top-1.mesh" type="ArrayMesh" id=14]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Top-2.mesh" type="ArrayMesh" id=15]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Top-3.mesh" type="ArrayMesh" id=16]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_FloorFG-Top-4.mesh" type="ArrayMesh" id=17]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_GalleryRoof-Top-Beams000.mesh" type="ArrayMesh" id=18]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_GalleryRoof-TopCap001.mesh" type="ArrayMesh" id=19]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MainColonyAirlocks002.mesh" type="ArrayMesh" id=20]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MoonwardsBoothMain.mesh" type="ArrayMesh" id=21]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MoonwardsDecorativeArches.mesh" type="ArrayMesh" id=22]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MoonwardsOfficeSublevel.mesh" type="ArrayMesh" id=23]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MoonwardsOfficeSublevel001.mesh" type="ArrayMesh" id=24]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MWBooth-Bench.mesh" type="ArrayMesh" id=25]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MWBooth-Shelves.mesh" type="ArrayMesh" id=26]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MWBooth-Steps.mesh" type="ArrayMesh" id=27]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MWBooth-Table.mesh" type="ArrayMesh" id=28]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MWBoothRoof.mesh" type="ArrayMesh" id=29]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Passage-BigAtrium-FirstGallery.mesh" type="ArrayMesh" id=30]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Passage-FirstGallery-BigAtrium-BottomFloor.mesh" type="ArrayMesh" id=31]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Passage-Mouth-North-BigAtrium-FirstGalley.mesh" type="ArrayMesh" id=32]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Passage-Mouth-North-BigAtrium-FirstGalley002.mesh" type="ArrayMesh" id=33]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ScooterRamp.mesh" type="ArrayMesh" id=34]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ScooterRamp001.mesh" type="ArrayMesh" id=35]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ScooterRamp002.mesh" type="ArrayMesh" id=36]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ScooterRamp003.mesh" type="ArrayMesh" id=37]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ScooterRamp004.mesh" type="ArrayMesh" id=38]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1010.mesh" type="ArrayMesh" id=39]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1012.mesh" type="ArrayMesh" id=40]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1013.mesh" type="ArrayMesh" id=41]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1015.mesh" type="ArrayMesh" id=42]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1018.mesh" type="ArrayMesh" id=43]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1020.mesh" type="ArrayMesh" id=44]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1021.mesh" type="ArrayMesh" id=45]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1022.mesh" type="ArrayMesh" id=46]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1023.mesh" type="ArrayMesh" id=47]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1024.mesh" type="ArrayMesh" id=48]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails010.mesh" type="ArrayMesh" id=49]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails012.mesh" type="ArrayMesh" id=50]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails013.mesh" type="ArrayMesh" id=51]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails015.mesh" type="ArrayMesh" id=52]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails018.mesh" type="ArrayMesh" id=53]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails020.mesh" type="ArrayMesh" id=54]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails021.mesh" type="ArrayMesh" id=55]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails022.mesh" type="ArrayMesh" id=56]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails023.mesh" type="ArrayMesh" id=57]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails024.mesh" type="ArrayMesh" id=58]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs.mesh" type="ArrayMesh" id=59]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs001.mesh" type="ArrayMesh" id=60]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs002.mesh" type="ArrayMesh" id=61]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs003.mesh" type="ArrayMesh" id=62]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs004.mesh" type="ArrayMesh" id=63]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs005.mesh" type="ArrayMesh" id=64]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs006.mesh" type="ArrayMesh" id=65]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs007.mesh" type="ArrayMesh" id=66]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs008.mesh" type="ArrayMesh" id=67]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs009.mesh" type="ArrayMesh" id=68]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs010.mesh" type="ArrayMesh" id=69]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs011.mesh" type="ArrayMesh" id=70]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs012.mesh" type="ArrayMesh" id=71]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs013.mesh" type="ArrayMesh" id=72]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs014.mesh" type="ArrayMesh" id=73]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps010.mesh" type="ArrayMesh" id=74]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps012.mesh" type="ArrayMesh" id=75]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps013.mesh" type="ArrayMesh" id=76]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps015.mesh" type="ArrayMesh" id=77]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps018.mesh" type="ArrayMesh" id=78]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps020.mesh" type="ArrayMesh" id=79]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps021.mesh" type="ArrayMesh" id=80]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps022.mesh" type="ArrayMesh" id=81]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps023.mesh" type="ArrayMesh" id=82]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps024.mesh" type="ArrayMesh" id=83]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_SupportCable.mesh" type="ArrayMesh" id=84]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_UpperGalleryRoof-Middle-Beams000.mesh" type="ArrayMesh" id=85]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_UpperGalleryRoof-Middle003.mesh" type="ArrayMesh" id=86]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_UpperGalleryRoof-Top-Beams003.mesh" type="ArrayMesh" id=87]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_UpperGalleryRoof-Top001.mesh" type="ArrayMesh" id=88]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_UpperGalleryRoof-UpperBeams.mesh" type="ArrayMesh" id=89]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_WaterPipeRecHab1.mesh" type="ArrayMesh" id=90]
+[ext_resource path="res://model_assets/FirstGalleryAnchors_NorthWall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://model_assets/FirstGalleryAnchors_SouthWall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_FirstGalleryColumns-Top.mesh" type="ArrayMesh" id=6]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_FirstGalleryConduitTop.mesh" type="ArrayMesh" id=7]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_FirstGalleryConduitUpper.mesh" type="ArrayMesh" id=8]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_FirstGalleryFloor_Top.mesh" type="ArrayMesh" id=9]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_FirstGalleryWalls_Top.mesh" type="ArrayMesh" id=10]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Entrance-1.mesh" type="ArrayMesh" id=11]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Entrance-2.mesh" type="ArrayMesh" id=12]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Entrance-3.mesh" type="ArrayMesh" id=13]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Entrance-4.mesh" type="ArrayMesh" id=14]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Entrance-5.mesh" type="ArrayMesh" id=15]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Top-1.mesh" type="ArrayMesh" id=16]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Top-2.mesh" type="ArrayMesh" id=17]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Top-3.mesh" type="ArrayMesh" id=18]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_FloorFG-Top-4.mesh" type="ArrayMesh" id=19]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_GalleryRoof-Top-Beams000.mesh" type="ArrayMesh" id=20]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_GalleryRoof-TopCap001.mesh" type="ArrayMesh" id=21]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MainColonyAirlocks002.mesh" type="ArrayMesh" id=22]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MoonwardsBoothMain.mesh" type="ArrayMesh" id=23]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MoonwardsDecorativeArches.mesh" type="ArrayMesh" id=24]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MoonwardsOfficeSublevel.mesh" type="ArrayMesh" id=25]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MoonwardsOfficeSublevel001.mesh" type="ArrayMesh" id=26]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MWBooth-Bench.mesh" type="ArrayMesh" id=27]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MWBooth-Shelves.mesh" type="ArrayMesh" id=28]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MWBooth-Steps.mesh" type="ArrayMesh" id=29]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MWBooth-Table.mesh" type="ArrayMesh" id=30]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MWBoothRoof.mesh" type="ArrayMesh" id=31]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Passage-BigAtrium-FirstGallery.mesh" type="ArrayMesh" id=32]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Passage-FirstGallery-BigAtrium-BottomFloor.mesh" type="ArrayMesh" id=33]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Passage-Mouth-North-BigAtrium-FirstGalley.mesh" type="ArrayMesh" id=34]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Passage-Mouth-North-BigAtrium-FirstGalley002.mesh" type="ArrayMesh" id=35]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ScooterRamp.mesh" type="ArrayMesh" id=36]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ScooterRamp001.mesh" type="ArrayMesh" id=37]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ScooterRamp002.mesh" type="ArrayMesh" id=38]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ScooterRamp003.mesh" type="ArrayMesh" id=39]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ScooterRamp004.mesh" type="ArrayMesh" id=40]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1010.mesh" type="ArrayMesh" id=41]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1012.mesh" type="ArrayMesh" id=42]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1013.mesh" type="ArrayMesh" id=43]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1015.mesh" type="ArrayMesh" id=44]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1018.mesh" type="ArrayMesh" id=45]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1020.mesh" type="ArrayMesh" id=46]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1021.mesh" type="ArrayMesh" id=47]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1022.mesh" type="ArrayMesh" id=48]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1023.mesh" type="ArrayMesh" id=49]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1024.mesh" type="ArrayMesh" id=50]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails010.mesh" type="ArrayMesh" id=51]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails012.mesh" type="ArrayMesh" id=52]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails013.mesh" type="ArrayMesh" id=53]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails015.mesh" type="ArrayMesh" id=54]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails018.mesh" type="ArrayMesh" id=55]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails020.mesh" type="ArrayMesh" id=56]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails021.mesh" type="ArrayMesh" id=57]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails022.mesh" type="ArrayMesh" id=58]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails023.mesh" type="ArrayMesh" id=59]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails024.mesh" type="ArrayMesh" id=60]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs.mesh" type="ArrayMesh" id=61]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs001.mesh" type="ArrayMesh" id=62]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs002.mesh" type="ArrayMesh" id=63]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs003.mesh" type="ArrayMesh" id=64]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs004.mesh" type="ArrayMesh" id=65]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs005.mesh" type="ArrayMesh" id=66]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs006.mesh" type="ArrayMesh" id=67]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs007.mesh" type="ArrayMesh" id=68]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs008.mesh" type="ArrayMesh" id=69]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs009.mesh" type="ArrayMesh" id=70]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs010.mesh" type="ArrayMesh" id=71]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs011.mesh" type="ArrayMesh" id=72]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs012.mesh" type="ArrayMesh" id=73]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs013.mesh" type="ArrayMesh" id=74]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs014.mesh" type="ArrayMesh" id=75]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps010.mesh" type="ArrayMesh" id=76]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps012.mesh" type="ArrayMesh" id=77]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps013.mesh" type="ArrayMesh" id=78]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps015.mesh" type="ArrayMesh" id=79]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps018.mesh" type="ArrayMesh" id=80]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps020.mesh" type="ArrayMesh" id=81]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps021.mesh" type="ArrayMesh" id=82]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps022.mesh" type="ArrayMesh" id=83]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps023.mesh" type="ArrayMesh" id=84]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps024.mesh" type="ArrayMesh" id=85]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_SupportCable.mesh" type="ArrayMesh" id=86]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_UpperGalleryRoof-Middle-Beams000.mesh" type="ArrayMesh" id=87]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_UpperGalleryRoof-Middle003.mesh" type="ArrayMesh" id=88]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_UpperGalleryRoof-Top-Beams003.mesh" type="ArrayMesh" id=89]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_UpperGalleryRoof-Top001.mesh" type="ArrayMesh" id=90]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_UpperGalleryRoof-UpperBeams.mesh" type="ArrayMesh" id=91]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_WaterPipeRecHab1.mesh" type="ArrayMesh" id=92]
 
 [node name="Scene" type="Spatial" index="0"]
 
@@ -147,113 +149,172 @@ material/0 = null
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -1.9515, -5.94006, -1.81016 )
 
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_North" index="0" instance=ExtResource( 4 )]
+
 [node name="Empty_FirstGalleryAnchor_North001" type="Spatial" parent="GalleryRoof-TopEnd" index="3"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -3.3099, -6.36829, -1.81859 )
+
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_North001" index="0" instance=ExtResource( 4 )]
 
 [node name="Empty_FirstGalleryAnchor_North002" type="Spatial" parent="GalleryRoof-TopEnd" index="4"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -4.70798, -7.06958, -1.81392 )
 
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_North002" index="0" instance=ExtResource( 4 )]
+
 [node name="Empty_FirstGalleryAnchor_North003" type="Spatial" parent="GalleryRoof-TopEnd" index="5"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -5.89515, -7.62463, -1.81386 )
+
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_North003" index="0" instance=ExtResource( 4 )]
 
 [node name="Empty_FirstGalleryAnchor_North004" type="Spatial" parent="GalleryRoof-TopEnd" index="6"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -7.79015, -8.5437, -1.81709 )
 
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_North004" index="0" instance=ExtResource( 4 )]
+
 [node name="Empty_FirstGalleryAnchor_North005" type="Spatial" parent="GalleryRoof-TopEnd" index="7"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -8.9425, -9.11987, -1.81367 )
+
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_North005" index="0" instance=ExtResource( 4 )]
 
 [node name="Empty_FirstGalleryAnchor_North006" type="Spatial" parent="GalleryRoof-TopEnd" index="8"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -10.3499, -9.81934, -1.8144 )
 
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_North006" index="0" instance=ExtResource( 4 )]
+
 [node name="Empty_FirstGalleryAnchor_North007" type="Spatial" parent="GalleryRoof-TopEnd" index="9"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -12.2909, -10.7528, -1.81805 )
+
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_North007" index="0" instance=ExtResource( 4 )]
 
 [node name="Empty_FirstGalleryAnchor_North008" type="Spatial" parent="GalleryRoof-TopEnd" index="10"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -13.5664, -11.3677, -1.81933 )
 
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_North008" index="0" instance=ExtResource( 4 )]
+
 [node name="Empty_FirstGalleryAnchor_North009" type="Spatial" parent="GalleryRoof-TopEnd" index="11"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -14.5401, -11.8595, -1.81552 )
+
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_North009" index="0" instance=ExtResource( 4 )]
 
 [node name="Empty_FirstGalleryAnchor_North010" type="Spatial" parent="GalleryRoof-TopEnd" index="12"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -16.0324, -13.2061, -1.82029 )
 
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_North010" index="0" instance=ExtResource( 4 )]
+
 [node name="Empty_FirstGalleryAnchor_North011" type="Spatial" parent="GalleryRoof-TopEnd" index="13"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -17.2145, -14.3633, -1.82148 )
+
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_North011" index="0" instance=ExtResource( 4 )]
 
 [node name="Empty_FirstGalleryAnchor_North012" type="Spatial" parent="GalleryRoof-TopEnd" index="14"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -18.1549, -15.2992, -1.82918 )
 
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_North012" index="0" instance=ExtResource( 4 )]
+
 [node name="Empty_FirstGalleryAnchor_North013" type="Spatial" parent="GalleryRoof-TopEnd" index="15"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -19.6443, -16.7771, -1.82452 )
+
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_North013" index="0" instance=ExtResource( 4 )]
 
 [node name="Empty_FirstGalleryAnchor_South" type="Spatial" parent="GalleryRoof-TopEnd" index="16"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -1.94752, -5.96899, 1.81128 )
 
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_South" index="0" instance=ExtResource( 5 )]
+
 [node name="Empty_FirstGalleryAnchor_South001" type="Spatial" parent="GalleryRoof-TopEnd" index="17"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -3.30621, -6.39746, 1.80243 )
+
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_South001" index="0" instance=ExtResource( 5 )]
+
+transform = Transform( 1, -1.13687e-13, 0, 0, 1, 0, 0, -2.84217e-14, 1, 0, 0, 5.46129e-09 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Empty_FirstGalleryAnchor_South002" type="Spatial" parent="GalleryRoof-TopEnd" index="18"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -4.7043, -7.09863, 1.80711 )
 
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_South002" index="0" instance=ExtResource( 5 )]
+
 [node name="Empty_FirstGalleryAnchor_South003" type="Spatial" parent="GalleryRoof-TopEnd" index="19"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -5.89146, -7.65369, 1.80716 )
+
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_South003" index="0" instance=ExtResource( 5 )]
 
 [node name="Empty_FirstGalleryAnchor_South004" type="Spatial" parent="GalleryRoof-TopEnd" index="20"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -7.78646, -8.57288, 1.80393 )
 
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_South004" index="0" instance=ExtResource( 5 )]
+
 [node name="Empty_FirstGalleryAnchor_South005" type="Spatial" parent="GalleryRoof-TopEnd" index="21"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -8.93882, -9.14905, 1.80735 )
+
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_South005" index="0" instance=ExtResource( 5 )]
 
 [node name="Empty_FirstGalleryAnchor_South006" type="Spatial" parent="GalleryRoof-TopEnd" index="22"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -10.3462, -9.84851, 1.80662 )
 
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_South006" index="0" instance=ExtResource( 5 )]
+
 [node name="Empty_FirstGalleryAnchor_South007" type="Spatial" parent="GalleryRoof-TopEnd" index="23"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -12.2873, -10.7819, 1.80298 )
+
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_South007" index="0" instance=ExtResource( 5 )]
 
 [node name="Empty_FirstGalleryAnchor_South008" type="Spatial" parent="GalleryRoof-TopEnd" index="24"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -13.5627, -11.3967, 1.80169 )
 
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_South008" index="0" instance=ExtResource( 5 )]
+
 [node name="Empty_FirstGalleryAnchor_South009" type="Spatial" parent="GalleryRoof-TopEnd" index="25"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -14.5364, -11.8887, 1.8055 )
+
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_South009" index="0" instance=ExtResource( 5 )]
 
 [node name="Empty_FirstGalleryAnchor_South010" type="Spatial" parent="GalleryRoof-TopEnd" index="26"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -16.0287, -13.2351, 1.80073 )
 
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_South010" index="0" instance=ExtResource( 5 )]
+
 [node name="Empty_FirstGalleryAnchor_South011" type="Spatial" parent="GalleryRoof-TopEnd" index="27"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -17.2108, -14.3925, 1.79954 )
+
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_South011" index="0" instance=ExtResource( 5 )]
 
 [node name="Empty_FirstGalleryAnchor_South012" type="Spatial" parent="GalleryRoof-TopEnd" index="28"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -18.1512, -15.3282, 1.79184 )
 
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_South012" index="0" instance=ExtResource( 5 )]
+
 [node name="Empty_FirstGalleryAnchor_South013" type="Spatial" parent="GalleryRoof-TopEnd" index="29"]
 
 transform = Transform( 0.991674, 1.82562e-06, 0.128773, -1.79719e-06, 1, -3.36953e-07, -0.128773, 1.02717e-07, 0.991674, -19.6406, -16.8063, 1.79651 )
+
+[node name="Scene" parent="GalleryRoof-TopEnd/Empty_FirstGalleryAnchor_South013" index="0" instance=ExtResource( 5 )]
 
 [node name="Empty_LightOutlet_WallVersion" type="Spatial" parent="GalleryRoof-TopEnd" index="30"]
 
@@ -287,7 +348,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 4 )
+mesh = ExtResource( 6 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -303,7 +364,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 5 )
+mesh = ExtResource( 7 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -319,7 +380,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 6 )
+mesh = ExtResource( 8 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -335,7 +396,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 7 )
+mesh = ExtResource( 9 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -351,7 +412,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 8 )
+mesh = ExtResource( 10 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -367,7 +428,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 9 )
+mesh = ExtResource( 11 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -383,7 +444,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 10 )
+mesh = ExtResource( 12 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -399,7 +460,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 11 )
+mesh = ExtResource( 13 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -415,7 +476,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 12 )
+mesh = ExtResource( 14 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -431,7 +492,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 13 )
+mesh = ExtResource( 15 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -447,7 +508,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 14 )
+mesh = ExtResource( 16 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -463,7 +524,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 15 )
+mesh = ExtResource( 17 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -479,7 +540,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 16 )
+mesh = ExtResource( 18 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -495,7 +556,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 17 )
+mesh = ExtResource( 19 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -511,7 +572,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 18 )
+mesh = ExtResource( 20 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -527,7 +588,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 19 )
+mesh = ExtResource( 21 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
@@ -544,7 +605,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 20 )
+mesh = ExtResource( 22 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -560,7 +621,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 21 )
+mesh = ExtResource( 23 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -576,7 +637,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 22 )
+mesh = ExtResource( 24 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -592,7 +653,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 23 )
+mesh = ExtResource( 25 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
@@ -609,7 +670,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 24 )
+mesh = ExtResource( 26 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -625,7 +686,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 25 )
+mesh = ExtResource( 27 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -641,7 +702,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 26 )
+mesh = ExtResource( 28 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -657,7 +718,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 27 )
+mesh = ExtResource( 29 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
@@ -674,7 +735,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 28 )
+mesh = ExtResource( 30 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
@@ -691,7 +752,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 29 )
+mesh = ExtResource( 31 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -707,9 +768,10 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 30 )
+mesh = ExtResource( 32 )
 skeleton = NodePath("..")
 material/0 = null
+_sections_unfolded = [ "material" ]
 
 [node name="Passage-FirstGallery-BigAtrium-BottomFloor" type="MeshInstance" parent="GalleryRoof-TopEnd" index="62"]
 
@@ -723,7 +785,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 31 )
+mesh = ExtResource( 33 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -739,7 +801,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 32 )
+mesh = ExtResource( 34 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -755,7 +817,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 33 )
+mesh = ExtResource( 35 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -787,7 +849,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 34 )
+mesh = ExtResource( 36 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -803,7 +865,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 35 )
+mesh = ExtResource( 37 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -819,7 +881,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 36 )
+mesh = ExtResource( 38 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -835,7 +897,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 37 )
+mesh = ExtResource( 39 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -851,7 +913,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 38 )
+mesh = ExtResource( 40 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -867,7 +929,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 39 )
+mesh = ExtResource( 41 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -883,7 +945,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 40 )
+mesh = ExtResource( 42 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -899,7 +961,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 41 )
+mesh = ExtResource( 43 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -915,7 +977,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 42 )
+mesh = ExtResource( 44 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -931,7 +993,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 43 )
+mesh = ExtResource( 45 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -947,7 +1009,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 44 )
+mesh = ExtResource( 46 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -963,7 +1025,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 45 )
+mesh = ExtResource( 47 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -979,7 +1041,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 46 )
+mesh = ExtResource( 48 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -995,7 +1057,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 47 )
+mesh = ExtResource( 49 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1011,7 +1073,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 48 )
+mesh = ExtResource( 50 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1027,7 +1089,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 49 )
+mesh = ExtResource( 51 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1043,7 +1105,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 50 )
+mesh = ExtResource( 52 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1059,7 +1121,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 51 )
+mesh = ExtResource( 53 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1075,7 +1137,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 52 )
+mesh = ExtResource( 54 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1091,7 +1153,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 53 )
+mesh = ExtResource( 55 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1107,7 +1169,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 54 )
+mesh = ExtResource( 56 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1123,7 +1185,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 55 )
+mesh = ExtResource( 57 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1139,7 +1201,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 56 )
+mesh = ExtResource( 58 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1155,7 +1217,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 57 )
+mesh = ExtResource( 59 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1171,7 +1233,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 58 )
+mesh = ExtResource( 60 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1187,7 +1249,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 59 )
+mesh = ExtResource( 61 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1203,7 +1265,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 60 )
+mesh = ExtResource( 62 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1219,7 +1281,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 61 )
+mesh = ExtResource( 63 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1235,7 +1297,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 62 )
+mesh = ExtResource( 64 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1251,7 +1313,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 63 )
+mesh = ExtResource( 65 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1267,7 +1329,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 64 )
+mesh = ExtResource( 66 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1283,7 +1345,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 65 )
+mesh = ExtResource( 67 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1299,7 +1361,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 66 )
+mesh = ExtResource( 68 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1315,7 +1377,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 67 )
+mesh = ExtResource( 69 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1331,7 +1393,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 68 )
+mesh = ExtResource( 70 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1347,7 +1409,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 69 )
+mesh = ExtResource( 71 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1363,7 +1425,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 70 )
+mesh = ExtResource( 72 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1379,7 +1441,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 71 )
+mesh = ExtResource( 73 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1395,7 +1457,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 72 )
+mesh = ExtResource( 74 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1411,7 +1473,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 73 )
+mesh = ExtResource( 75 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1427,7 +1489,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 74 )
+mesh = ExtResource( 76 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
@@ -1445,7 +1507,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 75 )
+mesh = ExtResource( 77 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
@@ -1463,7 +1525,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 76 )
+mesh = ExtResource( 78 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
@@ -1481,7 +1543,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 77 )
+mesh = ExtResource( 79 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
@@ -1499,7 +1561,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 78 )
+mesh = ExtResource( 80 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
@@ -1517,7 +1579,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 79 )
+mesh = ExtResource( 81 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
@@ -1535,7 +1597,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 80 )
+mesh = ExtResource( 82 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
@@ -1553,7 +1615,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 81 )
+mesh = ExtResource( 83 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
@@ -1571,7 +1633,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 82 )
+mesh = ExtResource( 84 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
@@ -1589,7 +1651,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 83 )
+mesh = ExtResource( 85 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
@@ -1607,7 +1669,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 84 )
+mesh = ExtResource( 86 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1623,7 +1685,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 85 )
+mesh = ExtResource( 87 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1639,7 +1701,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 86 )
+mesh = ExtResource( 88 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
@@ -1656,7 +1718,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 87 )
+mesh = ExtResource( 89 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1672,7 +1734,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 88 )
+mesh = ExtResource( 90 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
@@ -1689,7 +1751,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 89 )
+mesh = ExtResource( 91 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1705,7 +1767,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 90 )
+mesh = ExtResource( 92 )
 skeleton = NodePath("..")
 material/0 = null
 
