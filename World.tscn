@@ -84,6 +84,16 @@ gui_action = "ui_cancel"
 
 [node name="Control" parent="." index="3" instance=ExtResource( 3 )]
 
+anchor_left = 0.0
+anchor_top = 0.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
 source_xyz = NodePath("../Camera")
 
 [node name="Terrain" parent="." index="4" instance=ExtResource( 4 )]
+
+

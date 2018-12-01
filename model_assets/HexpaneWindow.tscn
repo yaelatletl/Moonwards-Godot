@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://model_assets/meshes/HexpaneWindow__GlassHexagons001.mesh" type="ArrayMesh" id=1]
-[ext_resource path="res://model_assets/meshes/HexpaneWindow__GlassHexagons001_GlassTriangles002.mesh" type="ArrayMesh" id=2]
-[ext_resource path="res://model_assets/meshes/HexpaneWindow__GlassHexagons001_OuterFrame005.mesh" type="ArrayMesh" id=3]
-[ext_resource path="res://model_assets/meshes/HexpaneWindow__GlassHexagons001_OuterFrame007.mesh" type="ArrayMesh" id=4]
-[ext_resource path="res://model_assets/meshes/HexpaneWindow__GlassHexagons001_PaneFrames-Outside002.mesh" type="ArrayMesh" id=5]
-[ext_resource path="res://model_assets/meshes/HexpaneWindow__GlassHexagons001_PaneFrames003.mesh" type="ArrayMesh" id=6]
-[ext_resource path="res://model_assets/meshes/HexpaneWindow__GlassHexagons001_WindowPaneMesh003.mesh" type="ArrayMesh" id=7]
+[ext_resource path="res://materials/Glass.tres" type="Material" id=2]
+[ext_resource path="res://model_assets/meshes/HexpaneWindow__GlassHexagons001_GlassTriangles002.mesh" type="ArrayMesh" id=3]
+[ext_resource path="res://model_assets/meshes/HexpaneWindow__GlassHexagons001_OuterFrame005.mesh" type="ArrayMesh" id=4]
+[ext_resource path="res://model_assets/meshes/HexpaneWindow__GlassHexagons001_OuterFrame007.mesh" type="ArrayMesh" id=5]
+[ext_resource path="res://model_assets/meshes/HexpaneWindow__GlassHexagons001_PaneFrames-Outside002.mesh" type="ArrayMesh" id=6]
+[ext_resource path="res://model_assets/meshes/HexpaneWindow__GlassHexagons001_PaneFrames003.mesh" type="ArrayMesh" id=7]
+[ext_resource path="res://model_assets/meshes/HexpaneWindow__GlassHexagons001_WindowPaneMesh003.mesh" type="ArrayMesh" id=8]
 
 [node name="Scene" type="Spatial" index="0"]
 
@@ -24,25 +25,10 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 1 )
 skeleton = NodePath("..")
-material/0 = null
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "material" ]
 
 [node name="GlassTriangles002" type="MeshInstance" parent="GlassHexagons001" index="0"]
-
-transform = Transform( 1, 9.31323e-10, 1.59062e-08, 0, 1, 2.17935e-09, -1.0788e-14, 0, 1, 0.000245658, 0.000118986, -3.97604e-11 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 2 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="OuterFrame005" type="MeshInstance" parent="GlassHexagons001" index="1"]
 
 transform = Transform( 1, 9.31323e-10, 1.59062e-08, 0, 1, 2.17935e-09, -1.0788e-14, 0, 1, 0.000245658, 0.000118986, -3.97604e-11 )
 layers = 1
@@ -58,7 +44,7 @@ mesh = ExtResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="OuterFrame007" type="MeshInstance" parent="GlassHexagons001" index="2"]
+[node name="OuterFrame005" type="MeshInstance" parent="GlassHexagons001" index="1"]
 
 transform = Transform( 1, 9.31323e-10, 1.59062e-08, 0, 1, 2.17935e-09, -1.0788e-14, 0, 1, 0.000245658, 0.000118986, -3.97604e-11 )
 layers = 1
@@ -74,7 +60,7 @@ mesh = ExtResource( 4 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="PaneFrames-Outside002" type="MeshInstance" parent="GlassHexagons001" index="3"]
+[node name="OuterFrame007" type="MeshInstance" parent="GlassHexagons001" index="2"]
 
 transform = Transform( 1, 9.31323e-10, 1.59062e-08, 0, 1, 2.17935e-09, -1.0788e-14, 0, 1, 0.000245658, 0.000118986, -3.97604e-11 )
 layers = 1
@@ -90,6 +76,22 @@ mesh = ExtResource( 5 )
 skeleton = NodePath("..")
 material/0 = null
 
+[node name="PaneFrames-Outside002" type="MeshInstance" parent="GlassHexagons001" index="3"]
+
+transform = Transform( 1, 9.31323e-10, 1.59062e-08, 0, 1, 2.17935e-09, -1.0788e-14, 0, 1, 0.000245658, 0.000118986, -3.97604e-11 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 6 )
+skeleton = NodePath("..")
+material/0 = null
+
 [node name="PaneFrames003" type="MeshInstance" parent="GlassHexagons001" index="4"]
 
 transform = Transform( 0.1, 0, 1.59062e-09, 1.16415e-10, 0.1, 2.17935e-10, -2.49984e-15, 0, 0.1, 0.000245658, 0.000118986, -3.97604e-11 )
@@ -102,7 +104,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 6 )
+mesh = ExtResource( 7 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -122,7 +124,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 7 )
+mesh = ExtResource( 8 )
 skeleton = NodePath("..")
 material/0 = null
 
