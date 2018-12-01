@@ -28,7 +28,7 @@ albedo_color = Color( 0.505882, 0.498039, 0.454902, 1 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
-roughness = 1.0
+roughness = 0.8
 roughness_texture_channel = 0
 emission_enabled = false
 normal_enabled = false
@@ -51,5 +51,5 @@ uv2_triplanar = false
 uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
 distance_fade_enable = false
-_sections_unfolded = [ "Albedo", "Parameters" ]
+_sections_unfolded = [ "Albedo", "Roughness" ]
 
