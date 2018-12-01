@@ -1,13 +1,14 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/Main.gd" type="Script" id=1]
-[ext_resource path="res://img/AtriumHabOutside550.jpg" type="Texture" id=2]
-[ext_resource path="res://fonts/djv_mono.tres" type="DynamicFont" id=3]
-[ext_resource path="res://fonts/djv_bold_italic.tres" type="DynamicFont" id=4]
-[ext_resource path="res://fonts/djv_italic.tres" type="DynamicFont" id=5]
-[ext_resource path="res://fonts/djv_bold.tres" type="DynamicFont" id=6]
-[ext_resource path="res://fonts/djv_sans.tres" type="DynamicFont" id=7]
-[ext_resource path="res://fonts/dejavu/DejaVuSans-BoldOblique.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://lobby.tscn" type="PackedScene" id=2]
+[ext_resource path="res://img/AtriumHabOutside550.jpg" type="Texture" id=3]
+[ext_resource path="res://fonts/djv_mono.tres" type="DynamicFont" id=4]
+[ext_resource path="res://fonts/djv_bold_italic.tres" type="DynamicFont" id=5]
+[ext_resource path="res://fonts/djv_italic.tres" type="DynamicFont" id=6]
+[ext_resource path="res://fonts/djv_bold.tres" type="DynamicFont" id=7]
+[ext_resource path="res://fonts/djv_sans.tres" type="DynamicFont" id=8]
+[ext_resource path="res://fonts/dejavu/DejaVuSans-BoldOblique.ttf" type="DynamicFontData" id=9]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -90,9 +91,9 @@ light_mode = 0
 size = 60
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 8 )
+font_data = ExtResource( 9 )
 
-[node name="Spatial" type="Control"]
+[node name="Spatial" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -112,7 +113,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-SceneToLoad = "res://World.tscn"
+SceneToLoad = ExtResource( 2 )
 
 [node name="TextureRect" type="TextureRect" parent="." index="0"]
 
@@ -129,7 +130,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 expand = true
 stretch_mode = 0
 
@@ -197,11 +198,11 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/mono_font = ExtResource( 3 )
-custom_fonts/bold_italics_font = ExtResource( 4 )
-custom_fonts/italics_font = ExtResource( 5 )
-custom_fonts/bold_font = ExtResource( 6 )
-custom_fonts/normal_font = ExtResource( 7 )
+custom_fonts/mono_font = ExtResource( 4 )
+custom_fonts/bold_italics_font = ExtResource( 5 )
+custom_fonts/italics_font = ExtResource( 6 )
+custom_fonts/bold_font = ExtResource( 7 )
+custom_fonts/normal_font = ExtResource( 8 )
 bbcode_enabled = true
 bbcode_text = "[b]To move use your keyboard and mouse[/b]
         [b]W[/b] or [i]Up arrow[/i] - Forward

@@ -4,8 +4,6 @@
 [ext_resource path="res://assets/Player/FPSCamera.gd" type="Script" id=2]
 [ext_resource path="res://scripts/PerformanceMonitor.tscn" type="PackedScene" id=3]
 
-
-
 [sub_resource type="SpatialMaterial" id=1]
 
 render_priority = 0
@@ -17,9 +15,6 @@ flags_use_point_size = false
 flags_world_triplanar = false
 flags_fixed_size = false
 flags_albedo_tex_force_srgb = false
-flags_do_not_receive_shadows = false
-flags_disable_ambient_light = false
-flags_ensure_correct_normals = false
 vertex_color_use_as_albedo = false
 vertex_color_is_srgb = false
 params_diffuse_mode = 0
@@ -30,7 +25,6 @@ params_depth_draw_mode = 0
 params_line_width = 1.0
 params_point_size = 1.0
 params_billboard_mode = 0
-params_billboard_keep_scale = false
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 0.0666259, 0.799103, 0.00212469, 1 )
@@ -59,7 +53,7 @@ uv2_offset = Vector3( 0, 0, 0 )
 uv2_triplanar = false
 uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
-distance_fade_mode = 0
+distance_fade_enable = false
 
 [sub_resource type="ArrayMesh" id=2]
 
@@ -80,19 +74,22 @@ surfaces/0 = {
 
 [sub_resource type="CapsuleShape" id=3]
 
-margin = 0.04
 radius = 0.219818
 height = 1.17055
 
 [node name="KinematicBody" type="KinematicBody"]
+
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.866966, 0 )
 input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 1
 collision_mask = 1
-move_lock_x = false
-move_lock_y = false
-move_lock_z = false
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_x = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
 collision/safe_margin = 0.001
 script = ExtResource( 1 )
 turn_speed = 40
@@ -111,7 +108,8 @@ view_sensitivity = 0.5
 weight = 1
 grav = 1.6
 
-[node name="Lamp" type="OmniLight" parent="."]
+[node name="Lamp" type="OmniLight" parent="." index="0"]
+
 transform = Transform( -0.290865, -0.771101, 0.566393, -0.0551891, 0.604525, 0.794672, -0.955171, 0.199884, -0.218392, 4.07625, 5.90386, -1.00545 )
 visible = false
 layers = 1
@@ -133,9 +131,10 @@ omni_attenuation = 1.0
 omni_shadow_mode = 1
 omni_shadow_detail = 1
 
-[node name="Model" type="Spatial" parent="."]
+[node name="Model" type="Spatial" parent="." index="1"]
 
-[node name="Model" type="MeshInstance" parent="Model"]
+[node name="Model" type="MeshInstance" parent="Model" index="0"]
+
 transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 0, 0, 0 )
 layers = 1
 material_override = null
@@ -150,15 +149,18 @@ mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
+[node name="CollisionShape" type="CollisionShape" parent="." index="2"]
+
 transform = Transform( -1, 0, -3.25841e-007, -3.25841e-007, -4.37114e-008, 1, -1.4243e-014, 1, 4.37114e-008, 0, -0.0770048, 0 )
 shape = SubResource( 3 )
 disabled = false
 
-[node name="Pivot" type="Position3D" parent="."]
+[node name="Pivot" type="Position3D" parent="." index="3"]
+
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.793444, -0.0896399 )
 
-[node name="FPSCamera" type="Camera" parent="Pivot"]
+[node name="FPSCamera" type="Camera" parent="Pivot" index="0"]
+
 keep_aspect = 1
 cull_mask = 1048575
 environment = null
@@ -173,8 +175,10 @@ near = 0.05
 far = 10000.0
 script = ExtResource( 2 )
 
-[node name="Control" parent="Pivot/FPSCamera" instance=ExtResource( 3 )]
+[node name="Control" parent="Pivot/FPSCamera" index="0" instance=ExtResource( 3 )]
+
 anchor_left = 0.0
+anchor_top = 0.0
 anchor_right = 0.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -184,10 +188,12 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 source_xyz = NodePath("..")
 
-[node name="Target" type="Position3D" parent="Pivot/FPSCamera"]
+[node name="Target" type="Position3D" parent="Pivot/FPSCamera" index="1"]
+
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.937118 )
 
-[node name="3RDPersCamera" type="Camera" parent="Pivot"]
+[node name="3RDPersCamera" type="Camera" parent="Pivot" index="1"]
+
 keep_aspect = 1
 cull_mask = 1048575
 environment = null
@@ -200,4 +206,5 @@ fov = 70.0
 size = 1.0
 near = 0.05
 far = 100.0
+
 

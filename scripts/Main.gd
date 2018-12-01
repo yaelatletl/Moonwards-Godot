@@ -1,16 +1,5 @@
 extends Control
-export(String) var SceneToLoad = "res://World.tscn"
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+export(String) var SceneToLoad = preload("res://lobby.tscn")
 
 func _on_Run_pressed():
 	$ui/main.hide()
@@ -18,11 +7,13 @@ func _on_Run_pressed():
 	$load_timer.start()
 
 func _on_Timer_timeout():
-	get_tree().change_scene(SceneToLoad)
+	
+	var loads = SceneToLoad.instance()
+	$ui/loading.add_child(loads)
 
 
 func _on_Help_pressed():
-	if $ui/main/pHelp.visible :
+	if $ui/main/pHelp.visible:
 		$ui/main/pHelp.hide()
 	else:
 		$ui/main/pHelp.show()
