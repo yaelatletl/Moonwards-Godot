@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://world_environments/StarrySky.tres" type="Environment" id=1]
-[ext_resource path="res://assets/maujoe.camera_control/scripts/camera_control.gd" type="Script" id=2]
-[ext_resource path="res://scripts/PerformanceMonitor.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/TerrainWithMarkers.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://world_environments/StarrySky.tres" type="Environment" id=2]
+[ext_resource path="res://scenes/TerrainWithMarkers.tscn" type="PackedScene" id=3]
 
-[node name="world" type="Spatial" index="0"]
+[node name="world" type="Spatial"]
 
-[node name="DirectionalLight" type="DirectionalLight" parent="." index="0"]
+[node name="Player" parent="." index="0" instance=ExtResource( 1 )]
+
+transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -51.2514, -1922.5, 47.991 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="1"]
 
 transform = Transform( 0.0471507, 0.865137, -0.499315, -0.00299724, 0.499991, 0.866026, 0.998883, -0.0393371, 0.0261679, 0, -1818.54, 0 )
 layers = 1
@@ -35,65 +38,10 @@ directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Transform" ]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="1"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2"]
 
-environment = ExtResource( 1 )
+environment = ExtResource( 2 )
 
-[node name="Camera" type="Camera" parent="." index="2"]
-
-transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -51.2514, -1922.5, 47.991 )
-keep_aspect = 1
-cull_mask = 1048575
-environment = null
-h_offset = 0.0
-v_offset = 0.0
-doppler_tracking = 0
-projection = 0
-current = false
-fov = 70.0
-size = 1.0
-near = 0.05
-far = 10000.0
-script = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
-enabled = true
-mouse_mode = 2
-mouselook = true
-sensitivity = 0.5
-smoothness = 0.5
-privot = null
-distance = 5.0
-rotate_privot = false
-collisions = true
-yaw_limit = 360
-pitch_limit = 360
-movement = true
-acceleration = 0.5
-deceleration = 0.5
-max_speed = Vector3( 50, 50, 50 )
-local = true
-forward_action = "ui_up"
-backward_action = "ui_down"
-left_action = "ui_left"
-right_action = "ui_right"
-up_action = "ui_page_up"
-down_action = "ui_page_down"
-ui_mlook = "ui_mlook"
-use_gui = true
-gui_action = "ui_cancel"
-
-[node name="Control" parent="." index="3" instance=ExtResource( 3 )]
-
-anchor_left = 0.0
-anchor_top = 0.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-source_xyz = NodePath("../Camera")
-
-[node name="Terrain" parent="." index="4" instance=ExtResource( 4 )]
+[node name="Terrain" parent="." index="3" instance=ExtResource( 3 )]
 
 
