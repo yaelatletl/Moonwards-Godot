@@ -3,6 +3,7 @@ extends Area
 export(NodePath) var RootNode
 export(String) var showhide = "interior"
 export(String) var hideshow = "exterior"
+export(String) var bygroup = "player"
 
 var root
 var nodes_sh
@@ -45,22 +46,28 @@ func _ready():
 	nodes_hs = get_node_list(root, [hideshow])
 	connect("area_entered", self, "_on_Area_area_entered")
 	connect("area_exited", self, "_on_Area_area_exited")
-	_on_Area_area_exited("on ready")
+	area_exit("on ready")
 	
 
 func _on_Area_area_entered(area):
+	if not bygroup in area.get_groups():
+		return
 	print("enter ", area)
 	for obj in nodes_sh:
 		obj.visible = true
 	for obj in nodes_hs:
 		obj.visible = false
 
-
-func _on_Area_area_exited(area):
-	print("exit")
+func area_exit(s=""):
+	print("exit %s: %s" % [self, s])
 	print("node_sh ", nodes_sh)
 	print("node_hs ", nodes_hs)
 	for obj in nodes_sh:
 		obj.visible = false
 	for obj in nodes_hs:
 		obj.visible = true
+
+func _on_Area_area_exited(area):
+	if not bygroup in area.get_groups():
+		return
+	area_exit()
