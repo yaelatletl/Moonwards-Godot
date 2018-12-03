@@ -77,7 +77,7 @@ remote func pre_start_game(spawn_points):
 	var world = load("res://World.tscn").instance()
 	get_tree().get_root().add_child(world)
 
-	get_tree().get_root().get_node("lobby").hide()
+	get_tree().get_root().get_node("lobby").visible = false
 	get_tree().get_root().get_node("Spatial/ui").hide()
 
 	var player_scene = load("res://assets/Player/player.tscn")
