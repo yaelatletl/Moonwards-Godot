@@ -1,12 +1,39 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://model_assets/meshes/FlywheelSimple_NoArrays__FlywheelTower_FlywheelSpokes.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://model_assets/meshes/FlywheelSimple_NoArrays__FlywheelTower.mesh" type="ArrayMesh" id=2]
 [ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=3]
+[ext_resource path="res://materials/Cask.tres" type="Material" id=4]
 
 [sub_resource type="BoxShape" id=1]
 
 extents = Vector3( 0.730933, 1.21152, 1.60334 )
+
+[sub_resource type="CylinderMesh" id=2]
+
+material = ExtResource( 4 )
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+top_radius = 0.03
+bottom_radius = 0.03
+height = 0.2
+radial_segments = 10
+rings = 4
+
+[sub_resource type="MultiMesh" id=3]
+
+color_format = 2
+transform_format = 1
+instance_count = 18
+mesh = SubResource( 2 )
+transform_array = PoolVector3Array( 0, 1, 4.37114e-08, -1, 7.23803e-15, -1.65587e-07, -1.65587e-07, -4.37114e-08, 1, 0.0205226, 0.60802, 0.257228, 0, 1, 4.37114e-08, -1, 7.23803e-15, -1.65587e-07, -1.65587e-07, -4.37114e-08, 1, 0.0316515, 0.988022, 0.257228, 0, 1, 4.37114e-08, -1, 7.23803e-15, -1.65587e-07, -1.65587e-07, -4.37114e-08, 1, 0.0406258, 0.444839, 0.257228, -1, 0, 0, 0, -1, -2.22525e-07, 0, -2.22525e-07, 1, -0.0492499, 1.86579, 0.257228, 0, 1, 4.37114e-08, -1, 7.23803e-15, -1.65587e-07, -1.65587e-07, -4.37114e-08, 1, 0.0486237, 1.13386, 0.257228, 0, 1, 4.37114e-08, -1, 7.23803e-15, -1.65587e-07, -1.65587e-07, -4.37114e-08, 1, 0.0370187, 0.594173, 0.257228, -1, 0, 0, 0, -1, -2.22525e-07, 0, -2.22525e-07, 1, -0.0421076, 1.37268, 0.257228, -1, 0, 0, 0, -1, -2.22525e-07, 0, -2.22525e-07, 1, -0.0322744, 1.64911, 0.257228, 0, 1, 4.37114e-08, -1, 7.23803e-15, -1.65587e-07, -1.65587e-07, -4.37114e-08, 1, 0.0262808, 1.46061, 0.257228, -1, 0, 0, 0, -1, -2.22525e-07, 0, -2.22525e-07, 1, -0.049172, 1.01458, 0.257228, -1, 0, 0, 0, -1, -2.22525e-07, 0, -2.22525e-07, 1, -0.0323878, 0.887675, 0.257228, -1, 0, 0, 0, -1, -2.22525e-07, 0, -2.22525e-07, 1, -0.000220616, 1.90364, 0.257228, 0, 1, 4.37114e-08, -1, 7.23803e-15, -1.65587e-07, -1.65587e-07, -4.37114e-08, 1, 0.0398864, 0.797548, 0.257228, -1, 0, 0, 0, -1, -2.22525e-07, 0, -2.22525e-07, 1, -0.008954, 1.46498, 0.257228, -1, 0, 0, 0, -1, -2.22525e-07, 0, -2.22525e-07, 1, -0.00527202, 1.76212, 0.257228, 0, 1, 4.37114e-08, -1, 7.23803e-15, -1.65587e-07, -1.65587e-07, -4.37114e-08, 1, 0.042851, 0.191088, 0.257228, -1, 0, 0, 0, -1, -2.22525e-07, 0, -2.22525e-07, 1, -0.00783774, 1.42048, 0.257228, 0, 1, 4.37114e-08, -1, 7.23803e-15, -1.65587e-07, -1.65587e-07, -4.37114e-08, 1, 0.0145792, 0.822825, 0.257228 )
+color_array = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1 )
+
+[sub_resource type="PlaneMesh" id=4]
+
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+size = Vector2( 0.1, 1.8 )
+subdivide_width = 0
+subdivide_depth = 0
 
 [node name="Scene" type="Spatial" index="0"]
 
@@ -16,6 +43,7 @@ extents = Vector3( 0.730933, 1.21152, 1.60334 )
 
 editor/display_folded = true
 transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 2.31672e-07, 1.90944, 1.5498e-07 )
+visible = false
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -351,6 +379,7 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 2 )
 skeleton = NodePath("..")
 material/0 = null
+_sections_unfolded = [ "Geometry" ]
 
 [node name="Area" type="Area" parent="." index="2"]
 
@@ -375,7 +404,7 @@ reverb_bus_name = "Master"
 reverb_bus_amount = 0.0
 reverb_bus_uniformity = 0.0
 script = ExtResource( 3 )
-RootNode = NodePath("../FlywheelSpokes")
+RootNode = NodePath("..")
 showhide = "interior"
 hideshow = "exterior"
 bygroup = "player"
@@ -385,5 +414,57 @@ bygroup = "player"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90457, 0 )
 shape = SubResource( 1 )
 disabled = false
+
+[node name="MultiMeshInstance" type="MultiMeshInstance" parent="." index="3" groups=[
+"exterior",
+]]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0225667 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+multimesh = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="." index="4"]
+
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 1.03514, 0.704553 )
+visible = false
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 4 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance2" type="MeshInstance" parent="." index="5"]
+
+transform = Transform( -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0, 1, 0, 0, 0.502766 )
+visible = false
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
 
 

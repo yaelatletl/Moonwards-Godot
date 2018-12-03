@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://model_assets/meshes/LightTube_Setof3__LT-Large-pole002.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://model_assets/meshes/LightTube_Setof3__LT-Large-pole002_LightTube-FiberoptCable-Armature005.mesh" type="ArrayMesh" id=2]
@@ -7,10 +7,18 @@
 [ext_resource path="res://model_assets/meshes/LightTube_Setof3__LT-Large-pole002_LightTubeLarge-DishPivot002_LT-Large-Cable-Supports002.mesh" type="ArrayMesh" id=5]
 [ext_resource path="res://model_assets/meshes/LightTube_Setof3__LT-Large-pole002_LightTubeLarge-DishPivot002_LT-Large-Dish002.mesh" type="ArrayMesh" id=6]
 [ext_resource path="res://model_assets/meshes/LightTube_Setof3__LT-Large-pole002_LightTubeLarge-DishPivot002_LT-Large=LIghtInlet002.mesh" type="ArrayMesh" id=7]
+[ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=8]
+
+[sub_resource type="BoxShape" id=1]
+
+extents = Vector3( 40, 40, 40 )
+_sections_unfolded = [ "Resource" ]
 
 [node name="Scene" type="Spatial" index="0"]
 
-[node name="LT-Large-pole002" type="MeshInstance" parent="." index="0"]
+[node name="LT-Large-pole002" type="MeshInstance" parent="." index="0" groups=[
+"interior",
+]]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, -0.361656, -0.090416, 0.806969 )
 layers = 1
@@ -167,7 +175,9 @@ mesh = ExtResource( 7 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="LT-Large-pole001" type="MeshInstance" parent="." index="1"]
+[node name="LT-Large-pole001" type="MeshInstance" parent="." index="1" groups=[
+"interior",
+]]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20443, -0.0906601, -0.768471 )
 layers = 1
@@ -324,7 +334,9 @@ mesh = ExtResource( 7 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="LT-Large-pole" type="MeshInstance" parent="." index="2"]
+[node name="LT-Large-pole" type="MeshInstance" parent="." index="2" groups=[
+"interior",
+]]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0.566078, 0.181068, -0.0384903 )
 layers = 1
@@ -480,5 +492,40 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 7 )
 skeleton = NodePath("..")
 material/0 = null
+
+[node name="Triggers" type="Spatial" parent="." index="3"]
+
+[node name="Area" type="Area" parent="Triggers" index="0"]
+
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+script = ExtResource( 8 )
+RootNode = NodePath("../..")
+showhide = "interior"
+hideshow = "exterior"
+bygroup = "player"
+
+[node name="CollisionShape" type="CollisionShape" parent="Triggers/Area" index="0"]
+
+shape = SubResource( 1 )
+disabled = false
 
 

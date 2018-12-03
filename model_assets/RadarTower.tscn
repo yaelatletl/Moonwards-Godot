@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://model_assets/meshes/RadarTower__RadarInsulationSphere.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://model_assets/meshes/RadarTower__RadarInsulationSphere_Antenna-Dish-Power-Transmission001.mesh" type="ArrayMesh" id=2]
@@ -21,8 +21,15 @@
 [ext_resource path="res://model_assets/meshes/RadarTower__RadarInsulationSphere_RadarTowerDishSupports.mesh" type="ArrayMesh" id=19]
 [ext_resource path="res://model_assets/meshes/RadarTower__RadarInsulationSphere_RadarTowerDishSupports001.mesh" type="ArrayMesh" id=20]
 [ext_resource path="res://model_assets/meshes/RadarTower__RadarInsulationSphere_RadarTowerDishSupports002.mesh" type="ArrayMesh" id=21]
+[ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=22]
 
-[node name="Scene" type="Spatial" index="0"]
+[sub_resource type="BoxShape" id=1]
+
+extents = Vector3( 70, 70, 70 )
+
+[node name="Scene" type="Spatial" index="0" groups=[
+"LodFar",
+]]
 
 [node name="RadarInsulationSphere" type="MeshInstance" parent="." index="0"]
 
@@ -601,5 +608,40 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 21 )
 skeleton = NodePath("..")
 material/0 = null
+
+[node name="Triggers" type="Spatial" parent="." index="1"]
+
+[node name="LodFar" type="Area" parent="Triggers" index="0"]
+
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+script = ExtResource( 22 )
+RootNode = NodePath("../..")
+showhide = "LodFar"
+hideshow = "exterior"
+bygroup = "player"
+
+[node name="CollisionShape" type="CollisionShape" parent="Triggers/LodFar" index="0"]
+
+shape = SubResource( 1 )
+disabled = false
 
 

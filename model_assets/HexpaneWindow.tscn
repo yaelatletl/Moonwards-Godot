@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://model_assets/meshes/HexpaneWindow__GlassHexagons001.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://materials/Glass.tres" type="Material" id=2]
@@ -8,6 +8,11 @@
 [ext_resource path="res://model_assets/meshes/HexpaneWindow__GlassHexagons001_PaneFrames-Outside002.mesh" type="ArrayMesh" id=6]
 [ext_resource path="res://model_assets/meshes/HexpaneWindow__GlassHexagons001_PaneFrames003.mesh" type="ArrayMesh" id=7]
 [ext_resource path="res://model_assets/meshes/HexpaneWindow__GlassHexagons001_WindowPaneMesh003.mesh" type="ArrayMesh" id=8]
+[ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=9]
+
+[sub_resource type="BoxShape" id=1]
+
+extents = Vector3( 10, 10, 10 )
 
 [node name="Scene" type="Spatial" index="0"]
 
@@ -28,9 +33,9 @@ skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "material" ]
 
-[node name="GlassTriangles002" type="MeshInstance" parent="GlassHexagons001" index="0"]
+[node name="GlassTriangles002" type="MeshInstance" parent="." index="1"]
 
-transform = Transform( 1, 9.31323e-10, 1.59062e-08, 0, 1, 2.17935e-09, -1.0788e-14, 0, 1, 0.000245658, 0.000118986, -3.97604e-11 )
+transform = Transform( -1.62908e-07, 2.17935e-09, -1, 0.0125923, 0.999921, 2.50727e-09, 0.999921, -0.0125923, -1.47045e-07, 5.89806e-17, 0.00012207, 0.00024414 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -44,9 +49,9 @@ mesh = ExtResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="OuterFrame005" type="MeshInstance" parent="GlassHexagons001" index="1"]
+[node name="OuterFrame005" type="MeshInstance" parent="." index="2"]
 
-transform = Transform( 1, 9.31323e-10, 1.59062e-08, 0, 1, 2.17935e-09, -1.0788e-14, 0, 1, 0.000245658, 0.000118986, -3.97604e-11 )
+transform = Transform( -1.62908e-07, 2.17935e-09, -1, 0.0125923, 0.999921, 2.50727e-09, 0.999921, -0.0125923, -1.47045e-07, 5.89806e-17, 0.00012207, 0.00024414 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -60,9 +65,9 @@ mesh = ExtResource( 4 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="OuterFrame007" type="MeshInstance" parent="GlassHexagons001" index="2"]
+[node name="OuterFrame007" type="MeshInstance" parent="." index="3"]
 
-transform = Transform( 1, 9.31323e-10, 1.59062e-08, 0, 1, 2.17935e-09, -1.0788e-14, 0, 1, 0.000245658, 0.000118986, -3.97604e-11 )
+transform = Transform( -1.62908e-07, 2.17935e-09, -1, 0.0125923, 0.999921, 2.50727e-09, 0.999921, -0.0125923, -1.47045e-07, 5.89806e-17, 0.00012207, 0.00024414 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -76,9 +81,9 @@ mesh = ExtResource( 5 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="PaneFrames-Outside002" type="MeshInstance" parent="GlassHexagons001" index="3"]
+[node name="PaneFrames-Outside002" type="MeshInstance" parent="." index="4"]
 
-transform = Transform( 1, 9.31323e-10, 1.59062e-08, 0, 1, 2.17935e-09, -1.0788e-14, 0, 1, 0.000245658, 0.000118986, -3.97604e-11 )
+transform = Transform( -1.62908e-07, 2.17935e-09, -1, 0.0125923, 0.999921, 2.50727e-09, 0.999921, -0.0125923, -1.47045e-07, 5.89806e-17, 0.00012207, 0.00024414 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -92,9 +97,12 @@ mesh = ExtResource( 6 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="PaneFrames003" type="MeshInstance" parent="GlassHexagons001" index="4"]
+[node name="PaneFrames003" type="MeshInstance" parent="." index="5" groups=[
+"interior",
+]]
 
-transform = Transform( 0.1, 0, 1.59062e-09, 1.16415e-10, 0.1, 2.17935e-10, -2.49984e-15, 0, 0.1, 0.000245658, 0.000118986, -3.97604e-11 )
+transform = Transform( -1.62908e-08, 2.17935e-10, -0.1, 0.00125923, 0.0999921, 2.50727e-10, 0.0999921, -0.00125923, -1.47045e-08, 5.89806e-17, 0.00012207, 0.00024414 )
+visible = false
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -108,13 +116,16 @@ mesh = ExtResource( 7 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="WindowHexpane005" type="Spatial" parent="GlassHexagons001" index="5"]
+[node name="WindowHexpane005" type="Spatial" parent="." index="6"]
 
-transform = Transform( 0.999921, 0.0125923, 1.35106e-07, -0.0125923, 0.999921, 5.50425e-10, -1.19211e-07, 1.27797e-10, 1, 0.000248733, 0.000363108, -3.97292e-11 )
+transform = Transform( -4.37116e-08, -5.44009e-15, -1, -1.52348e-17, 1, 2.37947e-09, 1, -2.08209e-17, -2.78336e-08, -5.55112e-17, 0.000366211, 0.000244141 )
 
-[node name="WindowPaneMesh003" type="MeshInstance" parent="GlassHexagons001" index="6"]
+[node name="WindowPaneMesh003" type="MeshInstance" parent="." index="7" groups=[
+"interior",
+]]
 
-transform = Transform( 1, 9.31323e-10, 1.59062e-08, 0, 1, 2.17935e-09, -1.0788e-14, 0, 1, 0.957724, 0.281664, -0.0546877 )
+transform = Transform( -1.62908e-07, 2.17935e-09, -1, 0.0125923, 0.999921, 2.50727e-09, 0.999921, -0.0125923, -1.47045e-07, 0.0546875, 0.293702, 0.954102 )
+visible = false
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -127,5 +138,40 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 8 )
 skeleton = NodePath("..")
 material/0 = null
+
+[node name="Triggers" type="Spatial" parent="." index="8"]
+
+[node name="Area" type="Area" parent="Triggers" index="0"]
+
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+script = ExtResource( 9 )
+RootNode = NodePath("../..")
+showhide = "interior"
+hideshow = "exterior"
+bygroup = "player"
+
+[node name="CollisionShape" type="CollisionShape" parent="Triggers/Area" index="0"]
+
+shape = SubResource( 1 )
+disabled = false
 
 

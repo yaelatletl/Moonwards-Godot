@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://model_assets/meshes/LightTube_Large__LT-Large-pole.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://model_assets/meshes/LightTube_Large__LT-Large-pole_LightTube-FiberoptCable-Armature003.mesh" type="ArrayMesh" id=2]
@@ -6,10 +6,17 @@
 [ext_resource path="res://model_assets/meshes/LightTube_Large__LT-Large-pole_LightTubeLarge-DishPivot_LightTube-FiberoptCable-Armature002.mesh" type="ArrayMesh" id=4]
 [ext_resource path="res://model_assets/meshes/LightTube_Large__LT-Large-pole_LightTubeLarge-DishPivot_LT-Large-Cable-Supports.mesh" type="ArrayMesh" id=5]
 [ext_resource path="res://model_assets/meshes/LightTube_Large__LT-Large-pole_LightTubeLarge-DishPivot_LT-Large-Dish.mesh" type="ArrayMesh" id=6]
+[ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=7]
+
+[sub_resource type="BoxShape" id=1]
+
+extents = Vector3( 40, 40, 40 )
 
 [node name="Scene" type="Spatial" index="0"]
 
-[node name="LT-Large-pole" type="MeshInstance" parent="." index="0"]
+[node name="LT-Large-pole" type="MeshInstance" parent="." index="0" groups=[
+"interior",
+]]
 
 layers = 1
 material_override = null
@@ -158,5 +165,40 @@ mesh = ExtResource( 6 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
+
+[node name="Triggers" type="Spatial" parent="." index="1"]
+
+[node name="Area" type="Area" parent="Triggers" index="0"]
+
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+script = ExtResource( 7 )
+RootNode = NodePath("../../LT-Large-pole")
+showhide = "interior"
+hideshow = "exterior"
+bygroup = "player"
+
+[node name="CollisionShape" type="CollisionShape" parent="Triggers/Area" index="0"]
+
+shape = SubResource( 1 )
+disabled = false
 
 

@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://model_assets/meshes/TubeHab__TubeHab-RetainingWalls001.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://model_assets/meshes/TubeHab__TubeHab-RetainingWalls001_Truss-TubeHab001.mesh" type="ArrayMesh" id=2]
 [ext_resource path="res://model_assets/meshes/TubeHab__TubeHab-RetainingWalls001_TubeHab-InteriorWalls001.mesh" type="ArrayMesh" id=3]
+[ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=4]
+
+[sub_resource type="BoxShape" id=1]
+
+extents = Vector3( 19.6278, 7.84066, 17.1655 )
 
 [node name="Scene" type="Spatial" index="0"]
 
@@ -21,7 +26,9 @@ mesh = ExtResource( 1 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Truss-TubeHab001" type="MeshInstance" parent="TubeHab-RetainingWalls001" index="0"]
+[node name="Truss-TubeHab001" type="MeshInstance" parent="TubeHab-RetainingWalls001" index="0" groups=[
+"interior",
+]]
 
 transform = Transform( 0.999824, 0.0187795, -3.30313e-07, -0.0187795, 0.999824, 3.24716e-09, 3.30316e-07, 2.95655e-09, 1, 0.330859, 0.13895, 2.18715 )
 layers = 1
@@ -53,5 +60,41 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
+
+[node name="Triggers" type="Spatial" parent="." index="1"]
+
+[node name="Area" type="Area" parent="Triggers" index="0"]
+
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+script = ExtResource( 4 )
+RootNode = NodePath("../../TubeHab-RetainingWalls001/Truss-TubeHab001")
+showhide = "interior"
+hideshow = "exterior"
+bygroup = "player"
+
+[node name="CollisionShape" type="CollisionShape" parent="Triggers/Area" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.35413 )
+shape = SubResource( 1 )
+disabled = false
 
 
