@@ -62,4 +62,10 @@ transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.99731
 
 [node name="players" type="Spatial" parent="." index="4"]
 
+[node name="VisibilityEnabler" type="VisibilityEnabler" parent="." index="5"]
+
+aabb = AABB( -1, -1, -1, 2, 2, 2 )
+pause_animations = true
+freeze_bodies = true
+
 

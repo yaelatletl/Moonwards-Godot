@@ -105,7 +105,7 @@ func _input(event):
 		else:
 			flies = true
 	
-func _physics_process(delta):
+func _process(delta):
 #Changes acceleration and max speed.
 	#if not ActionArea:
 	#	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -311,6 +311,10 @@ func _ready():
 	CHAR_SCALE = scale
 	set_process_input(true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	rpc_id(int(name), "hide_model")
+func hide_model():
+	$Model/Model.layers = 6
+	pass
 	
 	
 func set_player_name(new_name):
