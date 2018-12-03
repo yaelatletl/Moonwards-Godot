@@ -84,7 +84,10 @@ func _input(event):
 			Captured = true
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			#############################
-			
+	if Input.is_key_pressed(KEY_ESCAPE):
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		
+		
 	
 	if (Input.is_action_pressed("run")):
 		if not flies: 

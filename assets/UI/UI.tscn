@@ -4,20 +4,17 @@
 [ext_resource path="res://fonts/dejavu/DejaVuSans.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/UI/Menu.tscn" type="PackedScene" id=3]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 
 resource_name = "Sans"
 size = 30
-outline_size = 0
-outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Resource", "Settings" ]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=2]
 
-resource_name = "Hello"
 length = 3.0
 loop = false
 step = 0.1
@@ -47,6 +44,7 @@ tracks/1/keys = {
 }
 
 [node name="UI" type="Control"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -59,7 +57,8 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
 
-[node name="WelcomeText" type="Label" parent="."]
+[node name="WelcomeText" type="Label" parent="." index="0"]
+
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -75,23 +74,25 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Welcome back, <User_name>"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Visibility", "custom_fonts", "custom_fonts/font" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="WelcomeText"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WelcomeText" index="0"]
+
 root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Hello = SubResource( 1 )
+anims/Hello = SubResource( 2 )
 blend_times = [  ]
 
-[node name="Context_Help" type="Label" parent="."]
+[node name="Context_Help" type="Label" parent="." index="1"]
+
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -107,17 +108,19 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Press \"E\" to Use"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Visibility", "custom_fonts", "custom_fonts/font" ]
 
-[node name="Menu" parent="." instance=ExtResource( 3 )]
+[node name="Menu" parent="." index="2" instance=ExtResource( 3 )]
+
 visible = false
 margin_left = -19.0
 margin_top = 13.0
 margin_right = 124.0
 margin_bottom = 139.0
+
 
