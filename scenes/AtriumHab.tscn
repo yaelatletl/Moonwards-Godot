@@ -133,7 +133,7 @@
 
 extents = Vector3( 9.22929, 3.3859, 6.14163 )
 
-[node name="Scene" type="Spatial" index="0"]
+[node name="Scene" type="Spatial"]
 
 [node name="Exterior" type="Spatial" parent="." index="0"]
 

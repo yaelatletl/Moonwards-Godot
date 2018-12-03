@@ -1,6 +1,6 @@
-[gd_scene load_steps=107 format=2]
+[gd_scene load_steps=110 format=2]
 
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://model_assets/Toilet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_AirCirculationDuctsS.mesh" type="ArrayMesh" id=2]
 [ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_BalanceBars.mesh" type="ArrayMesh" id=3]
 [ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_BathroomN.mesh" type="ArrayMesh" id=4]
@@ -25,109 +25,340 @@
 [ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_KitchenCounterSinks.mesh" type="ArrayMesh" id=23]
 [ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_KitchenSink-WaterHeaterTaps.mesh" type="ArrayMesh" id=24]
 [ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_MainFloor.mesh" type="ArrayMesh" id=25]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_MainWaterTank.mesh" type="ArrayMesh" id=26]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_Platform.mesh" type="ArrayMesh" id=27]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_Pool-Diving-edge.mesh" type="ArrayMesh" id=28]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_Pool-EquipmentHousing.mesh" type="ArrayMesh" id=29]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_PoolBench.mesh" type="ArrayMesh" id=30]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_PoolBenchBack.mesh" type="ArrayMesh" id=31]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_PoolBenchFrames.mesh" type="ArrayMesh" id=32]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_PoolRadiator.mesh" type="ArrayMesh" id=33]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_PoolRadiatorInsulationPanels.mesh" type="ArrayMesh" id=34]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_PoolRadiatorPIpe.mesh" type="ArrayMesh" id=35]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_Poolside-level-cables.mesh" type="ArrayMesh" id=36]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_PoolViewingLevel.mesh" type="ArrayMesh" id=37]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_RecHab1-BoothStairs.mesh" type="ArrayMesh" id=38]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_RecHab1-EntranceStairs.mesh" type="ArrayMesh" id=39]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_RecHab1-FloorCablesTemplate.mesh" type="ArrayMesh" id=40]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_RecHab1-Monkeybars.mesh" type="ArrayMesh" id=41]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_RecHab1-Monkeybars-Hoops.mesh" type="ArrayMesh" id=42]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_RecHab1-SunTubeLamps.mesh" type="ArrayMesh" id=43]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_RecHab1-TopFloorSupports.mesh" type="ArrayMesh" id=44]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_RecHab1-TopFloorSupports001.mesh" type="ArrayMesh" id=45]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_RecHab1-UpperFloor.mesh" type="ArrayMesh" id=46]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_RecHab1TopFloorsSupportTemplate.mesh" type="ArrayMesh" id=47]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyPole1.mesh" type="ArrayMesh" id=48]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyPole1001.mesh" type="ArrayMesh" id=49]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyPole1002.mesh" type="ArrayMesh" id=50]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyPole1003.mesh" type="ArrayMesh" id=51]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyPole1004.mesh" type="ArrayMesh" id=52]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyPole1005.mesh" type="ArrayMesh" id=53]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyPole1006.mesh" type="ArrayMesh" id=54]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyPole1007.mesh" type="ArrayMesh" id=55]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyPole1008.mesh" type="ArrayMesh" id=56]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyPole1009.mesh" type="ArrayMesh" id=57]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Rails.mesh" type="ArrayMesh" id=58]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Rails001.mesh" type="ArrayMesh" id=59]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Rails002.mesh" type="ArrayMesh" id=60]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Rails003.mesh" type="ArrayMesh" id=61]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Rails004.mesh" type="ArrayMesh" id=62]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Rails005.mesh" type="ArrayMesh" id=63]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Rails006.mesh" type="ArrayMesh" id=64]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Rails007.mesh" type="ArrayMesh" id=65]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Rails008.mesh" type="ArrayMesh" id=66]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Rails009.mesh" type="ArrayMesh" id=67]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Steps.mesh" type="ArrayMesh" id=68]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Steps002.mesh" type="ArrayMesh" id=69]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Steps003.mesh" type="ArrayMesh" id=70]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Steps004.mesh" type="ArrayMesh" id=71]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Steps005.mesh" type="ArrayMesh" id=72]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Steps006.mesh" type="ArrayMesh" id=73]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Steps007.mesh" type="ArrayMesh" id=74]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Steps008.mesh" type="ArrayMesh" id=75]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Steps009.mesh" type="ArrayMesh" id=76]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Steps011.mesh" type="ArrayMesh" id=77]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_Supports-PicnicBooths.mesh" type="ArrayMesh" id=78]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_SwimmingPool-Frame.mesh" type="ArrayMesh" id=79]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_SwimmingPool-Glass-TopFringe.mesh" type="ArrayMesh" id=80]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_SwimmingPool-PerimeterDrains.mesh" type="ArrayMesh" id=81]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_SwimmingPool-Supports.mesh" type="ArrayMesh" id=82]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_SwimmingPool-Walls.mesh" type="ArrayMesh" id=83]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_SwimmingPool-Water.mesh" type="ArrayMesh" id=84]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_Table.mesh" type="ArrayMesh" id=85]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_Tap1.mesh" type="ArrayMesh" id=86]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_Tap2.mesh" type="ArrayMesh" id=87]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_Tightrope.mesh" type="ArrayMesh" id=88]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_TightropePole.mesh" type="ArrayMesh" id=89]
-[ext_resource path="res://model_assets/Toilet.tscn" type="PackedScene" id=90]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ToiletStalls-3002.mesh" type="ArrayMesh" id=91]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ToiletStalls-3005.mesh" type="ArrayMesh" id=92]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ToiletStalls-4.mesh" type="ArrayMesh" id=93]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ToiletStalls-4001.mesh" type="ArrayMesh" id=94]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ToiletStalls-4002.mesh" type="ArrayMesh" id=95]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ToiletStalls-8.mesh" type="ArrayMesh" id=96]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_TopFloor.mesh" type="ArrayMesh" id=97]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_TopFloorCableTemplate.mesh" type="ArrayMesh" id=98]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_TrampolineStrip.mesh" type="ArrayMesh" id=99]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_Truss-TubeHab-LocalGroup.mesh" type="ArrayMesh" id=100]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_TubeHab-Cap010.mesh" type="ArrayMesh" id=101]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_TubeHab-Entrance.mesh" type="ArrayMesh" id=102]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_TubeHab-Entrance015.mesh" type="ArrayMesh" id=103]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_TubeHab-InteriorWalls-LocalGroup.mesh" type="ArrayMesh" id=104]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_WaterMain-RecHab1.mesh" type="ArrayMesh" id=105]
-[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_WaterPipes.mesh" type="ArrayMesh" id=106]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_Platform.mesh" type="ArrayMesh" id=26]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_Pool-Diving-edge.mesh" type="ArrayMesh" id=27]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_Pool-EquipmentHousing.mesh" type="ArrayMesh" id=28]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_PoolBench.mesh" type="ArrayMesh" id=29]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_PoolBenchBack.mesh" type="ArrayMesh" id=30]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_PoolBenchFrames.mesh" type="ArrayMesh" id=31]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_PoolRadiatorPIpe.mesh" type="ArrayMesh" id=32]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_Poolside-level-cables.mesh" type="ArrayMesh" id=33]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_PoolViewingLevel.mesh" type="ArrayMesh" id=34]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_RecHab1-BoothStairs.mesh" type="ArrayMesh" id=35]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_RecHab1-FloorCablesTemplate.mesh" type="ArrayMesh" id=36]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_RecHab1-Monkeybars.mesh" type="ArrayMesh" id=37]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_RecHab1-Monkeybars-Hoops.mesh" type="ArrayMesh" id=38]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_RecHab1-SunTubeLamps.mesh" type="ArrayMesh" id=39]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_RecHab1-TopFloorSupports.mesh" type="ArrayMesh" id=40]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_RecHab1-TopFloorSupports001.mesh" type="ArrayMesh" id=41]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_RecHab1-UpperFloor.mesh" type="ArrayMesh" id=42]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_RecHab1TopFloorsSupportTemplate.mesh" type="ArrayMesh" id=43]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyPole1.mesh" type="ArrayMesh" id=44]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyPole1001.mesh" type="ArrayMesh" id=45]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyPole1002.mesh" type="ArrayMesh" id=46]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyPole1003.mesh" type="ArrayMesh" id=47]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyPole1004.mesh" type="ArrayMesh" id=48]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyPole1005.mesh" type="ArrayMesh" id=49]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyPole1006.mesh" type="ArrayMesh" id=50]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyPole1007.mesh" type="ArrayMesh" id=51]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyPole1008.mesh" type="ArrayMesh" id=52]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyPole1009.mesh" type="ArrayMesh" id=53]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Rails.mesh" type="ArrayMesh" id=54]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Rails001.mesh" type="ArrayMesh" id=55]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Rails002.mesh" type="ArrayMesh" id=56]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Rails003.mesh" type="ArrayMesh" id=57]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Rails004.mesh" type="ArrayMesh" id=58]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Rails005.mesh" type="ArrayMesh" id=59]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Rails006.mesh" type="ArrayMesh" id=60]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Rails007.mesh" type="ArrayMesh" id=61]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Rails008.mesh" type="ArrayMesh" id=62]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Rails009.mesh" type="ArrayMesh" id=63]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Steps.mesh" type="ArrayMesh" id=64]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Steps002.mesh" type="ArrayMesh" id=65]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Steps003.mesh" type="ArrayMesh" id=66]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Steps004.mesh" type="ArrayMesh" id=67]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Steps005.mesh" type="ArrayMesh" id=68]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Steps006.mesh" type="ArrayMesh" id=69]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Steps007.mesh" type="ArrayMesh" id=70]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Steps008.mesh" type="ArrayMesh" id=71]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Steps009.mesh" type="ArrayMesh" id=72]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ShimmyStair-Steps011.mesh" type="ArrayMesh" id=73]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_Supports-PicnicBooths.mesh" type="ArrayMesh" id=74]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_SwimmingPool-Frame.mesh" type="ArrayMesh" id=75]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_SwimmingPool-Glass-TopFringe.mesh" type="ArrayMesh" id=76]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_SwimmingPool-PerimeterDrains.mesh" type="ArrayMesh" id=77]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_SwimmingPool-Supports.mesh" type="ArrayMesh" id=78]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_SwimmingPool-Walls.mesh" type="ArrayMesh" id=79]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_SwimmingPool-Water.mesh" type="ArrayMesh" id=80]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_Table.mesh" type="ArrayMesh" id=81]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_Tap1.mesh" type="ArrayMesh" id=82]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_Tap2.mesh" type="ArrayMesh" id=83]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_Tightrope.mesh" type="ArrayMesh" id=84]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_TightropePole.mesh" type="ArrayMesh" id=85]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ToiletStalls-3002.mesh" type="ArrayMesh" id=86]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ToiletStalls-3005.mesh" type="ArrayMesh" id=87]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ToiletStalls-4.mesh" type="ArrayMesh" id=88]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ToiletStalls-4001.mesh" type="ArrayMesh" id=89]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ToiletStalls-4002.mesh" type="ArrayMesh" id=90]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_ToiletStalls-8.mesh" type="ArrayMesh" id=91]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_TopFloor.mesh" type="ArrayMesh" id=92]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_TopFloorCableTemplate.mesh" type="ArrayMesh" id=93]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_TrampolineStrip.mesh" type="ArrayMesh" id=94]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_TubeHab-Cap010.mesh" type="ArrayMesh" id=95]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_WaterMain-RecHab1.mesh" type="ArrayMesh" id=96]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_WaterPipes.mesh" type="ArrayMesh" id=97]
+[ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=98]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_PoolRadiator.mesh" type="ArrayMesh" id=99]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_PoolRadiatorInsulationPanels.mesh" type="ArrayMesh" id=100]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_TubeHab-InteriorWalls-LocalGroup.mesh" type="ArrayMesh" id=101]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_RecHab1-EntranceStairs.mesh" type="ArrayMesh" id=102]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls.mesh" type="ArrayMesh" id=103]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_TubeHab-Entrance.mesh" type="ArrayMesh" id=104]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_MainWaterTank.mesh" type="ArrayMesh" id=105]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_TubeHab-Entrance015.mesh" type="ArrayMesh" id=106]
+[ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_Truss-TubeHab-LocalGroup.mesh" type="ArrayMesh" id=107]
 
-[node name="Scene" type="Spatial" index="0"]
+[sub_resource type="BoxShape" id=1]
 
-[node name="RecHab1_RetainingWalls" type="MeshInstance" parent="." index="0"]
+extents = Vector3( 3.82442, 2.42492, 9.13747 )
 
-transform = Transform( 0.989399, 0, -0.14522, 0, 1, 0, 0.14522, 0, 0.989399, 0, 0, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 1 )
-skeleton = NodePath("..")
-material/0 = null
+[sub_resource type="BoxShape" id=2]
 
-[node name="AirCirculationDuctsS" type="MeshInstance" parent="RecHab1_RetainingWalls" index="0"]
+extents = Vector3( 50, 50, 50 )
 
-transform = Transform( 0.9894, 0, 0.14522, 0, 1, 0, -0.14522, 0, 0.989399, -0.511989, 1.77307, 0.677727 )
+[node name="Scene" type="Spatial"]
+
+[node name="Set_Toilet" type="Spatial" parent="." index="0" groups=[
+"internal",
+]]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4 )
+
+[node name="Toilet001" type="Spatial" parent="Set_Toilet" index="0"]
+
+editor/display_folded = true
+transform = Transform( 0.0145153, 0, 0.0989409, 0, 0.1, 0, -0.0989409, 0, 0.0145153, 0.0712885, -0.665039, 4.65649 )
+
+[node name="Scene" parent="Set_Toilet/Toilet001" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet002" type="Spatial" parent="Set_Toilet" index="1"]
+
+editor/display_folded = true
+transform = Transform( 0.0145153, 0, 0.0989409, 0, 0.1, 0, -0.0989409, 0, 0.0145153, -0.0278323, -0.665039, 4.64209 )
+
+[node name="Scene" parent="Set_Toilet/Toilet002" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet003" type="Spatial" parent="Set_Toilet" index="2"]
+
+editor/display_folded = true
+transform = Transform( 0.0145153, 0, 0.0989409, 0, 0.1, 0, -0.0989409, 0, 0.0145153, -0.126465, -0.665039, 4.62744 )
+
+[node name="Scene" parent="Set_Toilet/Toilet003" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet004" type="Spatial" parent="Set_Toilet" index="3"]
+
+editor/display_folded = true
+transform = Transform( 0.0145153, 0, 0.0989409, 0, 0.1, 0, -0.0989409, 0, 0.0145153, -0.225586, -0.665039, 4.61304 )
+
+[node name="Scene" parent="Set_Toilet/Toilet004" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet005" type="Spatial" parent="Set_Toilet" index="4"]
+
+editor/display_folded = true
+transform = Transform( 0.0145153, 0, 0.0989409, 0, 0.1, 0, -0.0989409, 0, 0.0145153, -0.324219, -0.665039, 4.59839 )
+
+[node name="Scene" parent="Set_Toilet/Toilet005" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet006" type="Spatial" parent="Set_Toilet" index="5"]
+
+editor/display_folded = true
+transform = Transform( 0.0145153, 0, 0.0989409, 0, 0.1, 0, -0.0989409, 0, 0.0145153, -0.42334, -0.665039, 4.58398 )
+
+[node name="Scene" parent="Set_Toilet/Toilet006" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet007" type="Spatial" parent="Set_Toilet" index="6"]
+
+editor/display_folded = true
+transform = Transform( 0.0145153, 0, 0.0989409, 0, 0.1, 0, -0.0989409, 0, 0.0145153, -0.522461, -0.665039, 4.56934 )
+
+[node name="Scene" parent="Set_Toilet/Toilet007" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet008" type="Spatial" parent="Set_Toilet" index="7"]
+
+editor/display_folded = true
+transform = Transform( 0.0145153, 0, 0.0989409, 0, 0.1, 0, -0.0989409, 0, 0.0145153, -0.680175, -0.665039, 4.54639 )
+
+[node name="Scene" parent="Set_Toilet/Toilet008" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet009" type="Spatial" parent="Set_Toilet" index="8"]
+
+editor/display_folded = true
+transform = Transform( 0.0145153, 0, 0.0989409, 0, 0.1, 0, -0.0989409, 0, 0.0145153, -0.778809, -0.665039, 4.53174 )
+
+[node name="Scene" parent="Set_Toilet/Toilet009" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet010" type="Spatial" parent="Set_Toilet" index="9"]
+
+editor/display_folded = true
+transform = Transform( 0.0145153, 0, 0.0989409, 0, 0.1, 0, -0.0989409, 0, 0.0145153, -0.87793, -0.665039, 4.51733 )
+
+[node name="Scene" parent="Set_Toilet/Toilet010" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet011" type="Spatial" parent="Set_Toilet" index="10"]
+
+editor/display_folded = true
+transform = Transform( 0.0145153, 0, 0.0989409, 0, 0.1, 0, -0.0989409, 0, 0.0145153, -0.977051, -0.665039, 4.50269 )
+
+[node name="Scene" parent="Set_Toilet/Toilet011" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet012" type="Spatial" parent="Set_Toilet" index="11"]
+
+editor/display_folded = true
+transform = Transform( -0.0145153, 0, -0.0989409, 0, 0.1, 0, 0.0989409, 0, -0.0145153, 0.0625, -0.665039, 4.25562 )
+
+[node name="Scene" parent="Set_Toilet/Toilet012" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet024" type="Spatial" parent="Set_Toilet" index="12"]
+
+editor/display_folded = true
+transform = Transform( 0.0145153, 0, 0.0989409, 0, 0.1, 0, -0.0989409, 0, 0.0145153, 0.17041, -0.665039, 4.67114 )
+
+[node name="Scene" parent="Set_Toilet/Toilet024" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet025" type="Spatial" parent="Set_Toilet" index="13"]
+
+editor/display_folded = true
+transform = Transform( 0.0145155, 0, 0.0989408, 0, 0.1, 0, -0.0989408, 0, 0.0145155, 0.172853, -0.665039, -2.45556 )
+
+[node name="Scene" parent="Set_Toilet/Toilet025" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet026" type="Spatial" parent="Set_Toilet" index="14"]
+
+editor/display_folded = true
+transform = Transform( 0.0145155, 0, 0.0989408, 0, 0.1, 0, -0.0989408, 0, 0.0145155, 0.271486, -0.665039, -2.44091 )
+
+[node name="Scene" parent="Set_Toilet/Toilet026" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet027" type="Spatial" parent="Set_Toilet" index="15"]
+
+editor/display_folded = true
+transform = Transform( 0.0145155, 0, 0.0989408, 0, 0.1, 0, -0.0989408, 0, 0.0145155, 0.370608, -0.665039, -2.42651 )
+
+[node name="Scene" parent="Set_Toilet/Toilet027" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet028" type="Spatial" parent="Set_Toilet" index="16"]
+
+editor/display_folded = true
+transform = Transform( 0.0145155, 0, 0.0989408, 0, 0.1, 0, -0.0989408, 0, 0.0145155, 0.469729, -0.665039, -2.41186 )
+
+[node name="Scene" parent="Set_Toilet/Toilet028" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet029" type="Spatial" parent="Set_Toilet" index="17"]
+
+editor/display_folded = true
+transform = Transform( 0.0145155, 0, 0.0989408, 0, 0.1, 0, -0.0989408, 0, 0.0145155, 0.568362, -0.665039, -2.39721 )
+
+[node name="Scene" parent="Set_Toilet/Toilet029" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet030" type="Spatial" parent="Set_Toilet" index="18"]
+
+editor/display_folded = true
+transform = Transform( 0.0145155, 0, 0.0989408, 0, 0.1, 0, -0.0989408, 0, 0.0145155, 0.667483, -0.665039, -2.38305 )
+
+[node name="Scene" parent="Set_Toilet/Toilet030" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet031" type="Spatial" parent="Set_Toilet" index="19"]
+
+editor/display_folded = true
+transform = Transform( -0.0145153, 0, -0.0989409, 0, 0.1, 0, 0.0989409, 0, -0.0145153, -0.0366211, -0.665039, 4.24097 )
+
+[node name="Scene" parent="Set_Toilet/Toilet031" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet032" type="Spatial" parent="Set_Toilet" index="20"]
+
+editor/display_folded = true
+transform = Transform( -0.0145153, 0, -0.0989409, 0, 0.1, 0, 0.0989409, 0, -0.0145153, -0.135254, -0.665039, 4.22656 )
+
+[node name="Scene" parent="Set_Toilet/Toilet032" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet033" type="Spatial" parent="Set_Toilet" index="21"]
+
+editor/display_folded = true
+transform = Transform( -0.0145153, 0, -0.0989409, 0, 0.1, 0, 0.0989409, 0, -0.0145153, -0.622559, -0.665039, 4.15503 )
+
+[node name="Scene" parent="Set_Toilet/Toilet033" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet034" type="Spatial" parent="Set_Toilet" index="22"]
+
+editor/display_folded = true
+transform = Transform( -0.0145153, 0, -0.0989409, 0, 0.1, 0, 0.0989409, 0, -0.0145153, -0.72168, -0.665039, 4.14063 )
+
+[node name="Scene" parent="Set_Toilet/Toilet034" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet035" type="Spatial" parent="Set_Toilet" index="23"]
+
+editor/display_folded = true
+transform = Transform( -0.0145153, 0, -0.0989409, 0, 0.1, 0, 0.0989409, 0, -0.0145153, -0.8208, -0.665039, 4.12598 )
+
+[node name="Scene" parent="Set_Toilet/Toilet035" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet036" type="Spatial" parent="Set_Toilet" index="24"]
+
+editor/display_folded = true
+transform = Transform( -0.0145153, 0, -0.0989409, 0, 0.1, 0, 0.0989409, 0, -0.0145153, -0.919434, -0.665039, 4.11157 )
+
+[node name="Scene" parent="Set_Toilet/Toilet036" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet037" type="Spatial" parent="Set_Toilet" index="25"]
+
+editor/display_folded = true
+transform = Transform( -0.0145153, 0, -0.0989409, 0, 0.1, 0, 0.0989409, 0, -0.0145153, 0.812014, -0.665039, -2.68017 )
+
+[node name="Scene" parent="Set_Toilet/Toilet037" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet038" type="Spatial" parent="Set_Toilet" index="26"]
+
+editor/display_folded = true
+transform = Transform( -0.0145153, 0, -0.0989409, 0, 0.1, 0, 0.0989409, 0, -0.0145153, 0.713381, -0.665039, -2.69458 )
+
+[node name="Scene" parent="Set_Toilet/Toilet038" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet039" type="Spatial" parent="Set_Toilet" index="27"]
+
+editor/display_folded = true
+transform = Transform( -0.0145153, 0, -0.0989409, 0, 0.1, 0, 0.0989409, 0, -0.0145153, 0.614261, -0.665039, -2.70923 )
+
+[node name="Scene" parent="Set_Toilet/Toilet039" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet040" type="Spatial" parent="Set_Toilet" index="28"]
+
+editor/display_folded = true
+transform = Transform( -0.0145153, 0, -0.0989409, 0, 0.1, 0, 0.0989409, 0, -0.0145153, 0.515138, -0.665039, -2.72362 )
+
+[node name="Scene" parent="Set_Toilet/Toilet040" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet041" type="Spatial" parent="Set_Toilet" index="29"]
+
+editor/display_folded = true
+transform = Transform( -0.0145153, 0, -0.0989409, 0, 0.1, 0, 0.0989409, 0, -0.0145153, 0.416505, -0.665039, -2.73803 )
+
+[node name="Scene" parent="Set_Toilet/Toilet041" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet042" type="Spatial" parent="Set_Toilet" index="30"]
+
+editor/display_folded = true
+transform = Transform( -0.0145153, 0, -0.0989409, 0, 0.1, 0, 0.0989409, 0, -0.0145153, 0.317385, -0.665039, -2.75268 )
+
+[node name="Scene" parent="Set_Toilet/Toilet042" index="0" instance=ExtResource( 1 )]
+
+[node name="Toilet043" type="Spatial" parent="Set_Toilet" index="31"]
+
+editor/display_folded = true
+transform = Transform( -0.0144357, 0, -0.0989526, 0, 0.1, 0, 0.0989526, 0, -0.0144357, 0.161133, -0.665039, 4.27002 )
+
+[node name="Scene" parent="Set_Toilet/Toilet043" index="0" instance=ExtResource( 1 )]
+
+[node name="Interior" type="Spatial" parent="." index="1" groups=[
+"interior",
+]]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4 )
+
+[node name="AirCirculationDuctsS" type="MeshInstance" parent="Interior" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 1.3411e-07, 0, 0.999999, -0.604981, 1.77307, 4.59619 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -141,9 +372,9 @@ mesh = ExtResource( 2 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="BalanceBars" type="MeshInstance" parent="RecHab1_RetainingWalls" index="1"]
+[node name="BalanceBars" type="MeshInstance" parent="Interior" index="1"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, -0.0812644, -0.768799, -0.257776 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, -0.0429687, -0.768799, 3.73316 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -157,9 +388,9 @@ mesh = ExtResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="BathroomN" type="MeshInstance" parent="RecHab1_RetainingWalls" index="2"]
+[node name="BathroomN" type="MeshInstance" parent="Interior" index="2"]
 
-transform = Transform( 0.9894, 0, 0.14522, 0, 1, 0, -0.14522, 0, 0.989399, -0.218855, -0.557129, -6.42031 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 1.3411e-07, 0, 0.999999, 0.715822, -0.557129, -2.38403 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -173,9 +404,9 @@ mesh = ExtResource( 4 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="BathroomN-AirFiltration" type="MeshInstance" parent="RecHab1_RetainingWalls" index="3"]
+[node name="BathroomN-AirFiltration" type="MeshInstance" parent="Interior" index="3"]
 
-transform = Transform( 1, 0, 6.73234e-05, 0, 1, 0, -6.73234e-05, 0, 1, 0.257903, -0.385376, 0.644182 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, 0.161621, -0.385376, 4.67481 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -189,9 +420,9 @@ mesh = ExtResource( 5 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="BathroomN-Stairs" type="MeshInstance" parent="RecHab1_RetainingWalls" index="4"]
+[node name="BathroomN-Stairs" type="MeshInstance" parent="Interior" index="4"]
 
-transform = Transform( -1, 1.50996e-07, 6.72936e-05, -1.50996e-07, -1, 0, 6.72936e-05, -1.01625e-11, 1, 0.132303, -0.665039, -6.66728 )
+transform = Transform( -0.989409, 1.49397e-07, -0.145153, -1.50996e-07, -1, 0, -0.145153, 2.19176e-08, 0.989409, 1.09912, -0.665039, -2.57739 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -205,9 +436,9 @@ mesh = ExtResource( 6 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="BathroomS" type="MeshInstance" parent="RecHab1_RetainingWalls" index="5"]
+[node name="BathroomS" type="MeshInstance" parent="Interior" index="5"]
 
-transform = Transform( 0.9894, 0, 0.14522, 0, 1, 0, -0.14522, 0, 0.989399, 0.317308, -0.557129, 0.568098 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 1.3411e-07, 0, 0.999999, 0.231445, -0.557129, 4.60816 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -221,9 +452,9 @@ mesh = ExtResource( 7 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="BathroomS-AirFiltration" type="MeshInstance" parent="RecHab1_RetainingWalls" index="6"]
+[node name="BathroomS-AirFiltration" type="MeshInstance" parent="Interior" index="6"]
 
-transform = Transform( 1, 0, 6.73234e-05, 0, 1, 0, -6.73234e-05, 0, 1, 0.25797, -0.385376, 0.607652 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, 0.166992, -0.385376, 4.63867 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -237,9 +468,9 @@ mesh = ExtResource( 8 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="BathroomS-Stairs" type="MeshInstance" parent="RecHab1_RetainingWalls" index="7"]
+[node name="BathroomS-Stairs" type="MeshInstance" parent="Interior" index="7"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, 0.517257, -0.665039, 0.461022 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, 0.444824, -0.665039, 4.53125 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -253,9 +484,9 @@ mesh = ExtResource( 9 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="BathroomS-WaterPipes" type="MeshInstance" parent="RecHab1_RetainingWalls" index="8"]
+[node name="BathroomS-WaterPipes" type="MeshInstance" parent="Interior" index="8"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, -0.116429, 0.937256, 0.403757 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, -0.173828, 0.937256, 4.38257 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -268,9 +499,9 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 10 )
 skeleton = NodePath("..")
 
-[node name="BeverageCooler" type="MeshInstance" parent="RecHab1_RetainingWalls" index="9"]
+[node name="BeverageCooler" type="MeshInstance" parent="Interior" index="9"]
 
-transform = Transform( 0.9894, 0, 0.14522, 0, 1, 0, -0.14522, 0, 0.989399, 1.17215, 0.450073, -2.72646 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 1.3411e-07, 0, 0.999999, 1.55566, 0.450073, 1.47266 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -286,9 +517,9 @@ material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="BeverageCooler001" type="MeshInstance" parent="RecHab1_RetainingWalls" index="10"]
+[node name="BeverageCooler001" type="MeshInstance" parent="Interior" index="10"]
 
-transform = Transform( 0.9894, 0, 0.14522, 0, 1, 0, -0.14522, 0, 0.989399, 1.17256, 0.450073, -2.76403 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 1.3411e-07, 0, 0.999999, 1.56152, 0.450073, 1.43555 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -304,9 +535,9 @@ material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="BottomFloor" type="MeshInstance" parent="RecHab1_RetainingWalls" index="11"]
+[node name="BottomFloor" type="MeshInstance" parent="Interior" index="11"]
 
-transform = Transform( 0.9894, 0, 0.14522, 0, 1, 0, -0.14522, 0, 0.989399, -0.558549, -1.20459, -0.604494 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 1.3411e-07, 0, 0.999999, -0.464843, -1.20459, 3.3208 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -320,9 +551,9 @@ mesh = ExtResource( 13 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="BottomPadding" type="MeshInstance" parent="RecHab1_RetainingWalls" index="12"]
+[node name="BottomPadding" type="MeshInstance" parent="Interior" index="12"]
 
-transform = Transform( 0.9894, 0, 0.14522, 0, 1, 0, -0.14522, 0, 0.989399, -0.892631, -1.20459, -0.604317 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 1.3411e-07, 0, 0.999999, -0.795409, -1.20459, 3.27246 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -336,9 +567,9 @@ mesh = ExtResource( 14 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="DivingBoard" type="MeshInstance" parent="RecHab1_RetainingWalls" index="13"]
+[node name="DivingBoard" type="MeshInstance" parent="Interior" index="13"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, 0.569188, 0.328369, -5.91661 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, 1.42236, 0.328369, -1.77123 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -352,9 +583,9 @@ mesh = ExtResource( 15 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="DivingBoardFrame" type="MeshInstance" parent="RecHab1_RetainingWalls" index="14"]
+[node name="DivingBoardFrame" type="MeshInstance" parent="Interior" index="14"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, -0.545248, 0.428345, -5.68518 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, 0.286134, 0.428345, -1.70409 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -368,72 +599,81 @@ mesh = ExtResource( 16 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Empty_PicnicBooth001" type="Spatial" parent="RecHab1_RetainingWalls" index="15"]
+[node name="Empty_PicnicBooth001" type="Spatial" parent="Interior" index="15"]
 
-transform = Transform( 0.906307, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906307, 0.637087, 0.136963, -0.401591 )
+editor/display_folded = true
+transform = Transform( 0.958072, 0, 0.286524, 0, 1, 0, -0.286524, 0, 0.958072, 0.688652, 0.136963, 3.69518 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Scene" parent="RecHab1_RetainingWalls/Empty_PicnicBooth001" index="0" instance=ExtResource( 17 )]
+[node name="Scene" parent="Interior/Empty_PicnicBooth001" index="0" instance=ExtResource( 17 )]
 
-[node name="Empty_PicnicBooth002" type="Spatial" parent="RecHab1_RetainingWalls" index="16"]
+[node name="Empty_PicnicBooth002" type="Spatial" parent="Interior" index="16"]
 
-transform = Transform( 0.906307, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906307, 0.637087, -0.0880127, -0.401591 )
+editor/display_folded = true
+transform = Transform( 0.958072, 0, 0.286524, 0, 1, 0, -0.286524, 0, 0.958072, 0.688652, -0.0880127, 3.69518 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Scene" parent="RecHab1_RetainingWalls/Empty_PicnicBooth002" index="0" instance=ExtResource( 17 )]
+[node name="Scene" parent="Interior/Empty_PicnicBooth002" index="0" instance=ExtResource( 17 )]
 
-[node name="Empty_PicnicBooth003" type="Spatial" parent="RecHab1_RetainingWalls" index="17"]
+[node name="Empty_PicnicBooth003" type="Spatial" parent="Interior" index="17"]
 
-transform = Transform( 0.906307, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906307, 0.637087, -0.312988, -0.401591 )
+editor/display_folded = true
+transform = Transform( 0.958072, 0, 0.286524, 0, 1, 0, -0.286524, 0, 0.958072, 0.688652, -0.312988, 3.69518 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Scene" parent="RecHab1_RetainingWalls/Empty_PicnicBooth003" index="0" instance=ExtResource( 17 )]
+[node name="Scene" parent="Interior/Empty_PicnicBooth003" index="0" instance=ExtResource( 17 )]
 
-[node name="Empty_PicnicBooth004" type="Spatial" parent="RecHab1_RetainingWalls" index="18"]
+[node name="Empty_PicnicBooth004" type="Spatial" parent="Interior" index="18"]
 
-transform = Transform( 0.906307, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906307, 0.552728, 0.583984, 0.0727189 )
+editor/display_folded = true
+transform = Transform( 0.958072, 0, 0.286524, 0, 1, 0, -0.286524, 0, 0.958072, 0.536308, 0.583984, 4.15222 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Scene" parent="RecHab1_RetainingWalls/Empty_PicnicBooth004" index="0" instance=ExtResource( 17 )]
+[node name="Scene" parent="Interior/Empty_PicnicBooth004" index="0" instance=ExtResource( 17 )]
 
-[node name="Empty_PicnicBooth005" type="Spatial" parent="RecHab1_RetainingWalls" index="19"]
+[node name="Empty_PicnicBooth005" type="Spatial" parent="Interior" index="19"]
 
-transform = Transform( 0.906307, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906307, 0.552728, 0.359009, 0.0727189 )
+editor/display_folded = true
+transform = Transform( 0.958072, 0, 0.286524, 0, 1, 0, -0.286524, 0, 0.958072, 0.536308, 0.359009, 4.15222 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Scene" parent="RecHab1_RetainingWalls/Empty_PicnicBooth005" index="0" instance=ExtResource( 17 )]
+[node name="Scene" parent="Interior/Empty_PicnicBooth005" index="0" instance=ExtResource( 17 )]
 
-[node name="Empty_PicnicBooth006" type="Spatial" parent="RecHab1_RetainingWalls" index="20"]
+[node name="Empty_PicnicBooth006" type="Spatial" parent="Interior" index="20"]
 
-transform = Transform( 0.906307, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906307, 0.552728, 0.134033, 0.0727189 )
+editor/display_folded = true
+transform = Transform( 0.958072, 0, 0.286524, 0, 1, 0, -0.286524, 0, 0.958072, 0.536308, 0.134033, 4.15222 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Scene" parent="RecHab1_RetainingWalls/Empty_PicnicBooth006" index="0" instance=ExtResource( 17 )]
+[node name="Scene" parent="Interior/Empty_PicnicBooth006" index="0" instance=ExtResource( 17 )]
 
-[node name="Empty_PicnicBooth007" type="Spatial" parent="RecHab1_RetainingWalls" index="21"]
+[node name="Empty_PicnicBooth007" type="Spatial" parent="Interior" index="21"]
 
-transform = Transform( 0.906307, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906307, 0.552728, -0.0909424, 0.0727189 )
+editor/display_folded = true
+transform = Transform( 0.958072, 0, 0.286524, 0, 1, 0, -0.286524, 0, 0.958072, 0.536308, -0.0909424, 4.15222 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Scene" parent="RecHab1_RetainingWalls/Empty_PicnicBooth007" index="0" instance=ExtResource( 17 )]
+[node name="Scene" parent="Interior/Empty_PicnicBooth007" index="0" instance=ExtResource( 17 )]
 
-[node name="Empty_PicnicBooth008" type="Spatial" parent="RecHab1_RetainingWalls" index="22"]
+[node name="Empty_PicnicBooth008" type="Spatial" parent="Interior" index="22"]
 
-transform = Transform( 0.906307, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906307, 0.552728, -0.31604, 0.0727189 )
+editor/display_folded = true
+transform = Transform( 0.958072, 0, 0.286524, 0, 1, 0, -0.286524, 0, 0.958072, 0.536308, -0.31604, 4.15222 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Scene" parent="RecHab1_RetainingWalls/Empty_PicnicBooth008" index="0" instance=ExtResource( 17 )]
+[node name="Scene" parent="Interior/Empty_PicnicBooth008" index="0" instance=ExtResource( 17 )]
 
-[node name="Empty_PicnicBooth009" type="Spatial" parent="RecHab1_RetainingWalls" index="23"]
+[node name="Empty_PicnicBooth009" type="Spatial" parent="Interior" index="23"]
 
-transform = Transform( 0.906307, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906307, 0.637087, 0.362061, -0.401591 )
+editor/display_folded = true
+transform = Transform( 0.958072, 0, 0.286524, 0, 1, 0, -0.286524, 0, 0.958072, 0.688652, 0.362061, 3.69518 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Scene" parent="RecHab1_RetainingWalls/Empty_PicnicBooth009" index="0" instance=ExtResource( 17 )]
+[node name="Scene" parent="Interior/Empty_PicnicBooth009" index="0" instance=ExtResource( 17 )]
 
-[node name="Freezer" type="MeshInstance" parent="RecHab1_RetainingWalls" index="24"]
+[node name="Freezer" type="MeshInstance" parent="Interior" index="24"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, 1.1953, 0.358521, -2.2023 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, 1.50245, 0.358521, 1.99463 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -447,9 +687,9 @@ mesh = ExtResource( 18 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Fridge-4door" type="MeshInstance" parent="RecHab1_RetainingWalls" index="25"]
+[node name="Fridge-4door" type="MeshInstance" parent="Interior" index="25"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, 1.17772, 0.353271, -2.37245 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, 1.50976, 0.353271, 1.82373 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -464,9 +704,9 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="GarbageCan" type="MeshInstance" parent="RecHab1_RetainingWalls" index="26"]
+[node name="GarbageCan" type="MeshInstance" parent="Interior" index="26"]
 
-transform = Transform( 0.9894, 0, 0.14522, 0, 1, 0, -0.14522, 0, 0.989399, 1.17738, 0.353271, -2.40842 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 1.3411e-07, 0, 0.999999, 1.51465, 0.353271, 1.78809 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -480,9 +720,9 @@ mesh = ExtResource( 20 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="GarbageCan001" type="MeshInstance" parent="RecHab1_RetainingWalls" index="27"]
+[node name="GarbageCan001" type="MeshInstance" parent="Interior" index="27"]
 
-transform = Transform( 0.9894, 0, 0.14522, 0, 1, 0, -0.14522, 0, 0.989399, 1.18111, 0.353271, -2.67892 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 1.3411e-07, 0, 0.999999, 1.55762, 0.353271, 1.521 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -496,9 +736,9 @@ mesh = ExtResource( 21 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="GymAreaEmitterLamp" type="MeshInstance" parent="RecHab1_RetainingWalls" index="28"]
+[node name="GymAreaEmitterLamp" type="MeshInstance" parent="Interior" index="28"]
 
-transform = Transform( 1, 0, -0.00033474, 0, 1, 0, 0.000334725, 0, 1, 0.388936, -0.40564, -3.16029 )
+transform = Transform( 0.98935, 0, -0.145551, 0, 1, 0, 0.145551, 0, 0.98935, 0.84375, -0.40564, 0.929693 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -512,9 +752,9 @@ mesh = ExtResource( 22 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="KitchenCounterSinks" type="MeshInstance" parent="RecHab1_RetainingWalls" index="29"]
+[node name="KitchenCounterSinks" type="MeshInstance" parent="Interior" index="29"]
 
-transform = Transform( 0.9894, 0, 0.14522, 0, 1, 0, -0.14522, 0, 0.989399, 1.1972, 0.43103, -2.55247 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 1.3411e-07, 0, 0.999999, 1.55518, 0.43103, 1.64845 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -529,9 +769,9 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="KitchenSink-WaterHeaterTaps" type="MeshInstance" parent="RecHab1_RetainingWalls" index="30"]
+[node name="KitchenSink-WaterHeaterTaps" type="MeshInstance" parent="Interior" index="30"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, 1.19868, 0.497803, -2.55245 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, 1.55664, 0.497803, 1.64868 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -545,9 +785,9 @@ mesh = ExtResource( 24 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="MainFloor" type="MeshInstance" parent="RecHab1_RetainingWalls" index="31"]
+[node name="MainFloor" type="MeshInstance" parent="Interior" index="31"]
 
-transform = Transform( 0.9894, 0, 0.14522, 0, 1, 0, -0.14522, 0, 0.989399, 0.111171, -0.399658, -0.604337 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 1.3411e-07, 0, 0.999999, 0.197754, -0.399658, 3.41821 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -561,9 +801,9 @@ mesh = ExtResource( 25 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="MainWaterTank" type="MeshInstance" parent="RecHab1_RetainingWalls" index="32"]
+[node name="Platform" type="MeshInstance" parent="Interior" index="32"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, -0.116429, 1.1123, 0.403757 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, 0.917969, -0.671387, 3.52173 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -577,9 +817,9 @@ mesh = ExtResource( 26 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Platform" type="MeshInstance" parent="RecHab1_RetainingWalls" index="33"]
+[node name="Pool-Diving-edge" type="MeshInstance" parent="Interior" index="33"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, 0.838784, -0.671387, -0.606508 )
+transform = Transform( 0.98939, 1.86265e-09, -0.145279, -1.82312e-09, 1, 4.05183e-10, 0.145279, -1.36022e-10, 0.98939, 0.0332033, -0.349731, 3.37793 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -593,9 +833,9 @@ mesh = ExtResource( 27 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Pool-Diving-edge" type="MeshInstance" parent="RecHab1_RetainingWalls" index="34"]
+[node name="Pool-EquipmentHousing" type="MeshInstance" parent="Interior" index="34"]
 
-transform = Transform( 1, 1.82315e-09, -5.98729e-05, -1.82312e-09, 1, 4.05183e-10, 5.9858e-05, -4.05074e-10, 1, -0.0574856, -0.349731, -0.620297 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, -0.563476, -0.419312, 3.32861 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -609,9 +849,9 @@ mesh = ExtResource( 28 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Pool-EquipmentHousing" type="MeshInstance" parent="RecHab1_RetainingWalls" index="35"]
+[node name="PoolBench" type="MeshInstance" parent="Interior" index="35"]
 
-transform = Transform( 1, 0, 6.73085e-05, 0, 1, 0, -6.73085e-05, 0, 1, -0.655002, -0.419312, -0.582441 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, -0.673334, -0.074707, 1.15919 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -625,9 +865,9 @@ mesh = ExtResource( 29 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="PoolBench" type="MeshInstance" parent="RecHab1_RetainingWalls" index="36"]
+[node name="PoolBenchBack" type="MeshInstance" parent="Interior" index="36"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, -1.07874, -0.074707, -2.71292 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, -0.667967, -0.0594482, 1.15918 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -641,9 +881,9 @@ mesh = ExtResource( 30 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="PoolBenchBack" type="MeshInstance" parent="RecHab1_RetainingWalls" index="37"]
+[node name="PoolBenchFrames" type="MeshInstance" parent="Interior" index="37"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, -1.07343, -0.0594482, -2.7137 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, -0.978516, -0.128784, 3.2356 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -657,9 +897,9 @@ mesh = ExtResource( 31 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="PoolBenchFrames" type="MeshInstance" parent="RecHab1_RetainingWalls" index="38"]
+[node name="PoolRadiatorPIpe" type="MeshInstance" parent="Interior" index="38"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, -1.07915, -0.128784, -0.614201 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, 0.342287, -0.674438, -1.62842 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -673,9 +913,9 @@ mesh = ExtResource( 32 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="PoolRadiator" type="MeshInstance" parent="RecHab1_RetainingWalls" index="39"]
+[node name="Poolside-level-cables" type="MeshInstance" parent="Interior" index="39"]
 
-transform = Transform( 0.9894, 0, 0.14522, 0, 1, 0, -0.14522, 0, 0.989399, -1.95687, 1.34119, -3.20833 )
+transform = Transform( 0.989409, -3.70556e-09, -0.145153, 3.72529e-09, 1, -1.35904e-10, 0.145153, -4.06274e-10, 0.989409, -0.482909, -0.124634, 1.18701 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -689,9 +929,9 @@ mesh = ExtResource( 33 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="PoolRadiatorInsulationPanels" type="MeshInstance" parent="RecHab1_RetainingWalls" index="40"]
+[node name="PoolViewingLevel" type="MeshInstance" parent="Interior" index="40"]
 
-transform = Transform( 0.9894, 0, 0.14522, 0, 1, 0, -0.14522, 0, 0.989399, -2.02841, 1.44971, -6.31165 )
+transform = Transform( 0.98952, 1.86265e-09, -0.144397, -1.8236e-09, 1, 4.02731e-10, 0.144397, -1.35187e-10, 0.98952, 0.299805, -0.768799, 0.386726 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -705,9 +945,9 @@ mesh = ExtResource( 34 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="PoolRadiatorPIpe" type="MeshInstance" parent="RecHab1_RetainingWalls" index="41"]
+[node name="RecHab1-BoothStairs" type="MeshInstance" parent="Interior" index="41"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, -0.4787, -0.674438, -5.61846 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, 1.44483, 0.16333, -1.7622 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -721,9 +961,9 @@ mesh = ExtResource( 35 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Poolside-level-cables" type="MeshInstance" parent="RecHab1_RetainingWalls" index="42"]
+[node name="RecHab1-FloorCablesTemplate" type="MeshInstance" parent="Interior" index="42"]
 
-transform = Transform( 1, -3.72528e-09, 6.73085e-05, 3.72529e-09, 1, -1.35904e-10, -6.73085e-05, 1.36155e-10, 1, -0.886292, -0.124634, -2.71304 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, -0.482909, -0.124634, 1.18701 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -735,11 +975,10 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 36 )
 skeleton = NodePath("..")
-material/0 = null
 
-[node name="PoolViewingLevel" type="MeshInstance" parent="RecHab1_RetainingWalls" index="43"]
+[node name="RecHab1-Monkeybars" type="MeshInstance" parent="Interior" index="43"]
 
-transform = Transform( 1, 1.82327e-09, 0.000831842, -1.8236e-09, 1, 4.02731e-10, -0.000831857, -4.04248e-10, 1, -0.228093, -0.768799, -3.61851 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, 1.03711, -0.435181, 0.988284 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -753,9 +992,9 @@ mesh = ExtResource( 37 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="RecHab1-BoothStairs" type="MeshInstance" parent="RecHab1_RetainingWalls" index="44"]
+[node name="RecHab1-Monkeybars-Hoops" type="MeshInstance" parent="Interior" index="44"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, 0.592723, 0.16333, -5.91094 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, 1.03711, -0.435181, 0.988284 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -769,9 +1008,9 @@ mesh = ExtResource( 38 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="RecHab1-EntranceStairs" type="MeshInstance" parent="RecHab1_RetainingWalls" index="45"]
+[node name="RecHab1-SunTubeLamps" type="MeshInstance" parent="Interior" index="45"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, -0.00145082, -0.226685, 0.800445 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 1.3411e-07, 0, 0.999999, 1.05371, 1.1062, -0.888671 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -785,9 +1024,9 @@ mesh = ExtResource( 39 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="RecHab1-FloorCablesTemplate" type="MeshInstance" parent="RecHab1_RetainingWalls" index="46"]
+[node name="RecHab1-TopFloorSupports" type="MeshInstance" parent="Interior" index="46"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, -0.886292, -0.124634, -2.71304 )
+transform = Transform( 0.989409, 1.86265e-09, -0.145153, -1.86265e-09, 1, 1.35904e-10, 0.145153, 1.35906e-10, 0.989409, 1.30908, 0.728394, -0.141355 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -799,10 +1038,11 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 40 )
 skeleton = NodePath("..")
+material/0 = null
 
-[node name="RecHab1-Monkeybars" type="MeshInstance" parent="RecHab1_RetainingWalls" index="47"]
+[node name="RecHab1-TopFloorSupports001" type="MeshInstance" parent="Interior" index="47"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, 0.588755, -0.435181, -3.1304 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, 0.216798, 0.728394, 0.626716 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -816,9 +1056,9 @@ mesh = ExtResource( 41 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="RecHab1-Monkeybars-Hoops" type="MeshInstance" parent="RecHab1_RetainingWalls" index="48"]
+[node name="RecHab1-UpperFloor" type="MeshInstance" parent="Interior" index="48"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, 0.588755, -0.435181, -3.1304 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 1.3411e-07, 0, 0.999999, 1.42236, 0.328369, -1.77123 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -832,9 +1072,9 @@ mesh = ExtResource( 42 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="RecHab1-SunTubeLamps" type="MeshInstance" parent="RecHab1_RetainingWalls" index="49"]
+[node name="RecHab1TopFloorsSupportTemplate" type="MeshInstance" parent="Interior" index="49"]
 
-transform = Transform( 0.9894, 0, 0.14522, 0, 1, 0, -0.14522, 0, 0.989399, 0.33261, 1.1062, -4.98987 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, 1.30908, 0.728394, -0.141355 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -846,11 +1086,10 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 43 )
 skeleton = NodePath("..")
-material/0 = null
 
-[node name="RecHab1-TopFloorSupports" type="MeshInstance" parent="RecHab1_RetainingWalls" index="50"]
+[node name="ShimmyPole1" type="MeshInstance" parent="Interior" index="50"]
 
-transform = Transform( 1, 1.86264e-09, 6.72936e-05, -1.86265e-09, 1, 1.35904e-10, -6.72936e-05, -1.36029e-10, 1, 0.693799, 0.728394, -4.28756 )
+transform = Transform( -0.145154, 5.74132e-10, -0.989409, 5.74131e-10, 1, 4.96048e-10, 0.989409, -4.96048e-10, -0.145154, -0.47168, -0.314819, 4.28784 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -864,9 +1103,9 @@ mesh = ExtResource( 44 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="RecHab1-TopFloorSupports001" type="MeshInstance" parent="RecHab1_RetainingWalls" index="51"]
+[node name="ShimmyPole1001" type="MeshInstance" parent="Interior" index="51"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, -0.275369, 0.728394, -3.36901 )
+transform = Transform( 0.989409, 6.19489e-08, -0.145153, -7.36352e-08, 1, -7.51378e-08, 0.145153, 8.50304e-08, 0.989409, -0.886718, -0.0396729, 3.99121 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -880,9 +1119,9 @@ mesh = ExtResource( 45 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="RecHab1-UpperFloor" type="MeshInstance" parent="RecHab1_RetainingWalls" index="52"]
+[node name="ShimmyPole1002" type="MeshInstance" parent="Interior" index="52"]
 
-transform = Transform( 0.9894, 0, 0.14522, 0, 1, 0, -0.14522, 0, 0.989399, 0.569188, 0.328369, -5.91661 )
+transform = Transform( 0.989409, 6.19489e-08, -0.145153, -7.36352e-08, 1, -7.51378e-08, 0.145153, 8.50304e-08, 0.989409, -0.0161118, -0.0401611, -1.94335 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -896,9 +1135,9 @@ mesh = ExtResource( 46 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="RecHab1TopFloorsSupportTemplate" type="MeshInstance" parent="RecHab1_RetainingWalls" index="53"]
+[node name="ShimmyPole1003" type="MeshInstance" parent="Interior" index="53"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, 0.693799, 0.728394, -4.28756 )
+transform = Transform( 0.989409, 6.19489e-08, -0.145153, -7.36352e-08, 1, -7.51378e-08, 0.145153, 8.50304e-08, 0.989409, 0.241213, 0.413086, -2.47485 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -910,10 +1149,11 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 47 )
 skeleton = NodePath("..")
+material/0 = null
 
-[node name="ShimmyPole1" type="MeshInstance" parent="RecHab1_RetainingWalls" index="54"]
+[node name="ShimmyPole1004" type="MeshInstance" parent="Interior" index="54"]
 
-transform = Transform( 6.71595e-05, 4.9601e-10, -1, 5.74131e-10, 1, 4.96048e-10, 1, -5.74165e-10, 6.71595e-05, -0.424879, -0.314819, 0.353289 )
+transform = Transform( 0.989409, 6.19489e-08, -0.145153, -7.36352e-08, 1, -7.51378e-08, 0.145153, 8.50304e-08, 0.989409, 0.219729, 0.413086, -2.32641 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -927,9 +1167,9 @@ mesh = ExtResource( 48 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyPole1001" type="MeshInstance" parent="RecHab1_RetainingWalls" index="55"]
+[node name="ShimmyPole1005" type="MeshInstance" parent="Interior" index="55"]
 
-transform = Transform( 1, 7.36403e-08, 6.76662e-05, -7.36352e-08, 1, -7.51378e-08, -6.76811e-05, 7.51328e-08, 1, -0.878595, -0.0396729, 0.120073 )
+transform = Transform( 1, -5.55112e-17, 0, 0, 1, -4.65661e-10, 1.3411e-07, 4.65661e-10, 0.999999, 0.763186, 0.810059, -2.60791 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -943,9 +1183,9 @@ mesh = ExtResource( 49 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyPole1002" type="MeshInstance" parent="RecHab1_RetainingWalls" index="56"]
+[node name="ShimmyPole1006" type="MeshInstance" parent="Interior" index="56"]
 
-transform = Transform( 1, 7.36403e-08, 6.76662e-05, -7.36352e-08, 1, -7.51378e-08, -6.76811e-05, 7.51328e-08, 1, -0.879035, -0.0401611, -5.87801 )
+transform = Transform( 0.989409, 6.24647e-08, -0.145153, -7.41313e-08, 1, -7.49657e-08, 0.145153, 8.49321e-08, 0.989409, 0.774902, 0.812256, 4.33765 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -959,9 +1199,9 @@ mesh = ExtResource( 50 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyPole1003" type="MeshInstance" parent="RecHab1_RetainingWalls" index="57"]
+[node name="ShimmyPole1007" type="MeshInstance" parent="Interior" index="57"]
 
-transform = Transform( 1, 7.36403e-08, 6.76662e-05, -7.36352e-08, 1, -7.51378e-08, -6.76811e-05, 7.51328e-08, 1, -0.701622, 0.413086, -6.44124 )
+transform = Transform( 0.989409, 6.24647e-08, -0.145153, -7.41313e-08, 1, -7.49657e-08, 0.145153, 8.49321e-08, 0.989409, 0.753417, 0.812012, 4.48608 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -975,9 +1215,9 @@ mesh = ExtResource( 51 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyPole1004" type="MeshInstance" parent="RecHab1_RetainingWalls" index="58"]
+[node name="ShimmyPole1008" type="MeshInstance" parent="Interior" index="58"]
 
-transform = Transform( 1, 7.36403e-08, 6.76662e-05, -7.36352e-08, 1, -7.51378e-08, -6.76811e-05, 7.51328e-08, 1, -0.701322, 0.413086, -6.29126 )
+transform = Transform( -0.145154, 8.43613e-10, -0.989409, 3.82883e-10, 1, 7.96471e-10, 0.989409, -2.63217e-10, -0.145154, -0.323242, -0.314819, 4.30957 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -991,9 +1231,9 @@ mesh = ExtResource( 52 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyPole1005" type="MeshInstance" parent="RecHab1_RetainingWalls" index="59"]
+[node name="ShimmyPole1009" type="MeshInstance" parent="Interior" index="59"]
 
-transform = Transform( 0.9894, 6.76233e-11, 0.14522, 0, 1, -4.65661e-10, -0.14522, 4.60725e-10, 0.989399, -0.204505, 0.810059, -6.64869 )
+transform = Transform( 0.989409, 6.19489e-08, -0.145153, -7.36352e-08, 1, -7.51378e-08, 0.145153, 8.50304e-08, 0.989409, 0.63135, -0.683716, -2.03637 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1007,9 +1247,9 @@ mesh = ExtResource( 53 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyPole1006" type="MeshInstance" parent="RecHab1_RetainingWalls" index="60"]
+[node name="ShimmyStair-Rails" type="MeshInstance" parent="Interior" index="60"]
 
-transform = Transform( 1, 7.41364e-08, 6.76811e-05, -7.41313e-08, 1, -7.49657e-08, -6.7696e-05, 7.49607e-08, 1, 0.815721, 0.812256, 0.221537 )
+transform = Transform( 7.54979e-08, -0.145153, 0.989409, 1, 1.09588e-08, -7.46983e-08, 1.33227e-14, 0.989409, 0.145153, -0.426758, -0.31543, 4.29468 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1023,9 +1263,9 @@ mesh = ExtResource( 54 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyPole1007" type="MeshInstance" parent="RecHab1_RetainingWalls" index="61"]
+[node name="ShimmyStair-Rails001" type="MeshInstance" parent="Interior" index="61"]
 
-transform = Transform( 1, 7.41364e-08, 6.76811e-05, -7.41313e-08, 1, -7.49657e-08, -6.7696e-05, 7.49607e-08, 1, 0.81602, 0.812012, 0.371521 )
+transform = Transform( 3.13917e-07, 0.989409, 0.145153, 1, -3.10592e-07, -4.55659e-08, 1.98952e-13, 0.145153, -0.989409, -0.880371, -0.0402832, 3.94604 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1039,9 +1279,9 @@ mesh = ExtResource( 55 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyPole1008" type="MeshInstance" parent="RecHab1_RetainingWalls" index="62"]
+[node name="ShimmyStair-Rails002" type="MeshInstance" parent="Interior" index="62"]
 
-transform = Transform( 6.71595e-05, 7.96446e-10, -1, 3.82883e-10, 1, 7.96471e-10, 1, -3.82936e-10, 6.71595e-05, -0.27486, -0.314819, 0.353231 )
+transform = Transform( 3.13917e-07, 0.989409, 0.145153, 1, -3.10592e-07, -4.55659e-08, 1.98952e-13, 0.145153, -0.989409, -0.00976431, -0.0408936, -1.98852 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1055,9 +1295,9 @@ mesh = ExtResource( 56 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyPole1009" type="MeshInstance" parent="RecHab1_RetainingWalls" index="63"]
+[node name="ShimmyStair-Rails003" type="MeshInstance" parent="Interior" index="63"]
 
-transform = Transform( 1, 7.36403e-08, 6.76662e-05, -7.36352e-08, 1, -7.51378e-08, -6.76811e-05, 7.51328e-08, 1, -0.251945, -0.683716, -6.06407 )
+transform = Transform( 3.13917e-07, 0.989409, 0.145153, 1, -3.10592e-07, -4.55659e-08, 1.98952e-13, 0.145153, -0.989409, 0.248049, 0.412354, -2.52001 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1071,9 +1311,9 @@ mesh = ExtResource( 57 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyStair-Rails" type="MeshInstance" parent="RecHab1_RetainingWalls" index="64"]
+[node name="ShimmyStair-Rails004" type="MeshInstance" parent="Interior" index="64"]
 
-transform = Transform( 7.46976e-08, 6.72489e-05, 1, 1, 1.09588e-08, -7.46983e-08, -1.09638e-08, 1, -6.72489e-05, -0.379441, -0.31543, 0.353529 )
+transform = Transform( 3.13917e-07, 0.989409, 0.145153, 1, -3.10592e-07, -4.55659e-08, 1.98952e-13, 0.145153, -0.989409, 0.226564, 0.412354, -2.37182 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1087,9 +1327,9 @@ mesh = ExtResource( 58 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyStair-Rails001" type="MeshInstance" parent="RecHab1_RetainingWalls" index="65"]
+[node name="ShimmyStair-Rails005" type="MeshInstance" parent="Interior" index="65"]
 
-transform = Transform( 3.10589e-07, 1, -6.72936e-05, 1, -3.10592e-07, -4.55659e-08, -4.55868e-08, -6.72936e-05, -1, -0.878874, -0.0402832, 0.0744641 )
+transform = Transform( -0.145154, 0, -0.989409, 0, 1, 0, 0.989409, 0, -0.145154, 0.808108, 0.809326, -2.60107 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1103,9 +1343,9 @@ mesh = ExtResource( 59 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyStair-Rails002" type="MeshInstance" parent="RecHab1_RetainingWalls" index="66"]
+[node name="ShimmyStair-Rails006" type="MeshInstance" parent="Interior" index="66"]
 
-transform = Transform( 3.10589e-07, 1, -6.72936e-05, 1, -3.10592e-07, -4.55659e-08, -4.55868e-08, -6.72936e-05, -1, -0.879314, -0.0408936, -5.92362 )
+transform = Transform( 3.13917e-07, 0.989409, 0.145153, 1, -3.10592e-07, -4.55659e-08, 1.98952e-13, 0.145153, -0.989409, 0.781737, 0.811523, 4.29248 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1119,9 +1359,9 @@ mesh = ExtResource( 60 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyStair-Rails003" type="MeshInstance" parent="RecHab1_RetainingWalls" index="67"]
+[node name="ShimmyStair-Rails007" type="MeshInstance" parent="Interior" index="67"]
 
-transform = Transform( 3.10589e-07, 1, -6.72936e-05, 1, -3.10592e-07, -4.55659e-08, -4.55868e-08, -6.72936e-05, -1, -0.701417, 0.412354, -6.48692 )
+transform = Transform( 3.13917e-07, 0.989409, 0.145153, 1, -3.10592e-07, -4.55659e-08, 1.98952e-13, 0.145153, -0.989409, 0.759765, 0.811279, 4.44092 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1135,9 +1375,9 @@ mesh = ExtResource( 61 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyStair-Rails004" type="MeshInstance" parent="RecHab1_RetainingWalls" index="68"]
+[node name="ShimmyStair-Rails008" type="MeshInstance" parent="Interior" index="68"]
 
-transform = Transform( 3.10589e-07, 1, -6.72936e-05, 1, -3.10592e-07, -4.55659e-08, -4.55868e-08, -6.72936e-05, -1, -0.701154, 0.412354, -6.33718 )
+transform = Transform( 7.54979e-08, -0.145153, 0.989409, 1, 1.09588e-08, -7.46983e-08, 1.33227e-14, 0.989409, 0.145153, -0.27832, -0.31543, 4.31641 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1151,9 +1391,9 @@ mesh = ExtResource( 62 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyStair-Rails005" type="MeshInstance" parent="RecHab1_RetainingWalls" index="69"]
+[node name="ShimmyStair-Rails009" type="MeshInstance" parent="Interior" index="69"]
 
-transform = Transform( 6.71595e-05, 0, -1, 0, 1, 0, 1, 0, 6.71595e-05, -0.159066, 0.809326, -6.64845 )
+transform = Transform( 3.13917e-07, 0.989409, 0.145153, 1, -3.10592e-07, -4.55659e-08, 1.98952e-13, 0.145153, -0.989409, 0.638186, -0.684448, -2.08154 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1167,9 +1407,9 @@ mesh = ExtResource( 63 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyStair-Rails006" type="MeshInstance" parent="RecHab1_RetainingWalls" index="70"]
+[node name="ShimmyStair-Steps" type="MeshInstance" parent="Interior" index="70"]
 
-transform = Transform( 3.10589e-07, 1, -6.72936e-05, 1, -3.10592e-07, -4.55659e-08, -4.55868e-08, -6.72936e-05, -1, 0.815925, 0.811523, 0.175857 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, -0.464356, -0.399658, 4.23608 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1182,10 +1422,12 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 64 )
 skeleton = NodePath("..")
 material/0 = null
+material/1 = null
+material/2 = null
 
-[node name="ShimmyStair-Rails007" type="MeshInstance" parent="RecHab1_RetainingWalls" index="71"]
+[node name="ShimmyStair-Steps002" type="MeshInstance" parent="Interior" index="71"]
 
-transform = Transform( 3.10589e-07, 1, -6.72936e-05, 1, -3.10592e-07, -4.55659e-08, -4.55868e-08, -6.72936e-05, -1, 0.815742, 0.811279, 0.325912 )
+transform = Transform( 0.145153, 0, 0.989409, 0, 1, 0, -0.989409, 0, 0.145153, 0.188478, 0.328003, -2.48266 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1198,10 +1440,12 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 65 )
 skeleton = NodePath("..")
 material/0 = null
+material/1 = null
+material/2 = null
 
-[node name="ShimmyStair-Rails008" type="MeshInstance" parent="RecHab1_RetainingWalls" index="72"]
+[node name="ShimmyStair-Steps003" type="MeshInstance" parent="Interior" index="72"]
 
-transform = Transform( 7.46976e-08, 6.72489e-05, 1, 1, 1.09588e-08, -7.46983e-08, -1.09638e-08, 1, -6.72489e-05, -0.229421, -0.31543, 0.353471 )
+transform = Transform( 0.145153, 0, 0.989409, 0, 1, 0, -0.989409, 0, 0.145153, -0.0693331, -0.125244, -1.95117 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1214,10 +1458,12 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 66 )
 skeleton = NodePath("..")
 material/0 = null
+material/1 = null
+material/2 = null
 
-[node name="ShimmyStair-Rails009" type="MeshInstance" parent="RecHab1_RetainingWalls" index="73"]
+[node name="ShimmyStair-Steps004" type="MeshInstance" parent="Interior" index="73"]
 
-transform = Transform( 3.10589e-07, 1, -6.72936e-05, 1, -3.10592e-07, -4.55659e-08, -4.55868e-08, -6.72936e-05, -1, -0.251741, -0.684448, -6.10975 )
+transform = Transform( 0.145153, 0, 0.989409, 0, 1, 0, -0.989409, 0, 0.145153, 0.166506, 0.328003, -2.33422 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1230,10 +1476,12 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 67 )
 skeleton = NodePath("..")
 material/0 = null
+material/1 = null
+material/2 = null
 
-[node name="ShimmyStair-Steps" type="MeshInstance" parent="RecHab1_RetainingWalls" index="74"]
+[node name="ShimmyStair-Steps005" type="MeshInstance" parent="Interior" index="74"]
 
-transform = Transform( 1, 0, 6.73085e-05, 0, 1, 0, -6.73085e-05, 0, 1, -0.425149, -0.399658, 0.301016 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, 0.770998, 0.724976, -2.66088 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1249,9 +1497,9 @@ material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="ShimmyStair-Steps002" type="MeshInstance" parent="RecHab1_RetainingWalls" index="75"]
+[node name="ShimmyStair-Steps006" type="MeshInstance" parent="Interior" index="75"]
 
-transform = Transform( -6.77109e-05, 0, 1, 0, 1, 0, -1, 0, -6.77258e-05, -0.754932, 0.328003, -6.44131 )
+transform = Transform( 0.145153, 0, 0.989409, 0, 1, 0, -0.989409, 0, 0.145153, 0.722167, 0.727173, 4.32983 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1267,9 +1515,9 @@ material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="ShimmyStair-Steps003" type="MeshInstance" parent="RecHab1_RetainingWalls" index="76"]
+[node name="ShimmyStair-Steps007" type="MeshInstance" parent="Interior" index="76"]
 
-transform = Transform( -6.77109e-05, 0, 1, 0, 1, 0, -1, 0, -6.77258e-05, -0.932828, -0.125244, -5.87802 )
+transform = Transform( 0.145153, 0, 0.989409, 0, 1, 0, -0.989409, 0, 0.145153, 0.700194, 0.726929, 4.47827 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1285,9 +1533,9 @@ material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="ShimmyStair-Steps004" type="MeshInstance" parent="RecHab1_RetainingWalls" index="77"]
+[node name="ShimmyStair-Steps008" type="MeshInstance" parent="Interior" index="77"]
 
-transform = Transform( -6.77109e-05, 0, 1, 0, 1, 0, -1, 0, -6.77258e-05, -0.755116, 0.328003, -6.29126 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, -0.315917, -0.399658, 4.25781 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1303,9 +1551,9 @@ material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="ShimmyStair-Steps005" type="MeshInstance" parent="RecHab1_RetainingWalls" index="78"]
+[node name="ShimmyStair-Steps009" type="MeshInstance" parent="Interior" index="78"]
 
-transform = Transform( 1, 0, 6.73085e-05, 0, 1, 0, -6.73085e-05, 0, 1, -0.204469, 0.724976, -6.70224 )
+transform = Transform( 0.145153, 0, 0.989409, 0, 1, 0, -0.989409, 0, 0.145153, 0.578615, -0.768799, -2.04418 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1321,9 +1569,9 @@ material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="ShimmyStair-Steps006" type="MeshInstance" parent="RecHab1_RetainingWalls" index="79"]
+[node name="ShimmyStair-Steps011" type="MeshInstance" parent="Interior" index="79"]
 
-transform = Transform( -6.77109e-05, 0, 1, 0, 1, 0, -1, 0, -6.77258e-05, 0.762411, 0.727173, 0.221465 )
+transform = Transform( 0.145153, 0, 0.989409, 0, 1, 0, -0.989409, 0, 0.145153, -0.939941, -0.124634, 3.9834 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1339,9 +1587,9 @@ material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="ShimmyStair-Steps007" type="MeshInstance" parent="RecHab1_RetainingWalls" index="80"]
+[node name="Supports-PicnicBooths" type="MeshInstance" parent="Interior" index="80"]
 
-transform = Transform( -6.77109e-05, 0, 1, 0, 1, 0, -1, 0, -6.77258e-05, 0.762227, 0.726929, 0.37152 )
+transform = Transform( 0.989409, 1.14492e-16, -0.145153, 3.94538e-11, 1, 2.68929e-10, 0.145153, -2.71808e-10, 0.989409, 0.535644, 0.608276, 4.15234 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1354,12 +1602,10 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 74 )
 skeleton = NodePath("..")
 material/0 = null
-material/1 = null
-material/2 = null
 
-[node name="ShimmyStair-Steps008" type="MeshInstance" parent="RecHab1_RetainingWalls" index="81"]
+[node name="SwimmingPool-Frame" type="MeshInstance" parent="Interior" index="81"]
 
-transform = Transform( 1, 0, 6.73085e-05, 0, 1, 0, -6.73085e-05, 0, 1, -0.275129, -0.399658, 0.300958 )
+transform = Transform( 0.989391, 0, -0.145273, 0, 1, 0, 0.145273, 0, 0.989391, 0.000978202, -0.521606, 0.832031 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1372,12 +1618,10 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 75 )
 skeleton = NodePath("..")
 material/0 = null
-material/1 = null
-material/2 = null
 
-[node name="ShimmyStair-Steps009" type="MeshInstance" parent="RecHab1_RetainingWalls" index="82"]
+[node name="SwimmingPool-Glass-TopFringe" type="MeshInstance" parent="Interior" index="82"]
 
-transform = Transform( -6.77109e-05, 0, 1, 0, 1, 0, -1, 0, -6.77258e-05, -0.305255, -0.768799, -6.06414 )
+transform = Transform( 0.989391, 0, -0.145273, 0, 1, 0, 0.145273, 0, 0.989391, 0.000978202, -0.521606, 0.832031 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1390,12 +1634,10 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 76 )
 skeleton = NodePath("..")
 material/0 = null
-material/1 = null
-material/2 = null
 
-[node name="ShimmyStair-Steps011" type="MeshInstance" parent="RecHab1_RetainingWalls" index="83"]
+[node name="SwimmingPool-PerimeterDrains" type="MeshInstance" parent="Interior" index="83"]
 
-transform = Transform( -6.77109e-05, 0, 1, 0, 1, 0, -1, 0, -6.77258e-05, -0.932388, -0.124634, 0.120072 )
+transform = Transform( 0.98939, 1.86265e-09, -0.145279, -1.82312e-09, 1, 4.05183e-10, 0.145279, -1.36022e-10, 0.98939, 1.49012e-06, -0.522217, 0.83496 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1408,12 +1650,10 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 77 )
 skeleton = NodePath("..")
 material/0 = null
-material/1 = null
-material/2 = null
 
-[node name="Supports-PicnicBooths" type="MeshInstance" parent="RecHab1_RetainingWalls" index="84"]
+[node name="SwimmingPool-Supports" type="MeshInstance" parent="Interior" index="84"]
 
-transform = Transform( 1, -3.94719e-11, 6.73234e-05, 3.94538e-11, 1, 2.68929e-10, -6.73085e-05, -2.68927e-10, 1, 0.55209, 0.608276, 0.0729436 )
+transform = Transform( 0.98939, 1.86265e-09, -0.145279, -1.82312e-09, 1, 4.05183e-10, 0.145279, -1.36022e-10, 0.98939, -0.266601, -0.495483, 3.33399 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1427,9 +1667,9 @@ mesh = ExtResource( 78 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="SwimmingPool-Frame" type="MeshInstance" parent="RecHab1_RetainingWalls" index="85"]
+[node name="SwimmingPool-Walls" type="MeshInstance" parent="Interior" index="85"]
 
-transform = Transform( 1, 0, -5.32568e-05, 0, 1, 0, 5.32418e-05, 0, 1, -0.459085, -0.521606, -3.13453 )
+transform = Transform( 0.989391, 0, -0.145273, 0, 1, 0, 0.145273, 0, 0.989391, 0.000978202, -0.523315, 0.832031 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1443,9 +1683,9 @@ mesh = ExtResource( 79 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="SwimmingPool-Glass-TopFringe" type="MeshInstance" parent="RecHab1_RetainingWalls" index="86"]
+[node name="SwimmingPool-Water" type="MeshInstance" parent="Interior" index="86"]
 
-transform = Transform( 1, 0, -5.32568e-05, 0, 1, 0, 5.32418e-05, 0, 1, -0.459085, -0.521606, -3.13453 )
+transform = Transform( 0.989399, 0, -0.14522, 0, 1, 0, 0.14522, 0, 0.989399, 6.25849e-07, -0.521606, 0.833747 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1459,9 +1699,9 @@ mesh = ExtResource( 80 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="SwimmingPool-PerimeterDrains" type="MeshInstance" parent="RecHab1_RetainingWalls" index="87"]
+[node name="Table" type="MeshInstance" parent="Interior" index="87"]
 
-transform = Transform( 1, 1.82315e-09, -5.99027e-05, -1.82312e-09, 1, 4.05183e-10, 5.98878e-05, -4.05074e-10, 1, -0.459626, -0.522217, -3.13149 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, 1.58252, 0.358276, 1.38037 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1475,9 +1715,9 @@ mesh = ExtResource( 81 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="SwimmingPool-Supports" type="MeshInstance" parent="RecHab1_RetainingWalls" index="88"]
+[node name="Tap1" type="MeshInstance" parent="Interior" index="88"]
 
-transform = Transform( 1, 1.82315e-09, -5.98878e-05, -1.82312e-09, 1, 4.05183e-10, 5.98729e-05, -4.05074e-10, 1, -0.360494, -0.495483, -0.620239 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, 1.53955, 0.440308, 1.66187 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1491,9 +1731,9 @@ mesh = ExtResource( 82 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="SwimmingPool-Walls" type="MeshInstance" parent="RecHab1_RetainingWalls" index="89"]
+[node name="Tap2" type="MeshInstance" parent="Interior" index="89"]
 
-transform = Transform( 1, 0, -5.32568e-05, 0, 1, 0, 5.32418e-05, 0, 1, -0.459085, -0.523315, -3.13453 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, 1.54444, 0.440308, 1.63135 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1507,9 +1747,9 @@ mesh = ExtResource( 83 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="SwimmingPool-Water" type="MeshInstance" parent="RecHab1_RetainingWalls" index="90"]
+[node name="Tightrope" type="MeshInstance" parent="Interior" index="90"]
 
-transform = Transform( 1, 0, -1.49012e-08, 0, 1, 0, 0, 0, 1, -0.459803, -0.521606, -3.13269 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, 0.0117189, -0.680176, 3.38745 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1523,9 +1763,9 @@ mesh = ExtResource( 84 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Table" type="MeshInstance" parent="RecHab1_RetainingWalls" index="91"]
+[node name="TightropePole" type="MeshInstance" parent="Interior" index="91"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, 1.18532, 0.358276, -2.82167 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, 0.918457, -0.462769, 3.51978 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1539,9 +1779,9 @@ mesh = ExtResource( 85 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Tap1" type="MeshInstance" parent="RecHab1_RetainingWalls" index="92"]
+[node name="ToiletStalls-3002" type="MeshInstance" parent="Interior" index="92"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, 1.18369, 0.440308, -2.53692 )
+transform = Transform( 6.71545e-07, -0.989409, 0.145153, -1, -6.64432e-07, 9.74763e-08, 3.69482e-13, -0.145153, -0.989409, 0.276858, -0.605103, -2.72534 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1555,9 +1795,9 @@ mesh = ExtResource( 86 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Tap2" type="MeshInstance" parent="RecHab1_RetainingWalls" index="93"]
+[node name="ToiletStalls-3005" type="MeshInstance" parent="Interior" index="93"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, 1.18409, 0.440308, -2.56782 )
+transform = Transform( 7.54979e-08, 0.989408, -0.145155, -1, 7.46983e-08, -1.09589e-08, 1.33227e-14, 0.145155, 0.989408, 1.30176, -0.605103, -2.32324 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1571,9 +1811,9 @@ mesh = ExtResource( 87 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Tightrope" type="MeshInstance" parent="RecHab1_RetainingWalls" index="94"]
+[node name="ToiletStalls-4" type="MeshInstance" parent="Interior" index="94"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, -0.0773595, -0.680176, -0.607756 )
+transform = Transform( 6.71545e-07, -0.989409, 0.145153, -1, -6.64973e-07, 9.37904e-08, 3.69482e-13, -0.145153, -0.989409, -0.960937, -0.60498, 4.13867 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1587,9 +1827,9 @@ mesh = ExtResource( 88 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="TightropePole" type="MeshInstance" parent="RecHab1_RetainingWalls" index="95"]
+[node name="ToiletStalls-4001" type="MeshInstance" parent="Interior" index="95"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, 0.838983, -0.462769, -0.608511 )
+transform = Transform( 6.71545e-07, -0.989409, 0.145153, -1, -6.64973e-07, 9.37904e-08, 3.69482e-13, -0.145153, -0.989409, -0.175781, -0.60498, 4.25366 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1603,201 +1843,25 @@ mesh = ExtResource( 89 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Toilet001" type="Spatial" parent="RecHab1_RetainingWalls" index="96"]
-
-transform = Transform( -6.77165e-06, 0, 0.1, 0, 0.1, 0, -0.1, 0, -6.77351e-06, 0.165869, -0.665039, 0.639183 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet001" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet002" type="Spatial" parent="RecHab1_RetainingWalls" index="97"]
-
-transform = Transform( -6.77165e-06, 0, 0.1, 0, 0.1, 0, -0.1, 0, -6.77351e-06, 0.0657072, -0.665039, 0.639326 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet002" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet003" type="Spatial" parent="RecHab1_RetainingWalls" index="98"]
-
-transform = Transform( -6.77165e-06, 0, 0.1, 0, 0.1, 0, -0.1, 0, -6.77351e-06, -0.0340073, -0.665039, 0.639156 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet003" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet004" type="Spatial" parent="RecHab1_RetainingWalls" index="99"]
-
-transform = Transform( -6.77165e-06, 0, 0.1, 0, 0.1, 0, -0.1, 0, -6.77351e-06, -0.134169, -0.665039, 0.639299 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet004" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet005" type="Spatial" parent="RecHab1_RetainingWalls" index="100"]
-
-transform = Transform( -6.77165e-06, 0, 0.1, 0, 0.1, 0, -0.1, 0, -6.77351e-06, -0.233884, -0.665039, 0.639129 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet005" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet006" type="Spatial" parent="RecHab1_RetainingWalls" index="101"]
-
-transform = Transform( -6.77165e-06, 0, 0.1, 0, 0.1, 0, -0.1, 0, -6.77351e-06, -0.334046, -0.665039, 0.639272 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet006" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet007" type="Spatial" parent="RecHab1_RetainingWalls" index="102"]
-
-transform = Transform( -6.77165e-06, 0, 0.1, 0, 0.1, 0, -0.1, 0, -6.77351e-06, -0.434244, -0.665039, 0.639173 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet007" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet008" type="Spatial" parent="RecHab1_RetainingWalls" index="103"]
-
-transform = Transform( -6.77165e-06, 0, 0.1, 0, 0.1, 0, -0.1, 0, -6.77351e-06, -0.593619, -0.665039, 0.639371 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet008" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet009" type="Spatial" parent="RecHab1_RetainingWalls" index="104"]
-
-transform = Transform( -6.77165e-06, 0, 0.1, 0, 0.1, 0, -0.1, 0, -6.77351e-06, -0.693334, -0.665039, 0.639201 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet009" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet010" type="Spatial" parent="RecHab1_RetainingWalls" index="105"]
-
-transform = Transform( -6.77165e-06, 0, 0.1, 0, 0.1, 0, -0.1, 0, -6.77351e-06, -0.793496, -0.665039, 0.639343 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet010" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet011" type="Spatial" parent="RecHab1_RetainingWalls" index="106"]
-
-transform = Transform( -6.77165e-06, 0, 0.1, 0, 0.1, 0, -0.1, 0, -6.77351e-06, -0.893694, -0.665039, 0.639244 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet011" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet012" type="Spatial" parent="RecHab1_RetainingWalls" index="107"]
-
-transform = Transform( 6.73905e-06, 0, -0.1, 0, 0.1, 0, 0.1, 0, 6.74091e-06, 0.098958, -0.665039, 0.24383 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet012" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet024" type="Spatial" parent="RecHab1_RetainingWalls" index="108"]
-
-transform = Transform( -6.77165e-06, 0, 0.1, 0, 0.1, 0, -0.1, 0, -6.77351e-06, 0.266067, -0.665039, 0.639282 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet024" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet025" type="Spatial" parent="RecHab1_RetainingWalls" index="109"]
-
-transform = Transform( -6.53416e-06, 0, 0.1, 0, 0.1, 0, -0.1, 0, -6.53509e-06, -0.766456, -0.665039, -6.41223 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet025" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet026" type="Spatial" parent="RecHab1_RetainingWalls" index="110"]
-
-transform = Transform( -6.53416e-06, 0, 0.1, 0, 0.1, 0, -0.1, 0, -6.53509e-06, -0.666741, -0.665039, -6.41206 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet026" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet027" type="Spatial" parent="RecHab1_RetainingWalls" index="111"]
-
-transform = Transform( -6.53416e-06, 0, 0.1, 0, 0.1, 0, -0.1, 0, -6.53509e-06, -0.566579, -0.665039, -6.41221 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet027" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet028" type="Spatial" parent="RecHab1_RetainingWalls" index="112"]
-
-transform = Transform( -6.53416e-06, 0, 0.1, 0, 0.1, 0, -0.1, 0, -6.53509e-06, -0.466382, -0.665039, -6.41211 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet028" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet029" type="Spatial" parent="RecHab1_RetainingWalls" index="113"]
-
-transform = Transform( -6.53416e-06, 0, 0.1, 0, 0.1, 0, -0.1, 0, -6.53509e-06, -0.366667, -0.665039, -6.41194 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet029" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet030" type="Spatial" parent="RecHab1_RetainingWalls" index="114"]
-
-transform = Transform( -6.53416e-06, 0, 0.1, 0, 0.1, 0, -0.1, 0, -6.53509e-06, -0.26654, -0.665039, -6.41232 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet030" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet031" type="Spatial" parent="RecHab1_RetainingWalls" index="115"]
-
-transform = Transform( 6.73905e-06, 0, -0.1, 0, 0.1, 0, 0.1, 0, 6.74091e-06, -0.00123963, -0.665039, 0.243731 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet031" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet032" type="Spatial" parent="RecHab1_RetainingWalls" index="116"]
-
-transform = Transform( 6.73905e-06, 0, -0.1, 0, 0.1, 0, 0.1, 0, 6.74091e-06, -0.100919, -0.665039, 0.243803 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet032" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet033" type="Spatial" parent="RecHab1_RetainingWalls" index="117"]
-
-transform = Transform( 6.73905e-06, 0, -0.1, 0, 0.1, 0, 0.1, 0, 6.74091e-06, -0.593446, -0.665039, 0.243795 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet033" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet034" type="Spatial" parent="RecHab1_RetainingWalls" index="118"]
-
-transform = Transform( 6.73905e-06, 0, -0.1, 0, 0.1, 0, 0.1, 0, 6.74091e-06, -0.693608, -0.665039, 0.243937 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet034" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet035" type="Spatial" parent="RecHab1_RetainingWalls" index="119"]
-
-transform = Transform( 6.73905e-06, 0, -0.1, 0, 0.1, 0, 0.1, 0, 6.74091e-06, -0.793805, -0.665039, 0.243838 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet035" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet036" type="Spatial" parent="RecHab1_RetainingWalls" index="120"]
-
-transform = Transform( 6.73905e-06, 0, -0.1, 0, 0.1, 0, 0.1, 0, 6.74091e-06, -0.893485, -0.665039, 0.243909 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet036" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet037" type="Spatial" parent="RecHab1_RetainingWalls" index="121"]
-
-transform = Transform( 6.73905e-06, 0, -0.1, 0, 0.1, 0, 0.1, 0, 6.74091e-06, -0.166689, -0.665039, -6.72728 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet037" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet038" type="Spatial" parent="RecHab1_RetainingWalls" index="122"]
-
-transform = Transform( 6.73905e-06, 0, -0.1, 0, 0.1, 0, 0.1, 0, 6.74091e-06, -0.266368, -0.665039, -6.72721 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet038" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet039" type="Spatial" parent="RecHab1_RetainingWalls" index="123"]
-
-transform = Transform( 6.73905e-06, 0, -0.1, 0, 0.1, 0, 0.1, 0, 6.74091e-06, -0.366565, -0.665039, -6.72731 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet039" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet040" type="Spatial" parent="RecHab1_RetainingWalls" index="124"]
-
-transform = Transform( 6.73905e-06, 0, -0.1, 0, 0.1, 0, 0.1, 0, 6.74091e-06, -0.466728, -0.665039, -6.72716 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet040" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet041" type="Spatial" parent="RecHab1_RetainingWalls" index="125"]
-
-transform = Transform( 6.73905e-06, 0, -0.1, 0, 0.1, 0, 0.1, 0, 6.74091e-06, -0.566407, -0.665039, -6.72709 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet041" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet042" type="Spatial" parent="RecHab1_RetainingWalls" index="126"]
-
-transform = Transform( 6.73905e-06, 0, -0.1, 0, 0.1, 0, 0.1, 0, 6.74091e-06, -0.666604, -0.665039, -6.72719 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet042" index="0" instance=ExtResource( 90 )]
-
-[node name="Toilet043" type="Spatial" parent="RecHab1_RetainingWalls" index="127"]
-
-transform = Transform( 8.72295e-05, 0, -0.1, 0, 0.1, 0, 0.1, 0, 8.72314e-05, 0.198637, -0.665039, 0.243758 )
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Toilet043" index="0" instance=ExtResource( 90 )]
-
-[node name="ToiletStalls-3002" type="MeshInstance" parent="RecHab1_RetainingWalls" index="128"]
-
-transform = Transform( 6.64426e-07, -1, -6.80089e-05, -1, -6.64432e-07, 9.74763e-08, -9.75214e-08, 6.80238e-05, -1, -0.702731, -0.605103, -6.69425 )
+[node name="ToiletStalls-4002" type="MeshInstance" parent="Interior" index="96"]
+
+transform = Transform( 7.54979e-08, 0.989409, -0.145154, -1, 7.52391e-08, -7.27299e-09, 1.33227e-14, 0.145154, 0.989409, -0.638672, -0.60498, 4.51904 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 90 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="ToiletStalls-8" type="MeshInstance" parent="Interior" index="97"]
+
+transform = Transform( 7.54979e-08, 0.989409, -0.145154, -1, 7.52391e-08, -7.27299e-09, 1.33227e-14, 0.145154, 0.989409, -0.185547, -0.60498, 4.58545 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1811,9 +1875,9 @@ mesh = ExtResource( 91 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ToiletStalls-3005" type="MeshInstance" parent="RecHab1_RetainingWalls" index="129"]
+[node name="TopFloor" type="MeshInstance" parent="Interior" index="98"]
 
-transform = Transform( 7.46976e-08, 1, 6.53416e-05, -1, 7.46983e-08, -1.09589e-08, -1.09638e-08, -6.53416e-05, 1, 0.3697, -0.605103, -6.44525 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 1.3411e-07, 0, 0.999999, 1.1001, 0.728394, 0.425536 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1826,10 +1890,11 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 92 )
 skeleton = NodePath("..")
 material/0 = null
+material/1 = null
 
-[node name="ToiletStalls-4" type="MeshInstance" parent="RecHab1_RetainingWalls" index="130"]
+[node name="TopFloorCableTemplate" type="MeshInstance" parent="Interior" index="99"]
 
-transform = Transform( 6.64426e-07, -1, -6.80536e-05, -1, -6.64973e-07, 9.37904e-08, -9.75214e-08, 6.80238e-05, -1, -0.930613, -0.60498, 0.276749 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, 0.216798, 0.728394, 0.626716 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1841,11 +1906,10 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 93 )
 skeleton = NodePath("..")
-material/0 = null
 
-[node name="ToiletStalls-4001" type="MeshInstance" parent="RecHab1_RetainingWalls" index="131"]
+[node name="TrampolineStrip" type="MeshInstance" parent="Interior" index="100"]
 
-transform = Transform( 6.64426e-07, -1, -6.80536e-05, -1, -6.64973e-07, 9.37904e-08, -9.75214e-08, 6.80238e-05, -1, -0.137081, -0.60498, 0.2765 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, -0.795409, -1.20459, 3.27246 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1859,9 +1923,9 @@ mesh = ExtResource( 94 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ToiletStalls-4002" type="MeshInstance" parent="RecHab1_RetainingWalls" index="132"]
+[node name="TubeHab-Cap010" type="MeshInstance" parent="Interior" index="101"]
 
-transform = Transform( 7.46976e-08, 1, 6.63549e-05, -1, 7.52391e-08, -7.27299e-09, -1.09638e-08, -6.63251e-05, 1, -0.556526, -0.60498, 0.606289 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 1.3411e-07, 0, 0.999999, 1.00977, 0.00524902, -2.90625 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1875,9 +1939,17 @@ mesh = ExtResource( 95 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ToiletStalls-8" type="MeshInstance" parent="RecHab1_RetainingWalls" index="133"]
+[node name="Empty_PicnicBooth" type="Spatial" parent="Interior" index="102"]
 
-transform = Transform( 7.46976e-08, 1, 6.63549e-05, -1, 7.52391e-08, -7.27299e-09, -1.09638e-08, -6.63251e-05, 1, -0.0985612, -0.60498, 0.606188 )
+editor/display_folded = true
+transform = Transform( 0.958072, 0, 0.286524, 0, 1, 0, -0.286524, 0, 0.958072, 0.688477, 0.583984, 3.69531 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Scene" parent="Interior/Empty_PicnicBooth" index="0" instance=ExtResource( 17 )]
+
+[node name="WaterMain-RecHab1" type="MeshInstance" parent="Interior" index="103"]
+
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, -0.173828, 0.937256, 4.38257 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1891,9 +1963,9 @@ mesh = ExtResource( 96 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="TopFloor" type="MeshInstance" parent="RecHab1_RetainingWalls" index="134"]
+[node name="WaterPipes" type="MeshInstance" parent="Interior" index="104"]
 
-transform = Transform( 0.9894, 0, 0.14522, 0, 1, 0, -0.14522, 0, 0.989399, 0.569354, 0.728394, -3.69633 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, -0.173828, 0.937256, 4.38257 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1906,26 +1978,84 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 97 )
 skeleton = NodePath("..")
 material/0 = null
-material/1 = null
 
-[node name="TopFloorCableTemplate" type="MeshInstance" parent="RecHab1_RetainingWalls" index="135"]
+[node name="Triggers" type="Spatial" parent="." index="2"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, -0.275369, 0.728394, -3.36901 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 98 )
-skeleton = NodePath("..")
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4 )
 
-[node name="TrampolineStrip" type="MeshInstance" parent="RecHab1_RetainingWalls" index="136"]
+[node name="Area" type="Area" parent="Triggers" index="0"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, -0.892631, -1.20459, -0.604317 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+script = ExtResource( 98 )
+RootNode = NodePath("../..")
+showhide = "interior"
+hideshow = "exterior"
+bygroup = "player"
+
+[node name="CollisionShape" type="CollisionShape" parent="Triggers/Area" index="0"]
+
+shape = SubResource( 1 )
+disabled = false
+
+[node name="LodFar" type="Area" parent="Triggers" index="1"]
+
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+script = ExtResource( 98 )
+RootNode = NodePath("../../Exterior")
+showhide = "LodFar"
+hideshow = "exterior"
+bygroup = "player"
+
+[node name="CollisionShape" type="CollisionShape" parent="Triggers/LodFar" index="0"]
+
+shape = SubResource( 2 )
+disabled = false
+
+[node name="Exterior" type="Spatial" parent="." index="3"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4 )
+
+[node name="PoolRadiator" type="MeshInstance" parent="Exterior" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 1.3411e-07, 0, 0.999999, -1.47021, 1.34119, 0.541505 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1939,9 +2069,9 @@ mesh = ExtResource( 99 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Truss-TubeHab-LocalGroup" type="MeshInstance" parent="RecHab1_RetainingWalls" index="137"]
+[node name="PoolRadiatorInsulationPanels" type="MeshInstance" parent="Exterior" index="1"]
 
-transform = Transform( 1, 0, -1.49012e-08, 0, 1, 0, 0, 0, 1, 0.000138009, 0, -0.0360457 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 1.3411e-07, 0, 0.999999, -1.09033, 1.44971, -2.53931 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1954,11 +2084,10 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 100 )
 skeleton = NodePath("..")
 material/0 = null
-material/1 = null
 
-[node name="TubeHab-Cap010" type="MeshInstance" parent="RecHab1_RetainingWalls" index="138"]
+[node name="TubeHab-InteriorWalls-LocalGroup" type="MeshInstance" parent="Exterior" index="2"]
 
-transform = Transform( 0.9894, 0, 0.14522, 0, 1, 0, -0.14522, 0, 0.989399, -0.00386155, 0.00524902, -6.97968 )
+transform = Transform( 0.989399, 0, -0.14522, 0, 1, 0, 0.14522, 0, 0.989399, -6.53699e-13, 0, 4 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1972,9 +2101,9 @@ mesh = ExtResource( 101 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="TubeHab-Entrance" type="MeshInstance" parent="RecHab1_RetainingWalls" index="139"]
+[node name="RecHab1-EntranceStairs" type="MeshInstance" parent="Exterior" index="3"]
 
-transform = Transform( 0.9894, 0, 0.14522, 0, 1, 0, -0.14522, 0, 0.989399, -0.00967824, -0.00805664, 2.92993 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, -0.117676, -0.226685, 4.79175 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1988,9 +2117,9 @@ mesh = ExtResource( 102 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="TubeHab-Entrance015" type="MeshInstance" parent="RecHab1_RetainingWalls" index="140"]
+[node name="RecHab1_RetainingWalls" type="MeshInstance" parent="Exterior" index="4"]
 
-transform = Transform( 0.1, -3.80361e-05, 1.66267e-12, 0, -4.37114e-09, -0.1, 3.80343e-05, 0.1, -4.37114e-09, -0.00967824, -0.00805664, 2.92993 )
+transform = Transform( 0.989399, 0, -0.14522, 0, 1, 0, 0.14522, 0, 0.989399, 0, 0, 4 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -2004,9 +2133,9 @@ mesh = ExtResource( 103 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="TubeHab-InteriorWalls-LocalGroup" type="MeshInstance" parent="RecHab1_RetainingWalls" index="141"]
+[node name="TubeHab-Entrance" type="MeshInstance" parent="Exterior" index="5"]
 
-transform = Transform( 1, 0, 1.49012e-08, 0, 1, 0, 0, 0, 1, 1.38492e-07, 0, 9.43565e-07 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 1.3411e-07, 0, 0.999999, -0.43506, -0.00805664, 6.89746 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -2020,16 +2149,9 @@ mesh = ExtResource( 104 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Empty_PicnicBooth" type="Spatial" parent="RecHab1_RetainingWalls" index="142"]
+[node name="MainWaterTank" type="MeshInstance" parent="Exterior" index="6"]
 
-transform = Transform( 0.906307, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906307, 0.636932, 0.583984, -0.401437 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Scene" parent="RecHab1_RetainingWalls/Empty_PicnicBooth" index="0" instance=ExtResource( 17 )]
-
-[node name="WaterMain-RecHab1" type="MeshInstance" parent="RecHab1_RetainingWalls" index="143"]
-
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, -0.116429, 0.937256, 0.403757 )
+transform = Transform( 0.989409, 0, -0.145153, 0, 1, 0, 0.145153, 0, 0.989409, -0.173828, 1.1123, 4.38257 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -2043,9 +2165,9 @@ mesh = ExtResource( 105 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="WaterPipes" type="MeshInstance" parent="RecHab1_RetainingWalls" index="144"]
+[node name="TubeHab-Entrance015" type="MeshInstance" parent="Exterior" index="7"]
 
-transform = Transform( 1, 0, 6.72936e-05, 0, 1, 0, -6.72936e-05, 0, 1, -0.116429, 0.937256, 0.403757 )
+transform = Transform( 0.0989344, -0.0145596, 6.36422e-10, 0, -4.37114e-09, -0.1, 0.0145596, 0.0989344, -4.32456e-09, -0.43506, -0.00805664, 6.89746 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -2058,5 +2180,24 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 106 )
 skeleton = NodePath("..")
 material/0 = null
+
+[node name="Truss-TubeHab-LocalGroup" type="MeshInstance" parent="Exterior" index="8" groups=[
+"LodFar",
+]]
+
+transform = Transform( 0.989399, 0, -0.14522, 0, 1, 0, 0.14522, 0, 0.989399, 0.0053711, 0, 3.96436 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 107 )
+skeleton = NodePath("..")
+material/0 = null
+material/1 = null
 
 

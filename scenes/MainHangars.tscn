@@ -1,14 +1,19 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/meshes/MainHangars__MainHangarsGrounds.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://model_assets/LavaTank.tscn" type="PackedScene" id=2]
 [ext_resource path="res://model_assets/PressurizedHangar_Giant.tscn" type="PackedScene" id=3]
-[ext_resource path="res://model_assets/TowerRadiator3x.tscn" type="PackedScene" id=4]
-[ext_resource path="res://model_assets/HangarArchColumns.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/meshes/MainHangars__MainHangarsGrounds_MainHangar1.mesh" type="ArrayMesh" id=6]
-[ext_resource path="res://scenes/meshes/MainHangars__MainHangarsGrounds_MainHangar2.mesh" type="ArrayMesh" id=7]
-[ext_resource path="res://scenes/meshes/MainHangars__MainHangarsGrounds_MainHangar3.mesh" type="ArrayMesh" id=8]
-[ext_resource path="res://scenes/meshes/MainHangars__MainHangarsGrounds_MainHangar4.mesh" type="ArrayMesh" id=9]
+[ext_resource path="res://scenes/meshes/MainHangars__MainHangarsGrounds_MainHangar1.mesh" type="ArrayMesh" id=4]
+[ext_resource path="res://scenes/meshes/MainHangars__MainHangarsGrounds_MainHangar2.mesh" type="ArrayMesh" id=5]
+[ext_resource path="res://scenes/meshes/MainHangars__MainHangarsGrounds_MainHangar3.mesh" type="ArrayMesh" id=6]
+[ext_resource path="res://scenes/meshes/MainHangars__MainHangarsGrounds_MainHangar4.mesh" type="ArrayMesh" id=7]
+[ext_resource path="res://model_assets/HangarArchColumns.tscn" type="PackedScene" id=8]
+[ext_resource path="res://model_assets/TowerRadiator3x.tscn" type="PackedScene" id=9]
+[ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=10]
+
+[sub_resource type="BoxShape" id=1]
+
+extents = Vector3( 90, 90, 90 )
 
 [node name="Scene" type="Spatial" index="0"]
 
@@ -37,6 +42,7 @@ transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13,
 
 [node name="Empty_LavaTank_Large004" type="Spatial" parent="MainHangarsGrounds" index="2"]
 
+editor/display_folded = true
 transform = Transform( 2, -3.61768e-06, 2.3062e-07, 3.61768e-06, 2, 2.08577e-13, -2.3062e-07, 2.08578e-13, 2, 39.2872, 4.67107, -43.9082 )
 _sections_unfolded = [ "Transform" ]
 
@@ -44,6 +50,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Empty_LavaTank_Large005" type="Spatial" parent="MainHangarsGrounds" index="3"]
 
+editor/display_folded = true
 transform = Transform( 2, -3.61768e-06, 2.3062e-07, 3.61768e-06, 2, 2.08577e-13, -2.3062e-07, 2.08578e-13, 2, 20.5026, 7.62073, -43.9514 )
 _sections_unfolded = [ "Transform" ]
 
@@ -51,6 +58,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Empty_LavaTank_Talll000" type="Spatial" parent="MainHangarsGrounds" index="4"]
 
+editor/display_folded = true
 transform = Transform( 1.8, -3.25591e-06, 2.07558e-07, 3.25591e-06, 1.8, 1.87719e-13, -2.07558e-07, 1.8772e-13, 1.8, 57.3971, 2.62732, -6.66304 )
 _sections_unfolded = [ "Transform" ]
 
@@ -58,6 +66,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Empty_LavaTank_Talll001" type="Spatial" parent="MainHangarsGrounds" index="5"]
 
+editor/display_folded = true
 transform = Transform( 1.8, -3.25591e-06, 2.07558e-07, 3.25591e-06, 1.8, 1.87719e-13, -2.07558e-07, 1.8772e-13, 1.8, 57.4215, 2.60156, -38.5102 )
 _sections_unfolded = [ "Transform" ]
 
@@ -65,288 +74,64 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Empty_PressurizedHangar_Giant" type="Spatial" parent="MainHangarsGrounds" index="6"]
 
+editor/display_folded = true
 transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 49.5363, 0.43457, -45.4694 )
 
 [node name="Scene" parent="MainHangarsGrounds/Empty_PressurizedHangar_Giant" index="0" instance=ExtResource( 3 )]
 
 transform = Transform( 1, -1.20256e-20, 0, -1.20255e-20, 1, 0, 0, 0, 1, 0, 0, -1.13509 )
 
-[node name="Empty_TowerRadiator3x" type="Spatial" parent="MainHangarsGrounds" index="7"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 50.6564, 9.56274, -5.43355 )
-
-[node name="Scene" parent="MainHangarsGrounds/Empty_TowerRadiator3x" index="0" instance=ExtResource( 4 )]
-
-[node name="Empty_TowerRadiator3x001" type="Spatial" parent="MainHangarsGrounds" index="8"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 49.9205, 9.56274, -5.43355 )
-
-[node name="Scene" parent="MainHangarsGrounds/Empty_TowerRadiator3x001" index="0" instance=ExtResource( 4 )]
-
-[node name="Empty_TowerRadiator3x002" type="Spatial" parent="MainHangarsGrounds" index="9"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 49.1852, 9.56274, -5.43355 )
-
-[node name="Scene" parent="MainHangarsGrounds/Empty_TowerRadiator3x002" index="0" instance=ExtResource( 4 )]
-
-[node name="Empty_TowerRadiator3x003" type="Spatial" parent="MainHangarsGrounds" index="10"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 48.4498, 9.56274, -5.43355 )
-
-[node name="Scene" parent="MainHangarsGrounds/Empty_TowerRadiator3x003" index="0" instance=ExtResource( 4 )]
-
-[node name="Empty_TowerRadiator3x004" type="Spatial" parent="MainHangarsGrounds" index="11"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 18.445, 9.61182, -25.4333 )
-
-[node name="Scene" parent="MainHangarsGrounds/Empty_TowerRadiator3x004" index="0" instance=ExtResource( 4 )]
-
-[node name="Empty_TowerRadiator3x005" type="Spatial" parent="MainHangarsGrounds" index="12"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 17.6364, 9.89185, -25.4333 )
-
-[node name="Scene" parent="MainHangarsGrounds/Empty_TowerRadiator3x005" index="0" instance=ExtResource( 4 )]
-
-[node name="Empty_TowerRadiator3x006" type="Spatial" parent="MainHangarsGrounds" index="13"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 16.7999, 10.0934, -25.4333 )
-
-[node name="Scene" parent="MainHangarsGrounds/Empty_TowerRadiator3x006" index="0" instance=ExtResource( 4 )]
-
-[node name="Empty_TowerRadiator3x007" type="Spatial" parent="MainHangarsGrounds" index="14"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 5.98353, 10.0934, -25.4333 )
-
-[node name="Scene" parent="MainHangarsGrounds/Empty_TowerRadiator3x007" index="0" instance=ExtResource( 4 )]
-
-[node name="Empty_TowerRadiator3x008" type="Spatial" parent="MainHangarsGrounds" index="15"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 5.14661, 9.89185, -25.4333 )
-
-[node name="Scene" parent="MainHangarsGrounds/Empty_TowerRadiator3x008" index="0" instance=ExtResource( 4 )]
-
-[node name="Empty_TowerRadiator3x009" type="Spatial" parent="MainHangarsGrounds" index="16"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 4.33851, 9.61182, -25.4333 )
-
-[node name="Scene" parent="MainHangarsGrounds/Empty_TowerRadiator3x009" index="0" instance=ExtResource( 4 )]
-
-[node name="Hangar3ColumnMirrorEmpty" type="Spatial" parent="MainHangarsGrounds" index="17"]
+[node name="Hangar3ColumnMirrorEmpty" type="Spatial" parent="MainHangarsGrounds" index="7"]
 
 transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 11.3643, 0.912964, -2.17212 )
 
-[node name="Hangar3ColumnMirrorEmpty001" type="Spatial" parent="MainHangarsGrounds" index="18"]
+[node name="Hangar3ColumnMirrorEmpty001" type="Spatial" parent="MainHangarsGrounds" index="8"]
 
 transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 11.3643, 0.912964, -2.17212 )
 
-[node name="HangarArchWithColumns" type="Spatial" parent="MainHangarsGrounds" index="19"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 11.4175, 4.91357, -2.29712 )
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns001" type="Spatial" parent="MainHangarsGrounds" index="20"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 32.0576, 2.36438, -2.29688 )
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns001" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns002" type="Spatial" parent="MainHangarsGrounds" index="21"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 11.4131, 7.8562, -42.9441 )
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns002" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns003" type="Spatial" parent="MainHangarsGrounds" index="22"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 31.957, 4.96289, -42.9441 )
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns003" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns004" type="Spatial" parent="MainHangarsGrounds" index="23"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 11.4175, 4.91357, -5.18774 )
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns004" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns005" type="Spatial" parent="MainHangarsGrounds" index="24"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 11.4175, 4.91357, -8.07788 )
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns005" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns006" type="Spatial" parent="MainHangarsGrounds" index="25"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 11.4175, 4.91357, -10.9683 )
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns006" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns007" type="Spatial" parent="MainHangarsGrounds" index="26"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 11.4175, 4.91357, -13.8586 )
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns007" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns008" type="Spatial" parent="MainHangarsGrounds" index="27"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 11.4175, 4.91357, -16.7488 )
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns008" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns009" type="Spatial" parent="MainHangarsGrounds" index="28"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 11.4175, 4.91357, -19.6392 )
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns009" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns010" type="Spatial" parent="MainHangarsGrounds" index="29"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 11.4175, 4.91357, -22.5295 )
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns010" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns011" type="Spatial" parent="MainHangarsGrounds" index="30"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 32.0576, 2.36438, -5.18751 )
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns011" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns012" type="Spatial" parent="MainHangarsGrounds" index="31"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 32.0576, 2.36438, -8.07764 )
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns012" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns013" type="Spatial" parent="MainHangarsGrounds" index="32"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 32.0576, 2.36438, -10.968 )
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns013" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns014" type="Spatial" parent="MainHangarsGrounds" index="33"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 32.0576, 2.36438, -13.8582 )
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns014" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns015" type="Spatial" parent="MainHangarsGrounds" index="34"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 32.0576, 2.36438, -16.7485 )
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns015" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns016" type="Spatial" parent="MainHangarsGrounds" index="35"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 32.0576, 2.36438, -19.6389 )
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns016" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns017" type="Spatial" parent="MainHangarsGrounds" index="36"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 32.0576, 2.36438, -22.5293 )
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns017" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns018" type="Spatial" parent="MainHangarsGrounds" index="37"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 11.4131, 7.8562, -40.0679 )
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns018" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns019" type="Spatial" parent="MainHangarsGrounds" index="38"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4132, 7.85608, -37.1916 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns019" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns020" type="Spatial" parent="MainHangarsGrounds" index="39"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4132, 7.85608, -34.3156 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns020" index="0" instance=ExtResource( 5 )]
-
-_sections_unfolded = [ "Transform" ]
-
-[node name="HangarArchWithColumns021" type="Spatial" parent="MainHangarsGrounds" index="40"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4132, 7.85608, -31.4396 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns021" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns022" type="Spatial" parent="MainHangarsGrounds" index="41"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4132, 7.85608, -28.5634 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns022" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns023" type="Spatial" parent="MainHangarsGrounds" index="42"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 11.4131, 7.8562, -25.6875 )
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns023" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns024" type="Spatial" parent="MainHangarsGrounds" index="43"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 11.4131, 7.8562, -22.8113 )
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns024" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns025" type="Spatial" parent="MainHangarsGrounds" index="44"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 31.957, 4.96289, -40.0679 )
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns025" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns026" type="Spatial" parent="MainHangarsGrounds" index="45"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9571, 4.96265, -37.1916 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns026" index="0" instance=ExtResource( 5 )]
-
-_sections_unfolded = [ "Transform" ]
-
-[node name="HangarArchWithColumns027" type="Spatial" parent="MainHangarsGrounds" index="46"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9571, 4.96265, -34.3156 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns027" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns028" type="Spatial" parent="MainHangarsGrounds" index="47"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9571, 4.96265, -31.4396 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns028" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns029" type="Spatial" parent="MainHangarsGrounds" index="48"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9571, 4.96265, -28.5634 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns029" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns030" type="Spatial" parent="MainHangarsGrounds" index="49"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9571, 4.96265, -25.6874 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns030" index="0" instance=ExtResource( 5 )]
-
-[node name="HangarArchWithColumns031" type="Spatial" parent="MainHangarsGrounds" index="50"]
-
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 31.957, 4.96289, -22.8113 )
-
-[node name="Scene" parent="MainHangarsGrounds/HangarArchWithColumns031" index="0" instance=ExtResource( 5 )]
-
-[node name="MainHangar1" type="MeshInstance" parent="MainHangarsGrounds" index="51"]
+[node name="MainHangar1" type="MeshInstance" parent="MainHangarsGrounds" index="9"]
 
 transform = Transform( -1, 1.58151e-06, 1.1531e-07, -1.58151e-06, -1, 1.12994e-13, 1.1531e-07, -6.93692e-14, 1, 11.4131, 3.79956, -43.1472 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 4 )
+skeleton = NodePath("..")
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+
+[node name="MainHangar2" type="MeshInstance" parent="MainHangarsGrounds" index="10"]
+
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 31.9473, 0.913086, -22.5842 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+
+[node name="MainHangar3" type="MeshInstance" parent="MainHangarsGrounds" index="11"]
+
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 11.4214, 0.912964, -2.17212 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -362,11 +147,10 @@ material/0 = null
 material/1 = null
 material/2 = null
 material/3 = null
-material/4 = null
 
-[node name="MainHangar2" type="MeshInstance" parent="MainHangarsGrounds" index="52"]
+[node name="MainHangar4" type="MeshInstance" parent="MainHangarsGrounds" index="12"]
 
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 31.9473, 0.913086, -22.5842 )
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 32.063, -1.66394, -2.19312 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -382,44 +166,362 @@ material/0 = null
 material/1 = null
 material/2 = null
 material/3 = null
-material/4 = null
 
-[node name="MainHangar3" type="MeshInstance" parent="MainHangarsGrounds" index="53"]
+[node name="Set_HangarArchWithColumns" type="Spatial" parent="." index="1" groups=[
+"interior",
+]]
 
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 11.4214, 0.912964, -2.17212 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 8 )
-skeleton = NodePath("..")
-material/0 = null
-material/1 = null
-material/2 = null
-material/3 = null
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9571, 4.96265, -28.5634 )
 
-[node name="MainHangar4" type="MeshInstance" parent="MainHangarsGrounds" index="54"]
+[node name="HangarArchWithColumns" type="Spatial" parent="Set_HangarArchWithColumns" index="0"]
 
-transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 32.063, -1.66394, -2.19312 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 9 )
-skeleton = NodePath("..")
-material/0 = null
-material/1 = null
-material/2 = null
-material/3 = null
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, -20.5396, -0.0490799, 26.2663 )
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns001" type="Spatial" parent="Set_HangarArchWithColumns" index="1"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 0.100498, -2.59827, 26.2665 )
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns001" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns002" type="Spatial" parent="Set_HangarArchWithColumns" index="2"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, -20.544, 2.89355, -14.3807 )
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns002" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns003" type="Spatial" parent="Set_HangarArchWithColumns" index="3"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, -9.91821e-05, 0.000240326, -14.3807 )
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns003" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns004" type="Spatial" parent="Set_HangarArchWithColumns" index="4"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, -20.5396, -0.0490799, 23.3757 )
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns004" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns005" type="Spatial" parent="Set_HangarArchWithColumns" index="5"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, -20.5396, -0.0490799, 20.4855 )
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns005" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns006" type="Spatial" parent="Set_HangarArchWithColumns" index="6"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, -20.5396, -0.0490799, 17.5951 )
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns006" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns007" type="Spatial" parent="Set_HangarArchWithColumns" index="7"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, -20.5396, -0.0490799, 14.7048 )
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns007" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns008" type="Spatial" parent="Set_HangarArchWithColumns" index="8"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, -20.5396, -0.0490799, 11.8146 )
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns008" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns009" type="Spatial" parent="Set_HangarArchWithColumns" index="9"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, -20.5396, -0.0490799, 8.9242 )
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns009" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns010" type="Spatial" parent="Set_HangarArchWithColumns" index="10"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, -20.5396, -0.0490799, 6.0339 )
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns010" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns011" type="Spatial" parent="Set_HangarArchWithColumns" index="11"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 0.100498, -2.59827, 23.3759 )
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns011" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns012" type="Spatial" parent="Set_HangarArchWithColumns" index="12"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 0.100498, -2.59827, 20.4858 )
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns012" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns013" type="Spatial" parent="Set_HangarArchWithColumns" index="13"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 0.100498, -2.59827, 17.5954 )
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns013" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns014" type="Spatial" parent="Set_HangarArchWithColumns" index="14"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 0.100498, -2.59827, 14.7052 )
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns014" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns015" type="Spatial" parent="Set_HangarArchWithColumns" index="15"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 0.100498, -2.59827, 11.8149 )
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns015" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns016" type="Spatial" parent="Set_HangarArchWithColumns" index="16"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 0.100498, -2.59827, 8.9245 )
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns016" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns017" type="Spatial" parent="Set_HangarArchWithColumns" index="17"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 0.100498, -2.59827, 6.0341 )
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns017" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns018" type="Spatial" parent="Set_HangarArchWithColumns" index="18"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, -20.544, 2.89355, -11.5045 )
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns018" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns019" type="Spatial" parent="Set_HangarArchWithColumns" index="19"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5439, 2.89343, -8.6282 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns019" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns020" type="Spatial" parent="Set_HangarArchWithColumns" index="20"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5439, 2.89343, -5.7522 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns020" index="0" instance=ExtResource( 8 )]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="HangarArchWithColumns021" type="Spatial" parent="Set_HangarArchWithColumns" index="21"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5439, 2.89343, -2.8762 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns021" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns022" type="Spatial" parent="Set_HangarArchWithColumns" index="22"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5439, 2.89343, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns022" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns023" type="Spatial" parent="Set_HangarArchWithColumns" index="23"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, -20.544, 2.89355, 2.8759 )
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns023" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns024" type="Spatial" parent="Set_HangarArchWithColumns" index="24"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, -20.544, 2.89355, 5.7521 )
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns024" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns025" type="Spatial" parent="Set_HangarArchWithColumns" index="25"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, -9.91821e-05, 0.000240326, -11.5045 )
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns025" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns026" type="Spatial" parent="Set_HangarArchWithColumns" index="26"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.6282 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns026" index="0" instance=ExtResource( 8 )]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="HangarArchWithColumns027" type="Spatial" parent="Set_HangarArchWithColumns" index="27"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.7522 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns027" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns028" type="Spatial" parent="Set_HangarArchWithColumns" index="28"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.8762 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns028" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns029" type="Spatial" parent="Set_HangarArchWithColumns" index="29"]
+
+editor/display_folded = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns029" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns030" type="Spatial" parent="Set_HangarArchWithColumns" index="30"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.876 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns030" index="0" instance=ExtResource( 8 )]
+
+[node name="HangarArchWithColumns031" type="Spatial" parent="Set_HangarArchWithColumns" index="31"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, -9.91821e-05, 0.000240326, 5.7521 )
+
+[node name="Scene" parent="Set_HangarArchWithColumns/HangarArchWithColumns031" index="0" instance=ExtResource( 8 )]
+
+[node name="Set_TowerRadiator" type="Spatial" parent="." index="2" groups=[
+"interior",
+]]
+
+editor/display_folded = true
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 18.445, 9.61182, -25.4333 )
+
+[node name="Empty_TowerRadiator3x" type="Spatial" parent="Set_TowerRadiator" index="0"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.20256e-20, 0, -1.20255e-20, 1, 0, 0, 0, 1, 32.2114, -0.0491381, 19.9998 )
+
+[node name="Scene" parent="Set_TowerRadiator/Empty_TowerRadiator3x" index="0" instance=ExtResource( 9 )]
+
+[node name="Empty_TowerRadiator3x001" type="Spatial" parent="Set_TowerRadiator" index="1"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.20256e-20, 0, -1.20255e-20, 1, 0, 0, 0, 1, 31.4755, -0.0491371, 19.9998 )
+
+[node name="Scene" parent="Set_TowerRadiator/Empty_TowerRadiator3x001" index="0" instance=ExtResource( 9 )]
+
+[node name="Empty_TowerRadiator3x002" type="Spatial" parent="Set_TowerRadiator" index="2"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.20256e-20, 0, -1.20255e-20, 1, 0, 0, 0, 1, 30.7402, -0.0491352, 19.9998 )
+
+[node name="Scene" parent="Set_TowerRadiator/Empty_TowerRadiator3x002" index="0" instance=ExtResource( 9 )]
+
+[node name="Empty_TowerRadiator3x003" type="Spatial" parent="Set_TowerRadiator" index="3"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.20256e-20, 0, -1.20255e-20, 1, 0, 0, 0, 1, 30.0048, -0.0491343, 19.9998 )
+
+[node name="Scene" parent="Set_TowerRadiator/Empty_TowerRadiator3x003" index="0" instance=ExtResource( 9 )]
+
+[node name="Empty_TowerRadiator3x004" type="Spatial" parent="Set_TowerRadiator" index="4"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.20256e-20, 0, -1.20255e-20, 1, 0, 0, 0, 1, 0, 0, 2.19545e-07 )
+
+[node name="Scene" parent="Set_TowerRadiator/Empty_TowerRadiator3x004" index="0" instance=ExtResource( 9 )]
+
+[node name="Empty_TowerRadiator3x005" type="Spatial" parent="Set_TowerRadiator" index="5"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.20256e-20, 0, -1.20255e-20, 1, 0, 0, 0, 1, -0.808599, 0.280032, 1.26306e-07 )
+
+[node name="Scene" parent="Set_TowerRadiator/Empty_TowerRadiator3x005" index="0" instance=ExtResource( 9 )]
+
+[node name="Empty_TowerRadiator3x006" type="Spatial" parent="Set_TowerRadiator" index="6"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.20256e-20, 0, -1.20255e-20, 1, 0, 0, 0, 1, -1.6451, 0.481583, 2.98489e-08 )
+
+[node name="Scene" parent="Set_TowerRadiator/Empty_TowerRadiator3x006" index="0" instance=ExtResource( 9 )]
+
+[node name="Empty_TowerRadiator3x007" type="Spatial" parent="Set_TowerRadiator" index="7"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.20256e-20, 0, -1.20255e-20, 1, 0, 0, 0, 1, -12.4615, 0.481603, -1.21739e-06 )
+
+[node name="Scene" parent="Set_TowerRadiator/Empty_TowerRadiator3x007" index="0" instance=ExtResource( 9 )]
+
+[node name="Empty_TowerRadiator3x008" type="Spatial" parent="Set_TowerRadiator" index="8"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.20256e-20, 0, -1.20255e-20, 1, 0, 0, 0, 1, -13.2984, 0.280054, -1.31389e-06 )
+
+[node name="Scene" parent="Set_TowerRadiator/Empty_TowerRadiator3x008" index="0" instance=ExtResource( 9 )]
+
+[node name="Empty_TowerRadiator3x009" type="Spatial" parent="Set_TowerRadiator" index="9"]
+
+editor/display_folded = true
+transform = Transform( 1, -1.20256e-20, 0, -1.20255e-20, 1, 0, 0, 0, 1, -14.1065, 2.57492e-05, -1.40707e-06 )
+
+[node name="Scene" parent="Set_TowerRadiator/Empty_TowerRadiator3x009" index="0" instance=ExtResource( 9 )]
+
+[node name="Triggers" type="Spatial" parent="." index="3"]
+
+transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 18.445, 9.61182, -25.4333 )
+
+[node name="Area" type="Area" parent="Triggers" index="0"]
+
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+script = ExtResource( 10 )
+RootNode = NodePath("../..")
+showhide = "interior"
+hideshow = "exterior"
+bygroup = "player"
+
+[node name="CollisionShape" type="CollisionShape" parent="Triggers/Area" index="0"]
+
+shape = SubResource( 1 )
+disabled = false
 
 

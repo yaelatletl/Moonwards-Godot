@@ -8,11 +8,11 @@
 [ext_resource path="res://scenes/meshes/GalleriesOuterSurface__LT-Large-pole_LightTubeLarge-DishPivot_LT-Large-Dish.mesh" type="ArrayMesh" id=6]
 [ext_resource path="res://scenes/meshes/GalleriesOuterSurface__LT-Large-pole_LightTubeLarge-DishPivot_LT-Large=LIghtInlet.mesh" type="ArrayMesh" id=7]
 [ext_resource path="res://scenes/meshes/GalleriesOuterSurface__OverlayLowerGalleries.mesh" type="ArrayMesh" id=8]
-[ext_resource path="res://model_assets/LightTube_Large.tscn" type="PackedScene" id=9]
-[ext_resource path="res://model_assets/LightTube_Setof3.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/meshes/GalleriesOuterSurface__OverlayLowerGalleries_OverlayFirstGallery.mesh" type="ArrayMesh" id=11]
-[ext_resource path="res://scenes/meshes/GalleriesOuterSurface__OverlayLowerGalleries_OverlayUpperGallery.mesh" type="ArrayMesh" id=12]
-[ext_resource path="res://model_assets/BoatRadiator_70Scale.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/meshes/GalleriesOuterSurface__OverlayLowerGalleries_OverlayFirstGallery.mesh" type="ArrayMesh" id=9]
+[ext_resource path="res://scenes/meshes/GalleriesOuterSurface__OverlayLowerGalleries_OverlayUpperGallery.mesh" type="ArrayMesh" id=10]
+[ext_resource path="res://model_assets/BoatRadiator_70Scale.tscn" type="PackedScene" id=11]
+[ext_resource path="res://model_assets/LightTube_Setof3.tscn" type="PackedScene" id=12]
+[ext_resource path="res://model_assets/LightTube_Large.tscn" type="PackedScene" id=13]
 
 [node name="Scene" type="Spatial" index="0"]
 
@@ -196,401 +196,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "material" ]
 
-[node name="LightTubeLarge" type="Spatial" parent="OverlayLowerGalleries" index="0"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 72.9536, 47.0138, -46.0837 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge" index="0" instance=ExtResource( 9 )]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25256 )
-
-[node name="LightTubeLarge-Setof3" type="Spatial" parent="OverlayLowerGalleries" index="1"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 68.5498, 43.8995, -47.5425 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3" index="0" instance=ExtResource( 10 )]
-
-[node name="LightTubeLarge-Setof3001" type="Spatial" parent="OverlayLowerGalleries" index="2"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64.5318, 41.0912, -48.0713 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3001" index="0" instance=ExtResource( 10 )]
-
-[node name="LightTubeLarge-Setof3002" type="Spatial" parent="OverlayLowerGalleries" index="3"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.6534, 38.053, -48.572 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3002" index="0" instance=ExtResource( 10 )]
-
-[node name="LightTubeLarge-Setof3003" type="Spatial" parent="OverlayLowerGalleries" index="4"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 56.8706, 34.8215, -49.0574 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3003" index="0" instance=ExtResource( 10 )]
-
-[node name="LightTubeLarge-Setof3004" type="Spatial" parent="OverlayLowerGalleries" index="5"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.0269, 31.6803, -49.553 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3004" index="0" instance=ExtResource( 10 )]
-
-[node name="LightTubeLarge-Setof3005" type="Spatial" parent="OverlayLowerGalleries" index="6"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49.1885, 28.394, -50.0593 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3005" index="0" instance=ExtResource( 10 )]
-
-[node name="LightTubeLarge-Setof3006" type="Spatial" parent="OverlayLowerGalleries" index="7"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.4292, 25.2211, -50.5481 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3006" index="0" instance=ExtResource( 10 )]
-
-[node name="LightTubeLarge-Setof3007" type="Spatial" parent="OverlayLowerGalleries" index="8"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.4346, 21.7819, -51.0586 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3007" index="0" instance=ExtResource( 10 )]
-
-[node name="LightTubeLarge-Setof3008" type="Spatial" parent="OverlayLowerGalleries" index="9"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.524, 18.5352, -51.5679 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3008" index="0" instance=ExtResource( 10 )]
-
-[node name="LightTubeLarge-Setof3009" type="Spatial" parent="OverlayLowerGalleries" index="10"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.6914, 15.2159, -52.073 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3009" index="0" instance=ExtResource( 10 )]
-
-[node name="LightTubeLarge-Setof3010" type="Spatial" parent="OverlayLowerGalleries" index="11"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8501, 12.1139, -52.5623 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3010" index="0" instance=ExtResource( 10 )]
-
-[node name="LightTubeLarge-Setof3011" type="Spatial" parent="OverlayLowerGalleries" index="12"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2808, 8.60558, -53.0264 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3011" index="0" instance=ExtResource( 10 )]
-
-[node name="LightTubeLarge-Setof3012" type="Spatial" parent="OverlayLowerGalleries" index="13"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5474, 4.90576, -53.5181 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3012" index="0" instance=ExtResource( 10 )]
-
-[node name="LightTubeLarge-Setof3013" type="Spatial" parent="OverlayLowerGalleries" index="14"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8604, 1.35192, -53.9834 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3013" index="0" instance=ExtResource( 10 )]
-
-[node name="LightTubeLarge-Setof3014" type="Spatial" parent="OverlayLowerGalleries" index="15"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1704, -2.25086, -54.4626 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3014" index="0" instance=ExtResource( 10 )]
-
-[node name="LightTubeLarge-Setof3015" type="Spatial" parent="OverlayLowerGalleries" index="16"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5249, -5.86426, -54.9355 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3015" index="0" instance=ExtResource( 10 )]
-
-[node name="LightTubeLarge-Setof3016" type="Spatial" parent="OverlayLowerGalleries" index="17"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.16702, -9.12733, -55.3684 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge-Setof3016" index="0" instance=ExtResource( 10 )]
-
-[node name="LightTubeLarge001" type="Spatial" parent="OverlayLowerGalleries" index="18"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 77.2808, 46.4445, -43.3208 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge001" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge002" type="Spatial" parent="OverlayLowerGalleries" index="19"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 73.1109, 47.0135, -47.6592 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge002" index="0" instance=ExtResource( 9 )]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.195477 )
-
-[node name="LightTubeLarge003" type="Spatial" parent="OverlayLowerGalleries" index="20"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 73.8814, 47.2853, -46.9292 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge003" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge004" type="Spatial" parent="OverlayLowerGalleries" index="21"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 75.0264, 45.1146, -43.679 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge004" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge005" type="Spatial" parent="OverlayLowerGalleries" index="22"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 72.8941, 43.7274, -43.9233 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge005" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge006" type="Spatial" parent="OverlayLowerGalleries" index="23"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 70.5464, 42.411, -44.2402 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge006" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge007" type="Spatial" parent="OverlayLowerGalleries" index="24"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 68.2461, 40.7624, -44.5571 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge007" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge008" type="Spatial" parent="OverlayLowerGalleries" index="25"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 66.0279, 39.4524, -44.9211 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge008" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge009" type="Spatial" parent="OverlayLowerGalleries" index="26"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 63.7276, 37.4449, -45.2263 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge009" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge010" type="Spatial" parent="OverlayLowerGalleries" index="27"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 61.5201, 35.5046, -45.4231 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge010" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge011" type="Spatial" parent="OverlayLowerGalleries" index="28"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 59.3096, 33.3652, -45.6931 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge011" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge012" type="Spatial" parent="OverlayLowerGalleries" index="29"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 56.9971, 31.6256, -45.9866 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge012" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge013" type="Spatial" parent="OverlayLowerGalleries" index="30"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 54.5679, 29.4014, -46.3738 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge013" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge014" type="Spatial" parent="OverlayLowerGalleries" index="31"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 52.3379, 27.7031, -46.679 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge014" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge015" type="Spatial" parent="OverlayLowerGalleries" index="32"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 50.1783, 26.0122, -47.0547 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge015" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge016" type="Spatial" parent="OverlayLowerGalleries" index="33"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 48.3296, 25.1168, -47.2874 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge016" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge017" type="Spatial" parent="OverlayLowerGalleries" index="34"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80.7816, 48.7421, -48.1981 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge017" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge018" type="Spatial" parent="OverlayLowerGalleries" index="35"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.1057, 48.7421, -48.0116 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge018" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge020" type="Spatial" parent="OverlayLowerGalleries" index="36"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 44.9834, 22.2798, -47.8828 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge020" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge021" type="Spatial" parent="OverlayLowerGalleries" index="37"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 43.021, 20.317, -48.1443 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge021" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge022" type="Spatial" parent="OverlayLowerGalleries" index="38"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 40.6983, 18.5991, -48.5205 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge022" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge023" type="Spatial" parent="OverlayLowerGalleries" index="39"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 38.2779, 16.6722, -48.8313 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge023" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge024" type="Spatial" parent="OverlayLowerGalleries" index="40"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 36.0293, 14.599, -49.0903 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge024" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge025" type="Spatial" parent="OverlayLowerGalleries" index="41"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 33.9566, 12.5336, -49.2739 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge025" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge026" type="Spatial" parent="OverlayLowerGalleries" index="42"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 31.8472, 10.8473, -49.6453 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge026" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge027" type="Spatial" parent="OverlayLowerGalleries" index="43"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 29.7325, 9.4508, -49.958 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge027" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge028" type="Spatial" parent="OverlayLowerGalleries" index="44"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 27.7779, 6.82446, -50.1902 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge028" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge029" type="Spatial" parent="OverlayLowerGalleries" index="45"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 25.6787, 4.98937, -50.4219 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge029" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge030" type="Spatial" parent="OverlayLowerGalleries" index="46"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 23.648, 2.71386, -50.6262 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge030" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge031" type="Spatial" parent="OverlayLowerGalleries" index="47"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 21.5904, 0.715203, -50.8306 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge031" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge032" type="Spatial" parent="OverlayLowerGalleries" index="48"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 19.4776, -1.19031, -51.1169 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge032" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge033" type="Spatial" parent="OverlayLowerGalleries" index="49"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 17.4195, -3.35059, -51.3621 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge033" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge034" type="Spatial" parent="OverlayLowerGalleries" index="50"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 15.2251, -5.13685, -51.6892 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge034" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge035" type="Spatial" parent="OverlayLowerGalleries" index="51"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 13.0992, -7.51246, -51.989 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge035" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge036" type="Spatial" parent="OverlayLowerGalleries" index="52"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 10.8506, -9.79237, -52.2207 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge036" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge037" type="Spatial" parent="OverlayLowerGalleries" index="53"]
-
-transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 8.63284, -11.7755, -52.5349 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge037" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge038" type="Spatial" parent="OverlayLowerGalleries" index="54"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.7193, 7.05346, -45.3972 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge038" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge040" type="Spatial" parent="OverlayLowerGalleries" index="55"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.9497, 11.2965, -59.2056 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge040" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge041" type="Spatial" parent="OverlayLowerGalleries" index="56"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.3701, 11.3202, -62.2722 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge041" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge042" type="Spatial" parent="OverlayLowerGalleries" index="57"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 67.9268, 40.6782, -57.5125 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge042" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge043" type="Spatial" parent="OverlayLowerGalleries" index="58"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 67.5064, 40.6545, -54.446 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge043" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge044" type="Spatial" parent="OverlayLowerGalleries" index="59"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.20365, -10.9102, -60.3069 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge044" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge045" type="Spatial" parent="OverlayLowerGalleries" index="60"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.73392, -10.9098, -63.501 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge045" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge046" type="Spatial" parent="OverlayLowerGalleries" index="61"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.26419, -10.9094, -66.7192 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge046" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge047" type="Spatial" parent="OverlayLowerGalleries" index="62"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 78.1035, 48.7938, -44.0469 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge047" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge048" type="Spatial" parent="OverlayLowerGalleries" index="63"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80.4532, 48.7938, -43.8931 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge048" index="0" instance=ExtResource( 9 )]
-
-[node name="LightTubeLarge052" type="Spatial" parent="OverlayLowerGalleries" index="64"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 78.5562, 48.8076, -48.3567 )
-
-[node name="Scene" parent="OverlayLowerGalleries/LightTubeLarge052" index="0" instance=ExtResource( 9 )]
-
-[node name="OverlayFirstGallery" type="MeshInstance" parent="OverlayLowerGalleries" index="65"]
+[node name="OverlayFirstGallery" type="MeshInstance" parent="OverlayLowerGalleries" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.6949, 47.853, -46.7422 )
 layers = 1
@@ -602,11 +208,11 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 11 )
+mesh = ExtResource( 9 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="OverlayUpperGallery" type="MeshInstance" parent="OverlayLowerGalleries" index="66"]
+[node name="OverlayUpperGallery" type="MeshInstance" parent="OverlayLowerGalleries" index="1"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 59.0679, 42.7408, -2.55615 )
 layers = 1
@@ -618,38 +224,505 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 12 )
+mesh = ExtResource( 10 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="BoatRadiator_70Scale-001" parent="OverlayLowerGalleries" index="67" instance=ExtResource( 13 )]
+[node name="BoatRadiator_70Scale-001" parent="OverlayLowerGalleries" index="2" instance=ExtResource( 11 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 66.447, 45.4481, -1.265 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="BoatRadiator_70Scale-005" parent="OverlayLowerGalleries" index="68" instance=ExtResource( 13 )]
+[node name="BoatRadiator_70Scale-005" parent="OverlayLowerGalleries" index="3" instance=ExtResource( 11 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 77.2936, 50.0129, -46.8188 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="BoatRadiator_70Scale-006" parent="OverlayLowerGalleries" index="69" instance=ExtResource( 13 )]
+[node name="BoatRadiator_70Scale-006" parent="OverlayLowerGalleries" index="4" instance=ExtResource( 11 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.937, 50.0129, -46.4044 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="BoatRadiator_70Scale-002" parent="OverlayLowerGalleries" index="70" instance=ExtResource( 13 )]
+[node name="BoatRadiator_70Scale-002" parent="OverlayLowerGalleries" index="5" instance=ExtResource( 11 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.2688, 45.4481, -2.02082 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="BoatRadiator_70Scale-003" parent="OverlayLowerGalleries" index="71" instance=ExtResource( 13 )]
+[node name="BoatRadiator_70Scale-003" parent="OverlayLowerGalleries" index="6" instance=ExtResource( 11 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61.3692, 50.2651, 33.9152 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="BoatRadiator_70Scale-004" parent="OverlayLowerGalleries" index="72" instance=ExtResource( 13 )]
+[node name="BoatRadiator_70Scale-004" parent="OverlayLowerGalleries" index="7" instance=ExtResource( 11 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 56.8417, 50.2651, 32.2837 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="Set_SetOf3" type="Spatial" parent="." index="2"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49.1885, 28.4939, -50.0593 )
+
+[node name="LightTubeLarge-Setof3" type="Spatial" parent="Set_SetOf3" index="0"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3613, 15.5055, 2.5168 )
+
+[node name="Scene" parent="Set_SetOf3/LightTubeLarge-Setof3" index="0" instance=ExtResource( 12 )]
+
+[node name="LightTubeLarge-Setof3001" type="Spatial" parent="Set_SetOf3" index="1"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3433, 12.6972, 1.988 )
+
+[node name="Scene" parent="Set_SetOf3/LightTubeLarge-Setof3001" index="0" instance=ExtResource( 12 )]
+
+[node name="LightTubeLarge-Setof3002" type="Spatial" parent="Set_SetOf3" index="2"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4649, 9.659, 1.4873 )
+
+[node name="Scene" parent="Set_SetOf3/LightTubeLarge-Setof3002" index="0" instance=ExtResource( 12 )]
+
+[node name="LightTubeLarge-Setof3003" type="Spatial" parent="Set_SetOf3" index="3"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6821, 6.4275, 1.0019 )
+
+[node name="Scene" parent="Set_SetOf3/LightTubeLarge-Setof3003" index="0" instance=ExtResource( 12 )]
+
+[node name="LightTubeLarge-Setof3004" type="Spatial" parent="Set_SetOf3" index="4"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8384, 3.2863, 0.506298 )
+
+[node name="Scene" parent="Set_SetOf3/LightTubeLarge-Setof3004" index="0" instance=ExtResource( 12 )]
+
+[node name="LightTubeLarge-Setof3005" type="Spatial" parent="Set_SetOf3" index="5"]
+
+editor/display_folded = true
+
+[node name="Scene" parent="Set_SetOf3/LightTubeLarge-Setof3005" index="0" instance=ExtResource( 12 )]
+
+[node name="LightTubeLarge-Setof3006" type="Spatial" parent="Set_SetOf3" index="6"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7593, -3.1729, -0.4888 )
+
+[node name="Scene" parent="Set_SetOf3/LightTubeLarge-Setof3006" index="0" instance=ExtResource( 12 )]
+
+[node name="LightTubeLarge-Setof3007" type="Spatial" parent="Set_SetOf3" index="7"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7539, -6.6121, -0.999302 )
+
+[node name="Scene" parent="Set_SetOf3/LightTubeLarge-Setof3007" index="0" instance=ExtResource( 12 )]
+
+[node name="LightTubeLarge-Setof3008" type="Spatial" parent="Set_SetOf3" index="8"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6645, -9.8588, -1.5086 )
+
+[node name="Scene" parent="Set_SetOf3/LightTubeLarge-Setof3008" index="0" instance=ExtResource( 12 )]
+
+[node name="LightTubeLarge-Setof3009" type="Spatial" parent="Set_SetOf3" index="9"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4971, -13.1781, -2.0137 )
+
+[node name="Scene" parent="Set_SetOf3/LightTubeLarge-Setof3009" index="0" instance=ExtResource( 12 )]
+
+[node name="LightTubeLarge-Setof3010" type="Spatial" parent="Set_SetOf3" index="10"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3384, -16.2801, -2.503 )
+
+[node name="Scene" parent="Set_SetOf3/LightTubeLarge-Setof3010" index="0" instance=ExtResource( 12 )]
+
+[node name="LightTubeLarge-Setof3011" type="Spatial" parent="Set_SetOf3" index="11"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9077, -19.7884, -2.9671 )
+
+[node name="Scene" parent="Set_SetOf3/LightTubeLarge-Setof3011" index="0" instance=ExtResource( 12 )]
+
+[node name="LightTubeLarge-Setof3012" type="Spatial" parent="Set_SetOf3" index="12"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6411, -23.4882, -3.4588 )
+
+[node name="Scene" parent="Set_SetOf3/LightTubeLarge-Setof3012" index="0" instance=ExtResource( 12 )]
+
+[node name="LightTubeLarge-Setof3013" type="Spatial" parent="Set_SetOf3" index="13"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3281, -27.0421, -3.9241 )
+
+[node name="Scene" parent="Set_SetOf3/LightTubeLarge-Setof3013" index="0" instance=ExtResource( 12 )]
+
+[node name="LightTubeLarge-Setof3014" type="Spatial" parent="Set_SetOf3" index="14"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.0181, -30.6449, -4.4033 )
+
+[node name="Scene" parent="Set_SetOf3/LightTubeLarge-Setof3014" index="0" instance=ExtResource( 12 )]
+
+[node name="LightTubeLarge-Setof3015" type="Spatial" parent="Set_SetOf3" index="15"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.6636, -34.2583, -4.8762 )
+
+[node name="Scene" parent="Set_SetOf3/LightTubeLarge-Setof3015" index="0" instance=ExtResource( 12 )]
+
+[node name="LightTubeLarge-Setof3016" type="Spatial" parent="Set_SetOf3" index="16"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41.0215, -37.5213, -5.3091 )
+
+[node name="Scene" parent="Set_SetOf3/LightTubeLarge-Setof3016" index="0" instance=ExtResource( 12 )]
+
+[node name="Set_LightTubeLarge" type="Spatial" parent="." index="3"]
+
+editor/display_folded = true
+transform = Transform( 1, 3.25841e-07, 0, -3.25841e-07, 1, 0, 0, 0, -1, 40.6983, 18.699, -48.5205 )
+
+[node name="LightTubeLarge001" type="Spatial" parent="Set_LightTubeLarge" index="0"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5825, 27.8454, -5.1997 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge001" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge002" type="Spatial" parent="Set_LightTubeLarge" index="1"]
+
+editor/display_folded = true
+transform = Transform( 1, -3.25841e-07, 0, 3.25841e-07, 1, 0, 0, 0, -1, 32.4126, 28.4144, -0.861301 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge002" index="0" instance=ExtResource( 13 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.195477 )
+
+[node name="LightTubeLarge003" type="Spatial" parent="Set_LightTubeLarge" index="2"]
+
+editor/display_folded = true
+transform = Transform( 1, -3.25841e-07, 0, 3.25841e-07, 1, 0, 0, 0, -1, 33.1831, 28.6862, -1.5913 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge003" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge004" type="Spatial" parent="Set_LightTubeLarge" index="3"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.3281, 26.5155, -4.8415 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge004" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge005" type="Spatial" parent="Set_LightTubeLarge" index="4"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1958, 25.1283, -4.5972 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge005" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge006" type="Spatial" parent="Set_LightTubeLarge" index="5"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8481, 23.8119, -4.2803 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge006" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge007" type="Spatial" parent="Set_LightTubeLarge" index="6"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5478, 22.1633, -3.9634 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge007" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge008" type="Spatial" parent="Set_LightTubeLarge" index="7"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3296, 20.8533, -3.5994 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge008" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge009" type="Spatial" parent="Set_LightTubeLarge" index="8"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.0293, 18.8458, -3.2942 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge009" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge010" type="Spatial" parent="Set_LightTubeLarge" index="9"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.8218, 16.9055, -3.0974 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge010" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge011" type="Spatial" parent="Set_LightTubeLarge" index="10"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6113, 14.7661, -2.8274 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge011" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge012" type="Spatial" parent="Set_LightTubeLarge" index="11"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2988, 13.0265, -2.5339 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge012" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge013" type="Spatial" parent="Set_LightTubeLarge" index="12"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8696, 10.8023, -2.1467 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge013" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge014" type="Spatial" parent="Set_LightTubeLarge" index="13"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6396, 9.104, -1.8415 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge014" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge015" type="Spatial" parent="Set_LightTubeLarge" index="14"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.48, 7.4131, -1.4658 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge015" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge016" type="Spatial" parent="Set_LightTubeLarge" index="15"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6313, 6.5177, -1.2331 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge016" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge017" type="Spatial" parent="Set_LightTubeLarge" index="16"]
+
+editor/display_folded = true
+transform = Transform( 1, -3.25841e-07, 0, 3.25841e-07, 1, 0, 0, 0, -1, 40.0833, 30.143, -0.322399 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge017" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge018" type="Spatial" parent="Set_LightTubeLarge" index="17"]
+
+editor/display_folded = true
+transform = Transform( 1, -3.25841e-07, 0, 3.25841e-07, 1, 0, 0, 0, -1, 42.4074, 30.143, -0.5089 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge018" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge020" type="Spatial" parent="Set_LightTubeLarge" index="18"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2851, 3.6807, -0.637699 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge020" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge021" type="Spatial" parent="Set_LightTubeLarge" index="19"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3227, 1.7179, -0.376202 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge021" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge022" type="Spatial" parent="Set_LightTubeLarge" index="20"]
+
+editor/display_folded = true
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge022" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge023" type="Spatial" parent="Set_LightTubeLarge" index="21"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.42039, -1.9269, 0.310799 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge023" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge024" type="Spatial" parent="Set_LightTubeLarge" index="22"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.66899, -4.0001, 0.569801 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge024" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge025" type="Spatial" parent="Set_LightTubeLarge" index="23"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7417, -6.0655, 0.753399 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge025" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge026" type="Spatial" parent="Set_LightTubeLarge" index="24"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.8511, -7.7518, 1.1248 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge026" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge027" type="Spatial" parent="Set_LightTubeLarge" index="25"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9658, -9.1483, 1.4375 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge027" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge028" type="Spatial" parent="Set_LightTubeLarge" index="26"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9204, -11.7746, 1.6697 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge028" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge029" type="Spatial" parent="Set_LightTubeLarge" index="27"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0196, -13.6097, 1.9014 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge029" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge030" type="Spatial" parent="Set_LightTubeLarge" index="28"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0503, -15.8852, 2.1057 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge030" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge031" type="Spatial" parent="Set_LightTubeLarge" index="29"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1079, -17.8839, 2.3101 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge031" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge032" type="Spatial" parent="Set_LightTubeLarge" index="30"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.2207, -19.7894, 2.5964 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge032" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge033" type="Spatial" parent="Set_LightTubeLarge" index="31"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2788, -21.9497, 2.8416 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge033" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge034" type="Spatial" parent="Set_LightTubeLarge" index="32"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4732, -23.736, 3.1687 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge034" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge035" type="Spatial" parent="Set_LightTubeLarge" index="33"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5991, -26.1116, 3.4685 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge035" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge036" type="Spatial" parent="Set_LightTubeLarge" index="34"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.8477, -28.3915, 3.7002 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge036" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge037" type="Spatial" parent="Set_LightTubeLarge" index="35"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.0654, -30.3746, 4.0144 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge037" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge038" type="Spatial" parent="Set_LightTubeLarge" index="36"]
+
+editor/display_folded = true
+transform = Transform( 1, -3.25841e-07, 0, 3.25841e-07, 1, 0, 0, 0, -1, -13.979, -11.5456, -3.1233 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge038" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge040" type="Spatial" parent="Set_LightTubeLarge" index="37"]
+
+editor/display_folded = true
+transform = Transform( 1, -3.25841e-07, 0, 3.25841e-07, 1, 0, 0, 0, -1, -6.7486, -7.3026, 10.6851 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge040" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge041" type="Spatial" parent="Set_LightTubeLarge" index="38"]
+
+editor/display_folded = true
+transform = Transform( 1, -3.25841e-07, 0, 3.25841e-07, 1, 0, 0, 0, -1, -6.3282, -7.2789, 13.7517 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge041" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge042" type="Spatial" parent="Set_LightTubeLarge" index="39"]
+
+editor/display_folded = true
+transform = Transform( 1, -3.25841e-07, 0, 3.25841e-07, 1, 0, 0, 0, -1, 27.2285, 22.0791, 8.992 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge042" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge043" type="Spatial" parent="Set_LightTubeLarge" index="40"]
+
+editor/display_folded = true
+transform = Transform( 1, -3.25841e-07, 0, 3.25841e-07, 1, 0, 0, 0, -1, 26.8081, 22.0554, 5.9255 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge043" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge044" type="Spatial" parent="Set_LightTubeLarge" index="41"]
+
+editor/display_folded = true
+transform = Transform( 1, -3.25841e-07, 0, 3.25841e-07, 1, 0, 0, 0, -1, -33.4946, -29.5093, 11.7864 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge044" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge045" type="Spatial" parent="Set_LightTubeLarge" index="42"]
+
+editor/display_folded = true
+transform = Transform( 1, -3.25841e-07, 0, 3.25841e-07, 1, 0, 0, 0, -1, -32.9644, -29.5089, 14.9805 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge045" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge046" type="Spatial" parent="Set_LightTubeLarge" index="43"]
+
+editor/display_folded = true
+transform = Transform( 1, -3.25841e-07, 0, 3.25841e-07, 1, 0, 0, 0, -1, -32.4341, -29.5085, 18.1987 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge046" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge047" type="Spatial" parent="Set_LightTubeLarge" index="44"]
+
+editor/display_folded = true
+transform = Transform( 1, -3.25841e-07, 0, 3.25841e-07, 1, 0, 0, 0, -1, 37.4052, 30.1947, -4.4736 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge047" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge048" type="Spatial" parent="Set_LightTubeLarge" index="45"]
+
+editor/display_folded = true
+transform = Transform( 1, -3.25841e-07, 0, 3.25841e-07, 1, 0, 0, 0, -1, 39.7549, 30.1947, -4.6274 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge048" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge052" type="Spatial" parent="Set_LightTubeLarge" index="46"]
+
+editor/display_folded = true
+transform = Transform( 1, -3.25841e-07, 0, 3.25841e-07, 1, 0, 0, 0, -1, 37.8579, 30.2085, -0.163799 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge052" index="0" instance=ExtResource( 13 )]
+
+[node name="LightTubeLarge" type="Spatial" parent="Set_LightTubeLarge" index="47"]
+
+editor/display_folded = true
+transform = Transform( 1, -3.25841e-07, 0, 3.25841e-07, 1, 0, 0, 0, -1, 32.2553, 28.4147, -2.4368 )
+
+[node name="Scene" parent="Set_LightTubeLarge/LightTubeLarge" index="0" instance=ExtResource( 13 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25256 )
 
 

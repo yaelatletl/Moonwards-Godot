@@ -1,16 +1,25 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/meshes/NuclearPlant__NuclearReactorBuilding.mesh" type="ArrayMesh" id=1]
-[ext_resource path="res://model_assets/TowerRadiator.tscn" type="PackedScene" id=2]
-[ext_resource path="res://model_assets/StirlingFreePiston_Array.tscn" type="PackedScene" id=3]
-[ext_resource path="res://model_assets/NuclearCore.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/meshes/NuclearPlant__NuclearReactorBuilding_NuclearPlant-RegolithOverlay.mesh" type="ArrayMesh" id=5]
-[ext_resource path="res://scenes/meshes/NuclearPlant__NuclearReactorBuilding_StirlingColdEnd-Large.mesh" type="ArrayMesh" id=6]
-[ext_resource path="res://scenes/meshes/NuclearPlant__NuclearReactorBuilding_StirlingColdEnd-Small.mesh" type="ArrayMesh" id=7]
-[ext_resource path="res://scenes/meshes/NuclearPlant__NuclearReactorBuilding_StirlingHotEnd-Small.mesh" type="ArrayMesh" id=8]
-[ext_resource path="res://scenes/meshes/NuclearPlant__NuclearReactorBuilding_StirlingHotEndLarge.mesh" type="ArrayMesh" id=9]
+[ext_resource path="res://scenes/meshes/NuclearPlant__NuclearReactorBuilding_NuclearPlant-RegolithOverlay.mesh" type="ArrayMesh" id=2]
+[ext_resource path="res://scenes/meshes/NuclearPlant__NuclearReactorBuilding_StirlingColdEnd-Large.mesh" type="ArrayMesh" id=3]
+[ext_resource path="res://scenes/meshes/NuclearPlant__NuclearReactorBuilding_StirlingColdEnd-Small.mesh" type="ArrayMesh" id=4]
+[ext_resource path="res://scenes/meshes/NuclearPlant__NuclearReactorBuilding_StirlingHotEnd-Small.mesh" type="ArrayMesh" id=5]
+[ext_resource path="res://scenes/meshes/NuclearPlant__NuclearReactorBuilding_StirlingHotEndLarge.mesh" type="ArrayMesh" id=6]
+[ext_resource path="res://model_assets/StirlingFreePiston_Array.tscn" type="PackedScene" id=7]
+[ext_resource path="res://model_assets/NuclearCore.tscn" type="PackedScene" id=8]
+[ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=9]
+[ext_resource path="res://model_assets/TowerRadiator.tscn" type="PackedScene" id=10]
 
-[node name="Scene" type="Spatial" index="0"]
+[sub_resource type="BoxShape" id=1]
+
+extents = Vector3( 20, 20, 20 )
+
+[sub_resource type="BoxShape" id=2]
+
+extents = Vector3( 60, 60, 60 )
+
+[node name="Scene" type="Spatial"]
 
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
@@ -31,56 +40,57 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="Empty_TowerRadiator" type="Spatial" parent="NuclearReactorBuilding" index="0"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04284, 1.51257, 0.31353 )
-
-[node name="Scene" parent="NuclearReactorBuilding/Empty_TowerRadiator" index="0" instance=ExtResource( 2 )]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0124207, 0.30426, -0.0424805 )
-
-[node name="Empty_TowerRadiator001" type="Spatial" parent="NuclearReactorBuilding" index="1"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.578259, 1.146, -1.69257 )
-
-[node name="Scene" parent="NuclearReactorBuilding/Empty_TowerRadiator001" index="0" instance=ExtResource( 2 )]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0136719, 0.678528, -0.0135498 )
-
-[node name="FreePistonStirlingArray000" type="Spatial" parent="NuclearReactorBuilding" index="2"]
-
-transform = Transform( -6.11959e-09, 0, -0.14, 0, 0.14, 0, 0.14, 0, -6.11959e-09, 0.097969, -0.106445, -1.34319 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Scene" parent="NuclearReactorBuilding/FreePistonStirlingArray000" index="0" instance=ExtResource( 3 )]
-
-[node name="FreePistonStirlingArray001" type="Spatial" parent="NuclearReactorBuilding" index="3"]
-
-transform = Transform( -1.22392e-08, 0, 0.28, 0, 0.28, 0, -0.28, 0, -1.22392e-08, -0.195844, -0.0620117, 0.174135 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Scene" parent="NuclearReactorBuilding/FreePistonStirlingArray001" index="0" instance=ExtResource( 3 )]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2432, 0, 5.96046e-08 )
-
-[node name="NuclearCore" type="Spatial" parent="NuclearReactorBuilding" index="4"]
-
-transform = Transform( -4.37114e-08, 9.31322e-10, 1, 9.31323e-10, 1, -9.31322e-10, -1, 9.31323e-10, -4.37114e-08, 0.000976562, -0.0889893, -0.847168 )
-
-[node name="Scene" parent="NuclearReactorBuilding/NuclearCore" index="0" instance=ExtResource( 4 )]
-
-[node name="NuclearCore2x" type="Spatial" parent="NuclearReactorBuilding" index="5"]
-
-transform = Transform( -8.74228e-08, 1.86265e-09, -2, 1.86265e-09, 2, 1.86265e-09, 2, -1.86265e-09, -8.74228e-08, -0.00244141, -0.0262451, -0.415283 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Scene" parent="NuclearReactorBuilding/NuclearCore2x" index="0" instance=ExtResource( 4 )]
-
-_sections_unfolded = [ "Transform" ]
-
-[node name="NuclearPlant-RegolithOverlay" type="MeshInstance" parent="NuclearReactorBuilding" index="6"]
+[node name="NuclearPlant-RegolithOverlay" type="MeshInstance" parent="." index="1"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2627, -0.338379, -0.451904 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 2 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="StirlingColdEnd-Large" type="MeshInstance" parent="." index="2"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00341797, 0.127319, 0.279541 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 3 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="StirlingColdEnd-Small" type="MeshInstance" parent="." index="3"]
+
+transform = Transform( 1, 9.31322e-10, 0, -9.31322e-10, 1, 0, 0, 0, 1, 0.00146484, -0.0114746, -1.3606 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 4 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="StirlingHotEnd-Small" type="MeshInstance" parent="." index="4"]
+
+transform = Transform( 1, 9.31322e-10, 0, -9.31322e-10, 1, 0, 0, 0, 1, 0.000976562, -0.0321045, -1.31201 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -94,9 +104,9 @@ mesh = ExtResource( 5 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="StirlingColdEnd-Large" type="MeshInstance" parent="NuclearReactorBuilding" index="7"]
+[node name="StirlingHotEndLarge" type="MeshInstance" parent="." index="5"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00341797, 0.127319, 0.279541 )
+transform = Transform( 1, 9.31322e-10, 0, -9.31322e-10, 1, 0, 0, 0, 1, -0.00244141, 0.0928955, 0.183105 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -110,52 +120,133 @@ mesh = ExtResource( 6 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="StirlingColdEnd-Small" type="MeshInstance" parent="NuclearReactorBuilding" index="8"]
+[node name="Interior" type="Spatial" parent="." index="6" groups=[
+"interior",
+]]
 
-transform = Transform( 1, 9.31322e-10, 0, -9.31322e-10, 1, 0, 0, 0, 1, 0.00146484, -0.0114746, -1.3606 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 7 )
-skeleton = NodePath("..")
-material/0 = null
+[node name="FreePistonStirlingArray000" type="Spatial" parent="Interior" index="0"]
 
-[node name="StirlingHotEnd-Small" type="MeshInstance" parent="NuclearReactorBuilding" index="9"]
+editor/display_folded = true
+transform = Transform( -6.11959e-09, 0, -0.14, 0, 0.14, 0, 0.14, 0, -6.11959e-09, 0.097969, -0.106445, -1.34319 )
+_sections_unfolded = [ "Transform" ]
 
-transform = Transform( 1, 9.31322e-10, 0, -9.31322e-10, 1, 0, 0, 0, 1, 0.000976562, -0.0321045, -1.31201 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 8 )
-skeleton = NodePath("..")
-material/0 = null
+[node name="Scene" parent="Interior/FreePistonStirlingArray000" index="0" instance=ExtResource( 7 )]
 
-[node name="StirlingHotEndLarge" type="MeshInstance" parent="NuclearReactorBuilding" index="10"]
+[node name="FreePistonStirlingArray001" type="Spatial" parent="Interior" index="1"]
 
-transform = Transform( 1, 9.31322e-10, 0, -9.31322e-10, 1, 0, 0, 0, 1, -0.00244141, 0.0928955, 0.183105 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 9 )
-skeleton = NodePath("..")
-material/0 = null
+editor/display_folded = true
+transform = Transform( -1.22392e-08, 0, 0.28, 0, 0.28, 0, -0.28, 0, -1.22392e-08, -0.195844, -0.0620117, 0.174135 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Scene" parent="Interior/FreePistonStirlingArray001" index="0" instance=ExtResource( 7 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2432, 0, 5.96046e-08 )
+
+[node name="NuclearCore" type="Spatial" parent="Interior" index="2"]
+
+editor/display_folded = true
+transform = Transform( -4.37114e-08, 9.31322e-10, 1, 9.31323e-10, 1, -9.31322e-10, -1, 9.31323e-10, -4.37114e-08, 0.000976562, -0.0889893, -0.847168 )
+
+[node name="Scene" parent="Interior/NuclearCore" index="0" instance=ExtResource( 8 )]
+
+[node name="NuclearCore2x" type="Spatial" parent="Interior" index="3"]
+
+editor/display_folded = true
+transform = Transform( -8.74228e-08, 1.86265e-09, -2, 1.86265e-09, 2, 1.86265e-09, 2, -1.86265e-09, -8.74228e-08, -0.00244141, -0.0262451, -0.415283 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Scene" parent="Interior/NuclearCore2x" index="0" instance=ExtResource( 8 )]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="Triggers" type="Spatial" parent="." index="7"]
+
+[node name="LodNear" type="Area" parent="Triggers" index="0"]
+
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+script = ExtResource( 9 )
+RootNode = NodePath("../../Interior")
+showhide = "interior"
+hideshow = "exterior"
+bygroup = "player"
+
+[node name="CollisionShape" type="CollisionShape" parent="Triggers/LodNear" index="0"]
+
+shape = SubResource( 1 )
+disabled = false
+
+[node name="LodFar" type="Area" parent="Triggers" index="1"]
+
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+script = ExtResource( 9 )
+RootNode = NodePath("../..")
+showhide = "LodFar"
+hideshow = "exterior"
+bygroup = "player"
+
+[node name="CollisionShape" type="CollisionShape" parent="Triggers/LodFar" index="0"]
+
+shape = SubResource( 2 )
+disabled = false
+
+[node name="Empty_TowerRadiator" type="Spatial" parent="." index="8" groups=[
+"LodFar",
+]]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04284, 1.51257, 0.31353 )
+
+[node name="Scene" parent="Empty_TowerRadiator" index="0" instance=ExtResource( 10 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0124207, 0.30426, -0.0424805 )
+
+[node name="Empty_TowerRadiator001" type="Spatial" parent="." index="9" groups=[
+"LodFar",
+]]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.578259, 1.146, -1.69257 )
+
+[node name="Scene" parent="Empty_TowerRadiator001" index="0" instance=ExtResource( 10 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0136719, 0.678528, -0.0135498 )
 
 
