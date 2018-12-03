@@ -9,7 +9,8 @@ func _on_Run_pressed():
 func _on_Timer_timeout():
 	
 	var loads = SceneToLoad.instance()
-	$ui/loading.add_child(loads)
+	loads.name = "lobby"
+	get_tree().get_root().add_child(loads)
 
 
 func _on_Help_pressed():

@@ -31,6 +31,7 @@ func _player_disconnected(id):
 		if (has_node("/root/world")): # Game is in progress
 			emit_signal("game_error", "Player " + players[id] + " disconnected")
 			end_game()
+			Input.set_mouse_mode(Input.MOUSE_MODE_RELEASED)
 		else: # Game is not in progress
 			# If we are the server, send to the new dude all the already registered players
 			unregister_player(id)
@@ -77,6 +78,7 @@ remote func pre_start_game(spawn_points):
 	get_tree().get_root().add_child(world)
 
 	get_tree().get_root().get_node("lobby").hide()
+	get_tree().get_root().get_node("Spatial/ui").hide()
 
 	var player_scene = load("res://assets/Player/player.tscn")
 

@@ -163,7 +163,7 @@ func _physics_process(delta):
 		if flies:
 			vertical_velocity += dir.y
 		rset("slave_translation", translation)
-		rset("slave_transform", $Yaw.transform)
+		rset("slave_transform", $Model.transform)
 		rset("slave_linear_vel", linear_velocity)
 	else:
 		translation = slave_translation
@@ -309,3 +309,6 @@ func _ready():
 	set_process_input(true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
+	
+func set_player_name(new_name):
+	get_node("label").set_text(new_name)
