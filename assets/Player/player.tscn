@@ -11,7 +11,7 @@
 radius = 0.219818
 height = 1.17055
 
-[node name="KinematicBody" type="KinematicBody" index="0"]
+[node name="KinematicBody" type="KinematicBody"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.866966, 0 )
 input_ray_pickable = true
@@ -162,5 +162,7 @@ lines_skipped = 0
 max_lines_visible = -1
 script = ExtResource( 5 )
 _sections_unfolded = [ "Rect" ]
+
+[node name="TextPoint" type="Position3D" parent="." index="5"]
 
 

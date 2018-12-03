@@ -85,7 +85,7 @@ remote func pre_start_game(spawn_points):
 	for p_id in spawn_points:
 		var spawn_pos = world.get_node("spawn_points/" + str(spawn_points[p_id])).translation
 		var player = player_scene.instance()
-
+		player.flies = true # MUST CHANGE WHEN COLLISIONS ARE DONE
 		player.set_name(str(p_id)) # Use unique ID as node name
 		player.translation=spawn_pos
 		player.set_network_master(p_id) #set unique id as master

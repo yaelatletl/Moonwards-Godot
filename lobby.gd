@@ -71,8 +71,10 @@ func refresh_lobby():
 
 func _on_start_pressed():
 	gamestate.begin_game()
+	hide()
 
 
 func _on_Sinlgeplayer_pressed():
 	gamestate.host_game("Default") #must be changed so the name is coherent between sessions. 
 	gamestate.begin_game()
+	hide()
