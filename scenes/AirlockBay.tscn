@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/meshes/AirlockBay__AirlockNew008_MainColonyAirlocks001.mesh" type="ArrayMesh" id=3]
 [ext_resource path="res://scenes/meshes/AirlockBay__AirlockNew008_MainColonyAirlocksOverlay005.mesh" type="ArrayMesh" id=4]
 
-[node name="Scene" type="Spatial" index="0"]
+[node name="Scene" type="Spatial"]
 
 [node name="AirlockNew008" type="Spatial" parent="." index="0"]
 
@@ -43,31 +43,38 @@ transform = Transform( -1.49012e-08, 0, 0.333333, 0, 0.333333, 0, -0.333333, 0, 
 
 [node name="AirlockNew013" type="Spatial" parent="AirlockNew008" index="5"]
 
-transform = Transform( 1.49012e-08, 2.25001e-15, -0.333333, 5.03319e-08, -0.333333, 0, 0.333333, 5.03319e-08, 1.45705e-08, 0.515137, 0.112793, 3.94482 )
+transform = Transform( -1.45704e-08, -2.20007e-15, -0.333333, -5.03319e-08, 0.333333, 9.35045e-21, -0.333333, -5.03319e-08, 1.45704e-08, 0.515137, 0.112793, 3.94482 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="AirlockNew008/AirlockNew013" index="0" instance=ExtResource( 1 )]
 
+transform = Transform( 1, -2.84217e-14, 0, 2.84217e-14, 1, 0, -2.22045e-16, 0, 1, 0, 0, 1.17435e-08 )
+
 [node name="AirlockNew014" type="Spatial" parent="AirlockNew008" index="6"]
 
-transform = Transform( 1.49012e-08, 2.25001e-15, -0.333333, 5.03319e-08, -0.333333, 0, 0.333333, 5.03319e-08, 1.45705e-08, 0.515137, 0.112793, 2.61279 )
+transform = Transform( -9.40432e-08, -2.46205e-14, -0.333333, -8.72664e-08, 0.333333, 0, -0.333333, -8.72664e-08, 9.40433e-08, 0.515137, 0.112793, 2.61279 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="AirlockNew008/AirlockNew014" index="0" instance=ExtResource( 1 )]
 
 [node name="AirlockNew015" type="Spatial" parent="AirlockNew008" index="7"]
 
-transform = Transform( 1.49012e-08, 2.25001e-15, -0.333333, 5.03319e-08, -0.333333, 0, 0.333333, 5.03319e-08, 1.45705e-08, 0.515136, 0.112793, 1.94613 )
+transform = Transform( -1.45704e-08, -2.20007e-15, -0.333333, -5.03319e-08, 0.333333, 9.35045e-21, -0.333333, -5.03319e-08, 1.45704e-08, 0.515136, 0.112793, 1.94613 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="AirlockNew008/AirlockNew015" index="0" instance=ExtResource( 1 )]
 
 [node name="AirlockNew016" type="Spatial" parent="AirlockNew008" index="8"]
 
-transform = Transform( 1.49012e-08, 2.25001e-15, -0.333333, 5.03319e-08, -0.333333, 0, 0.333333, 5.03319e-08, 1.45705e-08, 0.515136, 0.112793, 1.27946 )
+transform = Transform( -1.45704e-08, -2.20007e-15, -0.333333, -5.03319e-08, 0.333333, 9.35045e-21, -0.333333, -5.03319e-08, 1.45704e-08, 0.515136, 0.112793, 1.27946 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="AirlockNew008/AirlockNew016" index="0" instance=ExtResource( 1 )]
 
 [node name="AirlockNew017" type="Spatial" parent="AirlockNew008" index="9"]
 
-transform = Transform( 1.49012e-08, 2.25001e-15, -0.333333, 5.03319e-08, -0.333333, 0, 0.333333, 5.03319e-08, 1.45705e-08, 0.515137, 0.112793, 3.27816 )
+transform = Transform( -1.45704e-08, -2.20007e-15, -0.333333, -5.03319e-08, 0.333333, 9.35045e-21, -0.333333, -5.03319e-08, 1.45704e-08, 0.515137, 0.112793, 3.27816 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="AirlockNew008/AirlockNew017" index="0" instance=ExtResource( 1 )]
 
@@ -86,6 +93,52 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 2 )
 skeleton = NodePath("..")
 material/0 = null
+
+[node name="SpotLight" type="SpotLight" parent="AirlockNew008/MainColonyAirlockLevels" index="0"]
+
+transform = Transform( 0.756284, -1.0659e-07, 0.654244, -0.654244, -1.23214e-07, 0.756284, -2.41842e-10, -1, -1.62271e-07, 62.2217, 7.04995, 0.135882 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+spot_range = 30.0
+spot_attenuation = 1.0
+spot_angle = 35.0
+spot_angle_attenuation = 1.0
+_sections_unfolded = [ "Light", "Spot", "Transform" ]
+
+[node name="OmniLight" type="OmniLight" parent="AirlockNew008/MainColonyAirlockLevels" index="1"]
+
+transform = Transform( 1, 0, 4.06576e-20, 0, 1, 0, 0, 0, 1, 0, 6.93813, -3.48805e-11 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 0.3
+light_indirect_energy = 0.2
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 3.05939
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light" ]
 
 [node name="MainColonyAirlocks001" type="MeshInstance" parent="AirlockNew008" index="11"]
 
@@ -106,7 +159,7 @@ material/1 = null
 
 [node name="MainColonyAirlocksOverlay005" type="MeshInstance" parent="AirlockNew008" index="12"]
 
-transform = Transform( -1.49012e-08, 0.333333, -1.45705e-08, 0, -1.45705e-08, -0.333333, -0.333333, -1.45705e-08, 0, 0.515218, 0.112793, 1.28011 )
+transform = Transform( -1.49012e-08, 0.333333, -1.45705e-08, 0, -1.45705e-08, -0.333333, -0.333333, -1.45705e-08, -2.64698e-22, 0.515218, 0.112793, 1.28011 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -121,5 +174,7 @@ skeleton = NodePath("..")
 material/0 = null
 
 [node name="Scene" parent="AirlockNew008" index="13" instance=ExtResource( 1 )]
+
+_sections_unfolded = [ "Transform" ]
 
 

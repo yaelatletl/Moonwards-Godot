@@ -98,7 +98,7 @@
 
 extents = Vector3( 29.7738, 11.6184, 9.53069 )
 
-[node name="Scene" type="Spatial" index="0"]
+[node name="Scene" type="Spatial"]
 
 [node name="Interior" type="Spatial" parent="." index="0" groups=[
 "interior",
