@@ -19,11 +19,9 @@
 
 extents = Vector3( 7.63116, 7.036, 11.7867 )
 
-[node name="Scene" type="Spatial"]
+[node name="Scene" type="Spatial" index="0"]
 
 [node name="Exterior" type="Spatial" parent="." index="0"]
-
-editor/display_folded = true
 
 [node name="BigAtriumWalls" type="MeshInstance" parent="Exterior" index="0"]
 
@@ -146,8 +144,6 @@ material/0 = null
 "interior",
 ]]
 
-editor/display_folded = true
-
 [node name="AnchorBeamsEast" type="MeshInstance" parent="Interior" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.57373, 2.28015, -3.021 )
@@ -228,6 +224,73 @@ mesh = ExtResource( 12 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
+_sections_unfolded = [ "material" ]
+
+[node name="OmniLight" type="OmniLight" parent="Interior/InteriorLevels" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000488281, 3.97297, 2.8178 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 5.0
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+
+[node name="OmniLight2" type="OmniLight" parent="Interior/InteriorLevels" index="1"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000488281, 3.97225, -0.242775 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 5.0
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+
+[node name="OmniLight3" type="OmniLight" parent="Interior/InteriorLevels" index="2"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000488281, 3.97225, -3.38933 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 5.0
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
 
 [node name="StairSafetyGrid" type="MeshInstance" parent="Interior" index="5"]
 
