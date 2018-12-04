@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://world_environments/StarrySky.tres" type="Environment" id=1]
-[ext_resource path="res://scenes/TerrainWithMarkers.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/Player/player_flycamera.tscn" type="PackedScene" id=1]
+[ext_resource path="res://world_environments/StarrySky.tres" type="Environment" id=2]
+[ext_resource path="res://scenes/TerrainWithMarkers.tscn" type="PackedScene" id=3]
 
 [node name="world" type="Spatial" index="0"]
 
-[node name="DirectionalLight" type="DirectionalLight" parent="." index="0"]
+[node name="FlyCamera" parent="." index="0" instance=ExtResource( 1 )]
+
+transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -51.2514, -1922.5, 47.991 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="1"]
 
 transform = Transform( 0.0471507, 0.865137, -0.499315, -0.00299724, 0.499991, 0.866026, 0.998883, -0.0393371, 0.0261679, 0, -1818.54, 0 )
 layers = 1
@@ -33,13 +38,13 @@ directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Transform" ]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="1"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2"]
 
-environment = ExtResource( 1 )
+environment = ExtResource( 2 )
 
-[node name="Terrain" parent="." index="2" instance=ExtResource( 2 )]
+[node name="Terrain" parent="." index="3" instance=ExtResource( 3 )]
 
-[node name="spawn_points" type="Spatial" parent="." index="3"]
+[node name="spawn_points" type="Spatial" parent="." index="4"]
 
 editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
@@ -60,9 +65,9 @@ transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.99731
 
 transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -51.2514, -1922.5, 57.8166 )
 
-[node name="players" type="Spatial" parent="." index="4"]
+[node name="players" type="Spatial" parent="." index="5"]
 
-[node name="VisibilityEnabler" type="VisibilityEnabler" parent="." index="5"]
+[node name="VisibilityEnabler" type="VisibilityEnabler" parent="." index="6"]
 
 aabb = AABB( -1, -1, -1, 2, 2, 2 )
 pause_animations = true
