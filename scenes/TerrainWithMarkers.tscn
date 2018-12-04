@@ -61,7 +61,7 @@
 [ext_resource path="res://scenes/STEMP_Facilities.tscn" type="PackedScene" id=59]
 [ext_resource path="res://scenes/AirlockBay.tscn" type="PackedScene" id=60]
 
-[node name="Scene" type="Spatial" index="0"]
+[node name="Scene" type="Spatial"]
 
 [node name="Set_FlywheelTowers" type="Spatial" parent="." index="0"]
 
