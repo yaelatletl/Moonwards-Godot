@@ -23,7 +23,9 @@
 [ext_resource path="res://model_assets/meshes/Toilet__Toilet-Floor005_Wheel-FecalTank005.mesh" type="ArrayMesh" id=21]
 [ext_resource path="res://model_assets/meshes/Toilet__Toilet-Floor005_WheelSmall-FecalTank005.mesh" type="ArrayMesh" id=22]
 
-[node name="Scene" type="Spatial" index="0"]
+[node name="Scene" type="Spatial"]
+
+editor/display_folded = true
 
 [node name="Toilet-Floor005" type="MeshInstance" parent="." index="0"]
 

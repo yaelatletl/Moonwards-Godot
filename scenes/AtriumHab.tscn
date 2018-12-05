@@ -31,34 +31,34 @@
 [ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockW-DoorOutside004.mesh" type="ArrayMesh" id=29]
 [ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockW-Hardware1008.mesh" type="ArrayMesh" id=30]
 [ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockWalls.mesh" type="ArrayMesh" id=31]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_WhippleGlazingAtrium002.mesh" type="ArrayMesh" id=32]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Waterline3.mesh" type="ArrayMesh" id=33]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Waterline1.mesh" type="ArrayMesh" id=34]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Wateline4.mesh" type="ArrayMesh" id=35]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_WasteWaterPurification.mesh" type="ArrayMesh" id=36]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_WasteWaterFirstTanks.mesh" type="ArrayMesh" id=37]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_wash-driers002.mesh" type="ArrayMesh" id=38]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_UrineProcessing.mesh" type="ArrayMesh" id=39]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelTopFloor-FrostedGlass002.mesh" type="ArrayMesh" id=40]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelTopFloor.mesh" type="ArrayMesh" id=41]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelRibs.mesh" type="ArrayMesh" id=42]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelMouth.mesh" type="ArrayMesh" id=43]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelMiddleFloor.mesh" type="ArrayMesh" id=44]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelMainFloor.mesh" type="ArrayMesh" id=45]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelCornerPipes.mesh" type="ArrayMesh" id=46]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Tunnel-MezzannineFrostedGlass002.mesh" type="ArrayMesh" id=47]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Tunnel-MezzanineStairs002.mesh" type="ArrayMesh" id=48]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ToTunnelFloorTop.mesh" type="ArrayMesh" id=49]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ToTunnelFloorBottom.mesh" type="ArrayMesh" id=50]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TopWindowFloorWest.mesh" type="ArrayMesh" id=51]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TopWindowFloor.mesh" type="ArrayMesh" id=52]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TopFloorEast.mesh" type="ArrayMesh" id=53]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TopFloor-FrostedGlass002.mesh" type="ArrayMesh" id=54]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TopFloor.mesh" type="ArrayMesh" id=55]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ToiletStalls2.mesh" type="ArrayMesh" id=56]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ToiletStalls1.mesh" type="ArrayMesh" id=57]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ToiletStalls-3001.mesh" type="ArrayMesh" id=58]
-[ext_resource path="res://model_assets/Toilet.tscn" type="PackedScene" id=59]
+[ext_resource path="res://model_assets/Toilet.tscn" type="PackedScene" id=32]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_WhippleGlazingAtrium002.mesh" type="ArrayMesh" id=33]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Waterline3.mesh" type="ArrayMesh" id=34]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Waterline1.mesh" type="ArrayMesh" id=35]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Wateline4.mesh" type="ArrayMesh" id=36]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_WasteWaterPurification.mesh" type="ArrayMesh" id=37]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_WasteWaterFirstTanks.mesh" type="ArrayMesh" id=38]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_wash-driers002.mesh" type="ArrayMesh" id=39]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_UrineProcessing.mesh" type="ArrayMesh" id=40]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelTopFloor-FrostedGlass002.mesh" type="ArrayMesh" id=41]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelTopFloor.mesh" type="ArrayMesh" id=42]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelRibs.mesh" type="ArrayMesh" id=43]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelMouth.mesh" type="ArrayMesh" id=44]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelMiddleFloor.mesh" type="ArrayMesh" id=45]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelMainFloor.mesh" type="ArrayMesh" id=46]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelCornerPipes.mesh" type="ArrayMesh" id=47]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Tunnel-MezzannineFrostedGlass002.mesh" type="ArrayMesh" id=48]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Tunnel-MezzanineStairs002.mesh" type="ArrayMesh" id=49]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ToTunnelFloorTop.mesh" type="ArrayMesh" id=50]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ToTunnelFloorBottom.mesh" type="ArrayMesh" id=51]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TopWindowFloorWest.mesh" type="ArrayMesh" id=52]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TopWindowFloor.mesh" type="ArrayMesh" id=53]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TopFloorEast.mesh" type="ArrayMesh" id=54]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TopFloor-FrostedGlass002.mesh" type="ArrayMesh" id=55]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TopFloor.mesh" type="ArrayMesh" id=56]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ToiletStalls2.mesh" type="ArrayMesh" id=57]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ToiletStalls1.mesh" type="ArrayMesh" id=58]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ToiletStalls-3001.mesh" type="ArrayMesh" id=59]
 [ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Template-AnchorBolt004.mesh" type="ArrayMesh" id=60]
 [ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_SWCornerFloorTop.mesh" type="ArrayMesh" id=61]
 [ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Stair005.mesh" type="ArrayMesh" id=62]
@@ -133,11 +133,9 @@
 
 extents = Vector3( 9.22929, 3.3859, 6.14163 )
 
-[node name="Scene" type="Spatial"]
+[node name="Scene" type="Spatial" index="0"]
 
 [node name="Exterior" type="Spatial" parent="." index="0"]
-
-editor/display_folded = true
 
 [node name="AtriumWalls" type="MeshInstance" parent="Exterior" index="0"]
 
@@ -153,6 +151,122 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 1 )
 skeleton = NodePath("..")
 material/0 = null
+_sections_unfolded = [ "material" ]
+
+[node name="OmniLight" type="OmniLight" parent="Exterior/AtriumWalls" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.468634, 1.65787, -0.953773 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 0.7
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 2.63836
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light" ]
+
+[node name="OmniLight4" type="OmniLight" parent="Exterior/AtriumWalls" index="1"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.90102, -0.851622, 0.799226 )
+layers = 1
+light_color = Color( 1, 0.981537, 0.785156, 1 )
+light_energy = 0.7
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 2.63836
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light" ]
+
+[node name="OmniLight5" type="OmniLight" parent="Exterior/AtriumWalls" index="2"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.90102, -0.851622, -1.50245 )
+layers = 1
+light_color = Color( 1, 0.981537, 0.785156, 1 )
+light_energy = 0.7
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 2.63836
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light" ]
+
+[node name="OmniLight2" type="OmniLight" parent="Exterior/AtriumWalls" index="3"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.468634, 1.65787, 1.79347 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 0.7
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 2.52699
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light" ]
+
+[node name="OmniLight3" type="OmniLight" parent="Exterior/AtriumWalls" index="4"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.51428, 0.517207, 2.21675 )
+layers = 1
+light_color = Color( 1, 0.832031, 0.832031, 1 )
+light_energy = 1.2
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 2.79584
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light" ]
 
 [node name="TunnelWalls002" type="MeshInstance" parent="Exterior" index="1"]
 
@@ -352,8 +466,6 @@ material/1 = null
 [node name="Interior" type="Spatial" parent="." index="1" groups=[
 "interior",
 ]]
-
-editor/display_folded = true
 
 [node name="2ndFloor-FrostedGlass002" type="MeshInstance" parent="Interior" index="0"]
 
@@ -740,7 +852,7 @@ shadow_bias = 0.15
 shadow_contact = 0.0
 shadow_reverse_cull_face = false
 editor_only = false
-omni_range = 5.0
+omni_range = 1.96985
 omni_attenuation = 1.0
 omni_shadow_mode = 1
 omni_shadow_detail = 1
@@ -771,53 +883,99 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.3930
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01025, 0.297607, 1.43335 )
 
-[node name="Toilet000" type="Spatial" parent="Interior" index="30"]
+[node name="ToiletA" type="Spatial" parent="Interior" index="30"]
 
 transform = Transform( -0.1, 0, -3.89414e-08, 0, 0.1, 0, 3.89414e-08, 0, -0.1, -3.39648, -0.18103, 0.766357 )
 
-[node name="Toilet013" type="Spatial" parent="Interior" index="31"]
+[node name="toiletA" parent="Interior/ToiletA" index="0" instance=ExtResource( 32 )]
+
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 0, 0, -1.25072e-07 )
+
+[node name="ToiletD" type="Spatial" parent="Interior" index="31"]
 
 transform = Transform( 0.1, 0, 6.51683e-08, 0, 0.1, 0, -6.51683e-08, 0, 0.1, -3.75732, -0.181396, 0.987061 )
 
-[node name="Toilet014" type="Spatial" parent="Interior" index="32"]
+[node name="toiletD" parent="Interior/ToiletD" index="0" instance=ExtResource( 32 )]
+
+transform = Transform( 1, 0, 5.68434e-14, 0, 1, 0, -5.68434e-14, 0, 1, 0, 0, 3.09718e-07 )
+
+[node name="ToiletE" type="Spatial" parent="Interior" index="32"]
 
 transform = Transform( 0.1, 0, 6.51683e-08, 0, 0.1, 0, -6.51683e-08, 0, 0.1, -3.75732, -0.181396, 0.886963 )
 
-[node name="Toilet015" type="Spatial" parent="Interior" index="33"]
+[node name="toiletE" parent="Interior/ToiletE" index="0" instance=ExtResource( 32 )]
+
+transform = Transform( 1, 0, 5.68434e-14, 0, 1, 0, -5.68434e-14, 0, 1, 0, 0, 3.09718e-07 )
+
+[node name="ToiletF" type="Spatial" parent="Interior" index="33"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -3.75732, -0.181396, 0.786865 )
 
-[node name="Toilet016" type="Spatial" parent="Interior" index="34"]
+[node name="toiletF" parent="Interior/ToiletF" index="0" instance=ExtResource( 32 )]
+
+[node name="ToiletC" type="Spatial" parent="Interior" index="34"]
 
 transform = Transform( -0.1, 9.84014e-15, 6.51683e-08, 0, 0.1, -1.50996e-08, 6.51683e-08, 1.50996e-08, 0.1, -3.39648, -0.181396, 0.966553 )
 
-[node name="Toilet017" type="Spatial" parent="Interior" index="35"]
+[node name="toiletC" parent="Interior/ToiletC" index="0" instance=ExtResource( 32 )]
+
+transform = Transform( 1, 0, -5.68434e-14, 6.77626e-21, 1, 0, 5.68434e-14, 0, 1, 0, 0, 7.41275e-08 )
+
+[node name="ToiletB" type="Spatial" parent="Interior" index="35"]
+
+transform = Transform( -0.1, 0, -3.89414e-08, 0, 0.1, 0, 3.89414e-08, 0, -0.1, -3.39648, -0.181396, 0.866455 )
+
+[node name="toiletB" parent="Interior/ToiletB" index="0" instance=ExtResource( 32 )]
+
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 0, 0, -1.25072e-07 )
+
+[node name="Toilet1" type="Spatial" parent="Interior" index="36"]
 
 transform = Transform( 4.37114e-09, -1.50996e-08, -0.1, 0, 0.1, -1.50996e-08, -0.1, -1.16245e-15, -4.37114e-09, 1.06104, -1.58411, -2.52759 )
 
-[node name="Toilet018" type="Spatial" parent="Interior" index="36"]
+[node name="toilet1" parent="Interior/Toilet1" index="0" instance=ExtResource( 32 )]
+
+transform = Transform( 1, 8.47033e-22, 3.55271e-15, 4.23516e-22, 1, 2.88506e-22, -3.55271e-15, 5.08123e-22, 1, 4.63795e-07, 0, 0 )
+
+[node name="Toilet2" type="Spatial" parent="Interior" index="37"]
 
 transform = Transform( 4.37114e-09, -1.50996e-08, -0.1, 0, 0.1, -1.50996e-08, -0.1, -1.16245e-15, -4.37114e-09, 0.960938, -1.58411, -2.52759 )
 
-[node name="Toilet019" type="Spatial" parent="Interior" index="37"]
+[node name="toilet2" parent="Interior/Toilet2" index="0" instance=ExtResource( 32 )]
+
+transform = Transform( 1, 8.47033e-22, 3.55271e-15, 4.23516e-22, 1, 2.88506e-22, -3.55271e-15, 5.08123e-22, 1, 4.20039e-07, 0, 0 )
+
+[node name="Toilet3" type="Spatial" parent="Interior" index="38"]
 
 transform = Transform( 4.37114e-09, -1.50996e-08, -0.1, 0, 0.1, -1.50996e-08, -0.1, -1.16245e-15, -4.37114e-09, 0.86084, -1.58411, -2.52759 )
 
-[node name="Toilet020" type="Spatial" parent="Interior" index="38"]
+[node name="toilet3" parent="Interior/Toilet3" index="0" instance=ExtResource( 32 )]
+
+transform = Transform( 1, 8.47033e-22, 3.55271e-15, 4.23516e-22, 1, 2.88506e-22, -3.55271e-15, 5.08123e-22, 1, 3.76285e-07, 0, 0 )
+
+[node name="Toilet4" type="Spatial" parent="Interior" index="39"]
 
 transform = Transform( 4.37114e-09, -1.50996e-08, -0.1, 0, 0.1, -1.50996e-08, -0.1, -1.16245e-15, -4.37114e-09, 0.760742, -1.58411, -2.52759 )
 
-[node name="Toilet021" type="Spatial" parent="Interior" index="39"]
+[node name="toilet4" parent="Interior/Toilet4" index="0" instance=ExtResource( 32 )]
+
+transform = Transform( 1, 8.47033e-22, 3.55271e-15, 4.23516e-22, 1, 2.88506e-22, -3.55271e-15, 5.08123e-22, 1, 3.32531e-07, 0, 0 )
+
+[node name="Toilet5" type="Spatial" parent="Interior" index="40"]
 
 transform = Transform( 4.37114e-09, -1.50996e-08, -0.1, 0, 0.1, -1.50996e-08, -0.1, -1.16245e-15, -4.37114e-09, 0.660645, -1.58411, -2.52759 )
 
-[node name="Toilet022" type="Spatial" parent="Interior" index="40"]
+[node name="toilet5" parent="Interior/Toilet5" index="0" instance=ExtResource( 32 )]
+
+transform = Transform( 1, 8.47033e-22, 3.55271e-15, 4.23516e-22, 1, 2.88506e-22, -3.55271e-15, 5.08123e-22, 1, 2.88777e-07, 0, 0 )
+
+[node name="Toilet6" type="Spatial" parent="Interior" index="41"]
 
 transform = Transform( 4.37114e-09, 1.50996e-08, -0.1, 0, 0.1, 1.50996e-08, -0.1, 1.16245e-15, -4.37114e-09, 0.561035, -1.58411, -2.52759 )
 
-[node name="Toilet023" type="Spatial" parent="Interior" index="41"]
+[node name="toilet6" parent="Interior/Toilet6" index="0" instance=ExtResource( 32 )]
 
-transform = Transform( -0.1, 0, -3.89414e-08, 0, 0.1, 0, 3.89414e-08, 0, -0.1, -3.39648, -0.181396, 0.866455 )
+transform = Transform( 1, 1.16245e-14, -4.9738e-14, -8.47033e-21, 1, 1.42109e-14, 4.9738e-14, 3.7025e-28, 1, -5.47681e-06, -9.53674e-07, 4.76837e-07 )
 
 [node name="OmniLight3" type="OmniLight" parent="Interior" index="42"]
 
@@ -830,7 +988,7 @@ light_negative = false
 light_specular = 0.5
 light_bake_mode = 1
 light_cull_mask = -1
-shadow_enabled = true
+shadow_enabled = false
 shadow_color = Color( 0, 0, 0, 1 )
 shadow_bias = 0.15
 shadow_contact = 0.0
@@ -853,7 +1011,7 @@ light_negative = false
 light_specular = 0.5
 light_bake_mode = 1
 light_cull_mask = -1
-shadow_enabled = true
+shadow_enabled = false
 shadow_color = Color( 0, 0, 0, 1 )
 shadow_bias = 0.15
 shadow_contact = 0.0
@@ -876,7 +1034,7 @@ light_negative = false
 light_specular = 0.5
 light_bake_mode = 1
 light_cull_mask = -1
-shadow_enabled = true
+shadow_enabled = false
 shadow_color = Color( 0, 0, 0, 1 )
 shadow_bias = 0.15
 shadow_contact = 0.0
@@ -900,7 +1058,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 32 )
+mesh = ExtResource( 33 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -916,7 +1074,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 33 )
+mesh = ExtResource( 34 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -932,7 +1090,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 34 )
+mesh = ExtResource( 35 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -948,7 +1106,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 34 )
+mesh = ExtResource( 35 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -964,7 +1122,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 35 )
+mesh = ExtResource( 36 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -980,7 +1138,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 36 )
+mesh = ExtResource( 37 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -996,7 +1154,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 37 )
+mesh = ExtResource( 38 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1012,7 +1170,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 38 )
+mesh = ExtResource( 39 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
@@ -1030,7 +1188,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 39 )
+mesh = ExtResource( 40 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1045,7 +1203,7 @@ light_negative = false
 light_specular = 0.5
 light_bake_mode = 1
 light_cull_mask = -1
-shadow_enabled = true
+shadow_enabled = false
 shadow_color = Color( 0, 0, 0, 1 )
 shadow_bias = 0.15
 shadow_contact = 0.0
@@ -1069,7 +1227,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 40 )
+mesh = ExtResource( 41 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1085,7 +1243,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 41 )
+mesh = ExtResource( 42 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1101,7 +1259,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 42 )
+mesh = ExtResource( 43 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1117,7 +1275,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 43 )
+mesh = ExtResource( 44 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1133,7 +1291,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 44 )
+mesh = ExtResource( 45 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1149,7 +1307,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 45 )
+mesh = ExtResource( 46 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1165,7 +1323,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 46 )
+mesh = ExtResource( 47 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1181,7 +1339,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 47 )
+mesh = ExtResource( 48 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1197,7 +1355,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 48 )
+mesh = ExtResource( 49 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1213,7 +1371,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 49 )
+mesh = ExtResource( 50 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1229,7 +1387,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 50 )
+mesh = ExtResource( 51 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1245,7 +1403,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 51 )
+mesh = ExtResource( 52 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1261,7 +1419,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 52 )
+mesh = ExtResource( 53 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1277,7 +1435,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 53 )
+mesh = ExtResource( 54 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1293,7 +1451,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 54 )
+mesh = ExtResource( 55 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1309,7 +1467,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 55 )
+mesh = ExtResource( 56 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1325,7 +1483,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 56 )
+mesh = ExtResource( 57 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1341,7 +1499,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 57 )
+mesh = ExtResource( 58 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1357,59 +1515,11 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 58 )
+mesh = ExtResource( 59 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Scene18" parent="Interior" index="74" instance=ExtResource( 59 )]
-
-transform = Transform( -0.1, 0, -3.89414e-08, 0, 0.1, 0, 3.89414e-08, 0, -0.1, -3.39648, -0.181396, 0.866455 )
-
-[node name="Scene17" parent="Interior" index="75" instance=ExtResource( 59 )]
-
-transform = Transform( 4.37114e-09, 1.50996e-08, -0.1, 0, 0.1, 1.50996e-08, -0.1, 1.16245e-15, -4.37114e-09, 0.561035, -1.58411, -2.52759 )
-
-[node name="Scene16" parent="Interior" index="76" instance=ExtResource( 59 )]
-
-transform = Transform( 4.37114e-09, -1.50996e-08, -0.1, 0, 0.1, -1.50996e-08, -0.1, -1.16245e-15, -4.37114e-09, 0.660645, -1.58411, -2.52759 )
-
-[node name="Scene15" parent="Interior" index="77" instance=ExtResource( 59 )]
-
-transform = Transform( 4.37114e-09, -1.50996e-08, -0.1, 0, 0.1, -1.50996e-08, -0.1, -1.16245e-15, -4.37114e-09, 0.760742, -1.58411, -2.52759 )
-
-[node name="Scene14" parent="Interior" index="78" instance=ExtResource( 59 )]
-
-transform = Transform( 4.37114e-09, -1.50996e-08, -0.1, 0, 0.1, -1.50996e-08, -0.1, -1.16245e-15, -4.37114e-09, 0.86084, -1.58411, -2.52759 )
-
-[node name="Scene13" parent="Interior" index="79" instance=ExtResource( 59 )]
-
-transform = Transform( 4.37114e-09, -1.50996e-08, -0.1, 0, 0.1, -1.50996e-08, -0.1, -1.16245e-15, -4.37114e-09, 0.960938, -1.58411, -2.52759 )
-
-[node name="Scene12" parent="Interior" index="80" instance=ExtResource( 59 )]
-
-transform = Transform( 4.37114e-09, -1.50996e-08, -0.1, 0, 0.1, -1.50996e-08, -0.1, -1.16245e-15, -4.37114e-09, 1.06104, -1.58411, -2.52759 )
-
-[node name="Scene11" parent="Interior" index="81" instance=ExtResource( 59 )]
-
-transform = Transform( -0.1, 9.84014e-15, 6.51683e-08, 0, 0.1, -1.50996e-08, 6.51683e-08, 1.50996e-08, 0.1, -3.39648, -0.181396, 0.966553 )
-
-[node name="Scene10" parent="Interior" index="82" instance=ExtResource( 59 )]
-
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -3.75732, -0.181396, 0.786865 )
-
-[node name="Scene9" parent="Interior" index="83" instance=ExtResource( 59 )]
-
-transform = Transform( 0.1, 0, 6.51683e-08, 0, 0.1, 0, -6.51683e-08, 0, 0.1, -3.75732, -0.181396, 0.886963 )
-
-[node name="Scene8" parent="Interior" index="84" instance=ExtResource( 59 )]
-
-transform = Transform( 0.1, 0, 6.51683e-08, 0, 0.1, 0, -6.51683e-08, 0, 0.1, -3.75732, -0.181396, 0.987061 )
-
-[node name="Scene7" parent="Interior" index="85" instance=ExtResource( 59 )]
-
-transform = Transform( -0.1, 0, -3.89414e-08, 0, 0.1, 0, 3.89414e-08, 0, -0.1, -3.39648, -0.18103, 0.766357 )
-
-[node name="Template-AnchorBolt004" type="MeshInstance" parent="Interior" index="86"]
+[node name="Template-AnchorBolt004" type="MeshInstance" parent="Interior" index="74"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.79492, -1.73633, 2.43213 )
 layers = 1
@@ -1425,7 +1535,7 @@ mesh = ExtResource( 60 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="SWCornerFloorTop" type="MeshInstance" parent="Interior" index="87"]
+[node name="SWCornerFloorTop" type="MeshInstance" parent="Interior" index="75"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63721, 0.345459, 2.09961 )
 layers = 1
@@ -1441,7 +1551,7 @@ mesh = ExtResource( 61 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Stair005" type="MeshInstance" parent="Interior" index="88"]
+[node name="Stair005" type="MeshInstance" parent="Interior" index="76"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.249512, -0.768677, 1.87866 )
 layers = 1
@@ -1457,7 +1567,7 @@ mesh = ExtResource( 62 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Stair004" type="MeshInstance" parent="Interior" index="89"]
+[node name="Stair004" type="MeshInstance" parent="Interior" index="77"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.185547, -1.49146, 1.71362 )
 layers = 1
@@ -1477,7 +1587,7 @@ material/2 = null
 material/3 = null
 material/4 = null
 
-[node name="Stair-Cables005" type="MeshInstance" parent="Interior" index="90"]
+[node name="Stair-Cables005" type="MeshInstance" parent="Interior" index="78"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60156, 0.258423, 1.79004 )
 layers = 1
@@ -1493,7 +1603,7 @@ mesh = ExtResource( 64 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Stair-Cables004" type="MeshInstance" parent="Interior" index="91"]
+[node name="Stair-Cables004" type="MeshInstance" parent="Interior" index="79"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.261719, 0.258423, 1.79004 )
 layers = 1
@@ -1509,7 +1619,7 @@ mesh = ExtResource( 65 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Stair-Cables-short002" type="MeshInstance" parent="Interior" index="92"]
+[node name="Stair-Cables-short002" type="MeshInstance" parent="Interior" index="80"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.152344, 0.258423, 1.87866 )
 layers = 1
@@ -1525,7 +1635,7 @@ mesh = ExtResource( 66 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="SolarOvens" type="MeshInstance" parent="Interior" index="93"]
+[node name="SolarOvens" type="MeshInstance" parent="Interior" index="81"]
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.4751, 1.2959, 2.33179 )
 layers = 1
@@ -1543,7 +1653,7 @@ material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="ShimmyStair-Steps001" type="MeshInstance" parent="Interior" index="94"]
+[node name="ShimmyStair-Steps001" type="MeshInstance" parent="Interior" index="82"]
 
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.62793, 1.37048, 1.29175 )
 layers = 1
@@ -1560,7 +1670,7 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="ShimmyStair-Step1011" type="MeshInstance" parent="Interior" index="95"]
+[node name="ShimmyStair-Step1011" type="MeshInstance" parent="Interior" index="83"]
 
 transform = Transform( 1, -4.92007e-14, -3.25841e-07, 0, -1, 1.50996e-07, -3.25841e-07, -1.50996e-07, -1, -4.37451, 0.103638, -0.963135 )
 layers = 1
@@ -1577,7 +1687,7 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="ShimmyStair-Step1010" type="MeshInstance" parent="Interior" index="96"]
+[node name="ShimmyStair-Step1010" type="MeshInstance" parent="Interior" index="84"]
 
 transform = Transform( -1, 0, -3.89414e-07, 0, 1, 0, 3.89414e-07, 0, -1, -4.08154, 0.539673, -0.806396 )
 layers = 1
@@ -1594,7 +1704,7 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="ShimmyStair-Step1009" type="MeshInstance" parent="Interior" index="97"]
+[node name="ShimmyStair-Step1009" type="MeshInstance" parent="Interior" index="85"]
 
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.63086, 0.692749, 1.59717 )
 layers = 1
@@ -1611,7 +1721,7 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="ShimmyStair-Step1008" type="MeshInstance" parent="Interior" index="98"]
+[node name="ShimmyStair-Step1008" type="MeshInstance" parent="Interior" index="86"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.62891, 1.04285, 0.893799 )
 layers = 1
@@ -1628,7 +1738,7 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="ShimmyStair-Rail001" type="MeshInstance" parent="Interior" index="99"]
+[node name="ShimmyStair-Rail001" type="MeshInstance" parent="Interior" index="87"]
 
 transform = Transform( 7.54979e-09, 4.37114e-09, 0.1, 0.1, 0, -7.54979e-09, 0, 0.1, -4.37114e-09, -1.62646, 1.49207, 1.2915 )
 layers = 1
@@ -1644,7 +1754,7 @@ mesh = ExtResource( 73 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyStair-Pole001" type="MeshInstance" parent="Interior" index="100"]
+[node name="ShimmyStair-Pole001" type="MeshInstance" parent="Interior" index="88"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.67725, 1.35181, 1.28662 )
 layers = 1
@@ -1660,27 +1770,27 @@ mesh = ExtResource( 74 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="shimmyMirror2002" type="Spatial" parent="Interior" index="101"]
+[node name="shimmyMirror2002" type="Spatial" parent="Interior" index="89"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.67871, 1.08081, 0.893799 )
 
-[node name="Shimmy-Stairs011" type="Spatial" parent="Interior" index="102"]
+[node name="Shimmy-Stairs011" type="Spatial" parent="Interior" index="90"]
 
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.37842, 0.142578, -1.01196 )
 
-[node name="Shimmy-Stairs010" type="Spatial" parent="Interior" index="103"]
+[node name="Shimmy-Stairs010" type="Spatial" parent="Interior" index="91"]
 
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.08545, 0.578613, -0.757812 )
 
-[node name="Shimmy-Stairs009" type="Spatial" parent="Interior" index="104"]
+[node name="Shimmy-Stairs009" type="Spatial" parent="Interior" index="92"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67969, 0.731689, 1.59326 )
 
-[node name="Shimmy-Stairs008" type="Spatial" parent="Interior" index="105"]
+[node name="Shimmy-Stairs008" type="Spatial" parent="Interior" index="93"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.68066, 1.08081, 0.893799 )
 
-[node name="QuartersWalls" type="MeshInstance" parent="Interior" index="106"]
+[node name="QuartersWalls" type="MeshInstance" parent="Interior" index="94"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.28125, -1.29895, 1.79395 )
 layers = 1
@@ -1696,7 +1806,7 @@ mesh = ExtResource( 75 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="QuartersTop" type="MeshInstance" parent="Interior" index="107"]
+[node name="QuartersTop" type="MeshInstance" parent="Interior" index="95"]
 
 transform = Transform( 0.359589, 0, 0, 0, 0.1, 0, 0, 0, 2.54918, 2.1792, -1.29895, -0.265869 )
 layers = 1
@@ -1712,7 +1822,7 @@ mesh = ExtResource( 76 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="QuartersFront" type="MeshInstance" parent="Interior" index="108"]
+[node name="QuartersFront" type="MeshInstance" parent="Interior" index="96"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8623, -1.13, 2.04077 )
 layers = 1
@@ -1732,7 +1842,7 @@ material/2 = null
 material/3 = null
 material/4 = null
 
-[node name="PondWall" type="MeshInstance" parent="Interior" index="109"]
+[node name="PondWall" type="MeshInstance" parent="Interior" index="97"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.921387, -1.65771, -0.696289 )
 layers = 1
@@ -1748,7 +1858,7 @@ mesh = ExtResource( 78 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="PondSurface" type="MeshInstance" parent="Interior" index="110"]
+[node name="PondSurface" type="MeshInstance" parent="Interior" index="98"]
 
 transform = Transform( 0.933334, 0, 0, 0, 0.1, 0, 0, 0, 2.29458, 0.921387, -1.65771, -0.696289 )
 layers = 1
@@ -1764,7 +1874,7 @@ mesh = ExtResource( 79 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="PondLevelGlass" type="MeshInstance" parent="Interior" index="111"]
+[node name="PondLevelGlass" type="MeshInstance" parent="Interior" index="99"]
 
 transform = Transform( 0.933334, 0, 0, 0, 0.1, 0, 0, 0, 2.29458, 0.921387, -1.55457, -0.696289 )
 layers = 1
@@ -1780,7 +1890,7 @@ mesh = ExtResource( 80 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="PondLevelFrames" type="MeshInstance" parent="Interior" index="112"]
+[node name="PondLevelFrames" type="MeshInstance" parent="Interior" index="100"]
 
 transform = Transform( 0.933334, 0, 0, 0, 0.1, 0, 0, 0, 2.29458, 0.921387, -1.55457, -0.696289 )
 layers = 1
@@ -1796,7 +1906,7 @@ mesh = ExtResource( 81 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="PlanterSetTopSouth" type="Spatial" parent="Interior" index="113"]
+[node name="PlanterSetTopSouth" type="Spatial" parent="Interior" index="101"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63281, 1.59521, 1.66138 )
@@ -2283,7 +2393,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, -2.38419e-07, -3
 
 [node name="Scene" parent="Interior/PlanterSetTopSouth" index="80" instance=ExtResource( 82 )]
 
-[node name="PlanterFrames002" type="MeshInstance" parent="Interior" index="114"]
+[node name="PlanterFrames002" type="MeshInstance" parent="Interior" index="102"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.805664, 0.427246, -0.490967 )
 layers = 1
@@ -2299,7 +2409,7 @@ mesh = ExtResource( 83 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="PassageMouth" type="MeshInstance" parent="Interior" index="115"]
+[node name="PassageMouth" type="MeshInstance" parent="Interior" index="103"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -5.07275, 0.269409, -1.40723 )
 layers = 1
@@ -2315,7 +2425,7 @@ mesh = ExtResource( 84 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="OvensHeatPump" type="MeshInstance" parent="Interior" index="116"]
+[node name="OvensHeatPump" type="MeshInstance" parent="Interior" index="104"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59375, 1.37988, 2.25562 )
 layers = 1
@@ -2331,7 +2441,7 @@ mesh = ExtResource( 85 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="NorthEastBath-Floor002" type="MeshInstance" parent="Interior" index="117"]
+[node name="NorthEastBath-Floor002" type="MeshInstance" parent="Interior" index="105"]
 
 transform = Transform( 0.412335, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.04102, -1.58411, -2.69214 )
 layers = 1
@@ -2347,7 +2457,7 @@ mesh = ExtResource( 86 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="NorthBathroom" type="MeshInstance" parent="Interior" index="118"]
+[node name="NorthBathroom" type="MeshInstance" parent="Interior" index="106"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.06104, -1.53442, -2.52759 )
 layers = 1
@@ -2363,7 +2473,7 @@ mesh = ExtResource( 87 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Mouth-SouthHall002" type="MeshInstance" parent="Interior" index="119"]
+[node name="Mouth-SouthHall002" type="MeshInstance" parent="Interior" index="107"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.74756, -0.0487061, -0.206543 )
 layers = 1
@@ -2379,7 +2489,7 @@ mesh = ExtResource( 88 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="MinWaterTankFillingPipe" type="MeshInstance" parent="Interior" index="120"]
+[node name="MinWaterTankFillingPipe" type="MeshInstance" parent="Interior" index="108"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -3.50146, 1.44043, 1.85522 )
 layers = 1
@@ -2395,7 +2505,7 @@ mesh = ExtResource( 89 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="MainWaterTankDuct" type="MeshInstance" parent="Interior" index="121"]
+[node name="MainWaterTankDuct" type="MeshInstance" parent="Interior" index="109"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50146, 0.73999, 1.8667 )
 layers = 1
@@ -2411,7 +2521,7 @@ mesh = ExtResource( 90 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="MainHeatPumps" type="MeshInstance" parent="Interior" index="122"]
+[node name="MainHeatPumps" type="MeshInstance" parent="Interior" index="110"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72314, 1.69397, 1.27979 )
 layers = 1
@@ -2427,7 +2537,7 @@ mesh = ExtResource( 91 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="MainComposter" type="MeshInstance" parent="Interior" index="123"]
+[node name="MainComposter" type="MeshInstance" parent="Interior" index="111"]
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -3.58301, -0.365234, 0.0627441 )
 layers = 1
@@ -2443,7 +2553,7 @@ mesh = ExtResource( 92 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Lawn" type="MeshInstance" parent="Interior" index="124"]
+[node name="Lawn" type="MeshInstance" parent="Interior" index="112"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65332, -1.70288, -0.275146 )
 layers = 1
@@ -2459,7 +2569,7 @@ mesh = ExtResource( 93 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="LaundrySink" type="MeshInstance" parent="Interior" index="125"]
+[node name="LaundrySink" type="MeshInstance" parent="Interior" index="113"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69531, 1.46216, 1.69556 )
 layers = 1
@@ -2475,7 +2585,7 @@ mesh = ExtResource( 94 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="KitchenLowCabinets" type="MeshInstance" parent="Interior" index="126"]
+[node name="KitchenLowCabinets" type="MeshInstance" parent="Interior" index="114"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56641, 1.13037, 2.2583 )
 layers = 1
@@ -2492,7 +2602,7 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="KitchenHeatPump" type="MeshInstance" parent="Interior" index="127"]
+[node name="KitchenHeatPump" type="MeshInstance" parent="Interior" index="115"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61523, 1.34546, 1.60181 )
 layers = 1
@@ -2508,7 +2618,7 @@ mesh = ExtResource( 96 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Kitchen" type="MeshInstance" parent="Interior" index="128"]
+[node name="Kitchen" type="MeshInstance" parent="Interior" index="116"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69336, 1.12, 1.96558 )
 layers = 1
@@ -2527,31 +2637,31 @@ material/1 = null
 material/2 = null
 material/3 = null
 
-[node name="Scene6" parent="Interior" index="129" instance=ExtResource( 98 )]
+[node name="Scene6" parent="Interior" index="117" instance=ExtResource( 98 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01025, 0.297607, 1.43335 )
 
-[node name="Scene5" parent="Interior" index="130" instance=ExtResource( 98 )]
+[node name="Scene5" parent="Interior" index="118" instance=ExtResource( 98 )]
 
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.39307, 0.206665, 0.619141 )
 
-[node name="Scene4" parent="Interior" index="131" instance=ExtResource( 98 )]
+[node name="Scene4" parent="Interior" index="119" instance=ExtResource( 98 )]
 
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.39307, 0.206543, -1.03247 )
 
-[node name="Scene3" parent="Interior" index="132" instance=ExtResource( 98 )]
+[node name="Scene3" parent="Interior" index="120" instance=ExtResource( 98 )]
 
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.39307, 0.521362, -0.214111 )
 
-[node name="Scene2" parent="Interior" index="133" instance=ExtResource( 98 )]
+[node name="Scene2" parent="Interior" index="121" instance=ExtResource( 98 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01025, 1.0719, 1.43042 )
 
-[node name="Scene" parent="Interior" index="134" instance=ExtResource( 99 )]
+[node name="Scene" parent="Interior" index="122" instance=ExtResource( 99 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.82031, 0.416992, -0.204346 )
 
-[node name="GymWallPadding" type="MeshInstance" parent="Interior" index="135"]
+[node name="GymWallPadding" type="MeshInstance" parent="Interior" index="123"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72852, -1.51062, -2.7959 )
 layers = 1
@@ -2567,7 +2677,7 @@ mesh = ExtResource( 100 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="GymTrampolines" type="MeshInstance" parent="Interior" index="136"]
+[node name="GymTrampolines" type="MeshInstance" parent="Interior" index="124"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72852, -1.55884, -2.7959 )
 layers = 1
@@ -2583,7 +2693,7 @@ mesh = ExtResource( 101 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="GymRope3" type="MeshInstance" parent="Interior" index="137"]
+[node name="GymRope3" type="MeshInstance" parent="Interior" index="125"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59326, -0.0897217, -2.14917 )
 layers = 1
@@ -2600,7 +2710,7 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="GymRope2" type="MeshInstance" parent="Interior" index="138"]
+[node name="GymRope2" type="MeshInstance" parent="Interior" index="126"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54932, -0.0905762, -2.61792 )
 layers = 1
@@ -2617,7 +2727,7 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="GymRope1" type="MeshInstance" parent="Interior" index="139"]
+[node name="GymRope1" type="MeshInstance" parent="Interior" index="127"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.06543, -0.0897217, -2.69141 )
 layers = 1
@@ -2634,7 +2744,7 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="GymMonkeyBars" type="MeshInstance" parent="Interior" index="140"]
+[node name="GymMonkeyBars" type="MeshInstance" parent="Interior" index="128"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.27637, 1.36536, -2.34766 )
 layers = 1
@@ -2650,7 +2760,7 @@ mesh = ExtResource( 105 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="GymFloorPadding" type="MeshInstance" parent="Interior" index="141"]
+[node name="GymFloorPadding" type="MeshInstance" parent="Interior" index="129"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72852, -1.51062, -2.7959 )
 layers = 1
@@ -2666,7 +2776,7 @@ mesh = ExtResource( 106 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="GymFence" type="MeshInstance" parent="Interior" index="142"]
+[node name="GymFence" type="MeshInstance" parent="Interior" index="130"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.72852, -1.51062, -2.7959 )
 layers = 1
@@ -2682,7 +2792,7 @@ mesh = ExtResource( 107 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="GlazingAtriuim002" type="MeshInstance" parent="Interior" index="143"]
+[node name="GlazingAtriuim002" type="MeshInstance" parent="Interior" index="131"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.0375977, -2.07605, 2.25269 )
 layers = 1
@@ -2698,7 +2808,7 @@ mesh = ExtResource( 108 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="GardenWall" type="MeshInstance" parent="Interior" index="144"]
+[node name="GardenWall" type="MeshInstance" parent="Interior" index="132"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65332, -1.69312, -0.275146 )
 layers = 1
@@ -2714,7 +2824,7 @@ mesh = ExtResource( 109 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="FridgeDoors" type="MeshInstance" parent="Interior" index="145"]
+[node name="FridgeDoors" type="MeshInstance" parent="Interior" index="133"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73291, 1.125, 2.06836 )
 layers = 1
@@ -2730,7 +2840,7 @@ mesh = ExtResource( 110 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="EastBottomFloor" type="MeshInstance" parent="Interior" index="146"]
+[node name="EastBottomFloor" type="MeshInstance" parent="Interior" index="134"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63721, -0.293091, 2.09961 )
 layers = 1
@@ -2746,7 +2856,7 @@ mesh = ExtResource( 111 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="EastBathroom" type="MeshInstance" parent="Interior" index="147"]
+[node name="EastBathroom" type="MeshInstance" parent="Interior" index="135"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.35791, -0.026123, 0.876709 )
 layers = 1
@@ -2762,7 +2872,7 @@ mesh = ExtResource( 112 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Drain2" type="MeshInstance" parent="Interior" index="148"]
+[node name="Drain2" type="MeshInstance" parent="Interior" index="136"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4917, 0.150757, 1.10181 )
 layers = 1
@@ -2778,7 +2888,7 @@ mesh = ExtResource( 113 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Drain1" type="MeshInstance" parent="Interior" index="149"]
+[node name="Drain1" type="MeshInstance" parent="Interior" index="137"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4917, 0.181519, 1.09497 )
 layers = 1
@@ -2794,7 +2904,7 @@ mesh = ExtResource( 114 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ComposterPlatform" type="MeshInstance" parent="Interior" index="150"]
+[node name="ComposterPlatform" type="MeshInstance" parent="Interior" index="138"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.136768, -3.33643, -0.417969, 0.0244141 )
 layers = 1
@@ -2810,7 +2920,7 @@ mesh = ExtResource( 115 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="BottomWindowFloorWest" type="MeshInstance" parent="Interior" index="151"]
+[node name="BottomWindowFloorWest" type="MeshInstance" parent="Interior" index="139"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63721, 0.0257568, 2.09961 )
 layers = 1
@@ -2826,7 +2936,7 @@ mesh = ExtResource( 116 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="BottomWindowFloor" type="MeshInstance" parent="Interior" index="152"]
+[node name="BottomWindowFloor" type="MeshInstance" parent="Interior" index="140"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05762, -0.0616455, 2.17798 )
 layers = 1
@@ -2842,7 +2952,7 @@ mesh = ExtResource( 117 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="BlackwaterTank2" type="MeshInstance" parent="Interior" index="153"]
+[node name="BlackwaterTank2" type="MeshInstance" parent="Interior" index="141"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.854492, -1.67175, -2.6875 )
 layers = 1
@@ -2858,7 +2968,7 @@ mesh = ExtResource( 118 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="BlackWaterTank" type="MeshInstance" parent="Interior" index="154"]
+[node name="BlackWaterTank" type="MeshInstance" parent="Interior" index="142"]
 
 transform = Transform( 7.54979e-09, 0.1, 0, -0.1, 7.54979e-09, 0, 0, 0, 0.1, -3.58203, -0.337524, 0.887207 )
 layers = 1
@@ -2874,7 +2984,7 @@ mesh = ExtResource( 119 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="BlackwaterPurification2" type="MeshInstance" parent="Interior" index="155"]
+[node name="BlackwaterPurification2" type="MeshInstance" parent="Interior" index="143"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.661133, -1.67175, -2.6875 )
 layers = 1
@@ -2890,7 +3000,7 @@ mesh = ExtResource( 120 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="AtriumWalls005" type="MeshInstance" parent="Interior" index="156"]
+[node name="AtriumWalls005" type="MeshInstance" parent="Interior" index="144"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00012207, 0 )
 layers = 1
@@ -2906,7 +3016,7 @@ mesh = ExtResource( 121 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="AtriumRamp" type="MeshInstance" parent="Interior" index="157"]
+[node name="AtriumRamp" type="MeshInstance" parent="Interior" index="145"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.742188, -0.135986, -2.71265 )
 layers = 1
@@ -2922,7 +3032,7 @@ mesh = ExtResource( 122 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="AnchorBolt002" type="MeshInstance" parent="Interior" index="158"]
+[node name="AnchorBolt002" type="MeshInstance" parent="Interior" index="146"]
 
 transform = Transform( 0.1, 0, 9.38657e-11, 0, 0.1, 0, -9.38657e-11, 0, 0.1, 1.79492, -1.73633, 2.43213 )
 layers = 1
@@ -2938,7 +3048,7 @@ mesh = ExtResource( 123 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="AnchorBeamAtrium002" type="MeshInstance" parent="Interior" index="159"]
+[node name="AnchorBeamAtrium002" type="MeshInstance" parent="Interior" index="147"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79492, -1.70166, -0.205566 )
 layers = 1
@@ -2954,7 +3064,7 @@ mesh = ExtResource( 124 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="AlgaeWaterOxygenation" type="MeshInstance" parent="Interior" index="160"]
+[node name="AlgaeWaterOxygenation" type="MeshInstance" parent="Interior" index="148"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69092, 1.69666, -2.7478 )
 layers = 1
@@ -2970,7 +3080,7 @@ mesh = ExtResource( 125 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="AlgaeTubes" type="MeshInstance" parent="Interior" index="161"]
+[node name="AlgaeTubes" type="MeshInstance" parent="Interior" index="149"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.258301, 1.71411, -2.76807 )
 layers = 1
@@ -2986,7 +3096,7 @@ mesh = ExtResource( 126 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="AlgaeFarmPost" type="MeshInstance" parent="Interior" index="162"]
+[node name="AlgaeFarmPost" type="MeshInstance" parent="Interior" index="150"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1626, 1.56799, -2.76611 )
 layers = 1
@@ -3002,7 +3112,7 @@ mesh = ExtResource( 127 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="OmniLight2" type="OmniLight" parent="Interior" index="163"]
+[node name="OmniLight2" type="OmniLight" parent="Interior" index="151"]
 
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.267897, 2.02002, 2.75763 )
 layers = 1
@@ -3019,7 +3129,7 @@ shadow_bias = 0.15
 shadow_contact = 0.0
 shadow_reverse_cull_face = false
 editor_only = false
-omni_range = 5.0
+omni_range = 1.96585
 omni_attenuation = 1.0
 omni_shadow_mode = 1
 omni_shadow_detail = 1

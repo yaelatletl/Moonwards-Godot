@@ -27,7 +27,7 @@
 
 extents = Vector3( 50.2037, 13.3445, 15.6742 )
 
-[node name="Scene" type="Spatial"]
+[node name="Scene" type="Spatial" index="0"]
 
 [node name="UpperGalleryRoof-Bottom000" type="MeshInstance" parent="." index="0"]
 
@@ -358,6 +358,121 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
+
+[node name="OmniLight" type="OmniLight" parent="UpperGalleryRoof-Bottom000" index="24"]
+
+transform = Transform( 1, -1.72778e-15, 0, -2.9976e-15, 1, 0, 0, 1.11022e-16, 1, 6.04838, -2.45703, -0.785407 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 0.4
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 5.0
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light", "Shadow" ]
+
+[node name="OmniLight5" type="OmniLight" parent="UpperGalleryRoof-Bottom000" index="25"]
+
+transform = Transform( 1, -5.30825e-15, 8.9407e-08, -7.46625e-15, 1, 1.11022e-16, -8.9407e-08, 3.33067e-16, 1, -0.223855, -3.73782, -11.7196 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 0.4
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 5.0
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light", "Shadow" ]
+
+[node name="OmniLight2" type="OmniLight" parent="UpperGalleryRoof-Bottom000" index="26"]
+
+transform = Transform( 1, -6.20337e-15, 1.19209e-07, -8.35443e-15, 1, 1.66533e-16, -1.19209e-07, 3.88578e-16, 1, 22.5373, 15.8003, 12.2227 )
+layers = 1
+light_color = Color( 1, 0.99292, 0.886719, 1 )
+light_energy = 0.4
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 5.0
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light", "Shadow" ]
+
+[node name="OmniLight3" type="OmniLight" parent="UpperGalleryRoof-Bottom000" index="27"]
+
+transform = Transform( 1, -8.9026e-15, 1.63913e-07, -1.14977e-14, 1, 2.22045e-16, -1.63913e-07, 4.44089e-16, 1, 27.49, 20.1678, -8.23512 )
+layers = 1
+light_color = Color( 1, 0.99292, 0.886719, 1 )
+light_energy = 0.4
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 5.0
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light", "Shadow" ]
+
+[node name="OmniLight4" type="OmniLight" parent="UpperGalleryRoof-Bottom000" index="28"]
+
+transform = Transform( 1, -1.4766e-14, 1.63913e-07, -1.69517e-14, 1, 2.77556e-16, -1.63913e-07, 4.996e-16, 1, 43.5668, 33.9016, 9.98095 )
+layers = 1
+light_color = Color( 1, 0.99292, 0.886719, 1 )
+light_energy = 0.4
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 5.4965
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light", "Shadow" ]
 
 [node name="Set_FirstGalleryAnchor" type="Spatial" parent="." index="1" groups=[
 "interior",

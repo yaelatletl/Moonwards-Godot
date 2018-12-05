@@ -204,125 +204,126 @@ material/0 = null
 
 [node name="TriangularWindow002" type="Spatial" parent="HalfDomeHab-Glass" index="12"]
 
+editor/display_folded = true
 transform = Transform( 0.999734, -0.0112385, 0.0201409, 0.0111561, 0.999929, 0.0041485, -0.0201861, -0.00392275, 0.999789, 82.4532, 47.7716, -7.22494 )
 
 [node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow002" index="0" instance=ExtResource( 12 )]
 
-[node name="TriangularWindow003" type="Spatial" parent="HalfDomeHab-Glass" index="13"]
+[node name="TriangularWindow003" type="Spatial" parent="HalfDomeHab-Glass/TriangularWindow002" index="1"]
 
-transform = Transform( 0.999734, -0.0112385, 0.0201409, 0.0111561, 0.999929, 0.0041485, -0.0201861, -0.00392275, 0.999789, 74.98, 42.9896, -7.06608 )
+transform = Transform( 1, 8.14907e-10, -1.49012e-08, 9.31323e-10, 1, 0, 1.49012e-08, 0, 1, -7.52777, -4.6983, -0.0115299 )
 
-[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow003" index="0" instance=ExtResource( 12 )]
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow002/TriangularWindow003" index="0" instance=ExtResource( 12 )]
 
-[node name="TriangularWindow004" type="Spatial" parent="HalfDomeHab-Glass" index="14"]
+[node name="TriangularWindow004" type="Spatial" parent="HalfDomeHab-Glass/TriangularWindow002" index="2"]
 
-transform = Transform( 0.999734, -0.0112385, 0.0201409, 0.0111561, 0.999929, 0.0041485, -0.0201861, -0.00392275, 0.999789, 67.4678, 38.167, -6.89269 )
+transform = Transform( 1, 8.14907e-10, -1.49012e-08, 9.31323e-10, 1, 0, 1.49012e-08, 0, 1, -15.0953, -9.43682, -0.0094862 )
 
-[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow004" index="0" instance=ExtResource( 12 )]
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow002/TriangularWindow004" index="0" instance=ExtResource( 12 )]
 
-[node name="TriangularWindow005" type="Spatial" parent="HalfDomeHab-Glass" index="15"]
+[node name="TriangularWindow005" type="Spatial" parent="HalfDomeHab-Glass/TriangularWindow002" index="3"]
 
-transform = Transform( 0.999734, -0.0112385, 0.0201409, 0.0111561, 0.999929, 0.0041485, -0.0201861, -0.00392275, 0.999789, 61.0661, 34.0007, -6.75433 )
+transform = Transform( 1, 8.14907e-10, -1.49012e-08, 9.31323e-10, 1, 0, 1.49012e-08, 0, 1, -21.5446, -13.5314, -0.0173759 )
 
-[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow005" index="0" instance=ExtResource( 12 )]
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow002/TriangularWindow005" index="0" instance=ExtResource( 12 )]
 
-[node name="TriangularWindow006" type="Spatial" parent="HalfDomeHab-Glass" index="16"]
+[node name="TriangularWindow006" type="Spatial" parent="HalfDomeHab-Glass/TriangularWindow002" index="4"]
 
-transform = Transform( 0.999734, -0.0112385, 0.0201409, 0.0111561, 0.999929, 0.0041485, -0.0201861, -0.00392275, 0.999789, 54.6547, 29.938, -6.61161 )
+transform = Transform( 1, 8.14907e-10, -1.49012e-08, 9.31323e-10, 1, 0, 1.49012e-08, 0, 1, -28.0025, -17.5224, -0.0206709 )
 
-[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow006" index="0" instance=ExtResource( 12 )]
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow002/TriangularWindow006" index="0" instance=ExtResource( 12 )]
 
-[node name="TriangularWindow007" type="Spatial" parent="HalfDomeHab-Glass" index="17"]
+[node name="TriangularWindow007" type="Spatial" parent="HalfDomeHab-Glass/TriangularWindow002" index="5"]
 
-transform = Transform( 0.999734, -0.0112385, 0.0201409, 0.0111561, 0.999929, 0.0041485, -0.0201861, -0.00392275, 0.999789, 46.219, 24.573, -6.4323 )
+transform = Transform( 1, 8.14907e-10, -1.49012e-08, 9.31323e-10, 1, 0, 1.49012e-08, 0, 1, -36.4994, -22.7929, -0.0335593 )
 
-[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow007" index="0" instance=ExtResource( 12 )]
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow002/TriangularWindow007" index="0" instance=ExtResource( 12 )]
 
-[node name="TriangularWindow008" type="Spatial" parent="HalfDomeHab-Glass" index="18"]
+[node name="TriangularWindow008" type="Spatial" parent="HalfDomeHab-Glass/TriangularWindow002" index="6"]
 
-transform = Transform( 0.999734, -0.0112385, 0.0201409, 0.0111561, 0.999929, 0.0041485, -0.0201861, -0.00392275, 0.999789, 38.9901, 19.9076, -6.26298 )
+transform = Transform( 1, 8.14907e-10, -1.49012e-08, 9.31323e-10, 1, 0, 1.49012e-08, 0, 1, -43.7818, -27.3774, -0.0292263 )
 
-[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow008" index="0" instance=ExtResource( 12 )]
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow002/TriangularWindow008" index="0" instance=ExtResource( 12 )]
 
-[node name="TriangularWindow009" type="Spatial" parent="HalfDomeHab-Glass" index="19"]
+[node name="TriangularWindow009" type="Spatial" parent="HalfDomeHab-Glass/TriangularWindow002" index="7"]
 
-transform = Transform( 0.999734, -0.0112385, 0.0201409, 0.0111561, 0.999929, 0.0041485, -0.0201861, -0.00392275, 0.999789, 30.5016, 14.3828, -6.08884 )
+transform = Transform( 1, 8.14907e-10, -1.49012e-08, 9.31323e-10, 1, 0, 1.49012e-08, 0, 1, -52.3332, -32.8071, -0.0490098 )
 
-[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow009" index="0" instance=ExtResource( 12 )]
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow002/TriangularWindow009" index="0" instance=ExtResource( 12 )]
 
-[node name="TriangularWindow010" type="Spatial" parent="HalfDomeHab-Glass" index="20"]
+[node name="TriangularWindow010" type="Spatial" parent="HalfDomeHab-Glass/TriangularWindow002" index="8"]
 
-transform = Transform( 0.999734, -0.0112385, 0.0201409, 0.0111561, 0.999929, 0.0041485, -0.0201861, -0.00392275, 0.999789, 23.0646, 9.64966, -5.91265 )
+transform = Transform( 1, 8.14907e-10, -1.49012e-08, 9.31323e-10, 1, 0, 1.49012e-08, 0, 1, -59.8246, -37.457, -0.0422802 )
 
-[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow010" index="0" instance=ExtResource( 12 )]
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow002/TriangularWindow010" index="0" instance=ExtResource( 12 )]
 
-[node name="TriangularWindow011" type="Spatial" parent="HalfDomeHab-Glass" index="21"]
+[node name="TriangularWindow011" type="Spatial" parent="HalfDomeHab-Glass/TriangularWindow002" index="9"]
 
-transform = Transform( 0.999734, -0.0112385, 0.0201409, 0.0111561, 0.999929, 0.0041485, -0.0201861, -0.00392275, 0.999789, 16.8715, 5.65857, -5.77033 )
+transform = Transform( 1, 8.14907e-10, -1.49012e-08, 9.31323e-10, 1, 0, 1.49012e-08, 0, 1, -66.0635, -41.3788, -0.0412822 )
 
-[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow011" index="0" instance=ExtResource( 12 )]
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow002/TriangularWindow011" index="0" instance=ExtResource( 12 )]
 
-[node name="TriangularWindow012" type="Spatial" parent="HalfDomeHab-Glass" index="22"]
+[node name="TriangularWindow012" type="Spatial" parent="HalfDomeHab-Glass/TriangularWindow002" index="10"]
 
-transform = Transform( -0.999734, -0.0112381, -0.020142, -0.0111557, 0.999929, -0.00414851, 0.0201872, -0.00392276, -0.999789, 17.0808, 5.68201, 4.16277 )
+transform = Transform( -1, 4.00469e-07, -1.08778e-06, 3.93949e-07, 1, 2.79397e-09, 1.07288e-06, -2.32831e-09, -1, -66.0545, -41.3967, 9.89403 )
 
-[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow012" index="0" instance=ExtResource( 12 )]
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow002/TriangularWindow012" index="0" instance=ExtResource( 12 )]
 
-[node name="TriangularWindow013" type="Spatial" parent="HalfDomeHab-Glass" index="23"]
+[node name="TriangularWindow013" type="Spatial" parent="HalfDomeHab-Glass/TriangularWindow002" index="11"]
 
-transform = Transform( -0.999734, -0.0112381, -0.020142, -0.0111557, 0.999929, -0.00414851, 0.0201872, -0.00392276, -0.999789, 23.2871, 9.66553, 4.01713 )
+transform = Transform( -1, 4.00469e-07, -1.08778e-06, 3.93949e-07, 1, 2.79397e-09, 1.07288e-06, -2.32831e-09, -1, -59.8025, -37.4826, 9.88994 )
 
-[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow013" index="0" instance=ExtResource( 12 )]
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow002/TriangularWindow013" index="0" instance=ExtResource( 12 )]
 
-[node name="TriangularWindow014" type="Spatial" parent="HalfDomeHab-Glass" index="24"]
+[node name="TriangularWindow014" type="Spatial" parent="HalfDomeHab-Glass/TriangularWindow002" index="12"]
 
-transform = Transform( -0.999734, -0.0112381, -0.020142, -0.0111557, 0.999929, -0.00414851, 0.0201872, -0.00392276, -0.999789, 30.7159, 14.3915, 3.86268 )
+transform = Transform( -1, 4.00469e-07, -1.08778e-06, 3.93949e-07, 1, 2.79397e-09, 1.07288e-06, -2.32831e-09, -1, -52.3198, -32.8398, 9.90476 )
 
-[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow014" index="0" instance=ExtResource( 12 )]
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow002/TriangularWindow014" index="0" instance=ExtResource( 12 )]
 
-[node name="TriangularWindow015" type="Spatial" parent="HalfDomeHab-Glass" index="25"]
+[node name="TriangularWindow015" type="Spatial" parent="HalfDomeHab-Glass/TriangularWindow002" index="13"]
 
-transform = Transform( -0.999734, -0.0112381, -0.020142, -0.0111557, 0.999929, -0.00414851, 0.0201872, -0.00392276, -0.999789, 39.1966, 19.9244, 3.67413 )
+transform = Transform( -1, 4.00469e-07, -1.08778e-06, 3.93949e-07, 1, 2.79397e-09, 1.07288e-06, -2.32831e-09, -1, -43.7758, -27.4019, 9.91001 )
 
-[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow015" index="0" instance=ExtResource( 12 )]
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow002/TriangularWindow015" index="0" instance=ExtResource( 12 )]
 
-[node name="TriangularWindow016" type="Spatial" parent="HalfDomeHab-Glass" index="26"]
+[node name="TriangularWindow016" type="Spatial" parent="HalfDomeHab-Glass/TriangularWindow002" index="14"]
 
-transform = Transform( -0.999734, -0.0112381, -0.020142, -0.0111557, 0.999929, -0.00414851, 0.0201872, -0.00392276, -0.999789, 46.4392, 24.582, 3.50364 )
+transform = Transform( -1, 4.00469e-07, -1.08778e-06, 3.93949e-07, 1, 2.79397e-09, 1.07288e-06, -2.32831e-09, -1, -36.4797, -22.8253, 9.90475 )
 
-[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow016" index="0" instance=ExtResource( 12 )]
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow002/TriangularWindow016" index="0" instance=ExtResource( 12 )]
 
-[node name="TriangularWindow017" type="Spatial" parent="HalfDomeHab-Glass" index="27"]
+[node name="TriangularWindow017" type="Spatial" parent="HalfDomeHab-Glass/TriangularWindow002" index="15"]
 
-transform = Transform( -0.999734, -0.0112381, -0.020142, -0.0111557, 0.999929, -0.00414851, 0.0201872, -0.00392276, -0.999789, 54.9135, 29.934, 3.32803 )
+transform = Transform( -1, 4.00469e-07, -1.08778e-06, 3.93949e-07, 1, 2.79397e-09, 1.07288e-06, -2.32831e-09, -1, -27.9444, -17.5683, 9.92206 )
 
-[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow017" index="0" instance=ExtResource( 12 )]
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow002/TriangularWindow017" index="0" instance=ExtResource( 12 )]
 
-[node name="TriangularWindow018" type="Spatial" parent="HalfDomeHab-Glass" index="28"]
+[node name="TriangularWindow018" type="Spatial" parent="HalfDomeHab-Glass/TriangularWindow002" index="16"]
 
-transform = Transform( -0.999734, -0.0112381, -0.020142, -0.0111557, 0.999929, -0.00414851, 0.0201872, -0.00392276, -0.999789, 61.3008, 34.0179, 3.17953 )
+transform = Transform( -1, 4.00469e-07, -1.08778e-06, 3.93949e-07, 1, 2.79397e-09, 1.07288e-06, -2.32831e-09, -1, -21.5102, -13.5558, 9.91918 )
 
-[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow018" index="0" instance=ExtResource( 12 )]
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow002/TriangularWindow018" index="0" instance=ExtResource( 12 )]
 
-[node name="TriangularWindow019" type="Spatial" parent="HalfDomeHab-Glass" index="29"]
+[node name="TriangularWindow019" type="Spatial" parent="HalfDomeHab-Glass/TriangularWindow002" index="17"]
 
-transform = Transform( -0.999734, -0.0112381, -0.020142, -0.0111557, 0.999929, -0.00414851, 0.0201872, -0.00392276, -0.999789, 67.6959, 38.1598, 3.04248 )
+transform = Transform( -1, 4.00469e-07, -1.08778e-06, 3.93949e-07, 1, 2.79397e-09, 1.07288e-06, -2.32831e-09, -1, -15.0679, -9.48556, 9.92814 )
 
-[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow019" index="0" instance=ExtResource( 12 )]
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow002/TriangularWindow019" index="0" instance=ExtResource( 12 )]
 
-[node name="TriangularWindow020" type="Spatial" parent="HalfDomeHab-Glass" index="30"]
+[node name="TriangularWindow020" type="Spatial" parent="HalfDomeHab-Glass/TriangularWindow002" index="18"]
 
-transform = Transform( -0.999734, -0.0112381, -0.020142, -0.0111557, 0.999929, -0.00414851, 0.0201872, -0.00392276, -0.999789, 75.1957, 42.9978, 2.87199 )
+transform = Transform( -1, 4.00469e-07, -1.08778e-06, 3.93949e-07, 1, 2.79397e-09, 1.07288e-06, -2.32831e-09, -1, -7.51265, -4.73151, 9.92881 )
 
-[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow020" index="0" instance=ExtResource( 12 )]
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow002/TriangularWindow020" index="0" instance=ExtResource( 12 )]
 
-[node name="TriangularWindow021" type="Spatial" parent="HalfDomeHab-Glass" index="31"]
+[node name="TriangularWindow021" type="Spatial" parent="HalfDomeHab-Glass/TriangularWindow002" index="19"]
 
-transform = Transform( -0.999734, -0.0112381, -0.020142, -0.0111557, 0.999929, -0.00414851, 0.0201872, -0.00392276, -0.999789, 82.6594, 47.7722, 2.72093 )
+transform = Transform( -1, 4.00469e-07, -1.08778e-06, 3.93949e-07, 1, 2.79397e-09, 1.07288e-06, -2.32831e-09, -1, 0.00537872, -0.0407295, 9.94792 )
 
-[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow021" index="0" instance=ExtResource( 12 )]
+[node name="Scene" parent="HalfDomeHab-Glass/TriangularWindow002/TriangularWindow021" index="0" instance=ExtResource( 12 )]
 
-[node name="TubeHab-Cap005" type="MeshInstance" parent="HalfDomeHab-Glass" index="32"]
+[node name="TubeHab-Cap005" type="MeshInstance" parent="HalfDomeHab-Glass" index="13"]
 
 transform = Transform( -0.997383, 1.50601e-07, 0.0723049, 8.1902e-07, -1, -1.22243e-07, 0.0723049, -1.09177e-08, 0.997383, 32.1643, 13.1858, 19.0014 )
 layers = 1
@@ -338,7 +339,7 @@ mesh = ExtResource( 13 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="TubeHab-Cap006" type="MeshInstance" parent="HalfDomeHab-Glass" index="33"]
+[node name="TubeHab-Cap006" type="MeshInstance" parent="HalfDomeHab-Glass" index="14"]
 
 transform = Transform( 0.999599, 0, 0.0283289, -9.74457e-07, 1, -7.94229e-08, -0.0283288, 0, 0.999599, 51.8031, 27.1268, -21.6786 )
 layers = 1
@@ -354,7 +355,7 @@ mesh = ExtResource( 14 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="TubeHab-Entrance005" type="MeshInstance" parent="HalfDomeHab-Glass" index="34"]
+[node name="TubeHab-Entrance005" type="MeshInstance" parent="HalfDomeHab-Glass" index="15"]
 
 transform = Transform( 0.981627, 0, 0.190809, -9.48497e-07, 1, -2.37124e-07, -0.190809, 0, 0.981627, 65.3257, 37.085, 2.93763 )
 layers = 1
@@ -370,7 +371,7 @@ mesh = ExtResource( 15 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="TubeHab-Entrance006" type="MeshInstance" parent="HalfDomeHab-Glass" index="35"]
+[node name="TubeHab-Entrance006" type="MeshInstance" parent="HalfDomeHab-Glass" index="16"]
 
 transform = Transform( 0.999561, 0.0296422, -1.2957e-09, -9.74352e-07, -1.24415e-07, -1, -0.0296421, 0.999561, -4.36922e-08, 52.4142, 27.0944, -7.69449 )
 layers = 1
@@ -386,7 +387,7 @@ mesh = ExtResource( 16 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="TubeHab-Entrance007" type="MeshInstance" parent="HalfDomeHab-Glass" index="36"]
+[node name="TubeHab-Entrance007" type="MeshInstance" parent="HalfDomeHab-Glass" index="17"]
 
 transform = Transform( 0.981627, 0, 0.190809, -9.48497e-07, 1, -2.37124e-07, -0.190809, 0, 0.981627, 31.1374, 13.1542, 5.85971 )
 layers = 1
@@ -402,7 +403,7 @@ mesh = ExtResource( 17 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="TubeHab-Entrance009" type="MeshInstance" parent="HalfDomeHab-Glass" index="37"]
+[node name="TubeHab-Entrance009" type="MeshInstance" parent="HalfDomeHab-Glass" index="18"]
 
 transform = Transform( 0.981627, 0, 0.190809, -9.48497e-07, 1, -2.37124e-07, -0.190809, 0, 0.981627, 18.529, 7.20251, 18.1644 )
 layers = 1
@@ -417,5 +418,412 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 18 )
 skeleton = NodePath("..")
 material/0 = null
+
+[node name="OmniLight" type="OmniLight" parent="HalfDomeHab-Glass" index="19"]
+
+transform = Transform( 1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 3.94348, -2, -5.89747 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 5.0
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+
+[node name="OmniLight3" type="OmniLight" parent="HalfDomeHab-Glass/OmniLight" index="0"]
+
+transform = Transform( 1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 12.8802, 8.2556, 5.19924 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 4.07365
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+
+[node name="OmniLight4" type="OmniLight" parent="HalfDomeHab-Glass/OmniLight" index="1"]
+
+transform = Transform( 1, 0, -4.47035e-08, 0, 1, 0, 4.47035e-08, 0, 1, 23.3808, 14.8382, 4.99682 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 4.07365
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+
+[node name="OmniLight5" type="OmniLight" parent="HalfDomeHab-Glass/OmniLight" index="2"]
+
+transform = Transform( 1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 35.4551, 21.9084, 4.58064 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 4.07365
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+
+[node name="OmniLight6" type="OmniLight" parent="HalfDomeHab-Glass/OmniLight" index="3"]
+
+transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 49.5757, 30.8314, 4.31808 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 4.07365
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+
+[node name="OmniLight7" type="OmniLight" parent="HalfDomeHab-Glass/OmniLight" index="4"]
+
+transform = Transform( 1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 60.372, 37.77, 3.87444 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 4.07365
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+
+[node name="OmniLight8" type="OmniLight" parent="HalfDomeHab-Glass/OmniLight" index="5"]
+
+transform = Transform( 1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 70.7713, 44.8223, 3.50791 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 4.07365
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light" ]
+
+[node name="OmniLight9" type="OmniLight" parent="HalfDomeHab-Glass/OmniLight" index="6"]
+
+transform = Transform( 1.00001, 0, -7.45058e-08, 0, 1, 0, 7.45058e-08, 0, 1.00001, 77.4309, 47.0403, 3.68549 )
+layers = 1
+light_color = Color( 1, 0.959412, 0.851562, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 2.74968
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light" ]
+
+[node name="OmniLight10" type="OmniLight" parent="HalfDomeHab-Glass/OmniLight" index="7"]
+
+transform = Transform( 1.00001, 0, -4.47035e-08, 0, 1, 0, 4.47035e-08, 0, 1.00001, 66.9507, 39.1396, 3.50828 )
+layers = 1
+light_color = Color( 1, 0.959412, 0.851562, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 2.74968
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light" ]
+
+[node name="OmniLight11" type="OmniLight" parent="HalfDomeHab-Glass/OmniLight" index="8"]
+
+transform = Transform( 1.00001, 0, -1.04308e-07, 0, 1, 0, 1.04308e-07, 0, 1.00001, 55.653, 32.702, 4.00093 )
+layers = 1
+light_color = Color( 1, 0.959412, 0.851562, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 2.74968
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light" ]
+
+[node name="OmniLight12" type="OmniLight" parent="HalfDomeHab-Glass/OmniLight" index="9"]
+
+transform = Transform( 1.00001, 0, -4.47035e-08, 0, 1, 0, 4.47035e-08, 0, 1.00001, 43.0752, 23.5142, 4.49127 )
+layers = 1
+light_color = Color( 1, 0.959412, 0.851562, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 2.74968
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light" ]
+
+[node name="OmniLight13" type="OmniLight" parent="HalfDomeHab-Glass/OmniLight" index="10"]
+
+transform = Transform( 1.00001, 0, -7.45058e-08, 0, 1, 0, 7.45058e-08, 0, 1.00001, 29.7517, 15.8812, 4.66873 )
+layers = 1
+light_color = Color( 1, 0.959412, 0.851562, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 2.74968
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light" ]
+
+[node name="OmniLight14" type="OmniLight" parent="HalfDomeHab-Glass/OmniLight" index="11"]
+
+transform = Transform( 1.00001, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1.00001, 18.7806, 8.10681, 4.89778 )
+layers = 1
+light_color = Color( 1, 0.959412, 0.851562, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 2.74968
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light" ]
+
+[node name="OmniLight15" type="OmniLight" parent="HalfDomeHab-Glass/OmniLight" index="12"]
+
+transform = Transform( 1.00001, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1.00001, 7.7697, 0.414508, 5.35852 )
+layers = 1
+light_color = Color( 1, 0.959412, 0.851562, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 2.74968
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light" ]
+
+[node name="OmniLight16" type="OmniLight" parent="HalfDomeHab-Glass/OmniLight" index="13"]
+
+transform = Transform( 1.00001, 0, -1.93715e-07, 0, 1, 0, 1.93715e-07, 0, 1.00001, 27.5226, 16.4195, 18.5625 )
+layers = 1
+light_color = Color( 1, 0.959412, 0.851562, 1 )
+light_energy = 0.5
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 5.05294
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light" ]
+
+[node name="OmniLight17" type="OmniLight" parent="HalfDomeHab-Glass/OmniLight" index="14"]
+
+transform = Transform( 1.00001, 0, -1.93715e-07, 0, 1, 0, 1.93715e-07, 0, 1.00001, 61.398, 40.0259, 18.5601 )
+layers = 1
+light_color = Color( 1, 0.959412, 0.851562, 1 )
+light_energy = 0.5
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 5.05294
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light" ]
+
+[node name="OmniLight18" type="OmniLight" parent="HalfDomeHab-Glass/OmniLight" index="15"]
+
+transform = Transform( 1.00001, 0, -1.93715e-07, 0, 1, 0, 1.93715e-07, 0, 1.00001, 48.0546, 30.313, -10.0158 )
+layers = 1
+light_color = Color( 1, 0.959412, 0.851562, 1 )
+light_energy = 0.5
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 5.05294
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light" ]
+
+[node name="OmniLight2" type="OmniLight" parent="HalfDomeHab-Glass/OmniLight" index="16"]
+
+transform = Transform( 1, 0, -4.47035e-08, 0, 1, 0, 4.47035e-08, 0, 1, 0.313427, 0, 12.026 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 5.0
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
 
 

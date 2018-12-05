@@ -29,7 +29,7 @@
 [ext_resource path="res://scenes/meshes/Spaceport__SpaceportMainWhippleShield_Truss-Triangular002.mesh" type="ArrayMesh" id=27]
 [ext_resource path="res://model_assets/HexpaneWindow.tscn" type="PackedScene" id=28]
 
-[node name="Scene" type="Spatial" index="0"]
+[node name="Scene" type="Spatial"]
 
 [node name="SpaceportMainWhippleShield" type="MeshInstance" parent="." index="0"]
 
@@ -64,42 +64,49 @@ skeleton = NodePath("..")
 
 [node name="AirlockNew" type="Spatial" parent="SpaceportMainWhippleShield" index="1"]
 
+editor/display_folded = true
 transform = Transform( 1, 5.96047e-09, 0, -5.96047e-09, 1, 0, 0, 0, 1, 0.513641, 0.164795, -3.08154 )
 
 [node name="Scene" parent="SpaceportMainWhippleShield/AirlockNew" index="0" instance=ExtResource( 3 )]
 
 [node name="AirlockNew001" type="Spatial" parent="SpaceportMainWhippleShield" index="2"]
 
+editor/display_folded = true
 transform = Transform( 1, 5.96047e-09, 0, -5.96047e-09, 1, 0, 0, 0, 1, -0.437531, 0.164795, -3.08154 )
 
 [node name="Scene" parent="SpaceportMainWhippleShield/AirlockNew001" index="0" instance=ExtResource( 3 )]
 
 [node name="AirlockNew002" type="Spatial" parent="SpaceportMainWhippleShield" index="3"]
 
+editor/display_folded = true
 transform = Transform( -4.37114e-08, 5.96047e-09, 1, -5.96047e-09, 1, -5.96047e-09, -1, -5.96047e-09, -4.37114e-08, -6.35452, 0.0551758, -2.75122 )
 
 [node name="Scene" parent="SpaceportMainWhippleShield/AirlockNew002" index="0" instance=ExtResource( 3 )]
 
 [node name="AirlockNew003" type="Spatial" parent="SpaceportMainWhippleShield" index="4"]
 
+editor/display_folded = true
 transform = Transform( -4.37114e-08, 5.96047e-09, 1, -5.96047e-09, 1, -5.96047e-09, -1, -5.96047e-09, -4.37114e-08, -6.35452, 0.0551758, -1.75122 )
 
 [node name="Scene" parent="SpaceportMainWhippleShield/AirlockNew003" index="0" instance=ExtResource( 3 )]
 
 [node name="AirlockNew004" type="Spatial" parent="SpaceportMainWhippleShield" index="5"]
 
+editor/display_folded = true
 transform = Transform( -4.37114e-08, 5.96047e-09, 1, -5.96047e-09, 1, -5.96047e-09, -1, -5.96047e-09, -4.37114e-08, -6.35452, 0.0551758, -0.751221 )
 
 [node name="Scene" parent="SpaceportMainWhippleShield/AirlockNew004" index="0" instance=ExtResource( 3 )]
 
 [node name="AirlockNew005" type="Spatial" parent="SpaceportMainWhippleShield" index="6"]
 
+editor/display_folded = true
 transform = Transform( -4.37114e-08, 5.96047e-09, 1, -5.96047e-09, 1, -5.96047e-09, -1, -5.96047e-09, -4.37114e-08, -6.35452, 0.0551758, 0.248779 )
 
 [node name="Scene" parent="SpaceportMainWhippleShield/AirlockNew005" index="0" instance=ExtResource( 3 )]
 
 [node name="AirlockNew006" type="Spatial" parent="SpaceportMainWhippleShield" index="7"]
 
+editor/display_folded = true
 transform = Transform( 1, 5.96047e-09, 0, -5.96047e-09, 1, 0, 0, 0, 1, 0.0385437, 0.977051, -3.08228 )
 
 [node name="Scene" parent="SpaceportMainWhippleShield/AirlockNew006" index="0" instance=ExtResource( 3 )]
@@ -122,18 +129,21 @@ material/0 = null
 
 [node name="Empty_ShuttleProp" type="Spatial" parent="SpaceportMainWhippleShield" index="9"]
 
+editor/display_folded = true
 transform = Transform( 1, 5.96047e-09, 0, -5.96047e-09, 1, 0, 0, 0, 1, 2.72629, 0.570923, -6.94733 )
 
 [node name="Scene" parent="SpaceportMainWhippleShield/Empty_ShuttleProp" index="0" instance=ExtResource( 5 )]
 
 [node name="Empty_ShuttleProp001" type="Spatial" parent="SpaceportMainWhippleShield" index="10"]
 
+editor/display_folded = true
 transform = Transform( -4.37114e-08, 5.96047e-09, 1, -5.96047e-09, 1, -5.96047e-09, -1, -5.96047e-09, -4.37114e-08, -7.29655, 1.43726, -6.4738 )
 
 [node name="Scene" parent="SpaceportMainWhippleShield/Empty_ShuttleProp001" index="0" instance=ExtResource( 5 )]
 
 [node name="Empty_ShuttleProp002" type="Spatial" parent="SpaceportMainWhippleShield" index="11"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0385437, 0.570923, -6.41968 )
 
 [node name="Scene" parent="SpaceportMainWhippleShield/Empty_ShuttleProp002" index="0" instance=ExtResource( 5 )]
@@ -493,6 +503,7 @@ material/0 = null
 
 [node name="WindowHexpane" type="Spatial" parent="SpaceportMainWhippleShield" index="34"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.05176e-05, 2.51978, 0 )
 _sections_unfolded = [ "Transform" ]
 
@@ -500,5 +511,71 @@ _sections_unfolded = [ "Transform" ]
 
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, -0.0171726, 0 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="OmniLight" type="OmniLight" parent="SpaceportMainWhippleShield" index="35"]
+
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 5.0
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+
+[node name="OmniLight2" type="OmniLight" parent="SpaceportMainWhippleShield" index="36"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.87885, 0, -1.72316 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 3.37895
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+
+[node name="OmniLight3" type="OmniLight" parent="SpaceportMainWhippleShield" index="37"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.87885, 2.05836, -8.21762 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 0.4
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 10.718
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light" ]
 
 
