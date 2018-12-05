@@ -1628,7 +1628,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.8158, -1931.13, -3.79072 )
 
 [node name="Empty_FifthGallery" type="Spatial" parent="." index="31"]
 
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -85.4058, -1928.13, 71.6892 )
 
 [node name="Scene" parent="Empty_FifthGallery" index="0" instance=ExtResource( 50 )]
@@ -1656,7 +1655,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -146.007, -1976.39, 37.783 )
 
 [node name="Empty_GalleriesOuterSurface" type="Spatial" parent="." index="35"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -146.01, -1975.4, 37.7654 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -146.01, -1975.44, 37.7654 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="Empty_GalleriesOuterSurface" index="0" instance=ExtResource( 54 )]
 
