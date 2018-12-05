@@ -109,7 +109,7 @@ projection = 0
 current = true
 fov = 70.0
 size = 1.0
-near = 0.05
+near = 0.1
 far = 10000.0
 script = ExtResource( 3 )
 
@@ -168,6 +168,8 @@ script = ExtResource( 5 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="TextPoint" type="Position3D" parent="." index="5"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28093, 0 )
 
 [node name="Area" type="Area" parent="." index="6" groups=[
 "player",
