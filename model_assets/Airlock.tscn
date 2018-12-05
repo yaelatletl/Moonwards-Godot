@@ -45,7 +45,7 @@ layers = 1
 material_override = null
 cast_shadow = 1
 extra_cull_margin = 0.0
-use_in_baked_light = false
+use_in_baked_light = true
 lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
@@ -55,6 +55,7 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
+_sections_unfolded = [ "Geometry" ]
 
 [node name="AirlockDoor007" type="MeshInstance" parent="AirlockStructure001" index="3"]
 
@@ -63,7 +64,7 @@ layers = 1
 material_override = null
 cast_shadow = 1
 extra_cull_margin = 0.0
-use_in_baked_light = false
+use_in_baked_light = true
 lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
@@ -73,6 +74,7 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
+_sections_unfolded = [ "Geometry" ]
 
 [node name="AirlockDoor008" type="MeshInstance" parent="AirlockStructure001" index="4"]
 
@@ -81,7 +83,7 @@ layers = 1
 material_override = null
 cast_shadow = 1
 extra_cull_margin = 0.0
-use_in_baked_light = false
+use_in_baked_light = true
 lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
@@ -91,6 +93,7 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
+_sections_unfolded = [ "Geometry" ]
 
 [node name="AirlockDoor009" type="MeshInstance" parent="AirlockStructure001" index="5"]
 
@@ -99,7 +102,7 @@ layers = 1
 material_override = null
 cast_shadow = 1
 extra_cull_margin = 0.0
-use_in_baked_light = false
+use_in_baked_light = true
 lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
@@ -109,6 +112,7 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
+_sections_unfolded = [ "Geometry", "material" ]
 
 [node name="AirlockDoorMech1002" type="MeshInstance" parent="AirlockStructure001" index="6"]
 

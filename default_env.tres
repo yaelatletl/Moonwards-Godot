@@ -3,22 +3,23 @@
 [sub_resource type="ProceduralSky" id=1]
 
 radiance_size = 4
-sky_top_color = Color( 0.054902, 0.0588235, 0.0588235, 1 )
-sky_horizon_color = Color( 0.0862745, 0.0941176, 0.0980392, 1 )
-sky_curve = 0.09
+sky_top_color = Color( 0, 0, 0, 1 )
+sky_horizon_color = Color( 0, 0, 0, 1 )
+sky_curve = 0.25
 sky_energy = 1.0
-ground_bottom_color = Color( 0.156863, 0.184314, 0.211765, 1 )
-ground_horizon_color = Color( 0.54902, 0.54902, 0.54902, 1 )
-ground_curve = 0.02
+ground_bottom_color = Color( 0.101961, 0.145098, 0.188235, 1 )
+ground_horizon_color = Color( 0.482353, 0.788235, 0.952941, 1 )
+ground_curve = 0.01
 ground_energy = 1.0
 sun_color = Color( 1, 1, 1, 1 )
-sun_latitude = 30.0
-sun_longitude = -90.0
+sun_latitude = 35.0
+sun_longitude = 0.0
 sun_angle_min = 1.0
-sun_angle_max = 90.0
+sun_angle_max = 100.0
 sun_curve = 0.05
 sun_energy = 16.0
 texture_size = 2
+_sections_unfolded = [ "Sky" ]
 
 [resource]
 
@@ -28,9 +29,9 @@ background_sky_custom_fov = 0.0
 background_color = Color( 0, 0, 0, 1 )
 background_energy = 0.7
 background_canvas_max_layer = 0
-ambient_light_color = Color( 0.894118, 0.882353, 0.882353, 1 )
-ambient_light_energy = 0.5
-ambient_light_sky_contribution = 0.0
+ambient_light_color = Color( 0.347656, 0.347656, 0.347656, 1 )
+ambient_light_energy = 1.0
+ambient_light_sky_contribution = 0.7
 fog_enabled = false
 fog_color = Color( 0.5, 0.6, 0.7, 1 )
 fog_sun_color = Color( 1, 0.9, 0.7, 1 )
@@ -98,4 +99,5 @@ adjustment_enabled = false
 adjustment_brightness = 1.0
 adjustment_contrast = 1.0
 adjustment_saturation = 1.0
+_sections_unfolded = [ "Ambient Light", "Background" ]
 
