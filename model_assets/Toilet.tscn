@@ -23,9 +23,7 @@
 [ext_resource path="res://model_assets/meshes/Toilet__Toilet-Floor005_Wheel-FecalTank005.mesh" type="ArrayMesh" id=21]
 [ext_resource path="res://model_assets/meshes/Toilet__Toilet-Floor005_WheelSmall-FecalTank005.mesh" type="ArrayMesh" id=22]
 
-[node name="Scene" type="Spatial"]
-
-editor/display_folded = true
+[node name="Scene" type="Spatial" index="0"]
 
 [node name="Toilet-Floor005" type="MeshInstance" parent="." index="0"]
 
@@ -34,7 +32,7 @@ layers = 1
 material_override = null
 cast_shadow = 1
 extra_cull_margin = 0.0
-use_in_baked_light = false
+use_in_baked_light = true
 lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
@@ -42,6 +40,7 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 1 )
 skeleton = NodePath("..")
 material/0 = null
+_sections_unfolded = [ "Geometry" ]
 
 [node name="Motor-FecalTank005" type="MeshInstance" parent="Toilet-Floor005" index="0"]
 
@@ -82,7 +81,7 @@ layers = 1
 material_override = null
 cast_shadow = 1
 extra_cull_margin = 0.0
-use_in_baked_light = false
+use_in_baked_light = true
 lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
@@ -90,6 +89,7 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 4 )
 skeleton = NodePath("..")
 material/0 = null
+_sections_unfolded = [ "Geometry" ]
 
 [node name="PooFlap-Top005" type="MeshInstance" parent="Toilet-Floor005" index="3"]
 
@@ -274,7 +274,7 @@ layers = 1
 material_override = null
 cast_shadow = 1
 extra_cull_margin = 0.0
-use_in_baked_light = false
+use_in_baked_light = true
 lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
@@ -282,6 +282,7 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 16 )
 skeleton = NodePath("..")
 material/0 = null
+_sections_unfolded = [ "Geometry" ]
 
 [node name="Toilet-SeatUpper005" type="MeshInstance" parent="Toilet-Floor005" index="15"]
 
@@ -290,7 +291,7 @@ layers = 1
 material_override = null
 cast_shadow = 1
 extra_cull_margin = 0.0
-use_in_baked_light = false
+use_in_baked_light = true
 lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
@@ -298,6 +299,7 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 17 )
 skeleton = NodePath("..")
 material/0 = null
+_sections_unfolded = [ "Geometry" ]
 
 [node name="Toilet-Shelf005" type="MeshInstance" parent="Toilet-Floor005" index="16"]
 
@@ -322,7 +324,7 @@ layers = 1
 material_override = null
 cast_shadow = 1
 extra_cull_margin = 0.0
-use_in_baked_light = false
+use_in_baked_light = true
 lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
@@ -330,6 +332,7 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 19 )
 skeleton = NodePath("..")
 material/0 = null
+_sections_unfolded = [ "Geometry" ]
 
 [node name="ToiletPedal005" type="MeshInstance" parent="Toilet-Floor005" index="18"]
 
@@ -338,7 +341,7 @@ layers = 1
 material_override = null
 cast_shadow = 1
 extra_cull_margin = 0.0
-use_in_baked_light = false
+use_in_baked_light = true
 lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
@@ -346,6 +349,7 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 20 )
 skeleton = NodePath("..")
 material/0 = null
+_sections_unfolded = [ "Geometry" ]
 
 [node name="Wheel-FecalTank005" type="MeshInstance" parent="Toilet-Floor005" index="19"]
 
