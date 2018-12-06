@@ -56,7 +56,7 @@ layers = 1
 material_override = null
 cast_shadow = 1
 extra_cull_margin = 0.0
-use_in_baked_light = false
+use_in_baked_light = true
 lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
@@ -64,6 +64,7 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 4 )
 skeleton = NodePath("..")
 material/0 = null
+_sections_unfolded = [ "Geometry" ]
 
 [node name="OuterFrame007" type="MeshInstance" parent="." index="3"]
 
@@ -72,7 +73,7 @@ layers = 1
 material_override = null
 cast_shadow = 1
 extra_cull_margin = 0.0
-use_in_baked_light = false
+use_in_baked_light = true
 lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
@@ -80,6 +81,7 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 5 )
 skeleton = NodePath("..")
 material/0 = null
+_sections_unfolded = [ "Geometry" ]
 
 [node name="PaneFrames-Outside002" type="MeshInstance" parent="." index="4"]
 
@@ -88,7 +90,7 @@ layers = 1
 material_override = null
 cast_shadow = 1
 extra_cull_margin = 0.0
-use_in_baked_light = false
+use_in_baked_light = true
 lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
@@ -96,6 +98,7 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 6 )
 skeleton = NodePath("..")
 material/0 = null
+_sections_unfolded = [ "Geometry" ]
 
 [node name="PaneFrames003" type="MeshInstance" parent="." index="5" groups=[
 "interior",
@@ -125,7 +128,6 @@ transform = Transform( -4.37116e-08, -5.44009e-15, -1, -1.52348e-17, 1, 2.37947e
 ]]
 
 transform = Transform( -1.62908e-07, 2.17935e-09, -1, 0.0125923, 0.999921, 2.50727e-09, 0.999921, -0.0125923, -1.47045e-07, 0.0546875, 0.293702, 0.954102 )
-visible = false
 layers = 1
 material_override = null
 cast_shadow = 1
