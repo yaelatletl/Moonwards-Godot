@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://model_assets/FlywheelSimple_NoArrays.tscn" type="PackedScene" id=1]
 [ext_resource path="res://model_assets/SolarPanelUnit.tscn" type="PackedScene" id=2]
@@ -62,6 +62,7 @@
 [ext_resource path="res://scenes/ThirdGallery.tscn" type="PackedScene" id=60]
 [ext_resource path="res://scenes/STEMP_Facilities.tscn" type="PackedScene" id=61]
 [ext_resource path="res://scenes/AirlockBay.tscn" type="PackedScene" id=62]
+[ext_resource path="res://model_assets/Earth.tscn" type="PackedScene" id=63]
 
 [sub_resource type="SpatialMaterial" id=1]
 
@@ -1717,5 +1718,9 @@ editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.6226, -1930.02, -11.8958 )
 
 [node name="Scene" parent="Empty_AirlockBay" index="0" instance=ExtResource( 62 )]
+
+[node name="Scene" parent="." index="44" instance=ExtResource( 63 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -258.36, 2685.34, 859.328 )
 
 
