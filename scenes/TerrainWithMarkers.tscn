@@ -229,7 +229,7 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Albedo", "NormalMap", "Roughness" ]
 
-[node name="Scene" type="Spatial"]
+[node name="Scene" type="Spatial" index="0"]
 
 [node name="Set_FlywheelTowers" type="Spatial" parent="." index="0"]
 
@@ -1623,8 +1623,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.9824, -1928.98, -48.6877 )
 
 [node name="Empty_MeltInPlaceStation008" type="Spatial" parent="." index="30"]
 
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.8158, -1931.13, -3.79072 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.8158, -1930.67, -3.79072 )
 
 [node name="Scene" parent="Empty_MeltInPlaceStation008" index="0" instance=ExtResource( 13 )]
 
