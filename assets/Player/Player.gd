@@ -165,9 +165,9 @@ func _process(delta):
 	
 		if flies:
 			vertical_velocity += dir.y
-		rset("slave_translation", translation)
-		rset("slave_transform", $Model.transform)
-		rset("slave_linear_vel", linear_velocity)
+		rset_unreliable("slave_translation", translation)
+		rset_unreliable("slave_transform", $Model.transform)
+		rset_unreliable("slave_linear_vel", linear_velocity)
 	else:
 		translation = slave_translation
 		$Yaw.transform = slave_transform
