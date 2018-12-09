@@ -1,68 +1,67 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=66 format=2]
 
-[ext_resource path="res://model_assets/FlywheelSimple_NoArrays.tscn" type="PackedScene" id=1]
-[ext_resource path="res://model_assets/SolarPanelUnit.tscn" type="PackedScene" id=2]
-[ext_resource path="res://model_assets/MoltenSoilReactor.tscn" type="PackedScene" id=3]
-[ext_resource path="res://model_assets/BoatRadiator_50Scale.tscn" type="PackedScene" id=4]
-[ext_resource path="res://model_assets/BoatRadiator_70Scale.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/NuclearPlant.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/Spaceport.tscn" type="PackedScene" id=7]
-[ext_resource path="res://model_assets/RadarTower.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings.mesh" type="ArrayMesh" id=9]
-[ext_resource path="res://image_textures/Colored-Lalande2.jpg" type="Texture" id=10]
-[ext_resource path="res://image_textures/Normal-Lalande.jpg" type="Texture" id=11]
-[ext_resource path="res://model_assets/LightTube.tscn" type="PackedScene" id=12]
-[ext_resource path="res://model_assets/MeltInPlaceStation.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_GibraltarMiddle.mesh" type="ArrayMesh" id=14]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_GibraltarRockEast.mesh" type="ArrayMesh" id=15]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_GibraltarWest.mesh" type="ArrayMesh" id=16]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_InitialColonyGrounds.mesh" type="ArrayMesh" id=17]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_Lalande.mesh" type="ArrayMesh" id=18]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_ReactorBase.mesh" type="ArrayMesh" id=19]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockMediumA.mesh" type="ArrayMesh" id=20]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockMediumB.mesh" type="ArrayMesh" id=21]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockMediumC.mesh" type="ArrayMesh" id=22]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockMediumD001.mesh" type="ArrayMesh" id=23]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockMediumE.mesh" type="ArrayMesh" id=24]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockMediumF.mesh" type="ArrayMesh" id=25]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockMediumG.mesh" type="ArrayMesh" id=26]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockMediumH.mesh" type="ArrayMesh" id=27]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockSlideHuge001.mesh" type="ArrayMesh" id=28]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockSmallA.mesh" type="ArrayMesh" id=29]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockSmallB.mesh" type="ArrayMesh" id=30]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockSmallC.mesh" type="ArrayMesh" id=31]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockSmallC001.mesh" type="ArrayMesh" id=32]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockSmallD.mesh" type="ArrayMesh" id=33]
-[ext_resource path="res://scenes/RecHab1.tscn" type="PackedScene" id=34]
-[ext_resource path="res://scenes/MainHangars.tscn" type="PackedScene" id=35]
-[ext_resource path="res://scenes/FirstHangars.tscn" type="PackedScene" id=36]
-[ext_resource path="res://scenes/BigAtrium.tscn" type="PackedScene" id=37]
-[ext_resource path="res://scenes/AtriumHab.tscn" type="PackedScene" id=38]
-[ext_resource path="res://scenes/TeacupCrater.tscn" type="PackedScene" id=39]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__UpperHabsMainTanksTarp.mesh" type="ArrayMesh" id=40]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__SatelliteDishBase1.mesh" type="ArrayMesh" id=41]
-[ext_resource path="res://model_assets/RadioDish_Satellites.tscn" type="PackedScene" id=42]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__Satellite-Dish-Base003.mesh" type="ArrayMesh" id=43]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__Satellite-Dish-Base002.mesh" type="ArrayMesh" id=44]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__SatelliteDishBase2.mesh" type="ArrayMesh" id=45]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__SatelliteDishBase3.mesh" type="ArrayMesh" id=46]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__Satellite-Dish-Base001.mesh" type="ArrayMesh" id=47]
-[ext_resource path="res://model_assets/RadioDish_Earth.tscn" type="PackedScene" id=48]
-[ext_resource path="res://scenes/meshes/TerrainWithMarkers__SatelliteDishBase.mesh" type="ArrayMesh" id=49]
-[ext_resource path="res://scenes/FifthGallery.tscn" type="PackedScene" id=50]
-[ext_resource path="res://scenes/FirstGallery_Lower.tscn" type="PackedScene" id=51]
-[ext_resource path="res://scenes/FirstGalleryUpper.tscn" type="PackedScene" id=52]
-[ext_resource path="res://scenes/FourthGallery.tscn" type="PackedScene" id=53]
-[ext_resource path="res://scenes/GalleriesOuterSurface.tscn" type="PackedScene" id=54]
-[ext_resource path="res://scenes/LongDome.tscn" type="PackedScene" id=55]
-[ext_resource path="res://scenes/LosPortalesTunnel.tscn" type="PackedScene" id=56]
-[ext_resource path="res://scenes/NorthLongAtrium.tscn" type="PackedScene" id=57]
-[ext_resource path="res://scenes/SecondGallery.tscn" type="PackedScene" id=58]
-[ext_resource path="res://scenes/SouthLongAtrium.tscn" type="PackedScene" id=59]
-[ext_resource path="res://scenes/ThirdGallery.tscn" type="PackedScene" id=60]
-[ext_resource path="res://scenes/STEMP_Facilities.tscn" type="PackedScene" id=61]
-[ext_resource path="res://scenes/AirlockBay.tscn" type="PackedScene" id=62]
-[ext_resource path="res://model_assets/Earth.tscn" type="PackedScene" id=63]
+[ext_resource path="res://scenes/Set_FlywheelTowers.tscn" type="PackedScene" id=1]
+[ext_resource path="res://model_assets/MoltenSoilReactor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://model_assets/BoatRadiator_50Scale.tscn" type="PackedScene" id=3]
+[ext_resource path="res://model_assets/BoatRadiator_70Scale.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/NuclearPlant.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Spaceport.tscn" type="PackedScene" id=6]
+[ext_resource path="res://model_assets/RadarTower.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings.mesh" type="ArrayMesh" id=8]
+[ext_resource path="res://image_textures/Colored-Lalande2.jpg" type="Texture" id=9]
+[ext_resource path="res://image_textures/Normal-Lalande.jpg" type="Texture" id=10]
+[ext_resource path="res://model_assets/LightTube.tscn" type="PackedScene" id=11]
+[ext_resource path="res://model_assets/MeltInPlaceStation.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_GibraltarMiddle.mesh" type="ArrayMesh" id=13]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_GibraltarRockEast.mesh" type="ArrayMesh" id=14]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_GibraltarWest.mesh" type="ArrayMesh" id=15]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_InitialColonyGrounds.mesh" type="ArrayMesh" id=16]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_Lalande.mesh" type="ArrayMesh" id=17]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_ReactorBase.mesh" type="ArrayMesh" id=18]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockMediumA.mesh" type="ArrayMesh" id=19]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockMediumB.mesh" type="ArrayMesh" id=20]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockMediumC.mesh" type="ArrayMesh" id=21]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockMediumD001.mesh" type="ArrayMesh" id=22]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockMediumE.mesh" type="ArrayMesh" id=23]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockMediumF.mesh" type="ArrayMesh" id=24]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockMediumG.mesh" type="ArrayMesh" id=25]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockMediumH.mesh" type="ArrayMesh" id=26]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockSlideHuge001.mesh" type="ArrayMesh" id=27]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockSmallA.mesh" type="ArrayMesh" id=28]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockSmallB.mesh" type="ArrayMesh" id=29]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockSmallC.mesh" type="ArrayMesh" id=30]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockSmallC001.mesh" type="ArrayMesh" id=31]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__GroundsNearBuildings_RockSmallD.mesh" type="ArrayMesh" id=32]
+[ext_resource path="res://scenes/RecHab1.tscn" type="PackedScene" id=33]
+[ext_resource path="res://scenes/MainHangars.tscn" type="PackedScene" id=34]
+[ext_resource path="res://scenes/FirstHangars.tscn" type="PackedScene" id=35]
+[ext_resource path="res://scenes/BigAtrium.tscn" type="PackedScene" id=36]
+[ext_resource path="res://scenes/AtriumHab.tscn" type="PackedScene" id=37]
+[ext_resource path="res://scenes/TeacupCrater.tscn" type="PackedScene" id=38]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__UpperHabsMainTanksTarp.mesh" type="ArrayMesh" id=39]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__SatelliteDishBase1.mesh" type="ArrayMesh" id=40]
+[ext_resource path="res://model_assets/RadioDish_Satellites.tscn" type="PackedScene" id=41]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__Satellite-Dish-Base003.mesh" type="ArrayMesh" id=42]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__Satellite-Dish-Base002.mesh" type="ArrayMesh" id=43]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__SatelliteDishBase2.mesh" type="ArrayMesh" id=44]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__SatelliteDishBase3.mesh" type="ArrayMesh" id=45]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__Satellite-Dish-Base001.mesh" type="ArrayMesh" id=46]
+[ext_resource path="res://model_assets/RadioDish_Earth.tscn" type="PackedScene" id=47]
+[ext_resource path="res://scenes/meshes/TerrainWithMarkers__SatelliteDishBase.mesh" type="ArrayMesh" id=48]
+[ext_resource path="res://scenes/FifthGallery.tscn" type="PackedScene" id=49]
+[ext_resource path="res://scenes/FirstGallery_Lower.tscn" type="PackedScene" id=50]
+[ext_resource path="res://scenes/FirstGalleryUpper.tscn" type="PackedScene" id=51]
+[ext_resource path="res://scenes/FourthGallery.tscn" type="PackedScene" id=52]
+[ext_resource path="res://scenes/GalleriesOuterSurface.tscn" type="PackedScene" id=53]
+[ext_resource path="res://scenes/LongDome.tscn" type="PackedScene" id=54]
+[ext_resource path="res://scenes/LosPortalesTunnel.tscn" type="PackedScene" id=55]
+[ext_resource path="res://scenes/NorthLongAtrium.tscn" type="PackedScene" id=56]
+[ext_resource path="res://scenes/SecondGallery.tscn" type="PackedScene" id=57]
+[ext_resource path="res://scenes/SouthLongAtrium.tscn" type="PackedScene" id=58]
+[ext_resource path="res://scenes/ThirdGallery.tscn" type="PackedScene" id=59]
+[ext_resource path="res://scenes/STEMP_Facilities.tscn" type="PackedScene" id=60]
+[ext_resource path="res://scenes/AirlockBay.tscn" type="PackedScene" id=61]
+[ext_resource path="res://model_assets/Earth.tscn" type="PackedScene" id=62]
 
 [sub_resource type="SpatialMaterial" id=1]
 
@@ -88,7 +87,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 0.804688, 0.804688, 0.804688, 1 )
-albedo_texture = ExtResource( 10 )
+albedo_texture = ExtResource( 9 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -97,7 +96,7 @@ roughness_texture_channel = 0
 emission_enabled = false
 normal_enabled = true
 normal_scale = 1.0
-normal_texture = ExtResource( 11 )
+normal_texture = ExtResource( 10 )
 rim_enabled = false
 clearcoat_enabled = false
 anisotropy_enabled = false
@@ -143,7 +142,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 10 )
+albedo_texture = ExtResource( 9 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -152,7 +151,7 @@ roughness_texture_channel = 0
 emission_enabled = false
 normal_enabled = true
 normal_scale = 1.0
-normal_texture = ExtResource( 11 )
+normal_texture = ExtResource( 10 )
 rim_enabled = false
 clearcoat_enabled = false
 anisotropy_enabled = false
@@ -198,7 +197,7 @@ params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 10 )
+albedo_texture = ExtResource( 9 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -207,7 +206,7 @@ roughness_texture_channel = 0
 emission_enabled = false
 normal_enabled = true
 normal_scale = 1.0
-normal_texture = ExtResource( 11 )
+normal_texture = ExtResource( 10 )
 rim_enabled = false
 clearcoat_enabled = false
 anisotropy_enabled = false
@@ -231,569 +230,7 @@ _sections_unfolded = [ "Albedo", "NormalMap", "Roughness" ]
 
 [node name="Scene" type="Spatial" index="0"]
 
-[node name="Set_FlywheelTowers" type="Spatial" parent="." index="0"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.47301, -1922.78, -99.6237 )
-
-[node name="Empty_FlywheelTower053" type="Spatial" parent="Set_FlywheelTowers" index="0"]
-
-editor/display_folded = true
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower053" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower052" type="Spatial" parent="Set_FlywheelTowers" index="1"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, 0.0400391, 0 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower052" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower051" type="Spatial" parent="Set_FlywheelTowers" index="2"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 4.82 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower051" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower050" type="Spatial" parent="Set_FlywheelTowers" index="3"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -0.719971, 4.82 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower050" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower049" type="Spatial" parent="Set_FlywheelTowers" index="4"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.42993, 9.6399 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower049" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower048" type="Spatial" parent="Set_FlywheelTowers" index="5"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -1.39001, 9.6399 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower048" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower047" type="Spatial" parent="Set_FlywheelTowers" index="6"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 14.4599 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower047" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower046" type="Spatial" parent="Set_FlywheelTowers" index="7"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -1.95996, 14.4599 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower046" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower045" type="Spatial" parent="Set_FlywheelTowers" index="8"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.48999, 19.28 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower045" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower044" type="Spatial" parent="Set_FlywheelTowers" index="9"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -2.44995, 19.28 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower044" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower043" type="Spatial" parent="Set_FlywheelTowers" index="10"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.95996, 24.0998 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower043" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower042" type="Spatial" parent="Set_FlywheelTowers" index="11"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -2.91992, 24.0998 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower042" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower041" type="Spatial" parent="Set_FlywheelTowers" index="12"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.46997, 28.9199 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower041" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower040" type="Spatial" parent="Set_FlywheelTowers" index="13"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -3.42993, 28.9199 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower040" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower039" type="Spatial" parent="Set_FlywheelTowers" index="14"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.05994, 33.74 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower039" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower038" type="Spatial" parent="Set_FlywheelTowers" index="15"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -4.02002, 33.74 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower038" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower037" type="Spatial" parent="Set_FlywheelTowers" index="16"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.67993, 38.56 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower037" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower036" type="Spatial" parent="Set_FlywheelTowers" index="17"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -4.65002, 38.56 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower036" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower035" type="Spatial" parent="Set_FlywheelTowers" index="18"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.28992, 43.3799 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower035" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower034" type="Spatial" parent="Set_FlywheelTowers" index="19"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -5.27002, 43.3799 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower034" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower033" type="Spatial" parent="Set_FlywheelTowers" index="20"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.85999, 48.1999 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower033" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower032" type="Spatial" parent="Set_FlywheelTowers" index="21"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -5.85999, 48.1999 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower032" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower031" type="Spatial" parent="Set_FlywheelTowers" index="22"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.41992, 53.02 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower031" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower030" type="Spatial" parent="Set_FlywheelTowers" index="23"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -6.41992, 53.02 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower030" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower029" type="Spatial" parent="Set_FlywheelTowers" index="24"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 57.8398 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower029" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower028" type="Spatial" parent="Set_FlywheelTowers" index="25"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -7.01001, 57.8398 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower028" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower027" type="Spatial" parent="Set_FlywheelTowers" index="26"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.60999, 62.6599 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower027" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower026" type="Spatial" parent="Set_FlywheelTowers" index="27"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -7.65991, 62.6599 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower026" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower025" type="Spatial" parent="Set_FlywheelTowers" index="28"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.28992, 67.48 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower025" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower024" type="Spatial" parent="Set_FlywheelTowers" index="29"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -8.34998, 67.48 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower024" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower023" type="Spatial" parent="Set_FlywheelTowers" index="30"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 72.3 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower023" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower022" type="Spatial" parent="Set_FlywheelTowers" index="31"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -9.07996, 72.3 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower022" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower021" type="Spatial" parent="Set_FlywheelTowers" index="32"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.69995, 77.1198 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower021" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower020" type="Spatial" parent="Set_FlywheelTowers" index="33"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -9.78992, 77.1198 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower020" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower019" type="Spatial" parent="Set_FlywheelTowers" index="34"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.35, 81.9399 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower019" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower018" type="Spatial" parent="Set_FlywheelTowers" index="35"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -10.47, 81.9399 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower018" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower017" type="Spatial" parent="Set_FlywheelTowers" index="36"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.98, 86.76 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower017" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower016" type="Spatial" parent="Set_FlywheelTowers" index="37"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -11.12, 86.76 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower016" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower015" type="Spatial" parent="Set_FlywheelTowers" index="38"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.61, 91.5801 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower015" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower014" type="Spatial" parent="Set_FlywheelTowers" index="39"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -11.76, 91.5801 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower014" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower013" type="Spatial" parent="Set_FlywheelTowers" index="40"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.24, 96.3999 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower013" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower012" type="Spatial" parent="Set_FlywheelTowers" index="41"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -12.4, 96.3999 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower012" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower011" type="Spatial" parent="Set_FlywheelTowers" index="42"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.86, 101.22 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower011" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower010" type="Spatial" parent="Set_FlywheelTowers" index="43"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -13.03, 101.22 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower010" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower009" type="Spatial" parent="Set_FlywheelTowers" index="44"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.4399, 106.04 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower009" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower008" type="Spatial" parent="Set_FlywheelTowers" index="45"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -13.61, 106.04 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower008" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower007" type="Spatial" parent="Set_FlywheelTowers" index="46"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.9199, 110.86 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower007" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower006" type="Spatial" parent="Set_FlywheelTowers" index="47"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -14.1, 110.86 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower006" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower005" type="Spatial" parent="Set_FlywheelTowers" index="48"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.3099, 115.68 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower005" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower004" type="Spatial" parent="Set_FlywheelTowers" index="49"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -14.48, 115.68 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower004" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower003" type="Spatial" parent="Set_FlywheelTowers" index="50"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.63, 120.5 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower003" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower002" type="Spatial" parent="Set_FlywheelTowers" index="51"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -14.78, 120.5 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower002" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower001" type="Spatial" parent="Set_FlywheelTowers" index="52"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87012, -15.0699, 125.32 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower001" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_FlywheelTower" type="Spatial" parent="Set_FlywheelTowers" index="53"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.9199, 125.32 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_FlywheelTower" index="0" instance=ExtResource( 1 )]
-
-[node name="Empty_SolarPanelUnit" type="Spatial" parent="Set_FlywheelTowers" index="54"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -13.2029, 125.319 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit001" type="Spatial" parent="Set_FlywheelTowers" index="55"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -12.9119, 120.498 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit001" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit002" type="Spatial" parent="Set_FlywheelTowers" index="56"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -12.5979, 115.678 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit002" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit003" type="Spatial" parent="Set_FlywheelTowers" index="57"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -12.2148, 110.859 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit003" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit004" type="Spatial" parent="Set_FlywheelTowers" index="58"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -11.7299, 106.039 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit004" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit005" type="Spatial" parent="Set_FlywheelTowers" index="59"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -11.1539, 101.218 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit005" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit006" type="Spatial" parent="Set_FlywheelTowers" index="60"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -10.5259, 96.3977 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit006" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit007" type="Spatial" parent="Set_FlywheelTowers" index="61"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -9.88989, 91.5787 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit007" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit008" type="Spatial" parent="Set_FlywheelTowers" index="62"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -9.25684, 86.7577 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit008" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit009" type="Spatial" parent="Set_FlywheelTowers" index="63"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -8.61792, 81.9377 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit009" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit010" type="Spatial" parent="Set_FlywheelTowers" index="64"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -7.94885, 77.1187 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit010" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit011" type="Spatial" parent="Set_FlywheelTowers" index="65"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -7.2439, 72.2987 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit011" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit012" type="Spatial" parent="Set_FlywheelTowers" index="66"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -6.52991, 67.4777 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit012" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit013" type="Spatial" parent="Set_FlywheelTowers" index="67"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -5.8429, 62.6577 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit013" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit014" type="Spatial" parent="Set_FlywheelTowers" index="68"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -5.21191, 57.8387 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit014" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit015" type="Spatial" parent="Set_FlywheelTowers" index="69"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -4.62793, 53.0177 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit015" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit016" type="Spatial" parent="Set_FlywheelTowers" index="70"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -4.06287, 48.1977 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit016" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit017" type="Spatial" parent="Set_FlywheelTowers" index="71"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -3.48486, 43.3777 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit017" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit018" type="Spatial" parent="Set_FlywheelTowers" index="72"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -2.8739, 38.5587 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit018" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit019" type="Spatial" parent="Set_FlywheelTowers" index="73"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -2.2489, 33.7377 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit019" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit020" type="Spatial" parent="Set_FlywheelTowers" index="74"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -1.65991, 28.9177 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit020" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit021" type="Spatial" parent="Set_FlywheelTowers" index="75"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -1.14587, 24.0977 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit021" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit022" type="Spatial" parent="Set_FlywheelTowers" index="76"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -0.680908, 19.2777 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit022" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit023" type="Spatial" parent="Set_FlywheelTowers" index="77"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, -0.187866, 14.4577 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit023" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit024" type="Spatial" parent="Set_FlywheelTowers" index="78"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, 0.384033, 9.6377 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit024" index="0" instance=ExtResource( 2 )]
-
-[node name="Empty_SolarPanelUnit025" type="Spatial" parent="Set_FlywheelTowers" index="79"]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434985, 1.05713, 4.8187 )
-
-[node name="Scene" parent="Set_FlywheelTowers/Empty_SolarPanelUnit025" index="0" instance=ExtResource( 2 )]
+[node name="Set_FlywheelTowers" parent="." index="0" instance=ExtResource( 1 )]
 
 [node name="Set_MoltenSoilReactors" type="Spatial" parent="." index="1"]
 
@@ -804,9 +241,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.6805, -1934.54, 66.3121 )
 
 editor/display_folded = true
 
-[node name="Scene" parent="Set_MoltenSoilReactors/Empty_MoltenSoilReactor007" index="0" instance=ExtResource( 3 )]
+[node name="Scene" parent="Set_MoltenSoilReactors/Empty_MoltenSoilReactor007" index="0" instance=ExtResource( 2 )]
 
-[node name="Scene2" parent="Set_MoltenSoilReactors/Empty_MoltenSoilReactor007" index="1" instance=ExtResource( 3 )]
+[node name="Scene2" parent="Set_MoltenSoilReactors/Empty_MoltenSoilReactor007" index="1" instance=ExtResource( 2 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477486, 0.882812, -22.8637 )
 
@@ -815,7 +252,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477486, 0.882812, -22.8637 )
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.9809, -4.89001, -0.828201 )
 
-[node name="Scene" parent="Set_MoltenSoilReactors/Empty_MoltenSoilReactor006" index="0" instance=ExtResource( 3 )]
+[node name="Scene" parent="Set_MoltenSoilReactors/Empty_MoltenSoilReactor006" index="0" instance=ExtResource( 2 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0279541 )
 
@@ -824,35 +261,35 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0279541 )
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49.1762, -7.68994, -8.9627 )
 
-[node name="Scene" parent="Set_MoltenSoilReactors/Empty_MoltenSoilReactor005" index="0" instance=ExtResource( 3 )]
+[node name="Scene" parent="Set_MoltenSoilReactors/Empty_MoltenSoilReactor005" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_MoltenSoilReactor004" type="Spatial" parent="Set_MoltenSoilReactors" index="3"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.0776, -9.15991, -2.5794 )
 
-[node name="Scene" parent="Set_MoltenSoilReactors/Empty_MoltenSoilReactor004" index="0" instance=ExtResource( 3 )]
+[node name="Scene" parent="Set_MoltenSoilReactors/Empty_MoltenSoilReactor004" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_MoltenSoilReactor003" type="Spatial" parent="Set_MoltenSoilReactors" index="4"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 43.375, -6.29993, -18.5625 )
 
-[node name="Scene" parent="Set_MoltenSoilReactors/Empty_MoltenSoilReactor003" index="0" instance=ExtResource( 3 )]
+[node name="Scene" parent="Set_MoltenSoilReactors/Empty_MoltenSoilReactor003" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_MoltenSoilReactor002" type="Spatial" parent="Set_MoltenSoilReactors" index="5"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.5879, -4.8999, -27.3365 )
 
-[node name="Scene" parent="Set_MoltenSoilReactors/Empty_MoltenSoilReactor002" index="0" instance=ExtResource( 3 )]
+[node name="Scene" parent="Set_MoltenSoilReactors/Empty_MoltenSoilReactor002" index="0" instance=ExtResource( 2 )]
 
 [node name="Empty_MoltenSoilReactor001" type="Spatial" parent="Set_MoltenSoilReactors" index="6"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.8008, -3.46997, -36.0171 )
 
-[node name="Scene" parent="Set_MoltenSoilReactors/Empty_MoltenSoilReactor001" index="0" instance=ExtResource( 3 )]
+[node name="Scene" parent="Set_MoltenSoilReactors/Empty_MoltenSoilReactor001" index="0" instance=ExtResource( 2 )]
 
 [node name="Set_BoatRadiators" type="Spatial" parent="." index="2"]
 
@@ -864,110 +301,110 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -75.0605, -1930.28, 88.7319 )
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1811, 1.30005, -72.1418 )
 
-[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad026" index="0" instance=ExtResource( 4 )]
+[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad026" index="0" instance=ExtResource( 3 )]
 
 [node name="Empty_Radiator-BoatRad025" type="Spatial" parent="Set_BoatRadiators" index="1"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3833, 1.31006, -72.1059 )
 
-[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad025" index="0" instance=ExtResource( 4 )]
+[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad025" index="0" instance=ExtResource( 3 )]
 
 [node name="Empty_Radiator-BoatRad023" type="Spatial" parent="Set_BoatRadiators" index="2"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2246, -1.51001, 9.6492 )
 
-[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad023" index="0" instance=ExtResource( 5 )]
+[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad023" index="0" instance=ExtResource( 4 )]
 
 [node name="Empty_Radiator-BoatRad021" type="Spatial" parent="Set_BoatRadiators" index="3"]
 
 editor/display_folded = true
 
-[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad021" index="0" instance=ExtResource( 5 )]
+[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad021" index="0" instance=ExtResource( 4 )]
 
 [node name="Empty_Radiator-BoatRad016" type="Spatial" parent="Set_BoatRadiators" index="4"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5996, 2.10999, -55.8694 )
 
-[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad016" index="0" instance=ExtResource( 5 )]
+[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad016" index="0" instance=ExtResource( 4 )]
 
 [node name="Empty_Radiator-BoatRad015" type="Spatial" parent="Set_BoatRadiators" index="5"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8408, 2.10999, -59.8344 )
 
-[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad015" index="0" instance=ExtResource( 5 )]
+[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad015" index="0" instance=ExtResource( 4 )]
 
 [node name="Empty_Radiator-BoatRad014" type="Spatial" parent="Set_BoatRadiators" index="6"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0166, 2.10999, -64.0673 )
 
-[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad014" index="0" instance=ExtResource( 5 )]
+[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad014" index="0" instance=ExtResource( 4 )]
 
 [node name="Empty_Radiator-BoatRad013" type="Spatial" parent="Set_BoatRadiators" index="7"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.0356, 5.53003, -169.535 )
 
-[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad013" index="0" instance=ExtResource( 5 )]
+[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad013" index="0" instance=ExtResource( 4 )]
 
 [node name="Empty_Radiator-BoatRad012" type="Spatial" parent="Set_BoatRadiators" index="8"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.415, 5.55005, -169.68 )
 
-[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad012" index="0" instance=ExtResource( 5 )]
+[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad012" index="0" instance=ExtResource( 4 )]
 
 [node name="Empty_Radiator-BoatRad011" type="Spatial" parent="Set_BoatRadiators" index="9"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.1723, 5.47998, -169.68 )
 
-[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad011" index="0" instance=ExtResource( 5 )]
+[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad011" index="0" instance=ExtResource( 4 )]
 
 [node name="Empty_Radiator-BoatRad010" type="Spatial" parent="Set_BoatRadiators" index="10"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6543, 1.62, -120.506 )
 
-[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad010" index="0" instance=ExtResource( 5 )]
+[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad010" index="0" instance=ExtResource( 4 )]
 
 [node name="Empty_Radiator-BoatRad009" type="Spatial" parent="Set_BoatRadiators" index="11"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.0512, 1.71008, -120.89 )
 
-[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad009" index="0" instance=ExtResource( 5 )]
+[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad009" index="0" instance=ExtResource( 4 )]
 
 [node name="Empty_Radiator-BoatRad008" type="Spatial" parent="Set_BoatRadiators" index="12"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7968, 1.88, -121.448 )
 
-[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad008" index="0" instance=ExtResource( 5 )]
+[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad008" index="0" instance=ExtResource( 4 )]
 
 [node name="Empty_Radiator-BoatRad024" type="Spatial" parent="Set_BoatRadiators" index="13"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3354, -1.65002, 7.5891 )
 
-[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad024" index="0" instance=ExtResource( 5 )]
+[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad024" index="0" instance=ExtResource( 4 )]
 
 [node name="Empty_Radiator-BoatRad022" type="Spatial" parent="Set_BoatRadiators" index="14"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4917, -0.27002, 3.6399 )
 
-[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad022" index="0" instance=ExtResource( 5 )]
+[node name="Scene" parent="Set_BoatRadiators/Empty_Radiator-BoatRad022" index="0" instance=ExtResource( 4 )]
 
 [node name="Empty_NuclearPlant" type="Spatial" parent="." index="3"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.4341, -1948.81, 101.064 )
 
-[node name="Scene" parent="Empty_NuclearPlant" index="0" instance=ExtResource( 6 )]
+[node name="Scene" parent="Empty_NuclearPlant" index="0" instance=ExtResource( 5 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.548546, -0.189209, 0 )
 
@@ -976,14 +413,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.548546, -0.189209, 0 )
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 369.218, -1938.72, -347.484 )
 
-[node name="Scene" parent="Empty_Spaceport" index="0" instance=ExtResource( 7 )]
+[node name="Scene" parent="Empty_Spaceport" index="0" instance=ExtResource( 6 )]
 
 [node name="Empty_RadarTower" type="Spatial" parent="." index="5"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0488, -1875.43, -378.656 )
 
-[node name="Scene" parent="Empty_RadarTower" index="0" instance=ExtResource( 8 )]
+[node name="Scene" parent="Empty_RadarTower" index="0" instance=ExtResource( 7 )]
 
 [node name="GroundsNearBuildings" type="MeshInstance" parent="." index="6"]
 
@@ -997,7 +434,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 9 )
+mesh = ExtResource( 8 )
 skeleton = NodePath("..")
 material/0 = SubResource( 1 )
 material/1 = null
@@ -1007,49 +444,49 @@ _sections_unfolded = [ "Geometry", "material" ]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 702.661, 232.123, 245.64 )
 
-[node name="Scene" parent="GroundsNearBuildings/Empty_LightTube001" index="0" instance=ExtResource( 12 )]
+[node name="Scene" parent="GroundsNearBuildings/Empty_LightTube001" index="0" instance=ExtResource( 11 )]
 
 [node name="Empty_LightTube002" type="Spatial" parent="GroundsNearBuildings" index="1"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 704.432, 231.879, 246.349 )
 
-[node name="Scene" parent="GroundsNearBuildings/Empty_LightTube002" index="0" instance=ExtResource( 12 )]
+[node name="Scene" parent="GroundsNearBuildings/Empty_LightTube002" index="0" instance=ExtResource( 11 )]
 
 [node name="Empty_LightTube003" type="Spatial" parent="GroundsNearBuildings" index="2"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 705.797, 231.821, 245.637 )
 
-[node name="Scene" parent="GroundsNearBuildings/Empty_LightTube003" index="0" instance=ExtResource( 12 )]
+[node name="Scene" parent="GroundsNearBuildings/Empty_LightTube003" index="0" instance=ExtResource( 11 )]
 
 [node name="Empty_MeltInPlaceStation002" type="Spatial" parent="GroundsNearBuildings" index="3"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 724.448, 231.54, 233.751 )
 
-[node name="Scene" parent="GroundsNearBuildings/Empty_MeltInPlaceStation002" index="0" instance=ExtResource( 13 )]
+[node name="Scene" parent="GroundsNearBuildings/Empty_MeltInPlaceStation002" index="0" instance=ExtResource( 12 )]
 
 [node name="Empty_MeltInPlaceStation003" type="Spatial" parent="GroundsNearBuildings" index="4"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 734.161, 231.706, 188.975 )
 
-[node name="Scene" parent="GroundsNearBuildings/Empty_MeltInPlaceStation003" index="0" instance=ExtResource( 13 )]
+[node name="Scene" parent="GroundsNearBuildings/Empty_MeltInPlaceStation003" index="0" instance=ExtResource( 12 )]
 
 [node name="Empty_MeltInPlaceStation005" type="Spatial" parent="GroundsNearBuildings" index="5"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 733.765, 231.118, 203.516 )
 
-[node name="Scene" parent="GroundsNearBuildings/Empty_MeltInPlaceStation005" index="0" instance=ExtResource( 13 )]
+[node name="Scene" parent="GroundsNearBuildings/Empty_MeltInPlaceStation005" index="0" instance=ExtResource( 12 )]
 
 [node name="Empty_MeltInPlaceStation006" type="Spatial" parent="GroundsNearBuildings" index="6"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 729.604, 231.133, 208.255 )
 
-[node name="Scene" parent="GroundsNearBuildings/Empty_MeltInPlaceStation006" index="0" instance=ExtResource( 13 )]
+[node name="Scene" parent="GroundsNearBuildings/Empty_MeltInPlaceStation006" index="0" instance=ExtResource( 12 )]
 
 [node name="Empty_MeltInPlaceStation007" type="Spatial" parent="GroundsNearBuildings" index="7"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 720.233, 231.561, 228.912 )
 
-[node name="Scene" parent="GroundsNearBuildings/Empty_MeltInPlaceStation007" index="0" instance=ExtResource( 13 )]
+[node name="Scene" parent="GroundsNearBuildings/Empty_MeltInPlaceStation007" index="0" instance=ExtResource( 12 )]
 
 [node name="GibraltarMiddle" type="MeshInstance" parent="GroundsNearBuildings" index="8"]
 
@@ -1063,7 +500,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 14 )
+mesh = ExtResource( 13 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1079,7 +516,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 15 )
+mesh = ExtResource( 14 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1095,7 +532,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 16 )
+mesh = ExtResource( 15 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1110,7 +547,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 17 )
+mesh = ExtResource( 16 )
 skeleton = NodePath("..")
 material/0 = SubResource( 2 )
 material/1 = null
@@ -1127,7 +564,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 18 )
+mesh = ExtResource( 17 )
 skeleton = NodePath("..")
 material/0 = SubResource( 3 )
 material/1 = null
@@ -1137,7 +574,7 @@ _sections_unfolded = [ "material" ]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 704.432, 231.879, 245.018 )
 
-[node name="Scene" parent="GroundsNearBuildings/Empty_LightTube" index="0" instance=ExtResource( 12 )]
+[node name="Scene" parent="GroundsNearBuildings/Empty_LightTube" index="0" instance=ExtResource( 11 )]
 
 [node name="ReactorBase" type="MeshInstance" parent="GroundsNearBuildings" index="14"]
 
@@ -1151,7 +588,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 19 )
+mesh = ExtResource( 18 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1167,7 +604,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 20 )
+mesh = ExtResource( 19 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1183,7 +620,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 21 )
+mesh = ExtResource( 20 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1199,7 +636,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 22 )
+mesh = ExtResource( 21 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1215,7 +652,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 23 )
+mesh = ExtResource( 22 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1231,7 +668,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 24 )
+mesh = ExtResource( 23 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1247,7 +684,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 25 )
+mesh = ExtResource( 24 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1263,7 +700,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 26 )
+mesh = ExtResource( 25 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1279,7 +716,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 27 )
+mesh = ExtResource( 26 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1295,7 +732,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 28 )
+mesh = ExtResource( 27 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1311,7 +748,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 29 )
+mesh = ExtResource( 28 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1327,7 +764,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 30 )
+mesh = ExtResource( 29 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1343,7 +780,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 31 )
+mesh = ExtResource( 30 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1359,7 +796,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 32 )
+mesh = ExtResource( 31 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1375,7 +812,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 33 )
+mesh = ExtResource( 32 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1384,49 +821,49 @@ material/0 = null
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.1367, -1937.1, -14.8584 )
 
-[node name="Scene" parent="Empty_RecHab1" index="0" instance=ExtResource( 34 )]
+[node name="Scene" parent="Empty_RecHab1" index="0" instance=ExtResource( 33 )]
 
 [node name="Empty_MainHangars" type="Spatial" parent="." index="8"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41.8698, -1942.23, 123.813 )
 
-[node name="Scene" parent="Empty_MainHangars" index="0" instance=ExtResource( 35 )]
+[node name="Scene" parent="Empty_MainHangars" index="0" instance=ExtResource( 34 )]
 
 [node name="Empty_FirstHangars" type="Spatial" parent="." index="9"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -67.123, -1931.22, 36.6907 )
 
-[node name="Scene" parent="Empty_FirstHangars" index="0" instance=ExtResource( 36 )]
+[node name="Scene" parent="Empty_FirstHangars" index="0" instance=ExtResource( 35 )]
 
 [node name="Empty_BigAtrium" type="Spatial" parent="." index="10"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -62.681, -1932.02, 5.3868 )
 
-[node name="Scene" parent="Empty_BigAtrium" index="0" instance=ExtResource( 37 )]
+[node name="Scene" parent="Empty_BigAtrium" index="0" instance=ExtResource( 36 )]
 
 [node name="Empty_AtriumHab" type="Spatial" parent="." index="11"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -61.157, -1931.45, 14.2908 )
 
-[node name="Scene" parent="Empty_AtriumHab" index="0" instance=ExtResource( 38 )]
+[node name="Scene" parent="Empty_AtriumHab" index="0" instance=ExtResource( 37 )]
 
 [node name="Empty_TeacupCrater" type="Spatial" parent="." index="12"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -58.0913, -1930.9, 82.3494 )
 
-[node name="Scene" parent="Empty_TeacupCrater" index="0" instance=ExtResource( 39 )]
+[node name="Scene" parent="Empty_TeacupCrater" index="0" instance=ExtResource( 38 )]
 
 [node name="Empty_MeltInPlaceStation001" type="Spatial" parent="." index="13"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.1421, -1929.82, 7.4248 )
 
-[node name="Scene" parent="Empty_MeltInPlaceStation001" index="0" instance=ExtResource( 13 )]
+[node name="Scene" parent="Empty_MeltInPlaceStation001" index="0" instance=ExtResource( 12 )]
 
 [node name="UpperHabsMainTanksTarp" type="MeshInstance" parent="." index="14"]
 
@@ -1440,7 +877,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 40 )
+mesh = ExtResource( 39 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1449,7 +886,7 @@ material/0 = null
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.1226, -1929.81, -36.3057 )
 
-[node name="Scene" parent="Empty_MeltInPlaceStation" index="0" instance=ExtResource( 13 )]
+[node name="Scene" parent="Empty_MeltInPlaceStation" index="0" instance=ExtResource( 12 )]
 
 [node name="SatelliteDishBase1" type="MeshInstance" parent="." index="16"]
 
@@ -1464,11 +901,11 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 41 )
+mesh = ExtResource( 40 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Scene" parent="SatelliteDishBase1" index="0" instance=ExtResource( 42 )]
+[node name="Scene" parent="SatelliteDishBase1" index="0" instance=ExtResource( 41 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114014, 0 )
 
@@ -1484,7 +921,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 43 )
+mesh = ExtResource( 42 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1493,7 +930,7 @@ material/0 = null
 editor/display_folded = true
 transform = Transform( 0.199826, -0.00462762, 0.00694393, 3.07597e-10, 0.166429, 0.110912, -0.00834465, -0.110816, 0.166284, -62.2695, -1927.87, 9.04956 )
 
-[node name="Scene" parent="SatelliteDish-NearSpaceComms002" index="0" instance=ExtResource( 42 )]
+[node name="Scene" parent="SatelliteDish-NearSpaceComms002" index="0" instance=ExtResource( 41 )]
 
 [node name="SatelliteDish-NearSpaceComms001" type="Spatial" parent="." index="19"]
 
@@ -1501,7 +938,7 @@ editor/display_folded = true
 transform = Transform( -0.137406, 0.302622, 0.943154, 3.53963e-08, 0.952186, -0.30552, -0.990515, -0.0419803, -0.130837, -60.5972, -1928.24, 9.44775 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Scene" parent="SatelliteDish-NearSpaceComms001" index="0" instance=ExtResource( 42 )]
+[node name="Scene" parent="SatelliteDish-NearSpaceComms001" index="0" instance=ExtResource( 41 )]
 
 [node name="Satellite-Dish-Base002" type="MeshInstance" parent="." index="20"]
 
@@ -1515,7 +952,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 44 )
+mesh = ExtResource( 43 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1531,7 +968,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 45 )
+mesh = ExtResource( 44 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1547,7 +984,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 46 )
+mesh = ExtResource( 45 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1563,7 +1000,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 47 )
+mesh = ExtResource( 46 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1573,14 +1010,14 @@ editor/display_folded = true
 transform = Transform( 0.947415, -0.258644, -0.188434, -3.47682e-08, 0.588845, -0.808246, 0.320007, 0.765745, 0.557881, -61.0542, -1928.16, 8.43945 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Scene" parent="SatelliteDish-NearSpaceComms" index="0" instance=ExtResource( 42 )]
+[node name="Scene" parent="SatelliteDish-NearSpaceComms" index="0" instance=ExtResource( 41 )]
 
 [node name="SatelliteDish-EarthComms002" type="Spatial" parent="." index="25"]
 
 editor/display_folded = true
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 36.5845, -1943.9, 58.0559 )
 
-[node name="Scene" parent="SatelliteDish-EarthComms002" index="0" instance=ExtResource( 48 )]
+[node name="Scene" parent="SatelliteDish-EarthComms002" index="0" instance=ExtResource( 47 )]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -1596,7 +1033,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 49 )
+mesh = ExtResource( 48 )
 skeleton = NodePath("..")
 material/0 = null
 
@@ -1605,89 +1042,89 @@ material/0 = null
 editor/display_folded = true
 transform = Transform( 1.21708, 0, 0, 0, 1.21708, 0, 0, 0, 1.21708, -66.9097, -1929.36, 9.20557 )
 
-[node name="Scene" parent="SatelliteDish-EarthComms001" index="0" instance=ExtResource( 48 )]
+[node name="Scene" parent="SatelliteDish-EarthComms001" index="0" instance=ExtResource( 47 )]
 
 [node name="SatelliteDish-EarthComms" type="Spatial" parent="." index="28"]
 
 editor/display_folded = true
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 19.8374, -1942.37, 42.3096 )
 
-[node name="Scene" parent="SatelliteDish-EarthComms" index="0" instance=ExtResource( 48 )]
+[node name="Scene" parent="SatelliteDish-EarthComms" index="0" instance=ExtResource( 47 )]
 
 [node name="Empty_MeltInPlaceStation004" type="Spatial" parent="." index="29"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.9824, -1928.98, -48.6877 )
 
-[node name="Scene" parent="Empty_MeltInPlaceStation004" index="0" instance=ExtResource( 13 )]
+[node name="Scene" parent="Empty_MeltInPlaceStation004" index="0" instance=ExtResource( 12 )]
 
 [node name="Empty_MeltInPlaceStation008" type="Spatial" parent="." index="30"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.8158, -1930.67, -3.79072 )
 
-[node name="Scene" parent="Empty_MeltInPlaceStation008" index="0" instance=ExtResource( 13 )]
+[node name="Scene" parent="Empty_MeltInPlaceStation008" index="0" instance=ExtResource( 12 )]
 
 [node name="Empty_FifthGallery" type="Spatial" parent="." index="31"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -85.4058, -1928.13, 71.6892 )
 
-[node name="Scene" parent="Empty_FifthGallery" index="0" instance=ExtResource( 50 )]
+[node name="Scene" parent="Empty_FifthGallery" index="0" instance=ExtResource( 49 )]
 
 [node name="Empty_FirstGalleryLower" type="Spatial" parent="." index="32"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -140.088, -1986.86, -17.9028 )
 
-[node name="Scene" parent="Empty_FirstGalleryLower" index="0" instance=ExtResource( 51 )]
+[node name="Scene" parent="Empty_FirstGalleryLower" index="0" instance=ExtResource( 50 )]
 
 [node name="Empty_FirstGalleryUpper" type="Spatial" parent="." index="33"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.5742, -1928.14, -8.2334 )
 
-[node name="Scene" parent="Empty_FirstGalleryUpper" index="0" instance=ExtResource( 52 )]
+[node name="Scene" parent="Empty_FirstGalleryUpper" index="0" instance=ExtResource( 51 )]
 
 [node name="Empty_FourthGallery" type="Spatial" parent="." index="34"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -146.007, -1976.39, 37.783 )
 
-[node name="Scene" parent="Empty_FourthGallery" index="0" instance=ExtResource( 53 )]
+[node name="Scene" parent="Empty_FourthGallery" index="0" instance=ExtResource( 52 )]
 
 [node name="Empty_GalleriesOuterSurface" type="Spatial" parent="." index="35"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -146.01, -1975.44, 37.7654 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Scene" parent="Empty_GalleriesOuterSurface" index="0" instance=ExtResource( 54 )]
+[node name="Scene" parent="Empty_GalleriesOuterSurface" index="0" instance=ExtResource( 53 )]
 
 [node name="Empty_LongDome" type="Spatial" parent="." index="36"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -393.998, -2066.37, 1.89111 )
 
-[node name="Scene" parent="Empty_LongDome" index="0" instance=ExtResource( 55 )]
+[node name="Scene" parent="Empty_LongDome" index="0" instance=ExtResource( 54 )]
 
 [node name="Empty_LosPortalesTunnel" type="Spatial" parent="." index="37"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -74.473, -1931.29, 25.177 )
 
-[node name="Scene" parent="Empty_LosPortalesTunnel" index="0" instance=ExtResource( 56 )]
+[node name="Scene" parent="Empty_LosPortalesTunnel" index="0" instance=ExtResource( 55 )]
 
 [node name="Empty_NorthLongAtrium" type="Spatial" parent="." index="38"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -58.2197, -1933.98, -23.6704 )
 
-[node name="Scene" parent="Empty_NorthLongAtrium" index="0" instance=ExtResource( 57 )]
+[node name="Scene" parent="Empty_NorthLongAtrium" index="0" instance=ExtResource( 56 )]
 
 [node name="Empty_SecondGallery" type="Spatial" parent="." index="39"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -223.312, -2036.88, -21.5659 )
 
-[node name="Scene" parent="Empty_SecondGallery" index="0" instance=ExtResource( 58 )]
+[node name="Scene" parent="Empty_SecondGallery" index="0" instance=ExtResource( 57 )]
 
 [node name="Empty_SouthLongAtrium" type="Spatial" parent="." index="40"]
 
@@ -1695,30 +1132,30 @@ editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -75.0947, -1933.74, 70.5385 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Scene" parent="Empty_SouthLongAtrium" index="0" instance=ExtResource( 59 )]
+[node name="Scene" parent="Empty_SouthLongAtrium" index="0" instance=ExtResource( 58 )]
 
 [node name="Empty_ThirdGallery" type="Spatial" parent="." index="41"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.608, -1966.19, 25.5356 )
 
-[node name="Scene" parent="Empty_ThirdGallery" index="0" instance=ExtResource( 60 )]
+[node name="Scene" parent="Empty_ThirdGallery" index="0" instance=ExtResource( 59 )]
 
 [node name="Empty_STEMP-Facilities" type="Spatial" parent="." index="42"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.14478, -1903.61, -221.614 )
 
-[node name="Scene" parent="Empty_STEMP-Facilities" index="0" instance=ExtResource( 61 )]
+[node name="Scene" parent="Empty_STEMP-Facilities" index="0" instance=ExtResource( 60 )]
 
 [node name="Empty_AirlockBay" type="Spatial" parent="." index="43"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.6226, -1930.02, -11.8958 )
 
-[node name="Scene" parent="Empty_AirlockBay" index="0" instance=ExtResource( 62 )]
+[node name="Scene" parent="Empty_AirlockBay" index="0" instance=ExtResource( 61 )]
 
-[node name="Scene" parent="." index="44" instance=ExtResource( 63 )]
+[node name="Earth" parent="." index="44" instance=ExtResource( 62 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -258.36, 2685.34, 859.328 )
 
