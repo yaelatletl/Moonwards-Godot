@@ -68,7 +68,7 @@ toggle_fly=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name
 
 [physics]
 
-common/physics_fps=30
+common/physics_fps=5
 3d/physics_engine="Bullet"
 
 [rendering]
