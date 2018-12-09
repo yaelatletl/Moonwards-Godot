@@ -8,6 +8,7 @@ export(String) var bygroup = "player"
 var root
 var nodes_sh
 var nodes_hs
+var id_path
 
 func array_add(a, b):
 	for i in b:
@@ -46,22 +47,23 @@ func _ready():
 	nodes_hs = get_node_list(root, [hideshow])
 	connect("area_entered", self, "_on_Area_area_entered")
 	connect("area_exited", self, "_on_Area_area_exited")
+	id_path = get_path()
+	print("Area ready: %s" % id_path)
 	area_exit("on ready")
 	
 
 func _on_Area_area_entered(area):
 	if not bygroup in area.get_groups():
 		return
-	print("enter ", area)
+	print("Area enter: %s" % id_path)
 	for obj in nodes_sh:
 		obj.visible = true
 	for obj in nodes_hs:
 		obj.visible = false
 
 func area_exit(s=""):
-	print("exit %s: %s" % [self, s])
-	print("node_sh ", nodes_sh)
-	print("node_hs ", nodes_hs)
+	if s != "on ready":
+		print("Area exit: %s" % id_path)
 	for obj in nodes_sh:
 		obj.visible = false
 	for obj in nodes_hs:
