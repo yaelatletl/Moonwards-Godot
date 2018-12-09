@@ -92,7 +92,7 @@ use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 8 )
 
-[node name="Spatial" type="Control"]
+[node name="Spatial" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
