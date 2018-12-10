@@ -49,6 +49,8 @@ var _speed = Vector3(0.0, 0.0, 0.0)
 var _gui
 
 func _ready():
+	yield(get_tree(), "idle_frame")
+	yield(get_tree(), "idle_frame")
 	_check_actions([forward_action, backward_action, left_action, right_action, gui_action, up_action, down_action, ui_mlook])
 
 	if privot:
@@ -112,7 +114,7 @@ func _input(event):
 			_direction.y = 0
 
 func _process(delta):
-	if privot:
+	if privot!=null:
 		_update_distance()
 	if mouselook:
 		_update_mouselook()
@@ -126,9 +128,12 @@ func _process(delta):
 		_update_mouselook()
 
 	var space_state = get_world().get_direct_space_state()
-	var obstacle = space_state.intersect_ray(privot.get_translation(),  get_translation())
-	if not obstacle.empty():
-		set_translation(obstacle.position)
+	var obstacle = null
+	if privot!=null:
+		obstacle = space_state.intersect_ray(privot.get_translation(),  get_translation())
+	if not (obstacle==null):
+		if not obstacle.empty():
+			set_translation(obstacle.position)
 
 func _update_movement(delta):
 	var offset = max_speed * acceleration * _direction
@@ -164,7 +169,7 @@ func _update_mouselook():
 	_total_yaw += _yaw
 	_total_pitch += _pitch
 
-	if privot:
+	if privot!=null:
 		var target = privot.get_translation()
 		var offset = get_translation().distance_to(target)
 
@@ -180,9 +185,10 @@ func _update_mouselook():
 		rotate_object_local(Vector3(1,0,0), deg2rad(-_pitch))
 
 func _update_distance():
-	var t = privot.get_translation()
-	t.z -= distance
-	set_translation(t)
+	if privot!= null:
+		var t = privot.get_translation()
+		t.z -= distance
+		set_translation(t)
 
 func _update_process_func():
 	# Use physics process if collision are enabled
