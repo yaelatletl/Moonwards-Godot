@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://model_assets/Truss-Triangulay-67m.tscn" type="PackedScene" id=1]
+[ext_resource path="res://model_assets/Truss-Triangular-67m.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/meshes/TeacupCrater__TeacupCraterRoof.mesh" type="ArrayMesh" id=2]
 [ext_resource path="res://scenes/meshes/TeacupCrater__TeacupCraterRoof_Teacup-watertank.mesh" type="ArrayMesh" id=3]
 [ext_resource path="res://scenes/meshes/TeacupCrater__TeacupCraterRoof_Teacup-watertank_Teacup-centertower.mesh" type="ArrayMesh" id=4]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/meshes/TeacupCrater__TeacupCraterRoof_TeacupCraterFloor.mesh" type="ArrayMesh" id=6]
 [ext_resource path="res://scenes/meshes/TeacupCrater__TeacupCraterRoof_Truss-Bases.mesh" type="ArrayMesh" id=7]
 [ext_resource path="res://scenes/meshes/TeacupCrater__TeacupCraterRoof_Truss-Triangular-67m.mesh" type="ArrayMesh" id=8]
+
 
 [node name="Scene" type="Spatial" index="0"]
 
