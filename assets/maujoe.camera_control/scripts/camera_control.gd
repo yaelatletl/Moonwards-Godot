@@ -49,8 +49,7 @@ var _speed = Vector3(0.0, 0.0, 0.0)
 var _gui
 
 func _ready():
-	yield(get_tree(), "idle_frame")
-	yield(get_tree(), "idle_frame")
+	
 	_check_actions([forward_action, backward_action, left_action, right_action, gui_action, up_action, down_action, ui_mlook])
 
 	if privot:
@@ -192,6 +191,7 @@ func _update_distance():
 
 func _update_process_func():
 	# Use physics process if collision are enabled
+	# Why? 
 	if collisions and privot:
 		set_physics_process(true)
 		set_process(false)
