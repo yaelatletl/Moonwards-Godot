@@ -18,11 +18,13 @@
 [ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_UpperGalleryRoof-Middle-Beams003.mesh" type="ArrayMesh" id=16]
 [ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_UpperGalleryRoof-Middle001.mesh" type="ArrayMesh" id=17]
 [ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_UpperGalleryRoof-TopMiddleCap001.mesh" type="ArrayMesh" id=18]
-[ext_resource path="res://image_textures/LavastoneTex1.jpg" type="Texture" id=19]
+[ext_resource path="res://image_textures/LavastoneTex2.jpg" type="Texture" id=19]
 [ext_resource path="res://materials/Lavastone2.tres" type="Material" id=20]
 [ext_resource path="res://model_assets/FirstGalleryAnchors_NorthWall.tscn" type="PackedScene" id=21]
 [ext_resource path="res://model_assets/FirstGalleryAnchors_SouthWall.tscn" type="PackedScene" id=22]
 [ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=23]
+
+
 
 [sub_resource type="SpatialMaterial" id=1]
 
