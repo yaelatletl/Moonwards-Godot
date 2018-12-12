@@ -436,10 +436,10 @@ autostart = false
 
 [node name="Player Settings" parent="." index="2" instance=ExtResource( 9 )]
 
-margin_left = 788.751
-margin_top = 635.417
-margin_right = 828.751
-margin_bottom = 675.417
+margin_left = 95.0
+margin_top = 520.0
+margin_right = 135.0
+margin_bottom = 560.0
 
 [connection signal="pressed" from="ui/main/Panel/Run" to="." method="_on_Run_pressed"]
 
