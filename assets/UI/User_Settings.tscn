@@ -6,21 +6,52 @@
 [sub_resource type="GDScript" id=1]
 
 script/source = "extends Control
+var username = ''
+var color_global = Color8(0,0,0,255)
 
+func loader(): 
+	var savefile = File.new()
+	if not savefile.file_exists(\"user://settings.save\"):
+		print(\"Nothing was saved before\")
+	else:
+		savefile.open(\"user://settings.save\", File.READ)
+		var content = parse_json(savefile.get_as_text())
+		savefile.close()
+		username = content[\"username\"]
+		color_global = Color8(content[\"colorR\"],content[\"colorG\"],content[\"colorB\"],255)
+		$WindowDialog/Label/TextEdit.text = username
+		$WindowDialog/HuePicker.color = color_global
+		
+
+func save():
+	var savefile = File.new()
+	savefile.open(\"user://settings.save\", File.WRITE)
+	var save_dict = {
+		
+		\"username\" : username, 
+		\"colorR\" : color_global.r*255, # Vector3 is not supported by JSON
+		\"colorG\" : color_global.g*255,
+		\"colorB\" : color_global.b*255,
+		}
+	savefile.store_line(to_json(save_dict))
+	savefile.close()
+
+func _ready():
+	loader()
 
 func _on_Button_pressed():
 	$WindowDialog.popup_centered()
 
-
 func _on_Button_save_pressed():
-	pass # replace with function body
-
-
-
-
+	save()
 
 func _on_HuePicker_Hue_Selected(color):
-	$WindowDialog/ViewportContainer/Viewport/green_man2.change_color(color)"
+	$WindowDialog/ViewportContainer/Viewport/green_man2.change_color(color)
+	color_global = color
+
+func _unhandled_input(event):
+	username = $WindowDialog/Label/TextEdit.text
+"
 _sections_unfolded = [ "Resource" ]
 
 [sub_resource type="GDScript" id=2]
@@ -171,39 +202,31 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="TextEdit" type="TextEdit" parent="WindowDialog/Label" index="0"]
+[node name="TextEdit" type="LineEdit" parent="WindowDialog/Label" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 76.0
-margin_top = -2.0
+margin_top = -6.0
 margin_right = 215.0
 margin_bottom = 18.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
-mouse_default_cursor_shape = 0
+mouse_default_cursor_shape = 1
 size_flags_horizontal = 1
 size_flags_vertical = 1
 text = "Player1"
-readonly = false
-highlight_current_line = false
-syntax_highlighting = false
-show_line_numbers = false
-highlight_all_occurrences = false
-override_selected_font_color = false
-context_menu_enabled = true
-smooth_scrolling = false
-v_scroll_speed = 80.0
-hiding_enabled = 0
-wrap_lines = false
-caret_block_mode = false
+focus_mode = 2
+context_menu_enabled = false
+placeholder_alpha = 0.6
 caret_blink = false
 caret_blink_speed = 0.65
-caret_moving_by_right_click = true
+caret_position = 0
+_sections_unfolded = [ "Caret" ]
 
 [node name="Label2" type="Label" parent="WindowDialog" index="4"]
 
@@ -213,7 +236,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 18.0
 margin_top = 150.0
-margin_right = 88.0
+margin_right = 99.0
 margin_bottom = 164.0
 rect_scale = Vector2( 1.5, 1.5 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -283,6 +306,8 @@ _sections_unfolded = [ "Rect" ]
 [connection signal="Hue_Selected" from="WindowDialog/HuePicker" to="." method="_on_HuePicker_Hue_Selected"]
 
 [connection signal="item_rect_changed" from="WindowDialog/ViewportContainer" to="WindowDialog/ViewportContainer" method="_on_ViewportContainer_item_rect_changed"]
+
+[connection signal="text_changed" from="WindowDialog/Label/TextEdit" to="." method="_on_TextEdit_text_changed"]
 
 [connection signal="pressed" from="WindowDialog/Button" to="." method="_on_Button_save_pressed"]
 
