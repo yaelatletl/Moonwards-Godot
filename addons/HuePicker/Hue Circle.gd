@@ -55,10 +55,10 @@ func _draw():
 	var y = rect_size.y/2 #+ SQ22
 
 	
-	#Draw the wheel.		
+	#Draw the wheel
 	draw_circle(Vector2(x,y),outR+1.5, Color(0,0,0,0.3))
 
-	for theta in range(720):	
+	for theta in range(720):
 		var i = deg2rad(theta/2.0)
 
 		rgb = UsefulFunctions.HSVtoRGB(theta / 720.0, 1.0, 0.5)
