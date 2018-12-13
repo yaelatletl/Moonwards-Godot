@@ -7,9 +7,10 @@ signal Hue_Selected(color)
 var isReady = false
 
 
-func _ready():	
+func _ready():
 #	print ("Setting up HuePicker.. %s" % color)
-	if color == null:	color = ColorN('white')
+	if color == null:
+		color = ColorN('white')
 	isReady = true
 	
 
@@ -65,7 +66,7 @@ func _on_HuePicker_color_changed(color):
 		return  0
 
 	$Hue_Circle/indicator_rgba/ColorRect.color = color
-	$HueRect.material.set_shader_param("hue", $Hue_Circle.saved_h)
+	$Hue_Circle/ColorRect/SatVal.material.set_shader_param("hue", $Hue_Circle.saved_h)
 	reposition_hue_indicator()
 	#Reposition SatVal indicator
 	$Hue_Circle/ColorRect/indicator_sv.position = Vector2(color.s, 1-color.v) * $"Hue_Circle/ColorRect".rect_size
