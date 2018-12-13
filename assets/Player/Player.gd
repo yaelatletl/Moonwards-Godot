@@ -308,10 +308,22 @@ func _process(delta):
 	aimrotation = $Pivot/FPSCamera.rotation_degrees
 	translationcamera=$Pivot/FPSCamera.get_global_transform().origin
 func _ready():
+	var savefile = File.new()
+	if not savefile.file_exists("user://settings.save"):
+		print("Nothing was saved before")
+	else:
+		savefile.open("user://settings.save", File.READ)
+		var content = parse_json(savefile.get_as_text())
+		savefile.close()
+		set_player_name(content["username"])
+		$Model/Model.get_surface_material(0).albedo_color = Color8(content["colorR"],content["colorG"],content["colorB"],255)
+		
 	CHAR_SCALE = scale
 	set_process_input(true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	rpc_id(int(name), "hide_model")
+	
+	
 func hide_model():
 	$Model/Model.layers = 6
 	pass
