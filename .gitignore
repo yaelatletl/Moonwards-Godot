@@ -1,6 +1,6 @@
 # blender temporary backup files #
 *.blend1
-
+*~
 
 # Godot-specific ignores
 .import/
