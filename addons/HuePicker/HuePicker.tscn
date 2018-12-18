@@ -95,7 +95,7 @@ anti_aliasing = true
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border Width", "Corner Radius", "Expand Margin", "Shadow" ]
 
-[node name="HuePicker" type="Control"]
+[node name="HuePicker" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -204,9 +204,9 @@ anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
 anchor_bottom = 0.0
-margin_left = 110.2
+margin_left = 110.0
 margin_top = 113.0
-margin_right = 120.2
+margin_right = 120.0
 margin_bottom = 143.0
 rect_rotation = 90.0
 rect_pivot_offset = Vector2( 5, 15 )
