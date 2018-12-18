@@ -13,7 +13,7 @@ export(float) var deaccel = 14.0
 export(float) var sharp_turn_threshold = 140
 export(float) var JumpHeight = 1.5
 var Captured = true
-
+var chatting = false
 export(bool) var AllowChangeCamera = false
 export(bool) var FPSCamera = true
 export(bool) var thRDPersCamera = false
@@ -136,7 +136,7 @@ func _process(delta):
 #THIS BLOCK IS INTENDED FOR FPS CONTROLLER USE ONLY
 	var aim = $Pivot/FPSCamera.get_global_transform().basis
 	if is_network_master():
-		if (Input.is_action_pressed("ui_up")):
+		if (Input.is_action_pressed("ui_up")) and not chatting:
 			ismoving = true
 			if not flies:
 				dir -= aim[2]
@@ -145,7 +145,7 @@ func _process(delta):
 				dir += AbsView
 		else:
 			ismoving = false
-		if (Input.is_action_pressed("ui_down")):
+		if (Input.is_action_pressed("ui_down")) and not chatting:
 			if not flies:
 				dir += aim[2]
 			else:
@@ -153,12 +153,12 @@ func _process(delta):
 			ismoving = true
 		else:
 			ismoving = false
-		if (Input.is_action_pressed("ui_left")):
+		if (Input.is_action_pressed("ui_left")) and not chatting:
 			dir -= aim[0]
 
 			$Pivot/FPSCamera.Znoice =  1*hspeed
 
-		if (Input.is_action_pressed("ui_right")):
+		if (Input.is_action_pressed("ui_right")) and not chatting:
 			dir += aim[0]
 			$Pivot/FPSCamera.Znoice =  -1*hspeed
 		
@@ -173,8 +173,8 @@ func _process(delta):
 		$Yaw.transform = slave_transform
 		linear_velocity = slave_linear_vel
 
-	var jump_attempt = Input.is_action_pressed("jump") or (Input.is_action_pressed("ui_page_up") and flies)
-	var crouch_attempt = Input.is_action_pressed("ui_mlook") or (Input.is_action_pressed("ui_page_down") and flies)
+	var jump_attempt = (Input.is_action_pressed("jump") or (Input.is_action_pressed("ui_page_up") and flies))and not chatting
+	var crouch_attempt = (Input.is_action_pressed("ui_mlook") or (Input.is_action_pressed("ui_page_down") and flies)) and not chatting
 	
 	
 #END OF THE BLOCK
@@ -311,13 +311,14 @@ func _ready():
 	var savefile = File.new()
 	if not savefile.file_exists("user://settings.save"):
 		print("Nothing was saved before")
+		set_player_name($Pivot/FPSCamera/Chat.get_random_name())
 	else:
 		savefile.open("user://settings.save", File.READ)
 		var content = parse_json(savefile.get_as_text())
 		savefile.close()
 		set_player_name(content["username"])
 		$Model/Model.get_surface_material(0).albedo_color = Color8(content["colorR"],content["colorG"],content["colorB"],255)
-		
+	$Pivot/FPSCamera/Chat.connect("disable_movement", self, "toggle_chatting")
 	CHAR_SCALE = scale
 	set_process_input(true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -331,3 +332,12 @@ func hide_model():
 	
 func set_player_name(new_name):
 	get_node("label").set_text(new_name)
+	$Pivot/FPSCamera/Chat.username = new_name
+	
+func toggle_chatting():
+	if chatting:
+		chatting = false
+	else:
+		chatting = true
+		
+		

@@ -1,43 +1,61 @@
-extends Node
+extends Control
 
-onready var IP_Address = $Connection_Buttons/IP_Address # Gotta change this to use the same ip as ingame.
-onready var Port = $Connection_Buttons/Port
-const MAX_USERS = 1
+onready var IP_Address  # Gotta change this to use the same ip as ingame.
+onready var Port 
+const MAX_USERS = 30
 
 var player_id
-
+var username = ''
+signal disable_movement()
 func _ready():
 	get_tree().connect("connected_to_server", self, "_connected_ok")
 	get_tree().connect("network_peer_disconnected", self, "_player_disconnected")
-	
-func _on_Connect_pressed():
-	var peer = NetworkedMultiplayerENet.new()
-	peer.create_client(IP_Address.text, int(Port.text))
-	get_tree().set_network_peer(peer)
-	player_id = str(get_tree().get_network_unique_id()) 
-
-func _on_Listen_pressed():
-	var peer = NetworkedMultiplayerENet.new()
-	peer.create_server(int(Port.text), MAX_USERS)
-	get_tree().set_network_peer(peer)
+	if username == '':
+		username = get_random_name()
 	player_id = str(get_tree().get_network_unique_id())
 	
 func _player_connected(id):
-	$Display.text += '\n ' + str(id) + ' has joined' #Change str(id) for the username
+	$Display.text += '\n ' + username + ' has joined' #Change str(id) for the username
 	
 func _player_disconnected(id):
-	$Display.text += '\n ' + str(id) + ' has left' #Change str(id) for the username
+	$Display.text += '\n ' + username + ' has left' #Change str(id) for the username
 	
 func _connected_ok():
 	$Display.text += '\n You have joined the room'
-	rpc('announce_user', player_id)  #Change player_id for username
+	rpc('announce_user', username)  #Change player_id for username
 	
 func _on_Message_Input_text_entered(new_text):
 	$Message_Input.text = ''
-	rpc('display_message', self.player_id, new_text)
+	if not new_text == '':
+		rpc('display_message', self.username, new_text)
+	
+	
 	
 sync func display_message(player, new_text):
 	$Display.text += '\n ' + player + ' : ' + new_text
 	
 remote func announce_user(player):
 	$Display.text += '\n ' + player + ' has joined the room' 
+	
+func get_random_name():
+	var anon_name = [
+		"Anonimous Giraffe",
+		"Anonimous Internaut",
+		"Anonimous Astronaut",
+		"Anonmious person"
+		]
+	return anon_name[randi() % 5]+str(player_id)
+	
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.pressed and event.scancode == KEY_ENTER:
+			if not $Message_Input.has_focus():
+				$Message_Input.grab_focus()
+				emit_signal("disable_movement")
+			else: 
+				emit_signal("disable_movement")
+				$Message_Input.release_focus()
+				
+	
+	
+	

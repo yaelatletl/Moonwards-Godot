@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/Player/meshes/player__Model_Model.mesh" type="ArrayMesh" id=2]
 [ext_resource path="res://assets/Player/FPSCamera.gd" type="Script" id=3]
-[ext_resource path="res://scripts/PerformanceMonitor.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/Player/label.gd" type="Script" id=5]
+[ext_resource path="res://chat/Main_clean.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/PerformanceMonitor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/Player/label.gd" type="Script" id=6]
 
 [sub_resource type="SpatialMaterial" id=1]
 
@@ -57,12 +58,12 @@ uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
 distance_fade_enable = false
 
-[sub_resource type="CapsuleShape" id=3]
+[sub_resource type="CapsuleShape" id=2]
 
 radius = 0.219818
 height = 1.17055
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape" id=3]
 
 extents = Vector3( 1, 1, 1 )
 
@@ -142,7 +143,7 @@ _sections_unfolded = [ "material" ]
 [node name="CollisionShape" type="CollisionShape" parent="." index="2"]
 
 transform = Transform( -1, 0, -3.25841e-007, -3.25841e-007, -4.37114e-008, 1, -1.4243e-014, 1, 4.37114e-008, 0, -0.0770048, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 disabled = false
 
 [node name="Pivot" type="Position3D" parent="." index="3"]
@@ -161,24 +162,27 @@ projection = 0
 current = true
 fov = 70.0
 size = 1.0
-near = 0.1
+near = 0.3
 far = 10000.0
 script = ExtResource( 3 )
 
-[node name="Control" parent="Pivot/FPSCamera" index="0" instance=ExtResource( 4 )]
+[node name="Chat" parent="Pivot/FPSCamera" index="0" instance=ExtResource( 4 )]
 
-anchor_left = 0.0
-anchor_top = 0.0
+margin_left = 2.0
+margin_top = 220.0
+margin_right = 41.0
+margin_bottom = 260.0
+
+[node name="Control" parent="Pivot/FPSCamera" index="1" instance=ExtResource( 5 )]
+
+visible = false
 anchor_right = 0.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
+margin_left = 515.0
+margin_top = 664.0
+margin_right = 702.0
 source_xyz = NodePath("..")
 
-[node name="Target" type="Position3D" parent="Pivot/FPSCamera" index="1"]
+[node name="Target" type="Position3D" parent="Pivot/FPSCamera" index="2"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.937118 )
 
@@ -216,7 +220,7 @@ text = "Default"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="TextPoint" type="Position3D" parent="." index="5"]
@@ -251,7 +255,7 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
 
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 disabled = false
 
 
