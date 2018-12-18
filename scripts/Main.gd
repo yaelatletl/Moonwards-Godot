@@ -33,7 +33,7 @@ func _on_Help_pressed():
 func _on_RunNet_pressed():
 	$ui/main.hide()
 	$ui/loading.show()
-	$"Player Settings".hide()
+	$PlayerSettings.hide()
 	var  mScene = preload(MultiplayerToLoad)
 	var loads = mScene.instance()
 	loads.name = "lobby"

@@ -39,9 +39,6 @@ func save():
 func _ready():
 	loader()
 
-func _on_Button_pressed():
-	$WindowDialog.popup_centered()
-
 func _on_Button_save_pressed():
 	save()
 
@@ -51,6 +48,9 @@ func _on_HuePicker_Hue_Selected(color):
 
 func _unhandled_input(event):
 	username = $WindowDialog/Label/TextEdit.text
+
+func _on_CfgPlayer_pressed():
+	$WindowDialog.popup_centered()
 "
 _sections_unfolded = [ "Resource" ]
 
@@ -78,30 +78,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 script = SubResource( 1 )
 
-[node name="Button" type="Button" parent="." index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 205.0
-margin_bottom = 43.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Change player settings"
-flat = false
-align = 1
-
-[node name="WindowDialog" type="WindowDialog" parent="." index="1"]
+[node name="WindowDialog" type="WindowDialog" parent="." index="0"]
 
 visible = false
 anchor_left = 0.0
@@ -300,8 +277,6 @@ text = "Save"
 flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
-
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 
 [connection signal="Hue_Selected" from="WindowDialog/HuePicker" to="." method="_on_HuePicker_Hue_Selected"]
 

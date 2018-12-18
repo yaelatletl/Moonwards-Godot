@@ -93,7 +93,7 @@ use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 8 )
 
-[node name="Spatial" type="Control"]
+[node name="Spatial" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -116,7 +116,6 @@ SceneOptions = "res://assets/UI/Options.tscn"
 
 [node name="ui" type="Control" parent="." index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -416,6 +415,33 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
 
+[node name="CfgPlayer" type="Button" parent="ui/main/Panel/VBoxContainer" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 250.0
+margin_right = 210.0
+margin_bottom = 290.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Change player settings"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
 [node name="loading" type="Control" parent="ui" index="2"]
 
 visible = false
@@ -461,12 +487,12 @@ wait_time = 0.2
 one_shot = true
 autostart = false
 
-[node name="Player Settings" parent="." index="2" instance=ExtResource( 9 )]
+[node name="PlayerSettings" parent="." index="2" instance=ExtResource( 9 )]
 
 margin_left = 93.0
-margin_top = 501.0
+margin_top = 579.0
 margin_right = 133.0
-margin_bottom = 541.0
+margin_bottom = 619.0
 
 [connection signal="pressed" from="ui/main/Panel/VBoxContainer/Run" to="." method="_on_Run_pressed"]
 
@@ -475,6 +501,8 @@ margin_bottom = 541.0
 [connection signal="pressed" from="ui/main/Panel/VBoxContainer/Help" to="." method="_on_Help_pressed"]
 
 [connection signal="pressed" from="ui/main/Panel/VBoxContainer/RunNet" to="." method="_on_RunNet_pressed"]
+
+[connection signal="pressed" from="ui/main/Panel/VBoxContainer/CfgPlayer" to="PlayerSettings" method="_on_CfgPlayer_pressed"]
 
 [connection signal="timeout" from="load_timer" to="." method="_on_Timer_timeout"]
 
