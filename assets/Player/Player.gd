@@ -41,9 +41,9 @@ var linear_velocity=Vector3()
 var hspeed
 
 ##Networking
-slave var slave_translation
-slave var slave_transform
-slave var slave_linear_vel
+slave var slave_translation 
+slave var slave_transform 
+slave var slave_linear_vel 
 
 
 #Rotates the model to where the camera points
@@ -169,9 +169,10 @@ func _process(delta):
 		rset_unreliable("slave_transform", $Model.transform)
 		rset_unreliable("slave_linear_vel", linear_velocity)
 	else:
-		translation = slave_translation
-		$Yaw.transform = slave_transform
-		linear_velocity = slave_linear_vel
+		if not (slave_transform == null or slave_translation == null or slave_linear_vel == null or $Yaw.transform == null or linear_velocity == null):
+			translation = slave_translation
+			$Yaw.transform = slave_transform
+			linear_velocity = slave_linear_vel
 
 	var jump_attempt = (Input.is_action_pressed("jump") or (Input.is_action_pressed("ui_page_up") and flies))and not chatting
 	var crouch_attempt = (Input.is_action_pressed("ui_mlook") or (Input.is_action_pressed("ui_page_down") and flies)) and not chatting
@@ -323,7 +324,7 @@ func _ready():
 	set_process_input(true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	rpc_id(int(name), "hide_model")
-	
+	hide_model()
 	
 func hide_model():
 	$Model/Model.layers = 6

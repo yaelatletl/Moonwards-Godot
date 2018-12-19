@@ -31,7 +31,7 @@ func _player_disconnected(id):
 		if (has_node("/root/world")): # Game is in progress
 			emit_signal("game_error", "Player " + players[id] + " disconnected")
 			end_game()
-			Input.set_mouse_mode(Input.MOUSE_MODE_RELEASED)
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else: # Game is not in progress
 			# If we are the server, send to the new dude all the already registered players
 			unregister_player(id)
