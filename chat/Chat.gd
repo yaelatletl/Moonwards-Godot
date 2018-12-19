@@ -47,7 +47,7 @@ func get_random_name():
 	return anon_name[randi() % 5]+str(player_id)
 	
 func _unhandled_input(event):
-	if event is InputEventKey:
+	if event is InputEventKey and is_network_master():
 		if event.pressed and event.scancode == KEY_ENTER:
 			if not $Message_Input.has_focus():
 				$Message_Input.grab_focus()
