@@ -6232,6 +6232,7 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 366 )
 skeleton = NodePath("..")
 material/0 = null
+_sections_unfolded = [ "material" ]
 
 [node name="RockMediumC001" type="MeshInstance" parent="LongDome-RegolithOverlay" index="8"]
 

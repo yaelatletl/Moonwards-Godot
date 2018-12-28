@@ -73,4 +73,19 @@ aabb = AABB( -1, -1, -1, 2, 2, 2 )
 pause_animations = true
 freeze_bodies = true
 
+[node name="Camera" type="Camera" parent="." index="7"]
+
+keep_aspect = 1
+cull_mask = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = false
+fov = 70.0
+size = 1.0
+near = 0.05
+far = 100.0
+
 
