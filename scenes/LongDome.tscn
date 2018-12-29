@@ -6201,6 +6201,75 @@ material/1 = null
 material/2 = null
 material/3 = null
 
+[node name="OmniLight" type="OmniLight" parent="LongDome-RegolithOverlay/LongDomeGround" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.593, 15.9339, 2.78824 )
+layers = 1
+light_color = Color( 0.996094, 0.891037, 0.950131, 1 )
+light_energy = 0.5
+light_indirect_energy = 2.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 11.5587
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light" ]
+
+[node name="OmniLight3" type="OmniLight" parent="LongDome-RegolithOverlay/LongDomeGround" index="1"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.522, 19.342, 17.4284 )
+layers = 1
+light_color = Color( 0.996094, 0.891037, 0.950131, 1 )
+light_energy = 0.5
+light_indirect_energy = 2.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 11.5587
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light" ]
+
+[node name="OmniLight2" type="OmniLight" parent="LongDome-RegolithOverlay/LongDomeGround" index="2"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67834, 13.9493, -18.7287 )
+layers = 1
+light_color = Color( 0.996094, 0.891037, 0.950131, 1 )
+light_energy = 0.5
+light_indirect_energy = 2.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 13.3692
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light" ]
+
 [node name="LongDomeOverhang" type="MeshInstance" parent="LongDome-RegolithOverlay" index="6"]
 
 transform = Transform( 1, 7.06117e-08, 1.05268e-08, -7.06117e-08, 1, 1.74708e-08, -1.05268e-08, -1.74708e-08, 1, -0.0498047, -2.7688, -0.010498 )
@@ -6233,6 +6302,144 @@ mesh = ExtResource( 366 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "material" ]
+
+[node name="OmniLight" type="OmniLight" parent="LongDome-RegolithOverlay/LongDomeRoofEnds" index="0"]
+
+transform = Transform( 1, -7.06117e-08, -1.05268e-08, 7.06117e-08, 1, -1.74708e-08, 1.05268e-08, 1.74708e-08, 1, -24.6486, 6.30521, 75.6315 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 20.7606
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light", "Shadow" ]
+
+[node name="OmniLight2" type="OmniLight" parent="LongDome-RegolithOverlay/LongDomeRoofEnds" index="1"]
+
+transform = Transform( 1, -7.06117e-08, -1.05268e-08, 7.06117e-08, 1, -1.74708e-08, 1.05268e-08, 1.74708e-08, 1, 26.9714, -2.18405, -75.848 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 21.4061
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light", "Shadow" ]
+
+[node name="OmniLight3" type="OmniLight" parent="LongDome-RegolithOverlay/LongDomeRoofEnds" index="2"]
+
+transform = Transform( 1, 1.83912e-16, 0, 1.83912e-16, 1, 0, 0, 0, 1, -2.90893, -1.39793, 65.567 )
+layers = 1
+light_color = Color( 0.974693, 0.996094, 0.871582, 1 )
+light_energy = 0.6
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 10.0
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light", "Omni" ]
+
+[node name="OmniLight4" type="OmniLight" parent="LongDome-RegolithOverlay/LongDomeRoofEnds" index="3"]
+
+transform = Transform( 1, 1.83912e-16, 0, 1.83912e-16, 1, 0, 0, 0, 1, -43.9357, 1.36747, 66.8985 )
+layers = 1
+light_color = Color( 0.974693, 0.996094, 0.871582, 1 )
+light_energy = 0.6
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 10.0
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light", "Omni" ]
+
+[node name="OmniLight5" type="OmniLight" parent="LongDome-RegolithOverlay/LongDomeRoofEnds" index="4"]
+
+transform = Transform( 1, 1.83912e-16, 0, 1.83912e-16, 1, 0, 0, 0, 1, 7.11941, -8.89274, -71.6157 )
+layers = 1
+light_color = Color( 0.974693, 0.996094, 0.871582, 1 )
+light_energy = 0.6
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 10.0
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light", "Omni" ]
+
+[node name="OmniLight6" type="OmniLight" parent="LongDome-RegolithOverlay/LongDomeRoofEnds" index="5"]
+
+transform = Transform( 1, 1.83912e-16, 0, 1.83912e-16, 1, 0, 0, 0, 1, 44.0954, -8.02555, -75.6563 )
+layers = 1
+light_color = Color( 0.974693, 0.996094, 0.871582, 1 )
+light_energy = 0.6
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 10.0
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light", "Omni" ]
 
 [node name="RockMediumC001" type="MeshInstance" parent="LongDome-RegolithOverlay" index="8"]
 
@@ -6313,51 +6520,5 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 371 )
 skeleton = NodePath("..")
 material/0 = null
-
-[node name="OmniLight" type="OmniLight" parent="LongDome-RegolithOverlay" index="13"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.9323, 6.46635, 75.4372 )
-layers = 1
-light_color = Color( 1, 1, 1, 1 )
-light_energy = 1.0
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
-omni_range = 20.7606
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light", "Shadow" ]
-
-[node name="OmniLight2" type="OmniLight" parent="LongDome-RegolithOverlay" index="14"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.6877, -2.02292, -76.0423 )
-layers = 1
-light_color = Color( 1, 1, 1, 1 )
-light_energy = 1.0
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
-omni_range = 21.4061
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light", "Shadow" ]
 
 
