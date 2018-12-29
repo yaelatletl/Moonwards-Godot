@@ -93,7 +93,7 @@ use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 8 )
 
-[node name="Spatial" type="Control"]
+[node name="Spatial" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -192,6 +192,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 12.0
+margin_top = 9.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -248,6 +250,7 @@ scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
+_sections_unfolded = [ "Margin", "Rect" ]
 
 [node name="Panel" type="Panel" parent="ui/main" index="1"]
 
@@ -283,7 +286,7 @@ custom_constants/separation = 10
 alignment = 0
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Theme", "custom_constants" ]
 
-[node name="Run" type="Button" parent="ui/main/Panel/VBoxContainer" index="0"]
+[node name="Instructions" type="Button" parent="ui/main/Panel/VBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -291,6 +294,32 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 210.0
 margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Instructions"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Run" type="Button" parent="ui/main/Panel/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 50.0
+margin_right = 210.0
+margin_bottom = 90.0
 rect_min_size = Vector2( 0, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -309,33 +338,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Options" type="Button" parent="ui/main/Panel/VBoxContainer" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 50.0
-margin_right = 210.0
-margin_bottom = 90.0
-rect_min_size = Vector2( 0, 40 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Options"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect" ]
-
-[node name="Help" type="Button" parent="ui/main/Panel/VBoxContainer" index="2"]
+[node name="Options" type="Button" parent="ui/main/Panel/VBoxContainer" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -356,7 +359,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Help"
+text = "Options"
 flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
@@ -494,11 +497,11 @@ margin_top = 579.0
 margin_right = 133.0
 margin_bottom = 619.0
 
+[connection signal="pressed" from="ui/main/Panel/VBoxContainer/Instructions" to="." method="_on_Help_pressed"]
+
 [connection signal="pressed" from="ui/main/Panel/VBoxContainer/Run" to="." method="_on_Run_pressed"]
 
 [connection signal="pressed" from="ui/main/Panel/VBoxContainer/Options" to="." method="_on_Options_pressed"]
-
-[connection signal="pressed" from="ui/main/Panel/VBoxContainer/Help" to="." method="_on_Help_pressed"]
 
 [connection signal="pressed" from="ui/main/Panel/VBoxContainer/RunNet" to="." method="_on_RunNet_pressed"]
 
