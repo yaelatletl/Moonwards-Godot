@@ -839,7 +839,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -67.123, -1931.22, 36.6907 )
 
 [node name="Empty_BigAtrium" type="Spatial" parent="." index="10"]
 
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -62.681, -1932.02, 5.3868 )
 
 [node name="Scene" parent="Empty_BigAtrium" index="0" instance=ExtResource( 36 )]
@@ -890,7 +889,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.1226, -1929.81, -36.3057 )
 
 [node name="SatelliteDishBase1" type="MeshInstance" parent="." index="16"]
 
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -62.2695, -1927.99, 9.04956 )
 layers = 1
 material_override = null
@@ -907,7 +905,7 @@ material/0 = null
 
 [node name="Scene" parent="SatelliteDishBase1" index="0" instance=ExtResource( 41 )]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114014, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.134766, 0 )
 
 [node name="Satellite-Dish-Base003" type="MeshInstance" parent="." index="17"]
 
@@ -925,22 +923,14 @@ mesh = ExtResource( 42 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="SatelliteDish-NearSpaceComms002" type="Spatial" parent="." index="18"]
+[node name="SatelliteDish-NearSpaceComms001" type="Spatial" parent="." index="18"]
 
-editor/display_folded = true
-transform = Transform( 0.199826, -0.00462762, 0.00694393, 3.07597e-10, 0.166429, 0.110912, -0.00834465, -0.110816, 0.166284, -62.2695, -1927.87, 9.04956 )
-
-[node name="Scene" parent="SatelliteDish-NearSpaceComms002" index="0" instance=ExtResource( 41 )]
-
-[node name="SatelliteDish-NearSpaceComms001" type="Spatial" parent="." index="19"]
-
-editor/display_folded = true
-transform = Transform( -0.137406, 0.302622, 0.943154, 3.53963e-08, 0.952186, -0.30552, -0.990515, -0.0419803, -0.130837, -60.5972, -1928.24, 9.44775 )
+transform = Transform( -0.137406, 0.302622, 0.943154, 3.53963e-08, 0.952186, -0.30552, -0.990515, -0.0419803, -0.130837, -60.5972, -1928.23, 9.44775 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="SatelliteDish-NearSpaceComms001" index="0" instance=ExtResource( 41 )]
 
-[node name="Satellite-Dish-Base002" type="MeshInstance" parent="." index="20"]
+[node name="Satellite-Dish-Base002" type="MeshInstance" parent="." index="19"]
 
 transform = Transform( -0.0274814, 0, 0.198103, 0, 0.2, 0, -0.198103, 0, -0.0274814, -60.5972, -1928.26, 9.44775 )
 layers = 1
@@ -956,7 +946,7 @@ mesh = ExtResource( 43 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="SatelliteDishBase2" type="MeshInstance" parent="." index="21"]
+[node name="SatelliteDishBase2" type="MeshInstance" parent="." index="20"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60.5972, -1928.36, 9.44775 )
 layers = 1
@@ -972,7 +962,7 @@ mesh = ExtResource( 44 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="SatelliteDishBase3" type="MeshInstance" parent="." index="22"]
+[node name="SatelliteDishBase3" type="MeshInstance" parent="." index="21"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -61.0542, -1928.28, 8.43945 )
 layers = 1
@@ -988,7 +978,7 @@ mesh = ExtResource( 45 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Satellite-Dish-Base001" type="MeshInstance" parent="." index="23"]
+[node name="Satellite-Dish-Base001" type="MeshInstance" parent="." index="22"]
 
 transform = Transform( 0.189483, 0, -0.0640013, 0, 0.2, 0, 0.0640013, 0, 0.189483, -61.0542, -1928.18, 8.43945 )
 layers = 1
@@ -1004,15 +994,15 @@ mesh = ExtResource( 46 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="SatelliteDish-NearSpaceComms" type="Spatial" parent="." index="24"]
+[node name="SatelliteDish-NearSpaceComms" type="Spatial" parent="." index="23"]
 
 editor/display_folded = true
-transform = Transform( 0.947415, -0.258644, -0.188434, -3.47682e-08, 0.588845, -0.808246, 0.320007, 0.765745, 0.557881, -61.0542, -1928.16, 8.43945 )
+transform = Transform( 0.947415, -0.258644, -0.188434, -3.47682e-08, 0.588845, -0.808246, 0.320007, 0.765745, 0.557881, -61.0542, -1928.14, 8.43945 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="SatelliteDish-NearSpaceComms" index="0" instance=ExtResource( 41 )]
 
-[node name="SatelliteDish-EarthComms002" type="Spatial" parent="." index="25"]
+[node name="SatelliteDish-EarthComms002" type="Spatial" parent="." index="24"]
 
 editor/display_folded = true
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 36.5845, -1943.9, 58.0559 )
@@ -1021,7 +1011,7 @@ transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 36.5845, -1943.9, 58.0559 )
 
 _sections_unfolded = [ "Transform" ]
 
-[node name="SatelliteDishBase" type="MeshInstance" parent="." index="26"]
+[node name="SatelliteDishBase" type="MeshInstance" parent="." index="25"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -66.9097, -1929.87, 9.20557 )
 layers = 1
@@ -1037,96 +1027,96 @@ mesh = ExtResource( 48 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="SatelliteDish-EarthComms001" type="Spatial" parent="." index="27"]
+[node name="SatelliteDish-EarthComms001" type="Spatial" parent="." index="26"]
 
 editor/display_folded = true
 transform = Transform( 1.21708, 0, 0, 0, 1.21708, 0, 0, 0, 1.21708, -66.9097, -1929.36, 9.20557 )
 
 [node name="Scene" parent="SatelliteDish-EarthComms001" index="0" instance=ExtResource( 47 )]
 
-[node name="SatelliteDish-EarthComms" type="Spatial" parent="." index="28"]
+[node name="SatelliteDish-EarthComms" type="Spatial" parent="." index="27"]
 
 editor/display_folded = true
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 19.8374, -1942.37, 42.3096 )
 
 [node name="Scene" parent="SatelliteDish-EarthComms" index="0" instance=ExtResource( 47 )]
 
-[node name="Empty_MeltInPlaceStation004" type="Spatial" parent="." index="29"]
+[node name="Empty_MeltInPlaceStation004" type="Spatial" parent="." index="28"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.9824, -1928.98, -48.6877 )
 
 [node name="Scene" parent="Empty_MeltInPlaceStation004" index="0" instance=ExtResource( 12 )]
 
-[node name="Empty_MeltInPlaceStation008" type="Spatial" parent="." index="30"]
+[node name="Empty_MeltInPlaceStation008" type="Spatial" parent="." index="29"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.8158, -1930.67, -3.79072 )
 
 [node name="Scene" parent="Empty_MeltInPlaceStation008" index="0" instance=ExtResource( 12 )]
 
-[node name="Empty_FifthGallery" type="Spatial" parent="." index="31"]
+[node name="Empty_FifthGallery" type="Spatial" parent="." index="30"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -85.4058, -1928.13, 71.6892 )
 
 [node name="Scene" parent="Empty_FifthGallery" index="0" instance=ExtResource( 49 )]
 
-[node name="Empty_FirstGalleryLower" type="Spatial" parent="." index="32"]
+[node name="Empty_FirstGalleryLower" type="Spatial" parent="." index="31"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -140.088, -1986.86, -17.9028 )
 
 [node name="Scene" parent="Empty_FirstGalleryLower" index="0" instance=ExtResource( 50 )]
 
-[node name="Empty_FirstGalleryUpper" type="Spatial" parent="." index="33"]
+[node name="Empty_FirstGalleryUpper" type="Spatial" parent="." index="32"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.5742, -1928.14, -8.2334 )
 
 [node name="Scene" parent="Empty_FirstGalleryUpper" index="0" instance=ExtResource( 51 )]
 
-[node name="Empty_FourthGallery" type="Spatial" parent="." index="34"]
+[node name="Empty_FourthGallery" type="Spatial" parent="." index="33"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -146.007, -1976.39, 37.783 )
 
 [node name="Scene" parent="Empty_FourthGallery" index="0" instance=ExtResource( 52 )]
 
-[node name="Empty_GalleriesOuterSurface" type="Spatial" parent="." index="35"]
+[node name="Empty_GalleriesOuterSurface" type="Spatial" parent="." index="34"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -146.01, -1975.44, 37.7654 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="Empty_GalleriesOuterSurface" index="0" instance=ExtResource( 53 )]
 
-[node name="Empty_LongDome" type="Spatial" parent="." index="36"]
+[node name="Empty_LongDome" type="Spatial" parent="." index="35"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -393.998, -2066.37, 1.89111 )
 
 [node name="Scene" parent="Empty_LongDome" index="0" instance=ExtResource( 54 )]
 
-[node name="Empty_LosPortalesTunnel" type="Spatial" parent="." index="37"]
+[node name="Empty_LosPortalesTunnel" type="Spatial" parent="." index="36"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -74.473, -1931.29, 25.177 )
 
 [node name="Scene" parent="Empty_LosPortalesTunnel" index="0" instance=ExtResource( 55 )]
 
-[node name="Empty_NorthLongAtrium" type="Spatial" parent="." index="38"]
+[node name="Empty_NorthLongAtrium" type="Spatial" parent="." index="37"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -58.2197, -1933.98, -23.6704 )
 
 [node name="Scene" parent="Empty_NorthLongAtrium" index="0" instance=ExtResource( 56 )]
 
-[node name="Empty_SecondGallery" type="Spatial" parent="." index="39"]
+[node name="Empty_SecondGallery" type="Spatial" parent="." index="38"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -223.312, -2036.88, -21.5659 )
 
 [node name="Scene" parent="Empty_SecondGallery" index="0" instance=ExtResource( 57 )]
 
-[node name="Empty_SouthLongAtrium" type="Spatial" parent="." index="40"]
+[node name="Empty_SouthLongAtrium" type="Spatial" parent="." index="39"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -75.0947, -1933.74, 70.5385 )
@@ -1134,28 +1124,28 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="Empty_SouthLongAtrium" index="0" instance=ExtResource( 58 )]
 
-[node name="Empty_ThirdGallery" type="Spatial" parent="." index="41"]
+[node name="Empty_ThirdGallery" type="Spatial" parent="." index="40"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.608, -1966.19, 25.5356 )
 
 [node name="Scene" parent="Empty_ThirdGallery" index="0" instance=ExtResource( 59 )]
 
-[node name="Empty_STEMP-Facilities" type="Spatial" parent="." index="42"]
+[node name="Empty_STEMP-Facilities" type="Spatial" parent="." index="41"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.14478, -1903.61, -221.614 )
 
 [node name="Scene" parent="Empty_STEMP-Facilities" index="0" instance=ExtResource( 60 )]
 
-[node name="Empty_AirlockBay" type="Spatial" parent="." index="43"]
+[node name="Empty_AirlockBay" type="Spatial" parent="." index="42"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.6226, -1930.02, -11.8958 )
 
 [node name="Scene" parent="Empty_AirlockBay" index="0" instance=ExtResource( 61 )]
 
-[node name="Earth" parent="." index="44" instance=ExtResource( 62 )]
+[node name="Earth" parent="." index="43" instance=ExtResource( 62 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -258.36, 2685.34, 859.328 )
 
