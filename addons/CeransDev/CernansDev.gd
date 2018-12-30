@@ -217,6 +217,7 @@ func bl_save(dock):
 	#print("bl_save:", dock)
 	#yield(get_tree().create_timer(5.0), "timeout")
 	#print("bl_save after timeout")
+	var save = false
 	var root = get_scene()
 	var bakednodes = get_nodes_type(root, 'BakedLightmap')
 	for path in bakednodes:
@@ -224,14 +225,15 @@ func bl_save(dock):
 		#obj.light_data
 		#obj.light_data.resource_name
 		#obj.light_data.resource_path
+		if not res_path_is_local(obj.light_data.resource_path):
+			continue
 		print("data: %s, name: %s, path: %s;" % [obj.light_data, obj.light_data.resource_name, obj.light_data.resource_path])
-		var s = root.filename
-		var filename = s.trim_prefix(s.get_base_dir()+"/").trim_suffix("."+s.get_extension())
+		var filename = root.filename.get_basename().get_file()
+		print("base name ", filename)
 		var id = String(path).hash()
 		obj.light_data.resource_name = "%s_%s_%s" % [filename, id, obj.name]
-		var name_tosave = "%s/%s/%s_%s%s" % [s.get_base_dir(), options.bakedlight.path, filename, id, options.bakedlight.ext]
+		var name_tosave = "%s/%s/%s_%s%s" % [root.filename.get_base_dir(), options.bakedlight.path, filename, id, options.bakedlight.ext]
 		var name_toremove
-		var subresource = s.get_extension().match("tscn::*")
 		var changed = false
 		if res_path_is_local(obj.light_data.resource_path):
 			var dir = Directory.new()
@@ -251,6 +253,7 @@ func bl_save(dock):
 		if not dir.dir_exists(name_tosave.get_base_dir()):
 			dir.make_dir_recursive(name_tosave.get_base_dir())
 		ResourceSaver.save(name_tosave, obj.light_data)
+		save = true
 		print("saved to: %s" % name_tosave)
 		obj.light_data.resource_path = name_tosave
 		changed = true
@@ -258,8 +261,8 @@ func bl_save(dock):
 			var error = Directory.new().remove(name_toremove)
 			if error != 0:
 				print("error(%i) while removing file: %s" % [error, name_toremove])
-# 		if changed:
-# 			get_editor_interface().save_scene()
+	if save :
+		get_editor_interface().save_scene()
 	yield(get_tree().create_timer(0.1), "timeout")
 	emit_signal("end_processing")
 
