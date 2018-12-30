@@ -109,31 +109,50 @@ func cs_make(dock):
 		obj_add_col_convex(root.get_node(node))
 	for node in meshes.trimesh:
 		obj_add_col_trimesh(root.get_node(node))
+	if meshes.size() > 0 :
+		#save to get correct resouce path in shapes in godot 3.0.6, seems to be okay without that in 3.1
+		get_editor_interface().save_scene()
 	yield(get_tree().create_timer(0.1), "timeout")
 	emit_signal("end_processing")
 
 func cs_delete(dock):
+	var save = false
 	var root = get_scene()
 	var meshes = get_cs_list(root)
 	var nodes = []
 	array_add(nodes, meshes.convex)
 	array_add(nodes, meshes.trimesh)
+	#Remove shapes
+	var dir = Directory.new()
+	for path in get_cs_list_cs(root):
+		var obj = root.get_node(path)
+		if obj.shape == null:
+			continue
+		var fname = obj.shape.resource_path
+		if dir.file_exists(fname):
+			var error = dir.remove(fname)
+			if error != 0:
+				print("faield to remove old file %s Error(%i)" % [fname, error])
 	for path in nodes:
 		var node = root.get_node(path)
 		for obj in node.get_children():
 			if obj.get_class() == "StaticBody":
 				print("free: ", obj)
 				obj.queue_free()
+				save = true
+	if save :
+		get_editor_interface().save_scene()
 	yield(get_tree().create_timer(0.1), "timeout")
 	emit_signal("end_processing")
 
 func cs_save(dock):
 	var root = get_scene()
-	var shapes = get_nodes_type(root, 'CollisionShape')
+	var shapes = get_cs_list_cs(root)
 	var scene_file = get_scene_filename()
 	var save = false
 	for path in shapes:
 		var obj = root.get_node(path)
+		print(path, " at ", obj.shape.resource_path)
 		if res_path_is_local(obj.shape.resource_path):
 			var fname = "%s/%s/%s__%s.shape" % [scene_file.get_base_dir(), options["cs_dir"], scene_file.get_file().get_basename(), String(path).replace("/", "_")]
 			obj.shape = res_save(fname, obj.shape) 
@@ -405,3 +424,20 @@ func get_cs_list(root):
 		elif obj_has_groups(obj, options.cs_trimesh):
 			meshes.trimesh.append(root.get_path_to(obj))
 	return meshes
+
+func get_cs_list_cs(root):
+	# get collision nodes of meshes marked by us for collision, exclude areas and all that stuff
+	# important for saving of those meshes
+	
+	var meshes = get_cs_list(root)
+	var paths = []
+	array_add(paths, meshes.convex)
+	array_add(paths, meshes.trimesh)
+	var nodes = []
+	for path in paths:
+		var obj = root.get_node(path)
+		var css = get_nodes_type(obj, 'CollisionShape')
+		for cspath in css:
+			var o = obj.get_node(cspath)
+			nodes.append(root.get_path_to(o))
+	return nodes
