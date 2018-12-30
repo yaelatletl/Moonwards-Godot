@@ -12,7 +12,8 @@ var options = {
 	cs_trimesh = ["cs", "floor", "wall"],
 	bakedlight = {path = "lightmaps", ext = "_bldata.res" },
 	material_dir = "res://materials",
-	mesh_dir = "meshes"
+	mesh_dir = "meshes",
+	cs_dir = "cshapes"
 }
 
 #
@@ -78,6 +79,20 @@ func get_nodes_type(root, type, recurent=false):
 
 func res_path_is_local(path):
 	return path.get_extension().match("tscn::*")
+
+func res_save(fname, res):
+	var dir = Directory.new()
+	if not dir.dir_exists(fname.get_base_dir()):
+		dir.make_dir_recursive(fname.get_base_dir())
+	if dir.file_exists(fname):
+		var error = dir.remove(fname)
+		if error != 0:
+			print("faield to remove old file %s Error(%i)" % [fname, error])
+	ResourceSaver.save(fname, res)
+	print("saved to: %s" % fname)
+	return ResourceLoader.load(fname)
+
+
 #
 # Signal Processing functions
 #
@@ -113,6 +128,18 @@ func cs_delete(dock):
 	emit_signal("end_processing")
 
 func cs_save(dock):
+	var root = get_scene()
+	var shapes = get_nodes_type(root, 'CollisionShape')
+	var scene_file = get_scene_filename()
+	var save = false
+	for path in shapes:
+		var obj = root.get_node(path)
+		if res_path_is_local(obj.shape.resource_path):
+			var fname = "%s/%s/%s__%s.shape" % [scene_file.get_base_dir(), options["cs_dir"], scene_file.get_file().get_basename(), String(path).replace("/", "_")]
+			obj.shape = res_save(fname, obj.shape) 
+			save = true
+	if save :
+		get_editor_interface().save_scene()
 	yield(get_tree().create_timer(0.1), "timeout")
 	emit_signal("end_processing")
 
