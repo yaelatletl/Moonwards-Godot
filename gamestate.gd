@@ -1,4 +1,7 @@
 extends Node
+#world scene to load
+
+var WorldScene = "res://World.tscn"
 
 # Default game port
 const DEFAULT_PORT = 10567
@@ -74,7 +77,7 @@ remote func unregister_player(id):
 
 remote func pre_start_game(spawn_points):
 	# Change scene
-	var world = load("res://World.tscn").instance()
+	var world = load(WorldScene).instance()
 	get_tree().get_root().add_child(world)
 
 	get_tree().get_root().get_node("lobby").visible = false
