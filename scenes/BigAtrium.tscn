@@ -24,7 +24,9 @@ extents = Vector3( 7.63116, 7.036, 11.7867 )
 
 [node name="Exterior" type="Spatial" parent="." index="0"]
 
-[node name="BigAtriumWalls" type="MeshInstance" parent="Exterior" index="0"]
+[node name="BigAtriumWalls" type="MeshInstance" parent="Exterior" index="0" groups=[
+"wall",
+]]
 
 layers = 1
 material_override = null
@@ -40,7 +42,9 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="EarthViewBox2000" type="MeshInstance" parent="Exterior" index="1"]
+[node name="EarthViewBox2000" type="MeshInstance" parent="Exterior" index="1" groups=[
+"cs_convex",
+]]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0083, 1.85095, -8.65015 )
 layers = 1
@@ -73,7 +77,9 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="RadBlindBeam003" type="MeshInstance" parent="Exterior" index="3"]
+[node name="RadBlindBeam003" type="MeshInstance" parent="Exterior" index="3" groups=[
+"cs_convex",
+]]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39844, -1.99292, 1.81299 )
 layers = 1
@@ -128,7 +134,9 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="BigAtriumCenterBeam001" type="MeshInstance" parent="Exterior" index="9"]
+[node name="BigAtriumCenterBeam001" type="MeshInstance" parent="Exterior" index="9" groups=[
+"wall",
+]]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00244141, 1.9054, 1.05176 )
 layers = 1
@@ -215,7 +223,9 @@ mesh = ExtResource( 11 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="InteriorLevels" type="MeshInstance" parent="Interior" index="4"]
+[node name="InteriorLevels" type="MeshInstance" parent="Interior" index="4" groups=[
+"floor",
+]]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000488281, -2.3894, -2.95264 )
 layers = 1
@@ -302,7 +312,9 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light" ]
 
-[node name="StairSafetyGrid" type="MeshInstance" parent="Interior" index="5"]
+[node name="StairSafetyGrid" type="MeshInstance" parent="Interior" index="5" groups=[
+"cs_convex",
+]]
 
 transform = Transform( 1, 0, 0, 0, 0.997064, 0, 0, 0, 1, -0.869629, -0.530029, -2.86377 )
 layers = 1
