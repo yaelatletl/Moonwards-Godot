@@ -104,12 +104,19 @@ func cs_list(dock):
 
 func cs_make(dock):
 	var root = get_scene()
+	var save = false
 	var meshes = get_cs_list(root)
 	for node in meshes.convex:
-		obj_add_col_convex(root.get_node(node))
+		var obj = root.get_node(node)
+		if not obj_has_col(obj):
+			save = true
+			obj_add_col_convex(obj)
 	for node in meshes.trimesh:
-		obj_add_col_trimesh(root.get_node(node))
-	if meshes.size() > 0 :
+		var obj = root.get_node(node)
+		if not obj_has_col(obj):
+			save = true
+			obj_add_col_trimesh(obj)
+	if save :
 		#save to get correct resouce path in shapes in godot 3.0.6, seems to be okay without that in 3.1
 		get_editor_interface().save_scene()
 	yield(get_tree().create_timer(0.1), "timeout")
