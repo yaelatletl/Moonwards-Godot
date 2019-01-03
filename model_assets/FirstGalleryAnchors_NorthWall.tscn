@@ -4,7 +4,9 @@
 
 [node name="Scene" type="Spatial" index="0"]
 
-[node name="FirstGalleryAnchors_NorthWall" type="MeshInstance" parent="." index="0"]
+[node name="FirstGalleryAnchors_NorthWall" type="MeshInstance" parent="." index="0" groups=[
+"cs",
+]]
 
 transform = Transform( 0.0944736, -0.0238217, 0.0225227, 0.0244499, 0.096965, -2.05393e-09, -0.0218391, 0.00550678, 0.0974307, 0, 0, 0 )
 layers = 1
