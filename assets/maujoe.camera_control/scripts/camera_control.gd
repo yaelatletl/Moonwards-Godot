@@ -21,7 +21,7 @@ export (int, 0, 360) var pitch_limit = 360
 
 # Movement settings
 export var movement = true
-export (float, 0.0, 1.0) var acceleration = 0.5
+export (float, 0.0, 1.0) var acceleration = 0.1
 export (float, 0.0, 1.0) var deceleration = 0.5
 export var max_speed = Vector3(1.0, 1.0, 1.0)
 export var local = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://model_assets/meshes/HexpaneWindow__GlassHexagons001.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://materials/Glass.tres" type="Material" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://model_assets/meshes/HexpaneWindow__GlassHexagons001_PaneFrames003.mesh" type="ArrayMesh" id=7]
 [ext_resource path="res://model_assets/meshes/HexpaneWindow__GlassHexagons001_WindowPaneMesh003.mesh" type="ArrayMesh" id=8]
 [ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=9]
+
+[sub_resource type="BoxShape" id=3]
+
+extents = Vector3( 0.0397949, 0.342668, 0.357658 )
 
 [sub_resource type="BoxShape" id=2]
 
@@ -102,12 +106,28 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
+[node name="PaneFrames-Outside002_col" type="StaticBody" parent="PaneFrames-Outside002" index="0"]
+
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+friction = 1.0
+bounce = 0.0
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="PaneFrames-Outside002/PaneFrames-Outside002_col" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, -1.11022e-16, -1.98952e-13, 0, 1, 0.956081, -0.0120402, -1.55779e-07 )
+shape = SubResource( 3 )
+disabled = false
+
 [node name="PaneFrames003" type="MeshInstance" parent="." index="5" groups=[
 "interior",
 ]]
 
 transform = Transform( -1.62908e-08, 2.17935e-10, -0.1, 0.00125923, 0.0999921, 2.50727e-10, 0.0999921, -0.00125923, -1.47045e-08, 5.89806e-17, 0.00012207, 0.00024414 )
-visible = false
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -168,10 +188,6 @@ reverb_bus_name = "Master"
 reverb_bus_amount = 0.0
 reverb_bus_uniformity = 0.0
 script = ExtResource( 9 )
-RootNode = NodePath("../..")
-showhide = "interior"
-hideshow = "exterior"
-bygroup = "player"
 
 [node name="CollisionShape" type="CollisionShape" parent="Triggers/Area" index="0"]
 

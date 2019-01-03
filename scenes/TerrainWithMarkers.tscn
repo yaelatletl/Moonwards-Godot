@@ -504,7 +504,9 @@ mesh = ExtResource( 13 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="GibraltarRockEast" type="MeshInstance" parent="GroundsNearBuildings" index="9"]
+[node name="GibraltarRockEast" type="MeshInstance" parent="GroundsNearBuildings" index="9" groups=[
+"bang",
+]]
 
 transform = Transform( 0.999424, -0.00656715, -0.0332917, 0.00658868, 0.999978, 0.000537193, 0.0332875, -0.000756232, 0.999446, 709.986, 231.403, 240.605 )
 layers = 1

@@ -1,4 +1,4 @@
-extends Area
+fextends Area
 
 export(NodePath) var RootNode
 export(String) var showhide = "interior"
