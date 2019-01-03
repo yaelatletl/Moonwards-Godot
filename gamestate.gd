@@ -2,6 +2,7 @@ extends Node
 #world scene to load
 
 var WorldScene = "res://World.tscn"
+var player_scene = preload("res://assets/Player/player.tscn")
 
 # Default game port
 const DEFAULT_PORT = 10567
@@ -27,13 +28,30 @@ func _player_connected(id):
 	# This is not used in this demo, because _connected_ok is called for clients
 	# on success and will do the job.
 	pass
+func create_player(id):
+	var world = get_tree().get_root().get_child("world")
+	var spawn_pos = world.get_node("spawn_points").get_child(randi()%10).translation
+	var player = player_scene.instance()
+	player.flies = true # MUST CHANGE WHEN COLLISIONS ARE DONE
+	player.set_name(str(id)) # Use unique ID as node name
+	player.translation=spawn_pos
+	player.set_network_master(id) #set unique id as master
+
+	if (p_id == get_tree().get_network_unique_id()):
+		# If node for this peer id, set name
+		player.set_player_name(player_name)
+	else:
+		# Otherwise set name from peer
+		player.set_player_name(players[id])
+
+		world.get_node("players").add_child(player)
 
 # Callback from SceneTree
 func _player_disconnected(id):
 	if (get_tree().is_network_server()):
 		if (has_node("/root/world")): # Game is in progress
 			emit_signal("game_error", "Player " + players[id] + " disconnected")
-			end_game()
+			#end_game() Do not end the game
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else: # Game is not in progress
 			# If we are the server, send to the new dude all the already registered players
@@ -78,29 +96,16 @@ remote func unregister_player(id):
 remote func pre_start_game(spawn_points):
 	# Change scene
 	var world = load(WorldScene).instance()
+	world.name = "world"
 	get_tree().get_root().add_child(world)
 
 	get_tree().get_root().get_node("lobby").visible = false
 	get_tree().get_root().get_node("Spatial/ui").hide()
 
-	var player_scene = load("res://assets/Player/player.tscn")
+	
 
 	for p_id in spawn_points:
-		var spawn_pos = world.get_node("spawn_points/" + str(spawn_points[p_id])).translation
-		var player = player_scene.instance()
-		player.flies = true # MUST CHANGE WHEN COLLISIONS ARE DONE
-		player.set_name(str(p_id)) # Use unique ID as node name
-		player.translation=spawn_pos
-		player.set_network_master(p_id) #set unique id as master
-
-		if (p_id == get_tree().get_network_unique_id()):
-			# If node for this peer id, set name
-			player.set_player_name(player_name)
-		else:
-			# Otherwise set name from peer
-			player.set_player_name(players[p_id])
-
-		world.get_node("players").add_child(player)
+		create_player(p_id)
 
 	# Set up score (Not my case right now)
 	#world.get_node("score").add_player(get_tree().get_network_unique_id(), player_name)
