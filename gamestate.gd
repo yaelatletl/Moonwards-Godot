@@ -37,7 +37,7 @@ func create_player(id):
 	player.translation=spawn_pos
 	player.set_network_master(id) #set unique id as master
 
-	if (p_id == get_tree().get_network_unique_id()):
+	if (id == get_tree().get_network_unique_id()):
 		# If node for this peer id, set name
 		player.set_player_name(player_name)
 	else:
