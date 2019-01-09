@@ -16,6 +16,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+options="*res://options.gd"
 gamestate="*res://gamestate.gd"
 
 [compression]
