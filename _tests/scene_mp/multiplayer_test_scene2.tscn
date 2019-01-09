@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/Player/player.tscn" type="PackedScene" id=1]
 
 [sub_resource type="SpatialMaterial" id=1]
 
@@ -119,5 +121,9 @@ transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.99731
 transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, 0, 4, 20.5403 )
 
 [node name="players" type="Spatial" parent="." index="2"]
+
+[node name="KinematicBody" parent="players" index="0" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35952, 0 )
 
 
