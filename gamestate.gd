@@ -1,7 +1,7 @@
 extends Node
 #world scene to load
 
-var WorldScene = "res://World.tscn"
+var world = preload("res://World.tscn")
 var player_scene = preload("res://assets/Player/player.tscn")
 
 # Default game port
