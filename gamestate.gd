@@ -213,9 +213,7 @@ func player_toscene():
 # Callback from SceneTree
 func _player_connected(id):
 	#Clientside 
-	pass
-<<<<<<< HEAD
-	
+	pass	
 	
 sync func delete_player(id):
 	
@@ -224,9 +222,7 @@ sync func delete_player(id):
 	if (has_node(path)):
 			get_node(path).queue_free()
 	
-=======
 
->>>>>>> 07ecb462476e117d08d16f052214d6da9e557382
 func create_player(id):
 	var world = get_tree().get_root().get_child("world")
 	var spawn_pos = world.get_node("spawn_points").get_child(randi()%10).translation
@@ -312,12 +308,6 @@ remote func pre_start_game(spawn_points):
 
 	for p_id in spawn_points:
 		create_player(p_id)
-
-	# Set up score (Not my case right now)
-	#world.get_node("score").add_player(get_tree().get_network_unique_id(), player_name)
-#	for pn in players:
-#		world.get_node("score").add_player(pn, players[pn])
-
 	if (not get_tree().is_network_server()):
 		# Tell server we are ready to start
 		rpc_id(1, "ready_to_start", get_tree().get_network_unique_id())
