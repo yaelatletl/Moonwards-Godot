@@ -25,9 +25,17 @@ signal game_error(what)
 
 # Callback from SceneTree
 func _player_connected(id):
-	# This is not used in this demo, because _connected_ok is called for clients
-	# on success and will do the job.
+	#Clientside 
 	pass
+	
+	
+sync func delete_player(id):
+	
+	var path = str("root/world/players/"+str(id))
+	
+	if (has_node(path)):
+			get_node(path).queue_free()
+	
 func create_player(id):
 	var world = get_tree().get_root().get_child("world")
 	var spawn_pos = world.get_node("spawn_points").get_child(randi()%10).translation
@@ -53,6 +61,9 @@ func _player_disconnected(id):
 			emit_signal("game_error", "Player " + players[id] + " disconnected")
 			#end_game() Do not end the game
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			for p_id in players: #Delete the player for all players
+				rpc_id(p_id, "delete_player", id)
+			delete_player(id) #Delete the player for server
 		else: # Game is not in progress
 			# If we are the server, send to the new dude all the already registered players
 			unregister_player(id)
@@ -63,7 +74,11 @@ func _player_disconnected(id):
 # Callback from SceneTree, only for clients (not server)
 func _connected_ok():
 	# Registration of a client beings here, tell everyone that we are here
-	rpc("register_player", get_tree().get_network_unique_id(), player_name)
+	#ClientSide
+	get_tree().get_root().add_child(world)
+	rpc("register_player", get_tree().get_network_unique_id(), player_name, true)
+	rpc("create_player", get_tree().get_network_unique_id())
+	
 	emit_signal("connection_succeeded")
 
 # Callback from SceneTree, only for clients (not server)
