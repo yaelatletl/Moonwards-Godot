@@ -3,7 +3,6 @@
 [ext_resource path="res://assets/Slides/gui_3d.gd" type="Script" id=1]
 [ext_resource path="res://assets/Slides/lightmask.png" type="Texture" id=2]
 
-
 [sub_resource type="PlaneMesh" id=1]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
@@ -89,7 +88,7 @@ func e():
 extents = Vector3( 1, 1, 0.01 )
 script = SubResource( 4 )
 
-[node name="Screen" type="Spatial" index="0"]
+[node name="Screen" type="Spatial"]
 
 script = ExtResource( 1 )
 Content = null
@@ -149,7 +148,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Quad" type="MeshInstance" parent="Area" index="0"]
 
-transform = Transform( -1, 8.74228e-008, -4.37114e-008, -4.37114e-008, 1.91069e-015, 1, 8.74228e-008, 1, 1.91069e-015, 0, 0, 0 )
+transform = Transform( -1, 8.74228e-08, -4.37114e-08, -4.37114e-08, 1.91069e-15, 1, 8.74228e-08, 1, 1.91069e-15, 0, 0, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1

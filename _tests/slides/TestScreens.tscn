@@ -4,9 +4,6 @@
 [ext_resource path="res://_tests/slides/Example.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/Player/player.tscn" type="PackedScene" id=3]
 
-
-
-
 [sub_resource type="CubeMesh" id=1]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
@@ -70,7 +67,7 @@ distance_fade_enable = false
 
 extents = Vector3( 1, 1, 1 )
 
-[node name="Spatial" type="Spatial" index="0"]
+[node name="Spatial" type="Spatial"]
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="0"]
 
@@ -114,11 +111,5 @@ Hologram = true
 [node name="KinematicBody" parent="." index="2" instance=ExtResource( 3 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19681, 0.976797, 4.45425 )
-axis_lock_linear_x = false
-axis_lock_linear_y = false
-axis_lock_linear_z = false
-axis_lock_angular_x = false
-axis_lock_angular_y = false
-axis_lock_angular_z = false
 
 

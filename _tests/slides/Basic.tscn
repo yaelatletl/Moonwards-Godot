@@ -1,6 +1,7 @@
 [gd_scene format=2]
 
 [node name="Control" type="Control"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -14,7 +15,8 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." index="0"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -29,7 +31,8 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 0, 0.878431, 0.796078, 1 )
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." index="1"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -54,7 +57,8 @@ text = "This is some nice Button"
 flat = false
 align = 1
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." index="2"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -75,4 +79,5 @@ text = "This is some Text"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
 
