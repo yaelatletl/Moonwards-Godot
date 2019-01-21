@@ -9,18 +9,21 @@ enum STATE {
 var state = STATE.init setget set_state
 
 func _ready():
+	pass
 	# Called every time the node is added to the scene.
-	gamestate.connect("connection_failed", self, "_on_connection_failed")
-	gamestate.connect("connection_succeeded", self, "_on_connection_success")
-	gamestate.connect("player_list_changed", self, "refresh_lobby")
-	gamestate.connect("game_ended", self, "_on_game_ended")
-	gamestate.connect("game_error", self, "_on_game_error")
+# 	gamestate.connect("connection_failed", self, "_on_connection_failed")
+# 	gamestate.connect("connection_succeeded", self, "_on_connection_success")
+# 	gamestate.connect("player_list_changed", self, "refresh_lobby")
+# 	gamestate.connect("game_ended", self, "_on_game_ended")
+# 	gamestate.connect("game_error", self, "_on_game_error")
 
 func state_hide():
 	match state:
 		STATE.init:
 			$connect.hide()
 		STATE.server_select:
+			$WaitServer.hide()
+		STATE.client_connect:
 			$WaitServer.hide()
 
 func state_show():
@@ -30,50 +33,69 @@ func state_show():
 		STATE.server_select:
 			$WaitServer/Label.text = "Setting the server up:\n"
 			$WaitServer.show()
+		STATE.client_connect:
+			$WaitServer/Label.text = "Connecting to server:\n"
+			$WaitServer.show()
 
 func set_state(nstate):
 	state_hide()
 	state = nstate
 	state_show()
 
-func sg_server_log(msg):
+func sg_network_log(msg):
 	$WaitServer/Label.text = "%s%s\n" % [$WaitServer/Label.text, msg]
 
 func sg_server_up():
 	var worldscene = options.scenes.default
-	sg_server_log("change scene to %s" % worldscene)
+	sg_network_log("change scene to %s" % worldscene)
 	yield(get_tree().create_timer(2), "timeout")
+	state_hide()
 	gamestate.change_scene(worldscene)
 
 func sg_network_error(msg):
+	var oldstate = state
 	set_state(STATE.init)
-	$connect/error_label.text = "Error setting server : %s" % msg
+	match oldstate:
+		STATE.server_select:
+			$connect/error_label.text = "Error setting server : %s" % msg
+		STATE.client_connect:
+			$connect/error_label.text = msg
+
+func sg_server_connected():
+	pass
 
 func _on_host_pressed():
-	self.state = STATE.server_select
-	binddef = {src = gamestate, dest = self }
-	bindsg("server_log")
-	bindsg("server_up")
-	bindsg("network_error")
-	gamestate.server_set_mode()
-	return
-
 	if (get_node("connect/name").text == ""):
 		get_node("connect/error_label").text="Invalid name!"
 		return
-
-	get_node("connect").hide()
-	get_node("PlayersList").show()
-	get_node("connect/error_label").text=""
-
-	var player_name = get_node("connect/name").text
-	gamestate.host_game(player_name)
-	refresh_lobby()
+	var player_data = {
+		name = get_node("connect/name").text
+	}
+	gamestate.player_register(player_data, true) #local player
+	self.state = STATE.server_select
+	binddef = {src = gamestate, dest = self }
+	bindsg("network_log")
+	bindsg("server_up")
+	bindsg("network_error")
+	gamestate.server_set_mode()
 
 func _on_join_pressed():
 	if (get_node("connect/name").text == ""):
 		get_node("connect/error_label").text="Invalid name!"
 		return
+
+	set_state(STATE.client_connect)
+	var player_data = {
+		name = get_node("connect/name").text
+	}
+	gamestate.player_register(player_data, true) #local player
+	binddef = {src = gamestate, dest = self }
+	bindsg("network_log")
+	bindsg("server_connected")
+	bindsg("network_error")
+	gamestate.client_server_connect(get_node("connect/ip").text)
+	return
+
 
 	var ip = get_node("connect/ip").text
 	if (not ip.is_valid_ip_address()):
