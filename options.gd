@@ -14,5 +14,11 @@ var scenes = {
 	}
 }
 
+#scene for players, node name wich serves an indicator
+var scene_id = "scene_id_30160"
+
+#scene we instance for each player
+var player_scene = preload("res://assets/Player/player.tscn")
+
 func _ready():
 	pass
