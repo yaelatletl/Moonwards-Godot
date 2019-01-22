@@ -24,10 +24,6 @@ gamestate="*res://gamestate.gd"
 formats/zlib/compression_level=5
 formats/gzip/compression_level=5
 
-[debug]
-
-settings/fps/force_fps=3
-
 [display]
 
 window/size/height=700
