@@ -62,7 +62,7 @@ func sg_network_error(msg):
 			$connect/error_label.text = msg
 
 func sg_server_connected():
-	pass
+	sg_server_up()
 
 func _on_host_pressed():
 	if (get_node("connect/name").text == ""):

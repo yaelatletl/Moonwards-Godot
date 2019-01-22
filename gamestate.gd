@@ -40,7 +40,6 @@ signal player_id(id)
 signal server_up
 #network client
 signal server_connected
-signal server_connecting
 #network general
 signal server_select # show dialog to connect to a server or create a server
 signal network_error(message)
@@ -230,7 +229,6 @@ func server_set_mode(host="localhost"):
 		RoleServer = false
 		return
 	emit_signal("network_log", "prepare to listen on %s:%s" % [server.ip,DEFAULT_PORT])
-	emit_signal("server_connecting")
 	server.connection = NetworkedMultiplayerENet.new()
 	server.connection.set_bind_ip(server.ip)
 	var error = server.connection.create_server(DEFAULT_PORT, MAX_PEERS)
@@ -297,7 +295,7 @@ func sg_connected_to_server():
 	bindtgd("connection_failed")
 	bindtgd("connected_to_server")
 	RoleClient = true
-	emit_signal("server_connected", "connected to server")
+	emit_signal("server_connected")
 
 func client_server_connect(host, port=DEFAULT_PORT):
 	if RoleClient :
@@ -407,8 +405,10 @@ func player_data_get():
 func player_get(prop):
 	var error = false
 	var result = null
-	if player_data.has(prop):
-		result = player_data[prop]
+	if player_local.data.has(prop):
+		result = player_local.data[prop]
+	elif player_local.has(prop):
+		result = player_local[prop]
 	elif client.has(prop):
 		result = client[prop]
 	else:
@@ -432,23 +432,17 @@ func create_player(id):
 	player.translation=spawn_pos
 	player.set_network_master(id) #set unique id as master
 	player.set_player_name(players[id].data.name)
+	player.get_node("Pivot/FPSCamera").make_current()
 	world.get_node("players").add_child(player)
 	players[id]["world"] = "%s" % world
+	players[id]["path"] = world.get_path_to(player)
 
-
-func player_toscene_():
-	emit_signal("gslog", "add player avatar to scene")
-	var root = get_tree().current_scene
-	var player = options.player_scene.instance()
-	root.get_node("players").add_child(player)
-	#player.get_node("Pivot/FPSCamera").make_current()
-	emit_signal("gslog", "player_toscene: %s" % player.get_node("Pivot/FPSCamera"))
 
 # Callback from SceneTree
 func _player_connected(id):
-	#Clientside 
-	pass	
-	
+	emit_signal("gslog", "player connected id(%s)" % id)
+	rpc("register_player", get_tree().get_network_unique_id(), player_get("name"))
+
 sync func delete_player(id):
 	
 	var path = str("root/world/players/"+str(id))
@@ -496,21 +490,30 @@ func _connected_fail():
 # Lobby management functions
 
 remote func register_player(id, new_player_name):
-	if (get_tree().is_network_server()):
+	emit_signal("gslog", "register_player id(%s) name(%s)" % [id, new_player_name])
+	if get_tree().is_network_server():
 		# If we are the server, let everyone know about the new player
-		rpc_id(id, "register_player", 1, player_name) # Send myself to new dude
+		rpc_id(id, "register_player", 1, player_get("name")) # Send myself to new dude
 		for p_id in players: # Then, for each remote player
 			rpc_id(id, "register_player", p_id, players[p_id]) # Send player to new dude
 			rpc_id(p_id, "register_player", id, new_player_name) # Send new dude to player
 
-	players[id] = new_player_name
+	var player = {
+		name = new_player_name,
+		id = id
+	}
+	player_register(player)
 	emit_signal("player_list_changed")
 
 remote func unregister_player(id):
+	emit_signal("gslog", "unregister_player")
+	return
 	players.erase(id)
 	emit_signal("player_list_changed")
 
 remote func pre_start_game(spawn_points):
+	emit_signal("gslog", "pre_start_game")
+	return
 	# Change scene
 	var  WorldScene = options.scenes[options.scenes.default]
 	var world = load(WorldScene).instance()
@@ -531,11 +534,15 @@ remote func pre_start_game(spawn_points):
 		post_start_game()
 
 remote func post_start_game():
+	emit_signal("gslog", "post_start_game")
+	return
 	get_tree().set_pause(false) # Unpause and unleash the game!
 
 var players_ready = []
 
 remote func ready_to_start(id):
+	emit_signal("gslog", "ready_to_start")
+	return
 	assert(get_tree().is_network_server())
 
 	if (not id in players_ready):
@@ -590,7 +597,7 @@ func end_game():
 	get_tree().set_network_peer(null) # End networking
 
 func _ready():
-	#get_tree().connect("network_peer_connected", self, "_player_connected")
+	get_tree().connect("network_peer_connected", self, "_player_connected")
 	#get_tree().connect("network_peer_disconnected", self,"_player_disconnected")
 	##get_tree().connect("connected_to_server", self, "_connected_ok")
 	#get_tree().connect("connection_failed", self, "_connected_fail")
