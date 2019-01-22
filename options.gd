@@ -21,4 +21,6 @@ var scene_id = "scene_id_30160"
 var player_scene = preload("res://assets/Player/player.tscn")
 
 func _ready():
+	print("debug set FPS to 3")
+	Engine.target_fps = 3
 	pass
