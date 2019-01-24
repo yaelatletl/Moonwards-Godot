@@ -365,7 +365,7 @@ func player_register(pdata, localplayer=false):
 	if not pdata.has("id") and not localplayer:
 		emit_signal("gslog", "player data should have id")
 		return
-	emit_signal("gslog", "register player: %s" % pdata)
+	emit_signal("gslog", "register player(local %s): %s" % [localplayer, pdata])
 	var player = {}
 	player["data"] = pdata
 	player["obj"] = options.player_scene.instance()
@@ -379,6 +379,8 @@ func player_register(pdata, localplayer=false):
 			players[player.id] = player
 	else:
 		player.obj.get_node("Pivot").visible = false
+		player["id"] = pdata.id
+		players[player.id] = player
 	
 	if is_player_scene() and player.has("id"):
 		create_player(player.id)
