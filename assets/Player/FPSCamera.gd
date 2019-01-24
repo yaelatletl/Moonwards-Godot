@@ -13,6 +13,8 @@ var Znoice = 0.0
 var Zholder = 0.0
 var v_off = 0.0
 
+var noinput = false
+
 func _ready():
 	set_process_input(true)
 	originaltranslation = Vector3(translation.x,translation.y,translation.z)
@@ -37,10 +39,10 @@ func bobbing_effect(time, speed, delta):
 			Znoice -= 10*delta
 		else: 
 			pass
-		
-		
 
 func _input(ev):
+	if noinput:
+		return
 	view_sensitivity = get_node("../..").view_sensitivity
 	if (ev is InputEventMouseMotion):
 		yaw = yaw - ev.relative.x * view_sensitivity
@@ -50,6 +52,7 @@ func _input(ev):
 			pitch = clamp(pitch - ev.relative.y * view_sensitivity,-89,89)
 		get_parent().rotation_degrees.x = pitch
 		get_parent().rotation_degrees.y = yaw
+
 func _process(delta):
 	time += delta
 	bobbing_effect(time, get_parent().get_parent().hspeed, delta)
