@@ -96,6 +96,7 @@ WALKSPEED = 3.1
 RUNSPEED = 4.5
 view_sensitivity = 0.5
 weight = 1
+Camera = "Pivot/FPSCamera"
 grav = 1.6
 
 [node name="Lamp" type="OmniLight" parent="."]

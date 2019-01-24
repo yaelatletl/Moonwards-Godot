@@ -24,12 +24,14 @@ var ActionArea = false
 var ismoving = false
 var up
 
-
+#State
+var input_processing = true
 #Options
 export(float) var WALKSPEED = 3.1
 export(float) var RUNSPEED = 4.5
 export(float) var view_sensitivity = 0.5
 export var weight= 1
+export(NodePath) var Camera = "Pivot/FPSCamera"
 
 ##Physics
 export(float) var grav = 1.6
@@ -75,6 +77,20 @@ func _input(event):
 	########################### MUST BE CHANGED TO RAYCAST
 	#Raycast WIP
 	#get_viewport().get_camera().project_ray_origin(Vector2(0,0))
+	if Input.is_action_pressed("player_toggleinput"):
+		input_processing = !input_processing
+		if not input_processing:
+			self.get_node(Camera).noinput = true
+			Captured = false
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			self.get_node(Camera).noinput = false
+			Captured = true
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		
+	if not input_processing:
+		return
+	
 	
 	if Input.is_action_pressed("ui_page_up"):
 		if Captured:
@@ -169,9 +185,10 @@ func _process(delta):
 		rset_unreliable("slave_transform", $Model.transform)
 		rset_unreliable("slave_linear_vel", linear_velocity)
 	else:
-		if not (slave_transform == null or slave_translation == null or slave_linear_vel == null or $Yaw.transform == null or linear_velocity == null):
+#		if not (slave_transform == null or slave_translation == null or slave_linear_vel == null or $Yaw.transform == null or linear_velocity == null):
+		if not (slave_transform == null or slave_translation == null or slave_linear_vel == null or linear_velocity == null):
 			translation = slave_translation
-			$Yaw.transform = slave_transform
+# 			$Yaw.transform = slave_transform
 			linear_velocity = slave_linear_vel
 
 	var jump_attempt = (Input.is_action_pressed("jump") or (Input.is_action_pressed("ui_page_up") and flies))and not chatting
