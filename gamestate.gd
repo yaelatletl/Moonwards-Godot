@@ -347,9 +347,11 @@ func change_scene(scene):
 		emit_signal("gslog", "error changing scene %s" % error)
 
 func sg_player_scene():
-	emit_signal("gslog", "scene is player ready, checking players")
+	emit_signal("gslog", "scene is player ready, checking players(%s)" % players.size())
+	if options.debug:
+		for p in players:
+			emit_signal("gslog", "player %s" % players[p])
 	for p in players:
-		emit_signal("gslog", "player %s" % players[p])
 		create_player(p)
 
 func is_player_scene():
@@ -433,8 +435,12 @@ func create_player(id):
 	player.set_name(str(id)) # Use unique ID as node name
 	player.translation=spawn_pos
 	player.set_network_master(id) #set unique id as master
+	emit_signal("gslog", "==create player(%s) %s; name(%s)" % [id, players[id], players[id].data.name])
 	player.set_player_name(players[id].data.name)
-	player.get_node("Pivot/FPSCamera").make_current()
+	if players[id].camera : #local player
+		player.get_node("Pivot/FPSCamera").make_current()
+	if options.debug:
+		player.input_processing = false
 	world.get_node("players").add_child(player)
 	players[id]["world"] = "%s" % world
 	players[id]["path"] = world.get_path_to(player)

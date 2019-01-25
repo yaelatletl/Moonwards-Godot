@@ -1,5 +1,7 @@
 extends Node
 
+var debug = true
+
 var scenes = {
 	loaded = null,
 	default = "WorldTest",
