@@ -25,7 +25,7 @@ var ismoving = false
 var up
 
 #State
-var input_processing = true
+var input_processing = true setget set_player_input
 #Options
 export(float) var WALKSPEED = 3.1
 export(float) var RUNSPEED = 4.5
@@ -73,20 +73,25 @@ func adjust_facing(p_facing, p_target, p_step, p_adjust_rate, current_gn):
 
 	return (n*cos(ang) + t*sin(ang))*p_facing.length()
 
+func set_player_input(enable):
+	if not enable:
+		self.get_node(Camera).noinput = true
+		Captured = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	else:
+		self.get_node(Camera).noinput = false
+		Captured = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	input_processing = enable
+
+
 func _input(event):
 	########################### MUST BE CHANGED TO RAYCAST
 	#Raycast WIP
 	#get_viewport().get_camera().project_ray_origin(Vector2(0,0))
 	if Input.is_action_pressed("player_toggleinput"):
 		input_processing = !input_processing
-		if not input_processing:
-			self.get_node(Camera).noinput = true
-			Captured = false
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else:
-			self.get_node(Camera).noinput = false
-			Captured = true
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		set_player_input(input_processing)
 		
 	if not input_processing:
 		return
@@ -339,7 +344,8 @@ func _ready():
 	$Pivot/FPSCamera/Chat.connect("disable_movement", self, "toggle_chatting")
 	CHAR_SCALE = scale
 	set_process_input(true)
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if input_processing:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 	
 	
