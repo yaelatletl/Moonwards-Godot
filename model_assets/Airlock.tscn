@@ -5,7 +5,7 @@
 [ext_resource path="res://model_assets/meshes/Airlock__AirlockStructure_AirlockDoor001_AirlockDoorMech001.mesh" type="ArrayMesh" id=3]
 [ext_resource path="res://model_assets/meshes/Airlock__AirlockStructure_AirlockDoor001_AirlockHandle001.mesh" type="ArrayMesh" id=4]
 
-[node name="Scene" type="Spatial"]
+[node name="Scene" type="Spatial" index="0"]
 
 [node name="AirlockStructure" type="MeshInstance" parent="." index="0"]
 
