@@ -1,7 +1,4 @@
 extends Node
-#world scene to load
-
-#var world = preload("res://World.tscn")
 
 # Default game port
 const DEFAULT_PORT = 10567
@@ -14,12 +11,9 @@ var player_name = "The Warrior"
 
 # Names for remote players in id:name format
 var players = {}
-var player_data = {
-	name = "Anonmous, The Warrior"
-} setget player_data_set, player_data_get
 
-var player_local
 var network_id
+var local_id
 
 #
 # hold last error message
@@ -35,7 +29,7 @@ signal gslog(msg)
 signal user_join #emit when user is fully registered
 signal user_leave #emit on leave of registered user
 signal user_msg(id, msg) #emit message of id user
-signal player_id(id)
+signal player_id(id) #emit id of player after establishing a connection
 #network server
 signal server_up
 #network client
@@ -353,6 +347,11 @@ func sg_player_scene():
 			emit_signal("gslog", "player %s" % players[p])
 	for p in players:
 		create_player(p)
+	
+	if RoleClient:
+		#report client to server
+		rpc_id(1, "register_client", network_id, players[local_id].data)
+
 
 func is_player_scene():
 	var result = false
@@ -364,55 +363,73 @@ func is_player_scene():
 ################
 # Player functions
 func player_register(pdata, localplayer=false):
-	if not pdata.has("id") and not localplayer:
-		emit_signal("gslog", "player data should have id")
+	var id
+	if localplayer:
+		if network_id:
+			id = network_id
+		else:
+			id = local_id
+	elif pdata.has("id"):
+		id = pdata.id
+	else:
+		emit_signal("gslog", "player data should have id or be a local")
 		return
-	emit_signal("gslog", "register player(local %s): %s" % [localplayer, pdata])
+	
+	emit_signal("gslog", "registered player(%s): %s" % [id, pdata])
 	var player = {}
 	player["data"] = pdata
 	player["obj"] = options.player_scene.instance()
 	player["camera"] = localplayer
 	if localplayer:
-		player_local = player
-		#Switch camera off
-		player.obj.get_node("Pivot").visible = true
+		#Switch camera on for local player
+		player.obj.nocamera = false
 		if network_id :
-			player["id"] = network_id
-			players[player.id] = player
+			player["id"] = id
+		players[id] = player
 	else:
-		player.obj.get_node("Pivot").visible = false
-		player["id"] = pdata.id
-		players[player.id] = player
+		#Switch camera off for remote players
+		player.obj.nocamera = true
+		player["id"] = id
+		players[id] = player
 	
-	if is_player_scene() and player.has("id"):
-		create_player(player.id)
+	if is_player_scene():
+		create_player(id)
 
+#local player recieved network id
 func sg_player_id(id):
-	emit_signal("gslog", "player id(%s), player_local(%s)" % [id, player_local])
-	if player_local:
-		if not player_local.has("id"):
-			player_local["id"] = id
-			players[id] = player_local
-			if is_player_scene():
-				create_player(id)
+	if not players.has(local_id):
+		return
+	player_remap_id(local_id, id)
+	local_id = id
+	#scene is not active yet, payers are redistered after scene is changes sucessefully
 
+remote func register_client(id, pdata):
+	if id == local_id:
+		return
+	emit_signal("gslog", "register_client: id(%s), data: %s" % [id, pdata])
+	pdata["id"] = id
+	player_register(pdata)
+	if RoleServer:
+		#inform everyone
+		rpc("register_client", id, pdata)
+		#send everyone to new player
+		for p in players:
+			print("**** %s" % players[p])
+			var pid = players[p].id
+			if pid != id:
+				rpc_id(id, "register_client", pid, players[p].data)  
 
-func player_data_set(player):
-	if not player.has("name"):
-		emit_signal("gslog", "setting player data, error, no name")
-
-func player_data_get():
-	if not player_data.has("name"):
-		emit_signal("gslog", "player data, error, no name")
-	return player_data
-
-func player_get(prop):
+func player_get(prop, id=null):
+	if id == null:
+		id = local_id
 	var error = false
 	var result = null
-	if player_local.data.has(prop):
-		result = player_local.data[prop]
-	elif player_local.has(prop):
-		result = player_local[prop]
+	if not players.has(id):
+		return result
+	if players[id].data.has(prop):
+		result = players[id].data[prop]
+	elif players[id].has(prop):
+		result = players[id][prop]
 	elif client.has(prop):
 		result = client[prop]
 	else:
@@ -422,6 +439,22 @@ func player_get(prop):
 	if error:
 		emit_signal("gslog", "error: player data, no property(%s)" % prop)
 	return result
+
+#remap local user for its network id, when he gets it
+func player_remap_id(oid, nid):
+	if players.has(oid):
+		var player = players[oid]
+		players.erase(oid)
+		players[nid] = player
+		player["id"] = nid
+		emit_signal("gslog", "remap player oid(%s), nid(%s)" % [oid, nid])
+		if player.has("path"):
+			var node = player.obj
+			node.name = "%s" % nid
+			var world = get_tree().current_scene
+			emit_signal("gslog", "remap player, old path %s to %s" % [player.path, world.get_path_to(node)])
+			player["path"] = world.get_path_to(node)
+			node.set_network_master(nid)
 
 func create_player(id):
 	var world = get_tree().current_scene
@@ -434,11 +467,15 @@ func create_player(id):
 	player.flies = true # MUST CHANGE WHEN COLLISIONS ARE DONE
 	player.set_name(str(id)) # Use unique ID as node name
 	player.translation=spawn_pos
-	player.set_network_master(id) #set unique id as master
+	if players[id].has("id"):
+		player.set_network_master(players[id].id) #set unique id as master
 	emit_signal("gslog", "==create player(%s) %s; name(%s)" % [id, players[id], players[id].data.name])
 	player.set_player_name(players[id].data.name)
 	if players[id].camera : #local player
-		player.get_node("Pivot/FPSCamera").make_current()
+		player.nocamera = false
+	else:
+		player.nocamera = true
+
 	if options.debug:
 		player.input_processing = false
 	world.get_node("players").add_child(player)
@@ -449,7 +486,7 @@ func create_player(id):
 # Callback from SceneTree
 func _player_connected(id):
 	emit_signal("gslog", "player connected id(%s)" % id)
-	rpc("register_player", get_tree().get_network_unique_id(), player_get("name"))
+# 	rpc("register_player", get_tree().get_network_unique_id(), player_get("name"))
 
 sync func delete_player(id):
 	
@@ -610,7 +647,9 @@ func _ready():
 	##get_tree().connect("connected_to_server", self, "_connected_ok")
 	#get_tree().connect("connection_failed", self, "_connected_fail")
 	#get_tree().connect("server_disconnected", self, "_server_disconnected")
-	
+
+	local_id = "local_%s_%s" % [randi(), randi()]
+
 	bindgg("network_log")
 	bindgg("gslog")
 	#bindgg("scene_change", "player_toscene")
