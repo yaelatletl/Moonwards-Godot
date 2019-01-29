@@ -16,7 +16,7 @@ rings = 4
 
 [sub_resource type="MultiMesh" id=2]
 
-color_format = 0
+color_format = 2
 transform_format = 1
 instance_count = 18
 mesh = SubResource( 1 )
@@ -391,7 +391,7 @@ lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 multimesh = SubResource( 2 )
-_sections_unfolded = [ "Geometry", "Transform" ]
+_sections_unfolded = [ "Geometry", "LOD", "Transform" ]
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="3"]
 
