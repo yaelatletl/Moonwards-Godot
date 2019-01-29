@@ -26,6 +26,7 @@ var up
 
 #State
 var input_processing = true setget set_player_input
+var nocamera = false setget set_player_nocamera
 #Options
 export(float) var WALKSPEED = 3.1
 export(float) var RUNSPEED = 4.5
@@ -47,6 +48,18 @@ slave var slave_translation
 slave var slave_transform 
 slave var slave_linear_vel 
 
+
+#####################
+## Set/Get functions
+
+#disable camera view for the player
+func set_player_nocamera(state):
+	nocamera = state
+	if nocamera :
+		get_node("Pivot").visible = false
+	else:
+		get_node("Pivot").visible = true
+		get_node("Pivot/FPSCamera").make_current()		
 
 #Rotates the model to where the camera points
 func adjust_facing(p_facing, p_target, p_step, p_adjust_rate, current_gn):
