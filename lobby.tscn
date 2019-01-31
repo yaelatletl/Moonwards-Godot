@@ -148,9 +148,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 17.0
-margin_top = 48.0
+margin_top = 49.0
 margin_right = 173.0
-margin_bottom = 72.0
+margin_bottom = 73.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -310,6 +310,31 @@ text = "SinglePlayer"
 flat = false
 align = 1
 
+[node name="Button2" type="Button" parent="connect"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 134.0
+margin_top = 7.0
+margin_right = 253.0
+margin_bottom = 27.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Another Name"
+flat = false
+align = 1
+
 [node name="error" type="AcceptDialog" parent="."]
 
 visible = false
@@ -372,5 +397,7 @@ max_lines_visible = -1
 [connection signal="pressed" from="connect/join" to="." method="_on_join_pressed"]
 
 [connection signal="pressed" from="connect/Button" to="." method="_on_Sinlgeplayer_pressed"]
+
+[connection signal="pressed" from="connect/Button2" to="." method="_on_Button2_pressed"]
 
 

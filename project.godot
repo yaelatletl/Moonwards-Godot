@@ -18,6 +18,7 @@ config/icon="res://icon.png"
 
 options="*res://options.gd"
 gamestate="*res://gamestate.gd"
+namelist="*res://namelist.gd"
 
 [compression]
 

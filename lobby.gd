@@ -8,8 +8,13 @@ enum STATE {
 }
 var state = STATE.init setget set_state
 
+func set_name(name = null):
+	if name == null:
+		name = namelist.get_name()
+	get_node("connect/name").text = name
+
 func _ready():
-	pass
+	set_name()
 	# Called every time the node is added to the scene.
 # 	gamestate.connect("connection_failed", self, "_on_connection_failed")
 # 	gamestate.connect("connection_succeeded", self, "_on_connection_success")
@@ -150,7 +155,10 @@ func _on_Sinlgeplayer_pressed():
 	gamestate.begin_game()
 	hide()
 
-	
+func _on_Button2_pressed():
+	set_name()
+	yield(get_tree().create_timer(0.1), "timeout")
+
 #################
 # utils
 var binddef = { src = null, dest = null }
@@ -179,3 +187,5 @@ func bindgs(_signal, _sub = null):
 		_sub = "sg_%s" % _signal
 	if obj.is_connected(_signal, obj2, _sub):
 		obj.disconnect(_signal, obj2, _sub)
+
+
