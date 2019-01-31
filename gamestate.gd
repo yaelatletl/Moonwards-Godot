@@ -6,10 +6,7 @@ const DEFAULT_PORT = 10567
 # Max number of players
 const MAX_PEERS = 12
 
-# Name for my player
-var player_name = "The Warrior"
-
-# Names for remote players in id:name format
+# remote players in id:player_data format
 var players = {}
 
 var network_id
@@ -513,16 +510,6 @@ func _player_disconnected(id):
 				rpc_id(p_id, "unregister_player", id)
 
 # Callback from SceneTree, only for clients (not server)
-func _connected_ok():
-	# Registration of a client beings here, tell everyone that we are here
-	#ClientSide
-	#get_tree().get_root().add_child(world)
-	rpc("register_player", get_tree().get_network_unique_id(), player_name, true)
-	rpc("create_player", get_tree().get_network_unique_id())
-	
-	emit_signal("connection_succeeded")
-
-# Callback from SceneTree, only for clients (not server)
 func _server_disconnected():
 	emit_signal("game_error", "Server disconnected")
 	end_game()
@@ -533,22 +520,6 @@ func _connected_fail():
 	emit_signal("connection_failed")
 
 # Lobby management functions
-
-remote func register_player(id, new_player_name):
-	emit_signal("gslog", "register_player id(%s) name(%s)" % [id, new_player_name])
-	if get_tree().is_network_server():
-		# If we are the server, let everyone know about the new player
-		rpc_id(id, "register_player", 1, player_get("name")) # Send myself to new dude
-		for p_id in players: # Then, for each remote player
-			rpc_id(id, "register_player", p_id, players[p_id]) # Send player to new dude
-			rpc_id(p_id, "register_player", id, new_player_name) # Send new dude to player
-
-	var player = {
-		name = new_player_name,
-		id = id
-	}
-	player_register(player)
-	emit_signal("player_list_changed")
 
 remote func unregister_player(id):
 	emit_signal("gslog", "unregister_player")
@@ -598,24 +569,6 @@ remote func ready_to_start(id):
 			rpc_id(p, "post_start_game")
 		post_start_game()
 
-func host_game(new_player_name):
-	player_name = new_player_name
-	var host = NetworkedMultiplayerENet.new()
-	host.create_server(DEFAULT_PORT, MAX_PEERS)
-	get_tree().set_network_peer(host)
-
-func join_game(ip, new_player_name):
-	player_name = new_player_name
-	var host = NetworkedMultiplayerENet.new()
-	host.create_client(ip, DEFAULT_PORT)
-	get_tree().set_network_peer(host)
-
-func get_player_list():
-	return players.values()
-
-func get_player_name():
-	return player_name
-
 func begin_game():
 	assert(get_tree().is_network_server())
 
@@ -643,18 +596,11 @@ func end_game():
 
 func _ready():
 	get_tree().connect("network_peer_connected", self, "_player_connected")
-	#get_tree().connect("network_peer_disconnected", self,"_player_disconnected")
-	##get_tree().connect("connected_to_server", self, "_connected_ok")
-	#get_tree().connect("connection_failed", self, "_connected_fail")
-	#get_tree().connect("server_disconnected", self, "_server_disconnected")
 
 	local_id = "local_%s_%s" % [randi(), randi()]
 
 	bindgg("network_log")
 	bindgg("gslog")
-	#bindgg("scene_change", "player_toscene")
-# 	get_tree().connect("tree_changed", self, "on_scene_change_log")
-	#queue_attach("players", player_scene, true)
 	bindgg("player_scene")
 	bindgg("player_id")
 	queue_tree_signal(options.scene_id, "player_scene", true)
