@@ -479,6 +479,10 @@ func create_player(id):
 	players[id]["world"] = "%s" % world
 	players[id]["path"] = world.get_path_to(player)
 
+#set current camera to local player
+func player_local_camera(activate = true):
+	players[local_id].obj.nocamera = !activate
+
 
 # Callback from SceneTree
 func _player_connected(id):
