@@ -58,9 +58,10 @@ func set_player_nocamera(state):
 	nocamera = state
 	if nocamera :
 		get_node("Pivot").visible = false
+		get_node("Pivot/FPSCamera").clear_current()
 	else:
 		get_node("Pivot").visible = true
-		get_node("Pivot/FPSCamera").make_current()		
+		get_node("Pivot/FPSCamera").make_current()
 
 #Rotates the model to where the camera points
 func adjust_facing(p_facing, p_target, p_step, p_adjust_rate, current_gn):
@@ -307,17 +308,17 @@ func _process(delta):
 
 	linear_velocity = move_and_slide(linear_velocity,-gravity.normalized())
 
-	if AllowChangeCamera:
-		if Input.is_action_pressed("cameraFPS"): #Not implemented yet
-			$Pivot/FPSCamera.make_current()
-			$Pivot/FPSCamera.restrictaxis = false
+	if not nocamera:
+		if AllowChangeCamera:
+			if Input.is_action_pressed("cameraFPS"): #Not implemented yet
+				$Pivot/FPSCamera.make_current()
+				$Pivot/FPSCamera.restrictaxis = false
 
-		if Input.is_action_pressed("camera3RD"): #Not implemented yet
-			get_node("Pivot/3RDPersCamera").make_current()
-			$Pivot/FPSCamera.restrictaxis = false
-
-	aimrotation = $Pivot/FPSCamera.rotation_degrees
-	translationcamera=$Pivot/FPSCamera.get_global_transform().origin
+			if Input.is_action_pressed("camera3RD"): #Not implemented yet
+				get_node("Pivot/3RDPersCamera").make_current()
+				$Pivot/FPSCamera.restrictaxis = false
+		aimrotation = $Pivot/FPSCamera.rotation_degrees
+		translationcamera=$Pivot/FPSCamera.get_global_transform().origin
 
 func _ready():
 	$Model/Model.get_surface_material(0).albedo_color = options.get("player", "color")
