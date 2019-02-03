@@ -19,6 +19,8 @@ config/icon="res://icon.png"
 options="*res://options.gd"
 gamestate="*res://gamestate.gd"
 namelist="*res://namelist.gd"
+utils="*res://utils.gd"
+debug="*res://debug.gd"
 
 [compression]
 
@@ -69,6 +71,10 @@ toggle_fly=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name
  ]
 player_toggleinput=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":96,"unicode":0,"echo":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":true,"control":false,"meta":false,"command":false,"pressed":false,"scancode":126,"unicode":0,"echo":false,"script":null)
+ ]
+debug_active_cameras=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"unicode":0,"echo":false,"script":null)
+ ]
+debug_camera_to_local_player=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":88,"unicode":0,"echo":false,"script":null)
  ]
 
 [physics]
