@@ -263,6 +263,7 @@ func server_tree_user_connected(id):
 
 func server_tree_user_disconnected(id):
 	emit_signal("gslog", "tree user disconnected %s" % id)
+	rpc("unregister_client", id)
 
 ################
 #Client functions
@@ -414,7 +415,17 @@ remote func register_client(id, pdata):
 			print("**** %s" % players[p])
 			var pid = players[p].id
 			if pid != id:
-				rpc_id(id, "register_client", pid, players[p].data)  
+				rpc_id(id, "register_client", pid, players[p].data)
+
+remote func unregister_client(id):
+	emit_signal("gslog", "unregister client (%s)" % id)
+	if players.has(id):
+		if players[id].obj:
+			players[id].obj.queue_free()
+		players.erase(id)
+	if RoleServer:
+		pass
+
 
 func player_get(prop, id=null):
 	if id == null:
