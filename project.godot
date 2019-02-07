@@ -16,7 +16,11 @@ config/icon="res://icon.png"
 
 [autoload]
 
+options="*res://options.gd"
 gamestate="*res://gamestate.gd"
+namelist="*res://namelist.gd"
+utils="*res://utils.gd"
+debug="*res://debug.gd"
 
 [compression]
 
