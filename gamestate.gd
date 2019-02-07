@@ -501,36 +501,6 @@ func create_player(id):
 func player_local_camera(activate = true):
 	players[local_id].obj.nocamera = !activate
 
-
-# Callback from SceneTree
-func _player_connected(id):
-	emit_signal("gslog", "player connected id(%s)" % id)
-# 	rpc("register_player", get_tree().get_network_unique_id(), player_get("name"))
-
-sync func delete_player(id):
-	
-	var path = str("root/world/players/"+str(id))
-	
-	if (has_node(path)):
-			get_node(path).queue_free()
-
-# Callback from SceneTree
-func _player_disconnected(id):
-	if (get_tree().is_network_server()):
-		if (has_node("/root/world")): # Game is in progress
-			emit_signal("game_error", "Player " + players[id] + " disconnected")
-			#end_game() Do not end the game
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			for p_id in players: #Delete the player for all players
-				rpc_id(p_id, "delete_player", id)
-			delete_player(id) #Delete the player for server
-		else: # Game is not in progress
-			# If we are the server, send to the new dude all the already registered players
-			unregister_player(id)
-			for p_id in players:
-				# Erase in the server
-				rpc_id(p_id, "unregister_player", id)
-
 # Callback from SceneTree, only for clients (not server)
 func _server_disconnected():
 	emit_signal("game_error", "Server disconnected")
@@ -542,70 +512,6 @@ func _connected_fail():
 	emit_signal("connection_failed")
 
 # Lobby management functions
-
-remote func unregister_player(id):
-	emit_signal("gslog", "unregister_player")
-	return
-	players.erase(id)
-	emit_signal("player_list_changed")
-
-remote func pre_start_game(spawn_points):
-	emit_signal("gslog", "pre_start_game")
-	return
-	# Change scene
-	var  WorldScene = options.scenes[options.scenes.default]
-	var world = load(WorldScene).instance()
-	world.name = "world"
-	get_tree().get_root().add_child(world)
-
-	get_tree().get_root().get_node("lobby").visible = false
-	get_tree().get_root().get_node("Spatial/ui").hide()
-
-	
-
-	for p_id in spawn_points:
-		create_player(p_id)
-	if (not get_tree().is_network_server()):
-		# Tell server we are ready to start
-		rpc_id(1, "ready_to_start", get_tree().get_network_unique_id())
-	elif players.size() == 0:
-		post_start_game()
-
-remote func post_start_game():
-	emit_signal("gslog", "post_start_game")
-	return
-	get_tree().set_pause(false) # Unpause and unleash the game!
-
-var players_ready = []
-
-remote func ready_to_start(id):
-	emit_signal("gslog", "ready_to_start")
-	return
-	assert(get_tree().is_network_server())
-
-	if (not id in players_ready):
-		players_ready.append(id)
-
-	if (players_ready.size() == players.size()):
-		for p in players:
-			rpc_id(p, "post_start_game")
-		post_start_game()
-
-func begin_game():
-	assert(get_tree().is_network_server())
-
-	# Create a dictionary with peer id and respective spawn points, could be improved by randomizing
-	var spawn_points = {}
-	spawn_points[1] = 0 # Server in spawn point 0
-	var spawn_point_idx = 1
-	for p in players:
-		spawn_points[p] = spawn_point_idx
-		spawn_point_idx += 1
-	# Call to pre-start game with the spawn points
-	for p in players:
-		rpc_id(p, "pre_start_game", spawn_points)
-
-	pre_start_game(spawn_points)
 
 func end_game():
 	if (has_node("/root/world")): # Game is in progress
