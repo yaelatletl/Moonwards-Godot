@@ -35,8 +35,8 @@ var options = {
 }
 
 func _ready():
-	print("debug set FPS to 3")
-	Engine.target_fps = 3
+# 	print("debug set FPS to 3")
+# 	Engine.target_fps = 3
 	print("load options and settings")
 	self.load()
 
