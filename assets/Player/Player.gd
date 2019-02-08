@@ -24,12 +24,16 @@ var ActionArea = false
 var ismoving = false
 var up
 
-
+#State
+var input_processing = true setget set_player_input
+var nocamera = false setget set_player_nocamera
+var name_label
 #Options
 export(float) var WALKSPEED = 3.1
 export(float) var RUNSPEED = 4.5
 export(float) var view_sensitivity = 0.5
 export var weight= 1
+export(NodePath) var Camera = "Pivot/FPSCamera"
 
 ##Physics
 export(float) var grav = 1.6
@@ -45,6 +49,19 @@ slave var slave_translation
 slave var slave_transform 
 slave var slave_linear_vel 
 
+
+#####################
+## Set/Get functions
+
+#disable camera view for the player
+func set_player_nocamera(state):
+	nocamera = state
+	if nocamera :
+		get_node("Pivot").visible = false
+		get_node("Pivot/FPSCamera").clear_current()
+	else:
+		get_node("Pivot").visible = true
+		get_node("Pivot/FPSCamera").make_current()
 
 #Rotates the model to where the camera points
 func adjust_facing(p_facing, p_target, p_step, p_adjust_rate, current_gn):
@@ -71,10 +88,28 @@ func adjust_facing(p_facing, p_target, p_step, p_adjust_rate, current_gn):
 
 	return (n*cos(ang) + t*sin(ang))*p_facing.length()
 
+func set_player_input(enable):
+	if not enable:
+		self.get_node(Camera).noinput = true
+		Captured = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	else:
+		self.get_node(Camera).noinput = false
+		Captured = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	input_processing = enable
+
+
 func _input(event):
 	########################### MUST BE CHANGED TO RAYCAST
 	#Raycast WIP
 	#get_viewport().get_camera().project_ray_origin(Vector2(0,0))
+	if Input.is_action_pressed("player_toggleinput"):
+		input_processing = !input_processing
+		set_player_input(input_processing)
+		
+	if not input_processing:
+		return
 	
 	if Input.is_action_pressed("ui_page_up"):
 		if Captured:
@@ -86,8 +121,6 @@ func _input(event):
 			#############################
 	if Input.is_key_pressed(KEY_ESCAPE):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		
-		
 	
 	if (Input.is_action_pressed("run")):
 		if not flies: 
@@ -113,8 +146,6 @@ func _process(delta):
 
 	if not flies:
 		linear_velocity += gravity*delta/weight # Apply gravity
-
-		
 	
 	if fixed_up:
 		 up = Vector3(0,1,0) # (up is against gravity)
@@ -124,8 +155,6 @@ func _process(delta):
 	var horizontal_velocity = linear_velocity - up*vertical_velocity # Horizontal velocity
 	var hdir = horizontal_velocity.normalized() # Horizontal direction
 	hspeed = horizontal_velocity.length() # Horizontal speed
-
-
 
 #Movement
 	var dir = Vector3() # Where does the player intend to walk to
@@ -169,9 +198,10 @@ func _process(delta):
 		rset_unreliable("slave_transform", $Model.transform)
 		rset_unreliable("slave_linear_vel", linear_velocity)
 	else:
-		if not (slave_transform == null or slave_translation == null or slave_linear_vel == null or $Yaw.transform == null or linear_velocity == null):
+#		if not (slave_transform == null or slave_translation == null or slave_linear_vel == null or $Yaw.transform == null or linear_velocity == null):
+		if not (slave_transform == null or slave_translation == null or slave_linear_vel == null or linear_velocity == null):
 			translation = slave_translation
-			$Yaw.transform = slave_transform
+# 			$Yaw.transform = slave_transform
 			linear_velocity = slave_linear_vel
 
 	var jump_attempt = (Input.is_action_pressed("jump") or (Input.is_action_pressed("ui_page_up") and flies))and not chatting
@@ -220,9 +250,6 @@ func _process(delta):
 		if (not jumping and jump_attempt):
 			vertical_velocity = JumpHeight
 			jumping = true
-		
-			
-			
 	else:
 		if flies:
 			
@@ -231,9 +258,6 @@ func _process(delta):
 			else:
 				if hspeed > 0:
 					hspeed -= deaccel*delta
-		
-					
-		
 			
 		if (vertical_velocity > 0):
 			pass
@@ -251,11 +275,7 @@ func _process(delta):
 				hspeed = hspeed - (deaccel*0.2)*delta
 				if (hspeed < 0):
 					hspeed = 0
-					
-				
-				
 				horizontal_velocity = hdir*hspeed
-		
 
 	if (jumping and vertical_velocity < 0):
 		jumping = false
@@ -280,55 +300,43 @@ func _process(delta):
 			
 		if vertical_velocity > max_speed:
 			vertical_velocity = max_speed
-
-
-		
+	
 	linear_velocity = horizontal_velocity + up*vertical_velocity
 
 	if (is_on_floor()):
 		movement_dir = linear_velocity
 
 	linear_velocity = move_and_slide(linear_velocity,-gravity.normalized())
-	
 
+	if not nocamera:
+		if AllowChangeCamera:
+			if Input.is_action_pressed("cameraFPS"): #Not implemented yet
+				$Pivot/FPSCamera.make_current()
+				$Pivot/FPSCamera.restrictaxis = false
 
+			if Input.is_action_pressed("camera3RD"): #Not implemented yet
+				get_node("Pivot/3RDPersCamera").make_current()
+				$Pivot/FPSCamera.restrictaxis = false
+		aimrotation = $Pivot/FPSCamera.rotation_degrees
+		translationcamera=$Pivot/FPSCamera.get_global_transform().origin
 
-
-
-	if AllowChangeCamera:
-		if Input.is_action_pressed("cameraFPS"): #Not implemented yet
-			$Pivot/FPSCamera.make_current()
-			$Pivot/FPSCamera.restrictaxis = false
-
-
-		if Input.is_action_pressed("camera3RD"): #Not implemented yet
-			get_node("Pivot/3RDPersCamera").make_current()
-			$Pivot/FPSCamera.restrictaxis = false
-
-
-	aimrotation = $Pivot/FPSCamera.rotation_degrees
-	translationcamera=$Pivot/FPSCamera.get_global_transform().origin
 func _ready():
-	var savefile = File.new()
-	if not savefile.file_exists("user://settings.save"):
-		print("Nothing was saved before")
-		set_player_name($Pivot/FPSCamera/Chat.get_random_name())
+	$Model/Model.get_surface_material(0).albedo_color = options.get("player", "color")
+	if not name_label:
+		set_player_name(options.get("player", "name"))
 	else:
-		savefile.open("user://settings.save", File.READ)
-		var content = parse_json(savefile.get_as_text())
-		savefile.close()
-		set_player_name(content["username"])
-		$Model/Model.get_surface_material(0).albedo_color = Color8(content["colorR"],content["colorG"],content["colorB"],255)
+		set_player_name(name_label)
+	
 	$Pivot/FPSCamera/Chat.connect("disable_movement", self, "toggle_chatting")
 	CHAR_SCALE = scale
 	set_process_input(true)
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if input_processing:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-	
-	
 func set_player_name(new_name):
 	get_node("label").set_text(new_name)
 	$Pivot/FPSCamera/Chat.username = new_name
+	name_label = new_name
 	
 func toggle_chatting():
 	if chatting:

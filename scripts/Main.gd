@@ -34,7 +34,7 @@ func _on_RunNet_pressed():
 	$ui/main.hide()
 	$ui/loading.show()
 	$PlayerSettings.hide()
-	var  mScene = preload(MultiplayerToLoad)
+	var  mScene = ResourceLoader.load(MultiplayerToLoad)
 	var loads = mScene.instance()
 	loads.name = "lobby"
 	get_tree().get_root().add_child(loads)

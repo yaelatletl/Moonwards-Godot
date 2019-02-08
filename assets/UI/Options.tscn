@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/UI/Options.gd" type="Script" id=1]
 [ext_resource path="res://assets/UI/User_Settings_Options.tscn" type="PackedScene" id=2]
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=1]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -32,35 +32,6 @@ anti_aliasing = true
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border", "Border Width", "Content Margin" ]
 
-[sub_resource type="StyleBoxFlat" id=1]
-
-content_margin_left = 0.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-bg_color = Color( 0.287646, 0.275574, 0.335938, 1 )
-draw_center = true
-border_width_left = 0
-border_width_top = 0
-border_width_right = 0
-border_width_bottom = 0
-border_color = Color( 0.8, 0.8, 0.8, 1 )
-border_blend = false
-corner_radius_top_left = 0
-corner_radius_top_right = 0
-corner_radius_bottom_right = 0
-corner_radius_bottom_left = 0
-corner_detail = 8
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
-shadow_color = Color( 0, 0, 0, 0.6 )
-shadow_size = 0
-anti_aliasing = true
-anti_aliasing_size = 1
-_sections_unfolded = [ "Content Margin" ]
-
 [sub_resource type="StyleBoxFlat" id=2]
 
 content_margin_left = 0.0
@@ -88,6 +59,7 @@ shadow_color = Color( 0, 0, 0, 0.6 )
 shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
+_sections_unfolded = [ "Content Margin" ]
 
 [sub_resource type="StyleBoxFlat" id=3]
 
@@ -201,6 +173,34 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
+[sub_resource type="StyleBoxFlat" id=7]
+
+content_margin_left = 0.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0.287646, 0.275574, 0.335938, 1 )
+draw_center = true
+border_width_left = 0
+border_width_top = 0
+border_width_right = 0
+border_width_bottom = 0
+border_color = Color( 0.8, 0.8, 0.8, 1 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+
 [node name="Control" type="Control"]
 
 anchor_left = 0.0
@@ -242,7 +242,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/tab_fg = SubResource( 7 )
+custom_styles/tab_fg = SubResource( 1 )
 tab_align = 0
 tabs_visible = true
 _sections_unfolded = [ "Anchor", "Grow Direction", "Hint", "Margin", "Rect", "Size Flags", "Theme", "custom_styles" ]
@@ -255,7 +255,7 @@ anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 32.0
+margin_top = 42.0
 margin_right = -4.0
 margin_bottom = -4.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -275,12 +275,13 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 [node name="Dev" type="Tabs" parent="Panel/TabContainer" index="1"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 32.0
+margin_top = 42.0
 margin_right = -4.0
 margin_bottom = -4.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -324,7 +325,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/hover = SubResource( 1 )
+custom_styles/hover = SubResource( 2 )
 toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
@@ -350,7 +351,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/hover = SubResource( 2 )
+custom_styles/hover = SubResource( 3 )
 toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
@@ -376,7 +377,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/hover = SubResource( 3 )
+custom_styles/hover = SubResource( 4 )
 toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
@@ -402,7 +403,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/hover = SubResource( 4 )
+custom_styles/hover = SubResource( 5 )
 toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
@@ -428,7 +429,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/hover = SubResource( 5 )
+custom_styles/hover = SubResource( 6 )
 toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
@@ -454,7 +455,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/hover = SubResource( 6 )
+custom_styles/hover = SubResource( 7 )
 toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
@@ -471,7 +472,7 @@ anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 32.0
+margin_top = 42.0
 margin_right = -4.0
 margin_bottom = -4.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -482,5 +483,26 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 tab_align = 1
 scrolling_enabled = true
+
+[node name="GameState" type="Tabs" parent="Panel/TabContainer" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 42.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+tab_align = 1
+scrolling_enabled = true
+
+[connection signal="focus_entered" from="Panel/TabContainer/Dev/VBoxContainer" to="." method="_on_VBoxContainer_focus_entered"]
 
 
