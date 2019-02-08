@@ -81,7 +81,7 @@ debug_test_rpc=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_
 
 [physics]
 
-common/physics_fps=10
+common/physics_fps=1
 3d/physics_engine="Bullet"
 common/enable_object_picking=false
 
