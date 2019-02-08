@@ -93,7 +93,7 @@ use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 8 )
 
-[node name="Spatial" type="Control"]
+[node name="Spatial" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -114,7 +114,7 @@ _sections_unfolded = [ "Margin" ]
 SceneToLoad = "res://World.tscn"
 SceneOptions = "res://assets/UI/Options.tscn"
 
-[node name="ui" type="Control" parent="."]
+[node name="ui" type="Control" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -129,7 +129,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="TextureRect" type="TextureRect" parent="ui"]
+[node name="TextureRect" type="TextureRect" parent="ui" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -150,7 +150,7 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Material", "Pause" ]
 
-[node name="main" type="Control" parent="ui"]
+[node name="main" type="Control" parent="ui" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -165,7 +165,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="pHelp" type="Panel" parent="ui/main"]
+[node name="pHelp" type="Panel" parent="ui/main" index="0"]
 
 visible = false
 self_modulate = Color( 1, 1, 1, 0.588235 )
@@ -186,7 +186,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Material" ]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ui/main/pHelp"]
+[node name="RichTextLabel" type="RichTextLabel" parent="ui/main/pHelp" index="0"]
 
 self_modulate = Color( 0.929412, 0.862745, 0.862745, 1 )
 material = SubResource( 4 )
@@ -254,7 +254,7 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Margin", "Rect" ]
 
-[node name="Panel" type="Panel" parent="ui/main"]
+[node name="Panel" type="Panel" parent="ui/main" index="1"]
 
 material = SubResource( 5 )
 anchor_left = 0.0
@@ -272,7 +272,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ui/main/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ui/main/Panel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -288,7 +288,7 @@ custom_constants/separation = 10
 alignment = 0
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Theme", "custom_constants" ]
 
-[node name="Instructions" type="Button" parent="ui/main/Panel/VBoxContainer"]
+[node name="Instructions" type="Button" parent="ui/main/Panel/VBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -313,7 +313,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Run" type="Button" parent="ui/main/Panel/VBoxContainer"]
+[node name="Run" type="Button" parent="ui/main/Panel/VBoxContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -340,7 +340,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Options" type="Button" parent="ui/main/Panel/VBoxContainer"]
+[node name="Options" type="Button" parent="ui/main/Panel/VBoxContainer" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -366,7 +366,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Display" type="Button" parent="ui/main/Panel/VBoxContainer"]
+[node name="Display" type="Button" parent="ui/main/Panel/VBoxContainer" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -393,7 +393,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Margin", "Rect" ]
 
-[node name="RunNet" type="Button" parent="ui/main/Panel/VBoxContainer"]
+[node name="RunNet" type="Button" parent="ui/main/Panel/VBoxContainer" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -420,7 +420,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="CfgPlayer" type="Button" parent="ui/main/Panel/VBoxContainer"]
+[node name="CfgPlayer" type="Button" parent="ui/main/Panel/VBoxContainer" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -447,7 +447,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="loading" type="Control" parent="ui"]
+[node name="loading" type="Control" parent="ui" index="2"]
 
 visible = false
 anchor_left = 0.0
@@ -463,7 +463,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="Label" type="Label" parent="ui/loading"]
+[node name="Label" type="Label" parent="ui/loading" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -485,14 +485,14 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="load_timer" type="Timer" parent="."]
+[node name="load_timer" type="Timer" parent="." index="1"]
 
 process_mode = 1
 wait_time = 0.2
 one_shot = true
 autostart = false
 
-[node name="PlayerSettings" parent="." instance=ExtResource( 9 )]
+[node name="PlayerSettings" parent="." index="2" instance=ExtResource( 9 )]
 
 margin_left = 93.0
 margin_top = 579.0
