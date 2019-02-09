@@ -1,7 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://materials/YellowOrange.tres" type="Material" id=1]
 [ext_resource path="res://materials/Black.tres" type="Material" id=2]
+
+[sub_resource type="GDScript" id=3]
+
+script/source = "tool
+extends Spatial
+
+func _enter_tree():
+	$LegsArmature/AnimationPlayer.play(\"Rover_PoseLib\")
+"
 
 [sub_resource type="Animation" id=1]
 
@@ -427,6 +436,7 @@ surfaces/1 = {
 
 [node name="Athlete" type="Spatial" index="0"]
 
+script = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimationTreePlayer" type="AnimationTreePlayer" parent="." index="0"]
