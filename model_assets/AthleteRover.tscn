@@ -395,7 +395,7 @@ tracks/54/imported = false
 tracks/54/enabled = true
 tracks/54/keys = PoolRealArray( 0, 1, -1.19209e-07, 0, 1.19209e-07, -2.52985e-08, -4.14439e-08, 3.72529e-09, 1, 1, 1, 1, 0.0416667, 1, -1.19209e-07, 0, 0, -1.52662e-08, -4.14439e-08, -3.72529e-08, 1, 1, 1, 1, 0.0833333, 1, 0, 0, 0, 1.09758e-08, -4.14439e-08, 3.35276e-08, 1, 1, 1, 1, 0.125, 1, 0, 0, 0, 3.72177e-08, -4.14439e-08, 3.35276e-08, 1, 1, 1, 1, 0.166667, 1, -1.19209e-07, 0, -1.19209e-07, 4.72501e-08, -4.14439e-08, 3.35276e-08, 1, 1, 1, 1, 0.208333, 1, -1.19209e-07, 0, 0, -2.51457e-08, -4.14439e-08, 3.35276e-08, 1, 1, 1, 1, 0.25, 1, -1.19209e-07, 0, 0, -9.0804e-09, -4.14439e-08, 3.35276e-08, 1, 1, 1, 1, 0.291667, 1, 0, 0, 0, -7.54371e-08, -4.14439e-08, 3.35276e-08, 1, 1, 1, 1, 0.333333, 1, 0, 0, 0, 5.3551e-09, -4.14439e-08, 3.35276e-08, 1, 1, 1, 1, 0.375, 1, 0, 1.19209e-07, 0, -1.76434e-09, -4.14439e-08, 3.35276e-08, 1, 1, 1, 1, 0.416667, 1, 0, 0, -1.19209e-07, -2.18176e-08, -4.14439e-08, 3.35276e-08, 1, 1, 1, 1, 0.458333, 1, -1.19209e-07, 0, 1.19209e-07, -4.75659e-08, -4.14439e-08, 3.35276e-08, 1, 1, 1, 1, 0.5, 1, -1.19209e-07, 0, 0, -6.76192e-08, -4.14439e-08, 3.35276e-08, 1, 1, 1, 1, 0.541667, 1, -1.19209e-07, 5.96046e-08, 0, -7.47386e-08, -4.14439e-08, 3.35276e-08, 1, 1, 1, 1, 0.583333, 1, 0, -5.96046e-08, 0, 2.00234e-08, -7.07805e-08, 3.72529e-09, 1, 1, 1, 1 )
 
-[sub_resource type="ArrayMesh" id=4]
+[sub_resource type="ArrayMesh" id=2]
 
 resource_name = "Cube004"
 blend_shape_mode = 1
@@ -425,9 +425,28 @@ surfaces/1 = {
 "vertex_count": 2304
 }
 
-[node name="Scene" type="Spatial" index="0"]
+[node name="Athlete" type="Spatial" index="0"]
 
-[node name="LegsArmature" type="Skeleton" parent="." index="0"]
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimationTreePlayer" type="AnimationTreePlayer" parent="." index="0"]
+
+playback_process_mode = 1
+master_player = NodePath("../LegsArmature/AnimationPlayer")
+base_path = NodePath("../LegsArmature/AnimationPlayer")
+active = false
+data = {
+"active": false,
+"connections": [  ],
+"master": NodePath("../LegsArmature/AnimationPlayer"),
+"nodes": [ {
+"id": "out",
+"position": Vector2( 40, 40 ),
+"type": "output"
+} ]
+}
+
+[node name="LegsArmature" type="Skeleton" parent="." index="1"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24948, 0.148898, 0.305298 )
 bones/0/name = "FrontRight_IK"
@@ -715,6 +734,7 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/Rover_PoseLib = SubResource( 1 )
 blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
 
 [node name="AthleteRover" type="MeshInstance" parent="LegsArmature" index="1"]
 
@@ -727,7 +747,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 4 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
