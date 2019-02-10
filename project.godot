@@ -22,6 +22,7 @@ gamestate="*res://gamestate.gd"
 namelist="*res://namelist.gd"
 utils="*res://utils.gd"
 debug="*res://debug.gd"
+UI="*res://UserInterface.gd"
 
 [compression]
 
@@ -78,6 +79,8 @@ debug_active_cameras=[ Object(InputEventKey,"resource_local_to_scene":false,"res
 debug_camera_to_local_player=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":88,"unicode":0,"echo":false,"script":null)
  ]
 debug_test_rpc=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":66,"unicode":0,"echo":false,"script":null)
+ ]
+ui_menu_options=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777245,"unicode":0,"echo":false,"script":null)
  ]
 
 [physics]
