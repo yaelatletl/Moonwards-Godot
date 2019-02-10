@@ -30,9 +30,9 @@ func LoadScripts():
 func SetScripts():
 	if not Editor:
 		Editor = EditorPlugin.new().get_editor_interface()
-	col.scene = Editor.get_edited_scene_root()
-	col.editor = Editor
-	col.editorplugin = editorplugin
+# 	col.scene = Editor.get_edited_scene_root()
+# 	col.editor = Editor
+# 	col.editorplugin = editorplugin
 
 func _enter_tree():
 	print("_enter_tree")
