@@ -25,7 +25,7 @@ extents = Vector3( 60, 60, 60 )
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="NuclearReactorBuilding" type="MeshInstance" parent="." groups=[
+[node name="NuclearReactorBuilding" type="MeshInstance" parent="." index="0" groups=[
 "wall",
 ]]
 
@@ -43,7 +43,7 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="OmniLight" type="OmniLight" parent="NuclearReactorBuilding"]
+[node name="OmniLight" type="OmniLight" parent="NuclearReactorBuilding" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0833072, 0.192094, 0.292095 )
 layers = 1
@@ -66,7 +66,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light" ]
 
-[node name="OmniLight2" type="OmniLight" parent="NuclearReactorBuilding"]
+[node name="OmniLight2" type="OmniLight" parent="NuclearReactorBuilding" index="1"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0833072, 0.192094, -1.46774 )
 layers = 1
@@ -89,7 +89,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light" ]
 
-[node name="NuclearReactorBuilding_col" type="StaticBody" parent="NuclearReactorBuilding"]
+[node name="NuclearReactorBuilding_col" type="StaticBody" parent="NuclearReactorBuilding" index="2"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -100,12 +100,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="NuclearReactorBuilding/NuclearReactorBuilding_col"]
+[node name="CollisionShape" type="CollisionShape" parent="NuclearReactorBuilding/NuclearReactorBuilding_col" index="0"]
 
 shape = ExtResource( 2 )
 disabled = false
 
-[node name="NuclearPlant-RegolithOverlay" type="MeshInstance" parent="."]
+[node name="NuclearPlant-RegolithOverlay" type="MeshInstance" parent="." index="1"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2627, -0.338379, -0.451904 )
 layers = 1
@@ -121,7 +121,7 @@ mesh = ExtResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="StirlingColdEnd-Large" type="MeshInstance" parent="."]
+[node name="StirlingColdEnd-Large" type="MeshInstance" parent="." index="2"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00341797, 0.127319, 0.279541 )
 layers = 1
@@ -137,9 +137,9 @@ mesh = ExtResource( 4 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="StirlingColdEnd-Small" type="MeshInstance" parent="."]
+[node name="StirlingColdEnd-Small" type="MeshInstance" parent="." index="3"]
 
-transform = Transform( 1, 9.31322e-10, 0, -9.31322e-10, 1, 0, 0, 0, 1, 0.00146484, -0.0114746, -1.3606 )
+transform = Transform( 1, 9.31322e-010, 0, -9.31322e-010, 1, 0, 0, 0, 1, 0.00146484, -0.0114746, -1.3606 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -153,9 +153,9 @@ mesh = ExtResource( 5 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="StirlingHotEnd-Small" type="MeshInstance" parent="."]
+[node name="StirlingHotEnd-Small" type="MeshInstance" parent="." index="4"]
 
-transform = Transform( 1, 9.31322e-10, 0, -9.31322e-10, 1, 0, 0, 0, 1, 0.000976562, -0.0321045, -1.31201 )
+transform = Transform( 1, 9.31322e-010, 0, -9.31322e-010, 1, 0, 0, 0, 1, 0.000976562, -0.0321045, -1.31201 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -169,9 +169,9 @@ mesh = ExtResource( 6 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="StirlingHotEndLarge" type="MeshInstance" parent="."]
+[node name="StirlingHotEndLarge" type="MeshInstance" parent="." index="5"]
 
-transform = Transform( 1, 9.31322e-10, 0, -9.31322e-10, 1, 0, 0, 0, 1, -0.00244141, 0.0928955, 0.183105 )
+transform = Transform( 1, 9.31322e-010, 0, -9.31322e-010, 1, 0, 0, 0, 1, -0.00244141, 0.0928955, 0.183105 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -185,48 +185,48 @@ mesh = ExtResource( 7 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Interior" type="Spatial" parent="." groups=[
+[node name="Interior" type="Spatial" parent="." index="6" groups=[
 "interior",
 ]]
 
-[node name="FreePistonStirlingArray000" type="Spatial" parent="Interior"]
+[node name="FreePistonStirlingArray000" type="Spatial" parent="Interior" index="0"]
 
 editor/display_folded = true
-transform = Transform( -6.11959e-09, 0, -0.14, 0, 0.14, 0, 0.14, 0, -6.11959e-09, 0.097969, -0.106445, -1.34319 )
+transform = Transform( -6.11959e-009, 0, -0.14, 0, 0.14, 0, 0.14, 0, -6.11959e-009, 0.097969, -0.106445, -1.34319 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Scene" parent="Interior/FreePistonStirlingArray000" instance=ExtResource( 8 )]
+[node name="Scene" parent="Interior/FreePistonStirlingArray000" index="0" instance=ExtResource( 8 )]
 
-[node name="FreePistonStirlingArray001" type="Spatial" parent="Interior"]
+[node name="FreePistonStirlingArray001" type="Spatial" parent="Interior" index="1"]
 
 editor/display_folded = true
-transform = Transform( -1.22392e-08, 0, 0.28, 0, 0.28, 0, -0.28, 0, -1.22392e-08, -0.195844, -0.0620117, 0.174135 )
+transform = Transform( -1.22392e-008, 0, 0.28, 0, 0.28, 0, -0.28, 0, -1.22392e-008, -0.195844, -0.0620117, 0.174135 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Scene" parent="Interior/FreePistonStirlingArray001" instance=ExtResource( 8 )]
+[node name="Scene" parent="Interior/FreePistonStirlingArray001" index="0" instance=ExtResource( 8 )]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2432, 0, 5.96046e-08 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2432, 0, 5.96046e-008 )
 
-[node name="NuclearCore" type="Spatial" parent="Interior"]
+[node name="NuclearCore" type="Spatial" parent="Interior" index="2"]
 
 editor/display_folded = true
-transform = Transform( -4.37114e-08, 9.31322e-10, 1, 9.31323e-10, 1, -9.31322e-10, -1, 9.31323e-10, -4.37114e-08, 0.000976562, -0.0889893, -0.847168 )
+transform = Transform( -4.37114e-008, 9.31322e-010, 1, 9.31323e-010, 1, -9.31322e-010, -1, 9.31323e-010, -4.37114e-008, 0.000976562, -0.0889893, -0.847168 )
 
-[node name="Scene" parent="Interior/NuclearCore" instance=ExtResource( 9 )]
+[node name="Scene" parent="Interior/NuclearCore" index="0" instance=ExtResource( 9 )]
 
-[node name="NuclearCore2x" type="Spatial" parent="Interior"]
+[node name="NuclearCore2x" type="Spatial" parent="Interior" index="3"]
 
 editor/display_folded = true
-transform = Transform( -8.74228e-08, 1.86265e-09, -2, 1.86265e-09, 2, 1.86265e-09, 2, -1.86265e-09, -8.74228e-08, -0.00244141, -0.0262451, -0.415283 )
+transform = Transform( -8.74228e-008, 1.86265e-009, -2, 1.86265e-009, 2, 1.86265e-009, 2, -1.86265e-009, -8.74228e-008, -0.00244141, -0.0262451, -0.415283 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Scene" parent="Interior/NuclearCore2x" instance=ExtResource( 9 )]
+[node name="Scene" parent="Interior/NuclearCore2x" index="0" instance=ExtResource( 9 )]
 
 _sections_unfolded = [ "Transform" ]
 
-[node name="Triggers" type="Spatial" parent="."]
+[node name="Triggers" type="Spatial" parent="." index="7"]
 
-[node name="LodNear" type="Area" parent="Triggers"]
+[node name="LodNear" type="Area" parent="Triggers" index="0"]
 
 input_ray_pickable = false
 input_capture_on_drag = false
@@ -254,12 +254,12 @@ showhide = "interior"
 hideshow = "exterior"
 bygroup = "player"
 
-[node name="CollisionShape" type="CollisionShape" parent="Triggers/LodNear"]
+[node name="CollisionShape" type="CollisionShape" parent="Triggers/LodNear" index="0"]
 
 shape = SubResource( 1 )
 disabled = false
 
-[node name="LodFar" type="Area" parent="Triggers"]
+[node name="LodFar" type="Area" parent="Triggers" index="1"]
 
 input_ray_pickable = false
 input_capture_on_drag = false
@@ -287,30 +287,30 @@ showhide = "interior"
 hideshow = "exterior"
 bygroup = "player"
 
-[node name="CollisionShape" type="CollisionShape" parent="Triggers/LodFar"]
+[node name="CollisionShape" type="CollisionShape" parent="Triggers/LodFar" index="0"]
 
 shape = SubResource( 2 )
 disabled = false
 
-[node name="Empty_TowerRadiator" type="Spatial" parent="." groups=[
+[node name="Empty_TowerRadiator" type="Spatial" parent="." index="8" groups=[
 "LodFar",
 ]]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04284, 1.51257, 0.31353 )
 
-[node name="Scene" parent="Empty_TowerRadiator" instance=ExtResource( 11 )]
+[node name="Scene" parent="Empty_TowerRadiator" index="0" instance=ExtResource( 11 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0124207, 0.30426, -0.0424805 )
 
-[node name="Empty_TowerRadiator001" type="Spatial" parent="." groups=[
+[node name="Empty_TowerRadiator001" type="Spatial" parent="." index="9" groups=[
 "LodFar",
 ]]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.578259, 1.146, -1.69257 )
 
-[node name="Scene" parent="Empty_TowerRadiator001" instance=ExtResource( 11 )]
+[node name="Scene" parent="Empty_TowerRadiator001" index="0" instance=ExtResource( 11 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0136719, 0.678528, -0.0135498 )
 

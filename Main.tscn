@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/Main.gd" type="Script" id=1]
-[ext_resource path="res://img/MainBG.jpg" type="Texture" id=2]
+[ext_resource path="res://img/TEST_MainBG.png" type="Texture" id=2]
 [ext_resource path="res://fonts/djv_mono.tres" type="DynamicFont" id=3]
 [ext_resource path="res://fonts/djv_bold_italic.tres" type="DynamicFont" id=4]
 [ext_resource path="res://fonts/djv_italic.tres" type="DynamicFont" id=5]
@@ -93,7 +93,7 @@ use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 8 )
 
-[node name="Spatial" type="Control"]
+[node name="Spatial" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -147,7 +147,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 2 )
 expand = true
-stretch_mode = 0
+stretch_mode = 6
 _sections_unfolded = [ "Material", "Pause" ]
 
 [node name="main" type="Control" parent="ui" index="1"]
