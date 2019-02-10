@@ -354,7 +354,7 @@ func sg_player_scene():
 func is_player_scene():
 	var result = false
 	if get_tree() and get_tree().current_scene:
-		if get_tree().current_scene.get_node(options.scene_id):
+		if get_tree().current_scene.has_node(options.scene_id):
 			result = true
 	return result
 
