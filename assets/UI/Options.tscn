@@ -216,7 +216,7 @@ size_flags_vertical = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Anchor", "Margin" ]
 
-[node name="Panel" type="Panel" parent="." index="0"]
+[node name="Panel" type="Panel" parent="."]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -230,7 +230,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
-[node name="TabContainer" type="TabContainer" parent="Panel" index="0"]
+[node name="TabContainer" type="TabContainer" parent="Panel"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -247,7 +247,7 @@ tab_align = 0
 tabs_visible = true
 _sections_unfolded = [ "Anchor", "Grow Direction", "Hint", "Margin", "Rect", "Size Flags", "Theme", "custom_styles" ]
 
-[node name="Player" type="Tabs" parent="Panel/TabContainer" index="0"]
+[node name="Player" type="Tabs" parent="Panel/TabContainer"]
 
 visible = false
 anchor_left = 0.0
@@ -268,14 +268,13 @@ tab_align = 1
 scrolling_enabled = true
 _sections_unfolded = [ "Anchor", "custom_styles" ]
 
-[node name="Control" parent="Panel/TabContainer/Player" index="0" instance=ExtResource( 2 )]
+[node name="Control" parent="Panel/TabContainer/Player" instance=ExtResource( 2 )]
 
 rect_scale = Vector2( 1.2, 1.2 )
 _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
-[node name="Dev" type="Tabs" parent="Panel/TabContainer" index="1"]
+[node name="Dev" type="Tabs" parent="Panel/TabContainer"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -294,7 +293,7 @@ tab_align = 0
 scrolling_enabled = true
 _sections_unfolded = [ "Grow Direction" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/TabContainer/Dev" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/TabContainer/Dev"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -310,7 +309,7 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Anchor", "Margin", "Size Flags" ]
 
-[node name="CheckButton" type="CheckButton" parent="Panel/TabContainer/Dev/VBoxContainer" index="0"]
+[node name="tAreas" type="CheckButton" parent="Panel/TabContainer/Dev/VBoxContainer"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -335,7 +334,7 @@ flat = false
 align = 0
 _sections_unfolded = [ "Rect", "custom_styles" ]
 
-[node name="CheckButton2" type="CheckButton" parent="Panel/TabContainer/Dev/VBoxContainer" index="1"]
+[node name="tCollisionShapes" type="CheckButton" parent="Panel/TabContainer/Dev/VBoxContainer"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -361,8 +360,9 @@ flat = false
 align = 0
 _sections_unfolded = [ "Theme", "custom_styles" ]
 
-[node name="CheckButton3" type="CheckButton" parent="Panel/TabContainer/Dev/VBoxContainer" index="2"]
+[node name="CheckButton3" type="CheckButton" parent="Panel/TabContainer/Dev/VBoxContainer"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -387,15 +387,16 @@ flat = false
 align = 0
 _sections_unfolded = [ "custom_styles" ]
 
-[node name="CheckButton4" type="CheckButton" parent="Panel/TabContainer/Dev/VBoxContainer" index="3"]
+[node name="CheckButton4" type="CheckButton" parent="Panel/TabContainer/Dev/VBoxContainer"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 132.0
+margin_top = 88.0
 margin_right = 1016.0
-margin_bottom = 172.0
+margin_bottom = 128.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -413,15 +414,16 @@ flat = false
 align = 0
 _sections_unfolded = [ "custom_styles" ]
 
-[node name="CheckButton5" type="CheckButton" parent="Panel/TabContainer/Dev/VBoxContainer" index="4"]
+[node name="CheckButton5" type="CheckButton" parent="Panel/TabContainer/Dev/VBoxContainer"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 176.0
+margin_top = 88.0
 margin_right = 1016.0
-margin_bottom = 216.0
+margin_bottom = 128.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -439,15 +441,16 @@ flat = false
 align = 0
 _sections_unfolded = [ "custom_styles" ]
 
-[node name="CheckButton6" type="CheckButton" parent="Panel/TabContainer/Dev/VBoxContainer" index="5"]
+[node name="CheckButton6" type="CheckButton" parent="Panel/TabContainer/Dev/VBoxContainer"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 220.0
+margin_top = 88.0
 margin_right = 1016.0
-margin_bottom = 260.0
+margin_bottom = 128.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -464,7 +467,94 @@ flat = false
 align = 0
 _sections_unfolded = [ "custom_styles" ]
 
-[node name="Display" type="Tabs" parent="Panel/TabContainer" index="2"]
+[node name="Container" type="Container" parent="Panel/TabContainer/Dev/VBoxContainer"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 88.0
+margin_right = 1016.0
+margin_bottom = 88.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="Label" type="Label" parent="Panel/TabContainer/Dev/VBoxContainer/Container"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_right = 15.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Show Objects"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin" ]
+
+[node name="HSlider" type="HSlider" parent="Panel/TabContainer/Dev/VBoxContainer/Container"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 117.0
+margin_top = -3.0
+margin_right = 736.0
+margin_bottom = 13.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 2
+
+[node name="Label2" type="Label" parent="Panel/TabContainer/Dev/VBoxContainer/Container"]
+
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -122.0
+margin_top = -4.0
+margin_right = -5.0
+margin_bottom = 26.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Display" type="Tabs" parent="Panel/TabContainer"]
 
 visible = false
 anchor_left = 0.0
@@ -484,8 +574,9 @@ size_flags_vertical = 1
 tab_align = 1
 scrolling_enabled = true
 
-[node name="GameState" type="Tabs" parent="Panel/TabContainer" index="3"]
+[node name="GameState" type="Tabs" parent="Panel/TabContainer"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
