@@ -27,3 +27,14 @@ func set_active_camera():
 
 remote func test_remote_call():
 	print("test_remote_call (%s)" % id)
+
+func set_3fps(enable):
+	if enable:
+		print("debug set FPS to 3")
+		Engine.target_fps = 3
+	else:
+		print("debug set FPS to 0")
+		Engine.target_fps = 0
+		
+func d_collision_shapes(disable=true):
+	pass
