@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenes/meshes/BigAtrium__BigAtriumWalls.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://scenes/cshapes/BigAtrium__Exterior_BigAtriumWalls_BigAtriumWalls_col_CollisionShape.shape" type="Shape" id=2]
@@ -17,20 +17,22 @@
 [ext_resource path="res://scenes/meshes/BigAtrium__BigAtriumWalls_GlazingBigAtriumWest000.mesh" type="ArrayMesh" id=15]
 [ext_resource path="res://scenes/meshes/BigAtrium__BigAtriumWalls_InteriorLevels.mesh" type="ArrayMesh" id=16]
 [ext_resource path="res://scenes/cshapes/BigAtrium__Interior_InteriorLevels_InteriorLevels_col_CollisionShape.shape" type="Shape" id=17]
-[ext_resource path="res://scenes/meshes/BigAtrium__BigAtriumWalls_StairSafetyGrid.mesh" type="ArrayMesh" id=18]
-[ext_resource path="res://scenes/cshapes/BigAtrium__Interior_StairSafetyGrid_StairSafetyGrid_col_CollisionShape.shape" type="Shape" id=19]
-[ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=20]
-[ext_resource path="res://scenes/lightmaps/BigAtrium_4098242162_bldata.res" type="BakedLightmapData" id=21]
+[ext_resource path="res://model_assets/MeltInPlaceStation_Demo.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/Slides/ScreenViewer.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/meshes/BigAtrium__BigAtriumWalls_StairSafetyGrid.mesh" type="ArrayMesh" id=20]
+[ext_resource path="res://scenes/cshapes/BigAtrium__Interior_StairSafetyGrid_StairSafetyGrid_col_CollisionShape.shape" type="Shape" id=21]
+[ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=22]
+[ext_resource path="res://scenes/lightmaps/BigAtrium_4098242162_bldata.res" type="BakedLightmapData" id=23]
 
 [sub_resource type="BoxShape" id=1]
 
 extents = Vector3( 7.63116, 7.036, 11.7867 )
 
-[node name="Scene" type="Spatial"]
+[node name="Scene" type="Spatial" index="0"]
 
-[node name="Exterior" type="Spatial" parent="."]
+[node name="Exterior" type="Spatial" parent="." index="0"]
 
-[node name="BigAtriumWalls" type="MeshInstance" parent="Exterior" groups=[
+[node name="BigAtriumWalls" type="MeshInstance" parent="Exterior" index="0" groups=[
 "wall",
 ]]
 
@@ -48,7 +50,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="BigAtriumWalls_col" type="StaticBody" parent="Exterior/BigAtriumWalls"]
+[node name="BigAtriumWalls_col" type="StaticBody" parent="Exterior/BigAtriumWalls" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -59,12 +61,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Exterior/BigAtriumWalls/BigAtriumWalls_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Exterior/BigAtriumWalls/BigAtriumWalls_col" index="0"]
 
 shape = ExtResource( 2 )
 disabled = false
 
-[node name="EarthViewBox2000" type="MeshInstance" parent="Exterior" groups=[
+[node name="EarthViewBox2000" type="MeshInstance" parent="Exterior" index="1" groups=[
 "cs_convex",
 ]]
 
@@ -82,7 +84,7 @@ mesh = ExtResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="EarthViewBox2000_col" type="StaticBody" parent="Exterior/EarthViewBox2000"]
+[node name="EarthViewBox2000_col" type="StaticBody" parent="Exterior/EarthViewBox2000" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -93,12 +95,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Exterior/EarthViewBox2000/EarthViewBox2000_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Exterior/EarthViewBox2000/EarthViewBox2000_col" index="0"]
 
 shape = ExtResource( 4 )
 disabled = false
 
-[node name="EarthViewBox3000" type="MeshInstance" parent="Exterior"]
+[node name="EarthViewBox3000" type="MeshInstance" parent="Exterior" index="2"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78662, 1.5061, -8.65161 )
 layers = 1
@@ -115,7 +117,7 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="RadBlindBeam003" type="MeshInstance" parent="Exterior" groups=[
+[node name="RadBlindBeam003" type="MeshInstance" parent="Exterior" index="3" groups=[
 "cs_convex",
 ]]
 
@@ -135,7 +137,7 @@ material/0 = null
 material/1 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="RadBlindBeam003_col" type="StaticBody" parent="Exterior/RadBlindBeam003"]
+[node name="RadBlindBeam003_col" type="StaticBody" parent="Exterior/RadBlindBeam003" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -146,32 +148,32 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Exterior/RadBlindBeam003/RadBlindBeam003_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Exterior/RadBlindBeam003/RadBlindBeam003_col" index="0"]
 
 shape = ExtResource( 7 )
 disabled = false
 
-[node name="HexpaneWindow" parent="Exterior" instance=ExtResource( 8 )]
+[node name="HexpaneWindow" parent="Exterior" index="4" instance=ExtResource( 8 )]
 
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.11084, 0.699463, -6.89355 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="HexpaneWindow2" parent="Exterior" instance=ExtResource( 8 )]
+[node name="HexpaneWindow2" parent="Exterior" index="5" instance=ExtResource( 8 )]
 
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.11084, 1.47327, -6.89355 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="HexpaneWindow3" parent="Exterior" instance=ExtResource( 8 )]
+[node name="HexpaneWindow3" parent="Exterior" index="6" instance=ExtResource( 8 )]
 
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 2.69043, 1.13147, -6.89526 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="HexpaneWindow4" parent="Exterior" instance=ExtResource( 8 )]
+[node name="HexpaneWindow4" parent="Exterior" index="7" instance=ExtResource( 8 )]
 
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 2.69043, 0.3573, -6.89551 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Passage-Mouth-South-BigAtrium-FirstGalley" type="MeshInstance" parent="Exterior"]
+[node name="Passage-Mouth-South-BigAtrium-FirstGalley" type="MeshInstance" parent="Exterior" index="8"]
 
 transform = Transform( 0.09931, 0.0117272, 1.28622e-10, 1.02105e-09, -7.54979e-09, -0.1, 0.0117272, -0.09931, 7.61744e-09, -1.00488, -0.679077, -7.79785 )
 layers = 1
@@ -188,7 +190,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="BigAtriumCenterBeam001" type="MeshInstance" parent="Exterior" groups=[
+[node name="BigAtriumCenterBeam001" type="MeshInstance" parent="Exterior" index="9" groups=[
 "wall",
 ]]
 
@@ -207,7 +209,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="BigAtriumCenterBeam001_col" type="StaticBody" parent="Exterior/BigAtriumCenterBeam001"]
+[node name="BigAtriumCenterBeam001_col" type="StaticBody" parent="Exterior/BigAtriumCenterBeam001" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -218,16 +220,16 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Exterior/BigAtriumCenterBeam001/BigAtriumCenterBeam001_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Exterior/BigAtriumCenterBeam001/BigAtriumCenterBeam001_col" index="0"]
 
 shape = ExtResource( 11 )
 disabled = false
 
-[node name="Interior" type="Spatial" parent="." groups=[
+[node name="Interior" type="Spatial" parent="." index="1" groups=[
 "interior",
 ]]
 
-[node name="AnchorBeamsEast" type="MeshInstance" parent="Interior"]
+[node name="AnchorBeamsEast" type="MeshInstance" parent="Interior" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.57373, 2.28015, -3.021 )
 layers = 1
@@ -244,7 +246,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="AnchorBeamsWest" type="MeshInstance" parent="Interior"]
+[node name="AnchorBeamsWest" type="MeshInstance" parent="Interior" index="1"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21924, 1.93213, -3.021 )
 layers = 1
@@ -261,7 +263,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="GlazingBigAtriumEast000" type="MeshInstance" parent="Interior"]
+[node name="GlazingBigAtriumEast000" type="MeshInstance" parent="Interior" index="2"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2.39795, -1.99023, 1.80933 )
 layers = 1
@@ -277,7 +279,7 @@ mesh = ExtResource( 14 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="GlazingBigAtriumWest000" type="MeshInstance" parent="Interior"]
+[node name="GlazingBigAtriumWest000" type="MeshInstance" parent="Interior" index="3"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2.39551, -1.64124, 1.771 )
 layers = 1
@@ -293,7 +295,7 @@ mesh = ExtResource( 15 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="InteriorLevels" type="MeshInstance" parent="Interior" groups=[
+[node name="InteriorLevels" type="MeshInstance" parent="Interior" index="4" groups=[
 "floor",
 ]]
 
@@ -313,7 +315,7 @@ material/0 = null
 material/1 = null
 _sections_unfolded = [ "Geometry", "material" ]
 
-[node name="OmniLight" type="OmniLight" parent="Interior/InteriorLevels"]
+[node name="OmniLight" type="OmniLight" parent="Interior/InteriorLevels" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000488281, 3.97297, 2.8178 )
 layers = 1
@@ -336,7 +338,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light" ]
 
-[node name="OmniLight2" type="OmniLight" parent="Interior/InteriorLevels"]
+[node name="OmniLight2" type="OmniLight" parent="Interior/InteriorLevels" index="1"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000488281, 3.97225, -0.242775 )
 layers = 1
@@ -359,7 +361,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light" ]
 
-[node name="OmniLight3" type="OmniLight" parent="Interior/InteriorLevels"]
+[node name="OmniLight3" type="OmniLight" parent="Interior/InteriorLevels" index="2"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000488281, 3.97225, -3.38933 )
 layers = 1
@@ -382,7 +384,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light" ]
 
-[node name="InteriorLevels_col" type="StaticBody" parent="Interior/InteriorLevels"]
+[node name="InteriorLevels_col" type="StaticBody" parent="Interior/InteriorLevels" index="3"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -393,12 +395,21 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/InteriorLevels/InteriorLevels_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/InteriorLevels/InteriorLevels_col" index="0"]
 
 shape = ExtResource( 17 )
 disabled = false
 
-[node name="StairSafetyGrid" type="MeshInstance" parent="Interior" groups=[
+[node name="MIP_Demo" parent="Interior/InteriorLevels" index="4" instance=ExtResource( 18 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.77084, 2.10327 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Screen" parent="Interior/InteriorLevels/MIP_Demo" index="2" instance=ExtResource( 19 )]
+
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -0.209315, 0.0626049, 0.120954 )
+
+[node name="StairSafetyGrid" type="MeshInstance" parent="Interior" index="5" groups=[
 "cs_convex",
 ]]
 
@@ -412,11 +423,11 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 18 )
+mesh = ExtResource( 20 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="StairSafetyGrid_col" type="StaticBody" parent="Interior/StairSafetyGrid"]
+[node name="StairSafetyGrid_col" type="StaticBody" parent="Interior/StairSafetyGrid" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -427,14 +438,14 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/StairSafetyGrid/StairSafetyGrid_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/StairSafetyGrid/StairSafetyGrid_col" index="0"]
 
-shape = ExtResource( 19 )
+shape = ExtResource( 21 )
 disabled = false
 
-[node name="Triggers" type="Spatial" parent="."]
+[node name="Triggers" type="Spatial" parent="." index="2"]
 
-[node name="Area" type="Area" parent="Triggers"]
+[node name="Area" type="Area" parent="Triggers" index="0"]
 
 input_ray_pickable = false
 input_capture_on_drag = false
@@ -456,19 +467,19 @@ reverb_bus_enable = false
 reverb_bus_name = "Master"
 reverb_bus_amount = 0.0
 reverb_bus_uniformity = 0.0
-script = ExtResource( 20 )
+script = ExtResource( 22 )
 RootNode = null
 showhide = "interior"
 hideshow = "exterior"
 bygroup = "player"
 
-[node name="CollisionShape" type="CollisionShape" parent="Triggers/Area"]
+[node name="CollisionShape" type="CollisionShape" parent="Triggers/Area" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.33831 )
 shape = SubResource( 1 )
 disabled = false
 
-[node name="BakedLightmap" type="BakedLightmap" parent="."]
+[node name="BakedLightmap" type="BakedLightmap" parent="." index="3"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.34603 )
 layers = 1
@@ -481,7 +492,7 @@ bake_hdr = false
 bake_extents = Vector3( 4.80931, 3.81613, 9.38078 )
 capture_cell_size = 0.5
 image_path = "res://scenes/BakedLight/BigAtrium"
-light_data = ExtResource( 21 )
+light_data = ExtResource( 23 )
 _sections_unfolded = [ "Bake", "Data" ]
 
 

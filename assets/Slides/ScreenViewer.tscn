@@ -88,9 +88,11 @@ func e():
 extents = Vector3( 1, 1, 0.01 )
 script = SubResource( 4 )
 
-[node name="Screen" type="Spatial"]
+[node name="Screen" type="Spatial" index="0"]
 
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 Content = null
 Size = Vector2( 1024, 700 )
 Hologram = false

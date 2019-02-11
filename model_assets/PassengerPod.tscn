@@ -3,7 +3,7 @@
 [ext_resource path="res://model_assets/meshes/PassengerPod__PassengerPod.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://model_assets/meshes/PassengerPod__PassengerPod_AirlockDoor_PassengerPod.mesh" type="ArrayMesh" id=2]
 
-[node name="Scene" type="Spatial" index="0"]
+[node name="Scene" type="Spatial"]
 
 [node name="PassengerPod" type="MeshInstance" parent="." index="0"]
 
