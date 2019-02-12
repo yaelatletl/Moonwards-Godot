@@ -70,7 +70,10 @@ func _on_area_input_event(camera, event, click_pos, click_normal, shape_idx):
 func _ready():
 	viewport = get_node("Viewport")
 	viewport.size = Size
-	viewport.add_child(Content.instance())
+	if Content != null:
+			viewport.add_child(Content.instance())
+	else:
+		print("ERROR: Assign a Content to this screen!")
 	get_node("Area").connect("input_event", self, "_on_area_input_event")
 	if Hologram:
 		var mat = $Area/Quad.get_surface_material(0)
