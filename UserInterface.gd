@@ -17,6 +17,6 @@ func OptionsPanel():
 			Options = ResourceLoader.load(SceneOptions).instance()
 			Options.signal_close = true
 			Options.connect("close", self, "OptionsPanel")
-			Options.set_tab_index(options.get("_state_", "menu_options_tab", 0))
+			Options.set_tab_index(options.get("_state_", "menu_options_tab", 1))
 			get_tree().get_root().add_child(Options)
 			
