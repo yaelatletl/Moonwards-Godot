@@ -9,6 +9,9 @@ var scenes = {
 	World = {
 		path = "res://World.tscn"
 	},
+	WorldV2 = {
+		path = "res://WorldV2.tscn"
+	},
 	WorldTest = {
 		path = "res://_tests/scene_mp/multiplayer_test_scene.tscn"
 	},
@@ -22,7 +25,6 @@ var scene_id = "scene_id_30160"
 
 #scene we instance for each player
 var player_scene = preload("res://assets/Player/player.tscn")
-
 
 ############################
 ############################
@@ -48,20 +50,35 @@ func load():
 		savefile.open(OptionsFile, File.READ)
 		var content = parse_json(savefile.get_as_text())
 		savefile.close()
+		if content.has("_state_"):
+			content.erase("_state_")
+		options = content
 
 func save():
 	var savefile = File.new()	
 	savefile.open(OptionsFile, File.WRITE)
+	set("_state_", gamestate.local_id, "game_state_id")
 	savefile.store_line(to_json(options))
 	savefile.close()
 
-func get(category, prop = null):
+func get(category, prop = null, default=null):
 	var res
 	if options.has(category):
 		if prop and options[category].has(prop):
 			res = options[category][prop]
+		elif prop:
+			pass
 		else:
 			res = options[category]
+	if res == null and default != null:
+		if prop:
+			if not options.has(category):
+				options[category] = {}
+			options[category][prop] = default
+		else:
+			options[category] = default
+		res = default
+	print("Options.get: %s::%s==%s" % [category, prop, res])
 	return res
 	
 func set(category, value, prop = null):
