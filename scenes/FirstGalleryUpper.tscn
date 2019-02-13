@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=2]
+[gd_scene load_steps=134 format=2]
 
 [ext_resource path="res://model_assets/FirstGalleryAnchors_NorthWall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://model_assets/FirstGalleryAnchors_SouthWall.tscn" type="PackedScene" id=2]
@@ -15,332 +15,333 @@
 [ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_Floor-FG-Entrance-2_Floor-FG-Entrance-2_col_CollisionShape.shape" type="Shape" id=13]
 [ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Entrance-3.mesh" type="ArrayMesh" id=14]
 [ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_Floor-FG-Entrance-3_Floor-FG-Entrance-3_col_CollisionShape.shape" type="Shape" id=15]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Entrance-4.mesh" type="ArrayMesh" id=16]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_Floor-FG-Entrance-4_Floor-FG-Entrance-4_col_CollisionShape.shape" type="Shape" id=17]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Entrance-5.mesh" type="ArrayMesh" id=18]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_Floor-FG-Entrance-5_Floor-FG-Entrance-5_col_CollisionShape.shape" type="Shape" id=19]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Top-1.mesh" type="ArrayMesh" id=20]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_Floor-FG-Top-1_Floor-FG-Top-1_col_CollisionShape.shape" type="Shape" id=21]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Top-2.mesh" type="ArrayMesh" id=22]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_Floor-FG-Top-2_Floor-FG-Top-2_col_CollisionShape.shape" type="Shape" id=23]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Top-3.mesh" type="ArrayMesh" id=24]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_Floor-FG-Top-3_Floor-FG-Top-3_col_CollisionShape.shape" type="Shape" id=25]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_FloorFG-Top-4.mesh" type="ArrayMesh" id=26]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_FloorFG-Top-4_FloorFG-Top-4_col_CollisionShape.shape" type="Shape" id=27]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_GalleryRoof-Top-Beams000.mesh" type="ArrayMesh" id=28]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MainColonyAirlocks002.mesh" type="ArrayMesh" id=29]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MoonwardsBoothMain.mesh" type="ArrayMesh" id=30]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_MoonwardsBoothMain_MoonwardsBoothMain_col_CollisionShape.shape" type="Shape" id=31]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MoonwardsDecorativeArches.mesh" type="ArrayMesh" id=32]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MoonwardsOfficeSublevel.mesh" type="ArrayMesh" id=33]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_MoonwardsOfficeSublevel_MoonwardsOfficeSublevel_col_CollisionShape.shape" type="Shape" id=34]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MoonwardsOfficeSublevel001.mesh" type="ArrayMesh" id=35]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MWBooth-Bench.mesh" type="ArrayMesh" id=36]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_MWBooth-Bench_MWBooth-Bench_col_CollisionShape.shape" type="Shape" id=37]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MWBooth-Shelves.mesh" type="ArrayMesh" id=38]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_MWBooth-Shelves_MWBooth-Shelves_col_CollisionShape.shape" type="Shape" id=39]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MWBooth-Steps.mesh" type="ArrayMesh" id=40]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MWBooth-Table.mesh" type="ArrayMesh" id=41]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_MWBooth-Table_MWBooth-Table_col_CollisionShape.shape" type="Shape" id=42]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MWBoothRoof.mesh" type="ArrayMesh" id=43]
-[ext_resource path="res://materials/White.tres" type="Material" id=44]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Passage-BigAtrium-FirstGallery.mesh" type="ArrayMesh" id=45]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_Passage-BigAtrium-FirstGallery_Passage-BigAtrium-FirstGallery_col_CollisionShape.shape" type="Shape" id=46]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Passage-FirstGallery-BigAtrium-BottomFloor.mesh" type="ArrayMesh" id=47]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_Passage-FirstGallery-BigAtrium-BottomFloor_Passage-FirstGallery-BigAtrium-BottomFloor_col_CollisionShape.shape" type="Shape" id=48]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Passage-Mouth-North-BigAtrium-FirstGalley.mesh" type="ArrayMesh" id=49]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Passage-Mouth-North-BigAtrium-FirstGalley002.mesh" type="ArrayMesh" id=50]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ScooterRamp.mesh" type="ArrayMesh" id=51]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ScooterRamp_ScooterRamp_col2_CollisionShape.shape" type="Shape" id=52]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ScooterRamp001.mesh" type="ArrayMesh" id=53]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ScooterRamp_ScooterRamp001_ScooterRamp001_col_CollisionShape.shape" type="Shape" id=54]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ScooterRamp002.mesh" type="ArrayMesh" id=55]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ScooterRamp_ScooterRamp002_ScooterRamp002_col_CollisionShape.shape" type="Shape" id=56]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ScooterRamp003.mesh" type="ArrayMesh" id=57]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ScooterRamp_ScooterRamp003_ScooterRamp003_col_CollisionShape.shape" type="Shape" id=58]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ScooterRamp004.mesh" type="ArrayMesh" id=59]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ScooterRamp_ScooterRamp004_ScooterRamp004_col_CollisionShape.shape" type="Shape" id=60]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ScooterRamp_ScooterRamp_col_CollisionShape.shape" type="Shape" id=61]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1010.mesh" type="ArrayMesh" id=62]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1012.mesh" type="ArrayMesh" id=63]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1013.mesh" type="ArrayMesh" id=64]
-[ext_resource path="res://materials/Metal-Aluminum.tres" type="Material" id=65]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1015.mesh" type="ArrayMesh" id=66]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1018.mesh" type="ArrayMesh" id=67]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1020.mesh" type="ArrayMesh" id=68]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1021.mesh" type="ArrayMesh" id=69]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1022.mesh" type="ArrayMesh" id=70]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1023.mesh" type="ArrayMesh" id=71]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails010.mesh" type="ArrayMesh" id=72]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails012.mesh" type="ArrayMesh" id=73]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails013.mesh" type="ArrayMesh" id=74]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails015.mesh" type="ArrayMesh" id=75]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails018.mesh" type="ArrayMesh" id=76]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails020.mesh" type="ArrayMesh" id=77]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails021.mesh" type="ArrayMesh" id=78]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails022.mesh" type="ArrayMesh" id=79]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails023.mesh" type="ArrayMesh" id=80]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails024.mesh" type="ArrayMesh" id=81]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs001.mesh" type="ArrayMesh" id=82]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs002.mesh" type="ArrayMesh" id=83]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs003.mesh" type="ArrayMesh" id=84]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs005.mesh" type="ArrayMesh" id=85]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs007.mesh" type="ArrayMesh" id=86]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs008.mesh" type="ArrayMesh" id=87]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStair-SafetyRungs009.mesh" type="ArrayMesh" id=88]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs010.mesh" type="ArrayMesh" id=89]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs011.mesh" type="ArrayMesh" id=90]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs012.mesh" type="ArrayMesh" id=91]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs013.mesh" type="ArrayMesh" id=92]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs014.mesh" type="ArrayMesh" id=93]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps010.mesh" type="ArrayMesh" id=94]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ShimmyStair-Steps010_ShimmyStair-Steps010_col_CollisionShape.shape" type="Shape" id=95]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps012.mesh" type="ArrayMesh" id=96]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ShimmyStair-Steps012_ShimmyStair-Steps012_col_CollisionShape.shape" type="Shape" id=97]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps013.mesh" type="ArrayMesh" id=98]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ShimmyStair-Steps013_ShimmyStair-Steps013_col_CollisionShape.shape" type="Shape" id=99]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps015.mesh" type="ArrayMesh" id=100]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ShimmyStair-Steps015_ShimmyStair-Steps015_col_CollisionShape.shape" type="Shape" id=101]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps018.mesh" type="ArrayMesh" id=102]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ShimmyStair-Steps018_ShimmyStair-Steps018_col_CollisionShape.shape" type="Shape" id=103]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps020.mesh" type="ArrayMesh" id=104]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ShimmyStair-Steps020_ShimmyStair-Steps020_col_CollisionShape.shape" type="Shape" id=105]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps021.mesh" type="ArrayMesh" id=106]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ShimmyStair-Steps021_ShimmyStair-Steps021_col_CollisionShape.shape" type="Shape" id=107]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps022.mesh" type="ArrayMesh" id=108]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ShimmyStair-Steps022_ShimmyStair-Steps022_col_CollisionShape.shape" type="Shape" id=109]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps023.mesh" type="ArrayMesh" id=110]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ShimmyStair-Steps023_ShimmyStair-Steps023_col_CollisionShape.shape" type="Shape" id=111]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStair-Steps024.mesh" type="ArrayMesh" id=112]
-[ext_resource path="res://materials/Caramel.tres" type="Material" id=113]
-[ext_resource path="res://materials/OrangeShrimp.tres" type="Material" id=114]
-[ext_resource path="res://materials/ElectricNavyBlue.tres" type="Material" id=115]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStair-Steps024_ShimmyPole1024.mesh" type="ArrayMesh" id=116]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ShimmyStair-Steps024_ShimmyStair-Steps024_col_CollisionShape.shape" type="Shape" id=117]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_SupportCable.mesh" type="ArrayMesh" id=118]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_UpperGalleryRoof-Middle-Beams000.mesh" type="ArrayMesh" id=119]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_UpperGalleryRoof-Top-Beams003.mesh" type="ArrayMesh" id=120]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_UpperGalleryRoof-UpperBeams.mesh" type="ArrayMesh" id=121]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_WaterPipeRecHab1.mesh" type="ArrayMesh" id=122]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Exterior_UpperGalleryRoof-TopMain.mesh" type="ArrayMesh" id=123]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Exterior_UpperGalleryRoof-TopMain_UpperGalleryRoof-Top-Windows.mesh" type="ArrayMesh" id=124]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Exterior_UpperGalleryRoof-TopMain_UpperGalleryRoof-TopMain_col_CollisionShape.shape" type="Shape" id=125]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Exterior_FirstGalleryFloor_Top.mesh" type="ArrayMesh" id=126]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Exterior_FirstGalleryFloor_Top_FirstGalleryFloor_Top_col_CollisionShape.shape" type="Shape" id=127]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Exterior_FirstGalleryWalls_Top.mesh" type="ArrayMesh" id=128]
-[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Exterior_FirstGalleryWalls_Top_FirstGalleryWalls_Top_col_CollisionShape.shape" type="Shape" id=129]
-[ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=130]
-[ext_resource path="res://scenes/lightmaps/FirstGalleryUpper_4098242162_bldata.res" type="BakedLightmapData" id=131]
+[ext_resource path="res://model_assets/MakersMonument.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Entrance-4.mesh" type="ArrayMesh" id=17]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_Floor-FG-Entrance-4_Floor-FG-Entrance-4_col_CollisionShape.shape" type="Shape" id=18]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Entrance-5.mesh" type="ArrayMesh" id=19]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_Floor-FG-Entrance-5_Floor-FG-Entrance-5_col_CollisionShape.shape" type="Shape" id=20]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Top-1.mesh" type="ArrayMesh" id=21]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_Floor-FG-Top-1_Floor-FG-Top-1_col_CollisionShape.shape" type="Shape" id=22]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Top-2.mesh" type="ArrayMesh" id=23]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_Floor-FG-Top-2_Floor-FG-Top-2_col_CollisionShape.shape" type="Shape" id=24]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Floor-FG-Top-3.mesh" type="ArrayMesh" id=25]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_Floor-FG-Top-3_Floor-FG-Top-3_col_CollisionShape.shape" type="Shape" id=26]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_FloorFG-Top-4.mesh" type="ArrayMesh" id=27]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_FloorFG-Top-4_FloorFG-Top-4_col_CollisionShape.shape" type="Shape" id=28]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_GalleryRoof-Top-Beams000.mesh" type="ArrayMesh" id=29]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MainColonyAirlocks002.mesh" type="ArrayMesh" id=30]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MoonwardsBoothMain.mesh" type="ArrayMesh" id=31]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_MoonwardsBoothMain_MoonwardsBoothMain_col_CollisionShape.shape" type="Shape" id=32]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MoonwardsDecorativeArches.mesh" type="ArrayMesh" id=33]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MoonwardsOfficeSublevel.mesh" type="ArrayMesh" id=34]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_MoonwardsOfficeSublevel_MoonwardsOfficeSublevel_col_CollisionShape.shape" type="Shape" id=35]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MoonwardsOfficeSublevel001.mesh" type="ArrayMesh" id=36]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MWBooth-Bench.mesh" type="ArrayMesh" id=37]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_MWBooth-Bench_MWBooth-Bench_col_CollisionShape.shape" type="Shape" id=38]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MWBooth-Shelves.mesh" type="ArrayMesh" id=39]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_MWBooth-Shelves_MWBooth-Shelves_col_CollisionShape.shape" type="Shape" id=40]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MWBooth-Steps.mesh" type="ArrayMesh" id=41]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MWBooth-Table.mesh" type="ArrayMesh" id=42]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_MWBooth-Table_MWBooth-Table_col_CollisionShape.shape" type="Shape" id=43]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_MWBoothRoof.mesh" type="ArrayMesh" id=44]
+[ext_resource path="res://materials/White.tres" type="Material" id=45]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Passage-BigAtrium-FirstGallery.mesh" type="ArrayMesh" id=46]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_Passage-BigAtrium-FirstGallery_Passage-BigAtrium-FirstGallery_col_CollisionShape.shape" type="Shape" id=47]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Passage-FirstGallery-BigAtrium-BottomFloor.mesh" type="ArrayMesh" id=48]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_Passage-FirstGallery-BigAtrium-BottomFloor_Passage-FirstGallery-BigAtrium-BottomFloor_col_CollisionShape.shape" type="Shape" id=49]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Passage-Mouth-North-BigAtrium-FirstGalley.mesh" type="ArrayMesh" id=50]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_Passage-Mouth-North-BigAtrium-FirstGalley002.mesh" type="ArrayMesh" id=51]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ScooterRamp.mesh" type="ArrayMesh" id=52]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ScooterRamp_ScooterRamp_col2_CollisionShape.shape" type="Shape" id=53]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ScooterRamp001.mesh" type="ArrayMesh" id=54]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ScooterRamp_ScooterRamp001_ScooterRamp001_col_CollisionShape.shape" type="Shape" id=55]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ScooterRamp002.mesh" type="ArrayMesh" id=56]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ScooterRamp_ScooterRamp002_ScooterRamp002_col_CollisionShape.shape" type="Shape" id=57]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ScooterRamp003.mesh" type="ArrayMesh" id=58]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ScooterRamp_ScooterRamp003_ScooterRamp003_col_CollisionShape.shape" type="Shape" id=59]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ScooterRamp004.mesh" type="ArrayMesh" id=60]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ScooterRamp_ScooterRamp004_ScooterRamp004_col_CollisionShape.shape" type="Shape" id=61]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ScooterRamp_ScooterRamp_col_CollisionShape.shape" type="Shape" id=62]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1010.mesh" type="ArrayMesh" id=63]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1012.mesh" type="ArrayMesh" id=64]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1013.mesh" type="ArrayMesh" id=65]
+[ext_resource path="res://materials/Metal-Aluminum.tres" type="Material" id=66]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1015.mesh" type="ArrayMesh" id=67]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1018.mesh" type="ArrayMesh" id=68]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1020.mesh" type="ArrayMesh" id=69]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1021.mesh" type="ArrayMesh" id=70]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1022.mesh" type="ArrayMesh" id=71]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyPole1023.mesh" type="ArrayMesh" id=72]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails010.mesh" type="ArrayMesh" id=73]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails012.mesh" type="ArrayMesh" id=74]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails013.mesh" type="ArrayMesh" id=75]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails015.mesh" type="ArrayMesh" id=76]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails018.mesh" type="ArrayMesh" id=77]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails020.mesh" type="ArrayMesh" id=78]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails021.mesh" type="ArrayMesh" id=79]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails022.mesh" type="ArrayMesh" id=80]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails023.mesh" type="ArrayMesh" id=81]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Rails024.mesh" type="ArrayMesh" id=82]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs001.mesh" type="ArrayMesh" id=83]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs002.mesh" type="ArrayMesh" id=84]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs003.mesh" type="ArrayMesh" id=85]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs005.mesh" type="ArrayMesh" id=86]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs007.mesh" type="ArrayMesh" id=87]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs008.mesh" type="ArrayMesh" id=88]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStair-SafetyRungs009.mesh" type="ArrayMesh" id=89]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs010.mesh" type="ArrayMesh" id=90]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs011.mesh" type="ArrayMesh" id=91]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs012.mesh" type="ArrayMesh" id=92]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs013.mesh" type="ArrayMesh" id=93]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-SafetyRungs014.mesh" type="ArrayMesh" id=94]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps010.mesh" type="ArrayMesh" id=95]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ShimmyStair-Steps010_ShimmyStair-Steps010_col_CollisionShape.shape" type="Shape" id=96]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps012.mesh" type="ArrayMesh" id=97]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ShimmyStair-Steps012_ShimmyStair-Steps012_col_CollisionShape.shape" type="Shape" id=98]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps013.mesh" type="ArrayMesh" id=99]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ShimmyStair-Steps013_ShimmyStair-Steps013_col_CollisionShape.shape" type="Shape" id=100]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps015.mesh" type="ArrayMesh" id=101]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ShimmyStair-Steps015_ShimmyStair-Steps015_col_CollisionShape.shape" type="Shape" id=102]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps018.mesh" type="ArrayMesh" id=103]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ShimmyStair-Steps018_ShimmyStair-Steps018_col_CollisionShape.shape" type="Shape" id=104]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps020.mesh" type="ArrayMesh" id=105]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ShimmyStair-Steps020_ShimmyStair-Steps020_col_CollisionShape.shape" type="Shape" id=106]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps021.mesh" type="ArrayMesh" id=107]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ShimmyStair-Steps021_ShimmyStair-Steps021_col_CollisionShape.shape" type="Shape" id=108]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps022.mesh" type="ArrayMesh" id=109]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ShimmyStair-Steps022_ShimmyStair-Steps022_col_CollisionShape.shape" type="Shape" id=110]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_ShimmyStair-Steps023.mesh" type="ArrayMesh" id=111]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ShimmyStair-Steps023_ShimmyStair-Steps023_col_CollisionShape.shape" type="Shape" id=112]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStair-Steps024.mesh" type="ArrayMesh" id=113]
+[ext_resource path="res://materials/Caramel.tres" type="Material" id=114]
+[ext_resource path="res://materials/OrangeShrimp.tres" type="Material" id=115]
+[ext_resource path="res://materials/ElectricNavyBlue.tres" type="Material" id=116]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStair-Steps024_ShimmyPole1024.mesh" type="ArrayMesh" id=117]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Interior_ShimmyStair-Steps024_ShimmyStair-Steps024_col_CollisionShape.shape" type="Shape" id=118]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_SupportCable.mesh" type="ArrayMesh" id=119]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_UpperGalleryRoof-Middle-Beams000.mesh" type="ArrayMesh" id=120]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_UpperGalleryRoof-Top-Beams003.mesh" type="ArrayMesh" id=121]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_UpperGalleryRoof-UpperBeams.mesh" type="ArrayMesh" id=122]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_WaterPipeRecHab1.mesh" type="ArrayMesh" id=123]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Exterior_UpperGalleryRoof-TopMain.mesh" type="ArrayMesh" id=124]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Exterior_UpperGalleryRoof-TopMain_UpperGalleryRoof-Top-Windows.mesh" type="ArrayMesh" id=125]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Exterior_UpperGalleryRoof-TopMain_UpperGalleryRoof-TopMain_col_CollisionShape.shape" type="Shape" id=126]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Exterior_FirstGalleryFloor_Top.mesh" type="ArrayMesh" id=127]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Exterior_FirstGalleryFloor_Top_FirstGalleryFloor_Top_col_CollisionShape.shape" type="Shape" id=128]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Exterior_FirstGalleryWalls_Top.mesh" type="ArrayMesh" id=129]
+[ext_resource path="res://scenes/cshapes/FirstGalleryUpper__Exterior_FirstGalleryWalls_Top_FirstGalleryWalls_Top_col_CollisionShape.shape" type="Shape" id=130]
+[ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=131]
+[ext_resource path="res://scenes/lightmaps/FirstGalleryUpper_4098242162_bldata.res" type="BakedLightmapData" id=132]
 
 [sub_resource type="BoxShape" id=1]
 
 extents = Vector3( 29.7738, 11.6184, 9.53069 )
 
-[node name="Scene" type="Spatial"]
+[node name="Scene" type="Spatial" index="0"]
 
-[node name="Interior" type="Spatial" parent="." groups=[
+[node name="Interior" type="Spatial" parent="." index="0" groups=[
 "interior",
 ]]
 
-[node name="Empty_FirstGalleryAnchor_North" type="Spatial" parent="Interior"]
+[node name="Empty_FirstGalleryAnchor_North" type="Spatial" parent="Interior" index="0"]
 
 editor/display_folded = true
 transform = Transform( 1, 1.79292e-06, 0, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -1.70215, -5.94006, -2.04639 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North" instance=ExtResource( 1 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North" index="0" instance=ExtResource( 1 )]
 
-[node name="Empty_FirstGalleryAnchor_North001" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North"]
+[node name="Empty_FirstGalleryAnchor_North001" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North" index="1"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -1.34601, -0.428233, -0.18328 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North001" instance=ExtResource( 1 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North001" index="0" instance=ExtResource( 1 )]
 
-[node name="Empty_FirstGalleryAnchor_North002" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North"]
+[node name="Empty_FirstGalleryAnchor_North002" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North" index="2"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -2.73305, -1.12953, -0.35869 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North002" instance=ExtResource( 1 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North002" index="0" instance=ExtResource( 1 )]
 
-[node name="Empty_FirstGalleryAnchor_North003" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North"]
+[node name="Empty_FirstGalleryAnchor_North003" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North" index="3"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -3.91034, -1.68458, -0.511499 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North003" instance=ExtResource( 1 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North003" index="0" instance=ExtResource( 1 )]
 
-[node name="Empty_FirstGalleryAnchor_North004" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North"]
+[node name="Empty_FirstGalleryAnchor_North004" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North" index="4"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -5.78915, -2.60365, -0.758729 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North004" instance=ExtResource( 1 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North004" index="0" instance=ExtResource( 1 )]
 
-[node name="Empty_FirstGalleryAnchor_North005" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North"]
+[node name="Empty_FirstGalleryAnchor_North005" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North" index="5"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -6.93233, -3.17982, -0.903729 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North005" instance=ExtResource( 1 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North005" index="0" instance=ExtResource( 1 )]
 
-[node name="Empty_FirstGalleryAnchor_North006" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North"]
+[node name="Empty_FirstGalleryAnchor_North006" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North" index="6"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -8.32794, -3.8793, -1.08569 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North006" instance=ExtResource( 1 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North006" index="0" instance=ExtResource( 1 )]
 
-[node name="Empty_FirstGalleryAnchor_North007" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North"]
+[node name="Empty_FirstGalleryAnchor_North007" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North" index="7"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -10.2523, -4.81276, -1.33926 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North007" instance=ExtResource( 1 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North007" index="0" instance=ExtResource( 1 )]
 
-[node name="Empty_FirstGalleryAnchor_North008" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North"]
+[node name="Empty_FirstGalleryAnchor_North008" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North" index="8"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -11.517, -5.42766, -1.50478 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North008" instance=ExtResource( 1 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North008" index="0" instance=ExtResource( 1 )]
 
-[node name="Empty_FirstGalleryAnchor_North009" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North"]
+[node name="Empty_FirstGalleryAnchor_North009" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North" index="9"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -12.483, -5.91946, -1.62639 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North009" instance=ExtResource( 1 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North009" index="0" instance=ExtResource( 1 )]
 
-[node name="Empty_FirstGalleryAnchor_North010" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North"]
+[node name="Empty_FirstGalleryAnchor_North010" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North" index="10"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -13.9623, -7.26607, -1.82328 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North010" instance=ExtResource( 1 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North010" index="0" instance=ExtResource( 1 )]
 
-[node name="Empty_FirstGalleryAnchor_North011" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North"]
+[node name="Empty_FirstGalleryAnchor_North011" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North" index="11"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -15.1344, -8.42327, -1.97669 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North011" instance=ExtResource( 1 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North011" index="0" instance=ExtResource( 1 )]
 
-[node name="Empty_FirstGalleryAnchor_North012" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North"]
+[node name="Empty_FirstGalleryAnchor_North012" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North" index="12"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -16.066, -9.35917, -2.10542 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North012" instance=ExtResource( 1 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North012" index="0" instance=ExtResource( 1 )]
 
-[node name="Empty_FirstGalleryAnchor_North013" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North"]
+[node name="Empty_FirstGalleryAnchor_North013" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_North" index="13"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -17.5436, -10.8371, -2.29259 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North013" instance=ExtResource( 1 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_North/Empty_FirstGalleryAnchor_North013" index="0" instance=ExtResource( 1 )]
 
-[node name="Empty_FirstGalleryAnchor_South" type="Spatial" parent="Interior"]
+[node name="Empty_FirstGalleryAnchor_South" type="Spatial" parent="Interior" index="1"]
 
 editor/display_folded = true
 transform = Transform( 1, 1.79292e-06, 0, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -2.16455, -5.96899, 1.54541 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South" instance=ExtResource( 2 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South" index="0" instance=ExtResource( 2 )]
 
-[node name="Empty_FirstGalleryAnchor_South001" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South"]
+[node name="Empty_FirstGalleryAnchor_South001" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South" index="1"]
 
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -1.34624, -0.428473, -0.18374 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South001" instance=ExtResource( 2 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South001" index="0" instance=ExtResource( 2 )]
 
 transform = Transform( 1, -1.13687e-13, 0, 0, 1, 0, 0, -2.84217e-14, 1, 0, 0, 5.46129e-09 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Empty_FirstGalleryAnchor_South002" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South"]
+[node name="Empty_FirstGalleryAnchor_South002" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South" index="2"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -2.73329, -1.12964, -0.35913 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South002" instance=ExtResource( 2 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South002" index="0" instance=ExtResource( 2 )]
 
-[node name="Empty_FirstGalleryAnchor_South003" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South"]
+[node name="Empty_FirstGalleryAnchor_South003" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South" index="3"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -3.91057, -1.68471, -0.511959 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South003" instance=ExtResource( 2 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South003" index="0" instance=ExtResource( 2 )]
 
-[node name="Empty_FirstGalleryAnchor_South004" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South"]
+[node name="Empty_FirstGalleryAnchor_South004" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South" index="4"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -5.78938, -2.6039, -0.759184 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South004" instance=ExtResource( 2 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South004" index="0" instance=ExtResource( 2 )]
 
-[node name="Empty_FirstGalleryAnchor_South005" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South"]
+[node name="Empty_FirstGalleryAnchor_South005" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South" index="5"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -6.93257, -3.18007, -0.904186 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South005" instance=ExtResource( 2 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South005" index="0" instance=ExtResource( 2 )]
 
-[node name="Empty_FirstGalleryAnchor_South006" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South"]
+[node name="Empty_FirstGalleryAnchor_South006" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South" index="6"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -8.32814, -3.87954, -1.08614 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South006" instance=ExtResource( 2 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South006" index="0" instance=ExtResource( 2 )]
 
-[node name="Empty_FirstGalleryAnchor_South007" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South"]
+[node name="Empty_FirstGalleryAnchor_South007" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South" index="7"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -10.2526, -4.81293, -1.33971 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South007" instance=ExtResource( 2 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South007" index="0" instance=ExtResource( 2 )]
 
-[node name="Empty_FirstGalleryAnchor_South008" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South"]
+[node name="Empty_FirstGalleryAnchor_South008" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South" index="8"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -11.5172, -5.42773, -1.50523 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South008" instance=ExtResource( 2 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South008" index="0" instance=ExtResource( 2 )]
 
-[node name="Empty_FirstGalleryAnchor_South009" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South"]
+[node name="Empty_FirstGalleryAnchor_South009" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South" index="9"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -12.4833, -5.91973, -1.62684 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South009" instance=ExtResource( 2 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South009" index="0" instance=ExtResource( 2 )]
 
-[node name="Empty_FirstGalleryAnchor_South010" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South"]
+[node name="Empty_FirstGalleryAnchor_South010" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South" index="10"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -13.9625, -7.26614, -1.82373 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South010" instance=ExtResource( 2 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South010" index="0" instance=ExtResource( 2 )]
 
-[node name="Empty_FirstGalleryAnchor_South011" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South"]
+[node name="Empty_FirstGalleryAnchor_South011" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South" index="11"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -15.1346, -8.42354, -1.97714 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South011" instance=ExtResource( 2 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South011" index="0" instance=ExtResource( 2 )]
 
-[node name="Empty_FirstGalleryAnchor_South012" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South"]
+[node name="Empty_FirstGalleryAnchor_South012" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South" index="12"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -16.0662, -9.35924, -2.10587 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South012" instance=ExtResource( 2 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South012" index="0" instance=ExtResource( 2 )]
 
-[node name="Empty_FirstGalleryAnchor_South013" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South"]
+[node name="Empty_FirstGalleryAnchor_South013" type="Spatial" parent="Interior/Empty_FirstGalleryAnchor_South" index="13"]
 
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -17.5438, -10.8373, -2.29303 )
 
-[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South013" instance=ExtResource( 2 )]
+[node name="Scene" parent="Interior/Empty_FirstGalleryAnchor_South/Empty_FirstGalleryAnchor_South013" index="0" instance=ExtResource( 2 )]
 
-[node name="Circle010" type="MeshInstance" parent="Interior"]
+[node name="Circle010" type="MeshInstance" parent="Interior" index="2"]
 
 transform = Transform( 1, 1.79292e-06, 0, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -2.41455, -2.86096, -0.29077 )
 layers = 1
@@ -357,7 +358,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="Circle013" type="MeshInstance" parent="Interior" groups=[
+[node name="Circle013" type="MeshInstance" parent="Interior" index="3" groups=[
 "floor",
 ]]
 
@@ -376,7 +377,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="Circle013_col" type="StaticBody" parent="Interior/Circle013"]
+[node name="Circle013_col" type="StaticBody" parent="Interior/Circle013" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -387,43 +388,43 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/Circle013/Circle013_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/Circle013/Circle013_col" index="0"]
 
 shape = ExtResource( 5 )
 disabled = false
 
-[node name="Empty_LightOutlet_WallVersion" type="Spatial" parent="Interior"]
+[node name="Empty_LightOutlet_WallVersion" type="Spatial" parent="Interior" index="4"]
 
 transform = Transform( 1, 1.79292e-06, 0, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -3.00035, -1.98132, 1.46392 )
 
-[node name="Empty_LightOutlet_WallVersion001" type="Spatial" parent="Interior"]
+[node name="Empty_LightOutlet_WallVersion001" type="Spatial" parent="Interior" index="5"]
 
 transform = Transform( 1, 1.79292e-06, 0, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -5.26793, -3.04431, 1.16875 )
 
-[node name="Empty_RemoteOperationBooth" type="Spatial" parent="Interior"]
+[node name="Empty_RemoteOperationBooth" type="Spatial" parent="Interior" index="6"]
 
 transform = Transform( -0.226838, 2.21672e-06, -0.973932, 2.3766e-06, 1, 1.72252e-06, 0.973932, -1.92391e-06, -0.226838, -2.57653, -2.48354, -0.32783 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Scene" parent="Interior/Empty_RemoteOperationBooth" instance=ExtResource( 6 )]
+[node name="Scene" parent="Interior/Empty_RemoteOperationBooth" index="0" instance=ExtResource( 6 )]
 
-[node name="Empty_RemoteOperationBooth001" type="Spatial" parent="Interior"]
+[node name="Empty_RemoteOperationBooth001" type="Spatial" parent="Interior" index="7"]
 
 transform = Transform( -1, 1.79292e-06, 0, 1.79291e-06, 1, 3.36263e-07, 0, 3.36263e-07, -1, -2.41345, -2.49451, -0.455272 )
 
-[node name="Scene" parent="Interior/Empty_RemoteOperationBooth001" instance=ExtResource( 6 )]
+[node name="Scene" parent="Interior/Empty_RemoteOperationBooth001" index="0" instance=ExtResource( 6 )]
 
 transform = Transform( 1, 2.02731e-19, 0, 0, 1, 0, 0, 0, 1, 0, 0.0113833, -5.20117e-10 )
 
-[node name="Empty_RemoteOperationBooth002" type="Spatial" parent="Interior"]
+[node name="Empty_RemoteOperationBooth002" type="Spatial" parent="Interior" index="8"]
 
 transform = Transform( -0.249739, 1.35869e-06, 0.968314, 2.90727e-06, 1, -6.53338e-07, -0.968314, 2.65198e-06, -0.249739, -2.25329, -2.49451, -0.329051 )
 
-[node name="Scene" parent="Interior/Empty_RemoteOperationBooth002" instance=ExtResource( 6 )]
+[node name="Scene" parent="Interior/Empty_RemoteOperationBooth002" index="0" instance=ExtResource( 6 )]
 
 transform = Transform( 1, -4.54747e-13, 0, 0, 1, -1.13687e-13, 0, 1.13687e-13, 1, 5.96046e-08, 0.0112493, 0 )
 
-[node name="FirstGalleryColumns-Top" type="MeshInstance" parent="Interior"]
+[node name="FirstGalleryColumns-Top" type="MeshInstance" parent="Interior" index="9"]
 
 transform = Transform( 0.999995, 0.0032284, 0, -0.00322841, 0.999995, -0.000418226, -6.4075e-07, 0.000418225, 1, -2.17578, 0.00354004, -2.1311 )
 layers = 1
@@ -440,7 +441,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="FirstGalleryConduitTop" type="MeshInstance" parent="Interior"]
+[node name="FirstGalleryConduitTop" type="MeshInstance" parent="Interior" index="10"]
 
 transform = Transform( 0.991895, 1.81339e-06, -0.127055, -1.82687e-06, 1, 1.04441e-08, 0.127054, 2.21753e-07, 0.991896, 3.07429, -5.24292, 0.402383 )
 layers = 1
@@ -457,7 +458,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="FirstGalleryConduitUpper" type="MeshInstance" parent="Interior"]
+[node name="FirstGalleryConduitUpper" type="MeshInstance" parent="Interior" index="11"]
 
 transform = Transform( 0.991895, 1.80912e-06, -0.127054, -1.82254e-06, 1, 1.05885e-08, 0.127054, 2.21059e-07, 0.991896, -2.3998, 0.00878906, -0.30326 )
 layers = 1
@@ -474,7 +475,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="Floor-FG-Entrance-1" type="MeshInstance" parent="Interior" groups=[
+[node name="Floor-FG-Entrance-1" type="MeshInstance" parent="Interior" index="12" groups=[
 "floor",
 ]]
 
@@ -493,7 +494,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="OmniLight" type="OmniLight" parent="Interior/Floor-FG-Entrance-1"]
+[node name="OmniLight" type="OmniLight" parent="Interior/Floor-FG-Entrance-1" index="0"]
 
 transform = Transform( 1, 4.26326e-14, 0, 1.42109e-14, 1, 2.84217e-14, 0, -2.84217e-14, 1, 2.38419e-07, -0.267561, -3.57628e-07 )
 layers = 1
@@ -516,7 +517,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light" ]
 
-[node name="OmniLight2" type="OmniLight" parent="Interior/Floor-FG-Entrance-1"]
+[node name="OmniLight2" type="OmniLight" parent="Interior/Floor-FG-Entrance-1" index="1"]
 
 transform = Transform( 1, 4.26326e-14, 0, 1.42109e-14, 1, 2.84217e-14, 0, -2.84217e-14, 1, -4.72605, 1.34216, 4.00575 )
 layers = 1
@@ -539,7 +540,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light" ]
 
-[node name="Floor-FG-Entrance-1_col" type="StaticBody" parent="Interior/Floor-FG-Entrance-1"]
+[node name="Floor-FG-Entrance-1_col" type="StaticBody" parent="Interior/Floor-FG-Entrance-1" index="2"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -550,12 +551,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/Floor-FG-Entrance-1/Floor-FG-Entrance-1_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/Floor-FG-Entrance-1/Floor-FG-Entrance-1_col" index="0"]
 
 shape = ExtResource( 11 )
 disabled = false
 
-[node name="Floor-FG-Entrance-2" type="MeshInstance" parent="Interior" groups=[
+[node name="Floor-FG-Entrance-2" type="MeshInstance" parent="Interior" index="13" groups=[
 "floor",
 ]]
 
@@ -574,12 +575,12 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="OmniLight" type="OmniLight" parent="Interior/Floor-FG-Entrance-2"]
+[node name="OmniLight" type="OmniLight" parent="Interior/Floor-FG-Entrance-2" index="0"]
 
-transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -4.0033, -0.236217, 1.39231 )
+transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -4.0033, -0.952933, 1.88045 )
 layers = 1
 light_color = Color( 1, 1, 1, 1 )
-light_energy = 0.6
+light_energy = 0.4
 light_indirect_energy = 1.0
 light_negative = false
 light_specular = 0.5
@@ -597,7 +598,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light" ]
 
-[node name="Floor-FG-Entrance-2_col" type="StaticBody" parent="Interior/Floor-FG-Entrance-2"]
+[node name="Floor-FG-Entrance-2_col" type="StaticBody" parent="Interior/Floor-FG-Entrance-2" index="1"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -608,12 +609,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/Floor-FG-Entrance-2/Floor-FG-Entrance-2_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/Floor-FG-Entrance-2/Floor-FG-Entrance-2_col" index="0"]
 
 shape = ExtResource( 13 )
 disabled = false
 
-[node name="Floor-FG-Entrance-3" type="MeshInstance" parent="Interior" groups=[
+[node name="Floor-FG-Entrance-3" type="MeshInstance" parent="Interior" index="14" groups=[
 "floor",
 ]]
 
@@ -632,11 +633,11 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="OmniLight" type="OmniLight" parent="Interior/Floor-FG-Entrance-3"]
+[node name="OmniLight" type="OmniLight" parent="Interior/Floor-FG-Entrance-3" index="0"]
 
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -7.45035, -0.205225, 1.54679 )
 layers = 1
-light_color = Color( 1, 1, 1, 1 )
+light_color = Color( 0.945312, 0.827148, 0.827148, 1 )
 light_energy = 0.6
 light_indirect_energy = 1.0
 light_negative = false
@@ -655,7 +656,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light" ]
 
-[node name="Floor-FG-Entrance-3_col" type="StaticBody" parent="Interior/Floor-FG-Entrance-3"]
+[node name="Floor-FG-Entrance-3_col" type="StaticBody" parent="Interior/Floor-FG-Entrance-3" index="1"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -666,12 +667,16 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/Floor-FG-Entrance-3/Floor-FG-Entrance-3_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/Floor-FG-Entrance-3/Floor-FG-Entrance-3_col" index="0"]
 
 shape = ExtResource( 15 )
 disabled = false
 
-[node name="Floor-FG-Entrance-4" type="MeshInstance" parent="Interior" groups=[
+[node name="MakersMonument" parent="Interior/Floor-FG-Entrance-3" index="2" instance=ExtResource( 16 )]
+
+transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -3.10118, -4.76837e-06, 2.15309 )
+
+[node name="Floor-FG-Entrance-4" type="MeshInstance" parent="Interior" index="15" groups=[
 "floor",
 ]]
 
@@ -685,12 +690,12 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 16 )
+mesh = ExtResource( 17 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="OmniLight" type="OmniLight" parent="Interior/Floor-FG-Entrance-4"]
+[node name="OmniLight" type="OmniLight" parent="Interior/Floor-FG-Entrance-4" index="0"]
 
 transform = Transform( 1, 0, 1.78814e-07, 0, 1, -1.84741e-13, 0, 1.13687e-13, 1, 1.91436, -0.202935, -6.80701 )
 layers = 1
@@ -713,7 +718,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light", "Omni", "Shadow" ]
 
-[node name="Floor-FG-Entrance-4_col" type="StaticBody" parent="Interior/Floor-FG-Entrance-4"]
+[node name="Floor-FG-Entrance-4_col" type="StaticBody" parent="Interior/Floor-FG-Entrance-4" index="1"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -724,12 +729,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/Floor-FG-Entrance-4/Floor-FG-Entrance-4_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/Floor-FG-Entrance-4/Floor-FG-Entrance-4_col" index="0"]
 
-shape = ExtResource( 17 )
+shape = ExtResource( 18 )
 disabled = false
 
-[node name="Floor-FG-Entrance-5" type="MeshInstance" parent="Interior" groups=[
+[node name="Floor-FG-Entrance-5" type="MeshInstance" parent="Interior" index="16" groups=[
 "floor",
 ]]
 
@@ -743,12 +748,12 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 18 )
+mesh = ExtResource( 19 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="OmniLight" type="OmniLight" parent="Interior/Floor-FG-Entrance-5"]
+[node name="OmniLight" type="OmniLight" parent="Interior/Floor-FG-Entrance-5" index="0"]
 
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, 0, -0.129933, 7.21271e-08 )
 layers = 1
@@ -771,7 +776,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light" ]
 
-[node name="Floor-FG-Entrance-5_col" type="StaticBody" parent="Interior/Floor-FG-Entrance-5"]
+[node name="Floor-FG-Entrance-5_col" type="StaticBody" parent="Interior/Floor-FG-Entrance-5" index="1"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -782,12 +787,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/Floor-FG-Entrance-5/Floor-FG-Entrance-5_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/Floor-FG-Entrance-5/Floor-FG-Entrance-5_col" index="0"]
 
-shape = ExtResource( 19 )
+shape = ExtResource( 20 )
 disabled = false
 
-[node name="Floor-FG-Top-1" type="MeshInstance" parent="Interior" groups=[
+[node name="Floor-FG-Top-1" type="MeshInstance" parent="Interior" index="17" groups=[
 "floor",
 ]]
 
@@ -801,12 +806,12 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 20 )
+mesh = ExtResource( 21 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="OmniLight" type="OmniLight" parent="Interior/Floor-FG-Top-1"]
+[node name="OmniLight" type="OmniLight" parent="Interior/Floor-FG-Top-1" index="0"]
 
 transform = Transform( 1, 3.90799e-14, 0, 5.15143e-14, 1, 0, 0, 0, 1, -4.14173, -8.58307e-06, -0.442976 )
 layers = 1
@@ -829,7 +834,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light" ]
 
-[node name="Floor-FG-Top-1_col" type="StaticBody" parent="Interior/Floor-FG-Top-1"]
+[node name="Floor-FG-Top-1_col" type="StaticBody" parent="Interior/Floor-FG-Top-1" index="1"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -840,12 +845,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/Floor-FG-Top-1/Floor-FG-Top-1_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/Floor-FG-Top-1/Floor-FG-Top-1_col" index="0"]
 
-shape = ExtResource( 21 )
+shape = ExtResource( 22 )
 disabled = false
 
-[node name="Floor-FG-Top-2" type="MeshInstance" parent="Interior" groups=[
+[node name="Floor-FG-Top-2" type="MeshInstance" parent="Interior" index="18" groups=[
 "floor",
 ]]
 
@@ -859,12 +864,12 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 22 )
+mesh = ExtResource( 23 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="Floor-FG-Top-2_col" type="StaticBody" parent="Interior/Floor-FG-Top-2"]
+[node name="Floor-FG-Top-2_col" type="StaticBody" parent="Interior/Floor-FG-Top-2" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -875,12 +880,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/Floor-FG-Top-2/Floor-FG-Top-2_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/Floor-FG-Top-2/Floor-FG-Top-2_col" index="0"]
 
-shape = ExtResource( 23 )
+shape = ExtResource( 24 )
 disabled = false
 
-[node name="Floor-FG-Top-3" type="MeshInstance" parent="Interior" groups=[
+[node name="Floor-FG-Top-3" type="MeshInstance" parent="Interior" index="19" groups=[
 "floor",
 ]]
 
@@ -894,12 +899,12 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 24 )
+mesh = ExtResource( 25 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="Floor-FG-Top-3_col" type="StaticBody" parent="Interior/Floor-FG-Top-3"]
+[node name="Floor-FG-Top-3_col" type="StaticBody" parent="Interior/Floor-FG-Top-3" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -910,12 +915,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/Floor-FG-Top-3/Floor-FG-Top-3_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/Floor-FG-Top-3/Floor-FG-Top-3_col" index="0"]
 
-shape = ExtResource( 25 )
+shape = ExtResource( 26 )
 disabled = false
 
-[node name="FloorFG-Top-4" type="MeshInstance" parent="Interior" groups=[
+[node name="FloorFG-Top-4" type="MeshInstance" parent="Interior" index="20" groups=[
 "floor",
 ]]
 
@@ -929,12 +934,12 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 26 )
+mesh = ExtResource( 27 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="OmniLight" type="OmniLight" parent="Interior/FloorFG-Top-4"]
+[node name="OmniLight" type="OmniLight" parent="Interior/FloorFG-Top-4" index="0"]
 
 transform = Transform( 1, 0, -2.98023e-08, 0, 1, 1.42109e-14, 2.98023e-08, 0, 1, -0.131945, -1.04719, -1.53805 )
 layers = 1
@@ -957,7 +962,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light" ]
 
-[node name="FloorFG-Top-4_col" type="StaticBody" parent="Interior/FloorFG-Top-4"]
+[node name="FloorFG-Top-4_col" type="StaticBody" parent="Interior/FloorFG-Top-4" index="1"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -968,31 +973,14 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/FloorFG-Top-4/FloorFG-Top-4_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/FloorFG-Top-4/FloorFG-Top-4_col" index="0"]
 
-shape = ExtResource( 27 )
+shape = ExtResource( 28 )
 disabled = false
 
-[node name="GalleryRoof-Top-Beams000" type="MeshInstance" parent="Interior"]
+[node name="GalleryRoof-Top-Beams000" type="MeshInstance" parent="Interior" index="21"]
 
 transform = Transform( 0.991674, 1.81039e-06, -0.128773, -1.82359e-06, 1, 1.53932e-08, 0.128773, 2.19564e-07, 0.991674, -15.5947, -8.61938, -2.02319 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = true
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 28 )
-skeleton = NodePath("..")
-material/0 = null
-_sections_unfolded = [ "Geometry" ]
-
-[node name="MainColonyAirlocks002" type="MeshInstance" parent="Interior"]
-
-transform = Transform( 1, 1.79292e-06, 0, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, 2.41846, -1.88135, -1.47974 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1007,11 +995,9 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="MoonwardsBoothMain" type="MeshInstance" parent="Interior" groups=[
-"floor",
-]]
+[node name="MainColonyAirlocks002" type="MeshInstance" parent="Interior" index="22"]
 
-transform = Transform( 1, 1.79292e-06, 0, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -2.41455, -2.62122, -0.29077 )
+transform = Transform( 1, 1.79292e-06, 0, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, 2.41846, -1.88135, -1.47974 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1026,7 +1012,26 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="MoonwardsBoothMain_col" type="StaticBody" parent="Interior/MoonwardsBoothMain"]
+[node name="MoonwardsBoothMain" type="MeshInstance" parent="Interior" index="23" groups=[
+"floor",
+]]
+
+transform = Transform( 1, 1.79292e-06, 0, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -2.41455, -2.62122, -0.29077 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = true
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 31 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Geometry" ]
+
+[node name="MoonwardsBoothMain_col" type="StaticBody" parent="Interior/MoonwardsBoothMain" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -1037,12 +1042,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/MoonwardsBoothMain/MoonwardsBoothMain_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/MoonwardsBoothMain/MoonwardsBoothMain_col" index="0"]
 
-shape = ExtResource( 31 )
+shape = ExtResource( 32 )
 disabled = false
 
-[node name="MoonwardsDecorativeArches" type="MeshInstance" parent="Interior"]
+[node name="MoonwardsDecorativeArches" type="MeshInstance" parent="Interior" index="24"]
 
 transform = Transform( 1, 1.79292e-06, 0, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -2.41455, -2.61597, -0.29077 )
 layers = 1
@@ -1054,11 +1059,11 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 32 )
+mesh = ExtResource( 33 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="MoonwardsOfficeSublevel" type="MeshInstance" parent="Interior" groups=[
+[node name="MoonwardsOfficeSublevel" type="MeshInstance" parent="Interior" index="25" groups=[
 "cs_convex",
 ]]
 
@@ -1072,13 +1077,13 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 33 )
+mesh = ExtResource( 34 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="MoonwardsOfficeSublevel_col" type="StaticBody" parent="Interior/MoonwardsOfficeSublevel"]
+[node name="MoonwardsOfficeSublevel_col" type="StaticBody" parent="Interior/MoonwardsOfficeSublevel" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -1089,33 +1094,14 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/MoonwardsOfficeSublevel/MoonwardsOfficeSublevel_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/MoonwardsOfficeSublevel/MoonwardsOfficeSublevel_col" index="0"]
 
-shape = ExtResource( 34 )
+shape = ExtResource( 35 )
 disabled = false
 
-[node name="MoonwardsOfficeSublevel001" type="MeshInstance" parent="Interior"]
+[node name="MoonwardsOfficeSublevel001" type="MeshInstance" parent="Interior" index="26"]
 
 transform = Transform( 0.990051, 1.8167e-06, -0.140701, -1.82809e-06, 1, 4.82909e-08, 0.140701, 2.09404e-07, 0.990052, -2.35937, -2.99121, -0.494139 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = true
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 35 )
-skeleton = NodePath("..")
-material/0 = null
-_sections_unfolded = [ "Geometry" ]
-
-[node name="MWBooth-Bench" type="MeshInstance" parent="Interior" groups=[
-"cs",
-]]
-
-transform = Transform( 1, 1.79292e-06, 0, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -2.41455, -2.86096, -0.29077 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1130,7 +1116,26 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="MWBooth-Bench_col" type="StaticBody" parent="Interior/MWBooth-Bench"]
+[node name="MWBooth-Bench" type="MeshInstance" parent="Interior" index="27" groups=[
+"cs",
+]]
+
+transform = Transform( 1, 1.79292e-06, 0, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -2.41455, -2.86096, -0.29077 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = true
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 37 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Geometry" ]
+
+[node name="MWBooth-Bench_col" type="StaticBody" parent="Interior/MWBooth-Bench" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -1141,12 +1146,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/MWBooth-Bench/MWBooth-Bench_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/MWBooth-Bench/MWBooth-Bench_col" index="0"]
 
-shape = ExtResource( 37 )
+shape = ExtResource( 38 )
 disabled = false
 
-[node name="MWBooth-Shelves" type="MeshInstance" parent="Interior" groups=[
+[node name="MWBooth-Shelves" type="MeshInstance" parent="Interior" index="28" groups=[
 "cs",
 ]]
 
@@ -1160,12 +1165,12 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 38 )
+mesh = ExtResource( 39 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="MWBooth-Shelves_col" type="StaticBody" parent="Interior/MWBooth-Shelves"]
+[node name="MWBooth-Shelves_col" type="StaticBody" parent="Interior/MWBooth-Shelves" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -1176,34 +1181,14 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/MWBooth-Shelves/MWBooth-Shelves_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/MWBooth-Shelves/MWBooth-Shelves_col" index="0"]
 
-shape = ExtResource( 39 )
+shape = ExtResource( 40 )
 disabled = false
 
-[node name="MWBooth-Steps" type="MeshInstance" parent="Interior"]
+[node name="MWBooth-Steps" type="MeshInstance" parent="Interior" index="29"]
 
 transform = Transform( 1, 1.79292e-06, 0, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -2.41455, -2.68616, -0.29077 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = true
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 40 )
-skeleton = NodePath("..")
-material/0 = null
-material/1 = null
-_sections_unfolded = [ "Geometry" ]
-
-[node name="MWBooth-Table" type="MeshInstance" parent="Interior" groups=[
-"cs",
-]]
-
-transform = Transform( 1, 1.79292e-06, 0, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -2.39013, -2.82214, -0.315183 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1219,7 +1204,27 @@ material/0 = null
 material/1 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="MWBooth-Table_col" type="StaticBody" parent="Interior/MWBooth-Table"]
+[node name="MWBooth-Table" type="MeshInstance" parent="Interior" index="30" groups=[
+"cs",
+]]
+
+transform = Transform( 1, 1.79292e-06, 0, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -2.39013, -2.82214, -0.315183 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = true
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 42 )
+skeleton = NodePath("..")
+material/0 = null
+material/1 = null
+_sections_unfolded = [ "Geometry" ]
+
+[node name="MWBooth-Table_col" type="StaticBody" parent="Interior/MWBooth-Table" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -1230,12 +1235,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/MWBooth-Table/MWBooth-Table_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/MWBooth-Table/MWBooth-Table_col" index="0"]
 
-shape = ExtResource( 42 )
+shape = ExtResource( 43 )
 disabled = false
 
-[node name="MWBoothRoof" type="MeshInstance" parent="Interior"]
+[node name="MWBoothRoof" type="MeshInstance" parent="Interior" index="31"]
 
 transform = Transform( 1, 1.79292e-06, 0, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -2.41455, -2.32117, -0.29077 )
 layers = 1
@@ -1247,12 +1252,12 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 43 )
+mesh = ExtResource( 44 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 44 )
+material/0 = ExtResource( 45 )
 _sections_unfolded = [ "Geometry", "material" ]
 
-[node name="Passage-BigAtrium-FirstGallery" type="MeshInstance" parent="Interior" groups=[
+[node name="Passage-BigAtrium-FirstGallery" type="MeshInstance" parent="Interior" index="32" groups=[
 "wall",
 ]]
 
@@ -1266,12 +1271,12 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 45 )
+mesh = ExtResource( 46 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 44 )
+material/0 = ExtResource( 45 )
 _sections_unfolded = [ "Geometry", "material" ]
 
-[node name="OmniLight" type="OmniLight" parent="Interior/Passage-BigAtrium-FirstGallery"]
+[node name="OmniLight" type="OmniLight" parent="Interior/Passage-BigAtrium-FirstGallery" index="0"]
 
 transform = Transform( 1, 0, -9.30267e-15, 0, 1, 0, -9.3018e-15, 0, 1, 0.0630184, 0.919068, -4.76837e-07 )
 layers = 1
@@ -1294,7 +1299,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light", "Omni" ]
 
-[node name="Passage-BigAtrium-FirstGallery_col" type="StaticBody" parent="Interior/Passage-BigAtrium-FirstGallery"]
+[node name="Passage-BigAtrium-FirstGallery_col" type="StaticBody" parent="Interior/Passage-BigAtrium-FirstGallery" index="1"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -1305,12 +1310,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/Passage-BigAtrium-FirstGallery/Passage-BigAtrium-FirstGallery_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/Passage-BigAtrium-FirstGallery/Passage-BigAtrium-FirstGallery_col" index="0"]
 
-shape = ExtResource( 46 )
+shape = ExtResource( 47 )
 disabled = false
 
-[node name="Passage-FirstGallery-BigAtrium-BottomFloor" type="MeshInstance" parent="Interior" groups=[
+[node name="Passage-FirstGallery-BigAtrium-BottomFloor" type="MeshInstance" parent="Interior" index="33" groups=[
 "floor",
 ]]
 
@@ -1324,12 +1329,12 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 47 )
+mesh = ExtResource( 48 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="Passage-FirstGallery-BigAtrium-BottomFloor_col" type="StaticBody" parent="Interior/Passage-FirstGallery-BigAtrium-BottomFloor"]
+[node name="Passage-FirstGallery-BigAtrium-BottomFloor_col" type="StaticBody" parent="Interior/Passage-FirstGallery-BigAtrium-BottomFloor" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -1340,31 +1345,14 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/Passage-FirstGallery-BigAtrium-BottomFloor/Passage-FirstGallery-BigAtrium-BottomFloor_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/Passage-FirstGallery-BigAtrium-BottomFloor/Passage-FirstGallery-BigAtrium-BottomFloor_col" index="0"]
 
-shape = ExtResource( 48 )
+shape = ExtResource( 49 )
 disabled = false
 
-[node name="Passage-Mouth-North-BigAtrium-FirstGalley" type="MeshInstance" parent="Interior"]
+[node name="Passage-Mouth-North-BigAtrium-FirstGalley" type="MeshInstance" parent="Interior" index="34"]
 
 transform = Transform( 1, 1.98185e-06, -1.77056e-06, -1.77056e-06, -2.8213e-07, -1, -1.98185e-06, 1, -2.82126e-07, 1.89307, -4.26892, 4.06006 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = true
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 49 )
-skeleton = NodePath("..")
-material/0 = null
-_sections_unfolded = [ "Geometry", "material" ]
-
-[node name="Passage-Mouth-North-BigAtrium-FirstGalley002" type="MeshInstance" parent="Interior"]
-
-transform = Transform( -0.99997, 0.00781922, -1.81287e-06, 1.81724e-06, 5.52335e-07, -1, -0.00781922, -0.99997, -5.66527e-07, 2.45654, -4.42725, -1.51562 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1377,13 +1365,11 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 50 )
 skeleton = NodePath("..")
 material/0 = null
-_sections_unfolded = [ "Geometry" ]
+_sections_unfolded = [ "Geometry", "material" ]
 
-[node name="ScooterRamp" type="MeshInstance" parent="Interior" groups=[
-"cs",
-]]
+[node name="Passage-Mouth-North-BigAtrium-FirstGalley002" type="MeshInstance" parent="Interior" index="35"]
 
-transform = Transform( -0.820272, 0.473591, -0.320724, 0.500006, 0.866022, -2.69191e-06, 0.277753, -0.160366, -0.947173, -7.0752, -2.76709, 0.402345 )
+transform = Transform( -0.99997, 0.00781922, -1.81287e-06, 1.81724e-06, 5.52335e-07, -1, -0.00781922, -0.99997, -5.66527e-07, 2.45654, -4.42725, -1.51562 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1398,7 +1384,26 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="ScooterRamp_col2" type="StaticBody" parent="Interior/ScooterRamp"]
+[node name="ScooterRamp" type="MeshInstance" parent="Interior" index="36" groups=[
+"cs",
+]]
+
+transform = Transform( -0.820272, 0.473591, -0.320724, 0.500006, 0.866022, -2.69191e-06, 0.277753, -0.160366, -0.947173, -7.0752, -2.76709, 0.402345 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = true
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 52 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Geometry" ]
+
+[node name="ScooterRamp_col2" type="StaticBody" parent="Interior/ScooterRamp" index="0"]
 
 transform = Transform( 1, 6.33299e-08, -2.98023e-08, 3.35276e-08, 1, 5.96046e-08, 2.98023e-08, -4.47035e-08, 1, 9.53674e-07, 0, 7.15256e-07 )
 input_ray_pickable = true
@@ -1410,12 +1415,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ScooterRamp/ScooterRamp_col2"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ScooterRamp/ScooterRamp_col2" index="0"]
 
-shape = ExtResource( 52 )
+shape = ExtResource( 53 )
 disabled = false
 
-[node name="ScooterRamp001" type="MeshInstance" parent="Interior/ScooterRamp" groups=[
+[node name="ScooterRamp001" type="MeshInstance" parent="Interior/ScooterRamp" index="1" groups=[
 "cs",
 ]]
 
@@ -1429,12 +1434,12 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 53 )
+mesh = ExtResource( 54 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry", "material" ]
 
-[node name="ScooterRamp001_col" type="StaticBody" parent="Interior/ScooterRamp/ScooterRamp001"]
+[node name="ScooterRamp001_col" type="StaticBody" parent="Interior/ScooterRamp/ScooterRamp001" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -1445,12 +1450,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ScooterRamp/ScooterRamp001/ScooterRamp001_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ScooterRamp/ScooterRamp001/ScooterRamp001_col" index="0"]
 
-shape = ExtResource( 54 )
+shape = ExtResource( 55 )
 disabled = false
 
-[node name="ScooterRamp002" type="MeshInstance" parent="Interior/ScooterRamp" groups=[
+[node name="ScooterRamp002" type="MeshInstance" parent="Interior/ScooterRamp" index="2" groups=[
 "cs",
 ]]
 
@@ -1464,12 +1469,12 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 55 )
+mesh = ExtResource( 56 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="ScooterRamp002_col" type="StaticBody" parent="Interior/ScooterRamp/ScooterRamp002"]
+[node name="ScooterRamp002_col" type="StaticBody" parent="Interior/ScooterRamp/ScooterRamp002" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -1480,12 +1485,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ScooterRamp/ScooterRamp002/ScooterRamp002_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ScooterRamp/ScooterRamp002/ScooterRamp002_col" index="0"]
 
-shape = ExtResource( 56 )
+shape = ExtResource( 57 )
 disabled = false
 
-[node name="ScooterRamp003" type="MeshInstance" parent="Interior/ScooterRamp" groups=[
+[node name="ScooterRamp003" type="MeshInstance" parent="Interior/ScooterRamp" index="3" groups=[
 "cs",
 ]]
 
@@ -1499,12 +1504,12 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 57 )
+mesh = ExtResource( 58 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="ScooterRamp003_col" type="StaticBody" parent="Interior/ScooterRamp/ScooterRamp003"]
+[node name="ScooterRamp003_col" type="StaticBody" parent="Interior/ScooterRamp/ScooterRamp003" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -1515,12 +1520,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ScooterRamp/ScooterRamp003/ScooterRamp003_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ScooterRamp/ScooterRamp003/ScooterRamp003_col" index="0"]
 
-shape = ExtResource( 58 )
+shape = ExtResource( 59 )
 disabled = false
 
-[node name="ScooterRamp004" type="MeshInstance" parent="Interior/ScooterRamp" groups=[
+[node name="ScooterRamp004" type="MeshInstance" parent="Interior/ScooterRamp" index="4" groups=[
 "cs",
 ]]
 
@@ -1534,12 +1539,12 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 59 )
+mesh = ExtResource( 60 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="ScooterRamp004_col" type="StaticBody" parent="Interior/ScooterRamp/ScooterRamp004"]
+[node name="ScooterRamp004_col" type="StaticBody" parent="Interior/ScooterRamp/ScooterRamp004" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -1550,46 +1555,30 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ScooterRamp/ScooterRamp004/ScooterRamp004_col"]
-
-shape = ExtResource( 60 )
-disabled = false
-
-[node name="ScooterRamp_col" type="StaticBody" parent="Interior/ScooterRamp"]
-
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ScooterRamp/ScooterRamp_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ScooterRamp/ScooterRamp004/ScooterRamp004_col" index="0"]
 
 shape = ExtResource( 61 )
 disabled = false
 
-[node name="ShimmyPole1010" type="MeshInstance" parent="Interior"]
+[node name="ScooterRamp_col" type="StaticBody" parent="Interior/ScooterRamp" index="5"]
+
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+friction = 1.0
+bounce = 0.0
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ScooterRamp/ScooterRamp_col" index="0"]
+
+shape = ExtResource( 62 )
+disabled = false
+
+[node name="ShimmyPole1010" type="MeshInstance" parent="Interior" index="37"]
 
 transform = Transform( 0.997401, 1.78074e-06, 0.0720526, -1.74729e-06, 1, -5.27323e-07, -0.0720526, 4.00055e-07, 0.997401, -3.50586, -0.440063, 0.248783 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 62 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="ShimmyPole1012" type="MeshInstance" parent="Interior"]
-
-transform = Transform( 0.997401, 1.78074e-06, 0.0720526, -1.74729e-06, 1, -5.27323e-07, -0.0720526, 4.00055e-07, 0.997401, -3.50586, -5.14001, 0.248783 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1603,9 +1592,9 @@ mesh = ExtResource( 63 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyPole1013" type="MeshInstance" parent="Interior"]
+[node name="ShimmyPole1012" type="MeshInstance" parent="Interior" index="38"]
 
-transform = Transform( -0.0711161, 1.43063e-06, 0.997468, 2.35808e-06, 1, -1.26614e-06, -0.997469, 2.26206e-06, -0.0711162, -3.75391, -1.64001, 0.34302 )
+transform = Transform( 0.997401, 1.78074e-06, 0.0720526, -1.74729e-06, 1, -5.27323e-07, -0.0720526, 4.00055e-07, 0.997401, -3.50586, -5.14001, 0.248783 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1617,12 +1606,11 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 64 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 65 )
-_sections_unfolded = [ "material" ]
+material/0 = null
 
-[node name="ShimmyPole1015" type="MeshInstance" parent="Interior"]
+[node name="ShimmyPole1013" type="MeshInstance" parent="Interior" index="39"]
 
-transform = Transform( -0.0711161, 1.43774e-06, 0.997468, 2.36452e-06, 1, -1.27281e-06, -0.997469, 2.26801e-06, -0.0711162, -3.75391, -4.04004, 0.34302 )
+transform = Transform( -0.0711161, 1.43063e-06, 0.997468, 2.35808e-06, 1, -1.26614e-06, -0.997469, 2.26206e-06, -0.0711162, -3.75391, -1.64001, 0.34302 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1632,13 +1620,14 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 66 )
+mesh = ExtResource( 65 )
 skeleton = NodePath("..")
-material/0 = null
+material/0 = ExtResource( 66 )
+_sections_unfolded = [ "material" ]
 
-[node name="ShimmyPole1018" type="MeshInstance" parent="Interior"]
+[node name="ShimmyPole1015" type="MeshInstance" parent="Interior" index="40"]
 
-transform = Transform( 0.997401, 1.78074e-06, 0.0720526, -1.74729e-06, 1, -5.27323e-07, -0.0720526, 4.00055e-07, 0.997401, -3.50586, -2.84009, 0.248783 )
+transform = Transform( -0.0711161, 1.43774e-06, 0.997468, 2.36452e-06, 1, -1.27281e-06, -0.997469, 2.26801e-06, -0.0711162, -3.75391, -4.04004, 0.34302 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1652,9 +1641,9 @@ mesh = ExtResource( 67 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyPole1020" type="MeshInstance" parent="Interior"]
+[node name="ShimmyPole1018" type="MeshInstance" parent="Interior" index="41"]
 
-transform = Transform( 0.997401, 1.78074e-06, 0.0720526, -1.74729e-06, 1, -5.27323e-07, -0.0720526, 4.00055e-07, 0.997401, 3.76953, -0.440064, -0.0202635 )
+transform = Transform( 0.997401, 1.78074e-06, 0.0720526, -1.74729e-06, 1, -5.27323e-07, -0.0720526, 4.00055e-07, 0.997401, -3.50586, -2.84009, 0.248783 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1668,9 +1657,9 @@ mesh = ExtResource( 68 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyPole1021" type="MeshInstance" parent="Interior"]
+[node name="ShimmyPole1020" type="MeshInstance" parent="Interior" index="42"]
 
-transform = Transform( 0.997401, 1.78074e-06, 0.0720526, -1.74729e-06, 1, -5.27323e-07, -0.0720526, 4.00055e-07, 0.997401, 3.23877, -2.84009, -0.263428 )
+transform = Transform( 0.997401, 1.78074e-06, 0.0720526, -1.74729e-06, 1, -5.27323e-07, -0.0720526, 4.00055e-07, 0.997401, 3.76953, -0.440064, -0.0202635 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1684,9 +1673,9 @@ mesh = ExtResource( 69 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyPole1022" type="MeshInstance" parent="Interior"]
+[node name="ShimmyPole1021" type="MeshInstance" parent="Interior" index="43"]
 
-transform = Transform( 0.997401, 1.78074e-06, 0.0720526, -1.74729e-06, 1, -5.27323e-07, -0.0720526, 4.00055e-07, 0.997401, 3.23877, -5.14001, -0.263428 )
+transform = Transform( 0.997401, 1.78074e-06, 0.0720526, -1.74729e-06, 1, -5.27323e-07, -0.0720526, 4.00055e-07, 0.997401, 3.23877, -2.84009, -0.263428 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1698,12 +1687,11 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 70 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 65 )
-_sections_unfolded = [ "material" ]
+material/0 = null
 
-[node name="ShimmyPole1023" type="MeshInstance" parent="Interior"]
+[node name="ShimmyPole1022" type="MeshInstance" parent="Interior" index="44"]
 
-transform = Transform( -0.0711161, 1.43063e-06, 0.997468, 2.35808e-06, 1, -1.26614e-06, -0.997469, 2.26206e-06, -0.0711162, 3.52148, -1.64001, 0.0739749 )
+transform = Transform( 0.997401, 1.78074e-06, 0.0720526, -1.74729e-06, 1, -5.27323e-07, -0.0720526, 4.00055e-07, 0.997401, 3.23877, -5.14001, -0.263428 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1715,12 +1703,12 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 71 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 65 )
+material/0 = ExtResource( 66 )
 _sections_unfolded = [ "material" ]
 
-[node name="ShimmyStair-Rails010" type="MeshInstance" parent="Interior"]
+[node name="ShimmyPole1023" type="MeshInstance" parent="Interior" index="45"]
 
-transform = Transform( 0.997296, 1.80529e-06, -0.0734865, -1.82027e-06, 1, -1.36851e-07, 0.0734865, 2.70246e-07, 0.997296, -3.46045, -0.440796, 0.252199 )
+transform = Transform( -0.0711161, 1.43063e-06, 0.997468, 2.35808e-06, 1, -1.26614e-06, -0.997469, 2.26206e-06, -0.0711162, 3.52148, -1.64001, 0.0739749 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1732,11 +1720,12 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 72 )
 skeleton = NodePath("..")
-material/0 = null
+material/0 = ExtResource( 66 )
+_sections_unfolded = [ "material" ]
 
-[node name="ShimmyStair-Rails012" type="MeshInstance" parent="Interior"]
+[node name="ShimmyStair-Rails010" type="MeshInstance" parent="Interior" index="46"]
 
-transform = Transform( 0.997296, 1.80529e-06, -0.0734864, -1.82027e-06, 1, -1.36851e-07, 0.0734865, 2.70246e-07, 0.997296, -3.46045, -5.14075, 0.252199 )
+transform = Transform( 0.997296, 1.80529e-06, -0.0734865, -1.82027e-06, 1, -1.36851e-07, 0.0734865, 2.70246e-07, 0.997296, -3.46045, -0.440796, 0.252199 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1750,9 +1739,9 @@ mesh = ExtResource( 73 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyStair-Rails013" type="MeshInstance" parent="Interior"]
+[node name="ShimmyStair-Rails012" type="MeshInstance" parent="Interior" index="47"]
 
-transform = Transform( 0.0744222, 1.48065e-06, 0.997226, 1.88586e-06, 1, -1.6255e-06, -0.997227, 2.0016e-06, 0.0744222, -3.75049, -1.64075, 0.297366 )
+transform = Transform( 0.997296, 1.80529e-06, -0.0734864, -1.82027e-06, 1, -1.36851e-07, 0.0734865, 2.70246e-07, 0.997296, -3.46045, -5.14075, 0.252199 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1764,12 +1753,11 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 74 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 65 )
-_sections_unfolded = [ "material" ]
+material/0 = null
 
-[node name="ShimmyStair-Rails015" type="MeshInstance" parent="Interior"]
+[node name="ShimmyStair-Rails013" type="MeshInstance" parent="Interior" index="48"]
 
-transform = Transform( 0.0744225, 1.48765e-06, 0.997226, 1.89036e-06, 1, -1.63286e-06, -0.997227, 2.00663e-06, 0.0744224, -3.75049, -4.04077, 0.297366 )
+transform = Transform( 0.0744222, 1.48065e-06, 0.997226, 1.88586e-06, 1, -1.6255e-06, -0.997227, 2.0016e-06, 0.0744222, -3.75049, -1.64075, 0.297366 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1781,11 +1769,12 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 75 )
 skeleton = NodePath("..")
-material/0 = null
+material/0 = ExtResource( 66 )
+_sections_unfolded = [ "material" ]
 
-[node name="ShimmyStair-Rails018" type="MeshInstance" parent="Interior"]
+[node name="ShimmyStair-Rails015" type="MeshInstance" parent="Interior" index="49"]
 
-transform = Transform( 0.997296, 1.80529e-06, -0.0734864, -1.82027e-06, 1, -1.36851e-07, 0.0734865, 2.70246e-07, 0.997296, -3.46045, -2.8407, 0.252199 )
+transform = Transform( 0.0744225, 1.48765e-06, 0.997226, 1.89036e-06, 1, -1.63286e-06, -0.997227, 2.00663e-06, 0.0744224, -3.75049, -4.04077, 0.297366 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1799,9 +1788,9 @@ mesh = ExtResource( 76 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyStair-Rails020" type="MeshInstance" parent="Interior"]
+[node name="ShimmyStair-Rails018" type="MeshInstance" parent="Interior" index="50"]
 
-transform = Transform( 0.997296, 1.80529e-06, -0.0734864, -1.82027e-06, 1, -1.36851e-07, 0.0734865, 2.70246e-07, 0.997296, 3.81494, -0.440796, -0.0168457 )
+transform = Transform( 0.997296, 1.80529e-06, -0.0734864, -1.82027e-06, 1, -1.36851e-07, 0.0734865, 2.70246e-07, 0.997296, -3.46045, -2.8407, 0.252199 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1815,9 +1804,9 @@ mesh = ExtResource( 77 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyStair-Rails021" type="MeshInstance" parent="Interior"]
+[node name="ShimmyStair-Rails020" type="MeshInstance" parent="Interior" index="51"]
 
-transform = Transform( 0.997296, 1.80529e-06, -0.0734864, -1.82027e-06, 1, -1.36851e-07, 0.0734865, 2.70246e-07, 0.997296, 3.28418, -2.8407, -0.260011 )
+transform = Transform( 0.997296, 1.80529e-06, -0.0734864, -1.82027e-06, 1, -1.36851e-07, 0.0734865, 2.70246e-07, 0.997296, 3.81494, -0.440796, -0.0168457 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1831,9 +1820,9 @@ mesh = ExtResource( 78 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyStair-Rails022" type="MeshInstance" parent="Interior"]
+[node name="ShimmyStair-Rails021" type="MeshInstance" parent="Interior" index="52"]
 
-transform = Transform( 0.997296, 1.80529e-06, -0.0734864, -1.82027e-06, 1, -1.36851e-07, 0.0734865, 2.70246e-07, 0.997296, 3.28418, -5.14075, -0.260011 )
+transform = Transform( 0.997296, 1.80529e-06, -0.0734864, -1.82027e-06, 1, -1.36851e-07, 0.0734865, 2.70246e-07, 0.997296, 3.28418, -2.8407, -0.260011 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1845,12 +1834,11 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 79 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 65 )
-_sections_unfolded = [ "material" ]
+material/0 = null
 
-[node name="ShimmyStair-Rails023" type="MeshInstance" parent="Interior"]
+[node name="ShimmyStair-Rails022" type="MeshInstance" parent="Interior" index="53"]
 
-transform = Transform( 0.0744222, 1.48065e-06, 0.997226, 1.88586e-06, 1, -1.6255e-06, -0.997227, 2.0016e-06, 0.0744222, 3.5249, -1.64075, 0.0285638 )
+transform = Transform( 0.997296, 1.80529e-06, -0.0734864, -1.82027e-06, 1, -1.36851e-07, 0.0734865, 2.70246e-07, 0.997296, 3.28418, -5.14075, -0.260011 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1862,12 +1850,12 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 80 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 65 )
+material/0 = ExtResource( 66 )
 _sections_unfolded = [ "material" ]
 
-[node name="ShimmyStair-Rails024" type="MeshInstance" parent="Interior"]
+[node name="ShimmyStair-Rails023" type="MeshInstance" parent="Interior" index="54"]
 
-transform = Transform( 0.0744224, 1.48765e-06, 0.997226, 1.89036e-06, 1, -1.63285e-06, -0.997227, 2.00663e-06, 0.0744223, 2.99463, -4.04077, -0.214843 )
+transform = Transform( 0.0744222, 1.48065e-06, 0.997226, 1.88586e-06, 1, -1.6255e-06, -0.997227, 2.0016e-06, 0.0744222, 3.5249, -1.64075, 0.0285638 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1879,11 +1867,12 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 81 )
 skeleton = NodePath("..")
-material/0 = null
+material/0 = ExtResource( 66 )
+_sections_unfolded = [ "material" ]
 
-[node name="ShimmyStair-SafetyRungs001" type="MeshInstance" parent="Interior"]
+[node name="ShimmyStair-Rails024" type="MeshInstance" parent="Interior" index="55"]
 
-transform = Transform( 0.997296, 1.80529e-06, -0.0734865, -1.82027e-06, 1, -1.36851e-07, 0.0734865, 2.70246e-07, 0.997296, -3.44873, -3.08301, 0.198488 )
+transform = Transform( 0.0744224, 1.48765e-06, 0.997226, 1.89036e-06, 1, -1.63285e-06, -0.997227, 2.00663e-06, 0.0744223, 2.99463, -4.04077, -0.214843 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1897,9 +1886,9 @@ mesh = ExtResource( 82 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyStair-SafetyRungs002" type="MeshInstance" parent="Interior"]
+[node name="ShimmyStair-SafetyRungs001" type="MeshInstance" parent="Interior" index="56"]
 
-transform = Transform( 0.997296, 1.80157e-06, -0.0734865, -1.81656e-06, 1, -1.37261e-07, 0.0734865, 2.70384e-07, 0.997296, -3.44873, -5.32886, 0.198488 )
+transform = Transform( 0.997296, 1.80529e-06, -0.0734865, -1.82027e-06, 1, -1.36851e-07, 0.0734865, 2.70246e-07, 0.997296, -3.44873, -3.08301, 0.198488 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1913,9 +1902,9 @@ mesh = ExtResource( 83 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyStair-SafetyRungs003" type="MeshInstance" parent="Interior"]
+[node name="ShimmyStair-SafetyRungs002" type="MeshInstance" parent="Interior" index="57"]
 
-transform = Transform( 0.0744225, 1.48041e-06, 0.997226, 1.88566e-06, 1, -1.62525e-06, -0.997227, 2.00139e-06, 0.0744224, -3.8042, -1.88306, 0.285403 )
+transform = Transform( 0.997296, 1.80157e-06, -0.0734865, -1.81656e-06, 1, -1.37261e-07, 0.0734865, 2.70384e-07, 0.997296, -3.44873, -5.32886, 0.198488 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1927,12 +1916,11 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 84 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 65 )
-_sections_unfolded = [ "material" ]
+material/0 = null
 
-[node name="ShimmyStair-SafetyRungs005" type="MeshInstance" parent="Interior"]
+[node name="ShimmyStair-SafetyRungs003" type="MeshInstance" parent="Interior" index="58"]
 
-transform = Transform( 0.0744225, 1.48741e-06, 0.997226, 1.89016e-06, 1, -1.63261e-06, -0.997227, 2.00642e-06, 0.0744224, -3.8042, -4.28296, 0.285403 )
+transform = Transform( 0.0744225, 1.48041e-06, 0.997226, 1.88566e-06, 1, -1.62525e-06, -0.997227, 2.00139e-06, 0.0744224, -3.8042, -1.88306, 0.285403 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1944,12 +1932,12 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 85 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 65 )
+material/0 = ExtResource( 66 )
 _sections_unfolded = [ "material" ]
 
-[node name="ShimmyStair-SafetyRungs007" type="MeshInstance" parent="Interior"]
+[node name="ShimmyStair-SafetyRungs005" type="MeshInstance" parent="Interior" index="59"]
 
-transform = Transform( 0.997296, 1.80529e-06, -0.0734865, -1.82027e-06, 1, -1.36851e-07, 0.0734865, 2.70246e-07, 0.997296, -3.44873, -5.32886, 0.198488 )
+transform = Transform( 0.0744225, 1.48741e-06, 0.997226, 1.89016e-06, 1, -1.63261e-06, -0.997227, 2.00642e-06, 0.0744224, -3.8042, -4.28296, 0.285403 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1961,12 +1949,12 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 86 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 65 )
+material/0 = ExtResource( 66 )
 _sections_unfolded = [ "material" ]
 
-[node name="ShimmyStair-SafetyRungs008" type="MeshInstance" parent="Interior"]
+[node name="ShimmyStair-SafetyRungs007" type="MeshInstance" parent="Interior" index="60"]
 
-transform = Transform( 0.997296, 1.80529e-06, -0.0734865, -1.82027e-06, 1, -1.36851e-07, 0.0734865, 2.70246e-07, 0.997296, -3.44873, -3.08301, 0.198488 )
+transform = Transform( 0.997296, 1.80529e-06, -0.0734865, -1.82027e-06, 1, -1.36851e-07, 0.0734865, 2.70246e-07, 0.997296, -3.44873, -5.32886, 0.198488 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1978,12 +1966,12 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 87 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 65 )
+material/0 = ExtResource( 66 )
 _sections_unfolded = [ "material" ]
 
-[node name="ShimmyStair-SafetyRungs009" type="MeshInstance" parent="Interior"]
+[node name="ShimmyStair-SafetyRungs008" type="MeshInstance" parent="Interior" index="61"]
 
-transform = Transform( 0.997296, 1.81738e-06, -0.0734865, -1.8326e-06, 1, -1.39626e-07, 0.0734865, 2.7392e-07, 0.997296, -3.44873, -0.682983, 0.198488 )
+transform = Transform( 0.997296, 1.80529e-06, -0.0734865, -1.82027e-06, 1, -1.36851e-07, 0.0734865, 2.70246e-07, 0.997296, -3.44873, -3.08301, 0.198488 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -1995,12 +1983,12 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 88 )
 skeleton = NodePath("..")
-material/0 = null
-_sections_unfolded = [ "Transform", "material" ]
+material/0 = ExtResource( 66 )
+_sections_unfolded = [ "material" ]
 
-[node name="ShimmyStair-SafetyRungs010" type="MeshInstance" parent="Interior"]
+[node name="ShimmyStair-SafetyRungs009" type="MeshInstance" parent="Interior" index="62"]
 
-transform = Transform( 0.997296, 1.80528e-06, -0.0734865, -1.82024e-06, 1, -1.36619e-07, 0.0734865, 2.70013e-07, 0.997296, 3.82665, -0.682983, -0.0703135 )
+transform = Transform( 0.997296, 1.81738e-06, -0.0734865, -1.8326e-06, 1, -1.39626e-07, 0.0734865, 2.7392e-07, 0.997296, -3.44873, -0.682983, 0.198488 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -2012,12 +2000,12 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 89 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 65 )
-_sections_unfolded = [ "material" ]
+material/0 = null
+_sections_unfolded = [ "Transform", "material" ]
 
-[node name="ShimmyStair-SafetyRungs011" type="MeshInstance" parent="Interior"]
+[node name="ShimmyStair-SafetyRungs010" type="MeshInstance" parent="Interior" index="63"]
 
-transform = Transform( 0.997296, 1.80529e-06, -0.0734865, -1.82027e-06, 1, -1.36851e-07, 0.0734865, 2.70246e-07, 0.997296, 3.29638, -3.08301, -0.313721 )
+transform = Transform( 0.997296, 1.80528e-06, -0.0734865, -1.82024e-06, 1, -1.36619e-07, 0.0734865, 2.70013e-07, 0.997296, 3.82665, -0.682983, -0.0703135 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -2029,12 +2017,12 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 90 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 65 )
+material/0 = ExtResource( 66 )
 _sections_unfolded = [ "material" ]
 
-[node name="ShimmyStair-SafetyRungs012" type="MeshInstance" parent="Interior"]
+[node name="ShimmyStair-SafetyRungs011" type="MeshInstance" parent="Interior" index="64"]
 
-transform = Transform( 0.997296, 1.80157e-06, -0.0734865, -1.81656e-06, 1, -1.37261e-07, 0.0734865, 2.70384e-07, 0.997296, 3.29638, -5.32886, -0.313721 )
+transform = Transform( 0.997296, 1.80529e-06, -0.0734865, -1.82027e-06, 1, -1.36851e-07, 0.0734865, 2.70246e-07, 0.997296, 3.29638, -3.08301, -0.313721 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -2046,12 +2034,12 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 91 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 65 )
+material/0 = ExtResource( 66 )
 _sections_unfolded = [ "material" ]
 
-[node name="ShimmyStair-SafetyRungs013" type="MeshInstance" parent="Interior"]
+[node name="ShimmyStair-SafetyRungs012" type="MeshInstance" parent="Interior" index="65"]
 
-transform = Transform( 0.0744225, 1.48041e-06, 0.997226, 1.88566e-06, 1, -1.62525e-06, -0.997227, 2.00139e-06, 0.0744224, 3.47119, -1.88306, 0.0166022 )
+transform = Transform( 0.997296, 1.80157e-06, -0.0734865, -1.81656e-06, 1, -1.37261e-07, 0.0734865, 2.70384e-07, 0.997296, 3.29638, -5.32886, -0.313721 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -2063,12 +2051,12 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 92 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 65 )
+material/0 = ExtResource( 66 )
 _sections_unfolded = [ "material" ]
 
-[node name="ShimmyStair-SafetyRungs014" type="MeshInstance" parent="Interior"]
+[node name="ShimmyStair-SafetyRungs013" type="MeshInstance" parent="Interior" index="66"]
 
-transform = Transform( 0.0744225, 1.48741e-06, 0.997226, 1.89016e-06, 1, -1.63261e-06, -0.997227, 2.00642e-06, 0.0744224, 2.94091, -4.28296, -0.226807 )
+transform = Transform( 0.0744225, 1.48041e-06, 0.997226, 1.88566e-06, 1, -1.62525e-06, -0.997227, 2.00139e-06, 0.0744224, 3.47119, -1.88306, 0.0166022 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -2080,10 +2068,27 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = ExtResource( 93 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 65 )
+material/0 = ExtResource( 66 )
 _sections_unfolded = [ "material" ]
 
-[node name="ShimmyStair-Steps010" type="MeshInstance" parent="Interior" groups=[
+[node name="ShimmyStair-SafetyRungs014" type="MeshInstance" parent="Interior" index="67"]
+
+transform = Transform( 0.0744225, 1.48741e-06, 0.997226, 1.89016e-06, 1, -1.63261e-06, -0.997227, 2.00642e-06, 0.0744224, 2.94091, -4.28296, -0.226807 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 94 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 66 )
+_sections_unfolded = [ "material" ]
+
+[node name="ShimmyStair-Steps010" type="MeshInstance" parent="Interior" index="68" groups=[
 "cs",
 ]]
 
@@ -2097,13 +2102,13 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 94 )
+mesh = ExtResource( 95 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="ShimmyStair-Steps010_col" type="StaticBody" parent="Interior/ShimmyStair-Steps010"]
+[node name="ShimmyStair-Steps010_col" type="StaticBody" parent="Interior/ShimmyStair-Steps010" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2114,12 +2119,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Steps010/ShimmyStair-Steps010_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Steps010/ShimmyStair-Steps010_col" index="0"]
 
-shape = ExtResource( 95 )
+shape = ExtResource( 96 )
 disabled = false
 
-[node name="ShimmyStair-Steps012" type="MeshInstance" parent="Interior" groups=[
+[node name="ShimmyStair-Steps012" type="MeshInstance" parent="Interior" index="69" groups=[
 "cs",
 ]]
 
@@ -2133,14 +2138,14 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 96 )
+mesh = ExtResource( 97 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="ShimmyStair-Steps012_col" type="StaticBody" parent="Interior/ShimmyStair-Steps012"]
+[node name="ShimmyStair-Steps012_col" type="StaticBody" parent="Interior/ShimmyStair-Steps012" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2151,12 +2156,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Steps012/ShimmyStair-Steps012_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Steps012/ShimmyStair-Steps012_col" index="0"]
 
-shape = ExtResource( 97 )
+shape = ExtResource( 98 )
 disabled = false
 
-[node name="ShimmyStair-Steps013" type="MeshInstance" parent="Interior" groups=[
+[node name="ShimmyStair-Steps013" type="MeshInstance" parent="Interior" index="70" groups=[
 "cs",
 ]]
 
@@ -2170,14 +2175,14 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 98 )
+mesh = ExtResource( 99 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="ShimmyStair-Steps013_col" type="StaticBody" parent="Interior/ShimmyStair-Steps013"]
+[node name="ShimmyStair-Steps013_col" type="StaticBody" parent="Interior/ShimmyStair-Steps013" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2188,12 +2193,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Steps013/ShimmyStair-Steps013_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Steps013/ShimmyStair-Steps013_col" index="0"]
 
-shape = ExtResource( 99 )
+shape = ExtResource( 100 )
 disabled = false
 
-[node name="ShimmyStair-Steps015" type="MeshInstance" parent="Interior" groups=[
+[node name="ShimmyStair-Steps015" type="MeshInstance" parent="Interior" index="71" groups=[
 "cs",
 ]]
 
@@ -2207,14 +2212,14 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 100 )
+mesh = ExtResource( 101 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="ShimmyStair-Steps015_col" type="StaticBody" parent="Interior/ShimmyStair-Steps015"]
+[node name="ShimmyStair-Steps015_col" type="StaticBody" parent="Interior/ShimmyStair-Steps015" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2225,12 +2230,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Steps015/ShimmyStair-Steps015_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Steps015/ShimmyStair-Steps015_col" index="0"]
 
-shape = ExtResource( 101 )
+shape = ExtResource( 102 )
 disabled = false
 
-[node name="ShimmyStair-Steps018" type="MeshInstance" parent="Interior" groups=[
+[node name="ShimmyStair-Steps018" type="MeshInstance" parent="Interior" index="72" groups=[
 "cs",
 ]]
 
@@ -2244,14 +2249,14 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 102 )
+mesh = ExtResource( 103 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="ShimmyStair-Steps018_col" type="StaticBody" parent="Interior/ShimmyStair-Steps018"]
+[node name="ShimmyStair-Steps018_col" type="StaticBody" parent="Interior/ShimmyStair-Steps018" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2262,12 +2267,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Steps018/ShimmyStair-Steps018_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Steps018/ShimmyStair-Steps018_col" index="0"]
 
-shape = ExtResource( 103 )
+shape = ExtResource( 104 )
 disabled = false
 
-[node name="ShimmyStair-Steps020" type="MeshInstance" parent="Interior" groups=[
+[node name="ShimmyStair-Steps020" type="MeshInstance" parent="Interior" index="73" groups=[
 "cs",
 ]]
 
@@ -2281,14 +2286,14 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 104 )
+mesh = ExtResource( 105 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="ShimmyStair-Steps020_col" type="StaticBody" parent="Interior/ShimmyStair-Steps020"]
+[node name="ShimmyStair-Steps020_col" type="StaticBody" parent="Interior/ShimmyStair-Steps020" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2299,12 +2304,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Steps020/ShimmyStair-Steps020_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Steps020/ShimmyStair-Steps020_col" index="0"]
 
-shape = ExtResource( 105 )
+shape = ExtResource( 106 )
 disabled = false
 
-[node name="ShimmyStair-Steps021" type="MeshInstance" parent="Interior" groups=[
+[node name="ShimmyStair-Steps021" type="MeshInstance" parent="Interior" index="74" groups=[
 "cs",
 ]]
 
@@ -2318,14 +2323,14 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 106 )
+mesh = ExtResource( 107 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="ShimmyStair-Steps021_col" type="StaticBody" parent="Interior/ShimmyStair-Steps021"]
+[node name="ShimmyStair-Steps021_col" type="StaticBody" parent="Interior/ShimmyStair-Steps021" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2336,12 +2341,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Steps021/ShimmyStair-Steps021_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Steps021/ShimmyStair-Steps021_col" index="0"]
 
-shape = ExtResource( 107 )
+shape = ExtResource( 108 )
 disabled = false
 
-[node name="ShimmyStair-Steps022" type="MeshInstance" parent="Interior" groups=[
+[node name="ShimmyStair-Steps022" type="MeshInstance" parent="Interior" index="75" groups=[
 "cs",
 ]]
 
@@ -2355,14 +2360,14 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 108 )
+mesh = ExtResource( 109 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="ShimmyStair-Steps022_col" type="StaticBody" parent="Interior/ShimmyStair-Steps022"]
+[node name="ShimmyStair-Steps022_col" type="StaticBody" parent="Interior/ShimmyStair-Steps022" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2373,12 +2378,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Steps022/ShimmyStair-Steps022_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Steps022/ShimmyStair-Steps022_col" index="0"]
 
-shape = ExtResource( 109 )
+shape = ExtResource( 110 )
 disabled = false
 
-[node name="ShimmyStair-Steps023" type="MeshInstance" parent="Interior" groups=[
+[node name="ShimmyStair-Steps023" type="MeshInstance" parent="Interior" index="76" groups=[
 "cs",
 ]]
 
@@ -2392,14 +2397,14 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 110 )
+mesh = ExtResource( 111 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="ShimmyStair-Steps023_col" type="StaticBody" parent="Interior/ShimmyStair-Steps023"]
+[node name="ShimmyStair-Steps023_col" type="StaticBody" parent="Interior/ShimmyStair-Steps023" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2410,12 +2415,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Steps023/ShimmyStair-Steps023_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Steps023/ShimmyStair-Steps023_col" index="0"]
 
-shape = ExtResource( 111 )
+shape = ExtResource( 112 )
 disabled = false
 
-[node name="ShimmyStair-Steps024" type="MeshInstance" parent="Interior" groups=[
+[node name="ShimmyStair-Steps024" type="MeshInstance" parent="Interior" index="77" groups=[
 "cs",
 ]]
 
@@ -2429,14 +2434,14 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 112 )
+mesh = ExtResource( 113 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 113 )
-material/1 = ExtResource( 114 )
-material/2 = ExtResource( 115 )
+material/0 = ExtResource( 114 )
+material/1 = ExtResource( 115 )
+material/2 = ExtResource( 116 )
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="ShimmyPole1024" type="MeshInstance" parent="Interior/ShimmyStair-Steps024"]
+[node name="ShimmyPole1024" type="MeshInstance" parent="Interior/ShimmyStair-Steps024" index="0"]
 
 transform = Transform( 0.98941, -2.64369e-07, 0.145153, 2.57163e-07, 1, 6.83567e-08, -0.145153, -3.03132e-08, 0.989409, -4.35859e-05, 0.08496, 0.0519052 )
 layers = 1
@@ -2448,12 +2453,12 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 116 )
+mesh = ExtResource( 117 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "material" ]
 
-[node name="ShimmyStair-Steps024_col" type="StaticBody" parent="Interior/ShimmyStair-Steps024"]
+[node name="ShimmyStair-Steps024_col" type="StaticBody" parent="Interior/ShimmyStair-Steps024" index="1"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2464,12 +2469,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Steps024/ShimmyStair-Steps024_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Steps024/ShimmyStair-Steps024_col" index="0"]
 
-shape = ExtResource( 117 )
+shape = ExtResource( 118 )
 disabled = false
 
-[node name="SupportCable" type="MeshInstance" parent="Interior"]
+[node name="SupportCable" type="MeshInstance" parent="Interior" index="78"]
 
 transform = Transform( 1, 1.79292e-06, 0, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -2.41455, -1.72498, -0.29077 )
 layers = 1
@@ -2481,30 +2486,13 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 118 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="UpperGalleryRoof-Middle-Beams000" type="MeshInstance" parent="Interior"]
-
-transform = Transform( 0.991674, 1.81039e-06, -0.128773, -1.82359e-06, 1, 1.53932e-08, 0.128773, 2.19564e-07, 0.991674, -19.6765, -10.049, -2.55341 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = true
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 119 )
 skeleton = NodePath("..")
 material/0 = null
-_sections_unfolded = [ "Geometry" ]
 
-[node name="UpperGalleryRoof-Top-Beams003" type="MeshInstance" parent="Interior"]
+[node name="UpperGalleryRoof-Middle-Beams000" type="MeshInstance" parent="Interior" index="79"]
 
-transform = Transform( 0.991674, 1.81039e-06, -0.128773, -1.82359e-06, 1, 1.53932e-08, 0.128773, 2.19564e-07, 0.991674, -11.6943, -5.74487, -1.51684 )
+transform = Transform( 0.991674, 1.81039e-06, -0.128773, -1.82359e-06, 1, 1.53932e-08, 0.128773, 2.19564e-07, 0.991674, -19.6765, -10.049, -2.55341 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -2519,9 +2507,9 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="UpperGalleryRoof-UpperBeams" type="MeshInstance" parent="Interior"]
+[node name="UpperGalleryRoof-Top-Beams003" type="MeshInstance" parent="Interior" index="80"]
 
-transform = Transform( 0.991674, -4.27723e-09, -0.128773, 4.33045e-09, 1, 1.33284e-10, 0.128773, -6.8982e-10, 0.991674, -19.1616, -10.6357, -2.48966 )
+transform = Transform( 0.991674, 1.81039e-06, -0.128773, -1.82359e-06, 1, 1.53932e-08, 0.128773, 2.19564e-07, 0.991674, -11.6943, -5.74487, -1.51684 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -2536,9 +2524,9 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="WaterPipeRecHab1" type="MeshInstance" parent="Interior"]
+[node name="UpperGalleryRoof-UpperBeams" type="MeshInstance" parent="Interior" index="81"]
 
-transform = Transform( 1, 1.79292e-06, 0, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -14.0024, -9.19629, -3.63549 )
+transform = Transform( 0.991674, -4.27723e-09, -0.128773, 4.33045e-09, 1, 1.33284e-10, 0.128773, -6.8982e-10, 0.991674, -19.1616, -10.6357, -2.48966 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -2553,13 +2541,9 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="Exterior" type="Spatial" parent="."]
+[node name="WaterPipeRecHab1" type="MeshInstance" parent="Interior" index="82"]
 
-[node name="UpperGalleryRoof-TopMain" type="MeshInstance" parent="Exterior" groups=[
-"wall",
-]]
-
-transform = Transform( 0.991674, 1.81039e-06, -0.128773, -1.82359e-06, 1, 1.53932e-08, 0.128773, 2.19565e-07, 0.991674, -19.3164, -11.8588, -2.50488 )
+transform = Transform( 1, 1.79292e-06, 0, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -14.0024, -9.19629, -3.63549 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -2572,13 +2556,15 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 123 )
 skeleton = NodePath("..")
 material/0 = null
-material/1 = null
-material/2 = null
-_sections_unfolded = [ "Geometry", "material" ]
+_sections_unfolded = [ "Geometry" ]
 
-[node name="UpperGalleryRoof-Top-Windows" type="MeshInstance" parent="Exterior/UpperGalleryRoof-TopMain"]
+[node name="Exterior" type="Spatial" parent="." index="1"]
 
-transform = Transform( 1, -1.13687e-13, 1.49011e-08, 7.5105e-08, 1, -1.78088e-09, -1.49012e-08, -2.66454e-14, 1, -1.90735e-06, 0, 2.86615e-07 )
+[node name="UpperGalleryRoof-TopMain" type="MeshInstance" parent="Exterior" index="0" groups=[
+"wall",
+]]
+
+transform = Transform( 0.991674, 1.81039e-06, -0.128773, -1.82359e-06, 1, 1.53932e-08, 0.128773, 2.19565e-07, 0.991674, -19.3164, -11.8588, -2.50488 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -2593,9 +2579,28 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
+_sections_unfolded = [ "Geometry", "material" ]
+
+[node name="UpperGalleryRoof-Top-Windows" type="MeshInstance" parent="Exterior/UpperGalleryRoof-TopMain" index="0"]
+
+transform = Transform( 1, -1.13687e-13, 1.49011e-08, 7.5105e-08, 1, -1.78088e-09, -1.49012e-08, -2.66454e-14, 1, -1.90735e-06, 0, 2.86615e-07 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = true
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 125 )
+skeleton = NodePath("..")
+material/0 = null
+material/1 = null
+material/2 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="UpperGalleryRoof-TopMain_col" type="StaticBody" parent="Exterior/UpperGalleryRoof-TopMain"]
+[node name="UpperGalleryRoof-TopMain_col" type="StaticBody" parent="Exterior/UpperGalleryRoof-TopMain" index="1"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2606,12 +2611,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Exterior/UpperGalleryRoof-TopMain/UpperGalleryRoof-TopMain_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Exterior/UpperGalleryRoof-TopMain/UpperGalleryRoof-TopMain_col" index="0"]
 
-shape = ExtResource( 125 )
+shape = ExtResource( 126 )
 disabled = false
 
-[node name="FirstGalleryFloor_Top" type="MeshInstance" parent="Exterior" groups=[
+[node name="FirstGalleryFloor_Top" type="MeshInstance" parent="Exterior" index="1" groups=[
 "floor",
 ]]
 
@@ -2625,7 +2630,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 126 )
+mesh = ExtResource( 127 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
@@ -2633,7 +2638,7 @@ material/2 = null
 material/3 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="FirstGalleryFloor_Top_col" type="StaticBody" parent="Exterior/FirstGalleryFloor_Top"]
+[node name="FirstGalleryFloor_Top_col" type="StaticBody" parent="Exterior/FirstGalleryFloor_Top" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2644,12 +2649,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Exterior/FirstGalleryFloor_Top/FirstGalleryFloor_Top_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Exterior/FirstGalleryFloor_Top/FirstGalleryFloor_Top_col" index="0"]
 
-shape = ExtResource( 127 )
+shape = ExtResource( 128 )
 disabled = false
 
-[node name="FirstGalleryWalls_Top" type="MeshInstance" parent="Exterior" groups=[
+[node name="FirstGalleryWalls_Top" type="MeshInstance" parent="Exterior" index="2" groups=[
 "wall",
 ]]
 
@@ -2663,14 +2668,14 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 128 )
+mesh = ExtResource( 129 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
 _sections_unfolded = [ "Geometry", "material" ]
 
-[node name="FirstGalleryWalls_Top_col" type="StaticBody" parent="Exterior/FirstGalleryWalls_Top"]
+[node name="FirstGalleryWalls_Top_col" type="StaticBody" parent="Exterior/FirstGalleryWalls_Top" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2681,14 +2686,14 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Exterior/FirstGalleryWalls_Top/FirstGalleryWalls_Top_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Exterior/FirstGalleryWalls_Top/FirstGalleryWalls_Top_col" index="0"]
 
-shape = ExtResource( 129 )
+shape = ExtResource( 130 )
 disabled = false
 
-[node name="Triggers" type="Spatial" parent="."]
+[node name="Triggers" type="Spatial" parent="." index="2"]
 
-[node name="Area" type="Area" parent="Triggers"]
+[node name="Area" type="Area" parent="Triggers" index="0"]
 
 input_ray_pickable = false
 input_capture_on_drag = false
@@ -2710,19 +2715,19 @@ reverb_bus_enable = false
 reverb_bus_name = "Master"
 reverb_bus_amount = 0.0
 reverb_bus_uniformity = 0.0
-script = ExtResource( 130 )
+script = ExtResource( 131 )
 RootNode = null
 showhide = "interior"
 hideshow = "exterior"
 bygroup = "player"
 
-[node name="CollisionShape" type="CollisionShape" parent="Triggers/Area"]
+[node name="CollisionShape" type="CollisionShape" parent="Triggers/Area" index="0"]
 
 transform = Transform( 0.882109, -0.471046, 0, 0.471046, 0.882109, 0, 0, 0, 1, -6.18079, -6.49514, 0 )
 shape = SubResource( 1 )
 disabled = false
 
-[node name="BakedLightmap" type="BakedLightmap" parent="."]
+[node name="BakedLightmap" type="BakedLightmap" parent="." index="3"]
 
 transform = Transform( 1.3, 0, 0, 0, 1, 0, 0, 0, 0.6, -8.02481, -8.32901, 0 )
 layers = 1
@@ -2735,7 +2740,7 @@ bake_hdr = false
 bake_extents = Vector3( 10, 10, 10 )
 capture_cell_size = 0.5
 image_path = "res://scenes/BakedLight/FirstGalleryUpper"
-light_data = ExtResource( 131 )
+light_data = ExtResource( 132 )
 _sections_unfolded = [ "Bake", "Data", "Transform" ]
 
 
