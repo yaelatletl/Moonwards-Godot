@@ -259,4 +259,6 @@ _sections_unfolded = [ "Collision" ]
 shape = SubResource( 3 )
 disabled = false
 
+[node name="Control" parent="." instance=ExtResource( 5 )]
+
 
