@@ -36,5 +36,25 @@ func set_3fps(enable):
 		print("debug set FPS to 0")
 		Engine.target_fps = 0
 		
-func d_collision_shapes(disable=true):
+func e_collision_shapes(enable=true):
 	pass
+
+var hidden_nodes = []
+func hide_nodes_random(probability):
+	var root = get_tree().current_scene
+	if probability == 0:
+		#unhide all nodes
+		print("unhide nodes (%s)" % hidden_nodes.size())
+		for p in hidden_nodes:
+			root.get_node(p).visible = true
+		hidden_nodes = []
+		return
+	var nodes = utils.get_nodes_type(root, "MeshInstance", true)
+	print("hide nodes, total(%s) already hidden(%s) probability(%s)" % [nodes.size(), hidden_nodes.size(), probability])
+	
+	for p in nodes:
+		if not hidden_nodes.has(p):
+			var hide = (randi() % 100 <= probability)
+			if hide:
+				root.get_node(p).visible = false
+				hidden_nodes.append(p)
