@@ -151,9 +151,18 @@ func _on_start_pressed():
 
 
 func _on_Sinlgeplayer_pressed():
-	gamestate.host_game("Default") #must be changed so the name is coherent between sessions. 
-	gamestate.begin_game()
-	hide()
+	var worldscene = "WorldV2"
+	if (get_node("connect/name").text == ""):
+		get_node("connect/error_label").text="Invalid name!"
+		return
+	var player_data = {
+		name = get_node("connect/name").text
+	}
+	gamestate.player_register(player_data, true) #local player
+	sg_network_log("change scene to %s" % worldscene)
+	yield(get_tree().create_timer(2), "timeout")
+	state_hide()
+	gamestate.change_scene(worldscene)
 
 func _on_Button2_pressed():
 	set_name()
