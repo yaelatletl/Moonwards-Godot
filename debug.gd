@@ -35,10 +35,19 @@ func set_3fps(enable):
 	else:
 		print("debug set FPS to 0")
 		Engine.target_fps = 0
-		
-func e_collision_shapes(enable=true):
+
+func e_area_lod(enable=true):
 	pass
 
+func e_collision_shapes(enable=true):
+	var root = utils.scene
+	var cs_objects = utils.get_cs_list_cs(root)
+	print("e_collision_shape(enable=%s), found : %s" % [enable, cs_objects.size()])
+	for p in cs_objects:
+		var obj = root.get_node(p)
+		obj.disabled = !enable
+
+#Hide MeshInstance nodes with a chance defined by probability
 var hidden_nodes = []
 func hide_nodes_random(probability):
 	var root = get_tree().current_scene
