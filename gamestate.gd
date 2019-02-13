@@ -324,7 +324,7 @@ func client_server_connect(host, port=DEFAULT_PORT):
 func change_scene(scene):
 	var scenes = options.scenes
 	if not scene in scenes:
-		emit_signal("scene_change_error", "No such scence %s" % scene)
+		emit_signal("scene_change_error", "No such scene %s" % scene)
 		emit_signal("gslog", "No such scence %s" % scene)
 		return
 	
@@ -500,6 +500,9 @@ func create_player(id):
 #set current camera to local player
 func player_local_camera(activate = true):
 	players[local_id].obj.nocamera = !activate
+
+func player_noinput(enable = false):
+	players[local_id].obj.input_processing = enable
 
 # Callback from SceneTree, only for clients (not server)
 func _server_disconnected():
