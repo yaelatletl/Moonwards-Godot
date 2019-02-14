@@ -27,6 +27,7 @@ var up
 #State
 var input_processing = true setget set_player_input
 var nocamera = false setget set_player_nocamera
+var nonetwork = false
 var name_label
 #Options
 export(float) var WALKSPEED = 3.1
@@ -167,50 +168,52 @@ func _physics_process(delta):
 	var AbsView = ($Pivot/FPSCamera/Target.get_global_transform().origin-$Pivot/FPSCamera.get_global_transform().origin).normalized() 
 	#This is the global vector for the player to move while flying
 	
-#THIS BLOCK IS INTENDED FOR FPS CONTROLLER USE ONLY
+	#THIS BLOCK IS INTENDED FOR FPS CONTROLLER USE ONLY
 	var aim = $Pivot/FPSCamera.get_global_transform().basis
-	if is_network_master():
-		if (Input.is_action_pressed("ui_up")) and not chatting:
-			ismoving = true
-			if not flies:
-				dir -= aim[2]
-			
-			else:
-				dir += AbsView
-		else:
-			ismoving = false
-		if (Input.is_action_pressed("ui_down")) and not chatting:
-			if not flies:
-				dir += aim[2]
-			else:
-				dir -= AbsView
-			ismoving = true
-		else:
-			ismoving = false
-		if (Input.is_action_pressed("ui_left")) and not chatting:
-			dir -= aim[0]
 
-			$Pivot/FPSCamera.Znoice =  1*hspeed
-
-		if (Input.is_action_pressed("ui_right")) and not chatting:
-			dir += aim[0]
-			$Pivot/FPSCamera.Znoice =  -1*hspeed
+	if (Input.is_action_pressed("ui_up")):
+		ismoving = true
+		if not flies:
+			dir -= aim[2]
 		
-	
-		if flies:
-			vertical_velocity += dir.y
-		rset_unreliable("slave_translation", translation)
-		rset_unreliable("slave_transform", $Model.transform)
-		rset_unreliable("slave_linear_vel", linear_velocity)
+		else:
+			dir += AbsView
 	else:
-#		if not (slave_transform == null or slave_translation == null or slave_linear_vel == null or $Yaw.transform == null or linear_velocity == null):
-		if not (slave_transform == null or slave_translation == null or slave_linear_vel == null or linear_velocity == null):
-			translation = slave_translation
-# 			$Yaw.transform = slave_transform
-			linear_velocity = slave_linear_vel
+		ismoving = false
+	if (Input.is_action_pressed("ui_down")):
+		if not flies:
+			dir += aim[2]
+		else:
+			dir -= AbsView
+		ismoving = true
+	else:
+		ismoving = false
+	if (Input.is_action_pressed("ui_left")):
+		dir -= aim[0]
 
-	var jump_attempt = (Input.is_action_pressed("jump") or (Input.is_action_pressed("ui_page_up") and flies))and not chatting
-	var crouch_attempt = (Input.is_action_pressed("ui_mlook") or (Input.is_action_pressed("ui_page_down") and flies)) and not chatting
+		$Pivot/FPSCamera.Znoice =  1*hspeed
+
+	if (Input.is_action_pressed("ui_right")):
+		dir += aim[0]
+		$Pivot/FPSCamera.Znoice =  -1*hspeed
+	
+
+	if flies:
+		vertical_velocity += dir.y
+	
+	if !nonetwork:
+		if is_network_master():
+			rset_unreliable("slave_translation", translation)
+			rset_unreliable("slave_transform", $Model.transform)
+			rset_unreliable("slave_linear_vel", linear_velocity)
+		else:
+			if not (slave_transform == null or slave_translation == null or slave_linear_vel == null or linear_velocity == null):
+				translation = slave_translation
+	# 			$Yaw.transform = slave_transform
+				linear_velocity = slave_linear_vel
+
+	var jump_attempt = (Input.is_action_pressed("jump") or (Input.is_action_pressed("ui_page_up") and flies))
+	var crouch_attempt = (Input.is_action_pressed("ui_mlook") or (Input.is_action_pressed("ui_page_down") and flies))
 	
 	
 #END OF THE BLOCK
