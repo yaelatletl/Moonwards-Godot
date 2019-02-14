@@ -156,7 +156,8 @@ func _on_Sinlgeplayer_pressed():
 		get_node("connect/error_label").text="Invalid name!"
 		return
 	var player_data = {
-		name = get_node("connect/name").text
+		name = get_node("connect/name").text,
+		network = false
 	}
 	gamestate.player_register(player_data, true) #local player
 	sg_network_log("change scene to %s" % worldscene)
