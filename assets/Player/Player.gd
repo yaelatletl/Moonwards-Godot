@@ -101,9 +101,14 @@ func set_player_input(enable):
 
 
 func _input(event):
-	########################### MUST BE CHANGED TO RAYCAST
-	#Raycast WIP
-	#get_viewport().get_camera().project_ray_origin(Vector2(0,0))
+ #### RAYCAST ####
+	var Raycast = $Pivot/FPSCamera.get_node("RayCast")
+	if Raycast.is_colliding():
+		var collider = Raycast.get_collider()
+		var click_position = Raycast.get_collision_point()
+		var click_normal = Raycast.get_collision_normal()
+		if collider is Area:
+			collider._input_event (get_viewport().get_camera(), event, click_position, click_normal, 0 )
 	if Input.is_action_pressed("player_toggleinput"):
 		input_processing = !input_processing
 		set_player_input(input_processing)
@@ -111,14 +116,14 @@ func _input(event):
 	if not input_processing:
 		return
 	
-	if Input.is_action_pressed("ui_page_up"):
-		if Captured:
-			Captured = false
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else:
-			Captured = true
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			#############################
+	#if Input.is_action_pressed("ui_page_up"):
+	#	if Captured:
+	#		Captured = false
+	#		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	#	else:
+	#		Captured = true
+	#		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	#		#############################
 	if Input.is_key_pressed(KEY_ESCAPE):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
@@ -138,7 +143,7 @@ func _input(event):
 		else:
 			flies = true
 	
-func _process(delta):
+func _physics_process(delta):
 #Changes acceleration and max speed.
 	#if not ActionArea:
 	#	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

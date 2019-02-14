@@ -1,13 +1,18 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://assets/Player/meshes/player__Model_Model.mesh" type="ArrayMesh" id=2]
+[ext_resource path="res://model_assets/Male_Avatar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/Player/FPSCamera.gd" type="Script" id=3]
 [ext_resource path="res://chat/Main_clean.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/PerformanceMonitor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/Player/label.gd" type="Script" id=6]
 
-[sub_resource type="SpatialMaterial" id=1]
+[sub_resource type="QuadMesh" id=4]
+
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+size = Vector2( 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=5]
 
 render_priority = 0
 flags_transparent = false
@@ -30,7 +35,7 @@ params_point_size = 1.0
 params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
-albedo_color = Color( 0.0666259, 0.799103, 0.00212469, 1 )
+albedo_color = Color( 1, 1, 1, 1 )
 metallic = 0.0
 metallic_specular = 0.5
 metallic_texture_channel = 0
@@ -99,7 +104,7 @@ weight = 1
 Camera = "Pivot/FPSCamera"
 grav = 1.6
 
-[node name="Lamp" type="OmniLight" parent="."]
+[node name="Lamp" type="OmniLight" parent="." index="0"]
 
 transform = Transform( -0.290865, -0.771101, 0.566393, -0.0551891, 0.604525, 0.794672, -0.955171, 0.199884, -0.218392, 4.07625, 5.90386, -1.00545 )
 visible = false
@@ -122,11 +127,17 @@ omni_attenuation = 1.0
 omni_shadow_mode = 1
 omni_shadow_detail = 1
 
-[node name="Model" type="Spatial" parent="."]
+[node name="Model" type="Spatial" parent="." index="1"]
 
-[node name="Model" type="MeshInstance" parent="Model"]
+[node name="Scene" parent="Model" index="0" instance=ExtResource( 2 )]
 
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+transform = Transform( 0.25988, 0, -9.6478, 0, 9.6513, 0, 9.6478, 0, 0.25988, 0, -0.856512, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Model" type="MeshInstance" parent="Model" index="1"]
+
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 0, 0, 0 )
+visible = false
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -136,22 +147,22 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 2 )
+mesh = SubResource( 4 )
 skeleton = NodePath("..")
-material/0 = SubResource( 1 )
+material/0 = SubResource( 5 )
 _sections_unfolded = [ "material" ]
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
+[node name="CollisionShape" type="CollisionShape" parent="." index="2"]
 
-transform = Transform( -1, 0, -3.25841e-07, -3.25841e-07, -4.37114e-08, 1, -1.4243e-14, 1, 4.37114e-08, 0, -0.0770048, 0 )
+transform = Transform( -1, 0, -3.25841e-007, -3.25841e-007, -4.37114e-008, 1, -1.4243e-014, 1, 4.37114e-008, 0, -0.0770048, 0 )
 shape = SubResource( 2 )
 disabled = false
 
-[node name="Pivot" type="Position3D" parent="."]
+[node name="Pivot" type="Position3D" parent="." index="3"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.793444, -0.0896399 )
 
-[node name="FPSCamera" type="Camera" parent="Pivot"]
+[node name="FPSCamera" type="Camera" parent="Pivot" index="0"]
 
 keep_aspect = 1
 cull_mask = 1048575
@@ -167,14 +178,14 @@ near = 0.3
 far = 10000.0
 script = ExtResource( 3 )
 
-[node name="Chat" parent="Pivot/FPSCamera" instance=ExtResource( 4 )]
+[node name="Chat" parent="Pivot/FPSCamera" index="0" instance=ExtResource( 4 )]
 
 margin_left = 2.0
 margin_top = 220.0
 margin_right = 41.0
 margin_bottom = 260.0
 
-[node name="Control" parent="Pivot/FPSCamera" instance=ExtResource( 5 )]
+[node name="Control" parent="Pivot/FPSCamera" index="1" instance=ExtResource( 5 )]
 
 visible = false
 anchor_right = 0.0
@@ -183,11 +194,18 @@ margin_top = 664.0
 margin_right = 702.0
 source_xyz = NodePath("..")
 
-[node name="Target" type="Position3D" parent="Pivot/FPSCamera"]
+[node name="Target" type="Position3D" parent="Pivot/FPSCamera" index="2"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.937118 )
 
-[node name="3RDPersCamera" type="Camera" parent="Pivot"]
+[node name="RayCast" type="RayCast" parent="Pivot/FPSCamera" index="3"]
+
+enabled = false
+exclude_parent = true
+cast_to = Vector3( 0, 0, -5 )
+collision_mask = 1
+
+[node name="3RDPersCamera" type="Camera" parent="Pivot" index="1"]
 
 keep_aspect = 1
 cull_mask = 1048575
@@ -202,7 +220,7 @@ size = 1.0
 near = 0.05
 far = 100.0
 
-[node name="label" type="Label" parent="."]
+[node name="label" type="Label" parent="." index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -224,11 +242,11 @@ max_lines_visible = -1
 script = ExtResource( 6 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="TextPoint" type="Position3D" parent="."]
+[node name="TextPoint" type="Position3D" parent="." index="5"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28093, 0 )
 
-[node name="Area" type="Area" parent="." groups=[
+[node name="Area" type="Area" parent="." index="6" groups=[
 "player",
 ]]
 
@@ -254,11 +272,11 @@ reverb_bus_amount = 0.0
 reverb_bus_uniformity = 0.0
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionShape" type="CollisionShape" parent="Area"]
+[node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
 
 shape = SubResource( 3 )
 disabled = false
 
-[node name="Control" parent="." instance=ExtResource( 5 )]
+[node name="Control" parent="." index="7" instance=ExtResource( 5 )]
 
 
