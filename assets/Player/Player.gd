@@ -164,7 +164,7 @@ func _process(delta):
 	
 #THIS BLOCK IS INTENDED FOR FPS CONTROLLER USE ONLY
 	var aim = $Pivot/FPSCamera.get_global_transform().basis
-	if is_network_master():
+	if is_network_master() or not get_tree().has_network_peer():
 		if (Input.is_action_pressed("ui_up")) and not chatting:
 			ismoving = true
 			if not flies:
