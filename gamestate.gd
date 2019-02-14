@@ -482,8 +482,13 @@ func create_player(id):
 	player.flies = true # MUST CHANGE WHEN COLLISIONS ARE DONE
 	player.set_name(str(id)) # Use unique ID as node name
 	player.translation=spawn_pos
-	if players[id].has("id"):
+	
+	if players[id].data.has("network"):
+		player.nonetwork = !players[id].data.network
+	
+	if players[id].has("id") and not player.nonetwork:
 		player.set_network_master(players[id].id) #set unique id as master
+	
 	emit_signal("gslog", "==create player(%s) %s; name(%s)" % [id, players[id], players[id].data.name])
 	player.set_player_name(players[id].data.name)
 	if players[id].camera : #local player
