@@ -15,6 +15,11 @@ func _ready():
 	randomize()
 	id = randi()
 
+func user_scene_changed():
+	#reset scene specific things
+	pass
+
+
 func print_active_cameras():
 	var root = get_tree().current_scene
 	var cameras = utils.get_nodes_type(root, "Camera", true)
