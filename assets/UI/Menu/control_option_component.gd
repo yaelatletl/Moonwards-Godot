@@ -45,7 +45,7 @@ func _on_Popup_confirmed():
 	InputMap.action_add_event (str(name), Event)
 	get_node("Button").text = OS.get_scancode_string(current_scancode)
 	update_labels()
-
+	reading = false
 
 
 func _on_Confirm_popup_hide():
