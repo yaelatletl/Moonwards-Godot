@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/UI/Menu/control_option_component.gd" type="Script" id=1]
 
-[node name="ui_left" type="HBoxContainer" index="0"]
+[node name="ui_right" type="HBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -27,9 +27,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 28.0
+margin_top = 3.0
 margin_right = 210.0
-margin_bottom = 42.0
+margin_bottom = 17.0
 rect_min_size = Vector2( 210, 14 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -37,7 +37,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "Move Forwards"
+text = "Default control name"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -50,7 +50,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 214.0
 margin_right = 218.0
-margin_bottom = 70.0
+margin_bottom = 20.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -65,8 +65,8 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 222.0
-margin_right = 247.0
-margin_bottom = 70.0
+margin_right = 266.0
+margin_bottom = 20.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -78,18 +78,19 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "W"
+text = "Right"
 flat = false
 align = 1
 
 [node name="Confirm" type="ConfirmationDialog" parent="." index="3"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 251.0
-margin_right = 451.0
+margin_left = 262.0
+margin_right = 462.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 200, 70 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -98,10 +99,11 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-popup_exclusive = false
-window_title = "Por favor, Confirma..."
+popup_exclusive = true
+window_title = "Please, confirm..."
 resizable = false
 dialog_hide_on_ok = true
+_sections_unfolded = [ "Dialog", "Popup" ]
 
 [node name="CenterContainer" type="CenterContainer" parent="Confirm" index="3"]
 
@@ -109,8 +111,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 200.0
-margin_bottom = 49.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 192.0
+margin_bottom = 34.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -125,24 +129,22 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 77.0
-margin_top = 17.0
-margin_right = 123.0
-margin_bottom = 31.0
+margin_left = 76.0
+margin_top = 6.0
+margin_right = 108.0
+margin_bottom = 20.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "Default"
+text = "Right"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
 [connection signal="pressed" from="Button" to="." method="_on_change_control_pressed"]
-
-[connection signal="confirmed" from="Confirm" to="." method="_on_Popup_confirmed"]
 
 

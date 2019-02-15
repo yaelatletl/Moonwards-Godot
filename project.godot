@@ -23,6 +23,7 @@ namelist="*res://namelist.gd"
 utils="*res://utils.gd"
 debug="*res://debug.gd"
 UI="*res://UserInterface.gd"
+InputMapping="*res://input_maping.gd"
 
 [compression]
 
