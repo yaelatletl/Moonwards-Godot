@@ -27,7 +27,7 @@ var up
 #State
 var input_processing = true setget set_player_input
 var nocamera = false setget set_player_nocamera
-var nonetwork = false
+var nonetwork = false setget set_nonetwork
 var name_label
 #Options
 export(float) var WALKSPEED = 3.1
@@ -43,7 +43,7 @@ var gravity = Vector3(0,-grav,0)
 var max_speed = 0.0
 
 var linear_velocity=Vector3()
-var hspeed
+var hspeed = 0
 
 ##Networking
 slave var slave_translation 
@@ -53,7 +53,16 @@ slave var slave_linear_vel
 
 #####################
 ## Set/Get functions
-
+func set_nonetwork(state):
+	nonetwork = state
+	if nonetwork:
+		rset_config("slave_translation", RPC_MODE_DISABLED)
+		rset_config("slave_transform",  RPC_MODE_DISABLED)
+		rset_config("slave_linear_vel", RPC_MODE_DISABLED)
+	else:
+		rset_config("slave_translation", RPC_MODE_SLAVE)
+		rset_config("slave_transform",  RPC_MODE_SLAVE)
+		rset_config("slave_linear_vel",  RPC_MODE_SLAVE)
 #disable camera view for the player
 func set_player_nocamera(state):
 	nocamera = state
