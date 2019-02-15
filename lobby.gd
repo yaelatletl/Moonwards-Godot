@@ -159,6 +159,7 @@ func _on_Sinlgeplayer_pressed():
 		name = get_node("connect/name").text,
 		network = false
 	}
+	gamestate.RoleNoNetwork = true
 	gamestate.player_register(player_data, true) #local player
 	sg_network_log("change scene to %s" % worldscene)
 	yield(get_tree().create_timer(2), "timeout")
