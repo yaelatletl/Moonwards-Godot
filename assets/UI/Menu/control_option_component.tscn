@@ -147,4 +147,6 @@ max_lines_visible = -1
 
 [connection signal="pressed" from="Button" to="." method="_on_change_control_pressed"]
 
+[connection signal="confirmed" from="Confirm" to="." method="_on_Popup_confirmed"]
+
 

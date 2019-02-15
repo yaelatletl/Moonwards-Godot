@@ -41,6 +41,3 @@ func save_to_config(section, key, value):
 		config.set_value(section, key, value)
 		config.save(CONFIG_FILE)
 
-
-func _on_Button_pressed():
-	pass # replace with function body
