@@ -20,6 +20,8 @@ var RoleServer = false
 #indicate client role, mutual to server role
 var RoleClient = false
 
+var RoleNoNetwork = false
+
 #global signals
 signal gslog(msg)
 # network user related
@@ -209,6 +211,10 @@ func server_set_mode(host="localhost"):
 	if RoleServer :
 		emit_signal("network_error", "Already in server mode")
 		return
+	if RoleNoNetwork :
+		emit_signal("network_error", "No network mode enabled")
+		return
+	
 	RoleServer = true
 	
 	server.host = host
@@ -296,6 +302,10 @@ func client_server_connect(host, port=DEFAULT_PORT):
 	if RoleServer :
 		emit_signal("network_error", "Currently in server mode")
 		return
+	if RoleNoNetwork :
+		emit_signal("network_error", "No network mode enabled")
+		return
+	
 	RoleClient = true
 	
 	client.host = host
