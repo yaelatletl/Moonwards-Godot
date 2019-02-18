@@ -77,3 +77,7 @@ func _on_tDecimate_pressed():
 	else:
 		debug.hide_nodes_random(0)
 	options.set("dev", button.pressed, "hide_meshes_random")
+
+
+func _on_Exit_pressed():
+	self.hide()

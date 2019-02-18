@@ -1,6 +1,6 @@
 extends Control
 export(String) var SceneToLoad = "res://World.tscn"
-export(String) var SceneOptions = "res://assets/UI/Options.tscn"
+export(String) var SceneOptions = "res://assets/UI/Menu/Options.tscn"
 const MultiplayerToLoad = "res://lobby.tscn"
 # Declare member variables here. Examples:
 # var a = 2
@@ -41,5 +41,10 @@ func _on_RunNet_pressed():
 
 
 func _on_Options_pressed():
-	var Options = ResourceLoader.load(SceneOptions)
-	get_tree().get_root().add_child(Options.instance())
+	if get_tree().get_root().has_node("Options"):
+		get_tree().get_root().get_node("Options").show()
+	else:
+		var Options = ResourceLoader.load(SceneOptions)
+		Options = Options.instance()
+		Options.name = "Options"
+		get_tree().get_root().add_child(Options)
