@@ -344,7 +344,7 @@ func _ready():
 	else:
 		set_player_name(name_label)
 	
-	$Pivot/FPSCamera/Chat.connect("disable_movement", self, "toggle_chatting")
+#	$Pivot/FPSCamera/Chat.connect("disable_movement", self, "toggle_chatting")
 	CHAR_SCALE = scale
 	set_process_input(true)
 	if input_processing:
@@ -352,7 +352,7 @@ func _ready():
 
 func set_player_name(new_name):
 	get_node("label").set_text(new_name)
-	$Pivot/FPSCamera/Chat.username = new_name
+#	$Pivot/FPSCamera/Chat.username = new_name
 	name_label = new_name
 	
 func toggle_chatting():
