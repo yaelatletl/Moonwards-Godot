@@ -54,7 +54,9 @@ var cs_options = {
 	bakedlight = {path = "lightmaps", ext = "_bldata.res" },
 	material_dir = "res://materials",
 	mesh_dir = "meshes",
-	cs_dir = "cshapes"
+	cs_dir = "cshapes",
+	
+	hide_protect = ["floor", "wall"]
 }
 
 func get_cs_list(root):
