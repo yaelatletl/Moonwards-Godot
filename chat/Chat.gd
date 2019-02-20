@@ -1,9 +1,5 @@
 extends Control
 
-# onready var IP_Address  # Gotta change this to use the same ip as ingame.
-# onready var Port
-# const MAX_USERS = 30
-
 var player_id
 var username = ''
 signal disable_movement()
