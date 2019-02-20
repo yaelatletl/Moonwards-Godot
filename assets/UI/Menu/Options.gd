@@ -1,6 +1,7 @@
 extends Control
 
 signal close
+signal save
 var signal_close = false
 
 func get_tab_index():
@@ -9,6 +10,13 @@ func get_tab_index():
 func set_tab_index(index):
 	$Panel/TabContainer.current_tab = index
 
+func close():
+	options.set("state", $Panel/TabContainer.current_tab, "menu_options_tab")
+	emit_signal("save")
+	if not signal_close:
+		get_tree().get_root().remove_child(self)
+	else:
+		emit_signal("close")
 
 func _ready():
 	print("option control ready")
@@ -24,15 +32,7 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
-		if not signal_close:
-			get_tree().get_root().remove_child(self)
-		else:
-			options.set("state", $Panel/TabContainer.current_tab, "menu_options_tab")
-			emit_signal("close")
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+		close()
 
 func _on_GameState_tab_clicked(tab):
 	print("_on_GameState_tab_clicked(tab): ", tab)
