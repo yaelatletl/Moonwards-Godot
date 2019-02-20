@@ -370,11 +370,11 @@ _sections_unfolded = [ "Albedo", "NormalMap", "UV1" ]
 
 extents = Vector3( 9.22929, 3.3859, 6.14163 )
 
-[node name="Scene" type="Spatial"]
+[node name="Scene" type="Spatial" index="0"]
 
-[node name="Exterior" type="Spatial" parent="."]
+[node name="Exterior" type="Spatial" parent="." index="0"]
 
-[node name="AtriumWalls" type="MeshInstance" parent="Exterior" groups=[
+[node name="AtriumWalls" type="MeshInstance" parent="Exterior" index="0" groups=[
 "wall",
 ]]
 
@@ -392,7 +392,7 @@ skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
 _sections_unfolded = [ "Geometry", "material" ]
 
-[node name="OmniLight" type="OmniLight" parent="Exterior/AtriumWalls"]
+[node name="OmniLight" type="OmniLight" parent="Exterior/AtriumWalls" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.468634, 1.65787, -0.953773 )
 layers = 1
@@ -415,7 +415,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light" ]
 
-[node name="OmniLight4" type="OmniLight" parent="Exterior/AtriumWalls"]
+[node name="OmniLight4" type="OmniLight" parent="Exterior/AtriumWalls" index="1"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.90102, -0.851622, 0.799226 )
 layers = 1
@@ -438,7 +438,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light" ]
 
-[node name="OmniLight5" type="OmniLight" parent="Exterior/AtriumWalls"]
+[node name="OmniLight5" type="OmniLight" parent="Exterior/AtriumWalls" index="2"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.90102, -0.851622, -1.50245 )
 layers = 1
@@ -461,7 +461,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light" ]
 
-[node name="OmniLight2" type="OmniLight" parent="Exterior/AtriumWalls"]
+[node name="OmniLight2" type="OmniLight" parent="Exterior/AtriumWalls" index="3"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.468634, 1.65787, 1.79347 )
 layers = 1
@@ -484,7 +484,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light" ]
 
-[node name="OmniLight3" type="OmniLight" parent="Exterior/AtriumWalls"]
+[node name="OmniLight3" type="OmniLight" parent="Exterior/AtriumWalls" index="4"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.51428, 0.517207, 2.21675 )
 layers = 1
@@ -507,7 +507,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light" ]
 
-[node name="AtriumWalls_col" type="StaticBody" parent="Exterior/AtriumWalls"]
+[node name="AtriumWalls_col" type="StaticBody" parent="Exterior/AtriumWalls" index="5"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -518,12 +518,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Exterior/AtriumWalls/AtriumWalls_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Exterior/AtriumWalls/AtriumWalls_col" index="0"]
 
 shape = ExtResource( 3 )
 disabled = false
 
-[node name="TunnelWalls002" type="MeshInstance" parent="Exterior" groups=[
+[node name="TunnelWalls002" type="MeshInstance" parent="Exterior" index="1" groups=[
 "wall",
 ]]
 
@@ -543,7 +543,7 @@ material/0 = null
 material/1 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="TunnelWalls002_col" type="StaticBody" parent="Exterior/TunnelWalls002"]
+[node name="TunnelWalls002_col" type="StaticBody" parent="Exterior/TunnelWalls002" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -554,12 +554,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Exterior/TunnelWalls002/TunnelWalls002_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Exterior/TunnelWalls002/TunnelWalls002_col" index="0"]
 
 shape = ExtResource( 5 )
 disabled = false
 
-[node name="RadBlindBeam006" type="MeshInstance" parent="Exterior"]
+[node name="RadBlindBeam006" type="MeshInstance" parent="Exterior" index="2"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.0375977, 1.98376, 2.25269 )
 layers = 1
@@ -576,7 +576,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="RadBlindBeam005" type="MeshInstance" parent="Exterior" groups=[
+[node name="RadBlindBeam005" type="MeshInstance" parent="Exterior" index="3" groups=[
 "cs_convex",
 ]]
 
@@ -595,7 +595,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="RadBlindBeam005_col" type="StaticBody" parent="Exterior/RadBlindBeam005"]
+[node name="RadBlindBeam005_col" type="StaticBody" parent="Exterior/RadBlindBeam005" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -606,12 +606,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Exterior/RadBlindBeam005/RadBlindBeam005_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Exterior/RadBlindBeam005/RadBlindBeam005_col" index="0"]
 
 shape = ExtResource( 8 )
 disabled = false
 
-[node name="AnchorBeamsTop" type="MeshInstance" parent="Exterior"]
+[node name="AnchorBeamsTop" type="MeshInstance" parent="Exterior" index="4"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86914, 1.84192, -0.219971 )
 layers = 1
@@ -628,7 +628,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="MainWallRibs" type="MeshInstance" parent="Exterior" groups=[
+[node name="MainWallRibs" type="MeshInstance" parent="Exterior" index="5" groups=[
 "cs",
 ]]
 
@@ -647,7 +647,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="MainWallRibs_col" type="StaticBody" parent="Exterior/MainWallRibs"]
+[node name="MainWallRibs_col" type="StaticBody" parent="Exterior/MainWallRibs" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -658,12 +658,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Exterior/MainWallRibs/MainWallRibs_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Exterior/MainWallRibs/MainWallRibs_col" index="0"]
 
 shape = ExtResource( 11 )
 disabled = false
 
-[node name="WindowWellandShield002" type="MeshInstance" parent="Exterior" groups=[
+[node name="WindowWellandShield002" type="MeshInstance" parent="Exterior" index="6" groups=[
 "cs",
 ]]
 
@@ -683,7 +683,7 @@ material/0 = null
 material/1 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="WindowWellandShield002_col" type="StaticBody" parent="Exterior/WindowWellandShield002"]
+[node name="WindowWellandShield002_col" type="StaticBody" parent="Exterior/WindowWellandShield002" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -694,12 +694,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Exterior/WindowWellandShield002/WindowWellandShield002_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Exterior/WindowWellandShield002/WindowWellandShield002_col" index="0"]
 
 shape = ExtResource( 13 )
 disabled = false
 
-[node name="CoolingTanks" type="MeshInstance" parent="Exterior" groups=[
+[node name="CoolingTanks" type="MeshInstance" parent="Exterior" index="7" groups=[
 "cs_convex",
 ]]
 
@@ -717,7 +717,7 @@ mesh = ExtResource( 14 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="CoolingTanks_col" type="StaticBody" parent="Exterior/CoolingTanks"]
+[node name="CoolingTanks_col" type="StaticBody" parent="Exterior/CoolingTanks" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -728,12 +728,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Exterior/CoolingTanks/CoolingTanks_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Exterior/CoolingTanks/CoolingTanks_col" index="0"]
 
 shape = ExtResource( 15 )
 disabled = false
 
-[node name="Water-Tank002" type="MeshInstance" parent="Exterior"]
+[node name="Water-Tank002" type="MeshInstance" parent="Exterior" index="8"]
 
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.51074, 1.61816, 0.937744 )
 layers = 1
@@ -749,7 +749,7 @@ mesh = ExtResource( 16 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Water-Tank001" type="MeshInstance" parent="Exterior" groups=[
+[node name="Water-Tank001" type="MeshInstance" parent="Exterior" index="9" groups=[
 "cs_convex",
 ]]
 
@@ -767,7 +767,7 @@ mesh = ExtResource( 17 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Water-Tank001_col" type="StaticBody" parent="Exterior/Water-Tank001"]
+[node name="Water-Tank001_col" type="StaticBody" parent="Exterior/Water-Tank001" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -778,12 +778,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Exterior/Water-Tank001/Water-Tank001_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Exterior/Water-Tank001/Water-Tank001_col" index="0"]
 
 shape = ExtResource( 18 )
 disabled = false
 
-[node name="Water-Tank000" type="MeshInstance" parent="Exterior"]
+[node name="Water-Tank000" type="MeshInstance" parent="Exterior" index="10"]
 
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.51074, 1.61816, 1.45728 )
 layers = 1
@@ -799,7 +799,7 @@ mesh = ExtResource( 19 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Walk-in-Fridges" type="MeshInstance" parent="Exterior" groups=[
+[node name="Walk-in-Fridges" type="MeshInstance" parent="Exterior" index="11" groups=[
 "cs_convex",
 ]]
 
@@ -817,7 +817,7 @@ mesh = ExtResource( 20 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Walk-in-Fridges_col" type="StaticBody" parent="Exterior/Walk-in-Fridges"]
+[node name="Walk-in-Fridges_col" type="StaticBody" parent="Exterior/Walk-in-Fridges" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -828,12 +828,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Exterior/Walk-in-Fridges/Walk-in-Fridges_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Exterior/Walk-in-Fridges/Walk-in-Fridges_col" index="0"]
 
 shape = ExtResource( 21 )
 disabled = false
 
-[node name="RadBarrier-TunnnelWindows002" type="MeshInstance" parent="Exterior" groups=[
+[node name="RadBarrier-TunnnelWindows002" type="MeshInstance" parent="Exterior" index="12" groups=[
 "cs",
 ]]
 
@@ -853,7 +853,7 @@ material/0 = null
 material/1 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="RadBarrier-TunnnelWindows002_col" type="StaticBody" parent="Exterior/RadBarrier-TunnnelWindows002"]
+[node name="RadBarrier-TunnnelWindows002_col" type="StaticBody" parent="Exterior/RadBarrier-TunnnelWindows002" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -864,16 +864,16 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Exterior/RadBarrier-TunnnelWindows002/RadBarrier-TunnnelWindows002_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Exterior/RadBarrier-TunnnelWindows002/RadBarrier-TunnnelWindows002_col" index="0"]
 
 shape = ExtResource( 23 )
 disabled = false
 
-[node name="Interior" type="Spatial" parent="." groups=[
+[node name="Interior" type="Spatial" parent="." index="1" groups=[
 "interior",
 ]]
 
-[node name="2ndFloor-FrostedGlass002" type="MeshInstance" parent="Interior" groups=[
+[node name="2ndFloor-FrostedGlass002" type="MeshInstance" parent="Interior" index="0" groups=[
 "floor",
 ]]
 
@@ -892,7 +892,7 @@ skeleton = NodePath("..")
 material/0 = ExtResource( 25 )
 _sections_unfolded = [ "material" ]
 
-[node name="2ndFloor-FrostedGlass002_col" type="StaticBody" parent="Interior/2ndFloor-FrostedGlass002"]
+[node name="2ndFloor-FrostedGlass002_col" type="StaticBody" parent="Interior/2ndFloor-FrostedGlass002" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -903,12 +903,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/2ndFloor-FrostedGlass002/2ndFloor-FrostedGlass002_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/2ndFloor-FrostedGlass002/2ndFloor-FrostedGlass002_col" index="0"]
 
 shape = ExtResource( 26 )
 disabled = false
 
-[node name="2ndFloorDown" type="MeshInstance" parent="Interior" groups=[
+[node name="2ndFloorDown" type="MeshInstance" parent="Interior" index="1" groups=[
 "floor",
 ]]
 
@@ -927,7 +927,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="2ndFloorDown_col" type="StaticBody" parent="Interior/2ndFloorDown"]
+[node name="2ndFloorDown_col" type="StaticBody" parent="Interior/2ndFloorDown" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -938,12 +938,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/2ndFloorDown/2ndFloorDown_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/2ndFloorDown/2ndFloorDown_col" index="0"]
 
 shape = ExtResource( 28 )
 disabled = false
 
-[node name="2ndFromBottomFloorEast" type="MeshInstance" parent="Interior" groups=[
+[node name="2ndFromBottomFloorEast" type="MeshInstance" parent="Interior" index="2" groups=[
 "floor",
 ]]
 
@@ -962,7 +962,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="OmniLight" type="OmniLight" parent="Interior/2ndFromBottomFloorEast"]
+[node name="OmniLight" type="OmniLight" parent="Interior/2ndFromBottomFloorEast" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -30 )
 layers = 1
@@ -985,7 +985,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light" ]
 
-[node name="2ndFromBottomFloorEast_col" type="StaticBody" parent="Interior/2ndFromBottomFloorEast"]
+[node name="2ndFromBottomFloorEast_col" type="StaticBody" parent="Interior/2ndFromBottomFloorEast" index="1"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -996,12 +996,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/2ndFromBottomFloorEast/2ndFromBottomFloorEast_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/2ndFromBottomFloorEast/2ndFromBottomFloorEast_col" index="0"]
 
 shape = ExtResource( 30 )
 disabled = false
 
-[node name="2ndFromBottomSWFloor" type="MeshInstance" parent="Interior" groups=[
+[node name="2ndFromBottomSWFloor" type="MeshInstance" parent="Interior" index="3" groups=[
 "floor",
 ]]
 
@@ -1020,7 +1020,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="2ndFromBottomSWFloor_col" type="StaticBody" parent="Interior/2ndFromBottomSWFloor"]
+[node name="2ndFromBottomSWFloor_col" type="StaticBody" parent="Interior/2ndFromBottomSWFloor" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -1031,12 +1031,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/2ndFromBottomSWFloor/2ndFromBottomSWFloor_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/2ndFromBottomSWFloor/2ndFromBottomSWFloor_col" index="0"]
 
 shape = ExtResource( 32 )
 disabled = false
 
-[node name="3rdFromBottomSWFloor" type="MeshInstance" parent="Interior" groups=[
+[node name="3rdFromBottomSWFloor" type="MeshInstance" parent="Interior" index="4" groups=[
 "floor",
 ]]
 
@@ -1055,7 +1055,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="3rdFromBottomSWFloor_col" type="StaticBody" parent="Interior/3rdFromBottomSWFloor"]
+[node name="3rdFromBottomSWFloor_col" type="StaticBody" parent="Interior/3rdFromBottomSWFloor" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -1066,12 +1066,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/3rdFromBottomSWFloor/3rdFromBottomSWFloor_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/3rdFromBottomSWFloor/3rdFromBottomSWFloor_col" index="0"]
 
 shape = ExtResource( 34 )
 disabled = false
 
-[node name="AirCirculationDuctsN000" type="MeshInstance" parent="Interior"]
+[node name="AirCirculationDuctsN000" type="MeshInstance" parent="Interior" index="5"]
 
 transform = Transform( 1, 8.74228e-08, 0, -8.74228e-08, 1, 0, 0, 0, -1, 0.860352, 1.40906, 2.19409 )
 layers = 1
@@ -1088,7 +1088,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="AirCirculationDuctsN002" type="MeshInstance" parent="Interior"]
+[node name="AirCirculationDuctsN002" type="MeshInstance" parent="Interior" index="6"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.691406, 1.40906, -2.55908 )
 layers = 1
@@ -1105,7 +1105,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="AirlockRamp" type="MeshInstance" parent="Interior" groups=[
+[node name="AirlockRamp" type="MeshInstance" parent="Interior" index="7" groups=[
 "cs",
 ]]
 
@@ -1124,7 +1124,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="AirlockRamp_col" type="StaticBody" parent="Interior/AirlockRamp"]
+[node name="AirlockRamp_col" type="StaticBody" parent="Interior/AirlockRamp" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -1135,12 +1135,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/AirlockRamp/AirlockRamp_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/AirlockRamp/AirlockRamp_col" index="0"]
 
 shape = ExtResource( 37 )
 disabled = false
 
-[node name="AirlockRibs--South002" type="MeshInstance" parent="Interior"]
+[node name="AirlockRibs--South002" type="MeshInstance" parent="Interior" index="8"]
 
 transform = Transform( -4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0.279297, 1.70068, 3.80054 )
 layers = 1
@@ -1156,7 +1156,7 @@ mesh = ExtResource( 38 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="AirlockRibs1" type="MeshInstance" parent="Interior"]
+[node name="AirlockRibs1" type="MeshInstance" parent="Interior" index="9"]
 
 transform = Transform( -4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0.279297, 1.70068, 3.00049 )
 layers = 1
@@ -1172,7 +1172,7 @@ mesh = ExtResource( 39 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="AirlockRibs2" type="MeshInstance" parent="Interior"]
+[node name="AirlockRibs2" type="MeshInstance" parent="Interior" index="10"]
 
 transform = Transform( -4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0.279297, 1.70068, 3.30054 )
 layers = 1
@@ -1188,7 +1188,7 @@ mesh = ExtResource( 40 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="AirlockRoverDoor" type="MeshInstance" parent="Interior"]
+[node name="AirlockRoverDoor" type="MeshInstance" parent="Interior" index="11"]
 
 transform = Transform( 7.54979e-09, 0.1, 0, -0.1, 7.54979e-09, 0, 0, 0, 0.1, 0.554688, 1.62146, 3.69653 )
 layers = 1
@@ -1205,7 +1205,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="AirlockRoverInnerFrame" type="MeshInstance" parent="Interior"]
+[node name="AirlockRoverInnerFrame" type="MeshInstance" parent="Interior" index="12"]
 
 transform = Transform( -4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0.263184, 1.70068, 3.30054 )
 layers = 1
@@ -1221,7 +1221,7 @@ mesh = ExtResource( 42 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="AirlockRoverSeal" type="MeshInstance" parent="Interior"]
+[node name="AirlockRoverSeal" type="MeshInstance" parent="Interior" index="13"]
 
 transform = Transform( 7.54979e-09, 0.1, 0, -0.1, 7.54979e-09, 0, 0, 0, 0.1, 0.677246, 1.62146, 3.69653 )
 layers = 1
@@ -1237,7 +1237,7 @@ mesh = ExtResource( 43 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="AirlockRoverSeal2" type="MeshInstance" parent="Interior"]
+[node name="AirlockRoverSeal2" type="MeshInstance" parent="Interior" index="14"]
 
 transform = Transform( 7.54979e-09, 0.1, 0, -0.1, 7.54979e-09, 0, 0, 0, 0.1, 0.554688, 1.62146, 3.69653 )
 layers = 1
@@ -1253,7 +1253,7 @@ mesh = ExtResource( 44 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="AirlockRoverSection" type="MeshInstance" parent="Interior"]
+[node name="AirlockRoverSection" type="MeshInstance" parent="Interior" index="15"]
 
 transform = Transform( 7.54979e-09, 0.1, 0, -0.1, 7.54979e-09, 0, 0, 0, 0.1, 0.677246, 1.62146, 3.69653 )
 layers = 1
@@ -1269,7 +1269,7 @@ mesh = ExtResource( 45 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="AirlockW-DoorOutside004" type="MeshInstance" parent="Interior"]
+[node name="AirlockW-DoorOutside004" type="MeshInstance" parent="Interior" index="16"]
 
 transform = Transform( 5.4851e-07, 0, 0.0723207, 0, 0.088852, 0, -0.0758863, 0, 5.22738e-07, 0.279297, 1.65088, 3.29297 )
 layers = 1
@@ -1286,7 +1286,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="AirlockW-DoorOutside005" type="MeshInstance" parent="Interior"]
+[node name="AirlockW-DoorOutside005" type="MeshInstance" parent="Interior" index="17"]
 
 transform = Transform( 5.4851e-07, 0, 0.0723207, 0, 0.088852, 0, -0.0758863, 0, 5.22738e-07, 0.279297, 1.65088, 4.26709 )
 layers = 1
@@ -1303,7 +1303,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="AirlockW-Hardware1008" type="MeshInstance" parent="Interior"]
+[node name="AirlockW-Hardware1008" type="MeshInstance" parent="Interior" index="18"]
 
 transform = Transform( -7.22806e-07, 1.50996e-08, 0.1, 0, 0.1, -1.50996e-08, 0.1, 1.09175e-13, 7.22806e-07, 0.187988, 1.54846, 4.29126 )
 layers = 1
@@ -1319,7 +1319,7 @@ mesh = ExtResource( 47 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="AirlockW-Hardware1009" type="MeshInstance" parent="Interior"]
+[node name="AirlockW-Hardware1009" type="MeshInstance" parent="Interior" index="19"]
 
 transform = Transform( 7.22806e-07, -1.07668e-13, -0.1, 1.50996e-08, 0.1, 1.47284e-15, -0.1, 1.50996e-08, -7.22806e-07, 0.371094, 1.54846, 3.26465 )
 layers = 1
@@ -1335,7 +1335,7 @@ mesh = ExtResource( 47 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="AirlockW-Hardware1010" type="MeshInstance" parent="Interior"]
+[node name="AirlockW-Hardware1010" type="MeshInstance" parent="Interior" index="20"]
 
 transform = Transform( 7.22806e-07, 0, 0.1, 0, 0.1, 0, -0.1, 0, 7.22806e-07, 0.187988, 1.54846, 4.23389 )
 layers = 1
@@ -1351,7 +1351,7 @@ mesh = ExtResource( 47 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="AirlockW-Hardware1011" type="MeshInstance" parent="Interior"]
+[node name="AirlockW-Hardware1011" type="MeshInstance" parent="Interior" index="21"]
 
 transform = Transform( -7.31548e-07, 0, -0.1, 0, 0.1, 0, 0.1, 0, -7.31548e-07, 0.371094, 1.54846, 3.32031 )
 layers = 1
@@ -1367,7 +1367,7 @@ mesh = ExtResource( 47 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="AirlockWalls" type="MeshInstance" parent="Interior" groups=[
+[node name="AirlockWalls" type="MeshInstance" parent="Interior" index="22" groups=[
 "wall",
 ]]
 
@@ -1386,7 +1386,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="AirlockWalls_col" type="StaticBody" parent="Interior/AirlockWalls"]
+[node name="AirlockWalls_col" type="StaticBody" parent="Interior/AirlockWalls" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -1397,12 +1397,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/AirlockWalls/AirlockWalls_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/AirlockWalls/AirlockWalls_col" index="0"]
 
 shape = ExtResource( 49 )
 disabled = false
 
-[node name="OmniLight" type="OmniLight" parent="Interior"]
+[node name="OmniLight" type="OmniLight" parent="Interior" index="23"]
 
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.233729, 2.02002, 3.79549 )
 layers = 1
@@ -1425,112 +1425,112 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light", "Shadow" ]
 
-[node name="ToiletA" type="Spatial" parent="Interior"]
+[node name="ToiletA" type="Spatial" parent="Interior" index="24"]
 
 transform = Transform( -0.1, 0, -3.89414e-08, 0, 0.1, 0, 3.89414e-08, 0, -0.1, -3.39648, -0.18103, 0.766357 )
 
-[node name="toiletA" parent="Interior/ToiletA" instance=ExtResource( 50 )]
+[node name="toiletA" parent="Interior/ToiletA" index="0" instance=ExtResource( 50 )]
 
 transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 0, 0, -1.25072e-07 )
 
-[node name="ToiletD" type="Spatial" parent="Interior"]
+[node name="ToiletD" type="Spatial" parent="Interior" index="25"]
 
 editor/display_folded = true
 transform = Transform( 0.1, 0, 6.51683e-08, 0, 0.1, 0, -6.51683e-08, 0, 0.1, -3.75732, -0.181396, 0.987061 )
 
-[node name="toiletD" parent="Interior/ToiletD" instance=ExtResource( 50 )]
+[node name="toiletD" parent="Interior/ToiletD" index="0" instance=ExtResource( 50 )]
 
 transform = Transform( 1, 0, 5.68434e-14, 0, 1, 0, -5.68434e-14, 0, 1, 0, 0, 3.09718e-07 )
 
-[node name="ToiletE" type="Spatial" parent="Interior"]
+[node name="ToiletE" type="Spatial" parent="Interior" index="26"]
 
 editor/display_folded = true
 transform = Transform( 0.1, 0, 6.51683e-08, 0, 0.1, 0, -6.51683e-08, 0, 0.1, -3.75732, -0.181396, 0.886963 )
 
-[node name="toiletE" parent="Interior/ToiletE" instance=ExtResource( 50 )]
+[node name="toiletE" parent="Interior/ToiletE" index="0" instance=ExtResource( 50 )]
 
 transform = Transform( 1, 0, 5.68434e-14, 0, 1, 0, -5.68434e-14, 0, 1, 0, 0, 3.09718e-07 )
 
-[node name="ToiletF" type="Spatial" parent="Interior"]
+[node name="ToiletF" type="Spatial" parent="Interior" index="27"]
 
 editor/display_folded = true
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -3.75732, -0.181396, 0.786865 )
 
-[node name="toiletF" parent="Interior/ToiletF" instance=ExtResource( 50 )]
+[node name="toiletF" parent="Interior/ToiletF" index="0" instance=ExtResource( 50 )]
 
-[node name="ToiletC" type="Spatial" parent="Interior"]
+[node name="ToiletC" type="Spatial" parent="Interior" index="28"]
 
 editor/display_folded = true
 transform = Transform( -0.1, 9.84014e-15, 6.51683e-08, 0, 0.1, -1.50996e-08, 6.51683e-08, 1.50996e-08, 0.1, -3.39648, -0.181396, 0.966553 )
 
-[node name="toiletC" parent="Interior/ToiletC" instance=ExtResource( 50 )]
+[node name="toiletC" parent="Interior/ToiletC" index="0" instance=ExtResource( 50 )]
 
 transform = Transform( 1, 0, -5.68434e-14, 6.77626e-21, 1, 0, 5.68434e-14, 0, 1, 0, 0, 7.41275e-08 )
 
-[node name="ToiletB" type="Spatial" parent="Interior"]
+[node name="ToiletB" type="Spatial" parent="Interior" index="29"]
 
 editor/display_folded = true
 transform = Transform( -0.1, 0, -3.89414e-08, 0, 0.1, 0, 3.89414e-08, 0, -0.1, -3.39648, -0.181396, 0.866455 )
 
-[node name="toiletB" parent="Interior/ToiletB" instance=ExtResource( 50 )]
+[node name="toiletB" parent="Interior/ToiletB" index="0" instance=ExtResource( 50 )]
 
 transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 0, 0, -1.25072e-07 )
 
-[node name="Toilet1" type="Spatial" parent="Interior"]
+[node name="Toilet1" type="Spatial" parent="Interior" index="30"]
 
 editor/display_folded = true
 transform = Transform( 4.37114e-09, -1.50996e-08, -0.1, 0, 0.1, -1.50996e-08, -0.1, -1.16245e-15, -4.37114e-09, 1.06104, -1.58411, -2.52759 )
 
-[node name="toilet1" parent="Interior/Toilet1" instance=ExtResource( 50 )]
+[node name="toilet1" parent="Interior/Toilet1" index="0" instance=ExtResource( 50 )]
 
 transform = Transform( 1, 8.47033e-22, 3.55271e-15, 4.23516e-22, 1, 2.88506e-22, -3.55271e-15, 5.08123e-22, 1, 4.63795e-07, 0, 0 )
 
-[node name="Toilet2" type="Spatial" parent="Interior"]
+[node name="Toilet2" type="Spatial" parent="Interior" index="31"]
 
 editor/display_folded = true
 transform = Transform( 4.37114e-09, -1.50996e-08, -0.1, 0, 0.1, -1.50996e-08, -0.1, -1.16245e-15, -4.37114e-09, 0.960938, -1.58411, -2.52759 )
 
-[node name="toilet2" parent="Interior/Toilet2" instance=ExtResource( 50 )]
+[node name="toilet2" parent="Interior/Toilet2" index="0" instance=ExtResource( 50 )]
 
 transform = Transform( 1, 8.47033e-22, 3.55271e-15, 4.23516e-22, 1, 2.88506e-22, -3.55271e-15, 5.08123e-22, 1, 4.20039e-07, 0, 0 )
 
-[node name="Toilet3" type="Spatial" parent="Interior"]
+[node name="Toilet3" type="Spatial" parent="Interior" index="32"]
 
 editor/display_folded = true
 transform = Transform( 4.37114e-09, -1.50996e-08, -0.1, 0, 0.1, -1.50996e-08, -0.1, -1.16245e-15, -4.37114e-09, 0.86084, -1.58411, -2.52759 )
 
-[node name="toilet3" parent="Interior/Toilet3" instance=ExtResource( 50 )]
+[node name="toilet3" parent="Interior/Toilet3" index="0" instance=ExtResource( 50 )]
 
 transform = Transform( 1, 8.47033e-22, 3.55271e-15, 4.23516e-22, 1, 2.88506e-22, -3.55271e-15, 5.08123e-22, 1, 3.76285e-07, 0, 0 )
 
-[node name="Toilet4" type="Spatial" parent="Interior"]
+[node name="Toilet4" type="Spatial" parent="Interior" index="33"]
 
 editor/display_folded = true
 transform = Transform( 4.37114e-09, -1.50996e-08, -0.1, 0, 0.1, -1.50996e-08, -0.1, -1.16245e-15, -4.37114e-09, 0.760742, -1.58411, -2.52759 )
 
-[node name="toilet4" parent="Interior/Toilet4" instance=ExtResource( 50 )]
+[node name="toilet4" parent="Interior/Toilet4" index="0" instance=ExtResource( 50 )]
 
 transform = Transform( 1, 8.47033e-22, 3.55271e-15, 4.23516e-22, 1, 2.88506e-22, -3.55271e-15, 5.08123e-22, 1, 3.32531e-07, 0, 0 )
 
-[node name="Toilet5" type="Spatial" parent="Interior"]
+[node name="Toilet5" type="Spatial" parent="Interior" index="34"]
 
 editor/display_folded = true
 transform = Transform( 4.37114e-09, -1.50996e-08, -0.1, 0, 0.1, -1.50996e-08, -0.1, -1.16245e-15, -4.37114e-09, 0.660645, -1.58411, -2.52759 )
 
-[node name="toilet5" parent="Interior/Toilet5" instance=ExtResource( 50 )]
+[node name="toilet5" parent="Interior/Toilet5" index="0" instance=ExtResource( 50 )]
 
 transform = Transform( 1, 8.47033e-22, 3.55271e-15, 4.23516e-22, 1, 2.88506e-22, -3.55271e-15, 5.08123e-22, 1, 2.88777e-07, 0, 0 )
 
-[node name="Toilet6" type="Spatial" parent="Interior"]
+[node name="Toilet6" type="Spatial" parent="Interior" index="35"]
 
 editor/display_folded = true
 transform = Transform( 4.37114e-09, 1.50996e-08, -0.1, 0, 0.1, 1.50996e-08, -0.1, 1.16245e-15, -4.37114e-09, 0.561035, -1.58411, -2.52759 )
 
-[node name="toilet6" parent="Interior/Toilet6" instance=ExtResource( 50 )]
+[node name="toilet6" parent="Interior/Toilet6" index="0" instance=ExtResource( 50 )]
 
 transform = Transform( 1, 1.16245e-14, -4.9738e-14, -8.47033e-21, 1, 1.42109e-14, 4.9738e-14, 3.7025e-28, 1, -5.47681e-06, -9.53674e-07, 4.76837e-07 )
 
-[node name="OmniLight3" type="OmniLight" parent="Interior"]
+[node name="OmniLight3" type="OmniLight" parent="Interior" index="36"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.02951, 0.814205, -0.206543 )
 layers = 1
@@ -1553,7 +1553,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light", "Shadow" ]
 
-[node name="OmniLight4" type="OmniLight" parent="Interior"]
+[node name="OmniLight4" type="OmniLight" parent="Interior" index="37"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.94832, 0.814205, -0.206543 )
 layers = 1
@@ -1576,7 +1576,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light", "Shadow" ]
 
-[node name="OmniLight5" type="OmniLight" parent="Interior"]
+[node name="OmniLight5" type="OmniLight" parent="Interior" index="38"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.17039, 0.722408, -0.894874 )
 layers = 1
@@ -1599,7 +1599,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light", "Shadow" ]
 
-[node name="WhippleGlazingAtrium002" type="MeshInstance" parent="Interior"]
+[node name="WhippleGlazingAtrium002" type="MeshInstance" parent="Interior" index="39"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.0375977, -2.08191, 2.25269 )
 layers = 1
@@ -1615,7 +1615,7 @@ mesh = ExtResource( 51 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Waterline3" type="MeshInstance" parent="Interior"]
+[node name="Waterline3" type="MeshInstance" parent="Interior" index="40"]
 
 transform = Transform( -0.1, 0, 0, 0, 0.1, -1.50996e-08, 0, 1.50996e-08, 0.1, -3.51221, 0.174805, 1.09692 )
 layers = 1
@@ -1631,7 +1631,7 @@ mesh = ExtResource( 52 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Waterline2" type="MeshInstance" parent="Interior"]
+[node name="Waterline2" type="MeshInstance" parent="Interior" index="41"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -3.50635, 0.165283, 1.08643 )
 layers = 1
@@ -1647,7 +1647,7 @@ mesh = ExtResource( 53 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Waterline1" type="MeshInstance" parent="Interior"]
+[node name="Waterline1" type="MeshInstance" parent="Interior" index="42"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -3.49561, 0.164307, 1.08594 )
 layers = 1
@@ -1663,7 +1663,7 @@ mesh = ExtResource( 53 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Wateline4" type="MeshInstance" parent="Interior"]
+[node name="Wateline4" type="MeshInstance" parent="Interior" index="43"]
 
 transform = Transform( -0.1, 0, 0, 0, 0.1, -1.50996e-08, 0, 1.50996e-08, 0.1, -3.50098, 0.16687, 1.08838 )
 layers = 1
@@ -1679,7 +1679,7 @@ mesh = ExtResource( 54 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="WasteWaterPurification" type="MeshInstance" parent="Interior" groups=[
+[node name="WasteWaterPurification" type="MeshInstance" parent="Interior" index="44" groups=[
 "cs",
 ]]
 
@@ -1698,7 +1698,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="WasteWaterPurification_col" type="StaticBody" parent="Interior/WasteWaterPurification"]
+[node name="WasteWaterPurification_col" type="StaticBody" parent="Interior/WasteWaterPurification" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -1709,12 +1709,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/WasteWaterPurification/WasteWaterPurification_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/WasteWaterPurification/WasteWaterPurification_col" index="0"]
 
 shape = ExtResource( 56 )
 disabled = false
 
-[node name="WasteWaterFirstTanks" type="MeshInstance" parent="Interior" groups=[
+[node name="WasteWaterFirstTanks" type="MeshInstance" parent="Interior" index="45" groups=[
 "cs",
 ]]
 
@@ -1733,7 +1733,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="WasteWaterFirstTanks_col" type="StaticBody" parent="Interior/WasteWaterFirstTanks"]
+[node name="WasteWaterFirstTanks_col" type="StaticBody" parent="Interior/WasteWaterFirstTanks" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -1744,12 +1744,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/WasteWaterFirstTanks/WasteWaterFirstTanks_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/WasteWaterFirstTanks/WasteWaterFirstTanks_col" index="0"]
 
 shape = ExtResource( 58 )
 disabled = false
 
-[node name="wash-driers002" type="MeshInstance" parent="Interior" groups=[
+[node name="wash-driers002" type="MeshInstance" parent="Interior" index="46" groups=[
 "cs",
 ]]
 
@@ -1770,7 +1770,7 @@ material/1 = null
 material/2 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="wash-driers002_col" type="StaticBody" parent="Interior/wash-driers002"]
+[node name="wash-driers002_col" type="StaticBody" parent="Interior/wash-driers002" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -1781,12 +1781,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/wash-driers002/wash-driers002_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/wash-driers002/wash-driers002_col" index="0"]
 
 shape = ExtResource( 60 )
 disabled = false
 
-[node name="UrineProcessing" type="MeshInstance" parent="Interior"]
+[node name="UrineProcessing" type="MeshInstance" parent="Interior" index="47"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -3.62305, -0.28186, 0.891846 )
 layers = 1
@@ -1802,7 +1802,7 @@ mesh = ExtResource( 61 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="OmniLight6" type="OmniLight" parent="Interior"]
+[node name="OmniLight6" type="OmniLight" parent="Interior" index="48"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.17039, 0.683655, 0.591335 )
 layers = 1
@@ -1825,7 +1825,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light", "Shadow" ]
 
-[node name="TunnelTopFloor-FrostedGlass002" type="MeshInstance" parent="Interior" groups=[
+[node name="TunnelTopFloor-FrostedGlass002" type="MeshInstance" parent="Interior" index="49" groups=[
 "floor",
 ]]
 
@@ -1844,7 +1844,7 @@ skeleton = NodePath("..")
 material/0 = ExtResource( 25 )
 _sections_unfolded = [ "material" ]
 
-[node name="TunnelTopFloor-FrostedGlass002_col" type="StaticBody" parent="Interior/TunnelTopFloor-FrostedGlass002"]
+[node name="TunnelTopFloor-FrostedGlass002_col" type="StaticBody" parent="Interior/TunnelTopFloor-FrostedGlass002" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -1855,12 +1855,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/TunnelTopFloor-FrostedGlass002/TunnelTopFloor-FrostedGlass002_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/TunnelTopFloor-FrostedGlass002/TunnelTopFloor-FrostedGlass002_col" index="0"]
 
 shape = ExtResource( 63 )
 disabled = false
 
-[node name="TunnelTopFloor" type="MeshInstance" parent="Interior" groups=[
+[node name="TunnelTopFloor" type="MeshInstance" parent="Interior" index="50" groups=[
 "floor",
 ]]
 
@@ -1879,7 +1879,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="TunnelTopFloor_col" type="StaticBody" parent="Interior/TunnelTopFloor"]
+[node name="TunnelTopFloor_col" type="StaticBody" parent="Interior/TunnelTopFloor" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -1890,12 +1890,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/TunnelTopFloor/TunnelTopFloor_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/TunnelTopFloor/TunnelTopFloor_col" index="0"]
 
 shape = ExtResource( 65 )
 disabled = false
 
-[node name="TunnelRibs" type="MeshInstance" parent="Interior"]
+[node name="TunnelRibs" type="MeshInstance" parent="Interior" index="51"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2.29785, -0.0487061, -0.206543 )
 layers = 1
@@ -1912,7 +1912,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="TunnelMouth" type="MeshInstance" parent="Interior"]
+[node name="TunnelMouth" type="MeshInstance" parent="Interior" index="52"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71045, -0.0487061, -0.206543 )
 layers = 1
@@ -1929,7 +1929,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="TunnelMiddleFloor" type="MeshInstance" parent="Interior" groups=[
+[node name="TunnelMiddleFloor" type="MeshInstance" parent="Interior" index="53" groups=[
 "floor",
 ]]
 
@@ -1948,7 +1948,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="TunnelMiddleFloor_col" type="StaticBody" parent="Interior/TunnelMiddleFloor"]
+[node name="TunnelMiddleFloor_col" type="StaticBody" parent="Interior/TunnelMiddleFloor" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -1959,12 +1959,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/TunnelMiddleFloor/TunnelMiddleFloor_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/TunnelMiddleFloor/TunnelMiddleFloor_col" index="0"]
 
 shape = ExtResource( 69 )
 disabled = false
 
-[node name="TunnelMainFloor" type="MeshInstance" parent="Interior" groups=[
+[node name="TunnelMainFloor" type="MeshInstance" parent="Interior" index="54" groups=[
 "floor",
 ]]
 
@@ -1983,7 +1983,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="TunnelMainFloor_col" type="StaticBody" parent="Interior/TunnelMainFloor"]
+[node name="TunnelMainFloor_col" type="StaticBody" parent="Interior/TunnelMainFloor" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -1994,12 +1994,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/TunnelMainFloor/TunnelMainFloor_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/TunnelMainFloor/TunnelMainFloor_col" index="0"]
 
 shape = ExtResource( 71 )
 disabled = false
 
-[node name="TunnelCornerPipes" type="MeshInstance" parent="Interior"]
+[node name="TunnelCornerPipes" type="MeshInstance" parent="Interior" index="55"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -6.12598, -0.243896, -1.57959 )
 layers = 1
@@ -2015,7 +2015,7 @@ mesh = ExtResource( 72 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Tunnel-MezzannineFrostedGlass002" type="MeshInstance" parent="Interior" groups=[
+[node name="Tunnel-MezzannineFrostedGlass002" type="MeshInstance" parent="Interior" index="56" groups=[
 "floor",
 ]]
 
@@ -2034,7 +2034,7 @@ skeleton = NodePath("..")
 material/0 = ExtResource( 25 )
 _sections_unfolded = [ "material" ]
 
-[node name="Tunnel-MezzannineFrostedGlass002_col" type="StaticBody" parent="Interior/Tunnel-MezzannineFrostedGlass002"]
+[node name="Tunnel-MezzannineFrostedGlass002_col" type="StaticBody" parent="Interior/Tunnel-MezzannineFrostedGlass002" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2045,12 +2045,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/Tunnel-MezzannineFrostedGlass002/Tunnel-MezzannineFrostedGlass002_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/Tunnel-MezzannineFrostedGlass002/Tunnel-MezzannineFrostedGlass002_col" index="0"]
 
 shape = ExtResource( 74 )
 disabled = false
 
-[node name="Tunnel-MezzanineStairs002" type="MeshInstance" parent="Interior" groups=[
+[node name="Tunnel-MezzanineStairs002" type="MeshInstance" parent="Interior" index="57" groups=[
 "floor",
 ]]
 
@@ -2069,7 +2069,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="Tunnel-MezzanineStairs002_col" type="StaticBody" parent="Interior/Tunnel-MezzanineStairs002"]
+[node name="Tunnel-MezzanineStairs002_col" type="StaticBody" parent="Interior/Tunnel-MezzanineStairs002" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2080,12 +2080,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/Tunnel-MezzanineStairs002/Tunnel-MezzanineStairs002_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/Tunnel-MezzanineStairs002/Tunnel-MezzanineStairs002_col" index="0"]
 
 shape = ExtResource( 76 )
 disabled = false
 
-[node name="ToTunnelFloorTop" type="MeshInstance" parent="Interior" groups=[
+[node name="ToTunnelFloorTop" type="MeshInstance" parent="Interior" index="58" groups=[
 "floor",
 ]]
 
@@ -2104,7 +2104,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="ToTunnelFloorTop_col" type="StaticBody" parent="Interior/ToTunnelFloorTop"]
+[node name="ToTunnelFloorTop_col" type="StaticBody" parent="Interior/ToTunnelFloorTop" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2115,12 +2115,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ToTunnelFloorTop/ToTunnelFloorTop_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ToTunnelFloorTop/ToTunnelFloorTop_col" index="0"]
 
 shape = ExtResource( 78 )
 disabled = false
 
-[node name="ToTunnelFloorBottom" type="MeshInstance" parent="Interior" groups=[
+[node name="ToTunnelFloorBottom" type="MeshInstance" parent="Interior" index="59" groups=[
 "floor",
 ]]
 
@@ -2139,7 +2139,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="ToTunnelFloorBottom_col" type="StaticBody" parent="Interior/ToTunnelFloorBottom"]
+[node name="ToTunnelFloorBottom_col" type="StaticBody" parent="Interior/ToTunnelFloorBottom" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2150,12 +2150,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ToTunnelFloorBottom/ToTunnelFloorBottom_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ToTunnelFloorBottom/ToTunnelFloorBottom_col" index="0"]
 
 shape = ExtResource( 80 )
 disabled = false
 
-[node name="TopWindowFloorWest" type="MeshInstance" parent="Interior" groups=[
+[node name="TopWindowFloorWest" type="MeshInstance" parent="Interior" index="60" groups=[
 "floor",
 ]]
 
@@ -2174,7 +2174,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="TopWindowFloorWest_col" type="StaticBody" parent="Interior/TopWindowFloorWest"]
+[node name="TopWindowFloorWest_col" type="StaticBody" parent="Interior/TopWindowFloorWest" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2185,12 +2185,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/TopWindowFloorWest/TopWindowFloorWest_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/TopWindowFloorWest/TopWindowFloorWest_col" index="0"]
 
 shape = ExtResource( 82 )
 disabled = false
 
-[node name="TopWindowFloor" type="MeshInstance" parent="Interior" groups=[
+[node name="TopWindowFloor" type="MeshInstance" parent="Interior" index="61" groups=[
 "floor",
 ]]
 
@@ -2209,7 +2209,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="TopWindowFloor_col" type="StaticBody" parent="Interior/TopWindowFloor"]
+[node name="TopWindowFloor_col" type="StaticBody" parent="Interior/TopWindowFloor" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2220,12 +2220,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/TopWindowFloor/TopWindowFloor_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/TopWindowFloor/TopWindowFloor_col" index="0"]
 
 shape = ExtResource( 84 )
 disabled = false
 
-[node name="TopFloorEast" type="MeshInstance" parent="Interior" groups=[
+[node name="TopFloorEast" type="MeshInstance" parent="Interior" index="62" groups=[
 "floor",
 ]]
 
@@ -2244,7 +2244,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="TopFloorEast_col" type="StaticBody" parent="Interior/TopFloorEast"]
+[node name="TopFloorEast_col" type="StaticBody" parent="Interior/TopFloorEast" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2255,12 +2255,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/TopFloorEast/TopFloorEast_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/TopFloorEast/TopFloorEast_col" index="0"]
 
 shape = ExtResource( 86 )
 disabled = false
 
-[node name="TopFloor-FrostedGlass002" type="MeshInstance" parent="Interior" groups=[
+[node name="TopFloor-FrostedGlass002" type="MeshInstance" parent="Interior" index="63" groups=[
 "floor",
 ]]
 
@@ -2279,7 +2279,7 @@ skeleton = NodePath("..")
 material/0 = ExtResource( 25 )
 _sections_unfolded = [ "material" ]
 
-[node name="TopFloor-FrostedGlass002_col" type="StaticBody" parent="Interior/TopFloor-FrostedGlass002"]
+[node name="TopFloor-FrostedGlass002_col" type="StaticBody" parent="Interior/TopFloor-FrostedGlass002" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2290,12 +2290,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/TopFloor-FrostedGlass002/TopFloor-FrostedGlass002_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/TopFloor-FrostedGlass002/TopFloor-FrostedGlass002_col" index="0"]
 
 shape = ExtResource( 88 )
 disabled = false
 
-[node name="TopFloor" type="MeshInstance" parent="Interior" groups=[
+[node name="TopFloor" type="MeshInstance" parent="Interior" index="64" groups=[
 "floor",
 ]]
 
@@ -2314,7 +2314,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="TopFloor_col" type="StaticBody" parent="Interior/TopFloor"]
+[node name="TopFloor_col" type="StaticBody" parent="Interior/TopFloor" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2325,12 +2325,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/TopFloor/TopFloor_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/TopFloor/TopFloor_col" index="0"]
 
 shape = ExtResource( 90 )
 disabled = false
 
-[node name="ToiletStalls2" type="MeshInstance" parent="Interior" groups=[
+[node name="ToiletStalls2" type="MeshInstance" parent="Interior" index="65" groups=[
 "wall",
 ]]
 
@@ -2349,7 +2349,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="ToiletStalls2_col" type="StaticBody" parent="Interior/ToiletStalls2"]
+[node name="ToiletStalls2_col" type="StaticBody" parent="Interior/ToiletStalls2" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2360,12 +2360,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ToiletStalls2/ToiletStalls2_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ToiletStalls2/ToiletStalls2_col" index="0"]
 
 shape = ExtResource( 92 )
 disabled = false
 
-[node name="ToiletStalls1" type="MeshInstance" parent="Interior" groups=[
+[node name="ToiletStalls1" type="MeshInstance" parent="Interior" index="66" groups=[
 "wall",
 ]]
 
@@ -2384,7 +2384,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="ToiletStalls1_col" type="StaticBody" parent="Interior/ToiletStalls1"]
+[node name="ToiletStalls1_col" type="StaticBody" parent="Interior/ToiletStalls1" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2395,12 +2395,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ToiletStalls1/ToiletStalls1_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ToiletStalls1/ToiletStalls1_col" index="0"]
 
 shape = ExtResource( 94 )
 disabled = false
 
-[node name="ToiletStalls-3001" type="MeshInstance" parent="Interior" groups=[
+[node name="ToiletStalls-3001" type="MeshInstance" parent="Interior" index="67" groups=[
 "wall",
 ]]
 
@@ -2419,7 +2419,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="ToiletStalls-3001_col" type="StaticBody" parent="Interior/ToiletStalls-3001"]
+[node name="ToiletStalls-3001_col" type="StaticBody" parent="Interior/ToiletStalls-3001" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2430,12 +2430,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ToiletStalls-3001/ToiletStalls-3001_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ToiletStalls-3001/ToiletStalls-3001_col" index="0"]
 
 shape = ExtResource( 96 )
 disabled = false
 
-[node name="Template-AnchorBolt004" type="MeshInstance" parent="Interior"]
+[node name="Template-AnchorBolt004" type="MeshInstance" parent="Interior" index="68"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.79492, -1.73633, 2.43213 )
 layers = 1
@@ -2451,7 +2451,7 @@ mesh = ExtResource( 97 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="SWCornerFloorTop" type="MeshInstance" parent="Interior" groups=[
+[node name="SWCornerFloorTop" type="MeshInstance" parent="Interior" index="69" groups=[
 "floor",
 ]]
 
@@ -2470,7 +2470,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="SWCornerFloorTop_col" type="StaticBody" parent="Interior/SWCornerFloorTop"]
+[node name="SWCornerFloorTop_col" type="StaticBody" parent="Interior/SWCornerFloorTop" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2481,12 +2481,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/SWCornerFloorTop/SWCornerFloorTop_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/SWCornerFloorTop/SWCornerFloorTop_col" index="0"]
 
 shape = ExtResource( 99 )
 disabled = false
 
-[node name="Stair005" type="MeshInstance" parent="Interior"]
+[node name="Stair005" type="MeshInstance" parent="Interior" index="70"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.249512, -0.768677, 1.87866 )
 layers = 1
@@ -2502,7 +2502,7 @@ mesh = ExtResource( 100 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Stair004" type="MeshInstance" parent="Interior" groups=[
+[node name="Stair004" type="MeshInstance" parent="Interior" index="71" groups=[
 "floor",
 ]]
 
@@ -2525,7 +2525,7 @@ material/3 = null
 material/4 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="Stair004_col" type="StaticBody" parent="Interior/Stair004"]
+[node name="Stair004_col" type="StaticBody" parent="Interior/Stair004" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2536,12 +2536,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/Stair004/Stair004_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/Stair004/Stair004_col" index="0"]
 
 shape = ExtResource( 102 )
 disabled = false
 
-[node name="Stair-Cables005" type="MeshInstance" parent="Interior"]
+[node name="Stair-Cables005" type="MeshInstance" parent="Interior" index="72"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60156, 0.258423, 1.79004 )
 layers = 1
@@ -2557,7 +2557,7 @@ mesh = ExtResource( 103 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Stair-Cables004" type="MeshInstance" parent="Interior"]
+[node name="Stair-Cables004" type="MeshInstance" parent="Interior" index="73"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.261719, 0.258423, 1.79004 )
 layers = 1
@@ -2573,7 +2573,7 @@ mesh = ExtResource( 104 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Stair-Cables-short002" type="MeshInstance" parent="Interior"]
+[node name="Stair-Cables-short002" type="MeshInstance" parent="Interior" index="74"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.152344, 0.258423, 1.87866 )
 layers = 1
@@ -2589,7 +2589,7 @@ mesh = ExtResource( 105 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="SolarOvens" type="MeshInstance" parent="Interior"]
+[node name="SolarOvens" type="MeshInstance" parent="Interior" index="75"]
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.4751, 1.2959, 2.33179 )
 layers = 1
@@ -2607,7 +2607,7 @@ material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="ShimmyStair-Steps001" type="MeshInstance" parent="Interior" groups=[
+[node name="ShimmyStair-Steps001" type="MeshInstance" parent="Interior" index="76" groups=[
 "cs",
 ]]
 
@@ -2627,7 +2627,7 @@ material/0 = null
 material/1 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="ShimmyStair-Steps001_col" type="StaticBody" parent="Interior/ShimmyStair-Steps001"]
+[node name="ShimmyStair-Steps001_col" type="StaticBody" parent="Interior/ShimmyStair-Steps001" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2638,12 +2638,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Steps001/ShimmyStair-Steps001_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Steps001/ShimmyStair-Steps001_col" index="0"]
 
 shape = ExtResource( 108 )
 disabled = false
 
-[node name="ShimmyStair-Step1011" type="MeshInstance" parent="Interior" groups=[
+[node name="ShimmyStair-Step1011" type="MeshInstance" parent="Interior" index="77" groups=[
 "cs",
 ]]
 
@@ -2663,7 +2663,7 @@ material/0 = null
 material/1 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="ShimmyStair-Step1011_col" type="StaticBody" parent="Interior/ShimmyStair-Step1011"]
+[node name="ShimmyStair-Step1011_col" type="StaticBody" parent="Interior/ShimmyStair-Step1011" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2674,12 +2674,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Step1011/ShimmyStair-Step1011_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Step1011/ShimmyStair-Step1011_col" index="0"]
 
 shape = ExtResource( 110 )
 disabled = false
 
-[node name="ShimmyStair-Step1010" type="MeshInstance" parent="Interior" groups=[
+[node name="ShimmyStair-Step1010" type="MeshInstance" parent="Interior" index="78" groups=[
 "cs",
 ]]
 
@@ -2699,7 +2699,7 @@ material/0 = null
 material/1 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="ShimmyStair-Step1010_col" type="StaticBody" parent="Interior/ShimmyStair-Step1010"]
+[node name="ShimmyStair-Step1010_col" type="StaticBody" parent="Interior/ShimmyStair-Step1010" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2710,12 +2710,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Step1010/ShimmyStair-Step1010_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Step1010/ShimmyStair-Step1010_col" index="0"]
 
 shape = ExtResource( 112 )
 disabled = false
 
-[node name="ShimmyStair-Rail001" type="MeshInstance" parent="Interior"]
+[node name="ShimmyStair-Rail001" type="MeshInstance" parent="Interior" index="79"]
 
 transform = Transform( 7.54979e-09, 4.37114e-09, 0.1, 0.1, 0, -7.54979e-09, 0, 0.1, -4.37114e-09, -1.62646, 1.49207, 1.2915 )
 layers = 1
@@ -2731,7 +2731,7 @@ mesh = ExtResource( 113 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyStair-Pole001" type="MeshInstance" parent="Interior"]
+[node name="ShimmyStair-Pole001" type="MeshInstance" parent="Interior" index="80"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.67725, 1.35181, 1.28662 )
 layers = 1
@@ -2747,15 +2747,15 @@ mesh = ExtResource( 114 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="shimmyMirror2002" type="Spatial" parent="Interior"]
+[node name="shimmyMirror2002" type="Spatial" parent="Interior" index="81"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.67871, 1.08081, 0.893799 )
 
-[node name="Shimmy-Stairs011" type="Spatial" parent="Interior"]
+[node name="Shimmy-Stairs011" type="Spatial" parent="Interior" index="82"]
 
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.37842, 0.142578, -1.01196 )
 
-[node name="ShimmyStair-Rail004" type="MeshInstance" parent="Interior/Shimmy-Stairs011"]
+[node name="ShimmyStair-Rail004" type="MeshInstance" parent="Interior/Shimmy-Stairs011" index="0"]
 
 transform = Transform( -7.06294e-15, -2.50343e-08, -0.1, 0.1, -2.8213e-08, 0, -2.8213e-08, -0.1, 2.50343e-08, 0.0485352, 0.0843959, -0.00379133 )
 layers = 1
@@ -2772,7 +2772,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Transform" ]
 
-[node name="ShimmyStair-Pole004" type="MeshInstance" parent="Interior/Shimmy-Stairs011"]
+[node name="ShimmyStair-Pole004" type="MeshInstance" parent="Interior/Shimmy-Stairs011" index="1"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.00473137, -0.0569094, -0.00117683 )
 layers = 1
@@ -2789,11 +2789,11 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Transform" ]
 
-[node name="Shimmy-Stairs010" type="Spatial" parent="Interior"]
+[node name="Shimmy-Stairs010" type="Spatial" parent="Interior" index="83"]
 
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.08545, 0.578613, -0.757812 )
 
-[node name="ShimmyStair-Rail003" type="MeshInstance" parent="Interior/Shimmy-Stairs010"]
+[node name="ShimmyStair-Rail003" type="MeshInstance" parent="Interior/Shimmy-Stairs010" index="0"]
 
 transform = Transform( 4.59648e-15, 1.62921e-08, 0.1, 0.1, -2.8213e-08, 0, 2.8213e-08, 0.1, -1.62921e-08, 0.0480391, 0.0812798, 0.00430012 )
 layers = 1
@@ -2810,7 +2810,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Transform" ]
 
-[node name="ShimmyStair-Pole003" type="MeshInstance" parent="Interior/Shimmy-Stairs010"]
+[node name="ShimmyStair-Pole003" type="MeshInstance" parent="Interior/Shimmy-Stairs010" index="1"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.000690639, -0.0549448, 0.00430965 )
 layers = 1
@@ -2826,11 +2826,11 @@ mesh = ExtResource( 114 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Shimmy-Stairs009" type="Spatial" parent="Interior"]
+[node name="Shimmy-Stairs009" type="Spatial" parent="Interior" index="84"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67969, 0.731689, 1.59326 )
 
-[node name="ShimmyStair-Step1009" type="MeshInstance" parent="Interior/Shimmy-Stairs009" groups=[
+[node name="ShimmyStair-Step1009" type="MeshInstance" parent="Interior/Shimmy-Stairs009" index="0" groups=[
 "cs",
 ]]
 
@@ -2850,7 +2850,7 @@ material/0 = null
 material/1 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="ShimmyStair-Step1009_col" type="StaticBody" parent="Interior/Shimmy-Stairs009/ShimmyStair-Step1009"]
+[node name="ShimmyStair-Step1009_col" type="StaticBody" parent="Interior/Shimmy-Stairs009/ShimmyStair-Step1009" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2861,12 +2861,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/Shimmy-Stairs009/ShimmyStair-Step1009/ShimmyStair-Step1009_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/Shimmy-Stairs009/ShimmyStair-Step1009/ShimmyStair-Step1009_col" index="0"]
 
 shape = ExtResource( 116 )
 disabled = false
 
-[node name="ShimmyStair-Rail003" type="MeshInstance" parent="Interior/Shimmy-Stairs009"]
+[node name="ShimmyStair-Rail003" type="MeshInstance" parent="Interior/Shimmy-Stairs009" index="1"]
 
 transform = Transform( 7.54979e-09, 4.37114e-09, 0.1, 0.1, 0, -7.54979e-09, 0, 0.1, -4.37114e-09, 0.05323, 0.0827022, 0.00259852 )
 layers = 1
@@ -2882,7 +2882,7 @@ mesh = ExtResource( 113 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyStair-Pole003" type="MeshInstance" parent="Interior/Shimmy-Stairs009"]
+[node name="ShimmyStair-Pole003" type="MeshInstance" parent="Interior/Shimmy-Stairs009" index="2"]
 
 transform = Transform( 0.1, 0, 4.44089e-16, 0, 0.1, 0, -4.44089e-16, 2.64698e-23, 0.1, 0.00243986, -0.0672006, 0.00219285 )
 layers = 1
@@ -2898,11 +2898,11 @@ mesh = ExtResource( 114 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Shimmy-Stairs008" type="Spatial" parent="Interior"]
+[node name="Shimmy-Stairs008" type="Spatial" parent="Interior" index="85"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.68066, 1.08081, 0.893799 )
 
-[node name="ShimmyStair-Step1008" type="MeshInstance" parent="Interior/Shimmy-Stairs008" groups=[
+[node name="ShimmyStair-Step1008" type="MeshInstance" parent="Interior/Shimmy-Stairs008" index="0" groups=[
 "cs",
 ]]
 
@@ -2922,7 +2922,7 @@ material/0 = null
 material/1 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="ShimmyStair-Step1008_col" type="StaticBody" parent="Interior/Shimmy-Stairs008/ShimmyStair-Step1008"]
+[node name="ShimmyStair-Step1008_col" type="StaticBody" parent="Interior/Shimmy-Stairs008/ShimmyStair-Step1008" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -2933,12 +2933,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/Shimmy-Stairs008/ShimmyStair-Step1008/ShimmyStair-Step1008_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/Shimmy-Stairs008/ShimmyStair-Step1008/ShimmyStair-Step1008_col" index="0"]
 
 shape = ExtResource( 118 )
 disabled = false
 
-[node name="ShimmyStair-Rail002" type="MeshInstance" parent="Interior/Shimmy-Stairs008"]
+[node name="ShimmyStair-Rail002" type="MeshInstance" parent="Interior/Shimmy-Stairs008" index="1"]
 
 transform = Transform( 7.54979e-09, 4.37114e-09, 0.1, 0.1, 0, -7.54979e-09, 0, 0.1, -4.37114e-09, 0.0542001, 0.0825008, 0.000157654 )
 layers = 1
@@ -2954,7 +2954,7 @@ mesh = ExtResource( 113 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ShimmyStair-Pole002" type="MeshInstance" parent="Interior/Shimmy-Stairs008"]
+[node name="ShimmyStair-Pole002" type="MeshInstance" parent="Interior/Shimmy-Stairs008" index="2"]
 
 transform = Transform( 0.1, 0, 4.44089e-16, 0, 0.1, 0, -4.44089e-16, 2.64698e-23, 0.1, 0.00340986, -0.0616094, -0.00491256 )
 layers = 1
@@ -2970,7 +2970,7 @@ mesh = ExtResource( 114 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="QuartersWalls" type="MeshInstance" parent="Interior" groups=[
+[node name="QuartersWalls" type="MeshInstance" parent="Interior" index="86" groups=[
 "wall",
 ]]
 
@@ -2989,7 +2989,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="QuartersWalls_col" type="StaticBody" parent="Interior/QuartersWalls"]
+[node name="QuartersWalls_col" type="StaticBody" parent="Interior/QuartersWalls" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -3000,12 +3000,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/QuartersWalls/QuartersWalls_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/QuartersWalls/QuartersWalls_col" index="0"]
 
 shape = ExtResource( 120 )
 disabled = false
 
-[node name="QuartersTop" type="MeshInstance" parent="Interior" groups=[
+[node name="QuartersTop" type="MeshInstance" parent="Interior" index="87" groups=[
 "floor",
 ]]
 
@@ -3024,7 +3024,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="QuartersTop_col" type="StaticBody" parent="Interior/QuartersTop"]
+[node name="QuartersTop_col" type="StaticBody" parent="Interior/QuartersTop" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -3035,12 +3035,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/QuartersTop/QuartersTop_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/QuartersTop/QuartersTop_col" index="0"]
 
 shape = ExtResource( 122 )
 disabled = false
 
-[node name="QuartersFront" type="MeshInstance" parent="Interior" groups=[
+[node name="QuartersFront" type="MeshInstance" parent="Interior" index="88" groups=[
 "wall",
 ]]
 
@@ -3063,7 +3063,7 @@ material/3 = null
 material/4 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="QuartersFront_col" type="StaticBody" parent="Interior/QuartersFront"]
+[node name="QuartersFront_col" type="StaticBody" parent="Interior/QuartersFront" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -3074,12 +3074,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/QuartersFront/QuartersFront_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/QuartersFront/QuartersFront_col" index="0"]
 
 shape = ExtResource( 124 )
 disabled = false
 
-[node name="PondWall" type="MeshInstance" parent="Interior" groups=[
+[node name="PondWall" type="MeshInstance" parent="Interior" index="89" groups=[
 "wall",
 ]]
 
@@ -3098,7 +3098,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="PondWall_col" type="StaticBody" parent="Interior/PondWall"]
+[node name="PondWall_col" type="StaticBody" parent="Interior/PondWall" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -3109,12 +3109,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/PondWall/PondWall_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/PondWall/PondWall_col" index="0"]
 
 shape = ExtResource( 126 )
 disabled = false
 
-[node name="PondSurface" type="MeshInstance" parent="Interior"]
+[node name="PondSurface" type="MeshInstance" parent="Interior" index="90"]
 
 transform = Transform( 0.933334, 0, 0, 0, 0.1, 0, 0, 0, 2.29458, 0.921387, -1.65771, -0.696289 )
 layers = 1
@@ -3130,7 +3130,7 @@ mesh = ExtResource( 127 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="PondLevelGlass" type="MeshInstance" parent="Interior" groups=[
+[node name="PondLevelGlass" type="MeshInstance" parent="Interior" index="91" groups=[
 "floor",
 ]]
 
@@ -3149,7 +3149,7 @@ skeleton = NodePath("..")
 material/0 = ExtResource( 25 )
 _sections_unfolded = [ "material" ]
 
-[node name="PondLevelGlass_col" type="StaticBody" parent="Interior/PondLevelGlass"]
+[node name="PondLevelGlass_col" type="StaticBody" parent="Interior/PondLevelGlass" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -3160,12 +3160,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/PondLevelGlass/PondLevelGlass_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/PondLevelGlass/PondLevelGlass_col" index="0"]
 
 shape = ExtResource( 129 )
 disabled = false
 
-[node name="PondLevelFrames" type="MeshInstance" parent="Interior"]
+[node name="PondLevelFrames" type="MeshInstance" parent="Interior" index="92"]
 
 transform = Transform( 0.933334, 0, 0, 0, 0.1, 0, 0, 0, 2.29458, 0.921387, -1.55457, -0.696289 )
 layers = 1
@@ -3182,496 +3182,496 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="PlanterSetTopSouth" type="Spatial" parent="Interior" groups=[
+[node name="PlanterSetTopSouth" type="Spatial" parent="Interior" index="93" groups=[
 "cs",
 ]]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63281, 1.59521, 1.66138 )
 
-[node name="PlanterSet082" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet082" type="Spatial" parent="Interior/PlanterSetTopSouth" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65527, -2.55493, 0 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet082" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet082" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet083" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet083" type="Spatial" parent="Interior/PlanterSetTopSouth" index="1"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65527, -2.55493, -0.479736 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet083" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet083" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet084" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet084" type="Spatial" parent="Interior/PlanterSetTopSouth" index="2"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65527, -2.55493, -0.959473 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet084" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet084" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet085" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet085" type="Spatial" parent="Interior/PlanterSetTopSouth" index="3"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65527, -2.55493, -1.43896 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet085" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet085" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet086" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet086" type="Spatial" parent="Interior/PlanterSetTopSouth" index="4"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65527, -2.55493, -1.9187 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet086" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet086" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet087" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet087" type="Spatial" parent="Interior/PlanterSetTopSouth" index="5"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65527, -2.55493, -2.39844 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet087" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet087" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet088" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet088" type="Spatial" parent="Interior/PlanterSetTopSouth" index="6"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65527, -2.55493, -2.87817 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet088" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet088" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet089" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet089" type="Spatial" parent="Interior/PlanterSetTopSouth" index="7"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65527, -2.55493, -3.35791 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet089" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet089" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet090" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet090" type="Spatial" parent="Interior/PlanterSetTopSouth" index="8"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65527, -2.55493, -3.83765 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet090" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet090" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet091" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet091" type="Spatial" parent="Interior/PlanterSetTopSouth" index="9"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44824, -2.23547, -3.83765 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet091" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet091" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet092" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet092" type="Spatial" parent="Interior/PlanterSetTopSouth" index="10"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44824, -2.23547, -3.35791 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet092" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet092" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet093" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet093" type="Spatial" parent="Interior/PlanterSetTopSouth" index="11"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44824, -2.23547, -2.87817 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet093" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet093" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet094" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet094" type="Spatial" parent="Interior/PlanterSetTopSouth" index="12"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44824, -2.23547, -2.39844 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet094" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet094" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet095" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet095" type="Spatial" parent="Interior/PlanterSetTopSouth" index="13"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44824, -2.23547, -1.9187 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet095" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet095" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet096" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet096" type="Spatial" parent="Interior/PlanterSetTopSouth" index="14"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44824, -2.23547, -1.43896 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet096" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet096" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet097" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet097" type="Spatial" parent="Interior/PlanterSetTopSouth" index="15"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44824, -2.23547, -0.959473 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet097" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet097" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet098" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet098" type="Spatial" parent="Interior/PlanterSetTopSouth" index="16"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44824, -2.23547, -0.479736 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet098" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet098" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet099" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet099" type="Spatial" parent="Interior/PlanterSetTopSouth" index="17"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44824, -2.23547, 0 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet099" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet099" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet100" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet100" type="Spatial" parent="Interior/PlanterSetTopSouth" index="18"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24121, -1.91614, 0 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet100" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet100" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet101" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet101" type="Spatial" parent="Interior/PlanterSetTopSouth" index="19"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24121, -1.91614, -0.479736 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet101" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet101" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet102" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet102" type="Spatial" parent="Interior/PlanterSetTopSouth" index="20"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24121, -1.91614, -0.959473 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet102" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet102" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet103" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet103" type="Spatial" parent="Interior/PlanterSetTopSouth" index="21"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24121, -1.91614, -1.43896 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet103" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet103" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet104" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet104" type="Spatial" parent="Interior/PlanterSetTopSouth" index="22"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24121, -1.91614, -1.9187 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet104" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet104" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet105" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet105" type="Spatial" parent="Interior/PlanterSetTopSouth" index="23"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24121, -1.91614, -2.39844 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet105" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet105" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet106" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet106" type="Spatial" parent="Interior/PlanterSetTopSouth" index="24"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24121, -1.91614, -2.87817 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet106" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet106" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet107" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet107" type="Spatial" parent="Interior/PlanterSetTopSouth" index="25"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24121, -1.91614, -3.35791 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet107" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet107" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet108" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet108" type="Spatial" parent="Interior/PlanterSetTopSouth" index="26"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24121, -1.91614, -3.83765 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet108" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet108" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet109" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet109" type="Spatial" parent="Interior/PlanterSetTopSouth" index="27"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03467, -1.5968, 0 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet109" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet109" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet110" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet110" type="Spatial" parent="Interior/PlanterSetTopSouth" index="28"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03467, -1.5968, -0.479736 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet110" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet110" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet111" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet111" type="Spatial" parent="Interior/PlanterSetTopSouth" index="29"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03467, -1.5968, -0.959473 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet111" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet111" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet112" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet112" type="Spatial" parent="Interior/PlanterSetTopSouth" index="30"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03467, -1.5968, -1.43896 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet112" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet112" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet113" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet113" type="Spatial" parent="Interior/PlanterSetTopSouth" index="31"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03467, -1.5968, -1.9187 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet113" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet113" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet114" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet114" type="Spatial" parent="Interior/PlanterSetTopSouth" index="32"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03467, -1.5968, -2.39844 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet114" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet114" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet115" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet115" type="Spatial" parent="Interior/PlanterSetTopSouth" index="33"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03467, -1.5968, -2.87817 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet115" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet115" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet116" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet116" type="Spatial" parent="Interior/PlanterSetTopSouth" index="34"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03467, -1.5968, -3.35791 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet116" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet116" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet117" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet117" type="Spatial" parent="Interior/PlanterSetTopSouth" index="35"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03467, -1.5968, -3.83765 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet117" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet117" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet118" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet118" type="Spatial" parent="Interior/PlanterSetTopSouth" index="36"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827637, -1.27747, 0 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet118" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet118" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet119" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet119" type="Spatial" parent="Interior/PlanterSetTopSouth" index="37"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827637, -1.27747, -0.479736 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet119" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet119" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet120" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet120" type="Spatial" parent="Interior/PlanterSetTopSouth" index="38"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827637, -1.27747, -0.959473 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet120" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet120" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet121" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet121" type="Spatial" parent="Interior/PlanterSetTopSouth" index="39"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827637, -1.27747, -1.43896 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet121" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet121" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet122" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet122" type="Spatial" parent="Interior/PlanterSetTopSouth" index="40"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827637, -1.27747, -1.9187 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet122" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet122" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet123" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet123" type="Spatial" parent="Interior/PlanterSetTopSouth" index="41"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827637, -1.27747, -2.39844 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet123" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet123" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet124" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet124" type="Spatial" parent="Interior/PlanterSetTopSouth" index="42"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827637, -1.27747, -2.87817 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet124" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet124" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet125" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet125" type="Spatial" parent="Interior/PlanterSetTopSouth" index="43"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827637, -1.27747, -3.35791 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet125" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet125" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet126" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet126" type="Spatial" parent="Interior/PlanterSetTopSouth" index="44"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827637, -1.27747, -3.83765 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet126" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet126" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet127" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet127" type="Spatial" parent="Interior/PlanterSetTopSouth" index="45"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.620606, -0.95813, 0 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet127" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet127" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet128" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet128" type="Spatial" parent="Interior/PlanterSetTopSouth" index="46"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.620606, -0.95813, -0.479736 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet128" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet128" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet129" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet129" type="Spatial" parent="Interior/PlanterSetTopSouth" index="47"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.620606, -0.95813, -0.959473 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet129" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet129" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet130" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet130" type="Spatial" parent="Interior/PlanterSetTopSouth" index="48"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.620606, -0.95813, -1.43896 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet130" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet130" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet131" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet131" type="Spatial" parent="Interior/PlanterSetTopSouth" index="49"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.620606, -0.95813, -1.9187 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet131" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet131" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet132" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet132" type="Spatial" parent="Interior/PlanterSetTopSouth" index="50"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.620606, -0.95813, -2.39844 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet132" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet132" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet133" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet133" type="Spatial" parent="Interior/PlanterSetTopSouth" index="51"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.620606, -0.95813, -2.87817 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet133" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet133" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet134" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet134" type="Spatial" parent="Interior/PlanterSetTopSouth" index="52"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.620606, -0.95813, -3.35791 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet134" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet134" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet135" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet135" type="Spatial" parent="Interior/PlanterSetTopSouth" index="53"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.620606, -0.95813, -3.83765 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet135" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet135" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet136" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet136" type="Spatial" parent="Interior/PlanterSetTopSouth" index="54"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414063, -0.638672, 0 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet136" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet136" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet137" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet137" type="Spatial" parent="Interior/PlanterSetTopSouth" index="55"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414063, -0.638672, -0.479736 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet137" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet137" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet138" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet138" type="Spatial" parent="Interior/PlanterSetTopSouth" index="56"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414063, -0.638672, -0.959473 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet138" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet138" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet139" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet139" type="Spatial" parent="Interior/PlanterSetTopSouth" index="57"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414063, -0.638672, -1.43896 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet139" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet139" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet140" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet140" type="Spatial" parent="Interior/PlanterSetTopSouth" index="58"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414063, -0.638672, -1.9187 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet140" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet140" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet141" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet141" type="Spatial" parent="Interior/PlanterSetTopSouth" index="59"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414063, -0.638672, -2.39844 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet141" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet141" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet142" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet142" type="Spatial" parent="Interior/PlanterSetTopSouth" index="60"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414063, -0.638672, -2.87817 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet142" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet142" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet143" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet143" type="Spatial" parent="Interior/PlanterSetTopSouth" index="61"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414063, -0.638672, -3.35791 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet143" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet143" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet144" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet144" type="Spatial" parent="Interior/PlanterSetTopSouth" index="62"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414063, -0.638672, -3.83765 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet144" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet144" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet145" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet145" type="Spatial" parent="Interior/PlanterSetTopSouth" index="63"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207031, -0.319336, 0 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet145" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet145" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet146" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet146" type="Spatial" parent="Interior/PlanterSetTopSouth" index="64"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207031, -0.319336, -0.479736 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet146" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet146" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet147" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet147" type="Spatial" parent="Interior/PlanterSetTopSouth" index="65"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207031, -0.319336, -0.959473 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet147" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet147" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet148" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet148" type="Spatial" parent="Interior/PlanterSetTopSouth" index="66"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207031, -0.319336, -1.43896 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet148" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet148" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet149" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet149" type="Spatial" parent="Interior/PlanterSetTopSouth" index="67"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207031, -0.319336, -1.9187 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet149" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet149" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet150" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet150" type="Spatial" parent="Interior/PlanterSetTopSouth" index="68"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207031, -0.319336, -2.39844 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet150" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet150" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet151" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet151" type="Spatial" parent="Interior/PlanterSetTopSouth" index="69"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207031, -0.319336, -2.87817 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet151" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet151" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet152" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet152" type="Spatial" parent="Interior/PlanterSetTopSouth" index="70"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207031, -0.319336, -3.35791 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet152" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet152" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet153" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet153" type="Spatial" parent="Interior/PlanterSetTopSouth" index="71"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207031, -0.319336, -3.83765 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet153" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet153" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet155" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet155" type="Spatial" parent="Interior/PlanterSetTopSouth" index="72"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, -2.38419e-07, -0.479736 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet155" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet155" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet156" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet156" type="Spatial" parent="Interior/PlanterSetTopSouth" index="73"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, -2.38419e-07, -0.959473 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet156" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet156" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet157" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet157" type="Spatial" parent="Interior/PlanterSetTopSouth" index="74"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, -2.38419e-07, -1.43896 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet157" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet157" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet158" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet158" type="Spatial" parent="Interior/PlanterSetTopSouth" index="75"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, -2.38419e-07, -1.9187 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet158" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet158" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet159" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet159" type="Spatial" parent="Interior/PlanterSetTopSouth" index="76"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, -2.38419e-07, -2.39844 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet159" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet159" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet160" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet160" type="Spatial" parent="Interior/PlanterSetTopSouth" index="77"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, -2.38419e-07, -2.87817 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet160" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet160" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet161" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet161" type="Spatial" parent="Interior/PlanterSetTopSouth" index="78"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, -2.38419e-07, -3.35791 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet161" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet161" index="0" instance=ExtResource( 131 )]
 
-[node name="PlanterSet162" type="Spatial" parent="Interior/PlanterSetTopSouth"]
+[node name="PlanterSet162" type="Spatial" parent="Interior/PlanterSetTopSouth" index="79"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, -2.38419e-07, -3.83765 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet162" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet162" index="0" instance=ExtResource( 131 )]
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth" instance=ExtResource( 131 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth" index="80" instance=ExtResource( 131 )]
 
-[node name="PlanterFrames002" type="MeshInstance" parent="Interior"]
+[node name="PlanterFrames002" type="MeshInstance" parent="Interior" index="94"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.805664, 0.427246, -0.490967 )
 layers = 1
@@ -3687,7 +3687,7 @@ mesh = ExtResource( 132 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="PassageMouth" type="MeshInstance" parent="Interior"]
+[node name="PassageMouth" type="MeshInstance" parent="Interior" index="95"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -5.07275, 0.269409, -1.40723 )
 layers = 1
@@ -3704,7 +3704,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="OvensHeatPump" type="MeshInstance" parent="Interior"]
+[node name="OvensHeatPump" type="MeshInstance" parent="Interior" index="96"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59375, 1.37988, 2.25562 )
 layers = 1
@@ -3721,7 +3721,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="NorthEastBath-Floor002" type="MeshInstance" parent="Interior" groups=[
+[node name="NorthEastBath-Floor002" type="MeshInstance" parent="Interior" index="97" groups=[
 "floor",
 ]]
 
@@ -3740,7 +3740,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="NorthEastBath-Floor002_col" type="StaticBody" parent="Interior/NorthEastBath-Floor002"]
+[node name="NorthEastBath-Floor002_col" type="StaticBody" parent="Interior/NorthEastBath-Floor002" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -3751,12 +3751,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/NorthEastBath-Floor002/NorthEastBath-Floor002_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/NorthEastBath-Floor002/NorthEastBath-Floor002_col" index="0"]
 
 shape = ExtResource( 136 )
 disabled = false
 
-[node name="NorthBathroom" type="MeshInstance" parent="Interior" groups=[
+[node name="NorthBathroom" type="MeshInstance" parent="Interior" index="98" groups=[
 "wall",
 ]]
 
@@ -3775,7 +3775,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="NorthBathroom_col" type="StaticBody" parent="Interior/NorthBathroom"]
+[node name="NorthBathroom_col" type="StaticBody" parent="Interior/NorthBathroom" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -3786,12 +3786,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/NorthBathroom/NorthBathroom_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/NorthBathroom/NorthBathroom_col" index="0"]
 
 shape = ExtResource( 138 )
 disabled = false
 
-[node name="Mouth-SouthHall002" type="MeshInstance" parent="Interior"]
+[node name="Mouth-SouthHall002" type="MeshInstance" parent="Interior" index="99"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.74756, -0.0487061, -0.206543 )
 layers = 1
@@ -3808,7 +3808,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="MinWaterTankFillingPipe" type="MeshInstance" parent="Interior"]
+[node name="MinWaterTankFillingPipe" type="MeshInstance" parent="Interior" index="100"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -3.50146, 1.44043, 1.85522 )
 layers = 1
@@ -3824,7 +3824,7 @@ mesh = ExtResource( 140 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="MainWaterTankDuct" type="MeshInstance" parent="Interior"]
+[node name="MainWaterTankDuct" type="MeshInstance" parent="Interior" index="101"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50146, 0.73999, 1.8667 )
 layers = 1
@@ -3840,7 +3840,7 @@ mesh = ExtResource( 141 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="MainHeatPumps" type="MeshInstance" parent="Interior"]
+[node name="MainHeatPumps" type="MeshInstance" parent="Interior" index="102"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72314, 1.69397, 1.27979 )
 layers = 1
@@ -3857,7 +3857,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="MainComposter" type="MeshInstance" parent="Interior" groups=[
+[node name="MainComposter" type="MeshInstance" parent="Interior" index="103" groups=[
 "cs_convex",
 ]]
 
@@ -3876,7 +3876,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="MainComposter_col" type="StaticBody" parent="Interior/MainComposter"]
+[node name="MainComposter_col" type="StaticBody" parent="Interior/MainComposter" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -3887,12 +3887,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/MainComposter/MainComposter_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/MainComposter/MainComposter_col" index="0"]
 
 shape = ExtResource( 144 )
 disabled = false
 
-[node name="LaundrySink" type="MeshInstance" parent="Interior" groups=[
+[node name="LaundrySink" type="MeshInstance" parent="Interior" index="104" groups=[
 "cs",
 ]]
 
@@ -3911,7 +3911,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="LaundrySink_col" type="StaticBody" parent="Interior/LaundrySink"]
+[node name="LaundrySink_col" type="StaticBody" parent="Interior/LaundrySink" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -3922,12 +3922,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/LaundrySink/LaundrySink_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/LaundrySink/LaundrySink_col" index="0"]
 
 shape = ExtResource( 146 )
 disabled = false
 
-[node name="Lawn" type="MeshInstance" parent="Interior" groups=[
+[node name="Lawn" type="MeshInstance" parent="Interior" index="105" groups=[
 "floor",
 ]]
 
@@ -3948,7 +3948,7 @@ material/1 = SubResource( 2 )
 material/2 = SubResource( 3 )
 _sections_unfolded = [ "Geometry", "material" ]
 
-[node name="Lawn_col" type="StaticBody" parent="Interior/Lawn"]
+[node name="Lawn_col" type="StaticBody" parent="Interior/Lawn" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -3959,12 +3959,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/Lawn/Lawn_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/Lawn/Lawn_col" index="0"]
 
 shape = ExtResource( 153 )
 disabled = false
 
-[node name="KitchenLowCabinets" type="MeshInstance" parent="Interior" groups=[
+[node name="KitchenLowCabinets" type="MeshInstance" parent="Interior" index="106" groups=[
 "cs",
 ]]
 
@@ -3984,7 +3984,7 @@ material/0 = null
 material/1 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="KitchenLowCabinets_col" type="StaticBody" parent="Interior/KitchenLowCabinets"]
+[node name="KitchenLowCabinets_col" type="StaticBody" parent="Interior/KitchenLowCabinets" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -3995,12 +3995,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/KitchenLowCabinets/KitchenLowCabinets_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/KitchenLowCabinets/KitchenLowCabinets_col" index="0"]
 
 shape = ExtResource( 155 )
 disabled = false
 
-[node name="KitchenHeatPump" type="MeshInstance" parent="Interior"]
+[node name="KitchenHeatPump" type="MeshInstance" parent="Interior" index="107"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61523, 1.34546, 1.60181 )
 layers = 1
@@ -4017,7 +4017,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="Kitchen" type="MeshInstance" parent="Interior" groups=[
+[node name="Kitchen" type="MeshInstance" parent="Interior" index="108" groups=[
 "cs",
 ]]
 
@@ -4039,7 +4039,7 @@ material/2 = null
 material/3 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="Kitchen_col" type="StaticBody" parent="Interior/Kitchen"]
+[node name="Kitchen_col" type="StaticBody" parent="Interior/Kitchen" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -4050,36 +4050,36 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/Kitchen/Kitchen_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/Kitchen/Kitchen_col" index="0"]
 
 shape = ExtResource( 158 )
 disabled = false
 
-[node name="HexpaneWindow1" parent="Interior" instance=ExtResource( 159 )]
+[node name="HexpaneWindow1" parent="Interior" index="109" instance=ExtResource( 159 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01025, 0.297607, 1.43335 )
 
-[node name="HexpaneWindow2" parent="Interior" instance=ExtResource( 159 )]
+[node name="HexpaneWindow2" parent="Interior" index="110" instance=ExtResource( 159 )]
 
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.39307, 0.206665, 0.619141 )
 
-[node name="HexpaneWindow3" parent="Interior" instance=ExtResource( 159 )]
+[node name="HexpaneWindow3" parent="Interior" index="111" instance=ExtResource( 159 )]
 
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.39307, 0.206543, -1.03247 )
 
-[node name="HexpaneWindow4" parent="Interior" instance=ExtResource( 159 )]
+[node name="HexpaneWindow4" parent="Interior" index="112" instance=ExtResource( 159 )]
 
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.39307, 0.521362, -0.214111 )
 
-[node name="HexpaneWindow5" parent="Interior" instance=ExtResource( 159 )]
+[node name="HexpaneWindow5" parent="Interior" index="113" instance=ExtResource( 159 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01025, 1.0719, 1.43042 )
 
-[node name="HealthCentrifuge" parent="Interior" instance=ExtResource( 160 )]
+[node name="HealthCentrifuge" parent="Interior" index="114" instance=ExtResource( 160 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.82031, 0.416992, -0.204346 )
 
-[node name="GymWallPadding" type="MeshInstance" parent="Interior"]
+[node name="GymWallPadding" type="MeshInstance" parent="Interior" index="115"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72852, -1.51062, -2.7959 )
 layers = 1
@@ -4096,7 +4096,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="GymTrampolines" type="MeshInstance" parent="Interior" groups=[
+[node name="GymTrampolines" type="MeshInstance" parent="Interior" index="116" groups=[
 "floor",
 ]]
 
@@ -4115,7 +4115,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="GymTrampolines_col" type="StaticBody" parent="Interior/GymTrampolines"]
+[node name="GymTrampolines_col" type="StaticBody" parent="Interior/GymTrampolines" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -4126,12 +4126,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/GymTrampolines/GymTrampolines_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/GymTrampolines/GymTrampolines_col" index="0"]
 
 shape = ExtResource( 163 )
 disabled = false
 
-[node name="GymRope3" type="MeshInstance" parent="Interior"]
+[node name="GymRope3" type="MeshInstance" parent="Interior" index="117"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59326, -0.0897217, -2.14917 )
 layers = 1
@@ -4148,7 +4148,7 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="GymRope2" type="MeshInstance" parent="Interior"]
+[node name="GymRope2" type="MeshInstance" parent="Interior" index="118"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54932, -0.0905762, -2.61792 )
 layers = 1
@@ -4165,7 +4165,7 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="GymRope1" type="MeshInstance" parent="Interior"]
+[node name="GymRope1" type="MeshInstance" parent="Interior" index="119"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.06543, -0.0897217, -2.69141 )
 layers = 1
@@ -4182,7 +4182,7 @@ skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="GymMonkeyBars" type="MeshInstance" parent="Interior"]
+[node name="GymMonkeyBars" type="MeshInstance" parent="Interior" index="120"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.27637, 1.36536, -2.34766 )
 layers = 1
@@ -4198,7 +4198,7 @@ mesh = ExtResource( 167 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="GymFloorPadding" type="MeshInstance" parent="Interior" groups=[
+[node name="GymFloorPadding" type="MeshInstance" parent="Interior" index="121" groups=[
 "cs_convex",
 ]]
 
@@ -4217,7 +4217,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="GymFloorPadding_col" type="StaticBody" parent="Interior/GymFloorPadding"]
+[node name="GymFloorPadding_col" type="StaticBody" parent="Interior/GymFloorPadding" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -4228,12 +4228,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/GymFloorPadding/GymFloorPadding_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/GymFloorPadding/GymFloorPadding_col" index="0"]
 
 shape = ExtResource( 169 )
 disabled = false
 
-[node name="GymFence" type="MeshInstance" parent="Interior"]
+[node name="GymFence" type="MeshInstance" parent="Interior" index="122"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.72852, -1.51062, -2.7959 )
 layers = 1
@@ -4249,7 +4249,7 @@ mesh = ExtResource( 170 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="GlazingAtriuim002" type="MeshInstance" parent="Interior"]
+[node name="GlazingAtriuim002" type="MeshInstance" parent="Interior" index="123"]
 
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.0375977, -2.07605, 2.25269 )
 layers = 1
@@ -4265,7 +4265,7 @@ mesh = ExtResource( 171 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="GardenWall" type="MeshInstance" parent="Interior" groups=[
+[node name="GardenWall" type="MeshInstance" parent="Interior" index="124" groups=[
 "wall",
 ]]
 
@@ -4284,7 +4284,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="GardenWall_col" type="StaticBody" parent="Interior/GardenWall"]
+[node name="GardenWall_col" type="StaticBody" parent="Interior/GardenWall" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -4295,12 +4295,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/GardenWall/GardenWall_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/GardenWall/GardenWall_col" index="0"]
 
 shape = ExtResource( 173 )
 disabled = false
 
-[node name="FridgeDoors" type="MeshInstance" parent="Interior"]
+[node name="FridgeDoors" type="MeshInstance" parent="Interior" index="125"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73291, 1.125, 2.06836 )
 layers = 1
@@ -4317,7 +4317,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="EastBottomFloor" type="MeshInstance" parent="Interior" groups=[
+[node name="EastBottomFloor" type="MeshInstance" parent="Interior" index="126" groups=[
 "floor",
 ]]
 
@@ -4336,7 +4336,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="EastBottomFloor_col" type="StaticBody" parent="Interior/EastBottomFloor"]
+[node name="EastBottomFloor_col" type="StaticBody" parent="Interior/EastBottomFloor" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -4347,12 +4347,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/EastBottomFloor/EastBottomFloor_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/EastBottomFloor/EastBottomFloor_col" index="0"]
 
 shape = ExtResource( 176 )
 disabled = false
 
-[node name="EastBathroom" type="MeshInstance" parent="Interior" groups=[
+[node name="EastBathroom" type="MeshInstance" parent="Interior" index="127" groups=[
 "wall",
 ]]
 
@@ -4371,7 +4371,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="EastBathroom_col" type="StaticBody" parent="Interior/EastBathroom"]
+[node name="EastBathroom_col" type="StaticBody" parent="Interior/EastBathroom" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -4382,12 +4382,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/EastBathroom/EastBathroom_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/EastBathroom/EastBathroom_col" index="0"]
 
 shape = ExtResource( 178 )
 disabled = false
 
-[node name="Drain2" type="MeshInstance" parent="Interior"]
+[node name="Drain2" type="MeshInstance" parent="Interior" index="128"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4917, 0.150757, 1.10181 )
 layers = 1
@@ -4403,7 +4403,7 @@ mesh = ExtResource( 179 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Drain1" type="MeshInstance" parent="Interior"]
+[node name="Drain1" type="MeshInstance" parent="Interior" index="129"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4917, 0.181519, 1.09497 )
 layers = 1
@@ -4419,7 +4419,7 @@ mesh = ExtResource( 180 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="ComposterPlatform" type="MeshInstance" parent="Interior" groups=[
+[node name="ComposterPlatform" type="MeshInstance" parent="Interior" index="130" groups=[
 "floor",
 ]]
 
@@ -4438,7 +4438,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="ComposterPlatform_col" type="StaticBody" parent="Interior/ComposterPlatform"]
+[node name="ComposterPlatform_col" type="StaticBody" parent="Interior/ComposterPlatform" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -4449,12 +4449,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/ComposterPlatform/ComposterPlatform_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/ComposterPlatform/ComposterPlatform_col" index="0"]
 
 shape = ExtResource( 182 )
 disabled = false
 
-[node name="BottomWindowFloorWest" type="MeshInstance" parent="Interior" groups=[
+[node name="BottomWindowFloorWest" type="MeshInstance" parent="Interior" index="131" groups=[
 "floor",
 ]]
 
@@ -4473,7 +4473,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="BottomWindowFloorWest_col" type="StaticBody" parent="Interior/BottomWindowFloorWest"]
+[node name="BottomWindowFloorWest_col" type="StaticBody" parent="Interior/BottomWindowFloorWest" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -4484,12 +4484,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/BottomWindowFloorWest/BottomWindowFloorWest_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/BottomWindowFloorWest/BottomWindowFloorWest_col" index="0"]
 
 shape = ExtResource( 184 )
 disabled = false
 
-[node name="BottomWindowFloor" type="MeshInstance" parent="Interior" groups=[
+[node name="BottomWindowFloor" type="MeshInstance" parent="Interior" index="132" groups=[
 "floor",
 ]]
 
@@ -4508,7 +4508,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="BottomWindowFloor_col" type="StaticBody" parent="Interior/BottomWindowFloor"]
+[node name="BottomWindowFloor_col" type="StaticBody" parent="Interior/BottomWindowFloor" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -4519,12 +4519,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/BottomWindowFloor/BottomWindowFloor_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/BottomWindowFloor/BottomWindowFloor_col" index="0"]
 
 shape = ExtResource( 186 )
 disabled = false
 
-[node name="BlackwaterTank2" type="MeshInstance" parent="Interior"]
+[node name="BlackwaterTank2" type="MeshInstance" parent="Interior" index="133"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.854492, -1.67175, -2.6875 )
 layers = 1
@@ -4540,7 +4540,7 @@ mesh = ExtResource( 187 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="BlackWaterTank" type="MeshInstance" parent="Interior" groups=[
+[node name="BlackWaterTank" type="MeshInstance" parent="Interior" index="134" groups=[
 "cs_convex",
 ]]
 
@@ -4558,7 +4558,7 @@ mesh = ExtResource( 188 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="BlackWaterTank_col" type="StaticBody" parent="Interior/BlackWaterTank"]
+[node name="BlackWaterTank_col" type="StaticBody" parent="Interior/BlackWaterTank" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -4569,12 +4569,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/BlackWaterTank/BlackWaterTank_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/BlackWaterTank/BlackWaterTank_col" index="0"]
 
 shape = ExtResource( 189 )
 disabled = false
 
-[node name="BlackwaterPurification2" type="MeshInstance" parent="Interior"]
+[node name="BlackwaterPurification2" type="MeshInstance" parent="Interior" index="135"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.661133, -1.67175, -2.6875 )
 layers = 1
@@ -4590,7 +4590,7 @@ mesh = ExtResource( 190 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="AtriumWalls005" type="MeshInstance" parent="Interior"]
+[node name="AtriumWalls005" type="MeshInstance" parent="Interior" index="136"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00012207, 0 )
 layers = 1
@@ -4607,7 +4607,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="AtriumRamp" type="MeshInstance" parent="Interior" groups=[
+[node name="AtriumRamp" type="MeshInstance" parent="Interior" index="137" groups=[
 "cs",
 ]]
 
@@ -4626,7 +4626,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="AtriumRamp_col" type="StaticBody" parent="Interior/AtriumRamp"]
+[node name="AtriumRamp_col" type="StaticBody" parent="Interior/AtriumRamp" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -4637,12 +4637,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/AtriumRamp/AtriumRamp_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/AtriumRamp/AtriumRamp_col" index="0"]
 
 shape = ExtResource( 193 )
 disabled = false
 
-[node name="AnchorBolt002" type="MeshInstance" parent="Interior"]
+[node name="AnchorBolt002" type="MeshInstance" parent="Interior" index="138"]
 
 transform = Transform( 0.1, 0, 9.38657e-11, 0, 0.1, 0, -9.38657e-11, 0, 0.1, 1.79492, -1.73633, 2.43213 )
 layers = 1
@@ -4658,7 +4658,7 @@ mesh = ExtResource( 194 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="AnchorBeamAtrium002" type="MeshInstance" parent="Interior"]
+[node name="AnchorBeamAtrium002" type="MeshInstance" parent="Interior" index="139"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79492, -1.70166, -0.205566 )
 layers = 1
@@ -4675,7 +4675,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="AlgaeWaterOxygenation" type="MeshInstance" parent="Interior" groups=[
+[node name="AlgaeWaterOxygenation" type="MeshInstance" parent="Interior" index="140" groups=[
 "cs",
 ]]
 
@@ -4694,7 +4694,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="AlgaeWaterOxygenation_col" type="StaticBody" parent="Interior/AlgaeWaterOxygenation"]
+[node name="AlgaeWaterOxygenation_col" type="StaticBody" parent="Interior/AlgaeWaterOxygenation" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -4705,12 +4705,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/AlgaeWaterOxygenation/AlgaeWaterOxygenation_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/AlgaeWaterOxygenation/AlgaeWaterOxygenation_col" index="0"]
 
 shape = ExtResource( 197 )
 disabled = false
 
-[node name="AlgaeTubes" type="MeshInstance" parent="Interior" groups=[
+[node name="AlgaeTubes" type="MeshInstance" parent="Interior" index="141" groups=[
 "cs",
 ]]
 
@@ -4729,7 +4729,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="AlgaeTubes_col" type="StaticBody" parent="Interior/AlgaeTubes"]
+[node name="AlgaeTubes_col" type="StaticBody" parent="Interior/AlgaeTubes" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -4740,12 +4740,12 @@ bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Interior/AlgaeTubes/AlgaeTubes_col"]
+[node name="CollisionShape" type="CollisionShape" parent="Interior/AlgaeTubes/AlgaeTubes_col" index="0"]
 
 shape = ExtResource( 199 )
 disabled = false
 
-[node name="AlgaeFarmPost" type="MeshInstance" parent="Interior"]
+[node name="AlgaeFarmPost" type="MeshInstance" parent="Interior" index="142"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1626, 1.56799, -2.76611 )
 layers = 1
@@ -4762,7 +4762,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry" ]
 
-[node name="OmniLight2" type="OmniLight" parent="Interior"]
+[node name="OmniLight2" type="OmniLight" parent="Interior" index="143"]
 
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.267897, 2.02002, 2.75763 )
 layers = 1
@@ -4785,9 +4785,9 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light", "Shadow" ]
 
-[node name="Triggers" type="Spatial" parent="."]
+[node name="Triggers" type="Spatial" parent="." index="2"]
 
-[node name="Area" type="Area" parent="Triggers"]
+[node name="Area" type="Area" parent="Triggers" index="0"]
 
 input_ray_pickable = false
 input_capture_on_drag = false
@@ -4815,13 +4815,13 @@ showhide = "interior"
 hideshow = "exterior"
 bygroup = "player"
 
-[node name="CollisionShape" type="CollisionShape" parent="Triggers/Area"]
+[node name="CollisionShape" type="CollisionShape" parent="Triggers/Area" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96696, 0, 0 )
 shape = SubResource( 4 )
 disabled = false
 
-[node name="BakedLightmap" type="BakedLightmap" parent="."]
+[node name="BakedLightmap" type="BakedLightmap" parent="." index="3"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.68293, 0.565462, 0.844477 )
 layers = 1
