@@ -1,6 +1,6 @@
 extends Node
 
-var SceneOptions = "res://assets/UI/Options.tscn"
+var SceneOptions = "res://assets/UI/Menu/Options.tscn"
 var Options = null
 
 
