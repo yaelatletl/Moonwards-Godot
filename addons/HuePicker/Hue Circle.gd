@@ -20,15 +20,8 @@ var saved_h = 0 setget _sethue, _gethue
 func _init():
 	UsefulFunctions = UsefulFunctions.new()
 
-func _sethue(value, sender=null):
-	if sender == null:
-		print ("Warning:  Attempt to set private variable _hue!")
-	if sender is ColorPicker or sender == owner or sender.has_node(self.get_path()):
-		saved_h = value
-	else: 
-		print ("Hue Circle: Warning, attempt to set private variable _hue!")
-		print ("Class %s, %s" % [sender.get_class(), sender])
-	pass
+func _sethue(value):
+	saved_h = value
 func _gethue():
 	return saved_h
 

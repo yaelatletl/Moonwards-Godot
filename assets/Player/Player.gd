@@ -50,7 +50,8 @@ slave var slave_translation
 slave var slave_transform 
 slave var slave_linear_vel 
 
-
+var RPC_MODE_DISABLED = 0
+var RPC_MODE_SLAVE = 3
 #####################
 ## Set/Get functions
 func set_nonetwork(state):

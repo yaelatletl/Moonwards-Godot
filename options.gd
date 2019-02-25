@@ -50,9 +50,10 @@ func load():
 		savefile.open(OptionsFile, File.READ)
 		var content = parse_json(savefile.get_as_text())
 		savefile.close()
-		if content.has("_state_"):
-			content.erase("_state_")
-		options = content
+		if content:
+			if content.has("_state_"):
+				content.erase("_state_")
+			options = content
 
 func save():
 	var savefile = File.new()	

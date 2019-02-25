@@ -15,7 +15,7 @@ func _ready():
 	
 
 	yield(get_tree(),'idle_frame')
-	$Hue_Circle._sethue(color.h,self)
+	$Hue_Circle._sethue(color.h)
 	$Hue_Circle.reposition_hue_indicator()
 	reposition_hue_indicator()
 	_on_HuePicker_color_changed(color)
