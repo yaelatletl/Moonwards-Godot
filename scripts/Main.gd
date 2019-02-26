@@ -8,11 +8,13 @@ const MultiplayerToLoad = "res://lobby.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	_on_size_changed()
+	get_viewport().connect("size_changed",self,"_on_size_changed")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+func _on_size_changed():
+	var Newsize = get_viewport().get_visible_rect().size
+	rect_scale = Vector2(1,1)*(Newsize.y/rect_size.y)
 
 func _on_Run_pressed():
 	$ui/main.hide()

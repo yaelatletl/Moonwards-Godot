@@ -1,31 +1,39 @@
 tool
 extends HBoxContainer
-export(String) var Label_text = "Default control name" setget update_title
+export(String) var Label_text = "Default control name"  #setget update_title, get_title
 var reading = false
 var current_scancode = null
+onready var titlelabel = get_node("Label")
 
 func update_labels():
 	#Updates text from labels
 	get_node("Button").text = OS.get_scancode_string(current_scancode)
 	get_node("Confirm/CenterContainer/Label2").text = OS.get_scancode_string(current_scancode)
 	
-
+func get_title():
+	return Label_text
+	
+	
 func update_title(text):
-	Label_text = text
-	$Label.text = text
+	if(Engine.is_editor_hint()):
+		Label_text = text
+		$Label.text = text
+
+
 
 func _enter_tree():
 	$Confirm.get_cancel().connect("pressed",self,"_on_Cancel") 
 	#Get the popup cancel button and connect it to _on_cancel
 	
-	update_title()
-	
+	$Label.text = get_title()
+	titlelabel = get_title()
 	if InputMap.has_action(str(name)):
 		current_scancode = InputMap.get_action_list(str(name))[0].scancode
 		update_labels()
 		#Get the first action asociated with this input
 		get_node("Button").disabled = false
 		
+
 
 func _unhandled_input(event):
 	if event is InputEventKey and reading:
