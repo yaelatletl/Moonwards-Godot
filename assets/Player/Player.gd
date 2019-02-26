@@ -46,24 +46,24 @@ var linear_velocity=Vector3()
 var hspeed = 0
 
 ##Networking
-slave var slave_translation 
-slave var slave_transform 
-slave var slave_linear_vel 
+puppet var puppet_translation 
+puppet var puppet_transform 
+puppet var puppet_linear_vel 
 
 var RPC_MODE_DISABLED = 0
-var RPC_MODE_SLAVE = 3
+var RPC_MODE_PUPPET = 3
 #####################
 ## Set/Get functions
 func set_nonetwork(state):
 	nonetwork = state
 	if nonetwork:
-		rset_config("slave_translation", RPC_MODE_DISABLED)
-		rset_config("slave_transform",  RPC_MODE_DISABLED)
-		rset_config("slave_linear_vel", RPC_MODE_DISABLED)
+		rset_config("puppet_translation", RPC_MODE_DISABLED)
+		rset_config("puppet_transform",  RPC_MODE_DISABLED)
+		rset_config("puppet_linear_vel", RPC_MODE_DISABLED)
 	else:
-		rset_config("slave_translation", RPC_MODE_SLAVE)
-		rset_config("slave_transform",  RPC_MODE_SLAVE)
-		rset_config("slave_linear_vel",  RPC_MODE_SLAVE)
+		rset_config("puppet_translation", RPC_MODE_PUPPET)
+		rset_config("puppet_transform",  RPC_MODE_PUPPET)
+		rset_config("puppet_linear_vel",  RPC_MODE_PUPPET)
 #disable camera view for the player
 func set_player_nocamera(state):
 	nocamera = state
@@ -213,14 +213,14 @@ func _physics_process(delta):
 	
 	if !nonetwork:
 		if is_network_master():
-			rset_unreliable("slave_translation", translation)
-			rset_unreliable("slave_transform", $Model.transform)
-			rset_unreliable("slave_linear_vel", linear_velocity)
+			rset_unreliable("puppet_translation", translation)
+			rset_unreliable("puppet_transform", $Model.transform)
+			rset_unreliable("puppet_linear_vel", linear_velocity)
 		else:
-			if not (slave_transform == null or slave_translation == null or slave_linear_vel == null or linear_velocity == null):
-				translation = slave_translation
-	# 			$Yaw.transform = slave_transform
-				linear_velocity = slave_linear_vel
+			if not (puppet_transform == null or puppet_translation == null or puppet_linear_vel == null or linear_velocity == null):
+				translation = puppet_translation
+	# 			$Yaw.transform = puppet_transform
+				linear_velocity = puppet_linear_vel
 
 	var jump_attempt = (Input.is_action_pressed("jump") or (Input.is_action_pressed("ui_page_up") and flies))
 	var crouch_attempt = (Input.is_action_pressed("ui_mlook") or (Input.is_action_pressed("ui_page_down") and flies))
