@@ -181,7 +181,7 @@ func _physics_process(delta):
 	#THIS BLOCK IS INTENDED FOR FPS CONTROLLER USE ONLY
 	var aim = $Pivot/FPSCamera.get_global_transform().basis
 
-	if (Input.is_action_pressed("ui_up")):
+	if (Input.is_action_pressed("move_forwards")):
 		ismoving = true
 		if not flies:
 			dir -= aim[2]
@@ -190,7 +190,7 @@ func _physics_process(delta):
 			dir += AbsView
 	else:
 		ismoving = false
-	if (Input.is_action_pressed("ui_down")):
+	if (Input.is_action_pressed("move_backwards")):
 		if not flies:
 			dir += aim[2]
 		else:
@@ -198,12 +198,12 @@ func _physics_process(delta):
 		ismoving = true
 	else:
 		ismoving = false
-	if (Input.is_action_pressed("ui_left")):
+	if (Input.is_action_pressed("move_left")):
 		dir -= aim[0]
 
 		$Pivot/FPSCamera.Znoice =  1*hspeed
 
-	if (Input.is_action_pressed("ui_right")):
+	if (Input.is_action_pressed("move_right")):
 		dir += aim[0]
 		$Pivot/FPSCamera.Znoice =  -1*hspeed
 	
