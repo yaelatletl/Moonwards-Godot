@@ -13,4 +13,7 @@ ambient_light_energy = 0.5
 ambient_light_sky_contribution = 0.0
 tonemap_mode = 2
 tonemap_white = 1.3
+adjustment_enabled = true
+adjustment_contrast = 1.2
+adjustment_saturation = 0.9
 

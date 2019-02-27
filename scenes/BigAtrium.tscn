@@ -169,17 +169,14 @@ material/1 = null
 [node name="OmniLight" type="OmniLight" parent="Interior/InteriorLevels"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000488281, 3.97297, 2.8178 )
 light_color = Color( 0.976074, 1, 0.890625, 1 )
-light_energy = 0.7
 
 [node name="OmniLight2" type="OmniLight" parent="Interior/InteriorLevels"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000488281, 3.97225, -0.242775 )
 light_color = Color( 1, 0.97168, 0.886719, 1 )
-light_energy = 0.7
 
 [node name="OmniLight3" type="OmniLight" parent="Interior/InteriorLevels"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000488281, 3.97225, -3.38933 )
 light_color = Color( 1, 0.998352, 0.894531, 1 )
-light_energy = 0.7
 
 [node name="InteriorLevels_col" type="StaticBody" parent="Interior/InteriorLevels"]
 

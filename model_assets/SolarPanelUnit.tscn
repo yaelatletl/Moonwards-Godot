@@ -4,135 +4,60 @@
 [ext_resource path="res://model_assets/meshes/SolarPanelUnit__SolarPanelRotation_SolarPanelCounterweight.mesh" type="ArrayMesh" id=2]
 [ext_resource path="res://model_assets/meshes/SolarPanelUnit__SolarPanelRotation_Truss-Triangular-End-SolarPanels001.mesh" type="ArrayMesh" id=3]
 [ext_resource path="res://model_assets/meshes/SolarPanelUnit__Truss-Triangular-SolarPanels.mesh" type="ArrayMesh" id=4]
-[ext_resource path="res://materials/BlueGray.tres" type="Material" id=5]
-[ext_resource path="res://materials/Caramel.tres" type="Material" id=6]
+[ext_resource path="res://materials/Caramel.tres" type="Material" id=5]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.0470588, 0.0862745, 0.278431, 1 )
+metallic = 0.52
+roughness = 0.1
 
 [sub_resource type="PlaneMesh" id=2]
-
-material = ExtResource( 5 )
-custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
-size = Vector2( 2, 2 )
-subdivide_width = 0
-subdivide_depth = 0
+material = SubResource( 1 )
 
 [sub_resource type="PlaneMesh" id=3]
+material = ExtResource( 5 )
 
-material = ExtResource( 6 )
-custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
-size = Vector2( 2, 2 )
-subdivide_width = 0
-subdivide_depth = 0
+[node name="Scene" type="Spatial"]
 
-[node name="Scene" type="Spatial" index="0"]
-
-[node name="SolarPanelRotation" type="Spatial" parent="." index="0" groups=[
+[node name="SolarPanelRotation" type="Spatial" parent="." groups=[
 "LodNear",
 ]]
-
 transform = Transform( 0.499996, -0.866024, 1.20983e-08, 0.866035, 0.49999, -2.27566e-08, 1.36589e-08, 2.18555e-08, 1, 0, 0, 0 )
 visible = false
 
-[node name="SolarPanel001" type="MeshInstance" parent="SolarPanelRotation" index="0"]
-
+[node name="SolarPanel001" type="MeshInstance" parent="SolarPanelRotation"]
 transform = Transform( 0.999993, 7.83801e-06, 1.26184e-08, -7.80821e-06, 1.00001, 2.18558e-08, -1.26183e-08, -2.18558e-08, 1, 0.0135458, 0.144265, -2.40723 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 1 )
-skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="SolarPanelCounterweight" type="MeshInstance" parent="SolarPanelRotation" index="1"]
-
+[node name="SolarPanelCounterweight" type="MeshInstance" parent="SolarPanelRotation"]
 transform = Transform( 0.999998, -7.45058e-06, -4.2502e-06, 7.48038e-06, 0.999995, -7.21225e-06, 4.2503e-06, 7.21209e-06, 1, 0.0118617, -0.395309, -2.40698 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 2 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="Truss-Triangular-End-SolarPanels001" type="MeshInstance" parent="SolarPanelRotation" index="2"]
-
+[node name="Truss-Triangular-End-SolarPanels001" type="MeshInstance" parent="SolarPanelRotation"]
 transform = Transform( 0.999998, -7.53999e-06, -4.25007e-06, 7.56979e-06, 0.999995, -7.21202e-06, 4.25017e-06, 7.21186e-06, 1, 0.00340449, 0.0224239, -0.899416 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 3 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="Truss-Triangular-SolarPanels" type="MeshInstance" parent="." index="1" groups=[
+[node name="Truss-Triangular-SolarPanels" type="MeshInstance" parent="." groups=[
 "LodNear",
 ]]
-
 transform = Transform( 1, 5.96047e-08, -2.98023e-08, -2.98023e-08, -4.37114e-08, -1, -5.96047e-08, 1, -4.37114e-08, 0, 0, 0 )
 visible = false
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 4 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="MeshInstance" type="MeshInstance" parent="." index="2" groups=[
+[node name="MeshInstance" type="MeshInstance" parent="." groups=[
 "LodFar",
 ]]
-
 transform = Transform( 0.58739, -0.872008, 0, 1.04641, 0.489492, 0, 0, 0, 2, -0.136011, 0, -2.43298 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = SubResource( 2 )
-skeleton = NodePath("..")
 material/0 = null
-_sections_unfolded = [ "Transform" ]
 
-[node name="MeshInstance" type="MeshInstance" parent="MeshInstance" index="0"]
-
+[node name="MeshInstance" type="MeshInstance" parent="MeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0121942, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
-skeleton = NodePath("..")
 material/0 = null
-
 
