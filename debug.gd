@@ -14,6 +14,29 @@ func _input(event):
 func _ready():
 	randomize()
 	id = randi()
+	gamestate.connect("scene_change", self, "on_scene_change")
+	
+	var tree = get_tree()
+	tree.connect("tree_change", self, "on_tree_change")
+	tree.connect("node_added", self, "on_node_added")
+	tree.connect("node_removed", self, "on_node_removed")
+	
+func on_tree_change():
+	print("debug treechange")
+func on_node_added(node):
+	print("added node %s" % node)
+func on_node_removed(node):
+	print("node removed: %s" % node)
+
+func on_scene_change():
+	#apply options settings to new scene
+	print("Apply options to new player scene")
+	e_collision_shapes(options.get("dev", "enable_collision_shapes"))
+	hidden_nodes = []
+	if options.get("dev", "hide_meshes_random"):
+		hide_nodes_random(options.get("dev", "decimate_percent"))
+	set_3fps(options.get("dev", "3FPSlimit"))
+	e_area_lod(options.get("dev", "enable_areas_lod"))
 
 func user_scene_changed():
 	#reset scene specific things
@@ -91,3 +114,4 @@ func hide_nodes_random(probability=null):
 				root.get_node(p).visible = false
 				hidden_nodes.append(p)
 	print("hide nodes, total(%s) already hidden(%s) probability(%s)" % [nodes.size(), hidden_nodes.size(), probability])
+
