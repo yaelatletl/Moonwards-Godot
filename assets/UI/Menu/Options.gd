@@ -80,4 +80,4 @@ func _on_tDecimate_pressed():
 
 
 func _on_Exit_pressed():
-	self.hide()
+	close()
