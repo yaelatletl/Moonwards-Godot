@@ -13,6 +13,7 @@ func OptionsPanel():
 			options.set("_state_", Options.get_tab_index(), "menu_options_tab")
 			Options.queue_free()
 			Options = null
+			options.save()
 		else:
 			Options = ResourceLoader.load(SceneOptions).instance()
 			Options.signal_close = true
