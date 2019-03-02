@@ -48,19 +48,21 @@ func load():
 		print("Nothing was saved before")
 	else:
 		savefile.open(OptionsFile, File.READ)
-		var content = parse_json(savefile.get_as_text())
+		var content = str2var(savefile.get_as_text())
 		savefile.close()
 		if content:
 			if content.has("_state_"):
 				content.erase("_state_")
 			options = content
+		print("options loaded from %s" % OptionsFile)
 
 func save():
 	var savefile = File.new()	
 	savefile.open(OptionsFile, File.WRITE)
 	set("_state_", gamestate.local_id, "game_state_id")
-	savefile.store_line(to_json(options))
+	savefile.store_line(var2str(options))
 	savefile.close()
+	print("options saved to %s" % OptionsFile)
 
 func get(category, prop = null, default=null):
 	var res
@@ -83,9 +85,10 @@ func get(category, prop = null, default=null):
 	return res
 	
 func set(category, value, prop = null):
-	if category and prop:
-		options[category][prop] = value
-	elif category:
+	print("options set %s::%s %s" % [category, prop, value])
+	if prop == null:
 		options[category] = value
+	elif not options.has(category):
+		options[category] = {prop = value}
 	else:
-		print("error setting option (%s, %s, %s)" % [category, value, prop])
+		options[category][prop] = value
