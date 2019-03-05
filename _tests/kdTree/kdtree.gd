@@ -1,13 +1,24 @@
 extends Object
+# port of https://github.com/ubilabs/kd-tree-javascript
 
 
 var dimensions ##array of axis
 var root
+var metric
 
-func metric(a,b):
+func metric_vector(a,b):
 	print("metric: ", a, " ", b)
-	#FIX:
-	return randf()
+	var dist2
+	if a.has("location") and b.has("location"):
+		dist2 = a.location.distance_squared_to(b.location)
+	else:
+		dist2 = 0
+		for i in range(dimensions.size()):
+			dist2 += pow(a[dimensions[i]] - b[dimensions[i]], 2)
+	return dist2
+
+func vec3point(v, data = null):
+	return {x = v.x, y = v.y, z = v.z, location = v, data = data}
 
 func Node(obj, dimension, parent):
 	var node = {
@@ -25,16 +36,20 @@ func sortPoints(a, b):
 		return true
 	return false
 	
-func slice(array, from, to=0):
+func slice(array, from, to=null):
 	print("slice: %s, %s" % [from, to])
+	if array.size() == 0:
+		return []
 	if from + 1 > array.size():
 		return []
 	if from < 0:
 		from = array.size() + from - 1
 	if from < 0:
 		return []
-	if to <= 0:
-		to = array.size() + to - 1
+	if to == null:
+		to = array.size() - 1
+	else:
+		to = array.size() - to - 1
 	if to < from:
 		return []
 	if from == to:
@@ -42,7 +57,7 @@ func slice(array, from, to=0):
 	
 	print("slice: %s, %s" % [from, to])
 	var a = array.duplicate()
-	a.resize(to)
+	a.resize(to+1)
 	for i in range(from):
 		a.pop_front()
 	
@@ -60,7 +75,7 @@ func buildTree(points, depth, parent):
 	var node = Node(points[median], dim, parent);
 	
 	points.sort_custom(self, "sortPoints")
-	node.left = buildTree(slice(points, median), depth + 1, node);
+	node.left = buildTree(slice(points, 0, median), depth + 1, node);
 	node.right = buildTree(slice(points, median + 1), depth + 1, node);
 
 	return node
@@ -160,16 +175,16 @@ func remove(point):
 		return
 	removeNode(node)
 
-var bestNodes #= []
+var bestNodes
 func saveNode(node, distance):
-	bestNodes.push_back([node, distance])
+	bestNodes.push([node, distance])
 	if bestNodes.size() > maxNodes:
-		bestNodes.pop_back()
+		bestNodes.pop()
 
 func nearestSearch(node):
 	var bestChild
 	var dimension = dimensions[node.dimension]
-	var ownDistance = metric(point, node.obj)
+	var ownDistance = metric.call_func(point, node.obj)
 	var linearPoint = {}
 
 	for i in range(dimensions.size()):
@@ -178,7 +193,7 @@ func nearestSearch(node):
 		else:
 			linearPoint[dimensions[i]] = node.obj[dimensions[i]]
 	
-	var linearDistance = metric(linearPoint, node.obj)
+	var linearDistance = metric.call_func(linearPoint, node.obj)
 
 	if node.right == null and node.left == null:
 		if bestNodes.size() < maxNodes or ownDistance < bestNodes.peek()[1]:
@@ -213,21 +228,21 @@ var maxNodes
 var maxDistance
 var point
 
-func nearest(_point, _maxNodes, _maxDistance):
+func nearest(_point, _maxNodes, _maxDistance = null):
 	maxNodes = _maxNodes
 	maxDistance = _maxDistance
 	point = _point
-	var bestNodes = []
+	bestNodes = BinaryHeap.new() #global
 	var result = []
 
 	if maxDistance:
 		for i in range(maxNodes):
-			bestNodes.push_back([null, maxDistance])
+			bestNodes.push([null, maxDistance])
 
 	if root:
 		nearestSearch(root)
 
-	for i in range(min(maxNodes, bestNodes.content.size())):
+	for i in range(min(maxNodes, bestNodes.size())):
 		if bestNodes.content[i][0]:
 			result.push_back([bestNodes.content[i][0].obj, bestNodes.content[i][1]])
 	return result
@@ -240,7 +255,11 @@ func height(node):
 func count(node):
 	if node == null:
 		return 0
+	
 	return count(node.left) + count(node.right) + 1
+
+func count_all():
+	return count(root)
 
 func balanceFactor():
 	return height(root) / (log(count(root)) / log(2))
@@ -253,11 +272,136 @@ func toJSON(src=null):
 		dest.left = toJSON(src.left)
 	if src.right:
 		dest.right = toJSON(src.right)
-	return to_json(dest)
+	return dest
 
-func _init(points, dim):
+func _init(points, dim, _metric=null):
 	print("init kdTree, self(%s)" % self)
 	print("points: ", points)
 	print("dim: ", dim)
 	dimensions = dim
 	root = buildTree(points, 0, null)
+	if _metric:
+		metric = _metric
+	else:
+		metric = funcref(self, "metric_vector")
+
+
+# Binary heap implementation from:
+# http://eloquentjavascript.net/appendix2.html
+# from https://github.com/ubilabs/kd-tree-javascript
+
+class BinaryHeap:
+	var content
+	var scoreFunction
+	
+	func sf_min(e):
+		return e[1]
+	
+	func sf_max(e):
+		return -e[1]
+	
+	func push(element):
+		# Add the new element to the end of the array.
+		content.push_back(element)
+		# Allow it to bubble up.
+		bubbleUp(content.size() - 1)
+
+	func pop():
+		# Store the first element so we can return it later.
+		var result = content[0];
+		# Get the element at the end of the array.
+		var end = content.pop_back();
+		# If there are any elements left, put the end element at the
+		# start, and let it sink down.
+		if content.size() > 0:
+			content[0] = end
+			sinkDown(0)
+		return result
+
+	func peek():
+		return content[0]
+
+	func remove(node):
+		var length = content.size()
+		#To remove a value, we must search through the array to find it.
+		for i in range(length):
+			if content[i] == node:
+				# When it is found, the process seen in 'pop' is repeated
+				#to fill up the hole.
+				var end = content.pop_back()
+				if i != length - 1 :
+					content[i] = end
+				if scoreFunction.call_func(end) < scoreFunction.call_func(node):
+					bubbleUp(i)
+				else:
+					sinkDown(i)
+				return
+
+	func size():
+		return content.size()
+
+	func bubbleUp(n):
+		# Fetch the element that has to be moved.
+		var element = content[n];
+		# When at 0, an element can not go up any further.
+		while n > 0:
+			# Compute the parent element's index, and fetch it.
+			var parentN = floor((n + 1) / 2) - 1
+			var parent = content[parentN]
+			# Swap the elements if the parent is greater.
+			if scoreFunction.call_func(element) < scoreFunction.call_func(parent):
+				content[parentN] = element
+				content[n] = parent
+				# Update 'n' to continue at the new position.
+				n = parentN
+			# Found a parent that is less, no need to move it further.
+			else:
+				break
+
+	func sinkDown(n):
+		# Look up the target element and its score.
+		var length = content.size()
+		var element = content[n]
+		var elemScore = scoreFunction.call_func(element)
+		
+		while true :
+			# Compute the indices of the child elements.
+			var child2N = (n + 1) * 2
+			var child1N = child2N - 1
+			# This is used to store the new position of the element, if any.
+			var swap = null
+			var child1Score
+			# If the first child exists (is inside the array)...
+			if child1N < length:
+				# Look it up and compute its score.
+				var child1 = content[child1N]
+				child1Score = scoreFunction.call_func(child1)
+				# If the score is less than our element's, we need to swap.
+				if child1Score < elemScore:
+					swap = child1N
+			# Do the same checks for the other child.
+			if child2N < length:
+				var child2 = content[child2N]
+				var child2Score = scoreFunction.call_func(child2)
+				if swap == null:
+					if child2Score < elemScore:
+						swap = child2N
+				else:
+					if child2Score < child1Score:
+						swap = child2N
+
+			# If the element needs to be moved, swap it, and continue.
+			if swap != null:
+				content[n] = content[swap]
+				content[swap] = element
+				n = swap
+			# Otherwise, we are done.
+			else:
+				break
+
+	func _init(_scoreFunction=null):
+		if _scoreFunction == null:
+			_scoreFunction = funcref(self, "sf_max")
+		scoreFunction = _scoreFunction
+		content = []
+
