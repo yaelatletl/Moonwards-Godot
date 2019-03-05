@@ -41,6 +41,9 @@ func _ready():
 # 	Engine.target_fps = 3
 	print("load options and settings")
 	self.load()
+	
+	#apply generic options
+	set_3fps(get("dev", "3FPSlimit"))
 
 func load():
 	var savefile = File.new()
@@ -92,3 +95,14 @@ func set(category, value, prop = null):
 		options[category] = {prop = value}
 	else:
 		options[category][prop] = value
+
+
+
+################
+func set_3fps(enable):
+	if enable:
+		print("debug set FPS to 3")
+		Engine.target_fps = 3
+	else:
+		print("debug set FPS to 0")
+		Engine.target_fps = 0
