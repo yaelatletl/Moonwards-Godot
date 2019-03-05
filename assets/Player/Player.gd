@@ -35,7 +35,7 @@ export(float) var RUNSPEED = 4.5
 export(float) var view_sensitivity = 0.5
 export var weight= 1
 export(NodePath) var Camera = "Pivot/FPSCamera"
-
+onready var AnimatedCharacter = $Model/Scene
 ##Physics
 export(float) var grav = 1.6
 var gravity = Vector3(0,-grav,0)
@@ -236,9 +236,9 @@ func _physics_process(delta):
 
 		if (dir.length() > 0.1 and !sharp_turn):
 			if (hspeed > 0.001):
+				
 				hdir = adjust_facing(hdir, target_dir, delta, 1.0/hspeed*turn_speed, up)
 				facing_dir = hdir
-
 			else:
 				hdir = target_dir
 
@@ -248,10 +248,16 @@ func _physics_process(delta):
 			else:
 				if hspeed > 0:
 					hspeed -= deaccel*delta
+					if Input.is_action_pressed("move_forwards"):
+						AnimatedCharacter.start_walk(hspeed, true)
+					elif Input.is_action_pressed("move_backwards"):
+						AnimatedCharacter.start_walk(hspeed, false)
+						
 		else:
 			hspeed -= deaccel*delta
 			if (hspeed < 0):
 				hspeed = 0
+				AnimatedCharacter.stop()
 
 		horizontal_velocity = hdir*hspeed
 
@@ -261,9 +267,9 @@ func _physics_process(delta):
 
 		if (hspeed>0):
 			facing_mesh = adjust_facing(facing_mesh, target_dir, delta, 1.0/hspeed*turn_speed, up)
-		var m3 = Basis(-facing_mesh, up, -facing_mesh.cross(up).normalized()).scaled(CHAR_SCALE)
-
-		$Model.set_transform(Transform(m3, mesh_xform.origin))
+		var m3 = Basis(-facing_mesh, up, -facing_mesh.cross(up).normalized()).scaled(scale)
+		if not Input.is_action_pressed("move_backwards"):
+			$Model.set_transform(Transform(m3, mesh_xform.origin))
 
 		if (not jumping and jump_attempt):
 			vertical_velocity = JumpHeight
