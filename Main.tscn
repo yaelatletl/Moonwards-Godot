@@ -11,23 +11,29 @@
 [ext_resource path="res://assets/UI/Menu/User_Settings.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CanvasItemMaterial" id=1]
+
 blend_mode = 3
 
 [sub_resource type="GradientTexture" id=2]
 
+
 [sub_resource type="SpatialMaterial" id=3]
+
 albedo_color = Color( 0.654902, 0.129412, 0.129412, 1 )
 albedo_texture = SubResource( 2 )
 roughness = 0.0
 
 [sub_resource type="CanvasItemMaterial" id=4]
+
 next_pass = SubResource( 3 )
 blend_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id=5]
+
 blend_mode = 2
 
 [sub_resource type="DynamicFont" id=6]
+
 size = 60
 font_data = ExtResource( 8 )
 
