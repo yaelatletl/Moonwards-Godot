@@ -220,13 +220,13 @@ surfaces/0 = {
 "vertex_count": 1024
 }
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=3]
 albedo_texture = ExtResource( 146 )
 roughness = 0.0
 uv1_scale = Vector3( 5, 5, 5 )
 uv1_triplanar = true
 
-[sub_resource type="SpatialMaterial" id=5]
+[sub_resource type="SpatialMaterial" id=4]
 albedo_texture = ExtResource( 147 )
 roughness = 0.0
 normal_enabled = true
@@ -235,7 +235,7 @@ normal_texture = ExtResource( 148 )
 uv1_scale = Vector3( 5, 5, 5 )
 uv1_triplanar = true
 
-[sub_resource type="SpatialMaterial" id=6]
+[sub_resource type="SpatialMaterial" id=5]
 albedo_texture = ExtResource( 149 )
 roughness = 0.0
 normal_enabled = true
@@ -244,7 +244,7 @@ normal_texture = ExtResource( 150 )
 uv1_scale = Vector3( 5, 5, 5 )
 uv1_triplanar = true
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=6]
 extents = Vector3( 9.22929, 3.3859, 6.14163 )
 
 [node name="Scene" type="Spatial"]
@@ -273,6 +273,9 @@ material/0 = ExtResource( 3 )
 [node name="StaticBody" type="StaticBody" parent="Exterior/AtriumWalls"]
 
 [node name="CollisionPolygon" type="CollisionPolygon" parent="Exterior/AtriumWalls/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0192666, -0.00193071, -0.259013 )
+depth = 5.2
+polygon = PoolVector2Array( -1.72742, -1.75488, 1.83469, -1.74545, 1.83842, -1.64687, 2.68415, -1.63853, 2.6876, -0.960014, 1.84016, -0.950391, 1.83575, 1.7538, 1.10452, 2.02179, 0.509826, 2.12412, 0.0408551, 2.15288, -0.510779, 2.11, -1.11116, 1.98036, -1.7206, 1.76294, -1.9968, 1.76915, -2.00142, 2.283, -1.24757, 2.56146, -0.553578, 2.71338, 0.176904, 2.74687, 0.882037, 2.67397, 1.72568, 2.45091, 2.12287, 2.29254, 2.12138, 1.7346, 2.89476, 0.562419, 2.75215, -1.95658, -1.75048, -1.99628 )
 
 [node name="OmniLight" type="OmniLight" parent="Exterior/AtriumWalls"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.468634, 1.65787, -0.953773 )
@@ -1786,9 +1789,9 @@ shape = ExtResource( 144 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65332, -1.70288, -0.275146 )
 use_in_baked_light = true
 mesh = ExtResource( 145 )
-material/0 = SubResource( 4 )
-material/1 = SubResource( 5 )
-material/2 = SubResource( 6 )
+material/0 = SubResource( 3 )
+material/1 = SubResource( 4 )
+material/2 = SubResource( 5 )
 
 [node name="Lawn_col" type="StaticBody" parent="Interior/Lawn"]
 
@@ -2105,7 +2108,7 @@ script = ExtResource( 199 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Triggers/Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96696, 0, 0 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="BakedLightmap" type="BakedLightmap" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.68293, 0.565462, 0.844477 )

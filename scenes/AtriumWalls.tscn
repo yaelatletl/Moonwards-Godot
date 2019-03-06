@@ -21,9 +21,13 @@ surfaces/0 = {
 "vertex_count": 1024
 }
 
-[node name="Scene" type="Spatial"]
+[node name="Scene" type="StaticBody"]
 
 [node name="AtriumWalls" type="MeshInstance" parent="."]
 mesh = SubResource( 2 )
 material/0 = ExtResource( 1 )
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0192666, -0.00193071, 1.76621 )
+polygon = PoolVector2Array( -1.72742, -1.75488, 1.83469, -1.74545, 1.83842, -1.64687, 2.68415, -1.63853, 2.6876, -0.960014, 1.84016, -0.950391, 1.84199, 1.86586, 1.08642, 2.15082, 0.544482, 2.26501, 0.115801, 2.28757, -0.312129, 2.26859, -0.889313, 2.16786, -1.72322, 1.87058, -1.73829, 2.391, 2.83131, 2.54907, 2.75215, -1.95658, -1.75048, -1.99628 )
 
