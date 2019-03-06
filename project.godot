@@ -157,7 +157,6 @@ common/physics_fps=1
 
 [rendering]
 
-threads/thread_model=2
 quality/shading/force_vertex_shading=true
 quality/depth_prepass/enable=false
 limits/rendering/max_renderable_elements=60000
