@@ -257,7 +257,7 @@ func _physics_process(delta):
 			hspeed -= deaccel*delta
 			if (hspeed < 0):
 				hspeed = 0
-				AnimatedCharacter.stop()
+				AnimatedCharacter.idle()
 
 		horizontal_velocity = hdir*hspeed
 
