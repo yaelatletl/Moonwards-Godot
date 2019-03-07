@@ -11,7 +11,6 @@ ground_curve = 0.01
 [resource]
 background_mode = 1
 background_sky = SubResource( 1 )
-background_color = Color( 0.435294, 0.192157, 0.192157, 1 )
 background_energy = 2.53
 ambient_light_color = Color( 0.347656, 0.347656, 0.347656, 1 )
 ambient_light_energy = 2.95
