@@ -1,6 +1,8 @@
 extends KinematicBody
 var CHAR_SCALE = Vector3(0.3, 0.3, 0.3)
-
+var MaleAvatar = preload("res://model_assets/Avatars/MalePlayer.tscn")
+var FemaleAvatar = preload("res://model_assets/Avatars/FemalePlayer.tscn")
+export(bool) var is_female
 var facing_dir = Vector3(1, 0, 0)
 var movement_dir = Vector3()
 var jumping = false
@@ -35,7 +37,7 @@ export(float) var RUNSPEED = 4.5
 export(float) var view_sensitivity = 0.5
 export var weight= 1
 export(NodePath) var Camera = "Pivot/FPSCamera"
-onready var AnimatedCharacter = $Model/Scene
+var AnimatedCharacter 
 ##Physics
 export(float) var grav = 1.6
 var gravity = Vector3(0,-grav,0)
@@ -54,6 +56,17 @@ var RPC_MODE_DISABLED = 0
 var RPC_MODE_PUPPET = 3
 #####################
 ## Set/Get functions
+func _enter_tree():
+	var Player
+	if is_female:
+		Player = FemaleAvatar.instance()
+	else:
+		Player = MaleAvatar.instance()
+	
+	Player.name = "Scene"
+	Player.rotation_degrees.y = -90
+	$Model.add_child(Player)
+	AnimatedCharacter = $Model/Scene
 func set_nonetwork(state):
 	nonetwork = state
 	if nonetwork:
