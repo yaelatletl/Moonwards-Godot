@@ -42,7 +42,7 @@ omni_range = 30.0
 transform = Transform( 0.25988, 0, -9.6478, 0, 9.6513, 0, 9.6478, 0, 0.25988, 0, -0.856512, 0 )
 visible = false
 
-[node name="Scene" parent="Model" instance=ExtResource( 2 )]
+[node name="Female" parent="Model" instance=ExtResource( 2 )]
 transform = Transform( -4.21859e-07, 0, -9.651, 0, 9.651, 0, 9.651, 0, -4.21859e-07, 0, -0.838328, 0 )
 
 [node name="Model" type="MeshInstance" parent="Model"]
