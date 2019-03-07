@@ -24,7 +24,7 @@ func bobbing_effect(time, speed, delta):
 	if speed >= 0.1 and get_parent().get_parent().is_on_floor():
 		var Oscillation = sin(time * speed*3.1416)
 		
-		v_offset = clamp(v_offset + delta*0.5*Oscillation, -0.2,0.2)
+		v_offset = clamp(v_offset + delta*0.005*Oscillation, -0.2,0.2)
 		#calculate_z_rotation(Oscillation, delta)
 		
 		
