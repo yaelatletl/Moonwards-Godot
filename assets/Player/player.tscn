@@ -1,25 +1,29 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://model_assets/Male_Avatar.tscn" type="PackedScene" id=2]
-[ext_resource path="res://model_assets/Avatars/FemalePlayer.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/Player/FPSCamera.gd" type="Script" id=4]
-[ext_resource path="res://chat/Main_clean.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/Player/label.gd" type="Script" id=6]
-[ext_resource path="res://scripts/PerformanceMonitor.tscn" type="PackedScene" id=7]
+[ext_resource path="res://model_assets/Avatars/FemalePlayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/Player/FPSCamera.gd" type="Script" id=3]
+[ext_resource path="res://chat/Main_clean.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/Player/label.gd" type="Script" id=5]
+[ext_resource path="res://scripts/PerformanceMonitor.tscn" type="PackedScene" id=6]
 
 [sub_resource type="QuadMesh" id=1]
 
+
 [sub_resource type="SpatialMaterial" id=2]
+
 roughness = 0.0
 
 [sub_resource type="CapsuleShape" id=3]
+
 radius = 0.219818
 height = 1.17055
 
 [sub_resource type="SphereMesh" id=4]
 
+
 [sub_resource type="BoxShape" id=5]
+
 
 [node name="KinematicBody" type="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.866966, 0 )
@@ -38,17 +42,17 @@ omni_range = 30.0
 transform = Transform( 0.25988, 0, -9.6478, 0, 9.6513, 0, 9.6478, 0, 0.25988, 0, -0.856512, 0 )
 visible = false
 
-[node name="Scene" parent="Model" instance=ExtResource( 3 )]
-transform = Transform( -4.21859e-007, 0, -9.651, 0, 9.651, 0, 9.651, 0, -4.21859e-007, 0, -0.838328, 0 )
+[node name="Scene" parent="Model" instance=ExtResource( 2 )]
+transform = Transform( -4.21859e-07, 0, -9.651, 0, 9.651, 0, 9.651, 0, -4.21859e-07, 0, -0.838328, 0 )
 
 [node name="Model" type="MeshInstance" parent="Model"]
-transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 0, 0, 0 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 visible = false
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( -1, 0, -3.25841e-007, -3.25841e-007, -4.37114e-008, 1, -1.4243e-014, 1, 4.37114e-008, 0, -0.0770048, 0 )
+transform = Transform( -1, 0, -3.25841e-07, -3.25841e-07, -4.37114e-08, 1, -1.4243e-14, 1, 4.37114e-08, 0, -0.0770048, 0 )
 shape = SubResource( 3 )
 
 [node name="Pivot" type="Position3D" parent="."]
@@ -58,9 +62,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.793444, -0.0896399 )
 current = true
 near = 0.3
 far = 10000.0
-script = ExtResource( 4 )
+script = ExtResource( 3 )
 
-[node name="Chat" parent="Pivot/FPSCamera" instance=ExtResource( 5 )]
+[node name="Chat" parent="Pivot/FPSCamera" instance=ExtResource( 4 )]
 margin_left = 2.0
 margin_top = 220.0
 margin_right = 41.0
@@ -84,7 +88,7 @@ margin_right = 40.0
 margin_bottom = 14.0
 rect_scale = Vector2( 3, 3 )
 text = "Default"
-script = ExtResource( 6 )
+script = ExtResource( 5 )
 
 [node name="TextPoint" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28093, 0 )
@@ -96,5 +100,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28093, 0 )
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 5 )
 
-[node name="Control" parent="." instance=ExtResource( 7 )]
+[node name="Control" parent="." instance=ExtResource( 6 )]
 
