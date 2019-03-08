@@ -1,7 +1,7 @@
 extends Spatial
 
 var Block = preload("Block.tscn")
-var kdTree = preload("kdtree.gd")
+var kdTree = preload("res://scripts/kdTree.gd")
 
 func rand_coord(scale):
 	return randf() * scale - scale/2
