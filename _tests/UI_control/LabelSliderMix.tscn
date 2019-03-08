@@ -1,0 +1,27 @@
+[gd_scene format=2]
+
+[node name="SliderOption" type="HBoxContainer"]
+margin_right = 274.0
+margin_bottom = 24.0
+
+[node name="OptionLabel" type="Label" parent="."]
+margin_top = 5.0
+margin_right = 44.0
+margin_bottom = 19.0
+size_flags_vertical = 6
+text = "Option"
+
+[node name="OptionSlider" type="HSlider" parent="."]
+margin_left = 48.0
+margin_right = 196.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="OptionInput" type="SpinBox" parent="."]
+margin_left = 200.0
+margin_right = 274.0
+margin_bottom = 24.0
+size_flags_horizontal = 5
+size_flags_vertical = 4
+
