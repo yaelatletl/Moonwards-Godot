@@ -7,7 +7,7 @@ var root
 var metric
 
 func metric_vector(a,b):
-	print("metric: ", a, " ", b)
+# 	print("metric: ", a, " ", b)
 	var dist2
 	if a.has("location") and b.has("location"):
 		dist2 = a.location.distance_squared_to(b.location)
@@ -37,7 +37,7 @@ func sortPoints(a, b):
 	return false
 	
 func slice(array, from, to=null):
-	print("slice: %s, %s" % [from, to])
+	#print("slice1: %s, %s" % [from, to])
 	if array.size() == 0:
 		return []
 	if from + 1 > array.size():
@@ -48,20 +48,22 @@ func slice(array, from, to=null):
 		return []
 	if to == null:
 		to = array.size() - 1
+	elif to <= 0:
+		to = array.size() + to - 1
 	else:
-		to = array.size() - to - 1
+		to -= 1
+	#print("slice2: %s, %s" % [from, to])
 	if to < from:
 		return []
 	if from == to:
 		return [array[from]]
 	
-	print("slice: %s, %s" % [from, to])
 	var a = array.duplicate()
 	a.resize(to+1)
 	for i in range(from):
 		a.pop_front()
 	
-	print(a)
+	#print(a)
 	return a
 
 func buildTree(points, depth, parent):
@@ -71,11 +73,13 @@ func buildTree(points, depth, parent):
 	if points.size() == 1:
 		return Node(points[0], dim, parent)
 
+	points.sort_custom(self, "sortPoints")
 	var median = floor(points.size() / 2);
 	var node = Node(points[median], dim, parent);
 	
-	points.sort_custom(self, "sortPoints")
+	#print("BT1slice %s %s" % [depth, points.size()])
 	node.left = buildTree(slice(points, 0, median), depth + 1, node);
+	#print("BT2slice %s %s" % [depth, points.size()])
 	node.right = buildTree(slice(points, median + 1), depth + 1, node);
 
 	return node
@@ -275,9 +279,9 @@ func toJSON(src=null):
 	return dest
 
 func _init(points, dim, _metric=null):
-	print("init kdTree, self(%s)" % self)
-	print("points: ", points)
-	print("dim: ", dim)
+	#print("init kdTree, self(%s)" % self)
+	#print("points: ", points)
+	#print("dim: ", dim)
 	dimensions = dim
 	root = buildTree(points, 0, null)
 	if _metric:
