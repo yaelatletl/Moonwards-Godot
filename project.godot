@@ -186,4 +186,5 @@ quality/depth_prepass/enable=false
 limits/rendering/max_renderable_elements=60000
 quality/subsurface_scattering/quality=0
 quality/subsurface_scattering/weight_samples=false
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

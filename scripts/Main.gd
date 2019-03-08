@@ -2,9 +2,7 @@ extends Control
 export(String) var SceneToLoad = "res://World.tscn"
 export(String) var SceneOptions = "res://assets/UI/Menu/Options.tscn"
 const MultiplayerToLoad = "res://lobby.tscn"
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var current_ui = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,30 +15,23 @@ func _on_size_changed():
 	rect_scale = Vector2(1,1)*(Newsize.y/rect_size.y)
 
 func _on_Run_pressed():
-	$ui/main.hide()
-	$ui/loading.show()
+	$ui/VBoxContainer/MainUI.hide()
+	$ui/VBoxContainer/ProgressBar.show()
 	$load_timer.start()
 
 func _on_Timer_timeout():
 	get_tree().change_scene(SceneToLoad)
 
-
 func _on_Help_pressed():
-	if $ui/main/pHelp.visible :
-		$ui/main/pHelp.hide()
-	else:
-		$ui/main/pHelp.show()
-
+	$ui/VBoxContainer/MainUI/InstructionsContainer.visible = !$ui/VBoxContainer/MainUI/InstructionsContainer.visible
 
 func _on_RunNet_pressed():
-	$ui/main.hide()
-	$ui/loading.show()
-	$PlayerSettings.hide()
+	$ui/VBoxContainer/MainUI.hide()
+	$ui/VBoxContainer/PlayerSettings.hide()
 	var  mScene = ResourceLoader.load(MultiplayerToLoad)
 	var loads = mScene.instance()
 	loads.name = "lobby"
 	get_tree().get_root().add_child(loads)
-
 
 func _on_Options_pressed():
 	if get_tree().get_root().has_node("Options"):
@@ -50,3 +41,19 @@ func _on_Options_pressed():
 		Options = Options.instance()
 		Options.name = "Options"
 		get_tree().get_root().add_child(Options)
+
+func OnUIEvent(var event):
+	if event == "Back":
+		current_ui.disconnect("ui_event", self, "OnUIEvent")
+		$ui/VBoxContainer/MainUI.show()
+		current_ui.hide()
+		current_ui = null
+
+func _on_CfgPlayer_pressed():
+	SwitchUI($ui/VBoxContainer/PlayerSettings)
+
+func SwitchUI(var new_ui):
+	$ui/VBoxContainer/MainUI.hide()
+	current_ui = new_ui
+	current_ui.show()
+	current_ui.connect("ui_event", self, "OnUIEvent")
