@@ -115,3 +115,19 @@ func hide_nodes_random(probability=null):
 				hidden_nodes.append(p)
 	print("hide nodes, total(%s) already hidden(%s) probability(%s)" % [nodes.size(), hidden_nodes.size(), probability])
 
+var pf_path
+func show_performance_monitor(enable):
+	if enable and not pf_path:
+		var packedscene = ResourceLoader.load("res://scripts/PerformanceMonitor.tscn")
+		var root = get_tree().current_scene
+		var pf = packedscene.instance()
+		root.add_child(pf)
+		pf_path = root.get_path_to(pf)
+		options.set("_state_", true, "perf_mon")
+	if not enable and pf_path:
+		var root = get_tree().current_scene
+		var pf = root.get_node(pf_path)
+		if pf:
+			pf.queue_free()
+		pf_path = null
+		options.set("_state_", false, "perf_mon")

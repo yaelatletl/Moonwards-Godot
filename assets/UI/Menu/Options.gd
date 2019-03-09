@@ -29,6 +29,10 @@ func _ready():
 	button.pressed = options.get("dev", "3FPSlimit", false)
 	button = $Panel/TabContainer/Dev/VBoxContainer/tDecimate
 	button.pressed = options.get("dev", "hide_meshes_random", false)
+	
+	button = $Panel/TabContainer/Dev/VBoxContainer/tPMonitor
+	button.pressed = options.get("_state_", "perf_mon", false)
+
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
@@ -81,3 +85,9 @@ func _on_tDecimate_pressed():
 
 func _on_Exit_pressed():
 	close()
+
+
+func _on_tPMonitor_pressed():
+	var button = $Panel/TabContainer/Dev/VBoxContainer/tPMonitor
+	options.set("dev", button.pressed, "show_performance_monitor")
+	debug.show_performance_monitor(button.pressed)
