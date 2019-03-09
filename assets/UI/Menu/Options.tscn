@@ -61,7 +61,6 @@ custom_styles/tab_fg = SubResource( 1 )
 tab_align = 0
 
 [node name="Player" type="Tabs" parent="Panel/TabContainer"]
-editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
