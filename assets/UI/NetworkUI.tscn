@@ -1,537 +1,156 @@
 [gd_scene format=2]
 
 [node name="Control" type="Control"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_right = 40.0
 margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="." index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="PanelContainer" type="PanelContainer" parent="."]
 margin_right = 150.0
 margin_bottom = 106.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 
-[node name="VSplitContainer3" type="VSplitContainer" parent="PanelContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="VSplitContainer3" type="VSplitContainer" parent="PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 143.0
 margin_bottom = 99.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-split_offset = 0
-collapsed = false
-dragger_visibility = 0
 
-[node name="VSplitContainer2" type="VSplitContainer" parent="PanelContainer/VSplitContainer3" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="VSplitContainer2" type="VSplitContainer" parent="PanelContainer/VSplitContainer3"]
 margin_right = 136.0
 margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-split_offset = 0
-collapsed = false
-dragger_visibility = 0
 
-[node name="Label" type="Label" parent="PanelContainer/VSplitContainer3/VSplitContainer2" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label" type="Label" parent="PanelContainer/VSplitContainer3/VSplitContainer2"]
 margin_right = 136.0
 margin_bottom = 14.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "Moonwards $version "
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="Label2" type="Label" parent="PanelContainer/VSplitContainer3/VSplitContainer2" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label2" type="Label" parent="PanelContainer/VSplitContainer3/VSplitContainer2"]
 margin_top = 26.0
 margin_right = 136.0
 margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "Moonwards $version "
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="VSplitContainer" type="VSplitContainer" parent="PanelContainer/VSplitContainer3" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="VSplitContainer" type="VSplitContainer" parent="PanelContainer/VSplitContainer3"]
 margin_top = 52.0
 margin_right = 136.0
 margin_bottom = 92.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-split_offset = 0
-collapsed = false
-dragger_visibility = 0
 
-[node name="Label" type="Label" parent="PanelContainer/VSplitContainer3/VSplitContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label" type="Label" parent="PanelContainer/VSplitContainer3/VSplitContainer"]
 margin_right = 136.0
 margin_bottom = 14.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "Moonwards $version "
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="Label2" type="Label" parent="PanelContainer/VSplitContainer3/VSplitContainer" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label2" type="Label" parent="PanelContainer/VSplitContainer3/VSplitContainer"]
 margin_top = 26.0
 margin_right = 136.0
 margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "Moonwards $version "
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="WindowDialog" type="WindowDialog" parent="." index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="WindowDialog" type="WindowDialog" parent="."]
 margin_left = 445.0
 margin_top = 210.0
 margin_right = 792.0
 margin_bottom = 348.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-popup_exclusive = false
 window_title = "Network Config."
-resizable = false
 
-[node name="CenterContainer" type="VSplitContainer" parent="WindowDialog" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="CenterContainer" type="VSplitContainer" parent="WindowDialog"]
 margin_left = 14.0
 margin_top = 21.0
 margin_right = 102.0
 margin_bottom = 61.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-split_offset = 0
-collapsed = false
-dragger_visibility = 0
 
-[node name="PORT_LABEL" type="Label" parent="WindowDialog/CenterContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="PORT_LABEL" type="Label" parent="WindowDialog/CenterContainer"]
 margin_right = 88.0
 margin_bottom = 14.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "Port"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="Port" type="SpinBox" parent="WindowDialog/CenterContainer/PORT_LABEL" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Port" type="SpinBox" parent="WindowDialog/CenterContainer/PORT_LABEL"]
 margin_left = 112.0
 margin_top = -4.0
 margin_right = 186.0
 margin_bottom = 20.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-min_value = 0.0
 max_value = 65535.0
-step = 1.0
-page = 0.0
 value = 1337.0
-exp_edit = false
-rounded = false
-editable = true
-prefix = ""
-suffix = ""
 
-[node name="IP_LABEL" type="Label" parent="WindowDialog/CenterContainer" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="IP_LABEL" type="Label" parent="WindowDialog/CenterContainer"]
 margin_top = 26.0
 margin_right = 88.0
 margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "IP"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="Ip1" type="LineEdit" parent="WindowDialog/CenterContainer/IP_LABEL" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Ip1" type="LineEdit" parent="WindowDialog/CenterContainer/IP_LABEL"]
 margin_left = 46.0
 margin_top = -4.0
 margin_right = 104.0
 margin_bottom = 20.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 1
-size_flags_horizontal = 1
-size_flags_vertical = 1
 text = "000"
 max_length = 3
-focus_mode = 2
-context_menu_enabled = true
-placeholder_alpha = 0.6
-caret_blink = false
-caret_blink_speed = 0.65
-caret_position = 0
 
-[node name="Ip2" type="LineEdit" parent="WindowDialog/CenterContainer/IP_LABEL" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Ip2" type="LineEdit" parent="WindowDialog/CenterContainer/IP_LABEL"]
 margin_left = 113.0
 margin_top = -4.0
 margin_right = 171.0
 margin_bottom = 20.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 1
-size_flags_horizontal = 1
-size_flags_vertical = 1
 text = "000"
 max_length = 3
-focus_mode = 2
-context_menu_enabled = true
-placeholder_alpha = 0.6
-caret_blink = false
-caret_blink_speed = 0.65
-caret_position = 0
 
-[node name="Ip3" type="LineEdit" parent="WindowDialog/CenterContainer/IP_LABEL" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Ip3" type="LineEdit" parent="WindowDialog/CenterContainer/IP_LABEL"]
 margin_left = 180.0
 margin_top = -4.0
 margin_right = 238.0
 margin_bottom = 20.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 1
-size_flags_horizontal = 1
-size_flags_vertical = 1
 text = "000"
 max_length = 3
-focus_mode = 2
-context_menu_enabled = true
-placeholder_alpha = 0.6
-caret_blink = false
-caret_blink_speed = 0.65
-caret_position = 0
 
-[node name="Ip4" type="LineEdit" parent="WindowDialog/CenterContainer/IP_LABEL" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Ip4" type="LineEdit" parent="WindowDialog/CenterContainer/IP_LABEL"]
 margin_left = 248.0
 margin_top = -4.0
 margin_right = 306.0
 margin_bottom = 20.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 1
-size_flags_horizontal = 1
-size_flags_vertical = 1
 text = "000"
 max_length = 3
-focus_mode = 2
-context_menu_enabled = true
-placeholder_alpha = 0.6
-caret_blink = false
-caret_blink_speed = 0.65
-caret_position = 0
 
-[node name="Label" type="Label" parent="WindowDialog/CenterContainer/IP_LABEL" index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label" type="Label" parent="WindowDialog/CenterContainer/IP_LABEL"]
 margin_left = 106.0
 margin_right = 110.0
 margin_bottom = 14.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "."
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="Label2" type="Label" parent="WindowDialog/CenterContainer/IP_LABEL" index="5"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label2" type="Label" parent="WindowDialog/CenterContainer/IP_LABEL"]
 margin_left = 174.0
 margin_right = 178.0
 margin_bottom = 14.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "."
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="Label3" type="Label" parent="WindowDialog/CenterContainer/IP_LABEL" index="6"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label3" type="Label" parent="WindowDialog/CenterContainer/IP_LABEL"]
 margin_left = 241.0
 margin_right = 245.0
 margin_bottom = 14.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "."
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="Button" type="Button" parent="WindowDialog" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button" type="Button" parent="WindowDialog"]
 margin_left = 273.0
 margin_top = 111.0
 margin_right = 329.0
 margin_bottom = 131.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Accept"
-flat = false
-align = 1
 
-[node name="Button2" type="Button" parent="WindowDialog" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button2" type="Button" parent="WindowDialog"]
 margin_left = 206.0
 margin_top = 111.0
 margin_right = 262.0
 margin_bottom = 131.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Cancel"
-flat = false
-align = 1
 
-[node name="Label" type="CheckBox" parent="WindowDialog" index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label" type="CheckBox" parent="WindowDialog"]
 margin_left = 11.0
 margin_top = 76.0
 margin_right = 103.0
 margin_bottom = 100.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Password:"
-flat = false
-align = 0
 
-[node name="LineEdit" type="LineEdit" parent="WindowDialog/Label" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="LineEdit" type="LineEdit" parent="WindowDialog/Label"]
 margin_left = 91.0
 margin_right = 309.0
 margin_bottom = 24.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 1
-size_flags_horizontal = 1
-size_flags_vertical = 1
 max_length = 25
-focus_mode = 2
-context_menu_enabled = true
-placeholder_alpha = 0.6
-caret_blink = false
-caret_blink_speed = 0.65
-caret_position = 0
-
 

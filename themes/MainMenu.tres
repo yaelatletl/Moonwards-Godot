@@ -3,16 +3,16 @@
 [ext_resource path="res://fonts/MainMenuFont.tres" type="DynamicFont" id=1]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0, 0, 0, 0.941176 )
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.223471, 0.223471, 0.223471, 0.784314 )
+bg_color = Color( 0, 0, 0, 0.784314 )
 
 [sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0, 0, 0, 0.784314 )
+bg_color = Color( 0, 0, 0, 0.588235 )
 
 [sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0, 0, 0, 0.784314 )
+bg_color = Color( 0, 0, 0, 0.588235 )
 
 [resource]
 default_font = ExtResource( 1 )
