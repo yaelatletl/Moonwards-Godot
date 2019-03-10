@@ -13,16 +13,20 @@
 [ext_resource path="res://assets/UI/Menu/Options.tscn" type="PackedScene" id=11]
 
 [sub_resource type="StyleBoxFlat" id=1]
+
 bg_color = Color( 0, 0, 0, 0 )
 
 [sub_resource type="GradientTexture" id=2]
 
+
 [sub_resource type="SpatialMaterial" id=3]
+
 albedo_color = Color( 0.654902, 0.129412, 0.129412, 1 )
 albedo_texture = SubResource( 2 )
 roughness = 0.0
 
 [sub_resource type="CanvasItemMaterial" id=4]
+
 next_pass = SubResource( 3 )
 blend_mode = 1
 
