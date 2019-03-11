@@ -1,205 +1,224 @@
-[gd_scene load_steps=207 format=2]
+[gd_scene load_steps=210 format=2]
 
 [ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelWalls002.mesh" type="ArrayMesh" id=1]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Exterior_TunnelWalls002_TunnelWalls002_col_CollisionShape.shape" type="Shape" id=2]
-[ext_resource path="res://materials/Lavastone2.tres" type="Material" id=3]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_RadBlindBeam006.mesh" type="ArrayMesh" id=4]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_RadBlindBeam005.mesh" type="ArrayMesh" id=5]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Exterior_RadBlindBeam005_RadBlindBeam005_col_CollisionShape.shape" type="Shape" id=6]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AnchorBeamsTop.mesh" type="ArrayMesh" id=7]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_MainWallRibs.mesh" type="ArrayMesh" id=8]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Exterior_MainWallRibs_MainWallRibs_col_CollisionShape.shape" type="Shape" id=9]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_WindowWellandShield002.mesh" type="ArrayMesh" id=10]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Exterior_WindowWellandShield002_WindowWellandShield002_col_CollisionShape.shape" type="Shape" id=11]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_CoolingTanks.mesh" type="ArrayMesh" id=12]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Exterior_CoolingTanks_CoolingTanks_col_CollisionShape.shape" type="Shape" id=13]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Water-Tank002.mesh" type="ArrayMesh" id=14]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Water-Tank001.mesh" type="ArrayMesh" id=15]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Exterior_Water-Tank001_Water-Tank001_col_CollisionShape.shape" type="Shape" id=16]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Water-Tank000.mesh" type="ArrayMesh" id=17]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Walk-in-Fridges.mesh" type="ArrayMesh" id=18]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Exterior_Walk-in-Fridges_Walk-in-Fridges_col_CollisionShape.shape" type="Shape" id=19]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_RadBarrier-TunnnelWindows002.mesh" type="ArrayMesh" id=20]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Exterior_RadBarrier-TunnnelWindows002_RadBarrier-TunnnelWindows002_col_CollisionShape.shape" type="Shape" id=21]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_2ndFloor-FrostedGlass002.mesh" type="ArrayMesh" id=22]
-[ext_resource path="res://materials/FrostedGlass.tres" type="Material" id=23]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_2ndFloor-FrostedGlass002_2ndFloor-FrostedGlass002_col_CollisionShape.shape" type="Shape" id=24]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_2ndFloorDown.mesh" type="ArrayMesh" id=25]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_2ndFloorDown_2ndFloorDown_col_CollisionShape.shape" type="Shape" id=26]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_2ndFromBottomFloorEast.mesh" type="ArrayMesh" id=27]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_2ndFromBottomFloorEast_2ndFromBottomFloorEast_col_CollisionShape.shape" type="Shape" id=28]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_2ndFromBottomSWFloor.mesh" type="ArrayMesh" id=29]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_2ndFromBottomSWFloor_2ndFromBottomSWFloor_col_CollisionShape.shape" type="Shape" id=30]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_3rdFromBottomSWFloor.mesh" type="ArrayMesh" id=31]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_3rdFromBottomSWFloor_3rdFromBottomSWFloor_col_CollisionShape.shape" type="Shape" id=32]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirCirculationDuctsN000.mesh" type="ArrayMesh" id=33]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockRamp.mesh" type="ArrayMesh" id=34]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_AirlockRamp_AirlockRamp_col_CollisionShape.shape" type="Shape" id=35]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockRibs--South002.mesh" type="ArrayMesh" id=36]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockRibs1.mesh" type="ArrayMesh" id=37]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockRibs2.mesh" type="ArrayMesh" id=38]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockRoverDoor.mesh" type="ArrayMesh" id=39]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockRoverInnerFrame.mesh" type="ArrayMesh" id=40]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockRoverSeal.mesh" type="ArrayMesh" id=41]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockRoverSeal2.mesh" type="ArrayMesh" id=42]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockRoverSection.mesh" type="ArrayMesh" id=43]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockW-DoorOutside004.mesh" type="ArrayMesh" id=44]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockW-Hardware1008.mesh" type="ArrayMesh" id=45]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockWalls.mesh" type="ArrayMesh" id=46]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_AirlockWalls_AirlockWalls_col_CollisionShape.shape" type="Shape" id=47]
-[ext_resource path="res://model_assets/Toilet.tscn" type="PackedScene" id=48]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_WhippleGlazingAtrium002.mesh" type="ArrayMesh" id=49]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Waterline3.mesh" type="ArrayMesh" id=50]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Waterline1.mesh" type="ArrayMesh" id=51]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Wateline4.mesh" type="ArrayMesh" id=52]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_WasteWaterPurification.mesh" type="ArrayMesh" id=53]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_WasteWaterPurification_WasteWaterPurification_col_CollisionShape.shape" type="Shape" id=54]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_WasteWaterFirstTanks.mesh" type="ArrayMesh" id=55]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_WasteWaterFirstTanks_WasteWaterFirstTanks_col_CollisionShape.shape" type="Shape" id=56]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_wash-driers002.mesh" type="ArrayMesh" id=57]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_wash-driers002_wash-driers002_col_CollisionShape.shape" type="Shape" id=58]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_UrineProcessing.mesh" type="ArrayMesh" id=59]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelTopFloor-FrostedGlass002.mesh" type="ArrayMesh" id=60]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_TunnelTopFloor-FrostedGlass002_TunnelTopFloor-FrostedGlass002_col_CollisionShape.shape" type="Shape" id=61]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelTopFloor.mesh" type="ArrayMesh" id=62]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_TunnelTopFloor_TunnelTopFloor_col_CollisionShape.shape" type="Shape" id=63]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelRibs.mesh" type="ArrayMesh" id=64]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelMouth.mesh" type="ArrayMesh" id=65]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelMiddleFloor.mesh" type="ArrayMesh" id=66]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_TunnelMiddleFloor_TunnelMiddleFloor_col_CollisionShape.shape" type="Shape" id=67]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelMainFloor.mesh" type="ArrayMesh" id=68]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_TunnelMainFloor_TunnelMainFloor_col_CollisionShape.shape" type="Shape" id=69]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelCornerPipes.mesh" type="ArrayMesh" id=70]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Tunnel-MezzannineFrostedGlass002.mesh" type="ArrayMesh" id=71]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_Tunnel-MezzannineFrostedGlass002_Tunnel-MezzannineFrostedGlass002_col_CollisionShape.shape" type="Shape" id=72]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Tunnel-MezzanineStairs002.mesh" type="ArrayMesh" id=73]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_Tunnel-MezzanineStairs002_Tunnel-MezzanineStairs002_col_CollisionShape.shape" type="Shape" id=74]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ToTunnelFloorTop.mesh" type="ArrayMesh" id=75]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ToTunnelFloorTop_ToTunnelFloorTop_col_CollisionShape.shape" type="Shape" id=76]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ToTunnelFloorBottom.mesh" type="ArrayMesh" id=77]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ToTunnelFloorBottom_ToTunnelFloorBottom_col_CollisionShape.shape" type="Shape" id=78]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TopWindowFloorWest.mesh" type="ArrayMesh" id=79]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_TopWindowFloorWest_TopWindowFloorWest_col_CollisionShape.shape" type="Shape" id=80]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TopWindowFloor.mesh" type="ArrayMesh" id=81]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_TopWindowFloor_TopWindowFloor_col_CollisionShape.shape" type="Shape" id=82]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TopFloorEast.mesh" type="ArrayMesh" id=83]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_TopFloorEast_TopFloorEast_col_CollisionShape.shape" type="Shape" id=84]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TopFloor-FrostedGlass002.mesh" type="ArrayMesh" id=85]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_TopFloor-FrostedGlass002_TopFloor-FrostedGlass002_col_CollisionShape.shape" type="Shape" id=86]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TopFloor.mesh" type="ArrayMesh" id=87]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_TopFloor_TopFloor_col_CollisionShape.shape" type="Shape" id=88]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ToiletStalls2.mesh" type="ArrayMesh" id=89]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ToiletStalls2_ToiletStalls2_col_CollisionShape.shape" type="Shape" id=90]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ToiletStalls1.mesh" type="ArrayMesh" id=91]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ToiletStalls1_ToiletStalls1_col_CollisionShape.shape" type="Shape" id=92]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ToiletStalls-3001.mesh" type="ArrayMesh" id=93]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ToiletStalls-3001_ToiletStalls-3001_col_CollisionShape.shape" type="Shape" id=94]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Template-AnchorBolt004.mesh" type="ArrayMesh" id=95]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_SWCornerFloorTop.mesh" type="ArrayMesh" id=96]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_SWCornerFloorTop_SWCornerFloorTop_col_CollisionShape.shape" type="Shape" id=97]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Stair005.mesh" type="ArrayMesh" id=98]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Stair004.mesh" type="ArrayMesh" id=99]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_Stair004_Stair004_col_CollisionShape.shape" type="Shape" id=100]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Stair-Cables005.mesh" type="ArrayMesh" id=101]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Stair-Cables004.mesh" type="ArrayMesh" id=102]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Stair-Cables-short002.mesh" type="ArrayMesh" id=103]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_SolarOvens.mesh" type="ArrayMesh" id=104]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ShimmyStair-Steps001.mesh" type="ArrayMesh" id=105]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ShimmyStair-Steps001_ShimmyStair-Steps001_col_CollisionShape.shape" type="Shape" id=106]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ShimmyStair-Step1011.mesh" type="ArrayMesh" id=107]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ShimmyStair-Step1011_ShimmyStair-Step1011_col_CollisionShape.shape" type="Shape" id=108]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ShimmyStair-Step1010.mesh" type="ArrayMesh" id=109]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ShimmyStair-Step1010_ShimmyStair-Step1010_col_CollisionShape.shape" type="Shape" id=110]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ShimmyStair-Rail001.mesh" type="ArrayMesh" id=111]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ShimmyStair-Pole001.mesh" type="ArrayMesh" id=112]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ShimmyStair-Step1009.mesh" type="ArrayMesh" id=113]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_Shimmy-Stairs009_ShimmyStair-Step1009_ShimmyStair-Step1009_col_CollisionShape.shape" type="Shape" id=114]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ShimmyStair-Step1008.mesh" type="ArrayMesh" id=115]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_Shimmy-Stairs008_ShimmyStair-Step1008_ShimmyStair-Step1008_col_CollisionShape.shape" type="Shape" id=116]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_QuartersWalls.mesh" type="ArrayMesh" id=117]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_QuartersWalls_QuartersWalls_col_CollisionShape.shape" type="Shape" id=118]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_QuartersTop.mesh" type="ArrayMesh" id=119]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_QuartersTop_QuartersTop_col_CollisionShape.shape" type="Shape" id=120]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_QuartersFront.mesh" type="ArrayMesh" id=121]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_QuartersFront_QuartersFront_col_CollisionShape.shape" type="Shape" id=122]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_PondWall.mesh" type="ArrayMesh" id=123]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_PondWall_PondWall_col_CollisionShape.shape" type="Shape" id=124]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_PondSurface.mesh" type="ArrayMesh" id=125]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_PondLevelGlass.mesh" type="ArrayMesh" id=126]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_PondLevelGlass_PondLevelGlass_col_CollisionShape.shape" type="Shape" id=127]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_PondLevelFrames.mesh" type="ArrayMesh" id=128]
-[ext_resource path="res://model_assets/PlanterSet.tscn" type="PackedScene" id=129]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_PlanterFrames002.mesh" type="ArrayMesh" id=130]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_PassageMouth.mesh" type="ArrayMesh" id=131]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_OvensHeatPump.mesh" type="ArrayMesh" id=132]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_NorthEastBath-Floor002.mesh" type="ArrayMesh" id=133]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_NorthEastBath-Floor002_NorthEastBath-Floor002_col_CollisionShape.shape" type="Shape" id=134]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_NorthBathroom.mesh" type="ArrayMesh" id=135]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_NorthBathroom_NorthBathroom_col_CollisionShape.shape" type="Shape" id=136]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Mouth-SouthHall002.mesh" type="ArrayMesh" id=137]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_MinWaterTankFillingPipe.mesh" type="ArrayMesh" id=138]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_MainWaterTankDuct.mesh" type="ArrayMesh" id=139]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_MainHeatPumps.mesh" type="ArrayMesh" id=140]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_MainComposter.mesh" type="ArrayMesh" id=141]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_MainComposter_MainComposter_col_CollisionShape.shape" type="Shape" id=142]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_LaundrySink.mesh" type="ArrayMesh" id=143]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_LaundrySink_LaundrySink_col_CollisionShape.shape" type="Shape" id=144]
-[ext_resource path="res://scenes/meshes/AtriumHab__Interior_Lawn.mesh" type="ArrayMesh" id=145]
-[ext_resource path="res://image_textures/LongDomeLawns35.jpg" type="Texture" id=146]
-[ext_resource path="res://image_textures/MixedWeedsAA.jpg" type="Texture" id=147]
-[ext_resource path="res://image_textures/MixedWeedsAA_n.jpg" type="Texture" id=148]
-[ext_resource path="res://image_textures/CloverField.jpg" type="Texture" id=149]
-[ext_resource path="res://image_textures/CloverField_n.jpg" type="Texture" id=150]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_Lawn_Lawn_col_CollisionShape.shape" type="Shape" id=151]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_KitchenLowCabinets.mesh" type="ArrayMesh" id=152]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_KitchenLowCabinets_KitchenLowCabinets_col_CollisionShape.shape" type="Shape" id=153]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_KitchenHeatPump.mesh" type="ArrayMesh" id=154]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Kitchen.mesh" type="ArrayMesh" id=155]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_Kitchen_Kitchen_col_CollisionShape.shape" type="Shape" id=156]
-[ext_resource path="res://model_assets/HexpaneWindow.tscn" type="PackedScene" id=157]
-[ext_resource path="res://model_assets/HealthCentrifuge.tscn" type="PackedScene" id=158]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_GymWallPadding.mesh" type="ArrayMesh" id=159]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_GymTrampolines.mesh" type="ArrayMesh" id=160]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_GymTrampolines_GymTrampolines_col_CollisionShape.shape" type="Shape" id=161]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_GymRope3.mesh" type="ArrayMesh" id=162]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_GymRope2.mesh" type="ArrayMesh" id=163]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_GymRope1.mesh" type="ArrayMesh" id=164]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_GymMonkeyBars.mesh" type="ArrayMesh" id=165]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_GymFloorPadding.mesh" type="ArrayMesh" id=166]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_GymFloorPadding_GymFloorPadding_col_CollisionShape.shape" type="Shape" id=167]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_GymFence.mesh" type="ArrayMesh" id=168]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_GlazingAtriuim002.mesh" type="ArrayMesh" id=169]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_GardenWall.mesh" type="ArrayMesh" id=170]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_GardenWall_GardenWall_col_CollisionShape.shape" type="Shape" id=171]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_FridgeDoors.mesh" type="ArrayMesh" id=172]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_EastBottomFloor.mesh" type="ArrayMesh" id=173]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_EastBottomFloor_EastBottomFloor_col_CollisionShape.shape" type="Shape" id=174]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_EastBathroom.mesh" type="ArrayMesh" id=175]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_EastBathroom_EastBathroom_col_CollisionShape.shape" type="Shape" id=176]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Drain2.mesh" type="ArrayMesh" id=177]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Drain1.mesh" type="ArrayMesh" id=178]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ComposterPlatform.mesh" type="ArrayMesh" id=179]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ComposterPlatform_ComposterPlatform_col_CollisionShape.shape" type="Shape" id=180]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_BottomWindowFloorWest.mesh" type="ArrayMesh" id=181]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_BottomWindowFloorWest_BottomWindowFloorWest_col_CollisionShape.shape" type="Shape" id=182]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_BottomWindowFloor.mesh" type="ArrayMesh" id=183]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_BottomWindowFloor_BottomWindowFloor_col_CollisionShape.shape" type="Shape" id=184]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_BlackwaterTank2.mesh" type="ArrayMesh" id=185]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_BlackWaterTank.mesh" type="ArrayMesh" id=186]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_BlackWaterTank_BlackWaterTank_col_CollisionShape.shape" type="Shape" id=187]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_BlackwaterPurification2.mesh" type="ArrayMesh" id=188]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AtriumWalls005.mesh" type="ArrayMesh" id=189]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AtriumRamp.mesh" type="ArrayMesh" id=190]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_AtriumRamp_AtriumRamp_col_CollisionShape.shape" type="Shape" id=191]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AnchorBolt002.mesh" type="ArrayMesh" id=192]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AnchorBeamAtrium002.mesh" type="ArrayMesh" id=193]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AlgaeWaterOxygenation.mesh" type="ArrayMesh" id=194]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_AlgaeWaterOxygenation_AlgaeWaterOxygenation_col_CollisionShape.shape" type="Shape" id=195]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AlgaeTubes.mesh" type="ArrayMesh" id=196]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_AlgaeTubes_AlgaeTubes_col_CollisionShape.shape" type="Shape" id=197]
-[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AlgaeFarmPost.mesh" type="ArrayMesh" id=198]
-[ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=199]
-[ext_resource path="res://scenes/lightmaps/AtriumHab_4098242162_bldata.res" type="BakedLightmapData" id=200]
+[ext_resource path="res://materials/Lavastone2.tres" type="Material" id=2]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_RadBlindBeam006.mesh" type="ArrayMesh" id=3]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_RadBlindBeam005.mesh" type="ArrayMesh" id=4]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AnchorBeamsTop.mesh" type="ArrayMesh" id=5]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_MainWallRibs.mesh" type="ArrayMesh" id=6]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_WindowWellandShield002.mesh" type="ArrayMesh" id=7]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Exterior_WindowWellandShield002_WindowWellandShield002_col_CollisionShape.shape" type="Shape" id=8]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_CoolingTanks.mesh" type="ArrayMesh" id=9]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Water-Tank002.mesh" type="ArrayMesh" id=10]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Water-Tank001.mesh" type="ArrayMesh" id=11]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Water-Tank000.mesh" type="ArrayMesh" id=12]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Walk-in-Fridges.mesh" type="ArrayMesh" id=13]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Exterior_Walk-in-Fridges_Walk-in-Fridges_col_CollisionShape.shape" type="Shape" id=14]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_RadBarrier-TunnnelWindows002.mesh" type="ArrayMesh" id=15]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Exterior_RadBarrier-TunnnelWindows002_RadBarrier-TunnnelWindows002_col_CollisionShape.shape" type="Shape" id=16]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_2ndFloor-FrostedGlass002.mesh" type="ArrayMesh" id=17]
+[ext_resource path="res://materials/FrostedGlass.tres" type="Material" id=18]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_2ndFloor-FrostedGlass002_2ndFloor-FrostedGlass002_col_CollisionShape.shape" type="Shape" id=19]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_2ndFloorDown.mesh" type="ArrayMesh" id=20]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_2ndFloorDown_2ndFloorDown_col_CollisionShape.shape" type="Shape" id=21]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_2ndFromBottomFloorEast.mesh" type="ArrayMesh" id=22]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_2ndFromBottomFloorEast_2ndFromBottomFloorEast_col_CollisionShape.shape" type="Shape" id=23]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_2ndFromBottomSWFloor.mesh" type="ArrayMesh" id=24]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_2ndFromBottomSWFloor_2ndFromBottomSWFloor_col_CollisionShape.shape" type="Shape" id=25]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_3rdFromBottomSWFloor.mesh" type="ArrayMesh" id=26]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_3rdFromBottomSWFloor_3rdFromBottomSWFloor_col_CollisionShape.shape" type="Shape" id=27]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirCirculationDuctsN000.mesh" type="ArrayMesh" id=28]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockRamp.mesh" type="ArrayMesh" id=29]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_AirlockRamp_AirlockRamp_col_CollisionShape.shape" type="Shape" id=30]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockRibs--South002.mesh" type="ArrayMesh" id=31]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockRibs1.mesh" type="ArrayMesh" id=32]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockRibs2.mesh" type="ArrayMesh" id=33]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockRoverDoor.mesh" type="ArrayMesh" id=34]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockRoverInnerFrame.mesh" type="ArrayMesh" id=35]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockRoverSeal.mesh" type="ArrayMesh" id=36]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockRoverSeal2.mesh" type="ArrayMesh" id=37]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockRoverSection.mesh" type="ArrayMesh" id=38]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockW-DoorOutside004.mesh" type="ArrayMesh" id=39]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockW-Hardware1008.mesh" type="ArrayMesh" id=40]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AirlockWalls.mesh" type="ArrayMesh" id=41]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_AirlockWalls_AirlockWalls_col_CollisionShape.shape" type="Shape" id=42]
+[ext_resource path="res://model_assets/Toilet.tscn" type="PackedScene" id=43]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_WhippleGlazingAtrium002.mesh" type="ArrayMesh" id=44]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Waterline3.mesh" type="ArrayMesh" id=45]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Waterline1.mesh" type="ArrayMesh" id=46]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Wateline4.mesh" type="ArrayMesh" id=47]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_WasteWaterPurification.mesh" type="ArrayMesh" id=48]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_WasteWaterPurification_WasteWaterPurification_col_CollisionShape.shape" type="Shape" id=49]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_WasteWaterFirstTanks.mesh" type="ArrayMesh" id=50]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_WasteWaterFirstTanks_WasteWaterFirstTanks_col_CollisionShape.shape" type="Shape" id=51]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_wash-driers002.mesh" type="ArrayMesh" id=52]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_wash-driers002_wash-driers002_col_CollisionShape.shape" type="Shape" id=53]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_UrineProcessing.mesh" type="ArrayMesh" id=54]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelTopFloor-FrostedGlass002.mesh" type="ArrayMesh" id=55]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_TunnelTopFloor-FrostedGlass002_TunnelTopFloor-FrostedGlass002_col_CollisionShape.shape" type="Shape" id=56]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelTopFloor.mesh" type="ArrayMesh" id=57]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_TunnelTopFloor_TunnelTopFloor_col_CollisionShape.shape" type="Shape" id=58]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelRibs.mesh" type="ArrayMesh" id=59]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelMouth.mesh" type="ArrayMesh" id=60]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelMiddleFloor.mesh" type="ArrayMesh" id=61]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_TunnelMiddleFloor_TunnelMiddleFloor_col_CollisionShape.shape" type="Shape" id=62]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelMainFloor.mesh" type="ArrayMesh" id=63]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_TunnelMainFloor_TunnelMainFloor_col_CollisionShape.shape" type="Shape" id=64]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TunnelCornerPipes.mesh" type="ArrayMesh" id=65]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Tunnel-MezzannineFrostedGlass002.mesh" type="ArrayMesh" id=66]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_Tunnel-MezzannineFrostedGlass002_Tunnel-MezzannineFrostedGlass002_col_CollisionShape.shape" type="Shape" id=67]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Tunnel-MezzanineStairs002.mesh" type="ArrayMesh" id=68]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_Tunnel-MezzanineStairs002_Tunnel-MezzanineStairs002_col_CollisionShape.shape" type="Shape" id=69]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ToTunnelFloorTop.mesh" type="ArrayMesh" id=70]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ToTunnelFloorTop_ToTunnelFloorTop_col_CollisionShape.shape" type="Shape" id=71]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ToTunnelFloorBottom.mesh" type="ArrayMesh" id=72]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ToTunnelFloorBottom_ToTunnelFloorBottom_col_CollisionShape.shape" type="Shape" id=73]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TopWindowFloorWest.mesh" type="ArrayMesh" id=74]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_TopWindowFloorWest_TopWindowFloorWest_col_CollisionShape.shape" type="Shape" id=75]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TopWindowFloor.mesh" type="ArrayMesh" id=76]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_TopWindowFloor_TopWindowFloor_col_CollisionShape.shape" type="Shape" id=77]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TopFloorEast.mesh" type="ArrayMesh" id=78]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_TopFloorEast_TopFloorEast_col_CollisionShape.shape" type="Shape" id=79]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TopFloor-FrostedGlass002.mesh" type="ArrayMesh" id=80]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_TopFloor-FrostedGlass002_TopFloor-FrostedGlass002_col_CollisionShape.shape" type="Shape" id=81]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_TopFloor.mesh" type="ArrayMesh" id=82]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_TopFloor_TopFloor_col_CollisionShape.shape" type="Shape" id=83]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ToiletStalls2.mesh" type="ArrayMesh" id=84]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ToiletStalls2_ToiletStalls2_col_CollisionShape.shape" type="Shape" id=85]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ToiletStalls1.mesh" type="ArrayMesh" id=86]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ToiletStalls1_ToiletStalls1_col_CollisionShape.shape" type="Shape" id=87]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ToiletStalls-3001.mesh" type="ArrayMesh" id=88]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ToiletStalls-3001_ToiletStalls-3001_col_CollisionShape.shape" type="Shape" id=89]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Template-AnchorBolt004.mesh" type="ArrayMesh" id=90]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_SWCornerFloorTop.mesh" type="ArrayMesh" id=91]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_SWCornerFloorTop_SWCornerFloorTop_col_CollisionShape.shape" type="Shape" id=92]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Stair005.mesh" type="ArrayMesh" id=93]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Stair004.mesh" type="ArrayMesh" id=94]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_Stair004_Stair004_col_CollisionShape.shape" type="Shape" id=95]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Stair-Cables005.mesh" type="ArrayMesh" id=96]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Stair-Cables004.mesh" type="ArrayMesh" id=97]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Stair-Cables-short002.mesh" type="ArrayMesh" id=98]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_SolarOvens.mesh" type="ArrayMesh" id=99]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ShimmyStair-Steps001.mesh" type="ArrayMesh" id=100]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ShimmyStair-Steps001_ShimmyStair-Steps001_col_CollisionShape.shape" type="Shape" id=101]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ShimmyStair-Step1011.mesh" type="ArrayMesh" id=102]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ShimmyStair-Step1011_ShimmyStair-Step1011_col_CollisionShape.shape" type="Shape" id=103]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ShimmyStair-Step1010.mesh" type="ArrayMesh" id=104]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ShimmyStair-Step1010_ShimmyStair-Step1010_col_CollisionShape.shape" type="Shape" id=105]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ShimmyStair-Rail001.mesh" type="ArrayMesh" id=106]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ShimmyStair-Pole001.mesh" type="ArrayMesh" id=107]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ShimmyStair-Step1009.mesh" type="ArrayMesh" id=108]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_Shimmy-Stairs009_ShimmyStair-Step1009_ShimmyStair-Step1009_col_CollisionShape.shape" type="Shape" id=109]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ShimmyStair-Step1008.mesh" type="ArrayMesh" id=110]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_Shimmy-Stairs008_ShimmyStair-Step1008_ShimmyStair-Step1008_col_CollisionShape.shape" type="Shape" id=111]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_QuartersWalls.mesh" type="ArrayMesh" id=112]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_QuartersWalls_QuartersWalls_col_CollisionShape.shape" type="Shape" id=113]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_QuartersTop.mesh" type="ArrayMesh" id=114]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_QuartersTop_QuartersTop_col_CollisionShape.shape" type="Shape" id=115]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_QuartersFront.mesh" type="ArrayMesh" id=116]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_QuartersFront_QuartersFront_col_CollisionShape.shape" type="Shape" id=117]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_PondWall.mesh" type="ArrayMesh" id=118]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_PondWall_PondWall_col_CollisionShape.shape" type="Shape" id=119]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_PondSurface.mesh" type="ArrayMesh" id=120]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_PondLevelGlass.mesh" type="ArrayMesh" id=121]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_PondLevelGlass_PondLevelGlass_col_CollisionShape.shape" type="Shape" id=122]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_PondLevelFrames.mesh" type="ArrayMesh" id=123]
+[ext_resource path="res://model_assets/PlanterSet.tscn" type="PackedScene" id=124]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_PlanterFrames002.mesh" type="ArrayMesh" id=125]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_PassageMouth.mesh" type="ArrayMesh" id=126]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_OvensHeatPump.mesh" type="ArrayMesh" id=127]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_NorthEastBath-Floor002.mesh" type="ArrayMesh" id=128]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_NorthEastBath-Floor002_NorthEastBath-Floor002_col_CollisionShape.shape" type="Shape" id=129]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_NorthBathroom.mesh" type="ArrayMesh" id=130]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_NorthBathroom_NorthBathroom_col_CollisionShape.shape" type="Shape" id=131]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Mouth-SouthHall002.mesh" type="ArrayMesh" id=132]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_MinWaterTankFillingPipe.mesh" type="ArrayMesh" id=133]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_MainWaterTankDuct.mesh" type="ArrayMesh" id=134]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_MainHeatPumps.mesh" type="ArrayMesh" id=135]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_MainComposter.mesh" type="ArrayMesh" id=136]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_MainComposter_MainComposter_col_CollisionShape.shape" type="Shape" id=137]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_LaundrySink.mesh" type="ArrayMesh" id=138]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_LaundrySink_LaundrySink_col_CollisionShape.shape" type="Shape" id=139]
+[ext_resource path="res://scenes/meshes/AtriumHab__Interior_Lawn.mesh" type="ArrayMesh" id=140]
+[ext_resource path="res://image_textures/LongDomeLawns35.jpg" type="Texture" id=141]
+[ext_resource path="res://image_textures/MixedWeedsAA.jpg" type="Texture" id=142]
+[ext_resource path="res://image_textures/MixedWeedsAA_n.jpg" type="Texture" id=143]
+[ext_resource path="res://image_textures/CloverField.jpg" type="Texture" id=144]
+[ext_resource path="res://image_textures/CloverField_n.jpg" type="Texture" id=145]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_Lawn_Lawn_col_CollisionShape.shape" type="Shape" id=146]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_KitchenLowCabinets.mesh" type="ArrayMesh" id=147]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_KitchenLowCabinets_KitchenLowCabinets_col_CollisionShape.shape" type="Shape" id=148]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_KitchenHeatPump.mesh" type="ArrayMesh" id=149]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Kitchen.mesh" type="ArrayMesh" id=150]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_Kitchen_Kitchen_col_CollisionShape.shape" type="Shape" id=151]
+[ext_resource path="res://model_assets/HexpaneWindow.tscn" type="PackedScene" id=152]
+[ext_resource path="res://model_assets/HealthCentrifuge.tscn" type="PackedScene" id=153]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_GymWallPadding.mesh" type="ArrayMesh" id=154]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_GymTrampolines.mesh" type="ArrayMesh" id=155]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_GymTrampolines_GymTrampolines_col_CollisionShape.shape" type="Shape" id=156]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_GymRope3.mesh" type="ArrayMesh" id=157]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_GymRope2.mesh" type="ArrayMesh" id=158]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_GymRope1.mesh" type="ArrayMesh" id=159]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_GymMonkeyBars.mesh" type="ArrayMesh" id=160]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_GymFloorPadding.mesh" type="ArrayMesh" id=161]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_GymFloorPadding_GymFloorPadding_col_CollisionShape.shape" type="Shape" id=162]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_GymFence.mesh" type="ArrayMesh" id=163]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_GlazingAtriuim002.mesh" type="ArrayMesh" id=164]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_GardenWall.mesh" type="ArrayMesh" id=165]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_GardenWall_GardenWall_col_CollisionShape.shape" type="Shape" id=166]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_FridgeDoors.mesh" type="ArrayMesh" id=167]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_EastBottomFloor.mesh" type="ArrayMesh" id=168]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_EastBottomFloor_EastBottomFloor_col_CollisionShape.shape" type="Shape" id=169]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_EastBathroom.mesh" type="ArrayMesh" id=170]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_EastBathroom_EastBathroom_col_CollisionShape.shape" type="Shape" id=171]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Drain2.mesh" type="ArrayMesh" id=172]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_Drain1.mesh" type="ArrayMesh" id=173]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_ComposterPlatform.mesh" type="ArrayMesh" id=174]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ComposterPlatform_ComposterPlatform_col_CollisionShape.shape" type="Shape" id=175]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_BottomWindowFloorWest.mesh" type="ArrayMesh" id=176]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_BottomWindowFloorWest_BottomWindowFloorWest_col_CollisionShape.shape" type="Shape" id=177]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_BottomWindowFloor.mesh" type="ArrayMesh" id=178]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_BottomWindowFloor_BottomWindowFloor_col_CollisionShape.shape" type="Shape" id=179]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_BlackwaterTank2.mesh" type="ArrayMesh" id=180]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_BlackWaterTank.mesh" type="ArrayMesh" id=181]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_BlackWaterTank_BlackWaterTank_col_CollisionShape.shape" type="Shape" id=182]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_BlackwaterPurification2.mesh" type="ArrayMesh" id=183]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AtriumWalls005.mesh" type="ArrayMesh" id=184]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AtriumRamp.mesh" type="ArrayMesh" id=185]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_AtriumRamp_AtriumRamp_col_CollisionShape.shape" type="Shape" id=186]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AnchorBolt002.mesh" type="ArrayMesh" id=187]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AnchorBeamAtrium002.mesh" type="ArrayMesh" id=188]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AlgaeWaterOxygenation.mesh" type="ArrayMesh" id=189]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_AlgaeWaterOxygenation_AlgaeWaterOxygenation_col_CollisionShape.shape" type="Shape" id=190]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AlgaeTubes.mesh" type="ArrayMesh" id=191]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_AlgaeTubes_AlgaeTubes_col_CollisionShape.shape" type="Shape" id=192]
+[ext_resource path="res://scenes/meshes/AtriumHab__AtriumWalls_AlgaeFarmPost.mesh" type="ArrayMesh" id=193]
+[ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=194]
+[ext_resource path="res://scenes/lightmaps/AtriumHab_4098242162_bldata.res" type="BakedLightmapData" id=195]
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 0.0191441, 1, 1.42074 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 0.030681, 0.58118, 0.0298133 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 0.0322876, 0.72901, 0.0379855 )
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 0.0322876, 0.758644, 0.0364019 )
+
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 0.0298777, 0.72586, 0.0305358 )
+
+[sub_resource type="BoxShape" id=12]
+extents = Vector3( 0.0314842, 0.59821, 0.0334686 )
+
+[sub_resource type="BoxShape" id=13]
+extents = Vector3( 0.144063, 0.147485, 0.160454 )
+
+[sub_resource type="BoxShape" id=14]
+extents = Vector3( 0.340703, 0.0138273, 0.227196 )
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "Lavastone2.004"
@@ -221,26 +240,26 @@ surfaces/0 = {
 }
 
 [sub_resource type="SpatialMaterial" id=3]
-albedo_texture = ExtResource( 146 )
+albedo_texture = ExtResource( 141 )
 roughness = 0.0
 uv1_scale = Vector3( 5, 5, 5 )
 uv1_triplanar = true
 
 [sub_resource type="SpatialMaterial" id=4]
-albedo_texture = ExtResource( 147 )
+albedo_texture = ExtResource( 142 )
 roughness = 0.0
 normal_enabled = true
 normal_scale = 1.0
-normal_texture = ExtResource( 148 )
+normal_texture = ExtResource( 143 )
 uv1_scale = Vector3( 5, 5, 5 )
 uv1_triplanar = true
 
 [sub_resource type="SpatialMaterial" id=5]
-albedo_texture = ExtResource( 149 )
+albedo_texture = ExtResource( 144 )
 roughness = 0.0
 normal_enabled = true
 normal_scale = 1.0
-normal_texture = ExtResource( 150 )
+normal_texture = ExtResource( 145 )
 uv1_scale = Vector3( 5, 5, 5 )
 uv1_triplanar = true
 
@@ -251,31 +270,153 @@ extents = Vector3( 9.22929, 3.3859, 6.14163 )
 
 [node name="Exterior" type="Spatial" parent="."]
 
+[node name="CollisionsExterior" type="Node" parent="Exterior"]
+
+[node name="AtriumNorthWall" type="StaticBody" parent="Exterior/CollisionsExterior"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0137883, 0 )
+
+[node name="CollisionPolygon3" type="CollisionPolygon" parent="Exterior/CollisionsExterior/AtriumNorthWall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.80785 )
+depth = 0.1
+polygon = PoolVector2Array( 1.85188, -0.974492, 1.8479, 1.73213, 0.904283, 2.09909, 0.0550308, 2.19345, -0.752282, 2.08861, -1.76715, 1.7895, -1.80908, -1.84494, 2.69098, -1.87305, 2.65133, -0.954671 )
+
+[node name="AtriumSouthWallAirlock" type="StaticBody" parent="Exterior/CollisionsExterior"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0137883, 0 )
+
+[node name="CollisionPolygon2" type="CollisionPolygon" parent="Exterior/CollisionsExterior/AtriumSouthWallAirlock"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0192666, -0.00193071, 3.28963 )
+depth = 2.0
+polygon = PoolVector2Array( -1.7106, 2.08706, -1.7106, 2.08706, -1.76453, -1.7871, 2.6909, -1.81532, 2.69576, -0.965455, 1.85075, -0.980024, 1.87593, 1.94323, 0.344925, 2.25305, 0.320492, 2.0596, 0.484753, 2.00153, 0.585819, 1.87858, 0.643656, 1.62129, 0.565511, 1.39624, 0.081078, 1.39726, -0.0204871, 1.59046, 0.024479, 1.89186, 0.165454, 2.03405, 0.294329, 2.05857, 0.29596, 2.27141 )
+
+[node name="AtriumRoofEastWall" type="StaticBody" parent="Exterior/CollisionsExterior"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0137883, 0 )
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="Exterior/CollisionsExterior/AtriumRoofEastWall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0192666, -0.00193071, -0.259013 )
+depth = 5.2
+polygon = PoolVector2Array( -1.72742, -1.75488, 1.83469, -1.74545, 1.83842, -1.64687, 2.68415, -1.63853, 2.6876, -0.960014, 1.84016, -0.950391, 1.83575, 1.7538, 1.10452, 2.02179, 0.509826, 2.12412, 0.0408551, 2.15288, -0.510779, 2.11, -1.11116, 1.98036, -1.7206, 1.76294, -1.9968, 1.76915, -2.00142, 2.283, -1.24757, 2.56146, -0.553578, 2.71338, 0.176904, 2.74687, 0.882037, 2.67397, 1.72568, 2.45091, 2.12287, 2.29254, 2.12138, 1.7346, 2.89476, 0.562419, 2.75215, -1.95658, -1.75048, -1.99628 )
+
+[node name="TunnelEnd" type="StaticBody" parent="Exterior/CollisionsExterior"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.31984, 0.0137883, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Exterior/CollisionsExterior/TunnelEnd"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0416718, -0.219874 )
+shape = SubResource( 7 )
+
+[node name="TunnelSections" type="StaticBody" parent="Exterior/CollisionsExterior"]
+editor/display_folded = true
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.61932, 0, 0 )
+
+[node name="EastEnd" type="CollisionPolygon" parent="Exterior/CollisionsExterior/TunnelSections"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.191612, 0, 1.65388 )
+depth = 3.1
+polygon = PoolVector2Array( -2.60481, -1.71731, -2.57624, 1.7875, -0.0075736, 1.79176, -0.0231705, 0.925009, -0.572344, 0.818945, -1.01031, 0.603086, -1.32807, 0.236233, -1.36849, -0.201194, -0.7838, -0.466559, -0.022543, -0.552094, 0.824248, -0.445175, 1.34519, -0.208062, 1.31545, 0.131174, 1.12662, 0.477996, 0.66912, 0.793145, 0.0082972, 0.925009, 0.014266, 1.79176, 2.46754, 1.76713, 2.47184, 1.27228, 2.21503, 1.27505, 2.21642, 1.08765, 2.30457, 1.08834, 2.31637, 1.26603, 2.47322, 1.26045, 2.47122, 0.929544, 2.22646, 0.925493, 2.2221, 0.739814, 2.30584, 0.741664, 2.30954, 0.922081, 2.47099, 0.924394, 2.47573, -1.73095 )
+
+[node name="WestPart" type="CollisionPolygon" parent="Exterior/CollisionsExterior/TunnelSections"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.191612, 0, 5.20482 )
+depth = 3.05
+polygon = PoolVector2Array( -2.60481, -1.71731, -2.57624, 1.7875, -0.0075736, 1.79176, -0.0231705, 0.925009, -0.572344, 0.818945, -1.01031, 0.603086, -1.32807, 0.236233, -1.36849, -0.201194, -0.7838, -0.466559, -0.022543, -0.552094, 0.824248, -0.445175, 1.34519, -0.208062, 1.31545, 0.131174, 1.12662, 0.477996, 0.66912, 0.793145, 0.0082972, 0.925009, 0.014266, 1.79176, 2.46754, 1.76713, 2.47573, -1.73095 )
+
+[node name="ToBigAtrium" type="CollisionPolygon" parent="Exterior/CollisionsExterior/TunnelSections"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50335e-07, 0, 3.43926 )
+depth = 0.5
+polygon = PoolVector2Array( -1.15686, 0.640274, -0.822623, 0.827907, -0.486871, 0.911102, 0.0212123, 0.920015, 0.559008, 0.768482, 1.02252, 0.394104, 1.14789, 0.0987574, 1.12115, -0.242936, 0.63684, -0.439039, -0.114886, -0.551946, -0.848785, -0.495493, -1.55901, -0.221831, -1.65409, -0.287199, -0.786483, -0.655634, 0.41093, -0.697231, 1.25312, -0.307855, 1.30957, 0.494382, 0.162672, 1.10349, -1.2766, 0.912774 )
+
+[node name="ToPortales" type="CollisionPolygon" parent="Exterior/CollisionsExterior/TunnelSections"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.04155e-07, 0, 6.95825 )
+depth = 0.5
+polygon = PoolVector2Array( 1.12817, 0.167908, 1.28931, 0.234741, 0.66984, 0.990294, -0.749381, 1.04687, -1.81498, 0.400918, -1.81498, -0.301619, -0.702231, -0.71654, 0.518959, -0.692964, 1.34637, -0.214407, 1.13191, -0.221464, 0.783001, -0.377059, 0.311499, -0.509079, -0.263735, -0.542084, -0.890832, -0.471359, -1.31518, -0.344054, -1.56508, -0.216749, -1.57451, 0.094442, -1.40948, 0.457498, -0.942697, 0.782833, -0.329744, 0.928998, 0.355405, 0.835418, 0.872148, 0.5473 )
+
+[node name="WestEndExterior" type="CollisionPolygon" parent="Exterior/CollisionsExterior/TunnelSections"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57962e-07, 0, 8.18922 )
+depth = 2.0
+polygon = PoolVector2Array( 1.0837, -0.24452, 0.67049, -0.416442, 0.0684509, -0.536739, -0.54418, -0.535999, -1.14914, -0.415008, -1.53961, -0.233521, -1.56711, 0.107454, -1.33062, 0.552922, -0.742165, 0.838901, -0.221677, 0.924622, -0.227748, 1.12063, -1.6386, 0.629916, -1.90258, -0.420507, -0.720167, -0.832977, 0.335756, -0.805479, 1.38068, -0.343513, 1.25175, 0.66773, -0.19682, 1.12772, -0.212137, 0.925489, 0.420501, 0.820797, 0.848363, 0.559326, 1.1336, 0.193861 )
+
+[node name="MainWallRibs_col" type="StaticBody" parent="Exterior/CollisionsExterior"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00012207, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Exterior/CollisionsExterior/MainWallRibs_col"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77816, 0.133708, 0.779782 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Exterior/CollisionsExterior/MainWallRibs_col"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77816, 0.178318, 0.289007 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="Exterior/CollisionsExterior/MainWallRibs_col"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77816, 0.178318, -0.204227 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="Exterior/CollisionsExterior/MainWallRibs_col"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77816, 0.135162, -0.700533 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="Exterior/CollisionsExterior/MainWallRibs_col"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77816, 0.11588, -1.20463 )
+shape = SubResource( 12 )
+
+[node name="WindowWellandShield" type="StaticBody" parent="Exterior/CollisionsExterior"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.346517, 1.97515, 3.37471 )
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="Exterior/CollisionsExterior/WindowWellandShield"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.15282 )
+depth = 2.5
+polygon = PoolVector2Array( -0.926537, 0.53948, -0.510926, 0.764135, -0.0653604, 0.827787, 0.380205, 0.756646, 0.792072, 0.53948, 0.795816, -0.0483667, 0.398926, -0.0521109, 0.151806, 0.202498, -0.222619, 0.243685, -0.522158, -0.0708321, -0.525903, -0.707354, -0.949002, -0.714842 )
+
+[node name="CollisionPolygon2" type="CollisionPolygon" parent="Exterior/CollisionsExterior/WindowWellandShield"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.850568 )
+depth = 0.6
+polygon = PoolVector2Array( 0.29233, -0.595867, 0.292331, 0.501202, 0.786571, 0.519924, 1.16849, 0.400111, 1.50547, 0.149247, 1.66647, -0.0529411, 1.67022, -0.700699, 0.296074, -0.723172 )
+
+[node name="CoolingTanks" type="StaticBody" parent="Exterior/CollisionsExterior"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -3.38701, 1.70563, 1.80264 )
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="Exterior/CollisionsExterior/CoolingTanks"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0096302, -0.0385206, 0.385742 )
+polygon = PoolVector2Array( -0.692751, -0.189165, -0.708918, 0.303932, -0.438567, 0.637686, 0.0301063, 0.679417, 0.460258, 0.358408, 0.447418, -0.171256, 0.225922, -0.440904, -0.278062, -0.527576 )
+
+[node name="CollisionPolygon2" type="CollisionPolygon" parent="Exterior/CollisionsExterior/CoolingTanks"]
+polygon = PoolVector2Array( 0.75181, -0.104645, 0.630142, -0.334189, 0.621523, -0.945494, 0.795124, -1.10296, 1.0447, -1.09213, 1.13087, -0.92381, 1.1344, -0.312518, 1.01163, -0.114166 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Exterior/CollisionsExterior/CoolingTanks"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.148995, 0.832286, -0.0522656 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Exterior/CollisionsExterior/CoolingTanks"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.496887, 0.832286, -0.0522656 )
+shape = SubResource( 13 )
+
+[node name="Walk-inFridges" type="StaticBody" parent="Exterior/CollisionsExterior"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09832, 1.25711, 2.03672 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Exterior/CollisionsExterior/Walk-inFridges"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.186721, 0 )
+shape = SubResource( 14 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Exterior/CollisionsExterior/Walk-inFridges"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.553505, 0 )
+shape = SubResource( 14 )
+
 [node name="TunnelWalls002" type="MeshInstance" parent="Exterior" groups=[
 "wall",
 ]]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74756, -0.0487061, -0.206543 )
+visible = false
 use_in_baked_light = true
 mesh = ExtResource( 1 )
 material/0 = null
 material/1 = null
 
-[node name="TunnelWalls002_col" type="StaticBody" parent="Exterior/TunnelWalls002"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Exterior/TunnelWalls002/TunnelWalls002_col"]
-shape = ExtResource( 2 )
-
 [node name="AtriumWalls" type="MeshInstance" parent="Exterior"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0137883, 0 )
+visible = false
 mesh = SubResource( 2 )
-material/0 = ExtResource( 3 )
-
-[node name="StaticBody" type="StaticBody" parent="Exterior/AtriumWalls"]
-
-[node name="CollisionPolygon" type="CollisionPolygon" parent="Exterior/AtriumWalls/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0192666, -0.00193071, -0.259013 )
-depth = 5.2
-polygon = PoolVector2Array( -1.72742, -1.75488, 1.83469, -1.74545, 1.83842, -1.64687, 2.68415, -1.63853, 2.6876, -0.960014, 1.84016, -0.950391, 1.83575, 1.7538, 1.10452, 2.02179, 0.509826, 2.12412, 0.0408551, 2.15288, -0.510779, 2.11, -1.11116, 1.98036, -1.7206, 1.76294, -1.9968, 1.76915, -2.00142, 2.283, -1.24757, 2.56146, -0.553578, 2.71338, 0.176904, 2.74687, 0.882037, 2.67397, 1.72568, 2.45091, 2.12287, 2.29254, 2.12138, 1.7346, 2.89476, 0.562419, 2.75215, -1.95658, -1.75048, -1.99628 )
+material/0 = ExtResource( 2 )
 
 [node name="OmniLight" type="OmniLight" parent="Exterior/AtriumWalls"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.468634, 1.65787, -0.953773 )
@@ -307,93 +448,70 @@ omni_range = 2.79584
 
 [node name="RadBlindBeam006" type="MeshInstance" parent="Exterior"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.0375977, 1.98376, 2.25269 )
+visible = false
+use_in_baked_light = true
+mesh = ExtResource( 3 )
+material/0 = null
+
+[node name="RadBlindBeam005" type="MeshInstance" parent="Exterior"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0375977, -2.08191, 2.24023 )
+visible = false
 use_in_baked_light = true
 mesh = ExtResource( 4 )
 material/0 = null
 
-[node name="RadBlindBeam005" type="MeshInstance" parent="Exterior" groups=[
-"cs_convex",
-]]
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0375977, -2.08191, 2.24023 )
-use_in_baked_light = true
-mesh = ExtResource( 5 )
-material/0 = null
-
-[node name="RadBlindBeam005_col" type="StaticBody" parent="Exterior/RadBlindBeam005"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Exterior/RadBlindBeam005/RadBlindBeam005_col"]
-shape = ExtResource( 6 )
-
 [node name="AnchorBeamsTop" type="MeshInstance" parent="Exterior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86914, 1.84192, -0.219971 )
+visible = false
 use_in_baked_light = true
-mesh = ExtResource( 7 )
+mesh = ExtResource( 5 )
 material/0 = null
 
 [node name="MainWallRibs" type="MeshInstance" parent="Exterior" groups=[
 "cs",
 ]]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00012207, 0 )
+visible = false
 use_in_baked_light = true
-mesh = ExtResource( 8 )
+mesh = ExtResource( 6 )
 material/0 = null
-
-[node name="MainWallRibs_col" type="StaticBody" parent="Exterior/MainWallRibs"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Exterior/MainWallRibs/MainWallRibs_col"]
-shape = ExtResource( 9 )
 
 [node name="WindowWellandShield002" type="MeshInstance" parent="Exterior" groups=[
 "cs",
 ]]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.279297, 2.07764, 3.53687 )
 use_in_baked_light = true
-mesh = ExtResource( 10 )
+mesh = ExtResource( 7 )
 material/0 = null
 material/1 = null
 
 [node name="WindowWellandShield002_col" type="StaticBody" parent="Exterior/WindowWellandShield002"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Exterior/WindowWellandShield002/WindowWellandShield002_col"]
-shape = ExtResource( 11 )
+shape = ExtResource( 8 )
 
 [node name="CoolingTanks" type="MeshInstance" parent="Exterior" groups=[
 "cs_convex",
 ]]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.89307, 1.11951, 2.63281 )
-mesh = ExtResource( 12 )
+mesh = ExtResource( 9 )
 material/0 = null
-
-[node name="CoolingTanks_col" type="StaticBody" parent="Exterior/CoolingTanks"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Exterior/CoolingTanks/CoolingTanks_col"]
-shape = ExtResource( 13 )
 
 [node name="Water-Tank002" type="MeshInstance" parent="Exterior"]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.51074, 1.61816, 0.937744 )
-mesh = ExtResource( 14 )
+mesh = ExtResource( 10 )
 material/0 = null
 
 [node name="Water-Tank001" type="MeshInstance" parent="Exterior" groups=[
 "cs_convex",
 ]]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50146, 1.21802, 1.85522 )
-mesh = ExtResource( 15 )
+mesh = ExtResource( 11 )
 material/0 = null
-
-[node name="Water-Tank001_col" type="StaticBody" parent="Exterior/Water-Tank001"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Exterior/Water-Tank001/Water-Tank001_col"]
-shape = ExtResource( 16 )
 
 [node name="Water-Tank000" type="MeshInstance" parent="Exterior"]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.51074, 1.61816, 1.45728 )
-mesh = ExtResource( 17 )
+mesh = ExtResource( 12 )
 material/0 = null
 
 [node name="Walk-in-Fridges" type="MeshInstance" parent="Exterior" groups=[
@@ -401,13 +519,13 @@ material/0 = null
 ]]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0957, 1.25146, 2.03345 )
-mesh = ExtResource( 18 )
+mesh = ExtResource( 13 )
 material/0 = null
 
 [node name="Walk-in-Fridges_col" type="StaticBody" parent="Exterior/Walk-in-Fridges"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Exterior/Walk-in-Fridges/Walk-in-Fridges_col"]
-shape = ExtResource( 19 )
+shape = ExtResource( 14 )
 
 [node name="RadBarrier-TunnnelWindows002" type="MeshInstance" parent="Exterior" groups=[
 "cs",
@@ -415,50 +533,52 @@ shape = ExtResource( 19 )
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7158, 0.601929, -0.206543 )
 use_in_baked_light = true
-mesh = ExtResource( 20 )
+mesh = ExtResource( 15 )
 material/0 = null
 material/1 = null
 
 [node name="RadBarrier-TunnnelWindows002_col" type="StaticBody" parent="Exterior/RadBarrier-TunnnelWindows002"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Exterior/RadBarrier-TunnnelWindows002/RadBarrier-TunnnelWindows002_col"]
-shape = ExtResource( 21 )
+shape = ExtResource( 16 )
 
 [node name="Interior" type="Spatial" parent="." groups=[
 "interior",
 ]]
 
+[node name="Collisions-Floors" type="Node" parent="Interior"]
+
 [node name="2ndFloor-FrostedGlass002" type="MeshInstance" parent="Interior" groups=[
 "floor",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63086, 1.08081, 1.77661 )
-mesh = ExtResource( 22 )
-material/0 = ExtResource( 23 )
+mesh = ExtResource( 17 )
+material/0 = ExtResource( 18 )
 
 [node name="2ndFloor-FrostedGlass002_col" type="StaticBody" parent="Interior/2ndFloor-FrostedGlass002"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/2ndFloor-FrostedGlass002/2ndFloor-FrostedGlass002_col"]
-shape = ExtResource( 24 )
+shape = ExtResource( 19 )
 
 [node name="2ndFloorDown" type="MeshInstance" parent="Interior" groups=[
 "floor",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63721, 0.984619, 2.09961 )
 use_in_baked_light = true
-mesh = ExtResource( 25 )
+mesh = ExtResource( 20 )
 material/0 = null
 
 [node name="2ndFloorDown_col" type="StaticBody" parent="Interior/2ndFloorDown"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/2ndFloorDown/2ndFloorDown_col"]
-shape = ExtResource( 26 )
+shape = ExtResource( 21 )
 
 [node name="2ndFromBottomFloorEast" type="MeshInstance" parent="Interior" groups=[
 "floor",
 ]]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.63721, -1.25195, 2.09961 )
 use_in_baked_light = true
-mesh = ExtResource( 27 )
+mesh = ExtResource( 22 )
 material/0 = null
 
 [node name="OmniLight" type="OmniLight" parent="Interior/2ndFromBottomFloorEast"]
@@ -468,44 +588,44 @@ light_energy = 0.4
 [node name="2ndFromBottomFloorEast_col" type="StaticBody" parent="Interior/2ndFromBottomFloorEast"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/2ndFromBottomFloorEast/2ndFromBottomFloorEast_col"]
-shape = ExtResource( 28 )
+shape = ExtResource( 23 )
 
 [node name="2ndFromBottomSWFloor" type="MeshInstance" parent="Interior" groups=[
 "floor",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63721, -0.932373, 2.09961 )
 use_in_baked_light = true
-mesh = ExtResource( 29 )
+mesh = ExtResource( 24 )
 material/0 = null
 
 [node name="2ndFromBottomSWFloor_col" type="StaticBody" parent="Interior/2ndFromBottomSWFloor"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/2ndFromBottomSWFloor/2ndFromBottomSWFloor_col"]
-shape = ExtResource( 30 )
+shape = ExtResource( 25 )
 
 [node name="3rdFromBottomSWFloor" type="MeshInstance" parent="Interior" groups=[
 "floor",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63721, -0.613159, 2.09961 )
 use_in_baked_light = true
-mesh = ExtResource( 31 )
+mesh = ExtResource( 26 )
 material/0 = null
 
 [node name="3rdFromBottomSWFloor_col" type="StaticBody" parent="Interior/3rdFromBottomSWFloor"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/3rdFromBottomSWFloor/3rdFromBottomSWFloor_col"]
-shape = ExtResource( 32 )
+shape = ExtResource( 27 )
 
 [node name="AirCirculationDuctsN000" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 8.74228e-08, 0, -8.74228e-08, 1, 0, 0, 0, -1, 0.860352, 1.40906, 2.19409 )
 use_in_baked_light = true
-mesh = ExtResource( 33 )
+mesh = ExtResource( 28 )
 material/0 = null
 
 [node name="AirCirculationDuctsN002" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.691406, 1.40906, -2.55908 )
 use_in_baked_light = true
-mesh = ExtResource( 33 )
+mesh = ExtResource( 28 )
 material/0 = null
 
 [node name="AirlockRamp" type="MeshInstance" parent="Interior" groups=[
@@ -513,85 +633,85 @@ material/0 = null
 ]]
 transform = Transform( 0.1, 0, 0, 0, 0.00825749, 0, 0, 0, 0.1, 0.276855, 1.40857, 4.40576 )
 use_in_baked_light = true
-mesh = ExtResource( 34 )
+mesh = ExtResource( 29 )
 material/0 = null
 
 [node name="AirlockRamp_col" type="StaticBody" parent="Interior/AirlockRamp"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/AirlockRamp/AirlockRamp_col"]
-shape = ExtResource( 35 )
+shape = ExtResource( 30 )
 
 [node name="AirlockRibs--South002" type="MeshInstance" parent="Interior"]
 transform = Transform( -4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0.279297, 1.70068, 3.80054 )
-mesh = ExtResource( 36 )
+mesh = ExtResource( 31 )
 material/0 = null
 
 [node name="AirlockRibs1" type="MeshInstance" parent="Interior"]
 transform = Transform( -4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0.279297, 1.70068, 3.00049 )
-mesh = ExtResource( 37 )
+mesh = ExtResource( 32 )
 material/0 = null
 
 [node name="AirlockRibs2" type="MeshInstance" parent="Interior"]
 transform = Transform( -4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0.279297, 1.70068, 3.30054 )
-mesh = ExtResource( 38 )
+mesh = ExtResource( 33 )
 material/0 = null
 
 [node name="AirlockRoverDoor" type="MeshInstance" parent="Interior"]
 transform = Transform( 7.54979e-09, 0.1, 0, -0.1, 7.54979e-09, 0, 0, 0, 0.1, 0.554688, 1.62146, 3.69653 )
 use_in_baked_light = true
-mesh = ExtResource( 39 )
+mesh = ExtResource( 34 )
 material/0 = null
 
 [node name="AirlockRoverInnerFrame" type="MeshInstance" parent="Interior"]
 transform = Transform( -4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0.263184, 1.70068, 3.30054 )
-mesh = ExtResource( 40 )
+mesh = ExtResource( 35 )
 material/0 = null
 
 [node name="AirlockRoverSeal" type="MeshInstance" parent="Interior"]
 transform = Transform( 7.54979e-09, 0.1, 0, -0.1, 7.54979e-09, 0, 0, 0, 0.1, 0.677246, 1.62146, 3.69653 )
-mesh = ExtResource( 41 )
+mesh = ExtResource( 36 )
 material/0 = null
 
 [node name="AirlockRoverSeal2" type="MeshInstance" parent="Interior"]
 transform = Transform( 7.54979e-09, 0.1, 0, -0.1, 7.54979e-09, 0, 0, 0, 0.1, 0.554688, 1.62146, 3.69653 )
-mesh = ExtResource( 42 )
+mesh = ExtResource( 37 )
 material/0 = null
 
 [node name="AirlockRoverSection" type="MeshInstance" parent="Interior"]
 transform = Transform( 7.54979e-09, 0.1, 0, -0.1, 7.54979e-09, 0, 0, 0, 0.1, 0.677246, 1.62146, 3.69653 )
-mesh = ExtResource( 43 )
+mesh = ExtResource( 38 )
 material/0 = null
 
 [node name="AirlockW-DoorOutside004" type="MeshInstance" parent="Interior"]
 transform = Transform( 5.4851e-07, 0, 0.0723207, 0, 0.088852, 0, -0.0758863, 0, 5.22738e-07, 0.279297, 1.65088, 3.29297 )
 use_in_baked_light = true
-mesh = ExtResource( 44 )
+mesh = ExtResource( 39 )
 material/0 = null
 
 [node name="AirlockW-DoorOutside005" type="MeshInstance" parent="Interior"]
 transform = Transform( 5.4851e-07, 0, 0.0723207, 0, 0.088852, 0, -0.0758863, 0, 5.22738e-07, 0.279297, 1.65088, 4.26709 )
 use_in_baked_light = true
-mesh = ExtResource( 44 )
+mesh = ExtResource( 39 )
 material/0 = null
 
 [node name="AirlockW-Hardware1008" type="MeshInstance" parent="Interior"]
 transform = Transform( -7.22806e-07, 1.50996e-08, 0.1, 0, 0.1, -1.50996e-08, 0.1, 1.09175e-13, 7.22806e-07, 0.187988, 1.54846, 4.29126 )
-mesh = ExtResource( 45 )
+mesh = ExtResource( 40 )
 material/0 = null
 
 [node name="AirlockW-Hardware1009" type="MeshInstance" parent="Interior"]
 transform = Transform( 7.22806e-07, -1.07668e-13, -0.1, 1.50996e-08, 0.1, 1.47284e-15, -0.1, 1.50996e-08, -7.22806e-07, 0.371094, 1.54846, 3.26465 )
-mesh = ExtResource( 45 )
+mesh = ExtResource( 40 )
 material/0 = null
 
 [node name="AirlockW-Hardware1010" type="MeshInstance" parent="Interior"]
 transform = Transform( 7.22806e-07, 0, 0.1, 0, 0.1, 0, -0.1, 0, 7.22806e-07, 0.187988, 1.54846, 4.23389 )
-mesh = ExtResource( 45 )
+mesh = ExtResource( 40 )
 material/0 = null
 
 [node name="AirlockW-Hardware1011" type="MeshInstance" parent="Interior"]
 transform = Transform( -7.31548e-07, 0, -0.1, 0, 0.1, 0, 0.1, 0, -7.31548e-07, 0.371094, 1.54846, 3.32031 )
-mesh = ExtResource( 45 )
+mesh = ExtResource( 40 )
 material/0 = null
 
 [node name="AirlockWalls" type="MeshInstance" parent="Interior" groups=[
@@ -599,13 +719,13 @@ material/0 = null
 ]]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.279297, 1.70068, 3.80054 )
 use_in_baked_light = true
-mesh = ExtResource( 46 )
+mesh = ExtResource( 41 )
 material/0 = null
 
 [node name="AirlockWalls_col" type="StaticBody" parent="Interior/AirlockWalls"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/AirlockWalls/AirlockWalls_col"]
-shape = ExtResource( 47 )
+shape = ExtResource( 42 )
 
 [node name="OmniLight" type="OmniLight" parent="Interior"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.233729, 2.02002, 3.79549 )
@@ -616,83 +736,83 @@ omni_range = 1.96985
 [node name="ToiletA" type="Spatial" parent="Interior"]
 transform = Transform( -0.1, 0, -3.89414e-08, 0, 0.1, 0, 3.89414e-08, 0, -0.1, -3.39648, -0.18103, 0.766357 )
 
-[node name="toiletA" parent="Interior/ToiletA" instance=ExtResource( 48 )]
+[node name="toiletA" parent="Interior/ToiletA" instance=ExtResource( 43 )]
 transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 0, 0, -1.25072e-07 )
 
 [node name="ToiletD" type="Spatial" parent="Interior"]
 editor/display_folded = true
 transform = Transform( 0.1, 0, 6.51683e-08, 0, 0.1, 0, -6.51683e-08, 0, 0.1, -3.75732, -0.181396, 0.987061 )
 
-[node name="toiletD" parent="Interior/ToiletD" instance=ExtResource( 48 )]
+[node name="toiletD" parent="Interior/ToiletD" instance=ExtResource( 43 )]
 transform = Transform( 1, 0, 5.68434e-14, 0, 1, 0, -5.68434e-14, 0, 1, 0, 0, 3.09718e-07 )
 
 [node name="ToiletE" type="Spatial" parent="Interior"]
 editor/display_folded = true
 transform = Transform( 0.1, 0, 6.51683e-08, 0, 0.1, 0, -6.51683e-08, 0, 0.1, -3.75732, -0.181396, 0.886963 )
 
-[node name="toiletE" parent="Interior/ToiletE" instance=ExtResource( 48 )]
+[node name="toiletE" parent="Interior/ToiletE" instance=ExtResource( 43 )]
 transform = Transform( 1, 0, 5.68434e-14, 0, 1, 0, -5.68434e-14, 0, 1, 0, 0, 3.09718e-07 )
 
 [node name="ToiletF" type="Spatial" parent="Interior"]
 editor/display_folded = true
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -3.75732, -0.181396, 0.786865 )
 
-[node name="toiletF" parent="Interior/ToiletF" instance=ExtResource( 48 )]
+[node name="toiletF" parent="Interior/ToiletF" instance=ExtResource( 43 )]
 
 [node name="ToiletC" type="Spatial" parent="Interior"]
 editor/display_folded = true
 transform = Transform( -0.1, 9.84014e-15, 6.51683e-08, 0, 0.1, -1.50996e-08, 6.51683e-08, 1.50996e-08, 0.1, -3.39648, -0.181396, 0.966553 )
 
-[node name="toiletC" parent="Interior/ToiletC" instance=ExtResource( 48 )]
+[node name="toiletC" parent="Interior/ToiletC" instance=ExtResource( 43 )]
 transform = Transform( 1, 0, -5.68434e-14, 6.77626e-21, 1, 0, 5.68434e-14, 0, 1, 0, 0, 7.41275e-08 )
 
 [node name="ToiletB" type="Spatial" parent="Interior"]
 editor/display_folded = true
 transform = Transform( -0.1, 0, -3.89414e-08, 0, 0.1, 0, 3.89414e-08, 0, -0.1, -3.39648, -0.181396, 0.866455 )
 
-[node name="toiletB" parent="Interior/ToiletB" instance=ExtResource( 48 )]
+[node name="toiletB" parent="Interior/ToiletB" instance=ExtResource( 43 )]
 transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 0, 0, -1.25072e-07 )
 
 [node name="Toilet1" type="Spatial" parent="Interior"]
 editor/display_folded = true
 transform = Transform( 4.37114e-09, -1.50996e-08, -0.1, 0, 0.1, -1.50996e-08, -0.1, -1.16245e-15, -4.37114e-09, 1.06104, -1.58411, -2.52759 )
 
-[node name="toilet1" parent="Interior/Toilet1" instance=ExtResource( 48 )]
+[node name="toilet1" parent="Interior/Toilet1" instance=ExtResource( 43 )]
 transform = Transform( 1, 8.47033e-22, 3.55271e-15, 4.23516e-22, 1, 2.88506e-22, -3.55271e-15, 5.08123e-22, 1, 4.63795e-07, 0, 0 )
 
 [node name="Toilet2" type="Spatial" parent="Interior"]
 editor/display_folded = true
 transform = Transform( 4.37114e-09, -1.50996e-08, -0.1, 0, 0.1, -1.50996e-08, -0.1, -1.16245e-15, -4.37114e-09, 0.960938, -1.58411, -2.52759 )
 
-[node name="toilet2" parent="Interior/Toilet2" instance=ExtResource( 48 )]
+[node name="toilet2" parent="Interior/Toilet2" instance=ExtResource( 43 )]
 transform = Transform( 1, 8.47033e-22, 3.55271e-15, 4.23516e-22, 1, 2.88506e-22, -3.55271e-15, 5.08123e-22, 1, 4.20039e-07, 0, 0 )
 
 [node name="Toilet3" type="Spatial" parent="Interior"]
 editor/display_folded = true
 transform = Transform( 4.37114e-09, -1.50996e-08, -0.1, 0, 0.1, -1.50996e-08, -0.1, -1.16245e-15, -4.37114e-09, 0.86084, -1.58411, -2.52759 )
 
-[node name="toilet3" parent="Interior/Toilet3" instance=ExtResource( 48 )]
+[node name="toilet3" parent="Interior/Toilet3" instance=ExtResource( 43 )]
 transform = Transform( 1, 8.47033e-22, 3.55271e-15, 4.23516e-22, 1, 2.88506e-22, -3.55271e-15, 5.08123e-22, 1, 3.76285e-07, 0, 0 )
 
 [node name="Toilet4" type="Spatial" parent="Interior"]
 editor/display_folded = true
 transform = Transform( 4.37114e-09, -1.50996e-08, -0.1, 0, 0.1, -1.50996e-08, -0.1, -1.16245e-15, -4.37114e-09, 0.760742, -1.58411, -2.52759 )
 
-[node name="toilet4" parent="Interior/Toilet4" instance=ExtResource( 48 )]
+[node name="toilet4" parent="Interior/Toilet4" instance=ExtResource( 43 )]
 transform = Transform( 1, 8.47033e-22, 3.55271e-15, 4.23516e-22, 1, 2.88506e-22, -3.55271e-15, 5.08123e-22, 1, 3.32531e-07, 0, 0 )
 
 [node name="Toilet5" type="Spatial" parent="Interior"]
 editor/display_folded = true
 transform = Transform( 4.37114e-09, -1.50996e-08, -0.1, 0, 0.1, -1.50996e-08, -0.1, -1.16245e-15, -4.37114e-09, 0.660645, -1.58411, -2.52759 )
 
-[node name="toilet5" parent="Interior/Toilet5" instance=ExtResource( 48 )]
+[node name="toilet5" parent="Interior/Toilet5" instance=ExtResource( 43 )]
 transform = Transform( 1, 8.47033e-22, 3.55271e-15, 4.23516e-22, 1, 2.88506e-22, -3.55271e-15, 5.08123e-22, 1, 2.88777e-07, 0, 0 )
 
 [node name="Toilet6" type="Spatial" parent="Interior"]
 editor/display_folded = true
 transform = Transform( 4.37114e-09, 1.50996e-08, -0.1, 0, 0.1, 1.50996e-08, -0.1, 1.16245e-15, -4.37114e-09, 0.561035, -1.58411, -2.52759 )
 
-[node name="toilet6" parent="Interior/Toilet6" instance=ExtResource( 48 )]
+[node name="toilet6" parent="Interior/Toilet6" instance=ExtResource( 43 )]
 transform = Transform( 1, 1.16245e-14, -4.9738e-14, -8.47033e-21, 1, 1.42109e-14, 4.9738e-14, 3.7025e-28, 1, -5.47681e-06, -9.53674e-07, 4.76837e-07 )
 
 [node name="OmniLight3" type="OmniLight" parent="Interior"]
@@ -712,27 +832,27 @@ omni_range = 2.80076
 
 [node name="WhippleGlazingAtrium002" type="MeshInstance" parent="Interior"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.0375977, -2.08191, 2.25269 )
-mesh = ExtResource( 49 )
+mesh = ExtResource( 44 )
 material/0 = null
 
 [node name="Waterline3" type="MeshInstance" parent="Interior"]
 transform = Transform( -0.1, 0, 0, 0, 0.1, -1.50996e-08, 0, 1.50996e-08, 0.1, -3.51221, 0.174805, 1.09692 )
-mesh = ExtResource( 50 )
+mesh = ExtResource( 45 )
 material/0 = null
 
 [node name="Waterline2" type="MeshInstance" parent="Interior"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -3.50635, 0.165283, 1.08643 )
-mesh = ExtResource( 51 )
+mesh = ExtResource( 46 )
 material/0 = null
 
 [node name="Waterline1" type="MeshInstance" parent="Interior"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -3.49561, 0.164307, 1.08594 )
-mesh = ExtResource( 51 )
+mesh = ExtResource( 46 )
 material/0 = null
 
 [node name="Wateline4" type="MeshInstance" parent="Interior"]
 transform = Transform( -0.1, 0, 0, 0, 0.1, -1.50996e-08, 0, 1.50996e-08, 0.1, -3.50098, 0.16687, 1.08838 )
-mesh = ExtResource( 52 )
+mesh = ExtResource( 47 )
 material/0 = null
 
 [node name="WasteWaterPurification" type="MeshInstance" parent="Interior" groups=[
@@ -740,33 +860,33 @@ material/0 = null
 ]]
 transform = Transform( -1, -1.50996e-07, 0, 1.50996e-07, -1, 0, 0, 0, 1, -5.3252, -0.400635, 0.33252 )
 use_in_baked_light = true
-mesh = ExtResource( 53 )
+mesh = ExtResource( 48 )
 material/0 = null
 
 [node name="WasteWaterPurification_col" type="StaticBody" parent="Interior/WasteWaterPurification"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/WasteWaterPurification/WasteWaterPurification_col"]
-shape = ExtResource( 54 )
+shape = ExtResource( 49 )
 
 [node name="WasteWaterFirstTanks" type="MeshInstance" parent="Interior" groups=[
 "cs",
 ]]
 transform = Transform( -1, -1.50996e-07, 0, 1.50996e-07, -1, 0, 0, 0, 1, -4.07324, -0.321899, 0.844971 )
 use_in_baked_light = true
-mesh = ExtResource( 55 )
+mesh = ExtResource( 50 )
 material/0 = null
 
 [node name="WasteWaterFirstTanks_col" type="StaticBody" parent="Interior/WasteWaterFirstTanks"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/WasteWaterFirstTanks/WasteWaterFirstTanks_col"]
-shape = ExtResource( 56 )
+shape = ExtResource( 51 )
 
 [node name="wash-driers002" type="MeshInstance" parent="Interior" groups=[
 "cs",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6875, 1.50183, 2.17944 )
 use_in_baked_light = true
-mesh = ExtResource( 57 )
+mesh = ExtResource( 52 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -774,11 +894,11 @@ material/2 = null
 [node name="wash-driers002_col" type="StaticBody" parent="Interior/wash-driers002"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/wash-driers002/wash-driers002_col"]
-shape = ExtResource( 58 )
+shape = ExtResource( 53 )
 
 [node name="UrineProcessing" type="MeshInstance" parent="Interior"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -3.62305, -0.28186, 0.891846 )
-mesh = ExtResource( 59 )
+mesh = ExtResource( 54 )
 material/0 = null
 
 [node name="OmniLight6" type="OmniLight" parent="Interior"]
@@ -790,37 +910,37 @@ omni_range = 2.80076
 "floor",
 ]]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.613647, -6.46484, 0.580933, -0.206543 )
-mesh = ExtResource( 60 )
-material/0 = ExtResource( 23 )
+mesh = ExtResource( 55 )
+material/0 = ExtResource( 18 )
 
 [node name="TunnelTopFloor-FrostedGlass002_col" type="StaticBody" parent="Interior/TunnelTopFloor-FrostedGlass002"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/TunnelTopFloor-FrostedGlass002/TunnelTopFloor-FrostedGlass002_col"]
-shape = ExtResource( 61 )
+shape = ExtResource( 56 )
 
 [node name="TunnelTopFloor" type="MeshInstance" parent="Interior" groups=[
 "floor",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.46484, 0.580933, -0.206543 )
 use_in_baked_light = true
-mesh = ExtResource( 62 )
+mesh = ExtResource( 57 )
 material/0 = null
 
 [node name="TunnelTopFloor_col" type="StaticBody" parent="Interior/TunnelTopFloor"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/TunnelTopFloor/TunnelTopFloor_col"]
-shape = ExtResource( 63 )
+shape = ExtResource( 58 )
 
 [node name="TunnelRibs" type="MeshInstance" parent="Interior"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2.29785, -0.0487061, -0.206543 )
 use_in_baked_light = true
-mesh = ExtResource( 64 )
+mesh = ExtResource( 59 )
 material/0 = null
 
 [node name="TunnelMouth" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71045, -0.0487061, -0.206543 )
 use_in_baked_light = true
-mesh = ExtResource( 65 )
+mesh = ExtResource( 60 )
 material/0 = null
 
 [node name="TunnelMiddleFloor" type="MeshInstance" parent="Interior" groups=[
@@ -828,189 +948,189 @@ material/0 = null
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50879, 0.138428, 0.966064 )
 use_in_baked_light = true
-mesh = ExtResource( 66 )
+mesh = ExtResource( 61 )
 material/0 = null
 
 [node name="TunnelMiddleFloor_col" type="StaticBody" parent="Interior/TunnelMiddleFloor"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/TunnelMiddleFloor/TunnelMiddleFloor_col"]
-shape = ExtResource( 67 )
+shape = ExtResource( 62 )
 
 [node name="TunnelMainFloor" type="MeshInstance" parent="Interior" groups=[
 "floor",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74756, -0.0487061, -0.206543 )
 use_in_baked_light = true
-mesh = ExtResource( 68 )
+mesh = ExtResource( 63 )
 material/0 = null
 
 [node name="TunnelMainFloor_col" type="StaticBody" parent="Interior/TunnelMainFloor"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/TunnelMainFloor/TunnelMainFloor_col"]
-shape = ExtResource( 69 )
+shape = ExtResource( 64 )
 
 [node name="TunnelCornerPipes" type="MeshInstance" parent="Interior"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -6.12598, -0.243896, -1.57959 )
-mesh = ExtResource( 70 )
+mesh = ExtResource( 65 )
 material/0 = null
 
 [node name="Tunnel-MezzannineFrostedGlass002" type="MeshInstance" parent="Interior" groups=[
 "floor",
 ]]
 transform = Transform( 0.498992, 0, 0, 0, 0.1, 0, 0, 0, 0.817623, -2.97021, 0.356201, -0.206543 )
-mesh = ExtResource( 71 )
-material/0 = ExtResource( 23 )
+mesh = ExtResource( 66 )
+material/0 = ExtResource( 18 )
 
 [node name="Tunnel-MezzannineFrostedGlass002_col" type="StaticBody" parent="Interior/Tunnel-MezzannineFrostedGlass002"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/Tunnel-MezzannineFrostedGlass002/Tunnel-MezzannineFrostedGlass002_col"]
-shape = ExtResource( 72 )
+shape = ExtResource( 67 )
 
 [node name="Tunnel-MezzanineStairs002" type="MeshInstance" parent="Interior" groups=[
 "floor",
 ]]
 transform = Transform( 0.498992, 0, 0, 0, 0.1, 0, 0, 0, 0.817623, -2.97021, 0.356201, -0.206543 )
 use_in_baked_light = true
-mesh = ExtResource( 73 )
+mesh = ExtResource( 68 )
 material/0 = null
 
 [node name="Tunnel-MezzanineStairs002_col" type="StaticBody" parent="Interior/Tunnel-MezzanineStairs002"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/Tunnel-MezzanineStairs002/Tunnel-MezzanineStairs002_col"]
-shape = ExtResource( 74 )
+shape = ExtResource( 69 )
 
 [node name="ToTunnelFloorTop" type="MeshInstance" parent="Interior" groups=[
 "floor",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.396, 0.380981, 1.96069 )
 use_in_baked_light = true
-mesh = ExtResource( 75 )
+mesh = ExtResource( 70 )
 material/0 = null
 
 [node name="ToTunnelFloorTop_col" type="StaticBody" parent="Interior/ToTunnelFloorTop"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ToTunnelFloorTop/ToTunnelFloorTop_col"]
-shape = ExtResource( 76 )
+shape = ExtResource( 71 )
 
 [node name="ToTunnelFloorBottom" type="MeshInstance" parent="Interior" groups=[
 "floor",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63721, -0.293091, 2.09961 )
 use_in_baked_light = true
-mesh = ExtResource( 77 )
+mesh = ExtResource( 72 )
 material/0 = null
 
 [node name="ToTunnelFloorBottom_col" type="StaticBody" parent="Interior/ToTunnelFloorBottom"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ToTunnelFloorBottom/ToTunnelFloorBottom_col"]
-shape = ExtResource( 78 )
+shape = ExtResource( 73 )
 
 [node name="TopWindowFloorWest" type="MeshInstance" parent="Interior" groups=[
 "floor",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63721, 0.664795, 2.09961 )
 use_in_baked_light = true
-mesh = ExtResource( 79 )
+mesh = ExtResource( 74 )
 material/0 = null
 
 [node name="TopWindowFloorWest_col" type="StaticBody" parent="Interior/TopWindowFloorWest"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/TopWindowFloorWest/TopWindowFloorWest_col"]
-shape = ExtResource( 80 )
+shape = ExtResource( 75 )
 
 [node name="TopWindowFloor" type="MeshInstance" parent="Interior" groups=[
 "floor",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40527, 0.731689, 2.16919 )
 use_in_baked_light = true
-mesh = ExtResource( 81 )
+mesh = ExtResource( 76 )
 material/0 = null
 
 [node name="TopWindowFloor_col" type="StaticBody" parent="Interior/TopWindowFloor"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/TopWindowFloor/TopWindowFloor_col"]
-shape = ExtResource( 82 )
+shape = ExtResource( 77 )
 
 [node name="TopFloorEast" type="MeshInstance" parent="Interior" groups=[
 "floor",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63086, 1.08081, 1.77661 )
 use_in_baked_light = true
-mesh = ExtResource( 83 )
+mesh = ExtResource( 78 )
 material/0 = null
 
 [node name="TopFloorEast_col" type="StaticBody" parent="Interior/TopFloorEast"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/TopFloorEast/TopFloorEast_col"]
-shape = ExtResource( 84 )
+shape = ExtResource( 79 )
 
 [node name="TopFloor-FrostedGlass002" type="MeshInstance" parent="Interior" groups=[
 "floor",
 ]]
 transform = Transform( 0.207934, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.273438, 1.30908, 3.16797 )
-mesh = ExtResource( 85 )
-material/0 = ExtResource( 23 )
+mesh = ExtResource( 80 )
+material/0 = ExtResource( 18 )
 
 [node name="TopFloor-FrostedGlass002_col" type="StaticBody" parent="Interior/TopFloor-FrostedGlass002"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/TopFloor-FrostedGlass002/TopFloor-FrostedGlass002_col"]
-shape = ExtResource( 86 )
+shape = ExtResource( 81 )
 
 [node name="TopFloor" type="MeshInstance" parent="Interior" groups=[
 "floor",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.273438, 1.30908, 3.16797 )
 use_in_baked_light = true
-mesh = ExtResource( 87 )
+mesh = ExtResource( 82 )
 material/0 = null
 
 [node name="TopFloor_col" type="StaticBody" parent="Interior/TopFloor"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/TopFloor/TopFloor_col"]
-shape = ExtResource( 88 )
+shape = ExtResource( 83 )
 
 [node name="ToiletStalls2" type="MeshInstance" parent="Interior" groups=[
 "wall",
 ]]
 transform = Transform( 7.54979e-08, 1, -3.89414e-07, 1, -7.54979e-08, 2.94e-14, 0, -3.89414e-07, -1, 0.824219, -1.52502, -2.552 )
 use_in_baked_light = true
-mesh = ExtResource( 89 )
+mesh = ExtResource( 84 )
 material/0 = null
 
 [node name="ToiletStalls2_col" type="StaticBody" parent="Interior/ToiletStalls2"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ToiletStalls2/ToiletStalls2_col"]
-shape = ExtResource( 90 )
+shape = ExtResource( 85 )
 
 [node name="ToiletStalls1" type="MeshInstance" parent="Interior" groups=[
 "wall",
 ]]
 transform = Transform( -7.54979e-09, 7.54979e-09, -0.1, -0.1, 0, 7.54979e-09, 0, -0.1, -7.54979e-09, -3.7334, -0.123047, 0.750732 )
 use_in_baked_light = true
-mesh = ExtResource( 91 )
+mesh = ExtResource( 86 )
 material/0 = null
 
 [node name="ToiletStalls1_col" type="StaticBody" parent="Interior/ToiletStalls1"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ToiletStalls1/ToiletStalls1_col"]
-shape = ExtResource( 92 )
+shape = ExtResource( 87 )
 
 [node name="ToiletStalls-3001" type="MeshInstance" parent="Interior" groups=[
 "wall",
 ]]
 transform = Transform( -4.37114e-09, -4.37114e-09, 0.1, -0.1, 0, -4.37114e-09, 0, -0.1, -4.37114e-09, -3.4209, -0.123047, 0.731201 )
 use_in_baked_light = true
-mesh = ExtResource( 93 )
+mesh = ExtResource( 88 )
 material/0 = null
 
 [node name="ToiletStalls-3001_col" type="StaticBody" parent="Interior/ToiletStalls-3001"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ToiletStalls-3001/ToiletStalls-3001_col"]
-shape = ExtResource( 94 )
+shape = ExtResource( 89 )
 
 [node name="Template-AnchorBolt004" type="MeshInstance" parent="Interior"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.79492, -1.73633, 2.43213 )
-mesh = ExtResource( 95 )
+mesh = ExtResource( 90 )
 material/0 = null
 
 [node name="SWCornerFloorTop" type="MeshInstance" parent="Interior" groups=[
@@ -1018,17 +1138,17 @@ material/0 = null
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63721, 0.345459, 2.09961 )
 use_in_baked_light = true
-mesh = ExtResource( 96 )
+mesh = ExtResource( 91 )
 material/0 = null
 
 [node name="SWCornerFloorTop_col" type="StaticBody" parent="Interior/SWCornerFloorTop"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/SWCornerFloorTop/SWCornerFloorTop_col"]
-shape = ExtResource( 97 )
+shape = ExtResource( 92 )
 
 [node name="Stair005" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.249512, -0.768677, 1.87866 )
-mesh = ExtResource( 98 )
+mesh = ExtResource( 93 )
 material/0 = null
 
 [node name="Stair004" type="MeshInstance" parent="Interior" groups=[
@@ -1036,7 +1156,7 @@ material/0 = null
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.185547, -1.49146, 1.71362 )
 use_in_baked_light = true
-mesh = ExtResource( 99 )
+mesh = ExtResource( 94 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -1046,26 +1166,26 @@ material/4 = null
 [node name="Stair004_col" type="StaticBody" parent="Interior/Stair004"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/Stair004/Stair004_col"]
-shape = ExtResource( 100 )
+shape = ExtResource( 95 )
 
 [node name="Stair-Cables005" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60156, 0.258423, 1.79004 )
-mesh = ExtResource( 101 )
+mesh = ExtResource( 96 )
 material/0 = null
 
 [node name="Stair-Cables004" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.261719, 0.258423, 1.79004 )
-mesh = ExtResource( 102 )
+mesh = ExtResource( 97 )
 material/0 = null
 
 [node name="Stair-Cables-short002" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.152344, 0.258423, 1.87866 )
-mesh = ExtResource( 103 )
+mesh = ExtResource( 98 )
 material/0 = null
 
 [node name="SolarOvens" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.4751, 1.2959, 2.33179 )
-mesh = ExtResource( 104 )
+mesh = ExtResource( 99 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -1075,51 +1195,51 @@ material/2 = null
 ]]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.62793, 1.37048, 1.29175 )
 use_in_baked_light = true
-mesh = ExtResource( 105 )
+mesh = ExtResource( 100 )
 material/0 = null
 material/1 = null
 
 [node name="ShimmyStair-Steps001_col" type="StaticBody" parent="Interior/ShimmyStair-Steps001"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Steps001/ShimmyStair-Steps001_col"]
-shape = ExtResource( 106 )
+shape = ExtResource( 101 )
 
 [node name="ShimmyStair-Step1011" type="MeshInstance" parent="Interior" groups=[
 "cs",
 ]]
 transform = Transform( 1, -4.92007e-14, -3.25841e-07, 0, -1, 1.50996e-07, -3.25841e-07, -1.50996e-07, -1, -4.37451, 0.103638, -0.963135 )
 use_in_baked_light = true
-mesh = ExtResource( 107 )
+mesh = ExtResource( 102 )
 material/0 = null
 material/1 = null
 
 [node name="ShimmyStair-Step1011_col" type="StaticBody" parent="Interior/ShimmyStair-Step1011"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Step1011/ShimmyStair-Step1011_col"]
-shape = ExtResource( 108 )
+shape = ExtResource( 103 )
 
 [node name="ShimmyStair-Step1010" type="MeshInstance" parent="Interior" groups=[
 "cs",
 ]]
 transform = Transform( -1, 0, -3.89414e-07, 0, 1, 0, 3.89414e-07, 0, -1, -4.08154, 0.539673, -0.806396 )
 use_in_baked_light = true
-mesh = ExtResource( 109 )
+mesh = ExtResource( 104 )
 material/0 = null
 material/1 = null
 
 [node name="ShimmyStair-Step1010_col" type="StaticBody" parent="Interior/ShimmyStair-Step1010"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStair-Step1010/ShimmyStair-Step1010_col"]
-shape = ExtResource( 110 )
+shape = ExtResource( 105 )
 
 [node name="ShimmyStair-Rail001" type="MeshInstance" parent="Interior"]
 transform = Transform( 7.54979e-09, 4.37114e-09, 0.1, 0.1, 0, -7.54979e-09, 0, 0.1, -4.37114e-09, -1.62646, 1.49207, 1.2915 )
-mesh = ExtResource( 111 )
+mesh = ExtResource( 106 )
 material/0 = null
 
 [node name="ShimmyStair-Pole001" type="MeshInstance" parent="Interior"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.67725, 1.35181, 1.28662 )
-mesh = ExtResource( 112 )
+mesh = ExtResource( 107 )
 material/0 = null
 
 [node name="shimmyMirror2002" type="Spatial" parent="Interior"]
@@ -1130,12 +1250,12 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.3784
 
 [node name="ShimmyStair-Rail004" type="MeshInstance" parent="Interior/Shimmy-Stairs011"]
 transform = Transform( -7.06294e-15, -2.50343e-08, -0.1, 0.1, -2.8213e-08, 0, -2.8213e-08, -0.1, 2.50343e-08, 0.0485352, 0.0843959, -0.00379133 )
-mesh = ExtResource( 111 )
+mesh = ExtResource( 106 )
 material/0 = null
 
 [node name="ShimmyStair-Pole004" type="MeshInstance" parent="Interior/Shimmy-Stairs011"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.00473137, -0.0569094, -0.00117683 )
-mesh = ExtResource( 112 )
+mesh = ExtResource( 107 )
 material/0 = null
 
 [node name="Shimmy-Stairs010" type="Spatial" parent="Interior"]
@@ -1143,12 +1263,12 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.0854
 
 [node name="ShimmyStair-Rail003" type="MeshInstance" parent="Interior/Shimmy-Stairs010"]
 transform = Transform( 4.59648e-15, 1.62921e-08, 0.1, 0.1, -2.8213e-08, 0, 2.8213e-08, 0.1, -1.62921e-08, 0.0480391, 0.0812798, 0.00430012 )
-mesh = ExtResource( 111 )
+mesh = ExtResource( 106 )
 material/0 = null
 
 [node name="ShimmyStair-Pole003" type="MeshInstance" parent="Interior/Shimmy-Stairs010"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.000690639, -0.0549448, 0.00430965 )
-mesh = ExtResource( 112 )
+mesh = ExtResource( 107 )
 material/0 = null
 
 [node name="Shimmy-Stairs009" type="Spatial" parent="Interior"]
@@ -1159,23 +1279,23 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67969, 0.731689, 1.59326 )
 ]]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.04883, -0.03894, 0.00390995 )
 use_in_baked_light = true
-mesh = ExtResource( 113 )
+mesh = ExtResource( 108 )
 material/0 = null
 material/1 = null
 
 [node name="ShimmyStair-Step1009_col" type="StaticBody" parent="Interior/Shimmy-Stairs009/ShimmyStair-Step1009"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/Shimmy-Stairs009/ShimmyStair-Step1009/ShimmyStair-Step1009_col"]
-shape = ExtResource( 114 )
+shape = ExtResource( 109 )
 
 [node name="ShimmyStair-Rail003" type="MeshInstance" parent="Interior/Shimmy-Stairs009"]
 transform = Transform( 7.54979e-09, 4.37114e-09, 0.1, 0.1, 0, -7.54979e-09, 0, 0.1, -4.37114e-09, 0.05323, 0.0827022, 0.00259852 )
-mesh = ExtResource( 111 )
+mesh = ExtResource( 106 )
 material/0 = null
 
 [node name="ShimmyStair-Pole003" type="MeshInstance" parent="Interior/Shimmy-Stairs009"]
 transform = Transform( 0.1, 0, 4.44089e-16, 0, 0.1, 0, -4.44089e-16, 2.64698e-23, 0.1, 0.00243986, -0.0672006, 0.00219285 )
-mesh = ExtResource( 112 )
+mesh = ExtResource( 107 )
 material/0 = null
 
 [node name="Shimmy-Stairs008" type="Spatial" parent="Interior"]
@@ -1186,23 +1306,23 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.68066, 1.08081, 0.893799 )
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0517501, -0.0379599, 0 )
 use_in_baked_light = true
-mesh = ExtResource( 115 )
+mesh = ExtResource( 110 )
 material/0 = null
 material/1 = null
 
 [node name="ShimmyStair-Step1008_col" type="StaticBody" parent="Interior/Shimmy-Stairs008/ShimmyStair-Step1008"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/Shimmy-Stairs008/ShimmyStair-Step1008/ShimmyStair-Step1008_col"]
-shape = ExtResource( 116 )
+shape = ExtResource( 111 )
 
 [node name="ShimmyStair-Rail002" type="MeshInstance" parent="Interior/Shimmy-Stairs008"]
 transform = Transform( 7.54979e-09, 4.37114e-09, 0.1, 0.1, 0, -7.54979e-09, 0, 0.1, -4.37114e-09, 0.0542001, 0.0825008, 0.000157654 )
-mesh = ExtResource( 111 )
+mesh = ExtResource( 106 )
 material/0 = null
 
 [node name="ShimmyStair-Pole002" type="MeshInstance" parent="Interior/Shimmy-Stairs008"]
 transform = Transform( 0.1, 0, 4.44089e-16, 0, 0.1, 0, -4.44089e-16, 2.64698e-23, 0.1, 0.00340986, -0.0616094, -0.00491256 )
-mesh = ExtResource( 112 )
+mesh = ExtResource( 107 )
 material/0 = null
 
 [node name="QuartersWalls" type="MeshInstance" parent="Interior" groups=[
@@ -1210,33 +1330,33 @@ material/0 = null
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.28125, -1.29895, 1.79395 )
 use_in_baked_light = true
-mesh = ExtResource( 117 )
+mesh = ExtResource( 112 )
 material/0 = null
 
 [node name="QuartersWalls_col" type="StaticBody" parent="Interior/QuartersWalls"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/QuartersWalls/QuartersWalls_col"]
-shape = ExtResource( 118 )
+shape = ExtResource( 113 )
 
 [node name="QuartersTop" type="MeshInstance" parent="Interior" groups=[
 "floor",
 ]]
 transform = Transform( 0.359589, 0, 0, 0, 0.1, 0, 0, 0, 2.54918, 2.1792, -1.29895, -0.265869 )
 use_in_baked_light = true
-mesh = ExtResource( 119 )
+mesh = ExtResource( 114 )
 material/0 = null
 
 [node name="QuartersTop_col" type="StaticBody" parent="Interior/QuartersTop"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/QuartersTop/QuartersTop_col"]
-shape = ExtResource( 120 )
+shape = ExtResource( 115 )
 
 [node name="QuartersFront" type="MeshInstance" parent="Interior" groups=[
 "wall",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8623, -1.13, 2.04077 )
 use_in_baked_light = true
-mesh = ExtResource( 121 )
+mesh = ExtResource( 116 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -1246,42 +1366,42 @@ material/4 = null
 [node name="QuartersFront_col" type="StaticBody" parent="Interior/QuartersFront"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/QuartersFront/QuartersFront_col"]
-shape = ExtResource( 122 )
+shape = ExtResource( 117 )
 
 [node name="PondWall" type="MeshInstance" parent="Interior" groups=[
 "wall",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.921387, -1.65771, -0.696289 )
 use_in_baked_light = true
-mesh = ExtResource( 123 )
+mesh = ExtResource( 118 )
 material/0 = null
 
 [node name="PondWall_col" type="StaticBody" parent="Interior/PondWall"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/PondWall/PondWall_col"]
-shape = ExtResource( 124 )
+shape = ExtResource( 119 )
 
 [node name="PondSurface" type="MeshInstance" parent="Interior"]
 transform = Transform( 0.933334, 0, 0, 0, 0.1, 0, 0, 0, 2.29458, 0.921387, -1.65771, -0.696289 )
-mesh = ExtResource( 125 )
+mesh = ExtResource( 120 )
 material/0 = null
 
 [node name="PondLevelGlass" type="MeshInstance" parent="Interior" groups=[
 "floor",
 ]]
 transform = Transform( 0.933334, 0, 0, 0, 0.1, 0, 0, 0, 2.29458, 0.921387, -1.55457, -0.696289 )
-mesh = ExtResource( 126 )
-material/0 = ExtResource( 23 )
+mesh = ExtResource( 121 )
+material/0 = ExtResource( 18 )
 
 [node name="PondLevelGlass_col" type="StaticBody" parent="Interior/PondLevelGlass"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/PondLevelGlass/PondLevelGlass_col"]
-shape = ExtResource( 127 )
+shape = ExtResource( 122 )
 
 [node name="PondLevelFrames" type="MeshInstance" parent="Interior"]
 transform = Transform( 0.933334, 0, 0, 0, 0.1, 0, 0, 0, 2.29458, 0.921387, -1.55457, -0.696289 )
 use_in_baked_light = true
-mesh = ExtResource( 128 )
+mesh = ExtResource( 123 )
 material/0 = null
 
 [node name="PlanterSetTopSouth" type="Spatial" parent="Interior" groups=[
@@ -1293,420 +1413,420 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63281, 1.59521, 1.66138 )
 [node name="PlanterSet082" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65527, -2.55493, 0 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet082" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet082" instance=ExtResource( 124 )]
 
 [node name="PlanterSet083" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65527, -2.55493, -0.479736 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet083" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet083" instance=ExtResource( 124 )]
 
 [node name="PlanterSet084" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65527, -2.55493, -0.959473 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet084" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet084" instance=ExtResource( 124 )]
 
 [node name="PlanterSet085" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65527, -2.55493, -1.43896 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet085" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet085" instance=ExtResource( 124 )]
 
 [node name="PlanterSet086" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65527, -2.55493, -1.9187 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet086" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet086" instance=ExtResource( 124 )]
 
 [node name="PlanterSet087" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65527, -2.55493, -2.39844 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet087" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet087" instance=ExtResource( 124 )]
 
 [node name="PlanterSet088" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65527, -2.55493, -2.87817 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet088" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet088" instance=ExtResource( 124 )]
 
 [node name="PlanterSet089" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65527, -2.55493, -3.35791 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet089" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet089" instance=ExtResource( 124 )]
 
 [node name="PlanterSet090" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65527, -2.55493, -3.83765 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet090" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet090" instance=ExtResource( 124 )]
 
 [node name="PlanterSet091" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44824, -2.23547, -3.83765 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet091" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet091" instance=ExtResource( 124 )]
 
 [node name="PlanterSet092" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44824, -2.23547, -3.35791 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet092" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet092" instance=ExtResource( 124 )]
 
 [node name="PlanterSet093" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44824, -2.23547, -2.87817 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet093" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet093" instance=ExtResource( 124 )]
 
 [node name="PlanterSet094" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44824, -2.23547, -2.39844 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet094" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet094" instance=ExtResource( 124 )]
 
 [node name="PlanterSet095" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44824, -2.23547, -1.9187 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet095" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet095" instance=ExtResource( 124 )]
 
 [node name="PlanterSet096" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44824, -2.23547, -1.43896 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet096" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet096" instance=ExtResource( 124 )]
 
 [node name="PlanterSet097" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44824, -2.23547, -0.959473 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet097" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet097" instance=ExtResource( 124 )]
 
 [node name="PlanterSet098" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44824, -2.23547, -0.479736 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet098" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet098" instance=ExtResource( 124 )]
 
 [node name="PlanterSet099" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44824, -2.23547, 0 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet099" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet099" instance=ExtResource( 124 )]
 
 [node name="PlanterSet100" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24121, -1.91614, 0 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet100" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet100" instance=ExtResource( 124 )]
 
 [node name="PlanterSet101" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24121, -1.91614, -0.479736 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet101" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet101" instance=ExtResource( 124 )]
 
 [node name="PlanterSet102" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24121, -1.91614, -0.959473 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet102" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet102" instance=ExtResource( 124 )]
 
 [node name="PlanterSet103" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24121, -1.91614, -1.43896 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet103" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet103" instance=ExtResource( 124 )]
 
 [node name="PlanterSet104" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24121, -1.91614, -1.9187 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet104" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet104" instance=ExtResource( 124 )]
 
 [node name="PlanterSet105" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24121, -1.91614, -2.39844 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet105" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet105" instance=ExtResource( 124 )]
 
 [node name="PlanterSet106" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24121, -1.91614, -2.87817 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet106" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet106" instance=ExtResource( 124 )]
 
 [node name="PlanterSet107" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24121, -1.91614, -3.35791 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet107" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet107" instance=ExtResource( 124 )]
 
 [node name="PlanterSet108" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24121, -1.91614, -3.83765 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet108" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet108" instance=ExtResource( 124 )]
 
 [node name="PlanterSet109" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03467, -1.5968, 0 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet109" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet109" instance=ExtResource( 124 )]
 
 [node name="PlanterSet110" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03467, -1.5968, -0.479736 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet110" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet110" instance=ExtResource( 124 )]
 
 [node name="PlanterSet111" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03467, -1.5968, -0.959473 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet111" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet111" instance=ExtResource( 124 )]
 
 [node name="PlanterSet112" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03467, -1.5968, -1.43896 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet112" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet112" instance=ExtResource( 124 )]
 
 [node name="PlanterSet113" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03467, -1.5968, -1.9187 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet113" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet113" instance=ExtResource( 124 )]
 
 [node name="PlanterSet114" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03467, -1.5968, -2.39844 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet114" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet114" instance=ExtResource( 124 )]
 
 [node name="PlanterSet115" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03467, -1.5968, -2.87817 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet115" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet115" instance=ExtResource( 124 )]
 
 [node name="PlanterSet116" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03467, -1.5968, -3.35791 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet116" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet116" instance=ExtResource( 124 )]
 
 [node name="PlanterSet117" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03467, -1.5968, -3.83765 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet117" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet117" instance=ExtResource( 124 )]
 
 [node name="PlanterSet118" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827637, -1.27747, 0 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet118" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet118" instance=ExtResource( 124 )]
 
 [node name="PlanterSet119" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827637, -1.27747, -0.479736 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet119" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet119" instance=ExtResource( 124 )]
 
 [node name="PlanterSet120" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827637, -1.27747, -0.959473 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet120" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet120" instance=ExtResource( 124 )]
 
 [node name="PlanterSet121" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827637, -1.27747, -1.43896 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet121" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet121" instance=ExtResource( 124 )]
 
 [node name="PlanterSet122" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827637, -1.27747, -1.9187 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet122" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet122" instance=ExtResource( 124 )]
 
 [node name="PlanterSet123" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827637, -1.27747, -2.39844 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet123" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet123" instance=ExtResource( 124 )]
 
 [node name="PlanterSet124" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827637, -1.27747, -2.87817 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet124" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet124" instance=ExtResource( 124 )]
 
 [node name="PlanterSet125" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827637, -1.27747, -3.35791 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet125" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet125" instance=ExtResource( 124 )]
 
 [node name="PlanterSet126" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827637, -1.27747, -3.83765 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet126" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet126" instance=ExtResource( 124 )]
 
 [node name="PlanterSet127" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.620606, -0.95813, 0 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet127" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet127" instance=ExtResource( 124 )]
 
 [node name="PlanterSet128" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.620606, -0.95813, -0.479736 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet128" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet128" instance=ExtResource( 124 )]
 
 [node name="PlanterSet129" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.620606, -0.95813, -0.959473 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet129" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet129" instance=ExtResource( 124 )]
 
 [node name="PlanterSet130" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.620606, -0.95813, -1.43896 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet130" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet130" instance=ExtResource( 124 )]
 
 [node name="PlanterSet131" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.620606, -0.95813, -1.9187 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet131" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet131" instance=ExtResource( 124 )]
 
 [node name="PlanterSet132" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.620606, -0.95813, -2.39844 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet132" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet132" instance=ExtResource( 124 )]
 
 [node name="PlanterSet133" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.620606, -0.95813, -2.87817 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet133" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet133" instance=ExtResource( 124 )]
 
 [node name="PlanterSet134" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.620606, -0.95813, -3.35791 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet134" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet134" instance=ExtResource( 124 )]
 
 [node name="PlanterSet135" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.620606, -0.95813, -3.83765 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet135" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet135" instance=ExtResource( 124 )]
 
 [node name="PlanterSet136" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414063, -0.638672, 0 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet136" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet136" instance=ExtResource( 124 )]
 
 [node name="PlanterSet137" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414063, -0.638672, -0.479736 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet137" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet137" instance=ExtResource( 124 )]
 
 [node name="PlanterSet138" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414063, -0.638672, -0.959473 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet138" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet138" instance=ExtResource( 124 )]
 
 [node name="PlanterSet139" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414063, -0.638672, -1.43896 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet139" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet139" instance=ExtResource( 124 )]
 
 [node name="PlanterSet140" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414063, -0.638672, -1.9187 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet140" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet140" instance=ExtResource( 124 )]
 
 [node name="PlanterSet141" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414063, -0.638672, -2.39844 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet141" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet141" instance=ExtResource( 124 )]
 
 [node name="PlanterSet142" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414063, -0.638672, -2.87817 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet142" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet142" instance=ExtResource( 124 )]
 
 [node name="PlanterSet143" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414063, -0.638672, -3.35791 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet143" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet143" instance=ExtResource( 124 )]
 
 [node name="PlanterSet144" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414063, -0.638672, -3.83765 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet144" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet144" instance=ExtResource( 124 )]
 
 [node name="PlanterSet145" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207031, -0.319336, 0 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet145" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet145" instance=ExtResource( 124 )]
 
 [node name="PlanterSet146" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207031, -0.319336, -0.479736 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet146" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet146" instance=ExtResource( 124 )]
 
 [node name="PlanterSet147" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207031, -0.319336, -0.959473 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet147" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet147" instance=ExtResource( 124 )]
 
 [node name="PlanterSet148" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207031, -0.319336, -1.43896 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet148" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet148" instance=ExtResource( 124 )]
 
 [node name="PlanterSet149" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207031, -0.319336, -1.9187 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet149" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet149" instance=ExtResource( 124 )]
 
 [node name="PlanterSet150" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207031, -0.319336, -2.39844 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet150" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet150" instance=ExtResource( 124 )]
 
 [node name="PlanterSet151" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207031, -0.319336, -2.87817 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet151" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet151" instance=ExtResource( 124 )]
 
 [node name="PlanterSet152" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207031, -0.319336, -3.35791 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet152" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet152" instance=ExtResource( 124 )]
 
 [node name="PlanterSet153" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207031, -0.319336, -3.83765 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet153" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet153" instance=ExtResource( 124 )]
 
 [node name="PlanterSet155" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, -2.38419e-07, -0.479736 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet155" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet155" instance=ExtResource( 124 )]
 
 [node name="PlanterSet156" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, -2.38419e-07, -0.959473 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet156" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet156" instance=ExtResource( 124 )]
 
 [node name="PlanterSet157" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, -2.38419e-07, -1.43896 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet157" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet157" instance=ExtResource( 124 )]
 
 [node name="PlanterSet158" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, -2.38419e-07, -1.9187 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet158" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet158" instance=ExtResource( 124 )]
 
 [node name="PlanterSet159" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, -2.38419e-07, -2.39844 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet159" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet159" instance=ExtResource( 124 )]
 
 [node name="PlanterSet160" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, -2.38419e-07, -2.87817 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet160" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet160" instance=ExtResource( 124 )]
 
 [node name="PlanterSet161" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, -2.38419e-07, -3.35791 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet161" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet161" instance=ExtResource( 124 )]
 
 [node name="PlanterSet162" type="Spatial" parent="Interior/PlanterSetTopSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, -2.38419e-07, -3.83765 )
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet162" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth/PlanterSet162" instance=ExtResource( 124 )]
 
-[node name="Scene" parent="Interior/PlanterSetTopSouth" instance=ExtResource( 129 )]
+[node name="Scene" parent="Interior/PlanterSetTopSouth" instance=ExtResource( 124 )]
 
 [node name="PlanterFrames002" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.805664, 0.427246, -0.490967 )
-mesh = ExtResource( 130 )
+mesh = ExtResource( 125 )
 material/0 = null
 
 [node name="PassageMouth" type="MeshInstance" parent="Interior"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -5.07275, 0.269409, -1.40723 )
 use_in_baked_light = true
-mesh = ExtResource( 131 )
+mesh = ExtResource( 126 )
 material/0 = null
 
 [node name="OvensHeatPump" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59375, 1.37988, 2.25562 )
 use_in_baked_light = true
-mesh = ExtResource( 132 )
+mesh = ExtResource( 127 )
 material/0 = null
 
 [node name="NorthEastBath-Floor002" type="MeshInstance" parent="Interior" groups=[
@@ -1714,47 +1834,47 @@ material/0 = null
 ]]
 transform = Transform( 0.412335, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.04102, -1.58411, -2.69214 )
 use_in_baked_light = true
-mesh = ExtResource( 133 )
+mesh = ExtResource( 128 )
 material/0 = null
 
 [node name="NorthEastBath-Floor002_col" type="StaticBody" parent="Interior/NorthEastBath-Floor002"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/NorthEastBath-Floor002/NorthEastBath-Floor002_col"]
-shape = ExtResource( 134 )
+shape = ExtResource( 129 )
 
 [node name="NorthBathroom" type="MeshInstance" parent="Interior" groups=[
 "wall",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.06104, -1.53442, -2.52759 )
 use_in_baked_light = true
-mesh = ExtResource( 135 )
+mesh = ExtResource( 130 )
 material/0 = null
 
 [node name="NorthBathroom_col" type="StaticBody" parent="Interior/NorthBathroom"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/NorthBathroom/NorthBathroom_col"]
-shape = ExtResource( 136 )
+shape = ExtResource( 131 )
 
 [node name="Mouth-SouthHall002" type="MeshInstance" parent="Interior"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.74756, -0.0487061, -0.206543 )
 use_in_baked_light = true
-mesh = ExtResource( 137 )
+mesh = ExtResource( 132 )
 material/0 = null
 
 [node name="MinWaterTankFillingPipe" type="MeshInstance" parent="Interior"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -3.50146, 1.44043, 1.85522 )
-mesh = ExtResource( 138 )
+mesh = ExtResource( 133 )
 material/0 = null
 
 [node name="MainWaterTankDuct" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50146, 0.73999, 1.8667 )
-mesh = ExtResource( 139 )
+mesh = ExtResource( 134 )
 material/0 = null
 
 [node name="MainHeatPumps" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72314, 1.69397, 1.27979 )
 use_in_baked_light = true
-mesh = ExtResource( 140 )
+mesh = ExtResource( 135 )
 material/0 = null
 
 [node name="MainComposter" type="MeshInstance" parent="Interior" groups=[
@@ -1762,33 +1882,33 @@ material/0 = null
 ]]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -3.58301, -0.365234, 0.0627441 )
 use_in_baked_light = true
-mesh = ExtResource( 141 )
+mesh = ExtResource( 136 )
 material/0 = null
 
 [node name="MainComposter_col" type="StaticBody" parent="Interior/MainComposter"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/MainComposter/MainComposter_col"]
-shape = ExtResource( 142 )
+shape = ExtResource( 137 )
 
 [node name="LaundrySink" type="MeshInstance" parent="Interior" groups=[
 "cs",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69531, 1.46216, 1.69556 )
 use_in_baked_light = true
-mesh = ExtResource( 143 )
+mesh = ExtResource( 138 )
 material/0 = null
 
 [node name="LaundrySink_col" type="StaticBody" parent="Interior/LaundrySink"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/LaundrySink/LaundrySink_col"]
-shape = ExtResource( 144 )
+shape = ExtResource( 139 )
 
 [node name="Lawn" type="MeshInstance" parent="Interior" groups=[
 "floor",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65332, -1.70288, -0.275146 )
 use_in_baked_light = true
-mesh = ExtResource( 145 )
+mesh = ExtResource( 140 )
 material/0 = SubResource( 3 )
 material/1 = SubResource( 4 )
 material/2 = SubResource( 5 )
@@ -1796,26 +1916,26 @@ material/2 = SubResource( 5 )
 [node name="Lawn_col" type="StaticBody" parent="Interior/Lawn"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/Lawn/Lawn_col"]
-shape = ExtResource( 151 )
+shape = ExtResource( 146 )
 
 [node name="KitchenLowCabinets" type="MeshInstance" parent="Interior" groups=[
 "cs",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56641, 1.13037, 2.2583 )
 use_in_baked_light = true
-mesh = ExtResource( 152 )
+mesh = ExtResource( 147 )
 material/0 = null
 material/1 = null
 
 [node name="KitchenLowCabinets_col" type="StaticBody" parent="Interior/KitchenLowCabinets"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/KitchenLowCabinets/KitchenLowCabinets_col"]
-shape = ExtResource( 153 )
+shape = ExtResource( 148 )
 
 [node name="KitchenHeatPump" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61523, 1.34546, 1.60181 )
 use_in_baked_light = true
-mesh = ExtResource( 154 )
+mesh = ExtResource( 149 )
 material/0 = null
 
 [node name="Kitchen" type="MeshInstance" parent="Interior" groups=[
@@ -1823,7 +1943,7 @@ material/0 = null
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69336, 1.12, 1.96558 )
 use_in_baked_light = true
-mesh = ExtResource( 155 )
+mesh = ExtResource( 150 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -1832,30 +1952,30 @@ material/3 = null
 [node name="Kitchen_col" type="StaticBody" parent="Interior/Kitchen"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/Kitchen/Kitchen_col"]
-shape = ExtResource( 156 )
+shape = ExtResource( 151 )
 
-[node name="HexpaneWindow1" parent="Interior" instance=ExtResource( 157 )]
+[node name="HexpaneWindow1" parent="Interior" instance=ExtResource( 152 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01025, 0.297607, 1.43335 )
 
-[node name="HexpaneWindow2" parent="Interior" instance=ExtResource( 157 )]
+[node name="HexpaneWindow2" parent="Interior" instance=ExtResource( 152 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.39307, 0.206665, 0.619141 )
 
-[node name="HexpaneWindow3" parent="Interior" instance=ExtResource( 157 )]
+[node name="HexpaneWindow3" parent="Interior" instance=ExtResource( 152 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.39307, 0.206543, -1.03247 )
 
-[node name="HexpaneWindow4" parent="Interior" instance=ExtResource( 157 )]
+[node name="HexpaneWindow4" parent="Interior" instance=ExtResource( 152 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.39307, 0.521362, -0.214111 )
 
-[node name="HexpaneWindow5" parent="Interior" instance=ExtResource( 157 )]
+[node name="HexpaneWindow5" parent="Interior" instance=ExtResource( 152 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01025, 1.0719, 1.43042 )
 
-[node name="HealthCentrifuge" parent="Interior" instance=ExtResource( 158 )]
+[node name="HealthCentrifuge" parent="Interior" instance=ExtResource( 153 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.82031, 0.416992, -0.204346 )
 
 [node name="GymWallPadding" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72852, -1.51062, -2.7959 )
 use_in_baked_light = true
-mesh = ExtResource( 159 )
+mesh = ExtResource( 154 )
 material/0 = null
 
 [node name="GymTrampolines" type="MeshInstance" parent="Interior" groups=[
@@ -1863,35 +1983,35 @@ material/0 = null
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72852, -1.55884, -2.7959 )
 use_in_baked_light = true
-mesh = ExtResource( 160 )
+mesh = ExtResource( 155 )
 material/0 = null
 
 [node name="GymTrampolines_col" type="StaticBody" parent="Interior/GymTrampolines"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/GymTrampolines/GymTrampolines_col"]
-shape = ExtResource( 161 )
+shape = ExtResource( 156 )
 
 [node name="GymRope3" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59326, -0.0897217, -2.14917 )
-mesh = ExtResource( 162 )
+mesh = ExtResource( 157 )
 material/0 = null
 material/1 = null
 
 [node name="GymRope2" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54932, -0.0905762, -2.61792 )
-mesh = ExtResource( 163 )
+mesh = ExtResource( 158 )
 material/0 = null
 material/1 = null
 
 [node name="GymRope1" type="MeshInstance" parent="Interior"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.06543, -0.0897217, -2.69141 )
-mesh = ExtResource( 164 )
+mesh = ExtResource( 159 )
 material/0 = null
 material/1 = null
 
 [node name="GymMonkeyBars" type="MeshInstance" parent="Interior"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.27637, 1.36536, -2.34766 )
-mesh = ExtResource( 165 )
+mesh = ExtResource( 160 )
 material/0 = null
 
 [node name="GymFloorPadding" type="MeshInstance" parent="Interior" groups=[
@@ -1899,22 +2019,22 @@ material/0 = null
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72852, -1.51062, -2.7959 )
 use_in_baked_light = true
-mesh = ExtResource( 166 )
+mesh = ExtResource( 161 )
 material/0 = null
 
 [node name="GymFloorPadding_col" type="StaticBody" parent="Interior/GymFloorPadding"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/GymFloorPadding/GymFloorPadding_col"]
-shape = ExtResource( 167 )
+shape = ExtResource( 162 )
 
 [node name="GymFence" type="MeshInstance" parent="Interior"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.72852, -1.51062, -2.7959 )
-mesh = ExtResource( 168 )
+mesh = ExtResource( 163 )
 material/0 = null
 
 [node name="GlazingAtriuim002" type="MeshInstance" parent="Interior"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.0375977, -2.07605, 2.25269 )
-mesh = ExtResource( 169 )
+mesh = ExtResource( 164 )
 material/0 = null
 
 [node name="GardenWall" type="MeshInstance" parent="Interior" groups=[
@@ -1922,18 +2042,18 @@ material/0 = null
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65332, -1.69312, -0.275146 )
 use_in_baked_light = true
-mesh = ExtResource( 170 )
+mesh = ExtResource( 165 )
 material/0 = null
 
 [node name="GardenWall_col" type="StaticBody" parent="Interior/GardenWall"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/GardenWall/GardenWall_col"]
-shape = ExtResource( 171 )
+shape = ExtResource( 166 )
 
 [node name="FridgeDoors" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73291, 1.125, 2.06836 )
 use_in_baked_light = true
-mesh = ExtResource( 172 )
+mesh = ExtResource( 167 )
 material/0 = null
 
 [node name="EastBottomFloor" type="MeshInstance" parent="Interior" groups=[
@@ -1941,35 +2061,35 @@ material/0 = null
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63721, -0.293091, 2.09961 )
 use_in_baked_light = true
-mesh = ExtResource( 173 )
+mesh = ExtResource( 168 )
 material/0 = null
 
 [node name="EastBottomFloor_col" type="StaticBody" parent="Interior/EastBottomFloor"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/EastBottomFloor/EastBottomFloor_col"]
-shape = ExtResource( 174 )
+shape = ExtResource( 169 )
 
 [node name="EastBathroom" type="MeshInstance" parent="Interior" groups=[
 "wall",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.35791, -0.026123, 0.876709 )
 use_in_baked_light = true
-mesh = ExtResource( 175 )
+mesh = ExtResource( 170 )
 material/0 = null
 
 [node name="EastBathroom_col" type="StaticBody" parent="Interior/EastBathroom"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/EastBathroom/EastBathroom_col"]
-shape = ExtResource( 176 )
+shape = ExtResource( 171 )
 
 [node name="Drain2" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4917, 0.150757, 1.10181 )
-mesh = ExtResource( 177 )
+mesh = ExtResource( 172 )
 material/0 = null
 
 [node name="Drain1" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4917, 0.181519, 1.09497 )
-mesh = ExtResource( 178 )
+mesh = ExtResource( 173 )
 material/0 = null
 
 [node name="ComposterPlatform" type="MeshInstance" parent="Interior" groups=[
@@ -1977,66 +2097,66 @@ material/0 = null
 ]]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.136768, -3.33643, -0.417969, 0.0244141 )
 use_in_baked_light = true
-mesh = ExtResource( 179 )
+mesh = ExtResource( 174 )
 material/0 = null
 
 [node name="ComposterPlatform_col" type="StaticBody" parent="Interior/ComposterPlatform"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ComposterPlatform/ComposterPlatform_col"]
-shape = ExtResource( 180 )
+shape = ExtResource( 175 )
 
 [node name="BottomWindowFloorWest" type="MeshInstance" parent="Interior" groups=[
 "floor",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63721, 0.0257568, 2.09961 )
 use_in_baked_light = true
-mesh = ExtResource( 181 )
+mesh = ExtResource( 176 )
 material/0 = null
 
 [node name="BottomWindowFloorWest_col" type="StaticBody" parent="Interior/BottomWindowFloorWest"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/BottomWindowFloorWest/BottomWindowFloorWest_col"]
-shape = ExtResource( 182 )
+shape = ExtResource( 177 )
 
 [node name="BottomWindowFloor" type="MeshInstance" parent="Interior" groups=[
 "floor",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05762, -0.0616455, 2.17798 )
 use_in_baked_light = true
-mesh = ExtResource( 183 )
+mesh = ExtResource( 178 )
 material/0 = null
 
 [node name="BottomWindowFloor_col" type="StaticBody" parent="Interior/BottomWindowFloor"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/BottomWindowFloor/BottomWindowFloor_col"]
-shape = ExtResource( 184 )
+shape = ExtResource( 179 )
 
 [node name="BlackwaterTank2" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.854492, -1.67175, -2.6875 )
-mesh = ExtResource( 185 )
+mesh = ExtResource( 180 )
 material/0 = null
 
 [node name="BlackWaterTank" type="MeshInstance" parent="Interior" groups=[
 "cs_convex",
 ]]
 transform = Transform( 7.54979e-09, 0.1, 0, -0.1, 7.54979e-09, 0, 0, 0, 0.1, -3.58203, -0.337524, 0.887207 )
-mesh = ExtResource( 186 )
+mesh = ExtResource( 181 )
 material/0 = null
 
 [node name="BlackWaterTank_col" type="StaticBody" parent="Interior/BlackWaterTank"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/BlackWaterTank/BlackWaterTank_col"]
-shape = ExtResource( 187 )
+shape = ExtResource( 182 )
 
 [node name="BlackwaterPurification2" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.661133, -1.67175, -2.6875 )
-mesh = ExtResource( 188 )
+mesh = ExtResource( 183 )
 material/0 = null
 
 [node name="AtriumWalls005" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00012207, 0 )
 use_in_baked_light = true
-mesh = ExtResource( 189 )
+mesh = ExtResource( 184 )
 material/0 = null
 
 [node name="AtriumRamp" type="MeshInstance" parent="Interior" groups=[
@@ -2044,23 +2164,23 @@ material/0 = null
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.742188, -0.135986, -2.71265 )
 use_in_baked_light = true
-mesh = ExtResource( 190 )
+mesh = ExtResource( 185 )
 material/0 = null
 
 [node name="AtriumRamp_col" type="StaticBody" parent="Interior/AtriumRamp"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/AtriumRamp/AtriumRamp_col"]
-shape = ExtResource( 191 )
+shape = ExtResource( 186 )
 
 [node name="AnchorBolt002" type="MeshInstance" parent="Interior"]
 transform = Transform( 0.1, 0, 9.38657e-11, 0, 0.1, 0, -9.38657e-11, 0, 0.1, 1.79492, -1.73633, 2.43213 )
-mesh = ExtResource( 192 )
+mesh = ExtResource( 187 )
 material/0 = null
 
 [node name="AnchorBeamAtrium002" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79492, -1.70166, -0.205566 )
 use_in_baked_light = true
-mesh = ExtResource( 193 )
+mesh = ExtResource( 188 )
 material/0 = null
 
 [node name="AlgaeWaterOxygenation" type="MeshInstance" parent="Interior" groups=[
@@ -2068,31 +2188,31 @@ material/0 = null
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69092, 1.69666, -2.7478 )
 use_in_baked_light = true
-mesh = ExtResource( 194 )
+mesh = ExtResource( 189 )
 material/0 = null
 
 [node name="AlgaeWaterOxygenation_col" type="StaticBody" parent="Interior/AlgaeWaterOxygenation"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/AlgaeWaterOxygenation/AlgaeWaterOxygenation_col"]
-shape = ExtResource( 195 )
+shape = ExtResource( 190 )
 
 [node name="AlgaeTubes" type="MeshInstance" parent="Interior" groups=[
 "cs",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.258301, 1.71411, -2.76807 )
 use_in_baked_light = true
-mesh = ExtResource( 196 )
+mesh = ExtResource( 191 )
 material/0 = null
 
 [node name="AlgaeTubes_col" type="StaticBody" parent="Interior/AlgaeTubes"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/AlgaeTubes/AlgaeTubes_col"]
-shape = ExtResource( 197 )
+shape = ExtResource( 192 )
 
 [node name="AlgaeFarmPost" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1626, 1.56799, -2.76611 )
 use_in_baked_light = true
-mesh = ExtResource( 198 )
+mesh = ExtResource( 193 )
 material/0 = null
 
 [node name="OmniLight2" type="OmniLight" parent="Interior"]
@@ -2104,7 +2224,7 @@ omni_range = 1.96585
 [node name="Triggers" type="Spatial" parent="."]
 
 [node name="Area" type="Area" parent="Triggers"]
-script = ExtResource( 199 )
+script = ExtResource( 194 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Triggers/Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96696, 0, 0 )
@@ -2116,5 +2236,5 @@ bake_quality = 2
 bake_mode = 1
 bake_extents = Vector3( 8.6806, 2.73205, 4.09921 )
 image_path = "res://scenes/BakedLight/AtriumHab"
-light_data = ExtResource( 200 )
+light_data = ExtResource( 195 )
 
