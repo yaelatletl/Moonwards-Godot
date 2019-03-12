@@ -92,7 +92,7 @@ func hbox_surface():
 	var hs = bb[1]
 	return 2*hs.x*hs.y+2*hs.x*hs.z + 2*hs.y*hs.z
 
-func hbox_surface_projection()
+func hbox_surface_projection():
 	return hbox_surface()/6
 
 func hbox_instance():
