@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://_tests/UI_control/LabelSliderMix.gd" type="Script" id=1]
+[ext_resource path="LabelSliderMix.gd" type="Script" id=1]
 
 [node name="SliderOption" type="HBoxContainer"]
 margin_right = 310.0
