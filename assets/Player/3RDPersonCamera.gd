@@ -4,6 +4,7 @@ extends KinematicBody
 var linear_velocity = Vector3()
 var gravity = Vector3(0,1,0)
 export(NodePath) var Target 
+export(float) var camera_speed = 1.2
 #var originalpos = Vector3()
 export(NodePath) var origin 
 #var cameramovement
@@ -12,7 +13,7 @@ func _enter_tree():
 	origin = get_node(origin).translation
 	Target = get_node(Target).translation
 func _process(delta):
-	linear_velocity = origin - translation
+	linear_velocity = (origin - translation)
 	#move_and_slide(linear_velocity,-gravity.normalized())
 	
 	
@@ -22,7 +23,7 @@ func _process(delta):
 	
 	
 	
-	if translation != origin: #and not (is_on_floor() or is_on_ceiling() or is_on_wall()):
+	if translation.length() > origin.length()+0.001: # and not (is_on_floor() or is_on_ceiling() or is_on_wall()):
 		
 		move_and_slide(linear_velocity,-gravity.normalized())
 		#if translation.x <= origin.x-0.2:
@@ -39,5 +40,6 @@ func _process(delta):
 	#		translation.z = translation.z + delta
 	#	if translation.z >= origin.y+0.2:
 	#		translation.z = translation.z - delta	
-			
+	else:
+		move_and_slide(Vector3(), -gravity.normalized())
 	
