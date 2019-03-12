@@ -2,7 +2,16 @@ extends Node
 
 var mesh setget set_mesh, get_mesh
 var mesh_info = {}
+var mesh_cache = {}
 var root
+func cache_vars(id=null):
+	if mesh:
+		mesh_cache[mesh.get_instance_id()] = mesh_info
+	if id and mesh_cache.has(id):
+		mesh_info = mesh_cache[id]
+	else:
+		mesh_info = {}
+
 func reset_vars():
 	mesh_info = {}
 
@@ -13,7 +22,7 @@ func set_mesh(obj):
 	if root == null:
 		print("scene tree is not defined")
 	
-	reset_vars()
+	cache_vars()
 	if obj is String  or obj is NodePath:
 		obj = root.get_node(obj)
 		if obj == null:
@@ -22,6 +31,7 @@ func set_mesh(obj):
 		mesh = obj.mesh
 	if obj is Mesh:
 		mesh = obj
+	cache_vars(mesh.get_instance_id())
 	print("MeshTool(%s)" % mesh)
 
 func get_mesh():
@@ -73,3 +83,20 @@ func get_hitbox():
 	mesh_info["hitbox"] = [Vector3(box[1], box[3], box[5]), Vector3(box[0] - box[1], box[2] - box[3], box[4] - box[5])] 
 	return mesh_info["hitbox"]
 
+func hbox_volume():
+	var bb = get_hitbox()
+	return bb[1].x*bb[1].y*bb[1].z
+
+func hbox_surface():
+	var bb = get_hitbox()
+	var hs = bb[1]
+	return 2*hs.x*hs.y+2*hs.x*hs.z + 2*hs.y*hs.z
+
+func hbox_surface_projection()
+	return hbox_surface()/6
+
+func hbox_instance():
+	var cm = CubeMesh.new()
+	var bb = get_hitbox()
+	cm.size = bb[1]
+	return cm
