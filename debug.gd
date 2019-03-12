@@ -10,6 +10,8 @@ func _input(event):
 	if event.is_action_pressed("debug_test_rpc"):
 		print("call deug remote test")
 		rpc("test_remote_call")
+	if event.is_action_pressed("debug_force_camera"):
+		camera_ready(true)
 
 func _ready():
 	randomize()
@@ -17,10 +19,13 @@ func _ready():
 	gamestate.connect("scene_change", self, "on_scene_change")
 	
 	var tree = get_tree()
-	tree.connect("tree_change", self, "on_tree_change")
+# 	tree.connect("tree_changed", self, "on_tree_change")
 	tree.connect("node_added", self, "on_node_added")
 	tree.connect("node_removed", self, "on_node_removed")
 	
+	#insert some camera
+	camera_ready()
+
 func on_tree_change():
 	print("debug treechange")
 func on_node_added(node):
@@ -28,6 +33,37 @@ func on_node_added(node):
 func on_node_removed(node):
 	print("node removed: %s" % node)
 
+var camera_ready_path
+var camera_ready_oldcamera
+func camera_ready(force=false):
+		
+	yield(get_tree(), "idle_frame")
+	var root = get_tree().current_scene
+	if camera_ready_path:
+		root.get_node(camera_ready_path).queue_free()
+		if camera_ready_oldcamera:
+			camera_ready_oldcamera.current = true
+		camera_ready_oldcamera = null
+		camera_ready_path = null
+		return
+	
+	var cameras = utils.get_nodes_type(root, "Camera", true)
+	var active = false
+	
+	for p in cameras:
+		if root.get_node(p).current:
+			active = true
+			print("debug: camera present(%s)" % p)
+			camera_ready_oldcamera = root.get_node(p)
+			break
+	if not active or force:
+		var camera = ResourceLoader.load("res://assets/Player/player_flycamera.tscn").instance()
+		root.add_child(camera)
+		camera_ready_path = root.get_path_to(camera)
+		camera.get_node("Camera").current = true
+		print("debug: added fly camera to scene")
+		
+	
 func on_scene_change():
 	#apply options settings to new scene
 	print("Apply options to new player scene")
