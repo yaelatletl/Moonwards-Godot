@@ -39,7 +39,6 @@ func get_node_list(root, groups):
 	return match_obj
 
 func _ready():
-	queue_free()
 	if not RootNode :
 		root = self.get_parent()
 	else:
