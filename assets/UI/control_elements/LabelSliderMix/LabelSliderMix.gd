@@ -1,6 +1,7 @@
 extends HBoxContainer
 
 signal changed(val)
+
 export(String) var label = "Label"
 export(int) var mi = 1
 export(int) var ma = 100
