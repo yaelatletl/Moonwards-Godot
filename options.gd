@@ -6,6 +6,8 @@ var debug = true
 var scenes = {
 	loaded = null,
 	default = "WorldTest",
+	default_singleplayer_scene = "WorldV2",
+	default_mutiplayer_scene = "WorldTest",
 	World = {
 		path = "res://World.tscn"
 	},
