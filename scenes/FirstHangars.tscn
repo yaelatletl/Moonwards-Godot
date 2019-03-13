@@ -17,110 +17,82 @@
 [node name="HangarFoundationSmall" type="MeshInstance" parent="." groups=[
 "floor",
 ]]
-
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
+lod_max_distance = 100.0
 mesh = ExtResource( 1 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Empty_LavaTank_Large" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.40514e-08, 1.63529e-08, -1.40514e-08, 1, 0, -1.63529e-08, 0, 1, 5.25684, 2.4126, -12.5696 )
 
 [node name="Scene" parent="HangarFoundationSmall/Empty_LavaTank_Large" instance=ExtResource( 2 )]
 
 [node name="Empty_LavaTank_Large001" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.40514e-08, 1.63529e-08, -1.40514e-08, 1, 0, -1.63529e-08, 0, 1, 5.26221, 2.3949, -10.9819 )
 
 [node name="Scene" parent="HangarFoundationSmall/Empty_LavaTank_Large001" instance=ExtResource( 2 )]
 
 [node name="Empty_LavaTank_Large002" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.40514e-08, 1.63529e-08, -1.40514e-08, 1, 0, -1.63529e-08, 0, 1, 5.27637, 2.40515, -9.38037 )
 
 [node name="Scene" parent="HangarFoundationSmall/Empty_LavaTank_Large002" instance=ExtResource( 2 )]
 
 [node name="Empty_LavaTank_Large003" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.40514e-08, 1.63529e-08, -1.40514e-08, 1, 0, -1.63529e-08, 0, 1, 18.5181, 3.0072, -1.09668 )
 
 [node name="Scene" parent="HangarFoundationSmall/Empty_LavaTank_Large003" instance=ExtResource( 2 )]
 
 [node name="Empty_LavaTank_Tall" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 0.5, 8.72665e-09, 0, -8.72665e-09, 0.5, 0, 0, 0, 0.5, 5.01758, 1.99902, -13.7517 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="HangarFoundationSmall/Empty_LavaTank_Tall" instance=ExtResource( 2 )]
 
 [node name="Empty_PressurizedHangar" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.40514e-08, 1.63529e-08, -1.40514e-08, 1, 0, -1.63529e-08, 0, 1, 7.08496, 0.842651, -15.1741 )
 
 [node name="Scene" parent="HangarFoundationSmall/Empty_PressurizedHangar" instance=ExtResource( 3 )]
 
 [node name="Empty_PressurizedHangar001" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( -5.92473e-07, -1.03406e-14, -2.1, -3.66519e-08, 2.1, 0, 2.1, 3.66519e-08, -5.92473e-07, 18.6426, 1.80579, -3.52344 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="HangarFoundationSmall/Empty_PressurizedHangar001" instance=ExtResource( 3 )]
 
 [node name="Empty_SpiderCrane" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.40514e-08, 1.63529e-08, -1.40514e-08, 1, 0, -1.63529e-08, 0, 1, 27.4648, -1.19055, -4.24097 )
 
 [node name="Scene" parent="HangarFoundationSmall/Empty_SpiderCrane" instance=ExtResource( 4 )]
-
 transform = Transform( 1, 0, 0, 3.75759e-24, 1, 0, 0, 0, 1, 0, 2.94235, -2.7708e-08 )
 
 [node name="Empty_TowerRadiator2x" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.40514e-08, 1.63529e-08, -1.40514e-08, 1, 0, -1.63529e-08, 0, 1, 7.08496, 2.58728, -11.3438 )
 
 [node name="Scene" parent="HangarFoundationSmall/Empty_TowerRadiator2x" instance=ExtResource( 5 )]
 
 [node name="Empty_TowerRadiator2x001" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.40514e-08, 1.63529e-08, -1.40514e-08, 1, 0, -1.63529e-08, 0, 1, 10.3662, 4.12231, -14.5181 )
 
 [node name="Scene" parent="HangarFoundationSmall/Empty_TowerRadiator2x001" instance=ExtResource( 5 )]
 
 [node name="Empty_TowerRadiator2x002" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.40514e-08, 1.63529e-08, -1.40514e-08, 1, 0, -1.63529e-08, 0, 1, 17.5454, 4.16663, -14.6033 )
 
 [node name="Scene" parent="HangarFoundationSmall/Empty_TowerRadiator2x002" instance=ExtResource( 5 )]
 
 [node name="Empty_TowerRadiator2x003" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.40514e-08, 1.63529e-08, -1.40514e-08, 1, 0, -1.63529e-08, 0, 1, 15.644, 4.98779, -7.65625 )
 
 [node name="Scene" parent="HangarFoundationSmall/Empty_TowerRadiator2x003" instance=ExtResource( 5 )]
 
 [node name="Empty_TowerRadiator2x004" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.40514e-08, 1.63529e-08, -1.40514e-08, 1, 0, -1.63529e-08, 0, 1, 12.2812, 4.98779, -7.65625 )
 
 [node name="Scene" parent="HangarFoundationSmall/Empty_TowerRadiator2x004" instance=ExtResource( 5 )]
 
 [node name="Empty_TowerRadiator2x005" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.40514e-08, 1.63529e-08, -1.40514e-08, 1, 0, -1.63529e-08, 0, 1, 18.0938, 5.14709, -3.43066 )
 
 [node name="Scene" parent="HangarFoundationSmall/Empty_TowerRadiator2x005" instance=ExtResource( 5 )]
 
 [node name="Empty_TowerRadiator2x006" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.40514e-08, 1.63529e-08, -1.40514e-08, 1, 0, -1.63529e-08, 0, 1, 3.85596, 5.45898, -3.43066 )
 
 [node name="Scene" parent="HangarFoundationSmall/Empty_TowerRadiator2x006" instance=ExtResource( 5 )]
@@ -128,19 +100,8 @@ transform = Transform( 1, 1.40514e-08, 1.63529e-08, -1.40514e-08, 1, 0, -1.63529
 [node name="hangar-arches-posts001" type="MeshInstance" parent="HangarFoundationSmall" groups=[
 "wall",
 ]]
-
 transform = Transform( 1, 1.40514e-08, 1.63529e-08, -1.40514e-08, 1, 0, -1.63529e-08, 0, 1, 13.9614, -1.51721, -6.2981 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 6 )
-skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
@@ -148,215 +109,100 @@ material/3 = null
 
 [node name="hangar-arches-posts001_col" type="StaticBody" parent="HangarFoundationSmall/hangar-arches-posts001"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="HangarFoundationSmall/hangar-arches-posts001/hangar-arches-posts001_col"]
-
 shape = ExtResource( 7 )
-disabled = false
 
 [node name="hangar-arches-posts002" type="MeshInstance" parent="HangarFoundationSmall" groups=[
 "wall",
 ]]
-
 transform = Transform( 1, 1.40514e-08, 1.63529e-08, -1.40514e-08, 1, 0, -1.63529e-08, 0, 1, 25.2817, -4.42883, -7.16138 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 8 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="hangar-arches-posts002_col" type="StaticBody" parent="HangarFoundationSmall/hangar-arches-posts002"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="HangarFoundationSmall/hangar-arches-posts002/hangar-arches-posts002_col"]
-
 shape = ExtResource( 9 )
-disabled = false
 
 [node name="SmallHangarArchesColumns" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.40514e-08, 1.44374e-08, -1.40514e-08, 1, 0, -1.44374e-08, 0, 1, 13.958, 2.69128, -6.34888 )
 
 [node name="Scene" parent="HangarFoundationSmall/SmallHangarArchesColumns" instance=ExtResource( 10 )]
 
 [node name="SmallHangarArchesColumns001" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.75642e-08, 1.63529e-08, -1.40514e-08, 1.25, 0, -1.63529e-08, 0, 1, 25.2817, 2.20544, -3.33203 )
 
 [node name="Scene" parent="HangarFoundationSmall/SmallHangarArchesColumns001" instance=ExtResource( 10 )]
 
 [node name="SmallHangarArchesColumns002" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.40514e-08, 1.63529e-08, -1.40514e-08, 1, 0, -1.63529e-08, 0, 1, 13.958, 2.69128, -7.75098 )
 
 [node name="Scene" parent="HangarFoundationSmall/SmallHangarArchesColumns002" instance=ExtResource( 10 )]
 
 [node name="SmallHangarArchesColumns003" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.40514e-08, 1.63529e-08, -1.40514e-08, 1, 0, -1.63529e-08, 0, 1, 13.958, 2.69128, -9.15308 )
 
 [node name="Scene" parent="HangarFoundationSmall/SmallHangarArchesColumns003" instance=ExtResource( 10 )]
 
 [node name="SmallHangarArchesColumns004" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.40514e-08, 1.63529e-08, -1.40514e-08, 1, 0, -1.63529e-08, 0, 1, 13.958, 2.69128, -10.5552 )
 
 [node name="Scene" parent="HangarFoundationSmall/SmallHangarArchesColumns004" instance=ExtResource( 10 )]
 
 [node name="SmallHangarArchesColumns005" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.40514e-08, 1.63529e-08, -1.40514e-08, 1, 0, -1.63529e-08, 0, 1, 13.958, 2.69128, -11.9573 )
 
 [node name="Scene" parent="HangarFoundationSmall/SmallHangarArchesColumns005" instance=ExtResource( 10 )]
 
 [node name="SmallHangarArchesColumns006" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.40514e-08, 1.63529e-08, -1.40514e-08, 1, 0, -1.63529e-08, 0, 1, 13.958, 2.69128, -13.3596 )
 
 [node name="Scene" parent="HangarFoundationSmall/SmallHangarArchesColumns006" instance=ExtResource( 10 )]
 
 [node name="SmallHangarArchesColumns007" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.40514e-08, 1.63529e-08, -1.40514e-08, 1, 0, -1.63529e-08, 0, 1, 13.958, 2.69128, -14.7617 )
 
 [node name="Scene" parent="HangarFoundationSmall/SmallHangarArchesColumns007" instance=ExtResource( 10 )]
 
 [node name="SmallHangarArchesColumns008" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.40514e-08, 1.63529e-08, -1.40514e-08, 1, 0, -1.63529e-08, 0, 1, 13.958, 2.69128, -16.1638 )
 
 [node name="Scene" parent="HangarFoundationSmall/SmallHangarArchesColumns008" instance=ExtResource( 10 )]
 
 [node name="SmallHangarArchesColumns009" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.75642e-08, 1.63529e-08, -1.40514e-08, 1.25, 0, -1.63529e-08, 0, 1, 25.2817, 2.20544, -6.2063 )
 
 [node name="Scene" parent="HangarFoundationSmall/SmallHangarArchesColumns009" instance=ExtResource( 10 )]
 
 [node name="SmallHangarArchesColumns010" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.75642e-08, 1.63529e-08, -1.40514e-08, 1.25, 0, -1.63529e-08, 0, 1, 25.2817, 2.20544, -9.08032 )
 
 [node name="Scene" parent="HangarFoundationSmall/SmallHangarArchesColumns010" instance=ExtResource( 10 )]
 
 [node name="SmallHangarArchesColumns011" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.75642e-08, 1.63529e-08, -1.40514e-08, 1.25, 0, -1.63529e-08, 0, 1, 25.2817, 2.20544, -11.9546 )
 
 [node name="Scene" parent="HangarFoundationSmall/SmallHangarArchesColumns011" instance=ExtResource( 10 )]
 
 [node name="SmallHangarArchesColumns012" type="Spatial" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 1.75642e-08, 1.63529e-08, -1.40514e-08, 1.25, 0, -1.63529e-08, 0, 1, 25.2817, 2.20544, -14.8286 )
 
 [node name="Scene" parent="HangarFoundationSmall/SmallHangarArchesColumns012" instance=ExtResource( 10 )]
 
 [node name="OmniLight" type="OmniLight" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3084, 4.27073, -12 )
-layers = 1
-light_color = Color( 1, 1, 1, 1 )
-light_energy = 1.0
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 6.45401
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light", "Shadow" ]
 
 [node name="OmniLight2" type="OmniLight" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.87212, 2.82042, -3.55427 )
-layers = 1
-light_color = Color( 1, 1, 1, 1 )
-light_energy = 1.0
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 7.85886
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light", "Shadow" ]
 
 [node name="OmniLight3" type="OmniLight" parent="HangarFoundationSmall"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.87212, 1.5949, -10.5692 )
-layers = 1
-light_color = Color( 1, 1, 1, 1 )
-light_energy = 1.0
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 4.09541
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light", "Shadow" ]
 
 [node name="HangarFoundationSmall_col" type="StaticBody" parent="HangarFoundationSmall"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="HangarFoundationSmall/HangarFoundationSmall_col"]
-
 shape = ExtResource( 11 )
-disabled = false
-
 

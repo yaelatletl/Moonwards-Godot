@@ -7,103 +7,37 @@
 [ext_resource path="res://model_assets/meshes/MeltInPlaceStation__MIP structure_MIP-small-lens.mesh" type="ArrayMesh" id=5]
 [ext_resource path="res://model_assets/meshes/MeltInPlaceStation__MIP structure_MIP-square-lens.mesh" type="ArrayMesh" id=6]
 
-[node name="Scene" type="Spatial" index="0"]
+[node name="Scene" type="Spatial"]
 
-[node name="MIP structure" type="MeshInstance" parent="." index="0"]
-
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
+[node name="MIP structure" type="MeshInstance" parent="."]
+lod_max_distance = 100.0
 mesh = ExtResource( 1 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="MIP-hopper" type="MeshInstance" parent="MIP structure" index="0"]
-
+[node name="MIP-hopper" type="MeshInstance" parent="MIP structure"]
 transform = Transform( 1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, 0, 0.75744, 0.000244141 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 2 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="MIP-screen-top" type="MeshInstance" parent="MIP structure" index="1"]
-
+[node name="MIP-screen-top" type="MeshInstance" parent="MIP structure"]
 transform = Transform( 1, 0, 1.84075e-08, 0, 1, 0, -1.84075e-08, 0, 1, 0, 0.75744, 0.000244141 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 3 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="MIP-screen-top001" type="MeshInstance" parent="MIP structure" index="2"]
-
+[node name="MIP-screen-top001" type="MeshInstance" parent="MIP structure"]
 transform = Transform( 1, 0, 1.84075e-08, 0, 1, 0, -1.84075e-08, 0, 1, -2.05859, 0.55224, -0.0493164 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 4 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="MIP-small-lens" type="MeshInstance" parent="MIP structure" index="3"]
-
+[node name="MIP-small-lens" type="MeshInstance" parent="MIP structure"]
 transform = Transform( -1, 0, 3.89414e-07, 0, 1, 0, -3.89414e-07, 0, -1, -0.862305, 0.76745, -0.720459 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 5 )
-skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="MIP-square-lens" type="MeshInstance" parent="MIP structure" index="4"]
-
+[node name="MIP-square-lens" type="MeshInstance" parent="MIP structure"]
 transform = Transform( -0.133816, -0.991006, 3.09366e-08, 0.991006, -0.133816, -1.13451e-08, 1.53829e-08, 2.91402e-08, 1, 1.59668, 0.767328, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 6 )
-skeleton = NodePath("..")
 material/0 = null
 material/1 = null
-
 

@@ -10,32 +10,19 @@
 [ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=8]
 
 [sub_resource type="BoxShape" id=1]
-
 extents = Vector3( 40, 40, 40 )
-_sections_unfolded = [ "Resource" ]
 
-[node name="Scene" type="Spatial" index="0"]
+[node name="Scene" type="Spatial"]
 
-[node name="LT-Large-pole002" type="MeshInstance" parent="." index="0" groups=[
+[node name="LT-Large-pole002" type="MeshInstance" parent="." groups=[
 "interior",
 ]]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, -0.361656, -0.090416, 0.806969 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
+lod_max_distance = 100.0
 mesh = ExtResource( 1 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="Armature002" type="Skeleton" parent="LT-Large-pole002" index="0"]
-
+[node name="Armature002" type="Skeleton" parent="LT-Large-pole002"]
 transform = Transform( 1, 5.51343e-09, -2.75672e-09, -5.51343e-09, 1, -4.65661e-10, 2.75672e-09, 1.39698e-09, 1, -2.28882e-05, 1.6694, 0 )
 bones/0/name = "Bone"
 bones/0/parent = -1
@@ -73,128 +60,50 @@ bones/6/rest = Transform( 0.999861, 0.00828394, -0.0144775, -0.0113064, 0.974725
 bones/6/enabled = true
 bones/6/bound_children = [  ]
 
-[node name="Empty-LightTubeLarge002" type="Spatial" parent="LT-Large-pole002" index="1"]
-
+[node name="Empty-LightTubeLarge002" type="Spatial" parent="LT-Large-pole002"]
 transform = Transform( 0.0155842, -0.0269926, 1.98399e-09, 0.0269926, 0.0155842, -1.23805e-09, 1.05328e-10, 2.35173e-09, 0.0311684, -0.241219, 1.76925, -0.0285645 )
 
-[node name="LightTube-FiberoptCable-Armature005" type="MeshInstance" parent="LT-Large-pole002" index="2"]
-
+[node name="LightTube-FiberoptCable-Armature005" type="MeshInstance" parent="LT-Large-pole002"]
 transform = Transform( 1, 5.51343e-09, -2.75672e-09, -5.51343e-09, 1, -1.1083e-08, 2.75672e-09, 1.20143e-08, 1, -2.28882e-05, 1.66732, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 2 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="LightTubeLarge-DishPivot002" type="MeshInstance" parent="LT-Large-pole002" index="3"]
-
+[node name="LightTubeLarge-DishPivot002" type="MeshInstance" parent="LT-Large-pole002"]
 transform = Transform( 0.0925, -0.160215, 1.1776e-08, 0.160215, 0.0925, -9.82104e-10, -4.88826e-09, 1.07755e-08, 0.185, -7.62939e-06, 1.62862, -0.560059 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 3 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="LightTube-FiberoptCable-Armature004" type="MeshInstance" parent="LT-Large-pole002/LightTubeLarge-DishPivot002" index="0"]
-
+[node name="LightTube-FiberoptCable-Armature004" type="MeshInstance" parent="LT-Large-pole002/LightTubeLarge-DishPivot002"]
 transform = Transform( 5.40541, -1.19209e-06, -1.50093e-07, 0, 5.4054, 1.24327e-07, 1.49594e-07, 3.5378e-07, 5.4054, -0.000812531, 0.209915, 3.02734 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 4 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="LT-Large-Cable-Supports002" type="MeshInstance" parent="LT-Large-pole002/LightTubeLarge-DishPivot002" index="1"]
-
+[node name="LT-Large-Cable-Supports002" type="MeshInstance" parent="LT-Large-pole002/LightTubeLarge-DishPivot002"]
 transform = Transform( 5.40541, -1.19209e-06, 1.4428e-07, 0, 5.4054, 1.81718e-07, -1.4478e-07, 2.96389e-07, 5.4054, -6.4373e-05, 4.3247, 0.00131989 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 5 )
-skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="LT-Large-Dish002" type="MeshInstance" parent="LT-Large-pole002/LightTubeLarge-DishPivot002" index="2"]
-
+[node name="LT-Large-Dish002" type="MeshInstance" parent="LT-Large-pole002/LightTubeLarge-DishPivot002"]
 transform = Transform( 5.40541, -1.19209e-06, 1.4428e-07, 0, 5.4054, 1.81718e-07, -1.4478e-07, 2.96389e-07, 5.4054, -6.4373e-05, 4.3247, 0.00131989 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 6 )
-skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="LT-Large=LIghtInlet002" type="MeshInstance" parent="LT-Large-pole002/LightTubeLarge-DishPivot002" index="3"]
-
+[node name="LT-Large=LIghtInlet002" type="MeshInstance" parent="LT-Large-pole002/LightTubeLarge-DishPivot002"]
 transform = Transform( 1, -2.98023e-07, 2.72296e-08, 1.19209e-07, 1, 3.04346e-08, -2.7322e-08, 5.80151e-08, 1, -0.000415325, 4.44935, 0.00131989 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 7 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="LT-Large-pole001" type="MeshInstance" parent="." index="1" groups=[
+[node name="LT-Large-pole001" type="MeshInstance" parent="." groups=[
 "interior",
 ]]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20443, -0.0906601, -0.768471 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
+lod_max_distance = 100.0
 mesh = ExtResource( 1 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="Armature000" type="Skeleton" parent="LT-Large-pole001" index="0"]
-
+[node name="Armature000" type="Skeleton" parent="LT-Large-pole001"]
 transform = Transform( 1, 5.51343e-09, -2.75672e-09, -5.51343e-09, 1, -4.65661e-10, 2.75672e-09, 1.39698e-09, 1, -2.28882e-05, 1.6694, 0 )
 bones/0/name = "Bone"
 bones/0/parent = -1
@@ -232,128 +141,50 @@ bones/6/rest = Transform( 0.999861, 0.00828394, -0.0144775, -0.0113064, 0.974725
 bones/6/enabled = true
 bones/6/bound_children = [  ]
 
-[node name="Empty-LightTubeLarge001" type="Spatial" parent="LT-Large-pole001" index="1"]
-
+[node name="Empty-LightTubeLarge001" type="Spatial" parent="LT-Large-pole001"]
 transform = Transform( 0.0155842, -0.0269926, 1.98399e-09, 0.0269926, 0.0155842, -1.23805e-09, 1.05328e-10, 2.35173e-09, 0.0311684, -0.241219, 1.76925, -0.0285645 )
 
-[node name="LightTube-FiberoptCable-Armature001" type="MeshInstance" parent="LT-Large-pole001" index="2"]
-
+[node name="LightTube-FiberoptCable-Armature001" type="MeshInstance" parent="LT-Large-pole001"]
 transform = Transform( 1, 5.51343e-09, -2.75672e-09, -5.51343e-09, 1, -1.1083e-08, 2.75672e-09, 1.20143e-08, 1, -2.28882e-05, 1.66732, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 2 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="LightTubeLarge-DishPivot001" type="MeshInstance" parent="LT-Large-pole001" index="3"]
-
+[node name="LightTubeLarge-DishPivot001" type="MeshInstance" parent="LT-Large-pole001"]
 transform = Transform( 0.0925, -0.160215, 1.1776e-08, 0.160215, 0.0925, -9.82104e-10, -4.88826e-09, 1.07755e-08, 0.185, -7.62939e-06, 1.62862, -0.560059 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 3 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="LightTube-FiberoptCable-Armature000" type="MeshInstance" parent="LT-Large-pole001/LightTubeLarge-DishPivot001" index="0"]
-
+[node name="LightTube-FiberoptCable-Armature000" type="MeshInstance" parent="LT-Large-pole001/LightTubeLarge-DishPivot001"]
 transform = Transform( 5.4054, -9.53674e-07, -6.2693e-07, -1.43051e-06, 5.4054, -3.5251e-07, -1.00726e-06, 3.5378e-07, 5.4054, -0.000812531, 0.209916, 3.02734 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 4 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="LT-Large-Cable-Supports001" type="MeshInstance" parent="LT-Large-pole001/LightTubeLarge-DishPivot001" index="1"]
-
+[node name="LT-Large-Cable-Supports001" type="MeshInstance" parent="LT-Large-pole001/LightTubeLarge-DishPivot001"]
 transform = Transform( 5.4054, -9.53674e-07, -3.32557e-07, -1.43051e-06, 5.4054, -2.95119e-07, -1.30163e-06, 2.96389e-07, 5.4054, -6.38962e-05, 4.3247, 0.00131989 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 5 )
-skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="LT-Large-Dish001" type="MeshInstance" parent="LT-Large-pole001/LightTubeLarge-DishPivot001" index="2"]
-
+[node name="LT-Large-Dish001" type="MeshInstance" parent="LT-Large-pole001/LightTubeLarge-DishPivot001"]
 transform = Transform( 5.4054, -9.53674e-07, -3.32557e-07, -1.43051e-06, 5.4054, -2.95119e-07, -1.30163e-06, 2.96389e-07, 5.4054, -6.38962e-05, 4.3247, 0.00131989 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 6 )
-skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="LT-Large=LIghtInlet001" type="MeshInstance" parent="LT-Large-pole001/LightTubeLarge-DishPivot001" index="3"]
-
+[node name="LT-Large=LIghtInlet001" type="MeshInstance" parent="LT-Large-pole001/LightTubeLarge-DishPivot001"]
 transform = Transform( 1, -2.98023e-07, -6.09853e-08, -1.78814e-07, 1, -5.77803e-08, -2.41339e-07, 5.80152e-08, 1, -0.000414371, 4.44935, 0.00131989 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 7 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="LT-Large-pole" type="MeshInstance" parent="." index="2" groups=[
+[node name="LT-Large-pole" type="MeshInstance" parent="." groups=[
 "interior",
 ]]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0.566078, 0.181068, -0.0384903 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
+lod_max_distance = 100.0
 mesh = ExtResource( 1 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="Armature001" type="Skeleton" parent="LT-Large-pole" index="0"]
-
+[node name="Armature001" type="Skeleton" parent="LT-Large-pole"]
 transform = Transform( 1, 5.51343e-09, -2.75672e-09, -5.51343e-09, 1, -4.65661e-10, 2.75672e-09, 1.39698e-09, 1, -2.28882e-05, 1.6694, 0 )
 bones/0/name = "Bone"
 bones/0/parent = -1
@@ -391,141 +222,47 @@ bones/6/rest = Transform( 0.999861, 0.00828394, -0.0144775, -0.0113064, 0.974725
 bones/6/enabled = true
 bones/6/bound_children = [  ]
 
-[node name="Empty-LightTubeLarge" type="Spatial" parent="LT-Large-pole" index="1"]
-
+[node name="Empty-LightTubeLarge" type="Spatial" parent="LT-Large-pole"]
 transform = Transform( 0.0155842, -0.0269926, 1.98399e-09, 0.0269926, 0.0155842, -1.23805e-09, 1.05328e-10, 2.35173e-09, 0.0311684, -0.241219, 1.76925, -0.0285645 )
 
-[node name="LightTube-FiberoptCable-Armature003" type="MeshInstance" parent="LT-Large-pole" index="2"]
-
+[node name="LightTube-FiberoptCable-Armature003" type="MeshInstance" parent="LT-Large-pole"]
 transform = Transform( 1, 5.51343e-09, -2.75672e-09, -5.51343e-09, 1, -1.1083e-08, 2.75672e-09, 1.20143e-08, 1, -2.28882e-05, 1.66732, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 2 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="LightTubeLarge-DishPivot" type="MeshInstance" parent="LT-Large-pole" index="3"]
-
+[node name="LightTubeLarge-DishPivot" type="MeshInstance" parent="LT-Large-pole"]
 transform = Transform( 0.0925, -0.160215, 1.1776e-08, 0.160215, 0.0925, -9.82104e-10, -4.88826e-09, 1.07755e-08, 0.185, -7.62939e-06, 1.62862, -0.560059 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 3 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="LightTube-FiberoptCable-Armature002" type="MeshInstance" parent="LT-Large-pole/LightTubeLarge-DishPivot" index="0"]
-
+[node name="LightTube-FiberoptCable-Armature002" type="MeshInstance" parent="LT-Large-pole/LightTubeLarge-DishPivot"]
 transform = Transform( 5.4054, -1.90735e-06, -2.9728e-07, -4.76837e-07, 5.4054, -4.01843e-08, 1.79396e-07, 3.02161e-07, 5.4054, -0.000811577, 0.209916, 3.02734 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 4 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="LT-Large-Cable-Supports" type="MeshInstance" parent="LT-Large-pole/LightTubeLarge-DishPivot" index="1"]
-
+[node name="LT-Large-Cable-Supports" type="MeshInstance" parent="LT-Large-pole/LightTubeLarge-DishPivot"]
 transform = Transform( 5.4054, -1.90735e-06, -2.90614e-09, -4.76837e-07, 5.4054, 1.72066e-08, -1.14977e-07, 2.4477e-07, 5.4054, -6.38962e-05, 4.3247, 0.00131965 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 5 )
-skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="LT-Large-Dish" type="MeshInstance" parent="LT-Large-pole/LightTubeLarge-DishPivot" index="2"]
-
+[node name="LT-Large-Dish" type="MeshInstance" parent="LT-Large-pole/LightTubeLarge-DishPivot"]
 transform = Transform( 5.4054, -1.90735e-06, -2.90614e-09, -4.76837e-07, 5.4054, 1.72066e-08, -1.14977e-07, 2.4477e-07, 5.4054, -6.38962e-05, 4.3247, 0.00131965 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 6 )
-skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="LT-Large=LIghtInlet" type="MeshInstance" parent="LT-Large-pole/LightTubeLarge-DishPivot" index="3"]
-
+[node name="LT-Large=LIghtInlet" type="MeshInstance" parent="LT-Large-pole/LightTubeLarge-DishPivot"]
 transform = Transform( 1, -4.47035e-07, 7.50511e-14, 2.98023e-08, 1, 2.75335e-14, -2.18085e-08, 4.84656e-08, 1, -0.000413895, 4.44935, 0.00131965 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 7 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="Triggers" type="Spatial" parent="." index="3"]
+[node name="Triggers" type="Spatial" parent="."]
 
-[node name="Area" type="Area" parent="Triggers" index="0"]
-
-input_ray_pickable = false
-input_capture_on_drag = false
-space_override = 0
-gravity_point = false
-gravity_distance_scale = 0.0
-gravity_vec = Vector3( 0, -1, 0 )
-gravity = 9.8
-linear_damp = 0.1
-angular_damp = 1.0
-priority = 0.0
-monitoring = true
-monitorable = true
-collision_layer = 1
-collision_mask = 1
-audio_bus_override = false
-audio_bus_name = "Master"
-reverb_bus_enable = false
-reverb_bus_name = "Master"
-reverb_bus_amount = 0.0
-reverb_bus_uniformity = 0.0
+[node name="Area" type="Area" parent="Triggers"]
 script = ExtResource( 8 )
 RootNode = NodePath("../..")
-showhide = "interior"
-hideshow = "exterior"
-bygroup = "player"
 
-[node name="CollisionShape" type="CollisionShape" parent="Triggers/Area" index="0"]
-
+[node name="CollisionShape" type="CollisionShape" parent="Triggers/Area"]
 shape = SubResource( 1 )
-disabled = false
-
 

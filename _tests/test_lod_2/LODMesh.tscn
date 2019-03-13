@@ -4,25 +4,19 @@
 
 [sub_resource type="CubeMesh" id=1]
 
-
 [sub_resource type="SpatialMaterial" id=2]
-
 albedo_texture = ExtResource( 1 )
 uv1_triplanar = true
 
 [sub_resource type="CylinderMesh" id=3]
 
-
 [sub_resource type="SpatialMaterial" id=4]
-
 albedo_texture = ExtResource( 1 )
 uv1_triplanar = true
 
 [sub_resource type="SphereMesh" id=5]
 
-
 [sub_resource type="SpatialMaterial" id=6]
-
 albedo_texture = ExtResource( 1 )
 uv1_triplanar = true
 

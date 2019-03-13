@@ -5,75 +5,31 @@
 [ext_resource path="res://model_assets/meshes/TowerRadiator3x__RadPanel2x_ImpellerPump-LowPoly003.mesh" type="ArrayMesh" id=3]
 [ext_resource path="res://model_assets/meshes/TowerRadiator3x__RadPanel2x_TowerRadMaster-Outletpipe001.mesh" type="ArrayMesh" id=4]
 
-[node name="Scene" type="Spatial" index="0"]
+[node name="Scene" type="Spatial"]
 
-[node name="RadPanel2x" type="MeshInstance" parent="." index="0"]
-
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
+[node name="RadPanel2x" type="MeshInstance" parent="."]
+lod_max_distance = 100.0
 mesh = ExtResource( 1 )
-skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
 material/3 = null
 material/4 = null
 
-[node name="Cylinder001" type="MeshInstance" parent="RadPanel2x" index="0"]
-
+[node name="Cylinder001" type="MeshInstance" parent="RadPanel2x"]
 transform = Transform( -6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, -0.000732422, -1.35681, 0.0644531 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 2 )
-skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="ImpellerPump-LowPoly003" type="MeshInstance" parent="RadPanel2x" index="1"]
-
+[node name="ImpellerPump-LowPoly003" type="MeshInstance" parent="RadPanel2x"]
 transform = Transform( -1.31134e-07, -3, 1.31134e-07, 8.9407e-08, -1.31134e-07, -3, 3, -1.31134e-07, 8.9407e-08, -0.0249023, -1.29675, 0.065918 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 3 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="TowerRadMaster-Outletpipe001" type="MeshInstance" parent="RadPanel2x" index="2"]
-
+[node name="TowerRadMaster-Outletpipe001" type="MeshInstance" parent="RadPanel2x"]
 transform = Transform( -1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, -0.000732422, -0.941162, 0.0351562 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 4 )
-skeleton = NodePath("..")
 material/0 = null
-
 

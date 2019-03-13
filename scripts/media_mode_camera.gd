@@ -12,7 +12,7 @@ var look_velocity = Vector3()
 var mouse_down = false
 
 var velocity_damp = 0.95
-var acceleration = 0.1
+var acceleration = 0.2
 
 func _process(delta):
 	var forward_direction = global_transform.basis.z

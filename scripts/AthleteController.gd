@@ -14,7 +14,7 @@ var turn_speed = 5.0
 var model_quat = Quat()
 
 func _ready():
-#	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	movement_direction = global_transform.basis.z
 
 func _physics_process(delta):

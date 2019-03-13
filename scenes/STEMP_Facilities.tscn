@@ -53,7 +53,6 @@
 [ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=51]
 
 [sub_resource type="BoxShape" id=1]
-
 extents = Vector3( 60, 60, 100 )
 
 [node name="Scene" type="Spatial"]
@@ -61,1078 +60,493 @@ extents = Vector3( 60, 60, 100 )
 [node name="STEMP_Facility_Grounds" type="MeshInstance" parent="." groups=[
 "floor",
 ]]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0102649, 0, 0.00229359 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
+lod_max_distance = 100.0
 mesh = ExtResource( 1 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="colinear-antenna-element-LongRange" type="MeshInstance" parent="STEMP_Facility_Grounds"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.908, 22.5216, -68.1472 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 2 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Coolant-In001" type="MeshInstance" parent="STEMP_Facility_Grounds"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8176, 3.24744, -8.64277 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 3 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Coolant-In002" type="MeshInstance" parent="STEMP_Facility_Grounds"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2239, 5.14417, -21.3823 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 4 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Coolant-In003" type="MeshInstance" parent="STEMP_Facility_Grounds"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5403, 6.7196, -33.1528 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 5 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Coolant-In004" type="MeshInstance" parent="STEMP_Facility_Grounds"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.239, 7.78064, -45.2817 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 6 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Coolant-In005" type="MeshInstance" parent="STEMP_Facility_Grounds"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.4998, 8.5686, -57.0009 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 7 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Empty_BoatRad" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1282, 2.70605, -5.77338 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_BoatRad" instance=ExtResource( 8 )]
 
 [node name="Empty_BoatRad001" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8054, 4.79004, -19.2302 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_BoatRad001" instance=ExtResource( 8 )]
 
 [node name="Empty_BoatRad002" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0999, 6.39343, -30.6398 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_BoatRad002" instance=ExtResource( 8 )]
 
 [node name="Empty_BoatRad003" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7903, 7.69019, -42.7226 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_BoatRad003" instance=ExtResource( 8 )]
 
 [node name="Empty_BoatRad004" type="Spatial" parent="STEMP_Facility_Grounds"]
-
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0271, 8.49963, -54.4448 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_BoatRad004" instance=ExtResource( 8 )]
 
 [node name="Empty_SolarThermalMirror-Center" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9529, 5.96729, -7.4372 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_SolarThermalMirror-Center" instance=ExtResource( 9 )]
 
 [node name="Empty_SolarThermalMirror-Center001" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9338, 6.69861, -12.1701 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_SolarThermalMirror-Center001" instance=ExtResource( 9 )]
 
 [node name="Empty_SolarThermalMirror-Center002" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.36353, 6.01135, -10.3659 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_SolarThermalMirror-Center002" instance=ExtResource( 9 )]
 
 [node name="Empty_SolarThermalMirror-Center003" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.33911, 6.82458, -15.0922 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_SolarThermalMirror-Center003" instance=ExtResource( 9 )]
 
 [node name="Empty_SolarThermalMirror-Center004" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3669, 8.13086, -20.1757 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_SolarThermalMirror-Center004" instance=ExtResource( 9 )]
 
 [node name="Empty_SolarThermalMirror-Center005" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3479, 9.41479, -24.9089 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_SolarThermalMirror-Center005" instance=ExtResource( 9 )]
 
 [node name="Empty_SolarThermalMirror-Center006" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.77563, 8.90393, -23.1044 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_SolarThermalMirror-Center006" instance=ExtResource( 9 )]
 
 [node name="Empty_SolarThermalMirror-Center007" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75317, 9.39514, -27.8308 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_SolarThermalMirror-Center007" instance=ExtResource( 9 )]
 
 [node name="Empty_SolarThermalMirror-Center008" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.6619, 10.0565, -31.9133 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_SolarThermalMirror-Center008" instance=ExtResource( 9 )]
 
 [node name="Empty_SolarThermalMirror-Center009" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.6423, 10.97, -36.6464 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_SolarThermalMirror-Center009" instance=ExtResource( 9 )]
 
 [node name="Empty_SolarThermalMirror-Center010" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.07007, 10.459, -34.8422 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_SolarThermalMirror-Center010" instance=ExtResource( 9 )]
 
 [node name="Empty_SolarThermalMirror-Center011" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.04761, 10.6302, -39.5683 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_SolarThermalMirror-Center011" instance=ExtResource( 9 )]
 
 [node name="Empty_SolarThermalMirror-Center012" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.3523, 11.1031, -43.9963 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_SolarThermalMirror-Center012" instance=ExtResource( 9 )]
 
 [node name="Empty_SolarThermalMirror-Center013" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.3328, 11.4207, -48.7292 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_SolarThermalMirror-Center013" instance=ExtResource( 9 )]
 
 [node name="Empty_SolarThermalMirror-Center014" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.7605, 11.149, -46.925 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_SolarThermalMirror-Center014" instance=ExtResource( 9 )]
 
 [node name="Empty_SolarThermalMirror-Center015" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.73804, 11.3203, -51.6513 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_SolarThermalMirror-Center015" instance=ExtResource( 9 )]
 
 [node name="Empty_SolarThermalMirror-Center016" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9978, 12.3517, -58.6474 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_SolarThermalMirror-Center016" instance=ExtResource( 9 )]
 
 [node name="Empty_SolarThermalMirror-Center017" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9753, 12.5229, -63.3735 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_SolarThermalMirror-Center017" instance=ExtResource( 9 )]
 
 [node name="Empty_SolarThermalMirror-Center018" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5891, 11.8503, -55.7185 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_SolarThermalMirror-Center018" instance=ExtResource( 9 )]
 
 [node name="Empty_SolarThermalMirror-Center019" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5701, 12.1221, -60.4516 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_SolarThermalMirror-Center019" instance=ExtResource( 9 )]
 
 [node name="Empty_STEMP-Core-Exterior" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0712, 3.9436, -10.9204 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_STEMP-Core-Exterior" instance=ExtResource( 10 )]
 
 [node name="Empty_STEMP-Core-Exterior001" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4852, 5.85864, -23.6589 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_STEMP-Core-Exterior001" instance=ExtResource( 10 )]
 
 [node name="Empty_STEMP-Core-Exterior002" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7797, 7.4137, -35.3964 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_STEMP-Core-Exterior002" instance=ExtResource( 10 )]
 
 [node name="Empty_STEMP-Core-Exterior003" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.4701, 8.49695, -47.4794 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_STEMP-Core-Exterior003" instance=ExtResource( 10 )]
 
 [node name="Empty_STEMP-Core-Exterior004" type="Spatial" parent="STEMP_Facility_Grounds"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7074, 9.30652, -59.2016 )
 
 [node name="Scene" parent="STEMP_Facility_Grounds/Empty_STEMP-Core-Exterior004" instance=ExtResource( 10 )]
 
 [node name="RadioAntenna-LongRange" type="MeshInstance" parent="STEMP_Facility_Grounds"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9968, 17.0402, -68.1472 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 11 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="STEMP-SolarThermalUnit-Base" type="MeshInstance" parent="STEMP_Facility_Grounds" groups=[
 "cs",
 ]]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5701, 8.59558, -62.6874 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 12 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="STEMP-SolarThermalUnit-Base_col" type="StaticBody" parent="STEMP_Facility_Grounds/STEMP-SolarThermalUnit-Base"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="STEMP_Facility_Grounds/STEMP-SolarThermalUnit-Base/STEMP-SolarThermalUnit-Base_col"]
-
 shape = ExtResource( 13 )
-disabled = false
 
 [node name="STEMP_Facility_Grounds_col" type="StaticBody" parent="STEMP_Facility_Grounds"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="STEMP_Facility_Grounds/STEMP_Facility_Grounds_col"]
-
 shape = ExtResource( 14 )
-disabled = false
 
 [node name="Exterior" type="Spatial" parent="."]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.77563, 8.90393, -23.1044 )
 
 [node name="Interior" type="Spatial" parent="." groups=[
 "interior",
 ]]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.77563, 8.90393, -23.1044 )
 
 [node name="StirlingCoolingTank" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96097, -5.78039, 14.5525 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 15 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="StirlingCoolingTank001" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.36717, -3.88367, 1.8132 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 16 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="StirlingCoolingTank002" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.68357, -2.3081, -9.9573 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 17 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="StirlingCoolingTank003" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.38237, -1.24707, -22.0862 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 18 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="StirlingCoolingTank004" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6431, -0.459109, -33.8055 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 19 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Stirling-Outgoing-Pipes001" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.29737, -5.3407, 13.0217 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 20 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Stirling-Outgoing-Pipes002" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.71147, -3.42566, 0.283201 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 21 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Stirling-Outgoing-Pipes003" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.00587, -1.8706, -11.4544 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 22 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Stirling-Outgoing-Pipes004" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.69677, -0.78735, -23.5371 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 23 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Stirling-Outgoing-Pipes005" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9336, 0.0222206, -35.2596 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 24 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="NurbsPath000" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.29347, -5.91772, 15.5027 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 25 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="NurbsPath002" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.69967, -4.021, 2.7634 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 26 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="NurbsPath003" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.01567, -2.44556, -9.0071 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 27 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="NurbsPath004" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.71487, -1.38452, -21.136 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 28 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="NurbsPath005" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9756, -0.59656, -32.8555 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 29 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Pipes-Mirrors-to-Tank-Insulation001" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.76567, -6.74914, 10.9489 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 30 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Pipes-Mirrors-to-Tank-Insulation002" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.94727, -6.7727, 13.5066 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 31 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Pipes-Mirrors-to-Tank-Insulation003" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.36137, -4.83398, 0.768002 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 32 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Pipes-Mirrors-to-Tank-Insulation004" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.17967, -4.83411, -1.7896 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 33 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Pipes-Mirrors-to-Tank-Insulation005" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.47457, -3.27893, -13.5271 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 34 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Pipes-Mirrors-to-Tank-Insulation006" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.65577, -3.27893, -10.9695 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 35 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Pipes-Mirrors-to-Tank-Insulation007" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.34617, -2.58887, -23.0525 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 36 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Pipes-Mirrors-to-Tank-Insulation008" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.16507, -2.58887, -25.6099 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 37 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Pipes-Mirrors-to-Tank-Insulation009" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4019, -1.38623, -37.3323 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 38 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Pipes-Mirrors-to-Tank-Insulation010" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5835, -1.38623, -34.7747 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 39 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Empty_StirlingFreePiston" type="Spatial" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65427, -5.8656, 14.5058 )
 
 [node name="Scene" parent="Interior/Empty_StirlingFreePiston" instance=ExtResource( 40 )]
-
 transform = Transform( 0.301275, 0, 0.741103, 0, 0.8, 0, -0.741103, 0, 0.301275, 9.53674e-07, 0, 0 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Empty_StirlingFreePiston001" type="Spatial" parent="Interior"]
-
 editor/display_folded = true
 transform = Transform( 0.32623, 3.64235e-08, 0.730462, -3.34973e-08, 0.8, -2.49308e-08, -0.730462, -2.04192e-08, 0.32623, 6.38277, -5.8656, 14.499 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="Interior/Empty_StirlingFreePiston001" instance=ExtResource( 40 )]
 
 [node name="Empty_StirlingFreePiston002" type="Spatial" parent="Interior"]
-
 editor/display_folded = true
 transform = Transform( 0.317337, 0, 0.734369, 0, 0.8, 0, -0.734369, 0, 0.317337, 6.74077, -3.95422, 1.6242 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="Interior/Empty_StirlingFreePiston002" instance=ExtResource( 40 )]
 
 [node name="Empty_StirlingFreePiston003" type="Spatial" parent="Interior"]
-
 editor/display_folded = true
 transform = Transform( 0.313915, 0, 0.735838, 0, 0.8, 0, -0.735838, 0, 0.313915, 6.10397, -3.95422, 1.656 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="Interior/Empty_StirlingFreePiston003" instance=ExtResource( 40 )]
 
 [node name="Empty_StirlingFreePiston004" type="Spatial" parent="Interior"]
-
 editor/display_folded = true
 transform = Transform( 0.317646, 0, 0.734235, 0, 0.8, 0, -0.734235, 0, 0.317646, 8.09377, -2.39685, -9.9749 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="Interior/Empty_StirlingFreePiston004" instance=ExtResource( 40 )]
 
 [node name="Empty_StirlingFreePiston005" type="Spatial" parent="Interior"]
-
 editor/display_folded = true
 transform = Transform( 0.316743, 0, 0.734625, 0, 0.8, 0, -0.734625, 0, 0.316743, 7.36527, -2.39685, -9.9683 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="Interior/Empty_StirlingFreePiston005" instance=ExtResource( 40 )]
 
 [node name="Empty_StirlingFreePiston006" type="Spatial" parent="Interior"]
-
 editor/display_folded = true
 transform = Transform( 0.309684, 0, 0.737628, 0, 0.8, 0, -0.737628, 0, 0.309684, 8.78567, -1.32776, -22.0608 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="Interior/Empty_StirlingFreePiston006" instance=ExtResource( 40 )]
 
 [node name="Empty_StirlingFreePiston007" type="Spatial" parent="Interior"]
-
 editor/display_folded = true
 transform = Transform( 0.290872, 0, 0.745247, 0, 0.8, 0, -0.745247, 0, 0.290872, 8.05717, -1.32776, -22.0542 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="Interior/Empty_StirlingFreePiston007" instance=ExtResource( 40 )]
 
 [node name="Empty_StirlingFreePiston008" type="Spatial" parent="Interior"]
-
 editor/display_folded = true
 transform = Transform( 0.292063, 0, 0.744781, 0, 0.8, 0, -0.744781, 0, 0.292063, 11.0254, -0.510739, -33.7837 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="Interior/Empty_StirlingFreePiston008" instance=ExtResource( 40 )]
 
 [node name="Empty_StirlingFreePiston009" type="Spatial" parent="Interior"]
-
 editor/display_folded = true
 transform = Transform( 0.291437, 0, 0.745026, 0, 0.8, 0, -0.745026, 0, 0.291437, 10.2969, -0.510739, -33.7771 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="Interior/Empty_StirlingFreePiston009" instance=ExtResource( 40 )]
 
 [node name="Gangway000" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59957, -4.80566, 12.6115 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 41 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Gangway002" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.01417, -2.89062, -0.126999 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 42 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Gangway003" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.30857, -1.33557, -11.8645 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 43 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Gangway004" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.99907, -0.252319, -23.9475 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 44 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Gangway005" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2364, 0.55725, -35.6697 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 45 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="GangwayPlatform001" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59957, -4.80566, 12.6115 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 46 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="GangwayPlatform002" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.01417, -2.89062, -0.126999 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 47 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="GangwayPlatform003" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.30857, -1.33557, -11.8645 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 48 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="GangwayPlatform004" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.99907, -0.252319, -23.9475 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 49 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="GangwayPlatform005" type="MeshInstance" parent="Interior"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2364, 0.55725, -35.6697 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 50 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Triggers" type="Spatial" parent="."]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.77563, 8.90393, -23.1044 )
 
 [node name="Area" type="Area" parent="Triggers"]
-
-input_ray_pickable = false
-input_capture_on_drag = false
-space_override = 0
-gravity_point = false
-gravity_distance_scale = 0.0
-gravity_vec = Vector3( 0, -1, 0 )
-gravity = 9.8
-linear_damp = 0.1
-angular_damp = 1.0
-priority = 0.0
-monitoring = true
-monitorable = true
-collision_layer = 1
-collision_mask = 1
-audio_bus_override = false
-audio_bus_name = "Master"
-reverb_bus_enable = false
-reverb_bus_name = "Master"
-reverb_bus_amount = 0.0
-reverb_bus_uniformity = 0.0
 script = ExtResource( 51 )
 RootNode = NodePath("../..")
-showhide = "interior"
-hideshow = "exterior"
-bygroup = "player"
 
 [node name="CollisionShape" type="CollisionShape" parent="Triggers/Area"]
-
 shape = SubResource( 1 )
-disabled = false
-
 

@@ -15,183 +15,71 @@
 
 [node name="Scene" type="Spatial"]
 
-[node name="MSReactorTankTower" type="MeshInstance" parent="." index="0"]
-
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
+[node name="MSReactorTankTower" type="MeshInstance" parent="."]
+lod_max_distance = 100.0
 mesh = ExtResource( 1 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="Empty_SolarThermalMirrorSet_SideCircuit" type="Spatial" parent="MSReactorTankTower" index="0"]
-
+[node name="Empty_SolarThermalMirrorSet_SideCircuit" type="Spatial" parent="MSReactorTankTower"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 2.98023e-08, 0, 1, 0.00292969, 4.28906, 3.16504 )
 
-[node name="Scene" parent="MSReactorTankTower/Empty_SolarThermalMirrorSet_SideCircuit" index="0" instance=ExtResource( 2 )]
+[node name="Scene" parent="MSReactorTankTower/Empty_SolarThermalMirrorSet_SideCircuit" instance=ExtResource( 2 )]
 
-[node name="Empty_TowerRadiator" type="Spatial" parent="MSReactorTankTower" index="1"]
-
+[node name="Empty_TowerRadiator" type="Spatial" parent="MSReactorTankTower"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 2.98023e-08, 0, 1, -3.93262, 1.58386, 0.755615 )
 
-[node name="Scene" parent="MSReactorTankTower/Empty_TowerRadiator" index="0" instance=ExtResource( 3 )]
+[node name="Scene" parent="MSReactorTankTower/Empty_TowerRadiator" instance=ExtResource( 3 )]
 
-[node name="MSReactor-HeatExchangerPipe" type="MeshInstance" parent="MSReactorTankTower" index="2"]
-
+[node name="MSReactor-HeatExchangerPipe" type="MeshInstance" parent="MSReactorTankTower"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 2.98023e-08, 0, 1, -0.891113, 1.41223, 0.112793 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 4 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="MSReactor-Insulation-on-Pipes" type="MeshInstance" parent="MSReactorTankTower" index="3"]
-
+[node name="MSReactor-Insulation-on-Pipes" type="MeshInstance" parent="MSReactorTankTower"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 2.98023e-08, 0, 1, 0.00292969, 3.47351, 0.472168 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 5 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="MSReactor-PipestoRadTank" type="MeshInstance" parent="MSReactorTankTower" index="4"]
-
+[node name="MSReactor-PipestoRadTank" type="MeshInstance" parent="MSReactorTankTower"]
 transform = Transform( 0.862119, 0, 0.506706, 0, 1, 0, -0.506706, 0, 0.862119, -3.49316, 0.97522, 0.687988 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 6 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="PresssureTank" type="MeshInstance" parent="MSReactorTankTower" index="5"]
-
+[node name="PresssureTank" type="MeshInstance" parent="MSReactorTankTower"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 2.98023e-08, 0, 1, 0.500977, 0.96228, -0.0783691 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 7 )
-skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="ReactorTank" type="MeshInstance" parent="MSReactorTankTower" index="6"]
-
+[node name="ReactorTank" type="MeshInstance" parent="MSReactorTankTower"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 2.98023e-08, 0, 1, -0.0292969, 2.46265, -0.0349121 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 8 )
-skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="ReactorTankConnections" type="MeshInstance" parent="MSReactorTankTower" index="7"]
-
+[node name="ReactorTankConnections" type="MeshInstance" parent="MSReactorTankTower"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 2.98023e-08, 0, 1, 0.187988, 0.936157, -0.0183105 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 9 )
-skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="WaterTank" type="MeshInstance" parent="MSReactorTankTower" index="8"]
-
+[node name="WaterTank" type="MeshInstance" parent="MSReactorTankTower"]
 transform = Transform( 1, 0, -2.38419e-07, 0, 1, 0, 2.68221e-07, 0, 1, -2.94531, 0.760864, 0.757812 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 10 )
-skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="WaterTankInsulation" type="MeshInstance" parent="MSReactorTankTower" index="9"]
-
+[node name="WaterTankInsulation" type="MeshInstance" parent="MSReactorTankTower"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 2.98023e-08, 0, 1, -2.93262, 1.30615, 0.463623 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 11 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="WaterTankStand" type="MeshInstance" parent="MSReactorTankTower" index="10"]
-
+[node name="WaterTankStand" type="MeshInstance" parent="MSReactorTankTower"]
 transform = Transform( -1, 0, 3.89414e-07, 0, 1, 0, -4.19217e-07, 0, -1, -2.9292, -0.000488281, 0.512695 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 12 )
-skeleton = NodePath("..")
 material/0 = null
-
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/Player/player_flycamera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world_environments/StarrySky.tres" type="Environment" id=2]
 [ext_resource path="res://scenes/TerrainWithMarkers.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/Player/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/media_mode_camera.tscn" type="PackedScene" id=5]
 
 [node name="world" type="Spatial"]
 
@@ -22,6 +23,54 @@ environment = ExtResource( 2 )
 [node name="Camera" type="Camera" parent="WorldEnvironment"]
 
 [node name="Terrain" parent="." instance=ExtResource( 3 )]
+
+[node name="Set_MoltenSoilReactors" parent="Terrain" index="1"]
+editor/display_folded = false
+
+[node name="Empty_MoltenSoilReactor006" parent="Terrain/Set_MoltenSoilReactors" index="1"]
+editor/display_folded = false
+
+[node name="Empty_MoltenSoilReactor004" parent="Terrain/Set_MoltenSoilReactors" index="3"]
+editor/display_folded = false
+
+[node name="Empty_MoltenSoilReactor003" parent="Terrain/Set_MoltenSoilReactors" index="4"]
+editor/display_folded = false
+
+[node name="Set_BoatRadiators" parent="Terrain" index="2"]
+editor/display_folded = false
+
+[node name="Empty_Radiator-BoatRad012" parent="Terrain/Set_BoatRadiators" index="8"]
+editor/display_folded = false
+
+[node name="Empty_Radiator-BoatRad008" parent="Terrain/Set_BoatRadiators" index="12"]
+editor/display_folded = false
+
+[node name="Empty_Spaceport" parent="Terrain" index="4"]
+editor/display_folded = false
+
+[node name="Empty_RadarTower" parent="Terrain" index="5"]
+editor/display_folded = false
+
+[node name="Empty_MainHangars" parent="Terrain" index="8"]
+editor/display_folded = false
+
+[node name="Empty_FirstHangars" parent="Terrain" index="9"]
+editor/display_folded = false
+
+[node name="Empty_AtriumHab" parent="Terrain" index="11"]
+editor/display_folded = false
+
+[node name="Empty_TeacupCrater" parent="Terrain" index="12"]
+editor/display_folded = false
+
+[node name="Empty_LongDome" parent="Terrain" index="35"]
+editor/display_folded = false
+
+[node name="Empty_NorthLongAtrium" parent="Terrain" index="37"]
+editor/display_folded = false
+
+[node name="Empty_SouthLongAtrium" parent="Terrain" index="39"]
+editor/display_folded = false
 
 [node name="spawn_points" type="Spatial" parent="."]
 editor/display_folded = true
@@ -51,5 +100,10 @@ WALKSPEED = 1.0
 RUNSPEED = 2.0
 Camera = NodePath("../../WorldEnvironment/Camera")
 
+[node name="MediaModeCamera" parent="players" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.93701, 0 )
+
 [node name="VisibilityEnabler" type="VisibilityEnabler" parent="."]
 
+
+[editable path="Terrain"]

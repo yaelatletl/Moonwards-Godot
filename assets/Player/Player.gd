@@ -29,7 +29,7 @@ var up
 #State
 var input_processing = true setget set_player_input
 var nocamera = false setget set_player_nocamera
-var nonetwork = false setget set_nonetwork
+var nonetwork = true setget set_nonetwork
 var name_label
 #Options
 export(float) var WALKSPEED = 3.1
