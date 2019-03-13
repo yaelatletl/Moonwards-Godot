@@ -30,7 +30,9 @@ func _ready():
 	button = $Panel/TabContainer/Dev/VBoxContainer/tDecimate
 	button.pressed = options.get("dev", "hide_meshes_random", false)
 	button = $Panel/TabContainer/Dev/VBoxContainer/sDecimatePercent
-	button.value = options.get("dev", "hide_meshes_percent", 90)
+	button.value = options.get("dev", "decimate_percent", 90)
+	button.connect("changed", self, "set_decimate_percent")
+	
 	
 	button = $Panel/TabContainer/Dev/VBoxContainer/tPMonitor
 	button.pressed = options.get("_state_", "perf_mon", false)
@@ -93,3 +95,10 @@ func _on_tPMonitor_pressed():
 	var button = $Panel/TabContainer/Dev/VBoxContainer/tPMonitor
 	options.set("dev", button.pressed, "show_performance_monitor")
 	debug.show_performance_monitor(button.pressed)
+
+func set_decimate_percent(value):
+	options.set("dev", value, "decimate_percent")
+	if options.get("dev", "hide_meshes_random", false):
+		debug.hide_nodes_random(0)
+		debug.hide_nodes_random(value)
+
