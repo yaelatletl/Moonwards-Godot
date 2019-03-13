@@ -22,6 +22,7 @@ func _ready():
 # 	tree.connect("tree_changed", self, "on_tree_change")
 	tree.connect("node_added", self, "on_node_added")
 	tree.connect("node_removed", self, "on_node_removed")
+#	tree.connect("idle_frame", self, "tree_idle_frame")
 	
 	#insert some camera
 	camera_ready()
@@ -32,6 +33,8 @@ func on_node_added(node):
 	print("added node %s" % node)
 func on_node_removed(node):
 	print("node removed: %s" % node)
+func tree_idle_frame():
+	print("tree idle frame")
 
 var camera_ready_path
 var camera_ready_oldcamera
