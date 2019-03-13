@@ -29,6 +29,8 @@ func _ready():
 	button.pressed = options.get("dev", "3FPSlimit", false)
 	button = $Panel/TabContainer/Dev/VBoxContainer/tDecimate
 	button.pressed = options.get("dev", "hide_meshes_random", false)
+	button = $Panel/TabContainer/Dev/VBoxContainer/sDecimatePercent
+	button.value = options.get("dev", "hide_meshes_percent", 90)
 	
 	button = $Panel/TabContainer/Dev/VBoxContainer/tPMonitor
 	button.pressed = options.get("_state_", "perf_mon", false)

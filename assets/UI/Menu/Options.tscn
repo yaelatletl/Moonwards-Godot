@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/UI/Menu/Options.gd" type="Script" id=1]
 [ext_resource path="res://assets/UI/Menu/User_Settings_Options.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/UI/Menu/Controls_settings.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/UI/control_elements/LabelSliderMix/LabelSliderMix.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/UI/Menu/Controls_settings.tscn" type="PackedScene" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
-
 bg_color = Color( 0.225937, 0.212708, 0.265625, 1 )
 border_width_left = 15
 border_width_top = 10
@@ -14,32 +14,26 @@ border_width_bottom = 10
 border_color = Color( 0.223529, 0.211765, 0.266667, 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
-
 content_margin_left = 0.0
 bg_color = Color( 0.287646, 0.275574, 0.335938, 1 )
 
 [sub_resource type="StyleBoxFlat" id=3]
-
 content_margin_left = 0.0
 bg_color = Color( 0.287646, 0.275574, 0.335938, 1 )
 
 [sub_resource type="StyleBoxFlat" id=4]
-
 content_margin_left = 0.0
 bg_color = Color( 0.287646, 0.275574, 0.335938, 1 )
 
 [sub_resource type="StyleBoxFlat" id=5]
-
 content_margin_left = 0.0
 bg_color = Color( 0.287646, 0.275574, 0.335938, 1 )
 
 [sub_resource type="StyleBoxFlat" id=6]
-
 content_margin_left = 0.0
 bg_color = Color( 0.287646, 0.275574, 0.335938, 1 )
 
 [sub_resource type="StyleBoxFlat" id=7]
-
 content_margin_left = 0.0
 bg_color = Color( 0.287646, 0.275574, 0.335938, 1 )
 
@@ -61,7 +55,6 @@ custom_styles/tab_fg = SubResource( 1 )
 tab_align = 0
 
 [node name="Player" type="Tabs" parent="Panel/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -73,6 +66,7 @@ margin_bottom = -4.0
 rect_scale = Vector2( 1.2, 1.2 )
 
 [node name="Dev" type="Tabs" parent="Panel/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -129,10 +123,16 @@ margin_bottom = 172.0
 custom_styles/hover = SubResource( 7 )
 text = "Decimate objects"
 
-[node name="tFPSLim" type="CheckButton" parent="Panel/TabContainer/Dev/VBoxContainer"]
+[node name="sDecimatePercent" parent="Panel/TabContainer/Dev/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 176.0
 margin_right = 1016.0
-margin_bottom = 216.0
+margin_bottom = 200.0
+label = "   Decimate percent"
+
+[node name="tFPSLim" type="CheckButton" parent="Panel/TabContainer/Dev/VBoxContainer"]
+margin_top = 204.0
+margin_right = 1016.0
+margin_bottom = 244.0
 custom_styles/hover = SubResource( 7 )
 text = "Limit FPS"
 
@@ -154,7 +154,7 @@ margin_top = 42.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="Controls" parent="Panel/TabContainer" instance=ExtResource( 3 )]
+[node name="Controls" parent="Panel/TabContainer" instance=ExtResource( 4 )]
 visible = false
 margin_right = -4.0
 margin_bottom = -4.0
