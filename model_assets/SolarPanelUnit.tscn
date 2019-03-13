@@ -53,6 +53,7 @@ material/0 = null
 "LodFar",
 ]]
 transform = Transform( 0.58739, -0.872008, 0, 1.04641, 0.489492, 0, 0, 0, 2, -0.136011, 0, -2.43298 )
+lod_max_distance = 100.0
 mesh = SubResource( 2 )
 material/0 = null
 

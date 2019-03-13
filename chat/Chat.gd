@@ -7,6 +7,7 @@ func _ready():
 	get_tree().connect("connected_to_server", self, "_connected_ok")
 	get_tree().connect("network_peer_disconnected", self, "_player_disconnected")
 	player_id = str(get_tree().get_network_unique_id())
+	set_process_unhandled_input(false)
 
 func _player_connected(id):
 	$Display.text += '\n ' + username + ' has joined' #Change str(id) for the username

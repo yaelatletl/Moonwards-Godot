@@ -4,53 +4,20 @@
 [ext_resource path="res://model_assets/meshes/HangarArchColumns__HangarArch_Large_HangarArchEnds_Large.mesh" type="ArrayMesh" id=2]
 [ext_resource path="res://model_assets/meshes/HangarArchColumns__HangarArch_Large_HangarColumns_Large.mesh" type="ArrayMesh" id=3]
 
-[node name="Scene" type="Spatial" index="0"]
+[node name="Scene" type="Spatial"]
 
-[node name="HangarArch_Large" type="MeshInstance" parent="." index="0"]
-
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
+[node name="HangarArch_Large" type="MeshInstance" parent="."]
+lod_max_distance = 100.0
 mesh = ExtResource( 1 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="HangarArchEnds_Large" type="MeshInstance" parent="HangarArch_Large" index="0"]
-
+[node name="HangarArchEnds_Large" type="MeshInstance" parent="HangarArch_Large"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0918, -0.746216, 0.00121307 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 2 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="HangarColumns_Large" type="MeshInstance" parent="HangarArch_Large" index="1"]
-
+[node name="HangarColumns_Large" type="MeshInstance" parent="HangarArch_Large"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1685, -4.36694, 0.00121307 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 3 )
-skeleton = NodePath("..")
 material/0 = null
-
 

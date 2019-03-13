@@ -41,80 +41,52 @@
 [node name="Scene" type="Spatial"]
 
 [node name="SpaceportMainWhippleShield" type="MeshInstance" parent="."]
-
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
+lod_max_distance = 100.0
 mesh = ExtResource( 1 )
-skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
 [node name="AirlockMeasure001" type="MeshInstance" parent="SpaceportMainWhippleShield"]
-
 transform = Transform( -4.37114e-08, -1, 4.37114e-08, 5.96046e-08, -4.37114e-08, -1, 1, -4.37114e-08, 5.96046e-08, -2.99466, 0.0372314, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 2 )
-skeleton = NodePath("..")
 
 [node name="AirlockNew" type="Spatial" parent="SpaceportMainWhippleShield"]
-
 editor/display_folded = true
 transform = Transform( 1, 5.96047e-09, 0, -5.96047e-09, 1, 0, 0, 0, 1, 0.513641, 0.164795, -3.08154 )
 
 [node name="Scene" parent="SpaceportMainWhippleShield/AirlockNew" instance=ExtResource( 3 )]
 
 [node name="AirlockNew001" type="Spatial" parent="SpaceportMainWhippleShield"]
-
 editor/display_folded = true
 transform = Transform( 1, 5.96047e-09, 0, -5.96047e-09, 1, 0, 0, 0, 1, -0.437531, 0.164795, -3.08154 )
 
 [node name="Scene" parent="SpaceportMainWhippleShield/AirlockNew001" instance=ExtResource( 3 )]
 
 [node name="AirlockNew002" type="Spatial" parent="SpaceportMainWhippleShield"]
-
 editor/display_folded = true
 transform = Transform( -4.37114e-08, 5.96047e-09, 1, -5.96047e-09, 1, -5.96047e-09, -1, -5.96047e-09, -4.37114e-08, -6.35452, 0.0551758, -2.75122 )
 
 [node name="Scene" parent="SpaceportMainWhippleShield/AirlockNew002" instance=ExtResource( 3 )]
 
 [node name="AirlockNew003" type="Spatial" parent="SpaceportMainWhippleShield"]
-
 editor/display_folded = true
 transform = Transform( -4.37114e-08, 5.96047e-09, 1, -5.96047e-09, 1, -5.96047e-09, -1, -5.96047e-09, -4.37114e-08, -6.35452, 0.0551758, -1.75122 )
 
 [node name="Scene" parent="SpaceportMainWhippleShield/AirlockNew003" instance=ExtResource( 3 )]
 
 [node name="AirlockNew004" type="Spatial" parent="SpaceportMainWhippleShield"]
-
 editor/display_folded = true
 transform = Transform( -4.37114e-08, 5.96047e-09, 1, -5.96047e-09, 1, -5.96047e-09, -1, -5.96047e-09, -4.37114e-08, -6.35452, 0.0551758, -0.751221 )
 
 [node name="Scene" parent="SpaceportMainWhippleShield/AirlockNew004" instance=ExtResource( 3 )]
 
 [node name="AirlockNew005" type="Spatial" parent="SpaceportMainWhippleShield"]
-
 editor/display_folded = true
 transform = Transform( -4.37114e-08, 5.96047e-09, 1, -5.96047e-09, 1, -5.96047e-09, -1, -5.96047e-09, -4.37114e-08, -6.35452, 0.0551758, 0.248779 )
 
 [node name="Scene" parent="SpaceportMainWhippleShield/AirlockNew005" instance=ExtResource( 3 )]
 
 [node name="AirlockNew006" type="Spatial" parent="SpaceportMainWhippleShield"]
-
 editor/display_folded = true
 transform = Transform( 1, 5.96047e-09, 0, -5.96047e-09, 1, 0, 0, 0, 1, 0.0385437, 0.977051, -3.08228 )
 
@@ -123,52 +95,27 @@ transform = Transform( 1, 5.96047e-09, 0, -5.96047e-09, 1, 0, 0, 0, 1, 0.0385437
 [node name="AirlockStructure001" type="MeshInstance" parent="SpaceportMainWhippleShield" groups=[
 "wall",
 ]]
-
 transform = Transform( -4.37114e-08, -1, 4.37114e-08, 5.96046e-08, -4.37114e-08, -1, 1, -4.37114e-08, 5.96046e-08, -3.08841, 0.0372314, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 4 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="AirlockStructure001_col" type="StaticBody" parent="SpaceportMainWhippleShield/AirlockStructure001"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="SpaceportMainWhippleShield/AirlockStructure001/AirlockStructure001_col"]
-
 shape = ExtResource( 5 )
-disabled = false
 
 [node name="Empty_ShuttleProp" type="Spatial" parent="SpaceportMainWhippleShield"]
-
 transform = Transform( 1, 5.96047e-09, 0, -5.96047e-09, 1, 0, 0, 0, 1, 2.72629, 0.570923, -6.94733 )
 
 [node name="Scene" parent="SpaceportMainWhippleShield/Empty_ShuttleProp" instance=ExtResource( 6 )]
 
 [node name="Empty_ShuttleProp001" type="Spatial" parent="SpaceportMainWhippleShield"]
-
 editor/display_folded = true
 transform = Transform( -4.37114e-08, 5.96047e-09, 1, -5.96047e-09, 1, -5.96047e-09, -1, -5.96047e-09, -4.37114e-08, -7.29655, 1.43726, -6.4738 )
 
 [node name="Scene" parent="SpaceportMainWhippleShield/Empty_ShuttleProp001" instance=ExtResource( 6 )]
 
 [node name="Empty_ShuttleProp002" type="Spatial" parent="SpaceportMainWhippleShield"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0385437, 0.570923, -6.41968 )
 
@@ -177,576 +124,186 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0385437, 0.570923, -6.41968 
 [node name="InitialColonyGrounds005" type="MeshInstance" parent="SpaceportMainWhippleShield" groups=[
 "wall",
 ]]
-
 transform = Transform( 1, 5.96047e-09, 0, -5.96047e-09, 1, 0, 0, 0, 1, 9.20261, -0.0895996, -7.95776 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 7 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="InitialColonyGrounds005_col" type="StaticBody" parent="SpaceportMainWhippleShield/InitialColonyGrounds005"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="SpaceportMainWhippleShield/InitialColonyGrounds005/InitialColonyGrounds005_col"]
-
 shape = ExtResource( 8 )
-disabled = false
 
 [node name="InitialColonyGrounds006" type="MeshInstance" parent="SpaceportMainWhippleShield"]
-
 transform = Transform( 1, 5.96047e-09, 0, -5.96047e-09, 1, 0, 0, 0, 1, 14.1181, -0.0476074, -7.94702 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 9 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="NuclearEngineStorage" type="MeshInstance" parent="SpaceportMainWhippleShield" groups=[
 "cs",
 ]]
-
 transform = Transform( 1, 5.96047e-09, 0, -5.96047e-09, 1, 0, 0, 0, 1, -2.47391, 0.592041, -11.1559 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 10 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="NuclearEngineStorage_col" type="StaticBody" parent="SpaceportMainWhippleShield/NuclearEngineStorage"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="SpaceportMainWhippleShield/NuclearEngineStorage/NuclearEngineStorage_col"]
-
 shape = ExtResource( 11 )
-disabled = false
 
 [node name="Runways" type="MeshInstance" parent="SpaceportMainWhippleShield" groups=[
 "floor",
 ]]
-
 transform = Transform( 1, 5.96047e-09, 0, -5.96047e-09, 1, 0, 0, 0, 1, -21.7248, 1.79761, -11.1559 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 12 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Runways_col" type="StaticBody" parent="SpaceportMainWhippleShield/Runways"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="SpaceportMainWhippleShield/Runways/Runways_col"]
-
 shape = ExtResource( 13 )
-disabled = false
 
 [node name="Spaceport-FuelBuildingInsulationFrame" type="MeshInstance" parent="SpaceportMainWhippleShield"]
-
 transform = Transform( 1, 5.96047e-09, 0, -5.96047e-09, 1, 0, 0, 0, 1, 11.8344, -1.33289, -2.06177 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 14 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Spaceport-FuelingStation" type="MeshInstance" parent="SpaceportMainWhippleShield" groups=[
 "cs",
 ]]
-
+editor/display_folded = true
 transform = Transform( 1, 5.96047e-09, 0, -5.96047e-09, 1, 0, 0, 0, 1, 6.56589, -0.224243, -10.488 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 15 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Spaceport-FuelingStation_col" type="StaticBody" parent="SpaceportMainWhippleShield/Spaceport-FuelingStation"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="SpaceportMainWhippleShield/Spaceport-FuelingStation/Spaceport-FuelingStation_col"]
-
 shape = ExtResource( 16 )
-disabled = false
 
 [node name="Spaceport-H2-TankPipe" type="MeshInstance" parent="SpaceportMainWhippleShield"]
-
 transform = Transform( 1, 5.96047e-09, 0, -5.96047e-09, 1, 0, 0, 0, 1, 7.01462, -2.24744, -10.5596 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 17 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Spaceport-H2Tank" type="MeshInstance" parent="SpaceportMainWhippleShield"]
-
 transform = Transform( 1, -5.96047e-09, -5.96047e-09, -5.96047e-09, -4.37114e-08, -1, 5.96047e-09, 1, -4.37114e-08, 9.01462, -2.24744, -9.87451 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 18 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Spaceport-OxyTankPipe" type="MeshInstance" parent="SpaceportMainWhippleShield"]
-
 transform = Transform( 0.668304, 5.96047e-09, -0.743889, -5.96047e-09, 1, 2.65774e-09, 0.743889, 2.65774e-09, 0.668304, 8.24069, -1.39612, -5.58032 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 19 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="SpaceportDocks-Building" type="MeshInstance" parent="SpaceportMainWhippleShield" groups=[
 "wall",
 ]]
-
 transform = Transform( 1, -5.96047e-09, -5.96047e-09, -5.96047e-09, -4.37114e-08, -1, 5.96047e-09, 1, -4.37114e-08, -4.66898, 0.0493164, 0.306885 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 20 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="SpaceportDocks-Building_col" type="StaticBody" parent="SpaceportMainWhippleShield/SpaceportDocks-Building"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="SpaceportMainWhippleShield/SpaceportDocks-Building/SpaceportDocks-Building_col"]
-
 shape = ExtResource( 21 )
-disabled = false
 
 [node name="SpaceportDocksProtection" type="MeshInstance" parent="SpaceportMainWhippleShield" groups=[
 "cs",
 ]]
-
 transform = Transform( 1, 5.96047e-09, 0, -5.96047e-09, 1, 0, 0, 0, 1, -4.68561, 1.53137, -1.72229 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 22 )
-skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
 [node name="SpaceportDocksProtection_col" type="StaticBody" parent="SpaceportMainWhippleShield/SpaceportDocksProtection"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="SpaceportMainWhippleShield/SpaceportDocksProtection/SpaceportDocksProtection_col"]
-
 shape = ExtResource( 23 )
-disabled = false
 
 [node name="SpacePortMain000" type="MeshInstance" parent="SpaceportMainWhippleShield"]
-
 transform = Transform( 1, 5.96047e-09, 0, -5.96047e-09, 1, 0, 0, 0, 1, -3.05176e-05, 1.6239, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 24 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="SpacePortMain001" type="MeshInstance" parent="SpaceportMainWhippleShield" groups=[
 "floor",
 ]]
-
 transform = Transform( 1, 5.96047e-09, 0, -5.96047e-09, 1, 0, 0, 0, 1, -3.05176e-05, 1.6239, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 25 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="SpacePortMain001_col" type="StaticBody" parent="SpaceportMainWhippleShield/SpacePortMain001"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="SpaceportMainWhippleShield/SpacePortMain001/SpacePortMain001_col"]
-
 shape = ExtResource( 26 )
-disabled = false
 
 [node name="SpacePortMain002" type="MeshInstance" parent="SpaceportMainWhippleShield" groups=[
 "wall",
 ]]
-
 transform = Transform( 1, 5.96047e-09, 0, -5.96047e-09, 1, 0, 0, 0, 1, -3.05176e-05, 1.6239, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 27 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="SpacePortMain002_col" type="StaticBody" parent="SpaceportMainWhippleShield/SpacePortMain002"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="SpaceportMainWhippleShield/SpacePortMain002/SpacePortMain002_col"]
-
 shape = ExtResource( 28 )
-disabled = false
 
 [node name="SpacePortMain003" type="MeshInstance" parent="SpaceportMainWhippleShield"]
-
 transform = Transform( 1, 5.96047e-09, 0, -5.96047e-09, 1, 0, 0, 0, 1, -3.05176e-05, 1.6239, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 29 )
-skeleton = NodePath("..")
 material/0 = null
-_sections_unfolded = [ "material" ]
 
 [node name="SpaceportMainWhippleShieldSupports" type="MeshInstance" parent="SpaceportMainWhippleShield"]
-
 transform = Transform( 0.923879, 5.96047e-09, -0.382684, -5.96047e-09, 1, 1.18561e-09, 0.382684, 1.18561e-09, 0.923879, -3.05176e-05, 1.46497, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 30 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="SpaceportMainWhippleShieldSupports005" type="MeshInstance" parent="SpaceportMainWhippleShield"]
-
 transform = Transform( 1, 5.96047e-09, 0, -5.96047e-09, 1, 0, 0, 0, 1, -1.64896, -0.450684, -3.96973 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 31 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="SpaceportOxyTank" type="MeshInstance" parent="SpaceportMainWhippleShield"]
-
 transform = Transform( 1, 5.96047e-09, 0, -5.96047e-09, 1, 0, 0, 0, 1, 8.24069, -3.85327, -5.58032 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 32 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="SpaceportTarp" type="MeshInstance" parent="SpaceportMainWhippleShield"]
-
 transform = Transform( 1, -5.96047e-09, -5.96047e-09, -5.96047e-09, -4.37114e-08, -1, 5.96047e-09, 1, -4.37114e-08, 5.40671, 2.79651, -8.25244 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 33 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="SpaceportTarpTowers" type="MeshInstance" parent="SpaceportMainWhippleShield"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.40671, -0.380493, -11.2112 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 34 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="SpaceportWhippleShieldSupports" type="MeshInstance" parent="SpaceportMainWhippleShield"]
-
 transform = Transform( -0.595038, -0.803698, 0, 0.803698, -0.595038, 0, 0, 0, 1, -3.43851, 1.06641, -2.03052 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 35 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="Truss-Triangular002" type="MeshInstance" parent="SpaceportMainWhippleShield"]
-
 transform = Transform( 1, -5.96047e-09, -5.96047e-09, -5.96047e-09, -4.37114e-08, -1, 5.96047e-09, 1, -4.37114e-08, 5.40671, 2.78455, -11.2112 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 36 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="WindowHexpane" type="Spatial" parent="SpaceportMainWhippleShield"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.05176e-05, 2.51978, 0 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="SpaceportMainWhippleShield/WindowHexpane" instance=ExtResource( 37 )]
-
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, -0.0171726, 0 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="OmniLight" type="OmniLight" parent="SpaceportMainWhippleShield"]
 
-layers = 1
-light_color = Color( 1, 1, 1, 1 )
-light_energy = 1.0
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
-omni_range = 5.0
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-
 [node name="OmniLight2" type="OmniLight" parent="SpaceportMainWhippleShield"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.87885, 0, -1.72316 )
-layers = 1
-light_color = Color( 1, 1, 1, 1 )
-light_energy = 1.0
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 3.37895
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
 
 [node name="OmniLight3" type="OmniLight" parent="SpaceportMainWhippleShield"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.87885, 2.05836, -8.21762 )
-layers = 1
-light_color = Color( 1, 1, 1, 1 )
 light_energy = 0.4
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 10.718
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light" ]
-
 

@@ -383,6294 +383,1970 @@
 [node name="Scene" type="Spatial"]
 
 [node name="LongDome-RegolithOverlay" type="MeshInstance" parent="."]
-
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
+lod_max_distance = 200.0
 mesh = ExtResource( 1 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="ApartmentBuildings" type="MeshInstance" parent="LongDome-RegolithOverlay" groups=[
 "cs",
 ]]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.05859, -4.85498, -0.169678 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 2 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="ApartmentBuildings_col" type="StaticBody" parent="LongDome-RegolithOverlay/ApartmentBuildings"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="LongDome-RegolithOverlay/ApartmentBuildings/ApartmentBuildings_col"]
-
 shape = ExtResource( 3 )
-disabled = false
 
 [node name="LongDome-GlassReinforcment" type="MeshInstance" parent="LongDome-RegolithOverlay"]
-
 transform = Transform( 1, 7.06117e-08, 1.05268e-08, -7.06117e-08, 1, 1.74708e-08, -1.05268e-08, -1.74708e-08, 1, 2.53516, -3.09619, 0.124023 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 4 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDome-GlassWalls" type="MeshInstance" parent="LongDome-RegolithOverlay" groups=[
 "wall",
 ]]
-
 transform = Transform( 1, 7.06117e-08, 1.05268e-08, -7.06117e-08, 1, 1.74708e-08, -1.05268e-08, -1.74708e-08, 1, 2.53516, -3.09619, 0.124023 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 5 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDome-GlassWalls_col" type="StaticBody" parent="LongDome-RegolithOverlay/LongDome-GlassWalls"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="LongDome-RegolithOverlay/LongDome-GlassWalls/LongDome-GlassWalls_col"]
-
 shape = ExtResource( 6 )
-disabled = false
 
 [node name="LongDomeArch-1" type="MeshInstance" parent="LongDome-RegolithOverlay"]
-
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5801, -0.498779, -66.4033 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 7 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1001" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.56689, -1.30615, 16.1843 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 8 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1002" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.39746, -1.54712, 19.4436 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 9 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1003" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.615717, -0.268799, 3.2412 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 10 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1004" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27929, -0.534424, 6.45336 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 11 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1005" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.99658, -0.797852, 9.68969 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 12 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1006" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.76367, -1.05542, 12.9282 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 13 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1007" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.72205e-06, 0, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 14 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1008" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.85302, -1.08325, 13.2898 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 15 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1009" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.94189, -1.11133, 13.6516 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 16 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1010" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.03124, -1.13916, 14.0134 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 17 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1011" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1206, -1.16699, 14.3752 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 18 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1012" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.20996, -1.19482, 14.737 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 19 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1013" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29882, -1.22266, 15.0989 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 20 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1014" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38818, -1.25049, 15.4607 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 21 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1015" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.47753, -1.27832, 15.8225 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 22 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1016" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65917, -1.33301, 16.5464 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 23 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1017" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75146, -1.35962, 16.9087 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 24 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1018" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.84374, -1.38647, 17.2707 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 25 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1019" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.93603, -1.41333, 17.6328 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 26 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1020" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.02831, -1.43994, 17.9951 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 27 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1021" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1206, -1.4668, 18.3572 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 28 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1022" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.21288, -1.49365, 18.7192 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 29 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1023" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.30517, -1.52051, 19.0813 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 30 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1024" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.49316, -1.57275, 19.8083 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 31 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1025" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.58837, -1.59839, 20.1731 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 32 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1026" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.68408, -1.62402, 20.5378 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 33 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1027" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.77978, -1.64966, 20.9028 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 34 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1028" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.87548, -1.67505, 21.2676 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 35 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1029" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0683537, -0.0297852, 0.360107 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 36 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1030" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.136713, -0.0598145, 0.720215 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 37 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1031" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.205072, -0.0895996, 1.08032 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 38 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1032" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.273432, -0.119385, 1.44043 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 39 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1033" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.342279, -0.149414, 1.80078 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 40 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1034" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.410639, -0.179199, 2.16089 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 41 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1035" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.478998, -0.208984, 2.52098 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 42 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1036" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.547358, -0.239014, 2.88109 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 43 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1037" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.689447, -0.29834, 3.59813 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 44 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1038" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.763178, -0.327881, 3.95507 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 45 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1039" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.836908, -0.357422, 4.312 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 46 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1040" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.910639, -0.386963, 4.66869 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 47 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1041" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.984369, -0.416504, 5.02562 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 48 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1042" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0581, -0.446045, 5.38256 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 49 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1043" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13183, -0.475342, 5.73949 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 50 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1044" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20556, -0.504883, 6.09642 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 51 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1045" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35888, -0.563721, 6.81298 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 52 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1046" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43847, -0.593018, 7.1726 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 53 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1047" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.51855, -0.622314, 7.53222 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 54 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1048" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59814, -0.651611, 7.89183 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 55 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1049" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67773, -0.680664, 8.25145 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 56 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1050" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75732, -0.709961, 8.61083 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 57 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1051" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8374, -0.739258, 8.97045 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 58 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1052" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.91699, -0.768555, 9.33007 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 59 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1053" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08203, -0.826416, 10.0495 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 60 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1054" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.16699, -0.85498, 10.4094 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 61 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1055" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25244, -0.883789, 10.7693 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 62 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1056" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3374, -0.912354, 11.1289 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 63 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1057" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.42285, -0.940918, 11.4888 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 64 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1058" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50781, -0.969727, 11.8486 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 65 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1059" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.59326, -0.998291, 12.2085 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 66 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-1060" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67822, -1.02686, 12.5683 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 67 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2001" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.66894, -5.2522, 22.6763 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 68 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2002" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.47705, -5.40601, 29.2871 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 69 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2003" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.70654, -5.45776, 32.6389 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 70 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2004" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.68115, -5.46289, 35.9866 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 71 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2005" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5581, -5.3645, 25.9683 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 72 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2006" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6811, -5.44922, 39.3345 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 73 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2007" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.38085, -5.22949, 21.5796 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 74 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2008" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.47705, -5.23706, 21.9451 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 75 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2009" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.57275, -5.24463, 22.3108 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 76 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2010" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.76757, -5.2583, 23.042 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 77 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2011" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.86669, -5.30884, 23.4077 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 78 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2012" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96533, -5.34521, 23.7737 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 79 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2013" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.06396, -5.30444, 24.1394 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 80 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2014" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.16308, -5.3252, 24.5051 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 81 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2015" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26171, -5.33105, 24.8711 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 82 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2016" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.36035, -5.34399, 25.2368 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 83 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2017" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.45947, -5.3623, 25.6025 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 84 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2018" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.66015, -5.37256, 26.3371 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 85 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2019" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7622, -5.38867, 26.7058 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 86 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2020" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.86425, -5.38672, 27.0747 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 87 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2021" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9663, -5.39233, 27.4433 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 88 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2022" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.06835, -5.38721, 27.8122 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 89 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2023" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.17089, -5.39795, 28.1809 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 90 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2024" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.27294, -5.39502, 28.5498 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 91 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2025" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.37499, -5.40234, 28.9184 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 92 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2026" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.58203, -5.42725, 29.6562 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 93 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2027" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.68652, -5.41382, 30.0251 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 94 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2028" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7915, -5.4209, 30.3943 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 95 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2029" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.89648, -5.40747, 30.7632 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 96 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2030" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.00146, -5.40405, 31.1321 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 97 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2031" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.10644, -5.40723, 31.5012 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 98 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2032" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.21093, -5.41821, 31.8701 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 99 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2033" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.31591, -5.40967, 32.239 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 100 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2034" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.81445, -5.45825, 33.0107 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 101 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2035" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.92285, -5.45898, 33.3828 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 102 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2036" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.03124, -5.45947, 33.7546 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 103 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2037" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.13964, -5.45996, 34.1267 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 104 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2038" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.24804, -5.46069, 34.4988 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 105 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2039" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.35595, -5.46118, 34.8706 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 106 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2040" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.46435, -5.46167, 35.2427 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 107 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2041" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.57275, -5.46216, 35.6145 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 108 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2042" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.79199, -5.46118, 36.3584 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 109 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2043" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.90331, -5.45972, 36.7305 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 110 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2044" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0146, -5.45825, 37.1025 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 111 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2045" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1255, -5.45679, 37.4746 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 112 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2046" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2368, -5.45532, 37.8464 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 113 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2047" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3481, -5.45386, 38.2185 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 114 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2048" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.459, -5.45215, 38.5906 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 115 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2049" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5703, -5.45068, 38.9624 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 116 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2050" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7959, -5.44556, 39.7092 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 117 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2051" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9106, -5.44189, 40.0837 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 118 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2052" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0254, -5.43799, 40.4585 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 119 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2053" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1396, -5.43433, 40.833 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 120 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2054" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2544, -5.43066, 41.2077 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 121 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2055" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3691, -5.427, 41.5823 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 122 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2056" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4839, -5.4231, 41.957 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 123 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-2057" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5981, -5.41943, 42.3318 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 124 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3001" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5478, -5.14038, 42.7024 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 125 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3002" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5991, -5.03174, 46.0727 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 126 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3003" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6807, -4.90161, 49.4612 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 127 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3004" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9243, -4.57764, 56.2363 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 128 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3005" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.085, -4.38403, 59.6184 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 129 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3006" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2729, -4.1687, 63.0024 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 130 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3007" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7876, -4.75049, 52.8435 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 131 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3008" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6645, -5.12842, 43.0769 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 132 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3009" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7812, -5.11621, 43.4514 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 133 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3010" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8984, -5.10425, 43.8259 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 134 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3011" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0151, -5.09204, 44.2004 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 135 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3012" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1318, -5.08008, 44.5749 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 136 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3013" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2485, -5.06787, 44.9494 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 137 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3014" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3652, -5.05591, 45.324 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 138 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3015" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4819, -5.0437, 45.6985 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 139 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3016" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7192, -5.01733, 46.4494 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 140 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3017" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8393, -5.00269, 46.8259 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 141 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3018" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9595, -4.98828, 47.2024 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 142 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3019" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0796, -4.97388, 47.5788 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 143 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3020" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1997, -4.95947, 47.9553 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 144 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3021" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3198, -4.94507, 48.3318 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 145 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3022" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4404, -4.93042, 48.7082 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 146 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3023" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5605, -4.91602, 49.0847 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 147 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3024" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8037, -4.88477, 49.8371 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 148 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3025" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9268, -4.86792, 50.2129 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 149 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3026" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0498, -4.85132, 50.5886 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 150 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3027" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1728, -4.83447, 50.9646 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 151 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3028" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2959, -4.81763, 51.3403 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 152 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3029" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4189, -4.80078, 51.716 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 153 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3030" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.542, -4.78418, 52.092 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 154 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3031" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6645, -4.76733, 52.4678 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 155 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3032" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9141, -4.73145, 53.2204 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 156 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3033" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0405, -4.71216, 53.5974 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 157 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3034" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1665, -4.69287, 53.9746 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 158 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3035" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.293, -4.67383, 54.3515 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 159 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3036" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4194, -4.65454, 54.7285 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 160 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3037" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5454, -4.63525, 55.1054 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 161 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3038" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6719, -4.61621, 55.4824 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 162 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3039" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7978, -4.59692, 55.8594 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 163 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3040" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0532, -4.55615, 56.6123 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 164 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3041" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.1821, -4.53467, 56.988 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 165 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3042" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3115, -4.51318, 57.3638 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 166 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3043" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.4404, -4.49146, 57.7395 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 167 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3044" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5693, -4.46997, 58.1152 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 168 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3045" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6982, -4.44849, 58.4912 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 169 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3046" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8271, -4.427, 58.8669 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 170 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3047" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.956, -4.40552, 59.2427 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 171 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3048" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2173, -4.36011, 59.9944 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 172 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3049" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3491, -4.33618, 60.3703 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 173 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3050" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.481, -4.31226, 60.7466 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 174 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3051" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6133, -4.28833, 61.1225 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 175 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3052" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7451, -4.2644, 61.4985 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 176 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3053" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8769, -4.24048, 61.8745 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 177 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3054" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0093, -4.21655, 62.2505 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 178 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3055" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1411, -4.19263, 62.6264 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 179 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3056" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4072, -4.14258, 63.3767 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 180 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3057" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5415, -4.11646, 63.751 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 181 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-3058" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.6758, -4.09033, 64.125 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 182 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4001" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.7002, -3.52441, 69.7768 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 183 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4002" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.9458, -3.24463, 73.1162 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 184 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4003" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.4741, -3.7854, 66.4153 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 185 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4004" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8052, -3.91895, 64.5437 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 186 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4005" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.939, -3.89233, 64.9179 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 187 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4006" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0727, -3.86548, 65.2922 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 188 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4007" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2065, -3.83887, 65.6665 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 189 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4008" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3403, -3.81201, 66.041 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 190 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4009" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.6103, -3.75635, 66.7888 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 191 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4010" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.7466, -3.72729, 67.1623 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 192 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4011" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8828, -3.69824, 67.5359 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 193 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4012" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.019, -3.66943, 67.9092 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 194 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4013" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.1553, -3.64038, 68.2827 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 195 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4014" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2915, -3.61133, 68.6562 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 196 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4015" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4277, -3.58228, 69.0298 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 197 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4016" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.564, -3.55347, 69.4033 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 198 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4017" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8389, -3.49341, 70.1479 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 199 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4018" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.977, -3.46216, 70.519 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 200 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4019" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1157, -3.43115, 70.8899 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 201 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4020" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.2539, -3.40015, 71.261 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 202 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4021" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3921, -3.3689, 71.6321 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 203 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4022" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5308, -3.33789, 72.0032 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 204 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4023" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6689, -3.30688, 72.374 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 205 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4024" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8076, -3.27563, 72.7451 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 206 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4025" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0864, -3.21143, 73.4856 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 207 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4026" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.227, -3.17822, 73.8547 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 208 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4027" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3677, -3.14526, 74.2241 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 209 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4028" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5088, -3.11206, 74.5932 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 210 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4029" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.6494, -3.07886, 74.9626 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 211 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-4030" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.79, -3.04565, 75.332 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 212 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5001" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2505, -2.9082, 76.4641 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 213 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5002" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.832, -2.2605, 83.0317 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 214 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5003" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.144, -1.91357, 86.2705 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 215 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5004" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5327, -2.59277, 79.7595 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 216 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5005" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9692, -2.97437, 75.7256 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 217 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5006" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.1099, -2.94116, 76.0947 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 218 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5007" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3931, -2.87305, 76.8303 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 219 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5008" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5356, -2.83789, 77.1965 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 220 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5009" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6777, -2.80298, 77.5625 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 221 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5010" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8203, -2.76782, 77.9287 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 222 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5011" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9629, -2.73291, 78.2949 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 223 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5012" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.1055, -2.69775, 78.6611 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 224 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5013" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.248, -2.66284, 79.0273 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 225 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5014" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.3901, -2.62769, 79.3933 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 226 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5015" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.6772, -2.55566, 80.123 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 227 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5016" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.8218, -2.5188, 80.4868 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 228 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5017" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9658, -2.48193, 80.8503 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 229 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5018" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1103, -2.44507, 81.2138 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 230 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5019" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2549, -2.4082, 81.5774 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 231 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5020" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3989, -2.37134, 81.9409 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 232 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5021" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5435, -2.33447, 82.3044 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 233 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5022" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.6875, -2.29761, 82.6679 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 234 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5023" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.978, -2.22217, 83.3916 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 235 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5024" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1235, -2.18359, 83.7514 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 236 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5025" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.2695, -2.14502, 84.1113 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 237 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5026" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.415, -2.10645, 84.4712 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 238 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5027" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.561, -2.06787, 84.831 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 239 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5028" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.707, -2.0293, 85.1909 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 240 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5029" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.8525, -1.99072, 85.5508 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 241 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-5030" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9985, -1.95215, 85.9106 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 242 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6001" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.5801, -1.63428, 89.4926 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 243 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6002" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.2612, -0.875, 95.8066 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 244 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6003" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9155, -1.26074, 92.666 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 245 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6004" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.4018, -1.95532, 86.6396 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 246 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6005" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5488, -1.91528, 86.9963 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 247 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6006" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6963, -1.875, 87.3528 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 248 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6007" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8437, -1.83496, 87.7094 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 249 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6008" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.9907, -1.79492, 88.0661 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 250 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6009" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.1382, -1.75464, 88.4228 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 251 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6010" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.2856, -1.7146, 88.7795 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 252 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6011" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.4326, -1.67432, 89.136 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 253 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6012" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.7285, -1.59277, 89.8452 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 254 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6013" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.8769, -1.55127, 90.198 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 255 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6014" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.0249, -1.50977, 90.5505 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 256 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6015" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1733, -1.46826, 90.903 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 257 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6016" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3218, -1.42676, 91.2556 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 258 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6017" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.4702, -1.38525, 91.6081 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 259 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6018" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.6186, -1.34375, 91.9609 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 260 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6019" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.7671, -1.30225, 92.3134 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 261 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6020" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.0649, -1.21777, 93.0149 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 262 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6021" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2143, -1.17505, 93.364 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 263 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6022" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3638, -1.13208, 93.7129 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 264 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6023" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.5137, -1.08936, 94.0617 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 265 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6024" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.6631, -1.04639, 94.4109 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 266 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6025" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.8125, -1.00366, 94.7597 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 267 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6026" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.9624, -0.960693, 95.1086 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 268 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6027" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.1118, -0.917969, 95.4577 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 269 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6028" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.4116, -0.831055, 96.1513 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 270 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6029" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.562, -0.787109, 96.4963 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 271 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6030" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.7124, -0.743164, 96.841 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 272 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6031" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8628, -0.699219, 97.1858 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 273 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6032" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.0132, -0.655273, 97.5305 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 274 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-6033" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.1636, -0.611328, 97.8755 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 275 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7001" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.5454, -0.557129, 98.9187 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 276 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7002" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.9302, -0.122803, 101.999 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 277 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7003" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.7241, 0.767578, 108.059 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 278 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7004" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.3223, 0.318848, 105.044 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 279 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7005" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.2397, -0.651611, 98.2268 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 280 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7006" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.3926, -0.604492, 98.5727 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 281 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7007" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6992, -0.508789, 99.2607 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 282 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7008" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.853, -0.460693, 99.603 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 283 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7009" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.0068, -0.412354, 99.9453 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 284 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7010" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.1606, -0.364258, 100.288 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 285 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7011" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.3144, -0.315918, 100.63 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 286 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7012" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.4683, -0.267578, 100.972 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 287 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7013" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.6226, -0.219482, 101.314 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 288 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7014" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.7764, -0.171143, 101.657 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 289 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7015" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.0845, -0.0737305, 102.337 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 290 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7016" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.2393, -0.0246582, 102.676 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 291 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7017" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.394, 0.0244141, 103.014 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 292 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7018" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.5488, 0.0734863, 103.352 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 293 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7019" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.7036, 0.122559, 103.691 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 294 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7020" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.8584, 0.171631, 104.029 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 295 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7021" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.0127, 0.220703, 104.367 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 296 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7022" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.1675, 0.269775, 104.706 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 297 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7023" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.478, 0.368652, 105.379 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 298 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7024" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.6338, 0.418701, 105.714 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 299 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7025" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.7895, 0.468506, 106.049 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 300 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7026" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.9453, 0.518311, 106.384 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 301 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7027" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.1011, 0.568115, 106.719 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 302 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7028" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.2568, 0.61792, 107.054 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 303 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7029" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.4126, 0.667725, 107.389 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 304 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7030" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5684, 0.717773, 107.724 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 305 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7031" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.8809, 0.817871, 108.39 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 306 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-7032" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.0376, 0.868408, 108.722 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 307 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.2173, 0.705566, 109.069 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 308 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8001" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.1548, 1.08057, 111.047 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 309 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8002" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.5752, 1.64771, 113.991 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 310 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8003" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41.0142, 2.21777, 116.913 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 311 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8004" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.2173, 0.705566, 109.069 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 312 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8005" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.3735, 0.768066, 109.398 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 313 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8006" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.5298, 0.830566, 109.728 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 314 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8007" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.686, 0.893066, 110.058 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 315 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8008" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.8423, 0.955566, 110.388 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 316 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8009" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.9985, 1.01807, 110.717 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 317 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8010" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.313, 1.14355, 111.374 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 318 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8011" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.4707, 1.20654, 111.702 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 319 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8012" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.6284, 1.26953, 112.029 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 320 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8013" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.7861, 1.33252, 112.356 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 321 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8014" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.9443, 1.39551, 112.683 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 322 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8015" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.102, 1.4585, 113.01 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 323 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8016" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.2598, 1.52173, 113.337 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 324 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8017" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.4175, 1.58472, 113.664 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 325 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8018" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.7353, 1.71094, 114.316 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 326 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8019" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.895, 1.77417, 114.64 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 327 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8020" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.0547, 1.83765, 114.965 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 328 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8021" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.2148, 1.90088, 115.29 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 329 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8022" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.3745, 1.96436, 115.614 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 330 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8023" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.5347, 2.02759, 115.939 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 331 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8024" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.6943, 2.09106, 116.263 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 332 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8025" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.854, 2.1543, 116.588 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 333 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8026" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41.5039, 2.40869, 117.881 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 334 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8027" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41.3408, 2.34497, 117.559 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 335 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-8028" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41.1772, 2.28125, 117.236 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 336 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9001" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.9258, 3.09375, 122.805 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 337 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9002" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.4551, 2.56836, 119.865 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 338 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9003" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.5229, 3.62207, 125.744 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 339 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9004" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.3452, 3.56323, 125.418 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 340 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9005" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.168, 3.50464, 125.091 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 341 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9006" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9902, 3.4458, 124.765 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 342 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9007" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.813, 3.38721, 124.438 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 343 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9008" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.6357, 3.32861, 124.112 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 344 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9009" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.458, 3.26978, 123.785 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 345 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9010" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.2808, 3.21118, 123.458 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 346 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9011" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.103, 3.15234, 123.132 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 347 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9012" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.7622, 3.0354, 122.479 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 348 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9013" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.5986, 2.97705, 122.152 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 349 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9014" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.4355, 2.9187, 121.825 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 350 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9015" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.272, 2.86035, 121.499 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 351 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9016" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.1084, 2.80176, 121.172 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 352 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9017" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.9453, 2.74341, 120.845 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 353 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9018" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.7817, 2.68506, 120.519 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 354 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9019" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.6182, 2.62671, 120.192 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 355 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9020" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.2993, 2.51025, 119.538 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 356 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9021" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.1435, 2.45215, 119.21 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 357 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9022" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41.9883, 2.39404, 118.882 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 358 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9023" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41.8325, 2.33594, 118.554 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 359 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9024" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41.6772, 2.27808, 118.227 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 360 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9025" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.7041, 3.68506, 126.084 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 361 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9026" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.9048, 3.74805, 126.424 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 362 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9027" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.0884, 3.80811, 126.749 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 363 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeArch-9028" type="MeshInstance" parent="LongDome-RegolithOverlay/LongDomeArch-1"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.2476, 3.86401, 127.05 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 364 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeBase" type="MeshInstance" parent="LongDome-RegolithOverlay"]
-
 transform = Transform( 1, 7.06117e-08, 1.05268e-08, -7.06117e-08, 1, 1.74708e-08, -1.05268e-08, -1.74708e-08, 1, 2.07178, -11.25, -1.13696 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 365 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeGround" type="MeshInstance" parent="LongDome-RegolithOverlay" groups=[
 "cs",
 ]]
-
 transform = Transform( 1, 0, 0, 2.98023e-08, 1, 0, -2.98023e-08, 0, 1, 7.98486, -28.762, 14.583 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 366 )
-skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
 material/3 = null
 
 [node name="OmniLight" type="OmniLight" parent="LongDome-RegolithOverlay/LongDomeGround"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.593, 15.9339, 2.78824 )
-layers = 1
 light_color = Color( 0.996094, 0.891037, 0.950131, 1 )
 light_energy = 0.5
 light_indirect_energy = 2.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 11.5587
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light" ]
 
 [node name="OmniLight3" type="OmniLight" parent="LongDome-RegolithOverlay/LongDomeGround"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.522, 19.342, 17.4284 )
-layers = 1
 light_color = Color( 0.996094, 0.891037, 0.950131, 1 )
 light_energy = 0.5
 light_indirect_energy = 2.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 11.5587
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light" ]
 
 [node name="OmniLight2" type="OmniLight" parent="LongDome-RegolithOverlay/LongDomeGround"]
-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67834, 13.9493, -18.7287 )
-layers = 1
 light_color = Color( 0.996094, 0.891037, 0.950131, 1 )
 light_energy = 0.5
 light_indirect_energy = 2.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 13.3692
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light" ]
 
 [node name="LongDomeGround_col" type="StaticBody" parent="LongDome-RegolithOverlay/LongDomeGround"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="LongDome-RegolithOverlay/LongDomeGround/LongDomeGround_col"]
-
 shape = ExtResource( 367 )
-disabled = false
 
 [node name="LongDomeOverhang" type="MeshInstance" parent="LongDome-RegolithOverlay"]
-
 transform = Transform( 1, 7.06117e-08, 1.05268e-08, -7.06117e-08, 1, 1.74708e-08, -1.05268e-08, -1.74708e-08, 1, -0.0498047, -2.7688, -0.010498 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 368 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="LongDomeRoofEnds" type="MeshInstance" parent="LongDome-RegolithOverlay"]
-
 transform = Transform( 1, 7.06117e-08, 1.05268e-08, -7.06117e-08, 1, 1.74708e-08, -1.05268e-08, -1.74708e-08, 1, 2.71631, 0.161133, -0.194336 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 369 )
-skeleton = NodePath("..")
 material/0 = null
-_sections_unfolded = [ "material" ]
 
 [node name="OmniLight" type="OmniLight" parent="LongDome-RegolithOverlay/LongDomeRoofEnds"]
-
 transform = Transform( 1, -7.06117e-08, -1.05268e-08, 7.06117e-08, 1, -1.74708e-08, 1.05268e-08, 1.74708e-08, 1, -24.6486, 6.30521, 75.6315 )
-layers = 1
-light_color = Color( 1, 1, 1, 1 )
-light_energy = 1.0
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 20.7606
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light", "Shadow" ]
 
 [node name="OmniLight2" type="OmniLight" parent="LongDome-RegolithOverlay/LongDomeRoofEnds"]
-
 transform = Transform( 1, -7.06117e-08, -1.05268e-08, 7.06117e-08, 1, -1.74708e-08, 1.05268e-08, 1.74708e-08, 1, 26.9714, -2.18405, -75.848 )
-layers = 1
-light_color = Color( 1, 1, 1, 1 )
-light_energy = 1.0
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 21.4061
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light", "Shadow" ]
 
 [node name="OmniLight3" type="OmniLight" parent="LongDome-RegolithOverlay/LongDomeRoofEnds"]
-
 transform = Transform( 1, 1.83912e-16, 0, 1.83912e-16, 1, 0, 0, 0, 1, -2.90893, -1.39793, 65.567 )
-layers = 1
 light_color = Color( 0.974693, 0.996094, 0.871582, 1 )
 light_energy = 0.6
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 10.0
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light", "Omni" ]
 
 [node name="OmniLight4" type="OmniLight" parent="LongDome-RegolithOverlay/LongDomeRoofEnds"]
-
 transform = Transform( 1, 1.83912e-16, 0, 1.83912e-16, 1, 0, 0, 0, 1, -43.9357, 1.36747, 66.8985 )
-layers = 1
 light_color = Color( 0.974693, 0.996094, 0.871582, 1 )
 light_energy = 0.6
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 10.0
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light", "Omni" ]
 
 [node name="OmniLight5" type="OmniLight" parent="LongDome-RegolithOverlay/LongDomeRoofEnds"]
-
 transform = Transform( 1, 1.83912e-16, 0, 1.83912e-16, 1, 0, 0, 0, 1, 7.11941, -8.89274, -71.6157 )
-layers = 1
 light_color = Color( 0.974693, 0.996094, 0.871582, 1 )
 light_energy = 0.6
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 10.0
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light", "Omni" ]
 
 [node name="OmniLight6" type="OmniLight" parent="LongDome-RegolithOverlay/LongDomeRoofEnds"]
-
 transform = Transform( 1, 1.83912e-16, 0, 1.83912e-16, 1, 0, 0, 0, 1, 44.0954, -8.02555, -75.6563 )
-layers = 1
 light_color = Color( 0.974693, 0.996094, 0.871582, 1 )
 light_energy = 0.6
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 10.0
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light", "Omni" ]
 
 [node name="RockMediumC001" type="MeshInstance" parent="LongDome-RegolithOverlay" groups=[
 "cs",
 ]]
-
 transform = Transform( 0.624681, 0.756813, 0.192372, -0.774774, 0.631442, 0.0317274, -0.0974601, -0.168864, 0.980809, -2.07861, -12.7727, -1.89355 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 370 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="RockMediumC001_col" type="StaticBody" parent="LongDome-RegolithOverlay/RockMediumC001"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="LongDome-RegolithOverlay/RockMediumC001/RockMediumC001_col"]
-
 shape = ExtResource( 371 )
-disabled = false
 
 [node name="RockMediumE001" type="MeshInstance" parent="LongDome-RegolithOverlay" groups=[
 "cs",
 ]]
-
 transform = Transform( 0.988638, -0.139948, 0.0548617, 0.138285, 0.989842, 0.0330249, -0.0589261, -0.0250631, 0.997948, -26.7378, -5.70557, 57.968 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 372 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="RockMediumE001_col" type="StaticBody" parent="LongDome-RegolithOverlay/RockMediumE001"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="LongDome-RegolithOverlay/RockMediumE001/RockMediumE001_col"]
-
 shape = ExtResource( 373 )
-disabled = false
 
 [node name="RockMediumH001" type="MeshInstance" parent="LongDome-RegolithOverlay" groups=[
 "cs",
 ]]
-
 transform = Transform( -0.0798123, 0.501107, -0.861697, -0.668424, 0.614393, 0.419202, 0.739486, 0.609437, 0.285916, 42.3989, -13.8274, -68.5557 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 374 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="RockMediumH001_col" type="StaticBody" parent="LongDome-RegolithOverlay/RockMediumH001"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="LongDome-RegolithOverlay/RockMediumH001/RockMediumH001_col"]
-
 shape = ExtResource( 375 )
-disabled = false
 
 [node name="RockSmallB001" type="MeshInstance" parent="LongDome-RegolithOverlay" groups=[
 "cs",
 ]]
-
 transform = Transform( 0.858215, 0.406086, 0.313945, 0.235788, 0.231384, -0.943857, -0.455928, 0.884056, 0.102827, 23.8423, -16.0942, -29.7803 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 376 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="RockSmallB001_col" type="StaticBody" parent="LongDome-RegolithOverlay/RockSmallB001"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="LongDome-RegolithOverlay/RockSmallB001/RockSmallB001_col"]
-
 shape = ExtResource( 377 )
-disabled = false
 
 [node name="RockSmallD001" type="MeshInstance" parent="LongDome-RegolithOverlay" groups=[
 "cs",
 ]]
-
 transform = Transform( 0.768534, 0.144844, 0.623198, -0.171937, 0.984963, -0.0168902, -0.616273, -0.0941703, 0.781882, 26.3208, -15.8079, -26.1348 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 378 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="RockSmallD001_col" type="StaticBody" parent="LongDome-RegolithOverlay/RockSmallD001"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="LongDome-RegolithOverlay/RockSmallD001/RockSmallD001_col"]
-
 shape = ExtResource( 379 )
-disabled = false
-
 
