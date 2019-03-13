@@ -24,6 +24,7 @@ func _ready():
 	tree.connect("node_removed", self, "on_node_removed")
 #	tree.connect("idle_frame", self, "tree_idle_frame")
 	
+	debug_apply_options()
 	#insert some camera
 	camera_ready()
 
@@ -36,10 +37,20 @@ func on_node_removed(node):
 func tree_idle_frame():
 	print("tree idle frame")
 
+func debug_apply_options():
+	yield(get_tree(), "idle_frame")
+	print("Apply options to new player scene")
+	e_collision_shapes(options.get("dev", "enable_collision_shapes"))
+	hidden_nodes = []
+	if options.get("dev", "hide_meshes_random"):
+		hide_nodes_random(options.get("dev", "decimate_percent"))
+	set_3fps(options.get("dev", "3FPSlimit"))
+	e_area_lod(options.get("dev", "enable_areas_lod"))
+
+
 var camera_ready_path
 var camera_ready_oldcamera
 func camera_ready(force=false):
-		
 	yield(get_tree(), "idle_frame")
 	var root = get_tree().current_scene
 	if camera_ready_path:
@@ -66,16 +77,9 @@ func camera_ready(force=false):
 		camera.get_node("Camera").current = true
 		print("debug: added fly camera to scene")
 		
-	
+
 func on_scene_change():
-	#apply options settings to new scene
-	print("Apply options to new player scene")
-	e_collision_shapes(options.get("dev", "enable_collision_shapes"))
-	hidden_nodes = []
-	if options.get("dev", "hide_meshes_random"):
-		hide_nodes_random(options.get("dev", "decimate_percent"))
-	set_3fps(options.get("dev", "3FPSlimit"))
-	e_area_lod(options.get("dev", "enable_areas_lod"))
+	debug_apply_options()
 
 func user_scene_changed():
 	#reset scene specific things
