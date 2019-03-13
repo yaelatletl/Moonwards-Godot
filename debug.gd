@@ -127,6 +127,7 @@ func hide_obj_check(root, path):
 
 #Hide MeshInstance nodes with a chance defined by probability
 var hidden_nodes = []
+var hidden_nodes_prob
 func hide_nodes_random(probability=null):
 	var root = get_tree().current_scene
 	if probability == null:
@@ -137,12 +138,15 @@ func hide_nodes_random(probability=null):
 		for p in hidden_nodes:
 			root.get_node(p).visible = true
 		hidden_nodes = []
+		hidden_nodes_prob = null
 		return
 	
 	var nodes = utils.get_nodes_type(root, "MeshInstance", true)
 	print("hide nodes, total(%s) already hidden(%s) probability(%s)" % [nodes.size(), hidden_nodes.size(), probability])
 	if nodes.size() < 1 :
 		return
+	nodes.shuffle()
+	
 	for p in nodes:
 		if not hidden_nodes.has(p):
 			var hide = (randi() % 100 <= probability)
