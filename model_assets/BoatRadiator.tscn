@@ -10,164 +10,59 @@
 [ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=8]
 
 [sub_resource type="BoxShape" id=1]
-
 extents = Vector3( 20, 20, 20 )
 
 [node name="Scene" type="Spatial"]
 
-[node name="Platter" type="MeshInstance" parent="." index="0"]
-
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
+[node name="Platter" type="MeshInstance" parent="."]
 mesh = ExtResource( 1 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="MirroredTrough" type="MeshInstance" parent="." index="1"]
-
+[node name="MirroredTrough" type="MeshInstance" parent="."]
 transform = Transform( -0.796569, 2.19916e-08, 0.604548, -7.56345e-08, 1, -1.36035e-07, -0.604548, -1.54086e-07, -0.796569, 0.894977, 1.22497, 0.682366 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 2 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="RadPanel" type="MeshInstance" parent="." index="2"]
-
+[node name="RadPanel" type="MeshInstance" parent="."]
 transform = Transform( 0.606524, -3.27225e-08, 0.795066, -1.54288e-08, 1, 5.29271e-08, -0.795066, -4.43685e-08, 0.606524, -0.0146942, 0.284302, -0.0117283 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 3 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="BoatRad-Tower" type="MeshInstance" parent="." index="3"]
-
+[node name="BoatRad-Tower" type="MeshInstance" parent="."]
 transform = Transform( 0.961936, -1.93484e-09, 0.273276, -1.93483e-09, 1, 1.38908e-08, -0.273276, -1.38908e-08, 0.961936, -3.05176e-05, -0.109253, 1.90735e-06 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 4 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="Compressor" type="MeshInstance" parent="." index="4" groups=[
+[node name="Compressor" type="MeshInstance" parent="." groups=[
 "interior",
 ]]
-
 transform = Transform( -0.824599, -1.16974e-07, -0.565719, -1.67164e-07, 1, 3.68896e-08, 0.565719, 1.24987e-07, -0.824599, 0.000442505, 0.571777, -0.000497818 )
 visible = false
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 5 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="HeatExchangeTank" type="MeshInstance" parent="." index="5" groups=[
+[node name="HeatExchangeTank" type="MeshInstance" parent="." groups=[
 "interior",
 ]]
-
 transform = Transform( -0.012601, -7.33303e-11, -0.999921, 5.36783e-11, 1, -7.40125e-11, 0.999921, -5.46067e-11, -0.012601, -3.05176e-05, 0.079834, 1.90735e-06 )
 visible = false
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 6 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="HeatPipes" type="MeshInstance" parent="." index="6" groups=[
+[node name="HeatPipes" type="MeshInstance" parent="." groups=[
 "interior",
 ]]
-
 transform = Transform( 0.83326, 8.5126e-11, -0.552882, -1.77251e-11, 1, 1.27254e-10, 0.552882, -9.62358e-11, 0.83326, -3.05176e-05, 0.164673, 1.90735e-06 )
 visible = false
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 7 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="Triggers" type="Spatial" parent="." index="7"]
+[node name="Triggers" type="Spatial" parent="."]
 
-[node name="Area" type="Area" parent="Triggers" index="0"]
-
-input_ray_pickable = false
-input_capture_on_drag = false
-space_override = 0
-gravity_point = false
-gravity_distance_scale = 0.0
-gravity_vec = Vector3( 0, -1, 0 )
-gravity = 9.8
-linear_damp = 0.1
-angular_damp = 1.0
-priority = 0.0
-monitoring = true
-monitorable = true
-collision_layer = 1
-collision_mask = 1
-audio_bus_override = false
-audio_bus_name = "Master"
-reverb_bus_enable = false
-reverb_bus_name = "Master"
-reverb_bus_amount = 0.0
-reverb_bus_uniformity = 0.0
+[node name="Area" type="Area" parent="Triggers"]
 script = ExtResource( 8 )
 RootNode = NodePath("../..")
-showhide = "interior"
-hideshow = "exterior"
-bygroup = "player"
 
-[node name="CollisionShape" type="CollisionShape" parent="Triggers/Area" index="0"]
-
+[node name="CollisionShape" type="CollisionShape" parent="Triggers/Area"]
 shape = SubResource( 1 )
-disabled = false
-
 
