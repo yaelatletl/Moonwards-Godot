@@ -11,7 +11,7 @@ var state = STATE.init setget set_state
 func set_name(name = null):
 	if name == null:
 		name = namelist.get_name()
-	get_node("connect/name").text = name
+	$connect/name.text = name
 
 func _ready():
 	set_name()
@@ -70,11 +70,11 @@ func sg_server_connected():
 	sg_server_up()
 
 func _on_host_pressed():
-	if (get_node("connect/name").text == ""):
-		get_node("connect/error_label").text="Invalid name!"
+	if ($connect/name.text == ""):
+		$connect/error_label.text="Invalid name!"
 		return
 	var player_data = {
-		name = get_node("connect/name").text
+		name = $connect/name.text
 	}
 	gamestate.player_register(player_data, true) #local player
 	self.state = STATE.server_select
@@ -85,65 +85,65 @@ func _on_host_pressed():
 	gamestate.server_set_mode()
 
 func _on_join_pressed():
-	if (get_node("connect/name").text == ""):
-		get_node("connect/error_label").text="Invalid name!"
+	if ($connect/name.text == ""):
+		$connect/error_label.text="Invalid name!"
 		return
 
 	set_state(STATE.client_connect)
 	var player_data = {
-		name = get_node("connect/name").text
+		name = $connect/name.text
 	}
 	gamestate.player_register(player_data, true) #local player
 	binddef = {src = gamestate, dest = self }
 	bindsg("network_log")
 	bindsg("server_connected")
 	bindsg("network_error")
-	gamestate.client_server_connect(get_node("connect/ip").text)
+	gamestate.client_server_connect($connect/ip.text)
 	return
 
 
-	var ip = get_node("connect/ip").text
+	var ip = $connect/ip.text
 	if (not ip.is_valid_ip_address()):
-		get_node("connect/error_label").text="Invalid IPv4 address!"
+		$connect/error_label.text="Invalid IPv4 address!"
 		return
 
-	get_node("connect/error_label").text=""
-	get_node("connect/host").disabled=true
-	get_node("connect/join").disabled=true
+	$connect/error_label.text=""
+	$connect/host.disabled=true
+	$connect/join.disabled=true
 
-	var player_name = get_node("connect/name").text
+	var player_name = $connect/name.text
 	gamestate.join_game(ip, player_name)
 	# refresh_lobby() gets called by the player_list_changed signal
 
 func _on_connection_success():
-	get_node("connect").hide()
-	get_node("PlayersList").show()
+	$connect.hide()
+	$PlayersList.show()
 
 func _on_connection_failed():
-	get_node("connect/host").disabled=false
-	get_node("connect/join").disabled=false
-	get_node("connect/error_label").set_text("Connection failed.")
+	$connect/host.disabled = false
+	$connect/join.disabled = false
+	$connect/error_label.set_text("Connection failed.")
 
 func _on_game_ended():
 	show()
-	get_node("connect").show()
-	get_node("PlayersList").hide()
-	get_node("connect/host").disabled=false
-	get_node("connect/join").disabled
+	$connect.show()
+	$PlayersList.hide()
+	$connect/host.disabled=false
+	$connect/join.disabled
 
 func _on_game_error(errtxt):
-	get_node("error").dialog_text = errtxt
-	get_node("error").popup_centered_minsize()
+	$error.dialog_text = errtxt
+	$error.popup_centered_minsize()
 
 func refresh_lobby():
 	var players = gamestate.get_player_list()
 	players.sort()
-	get_node("PlayersList/list").clear()
-	get_node("PlayersList/list").add_item(gamestate.get_player_name() + " (You)")
+	$PlayersList/list.clear()
+	$PlayersList/list.add_item(gamestate.get_player_name() + " (You)")
 	for p in players:
-		get_node("PlayersList/list").add_item(p)
+		$PlayersList/list.add_item(p)
 
-	get_node("PlayersList/start").disabled=not get_tree().is_network_server()
+	$PlayersList/start.disabled=not get_tree().is_network_server()
 
 func _on_start_pressed():
 	gamestate.begin_game()
@@ -152,11 +152,11 @@ func _on_start_pressed():
 
 func _on_Sinlgeplayer_pressed():
 	var worldscene = "WorldV2"
-	if (get_node("connect/name").text == ""):
-		get_node("connect/error_label").text="Invalid name!"
+	if ($connect/name.text == ""):
+		$connect/error_label.text="Invalid name!"
 		return
 	var player_data = {
-		name = get_node("connect/name").text,
+		name = $connect/name.text,
 		network = false
 	}
 	gamestate.RoleNoNetwork = true

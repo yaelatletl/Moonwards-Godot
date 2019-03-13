@@ -15,22 +15,23 @@ func _on_size_changed():
 	rect_scale = Vector2(1,1)*(Newsize.y/rect_size.y)
 
 func _on_Run_pressed():
-	$ui/VBoxContainer/MainUI.hide()
-	$ui/VBoxContainer/ProgressBar.show()
+	$ui/MainUI.hide()
+	$ui/ProgressBar.show()
 	$load_timer.start()
 
 func _on_Timer_timeout():
 	get_tree().change_scene(SceneToLoad)
 
 func _on_Help_pressed():
-	$ui/VBoxContainer/MainUI/InstructionsContainer.visible = !$ui/VBoxContainer/MainUI/InstructionsContainer.visible
+	$ui/MainUI/InstructionsContainer.visible = !$ui/MainUI/InstructionsContainer.visible
 
 func _on_RunNet_pressed():
-	$ui/VBoxContainer/MainUI.hide()
-	$ui/VBoxContainer/PlayerSettings.hide()
+	$ui/MainUI.hide()
+	$ui/PlayerSettings.hide()
 	var  mScene = ResourceLoader.load(MultiplayerToLoad)
 	var loads = mScene.instance()
 	loads.name = "lobby"
+	$ui/Logo.hide()
 	get_tree().get_root().add_child(loads)
 
 func _on_Options_pressed():
@@ -45,15 +46,15 @@ func _on_Options_pressed():
 func OnUIEvent(var event):
 	if event == "Back":
 		current_ui.disconnect("ui_event", self, "OnUIEvent")
-		$ui/VBoxContainer/MainUI.show()
+		$ui/MainUI.show()
 		current_ui.hide()
 		current_ui = null
 
 func _on_CfgPlayer_pressed():
-	SwitchUI($ui/VBoxContainer/PlayerSettings)
+	SwitchUI($ui/PlayerSettings)
 
 func SwitchUI(var new_ui):
-	$ui/VBoxContainer/MainUI.hide()
+	$ui/MainUI.hide()
 	current_ui = new_ui
 	current_ui.show()
 	current_ui.connect("ui_event", self, "OnUIEvent")
