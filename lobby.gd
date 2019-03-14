@@ -51,7 +51,7 @@ func sg_network_log(msg):
 	$WaitServer/Label.text = "%s%s\n" % [$WaitServer/Label.text, msg]
 
 func sg_server_up():
-	var worldscene = options.scenes.default
+	var worldscene = options.scenes.default_mutiplayer_scene
 	sg_network_log("change scene to %s" % worldscene)
 	yield(get_tree().create_timer(2), "timeout")
 	state_hide()
@@ -151,9 +151,9 @@ func _on_start_pressed():
 
 
 func _on_Sinlgeplayer_pressed():
-	var worldscene = "WorldV2"
-	if ($connect/name.text == ""):
-		$connect/error_label.text="Invalid name!"
+	var worldscene = options.scenes.default_singleplayer_scene
+	if (get_node("connect/name").text == ""):
+		get_node("connect/error_label").text="Invalid name!"
 		return
 	var player_data = {
 		name = $connect/name.text,
