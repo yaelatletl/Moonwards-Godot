@@ -1,58 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://model_assets/meshes/HealthCentrifuge__HealthCentrifugeHub.mesh" type="ArrayMesh" id=1]
-[ext_resource path="res://model_assets/meshes/HealthCentrifuge__HealthCentrifugeHub_HealthCentrifugeArms.mesh" type="ArrayMesh" id=2]
-[ext_resource path="res://model_assets/meshes/HealthCentrifuge__HealthCentrifugeHub_HealthCentrifugePole.mesh" type="ArrayMesh" id=3]
+[ext_resource path="res://model_assets/meshes/HealthCentrifuge__HealthCentrifuge.mesh" type="ArrayMesh" id=1]
 
-[node name="Scene" type="Spatial" index="0"]
+[node name="Scene" type="Spatial"]
 
-[node name="HealthCentrifugeHub" type="MeshInstance" parent="." index="0"]
-
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = true
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
+[node name="HealthCentrifuge" type="MeshInstance" parent="."]
 mesh = ExtResource( 1 )
-skeleton = NodePath("..")
 material/0 = null
 material/1 = null
-_sections_unfolded = [ "Geometry" ]
-
-[node name="HealthCentrifugeArms" type="MeshInstance" parent="HealthCentrifugeHub" index="0"]
-
-transform = Transform( -0.452078, 0, -0.891978, 0, 1, 0, 0.891978, 0, -0.452078, 1.07178, 0, 0.538818 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 2 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="HealthCentrifugePole" type="MeshInstance" parent="HealthCentrifugeHub" index="1"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0599365, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 3 )
-skeleton = NodePath("..")
-material/0 = null
-
+material/2 = null
 
