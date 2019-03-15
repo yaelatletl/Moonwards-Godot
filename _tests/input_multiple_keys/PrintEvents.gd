@@ -12,7 +12,7 @@ func _ready():
 func _input(event):
 	if event.is_action_type() and event.is_class("InputEventKey"):
 		print(event)
-		print("scancode: ", event.scancode)
+		print("scancode : %s, pressed: %s" % [event.scancode, event.is_pressed()])
 		for a in InputMap.get_actions():
 			if InputMap.action_has_event(a, event):
 				print("event: %s" % a)
