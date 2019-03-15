@@ -1,0 +1,7 @@
+[gd_resource type="SpatialMaterial" format=2]
+
+[resource]
+resource_name = "ClayGray"
+params_cull_mode = 1
+albedo_color = Color( 0.502725, 0.494312, 0.451433, 1 )
+

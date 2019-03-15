@@ -11,21 +11,21 @@ bg_color = Color( 0, 0, 0, 0.784314 )
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0, 0, 0, 0.588235 )
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=4]
 content_margin_left = 5.0
 content_margin_right = 5.0
 content_margin_top = 5.0
 content_margin_bottom = 5.0
 bg_color = Color( 0, 0, 0, 0.792157 )
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=5]
 content_margin_left = 5.0
 content_margin_right = 5.0
 content_margin_top = 5.0
 content_margin_bottom = 5.0
 bg_color = Color( 0.105882, 0.105882, 0.105882, 1 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0, 0, 0, 0.588235 )
 
 [resource]
@@ -49,7 +49,7 @@ Label/constants/shadow_as_outline = 0
 Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
 Label/fonts/font = null
-Label/styles/normal = SubResource( 5 )
+Label/styles/normal = SubResource( 4 )
 LineEdit/colors/clear_button_color = Color( 0.878431, 0.878431, 0.878431, 1 )
 LineEdit/colors/clear_button_color_pressed = Color( 1, 1, 1, 1 )
 LineEdit/colors/cursor_color = Color( 0.941176, 0.941176, 0.941176, 1 )
@@ -60,9 +60,9 @@ LineEdit/constants/minimum_spaces = 12
 LineEdit/fonts/font = null
 LineEdit/icons/clear = null
 LineEdit/styles/focus = null
-LineEdit/styles/normal = SubResource( 6 )
+LineEdit/styles/normal = SubResource( 5 )
 LineEdit/styles/read_only = null
-Panel/styles/panel = SubResource( 4 )
+Panel/styles/panel = SubResource( 6 )
 Panel/styles/panelf = null
 Panel/styles/panelnc = null
 
