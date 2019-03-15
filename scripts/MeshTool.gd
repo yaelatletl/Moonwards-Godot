@@ -6,7 +6,7 @@ var mesh_cache = {}
 var root
 func cache_vars(id=null):
 	if mesh:
-		mesh_cache[mesh.get_instance_id()] = mesh_info
+		mesh_cache[id_mesh(mesh)] = mesh_info
 	if id and mesh_cache.has(id):
 		mesh_info = mesh_cache[id]
 	else:
@@ -23,7 +23,8 @@ func set_mesh(obj):
 		print("scene tree is not defined")
 	
 	cache_vars()
-	if obj is String  or obj is NodePath:
+	mesh = null
+	if obj is String or obj is NodePath:
 		obj = root.get_node(obj)
 		if obj == null:
 			return
@@ -31,7 +32,7 @@ func set_mesh(obj):
 		mesh = obj.mesh
 	if obj is Mesh:
 		mesh = obj
-	cache_vars(mesh.get_instance_id())
+	cache_vars(id_mesh(mesh))
 	print("MeshTool(%s)" % mesh)
 
 func get_mesh():
@@ -42,10 +43,10 @@ func _init(tree, obj=null):
 	set_mesh(obj)
 
 func get_median():
-	if mesh_info.has("vert_median"):
-		return mesh_info.vert_median
 	if mesh == null:
 		return
+	if mesh_info.has("vert_median"):
+		return mesh_info.vert_median
 
 	var vsum = Vector3(0, 0, 0)
 	var count = 0
@@ -57,11 +58,10 @@ func get_median():
 	return vsum
 	
 func get_hitbox():
+	if mesh == null:
+		return null
 	if mesh_info.has("hitbox"):
 		return mesh.hitbox
-	
-	if mesh == null:
-		return
 	
 	var box  #x, -x y, -y, z, -z
 	for v in mesh.get_faces():
@@ -100,3 +100,14 @@ func hbox_instance():
 	var bb = get_hitbox()
 	cm.size = bb[1]
 	return cm
+
+func id_mesh(mesh_obj=null):
+	var obj = mesh
+	if mesh_obj != null:
+		obj = mesh_obj
+	if obj == null:
+		return null
+	if not obj.is_class("MeshInstance"):
+		return null
+	var path = obj.resource_path()
+	return path.md5_text()
