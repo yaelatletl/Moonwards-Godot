@@ -11,18 +11,14 @@
 
 [sub_resource type="ProceduralSky" id=1]
 
-
 [sub_resource type="Environment" id=2]
-
 background_mode = 2
 background_sky = SubResource( 1 )
 
 [sub_resource type="CubeMesh" id=3]
-
 size = Vector3( 4.51, 0.37, 1.14 )
 
 [sub_resource type="SpatialMaterial" id=4]
-
 resource_name = "YellowOrange"
 params_cull_mode = 2
 albedo_color = Color( 0.972549, 0.709804, 0.203922, 1 )
