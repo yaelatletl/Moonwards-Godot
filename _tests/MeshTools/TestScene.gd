@@ -1,5 +1,5 @@
 extends Spatial
-var MeshTool = preload("MeshTool.gd")
+var MeshTool = preload("res://scripts/MeshTool.gd")
 export(NodePath) var test_mesh
 
 func _ready():

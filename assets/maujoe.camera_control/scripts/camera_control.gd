@@ -25,11 +25,11 @@ export (float, 0.0, 1.0) var acceleration = 0.1
 export (float, 0.0, 1.0) var deceleration = 0.5
 export var max_speed = Vector3(1.0, 1.0, 1.0)
 export var local = true
-export var forward_action = "move_forwards"
-export var backward_action = "move_backwards"
-export var left_action = "move_left"
-export var right_action = "move_right"
-export var up_action = "jump"
+export var forward_action = "ui_up"
+export var backward_action = "ui_down"
+export var left_action = "ui_left"
+export var right_action = "ui_right"
+export var up_action = "ui_page_up"
 export var down_action = "ui_page_down"
 export var ui_mlook = "ui_mlook"
 
