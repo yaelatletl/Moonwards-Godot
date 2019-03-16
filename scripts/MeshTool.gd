@@ -1,10 +1,14 @@
 extends Node
 
-export(String) var id = "test"
 var mesh setget set_mesh, get_mesh
 var mesh_info = {}
 var mesh_cache = {}
 var root
+
+export(bool) var debug = false
+func printd(s):
+	if debug:
+		print(s)
 
 func cache_vars(id=null):
 	if id == null and mesh != null:
