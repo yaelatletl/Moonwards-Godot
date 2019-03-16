@@ -43,7 +43,7 @@ func hboxsetlod(node, children = true):
 	if node.is_class("MeshInstance") and size > 0:
 		# do not set lod if it set manually
 		if node.lod_min_distance == 0 and node.lod_max_distance == 0:
-			node.lod_max_distance = lod_aspect_ratio * size
+			node.lod_max_distance = lod_aspect_ratio * sqrt(size)
 			print(node, " lod(%s) aspect(%s) size(%s) " % [node.lod_max_distance, lod_aspect_ratio, size])
 	return size
 
