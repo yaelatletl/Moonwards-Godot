@@ -84,6 +84,7 @@ func GetMeshInstances(var starting_node, var collection):
 			GetMeshInstances(child, collection)
 
 func _process(delta):
+	camera = get_tree().root.get_viewport().get_camera()
 	if camera == null:
 		return
 
