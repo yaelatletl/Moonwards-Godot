@@ -42,7 +42,7 @@ count = 20
 
 [node name="TreeManager" type="Node" parent="."]
 script = ExtResource( 7 )
-lod_aspect_ratio = 50.0
+lod_aspect_ratio = 100.0
 
 [node name="MeshTool" type="Node" parent="."]
 script = ExtResource( 8 )
@@ -53,4 +53,5 @@ script = ExtResource( 9 )
 [node name="LodManager" type="Node" parent="."]
 script = ExtResource( 10 )
 grid_step = 1.0
+enabled = false
 

@@ -1,10 +1,14 @@
 extends Node
 
-export(String) var id = "test"
 var mesh setget set_mesh, get_mesh
 var mesh_info = {}
 var mesh_cache = {}
 var root
+
+export(bool) var debug = false
+func printd(s):
+	if debug:
+		print(s)
 
 func cache_vars(id=null):
 	if id == null and mesh != null:
@@ -91,6 +95,9 @@ func get_hitbox():
 			box[4] = v.z
 		if v.z < box[5]:
 			box[5] = v.z
+	if box == null:
+		#mesh with no faces
+		box = [0,0,0,0,0,0]
 	mesh_info["hitbox"] = [Vector3(box[1], box[3], box[5]), Vector3(box[0] - box[1], box[2] - box[3], box[4] - box[5])] 
 	return mesh_info["hitbox"]
 

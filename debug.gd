@@ -8,7 +8,7 @@ func _input(event):
 	if event.is_action_pressed("debug_camera_to_local_player"):
 		set_active_camera()
 	if event.is_action_pressed("debug_test_rpc"):
-		print("call deug remote test")
+		print("call debug remote test")
 		rpc("test_remote_call")
 	if event.is_action_pressed("debug_force_camera"):
 		camera_ready(true)
@@ -61,20 +61,17 @@ func camera_ready(force=false):
 		camera_ready_path = null
 		return
 	
-	var cameras = utils.get_nodes_type(root, "Camera", true)
 	var active = false
-	
-	for p in cameras:
-		if root.get_node(p).current:
-			active = true
-			print("debug: camera present(%s)" % p)
-			camera_ready_oldcamera = root.get_node(p)
-			break
+	var camera_ready_oldcamera = get_tree().root.get_viewport().get_camera()
+	if camera_ready_oldcamera:
+		active = true
 	if not active or force:
 		var camera = ResourceLoader.load("res://assets/Player/player_flycamera.tscn").instance()
 		root.add_child(camera)
 		camera_ready_path = root.get_path_to(camera)
 		camera.get_node("Camera").current = true
+		if camera_ready_oldcamera:
+			camera.translation = camera_ready_oldcamera.translation
 		print("debug: added fly camera to scene")
 		
 
