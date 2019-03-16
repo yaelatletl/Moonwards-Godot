@@ -1,56 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://model_assets/meshes/StirlingFreePiston__Stirling-FreePIston-Single.mesh" type="ArrayMesh" id=1]
-[ext_resource path="res://model_assets/meshes/StirlingFreePiston__Stirling-FreePIston-Single_StirlingFrame.mesh" type="ArrayMesh" id=2]
-[ext_resource path="res://model_assets/meshes/StirlingFreePiston__Stirling-FreePIston-Single_StirlingFrameBraces.mesh" type="ArrayMesh" id=3]
+[ext_resource path="res://model_assets/meshes/StirlingFreePiston__Stirling-FreePIston_Opt.mesh" type="ArrayMesh" id=1]
 
-[node name="Scene" type="Spatial" index="0"]
+[node name="Scene" type="Spatial"]
 
-[node name="Stirling-FreePIston-Single" type="MeshInstance" parent="." index="0"]
-
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
+[node name="Stirling-FreePIston_Opt" type="MeshInstance" parent="."]
 mesh = ExtResource( 1 )
-skeleton = NodePath("..")
 material/0 = null
-
-[node name="StirlingFrame" type="MeshInstance" parent="Stirling-FreePIston-Single" index="0"]
-
-transform = Transform( 7.54979e-08, 1, 0, -1, 7.54979e-08, 0, 0, 0, 1, 1.52588e-05, 0, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 2 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="StirlingFrameBraces" type="MeshInstance" parent="Stirling-FreePIston-Single" index="1"]
-
-transform = Transform( 7.54979e-08, 1, 0, -1, 7.54979e-08, 0, 0, 0, 1, 1.52588e-05, 0, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 3 )
-skeleton = NodePath("..")
-material/0 = null
-
+material/1 = null
+material/2 = null
 
