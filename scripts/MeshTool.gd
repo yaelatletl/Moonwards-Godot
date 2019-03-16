@@ -95,6 +95,9 @@ func get_hitbox():
 			box[4] = v.z
 		if v.z < box[5]:
 			box[5] = v.z
+	if box == null:
+		#mesh with no faces
+		box = [0,0,0,0,0,0]
 	mesh_info["hitbox"] = [Vector3(box[1], box[3], box[5]), Vector3(box[0] - box[1], box[2] - box[3], box[4] - box[5])] 
 	return mesh_info["hitbox"]
 
