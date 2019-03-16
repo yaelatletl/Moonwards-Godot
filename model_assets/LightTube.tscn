@@ -6,7 +6,6 @@
 [node name="Scene" type="Spatial"]
 
 [node name="LightTube_LOD" type="MeshInstance" parent="."]
-visible = false
 mesh = ExtResource( 1 )
 material/0 = null
 material/1 = null
@@ -14,6 +13,7 @@ material/2 = null
 material/3 = null
 
 [node name="LightTube_Opt" type="MeshInstance" parent="."]
+visible = false
 mesh = ExtResource( 2 )
 material/0 = null
 material/1 = null
