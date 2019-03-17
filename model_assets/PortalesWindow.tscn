@@ -1,45 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://model_assets/meshes/PortalesWindow__TunnelWindow.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://model_assets/meshes/PortalesWindow__TunnelWindow_Opt.mesh" type="ArrayMesh" id=1]
 
-[sub_resource type="BoxShape" id=1]
+[node name="Scene" type="Spatial"]
 
-extents = Vector3( 0.0531305, 0.20676, 0.18851 )
-
-[node name="Scene" type="Spatial" index="0"]
-
-[node name="TunnelWindow" type="MeshInstance" parent="." index="0"]
-
+[node name="TunnelWindow_Opt" type="MeshInstance" parent="."]
 transform = Transform( 0.968703, 0, -0.248221, 0, 1, 0, 0.248221, 0, 0.968703, 0, 0, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 1 )
-skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 material/2 = null
-
-[node name="StaticBody" type="StaticBody" parent="TunnelWindow" index="0"]
-
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="TunnelWindow/StaticBody" index="0"]
-
-shape = SubResource( 1 )
-disabled = false
-
 

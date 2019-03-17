@@ -1,69 +1,51 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://model_assets/meshes/BoatRadiator_70Scale__Platter.mesh" type="ArrayMesh" id=1]
-[ext_resource path="res://model_assets/meshes/BoatRadiator_70Scale__Platter_HeatPipes_MirroredTrough.mesh" type="ArrayMesh" id=2]
-[ext_resource path="res://model_assets/meshes/BoatRadiator_70Scale__Platter_HeatPipes_RadPanel.mesh" type="ArrayMesh" id=3]
-[ext_resource path="res://model_assets/meshes/BoatRadiator_70Scale__Platter_BoatRad-Tower.mesh" type="ArrayMesh" id=4]
-[ext_resource path="res://model_assets/meshes/BoatRadiator_70Scale__Platter_HeatPipes_Compressor.mesh" type="ArrayMesh" id=5]
-[ext_resource path="res://model_assets/meshes/BoatRadiator_70Scale__Platter_HeatExchangeTank.mesh" type="ArrayMesh" id=6]
-[ext_resource path="res://model_assets/meshes/BoatRadiator_70Scale__Platter_HeatPipes.mesh" type="ArrayMesh" id=7]
-[ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=8]
+[ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=1]
+[ext_resource path="res://model_assets/meshes/BoatRadiator_70Scale__BoatRadiator_Opt.mesh" type="ArrayMesh" id=2]
+[ext_resource path="res://model_assets/meshes/BoatRadiator_70Scale__BoatRadiator_Opt_MirroredTrough_Opt.mesh" type="ArrayMesh" id=3]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 20, 20, 20 )
 
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( -1.5117, 0.8625, 0.805, -0.5666, 0.0472, 0.805, -0.5666, 0.0472, -0.805, -1.5117, 0.8625, -0.805, -0.5666, 0.0472, -0.805, 0.5666, 0.0472, -0.805, 1.5117, 0.8625, -0.805, 0.5666, 0.0472, -0.805, 0.5666, 0.0472, 0.805, 1.5117, 0.8625, 0.805, 0.5666, 0.0472, 0.805, -0.5666, 0.0472, 0.805, 0.5666, 0.0472, -0.805, -0.5666, 0.0472, -0.805, -0.5666, 0.0472, 0.805, -1.5117, 0.8625, -0.805, 1.5117, 0.8625, -0.805, 1.5117, 0.8625, 0.805, -1.5117, 0.8625, 0.805, -0.5666, 0.0472, -0.805, -1.5117, 0.8625, -0.805, -1.5117, 0.8625, -0.805, 0.5666, 0.0472, -0.805, 1.5117, 0.8625, -0.805, 1.5117, 0.8625, -0.805, 0.5666, 0.0472, 0.805, 1.5117, 0.8625, 0.805, 1.5117, 0.8625, 0.805, -0.5666, 0.0472, 0.805, -1.5117, 0.8625, 0.805, 0.5666, 0.0472, -0.805, -0.5666, 0.0472, 0.805, 0.5666, 0.0472, 0.805, -1.5117, 0.8625, -0.805, 1.5117, 0.8625, 0.805, -1.5117, 0.8625, 0.805 )
+
+[sub_resource type="ConcavePolygonShape" id=3]
+data = PoolVector3Array( -0.2077, 0.104, 0.2077, -0.2077, -0.104, 0.2077, -0.2077, -0.104, -0.2077, -0.2077, 0.104, -0.2077, -0.2077, -0.104, -0.2077, 0.2077, -0.104, -0.2077, 0.2077, 0.104, -0.2077, 0.2077, -0.104, -0.2077, 0.2077, -0.104, 0.2077, 0.2077, 0.104, 0.2077, 0.2077, -0.104, 0.2077, -0.2077, -0.104, 0.2077, 0.2077, -0.104, -0.2077, -0.2077, -0.104, -0.2077, -0.2077, -0.104, 0.2077, -0.2077, 0.104, -0.2077, 0.2077, 0.104, -0.2077, 0.2077, 0.104, 0.2077, -0.0099, -0.1023, 0.0099, -0.0099, -1.2179, 0.0099, -0.0099, -1.2179, -0.0099, -0.0099, -0.1023, -0.0099, -0.0099, -1.2179, -0.0099, 0.0099, -1.2179, -0.0099, 0.0099, -0.1023, -0.0099, 0.0099, -1.2179, -0.0099, 0.0099, -1.2179, 0.0099, 0.0099, -0.1023, 0.0099, 0.0099, -1.2179, 0.0099, -0.0099, -1.2179, 0.0099, 0.0099, -1.2179, -0.0099, -0.0099, -1.2179, -0.0099, -0.0099, -1.2179, 0.0099, -0.0099, -0.1023, -0.0099, 0.0099, -0.1023, -0.0099, 0.0099, -0.1023, 0.0099, -0.2077, 0.104, 0.2077, -0.2077, -0.104, -0.2077, -0.2077, 0.104, -0.2077, -0.2077, 0.104, -0.2077, 0.2077, -0.104, -0.2077, 0.2077, 0.104, -0.2077, 0.2077, 0.104, -0.2077, 0.2077, -0.104, 0.2077, 0.2077, 0.104, 0.2077, 0.2077, 0.104, 0.2077, -0.2077, -0.104, 0.2077, -0.2077, 0.104, 0.2077, 0.2077, -0.104, -0.2077, -0.2077, -0.104, 0.2077, 0.2077, -0.104, 0.2077, -0.2077, 0.104, -0.2077, 0.2077, 0.104, 0.2077, -0.2077, 0.104, 0.2077, -0.0099, -0.1023, 0.0099, -0.0099, -1.2179, -0.0099, -0.0099, -0.1023, -0.0099, -0.0099, -0.1023, -0.0099, 0.0099, -1.2179, -0.0099, 0.0099, -0.1023, -0.0099, 0.0099, -0.1023, -0.0099, 0.0099, -1.2179, 0.0099, 0.0099, -0.1023, 0.0099, 0.0099, -0.1023, 0.0099, -0.0099, -1.2179, 0.0099, -0.0099, -0.1023, 0.0099, 0.0099, -1.2179, -0.0099, -0.0099, -1.2179, 0.0099, 0.0099, -1.2179, 0.0099, -0.0099, -0.1023, -0.0099, 0.0099, -0.1023, 0.0099, -0.0099, -0.1023, 0.0099 )
+
 [node name="Scene" type="Spatial"]
-
-[node name="Platter" type="MeshInstance" parent="."]
-mesh = ExtResource( 1 )
-material/0 = null
-
-[node name="MirroredTrough" type="MeshInstance" parent="."]
-transform = Transform( -0.557598, 1.5394e-08, 0.423183, -5.29441e-08, 0.7, -9.52246e-08, -0.423183, -1.0786e-07, -0.557598, 0.626497, 0.857423, 0.477658 )
-lod_max_distance = 100.0
-mesh = ExtResource( 2 )
-material/0 = null
-
-[node name="RadPanel" type="MeshInstance" parent="."]
-transform = Transform( 0.424567, -2.29058e-08, 0.556546, -1.08002e-08, 0.7, 3.7049e-08, -0.556546, -3.10579e-08, 0.424567, -0.0102692, 0.198974, -0.00820734 )
-mesh = ExtResource( 3 )
-material/0 = null
-
-[node name="BoatRad-Tower" type="MeshInstance" parent="."]
-transform = Transform( 0.673355, -1.35439e-09, 0.191293, -1.35438e-09, 0.7, 9.72356e-09, -0.191293, -9.72356e-09, 0.673355, -1.52588e-05, -0.0765381, 1.90735e-06 )
-mesh = ExtResource( 4 )
-material/0 = null
-
-[node name="Compressor" type="MeshInstance" parent="." groups=[
-"interior",
-]]
-transform = Transform( -0.577219, -8.18819e-08, -0.396003, -1.17015e-07, 0.7, 2.58227e-08, 0.396003, 8.74911e-08, -0.577219, 0.000320434, 0.400268, -0.00034523 )
-visible = false
-mesh = ExtResource( 5 )
-material/0 = null
-
-[node name="HeatExchangeTank" type="MeshInstance" parent="." groups=[
-"interior",
-]]
-transform = Transform( -0.00882059, -5.13312e-11, -0.699944, 3.75748e-11, 0.7, -5.18088e-11, 0.699944, -3.82247e-11, -0.00882059, -1.52588e-05, 0.0557861, 1.90735e-06 )
-visible = false
-mesh = ExtResource( 6 )
-material/0 = null
-
-[node name="HeatPipes" type="MeshInstance" parent="." groups=[
-"interior",
-]]
-transform = Transform( 0.583282, 5.95882e-11, -0.387017, -1.24076e-11, 0.7, 8.90778e-11, 0.387017, -6.73651e-11, 0.583282, -1.52588e-05, 0.115234, 1.90735e-06 )
-visible = false
-mesh = ExtResource( 7 )
-material/0 = null
 
 [node name="Triggers" type="Spatial" parent="."]
 
 [node name="Area" type="Area" parent="Triggers"]
-script = ExtResource( 8 )
+script = ExtResource( 1 )
 RootNode = NodePath("../..")
 
 [node name="CollisionShape" type="CollisionShape" parent="Triggers/Area"]
 shape = SubResource( 1 )
+
+[node name="BoatRadiator_Opt" type="MeshInstance" parent="."]
+transform = Transform( -0.00882068, -5.13312e-11, -0.699944, 3.75748e-11, 0.7, -5.18088e-11, 0.699944, -3.82247e-11, -0.00882068, -2.13623e-05, 0.0558838, 1.33514e-06 )
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null
+material/2 = null
+
+[node name="MirroredTrough_Opt" type="MeshInstance" parent="BoatRadiator_Opt"]
+transform = Transform( -0.594462, -1.54297e-07, -0.804124, -7.5543e-08, 1, -1.36036e-07, 0.804124, -2.01224e-08, -0.594462, 0.67103, 1.14514, -0.903532 )
+mesh = ExtResource( 3 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="StaticBody" type="StaticBody" parent="BoatRadiator_Opt"]
+
+[node name="CollisionShape" type="CollisionShape" parent="BoatRadiator_Opt/StaticBody"]
+transform = Transform( -1.14743, 7.66834e-11, 0.851008, -1.39303e-12, 1.42857, -1.30605e-10, -0.851008, -1.05732e-10, -1.14743, -2.29174e-06, 0.0576695, -3.04911e-05 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="BoatRadiator_Opt/StaticBody"]
+transform = Transform( -0.0180014, 7.66834e-11, 1.42846, -1.04758e-10, 1.42857, -7.80096e-11, -1.42846, -1.05732e-10, -0.0180014, -2.29174e-06, 0.0576804, -3.04911e-05 )
+shape = SubResource( 3 )
 
