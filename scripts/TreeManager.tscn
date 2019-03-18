@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/TreeManager.gd" type="Script" id=1]
+[ext_resource path="res://scripts/LODManager.gd" type="Script" id=2]
+
+[node name="TreeManager" type="Node"]
+script = ExtResource( 1 )
+enable_lodmanager = false
+enable_areamanager = false
+LodManager = NodePath("LodManager")
+
+[node name="LodManager" type="Node" parent="."]
+script = ExtResource( 2 )
+grid_step = 1.0
+enabled = false
+
