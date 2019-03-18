@@ -33,6 +33,11 @@ func _ready():
 	button.value = options.get("dev", "decimate_percent", 90)
 	button.connect("changed", self, "set_decimate_percent")
 	
+	button = $Panel/TabContainer/Dev/VBoxContainer/tLodManager
+	button.pressed = options.get("dev", "TreeManager", false)
+	button = $Panel/TabContainer/Dev/VBoxContainer/sHBoxAspect
+	button.value = options.get("LOD", "lod_aspect_ratio", 150)
+	button.connect("changed", self, "set_lod_aspect_ratio")
 	
 	button = $Panel/TabContainer/Dev/VBoxContainer/tPMonitor
 	button.pressed = options.get("_state_", "perf_mon", false)
@@ -102,3 +107,13 @@ func set_decimate_percent(value):
 		debug.hide_nodes_random(0)
 		debug.hide_nodes_random(value)
 
+func set_lod_aspect_ratio(value):
+	options.set("LOD", value, "lod_aspect_ratio")
+	if options.get("_state_", "set_lod_manager"):
+		var root = get_tree().current_scene
+		root.get_node(options.get("_state_", "set_lod_manager")).lod_aspect_ratio = value
+
+func _on_tLodManager_pressed():
+	var button = $Panel/TabContainer/Dev/VBoxContainer/tLodManager
+	options.set("dev", button.pressed, "TreeManager")
+	debug.set_lod_manager(button.pressed)
