@@ -4,6 +4,7 @@ export(float) var grid_step = 10
 export(bool) var enabled = true setget lod_enable
 export(NodePath) var scene_path
 
+var id = "LodManager"
 var camera = null
 var camera_position = Vector3()
 var mesh_collection = []
@@ -99,6 +100,9 @@ func NodeAddedToTree(var node):
 
 func UpdateLOD():
 	print("LODManager update, collection size %s, position %s" %  [mesh_collection.size(), camera_position])
+	var changes = 0
+	var visible = 0
+	var hidden = 0
 	for ref in mesh_collection:
 		var mesh = ref.get_ref()
 		if mesh == null:
@@ -109,11 +113,10 @@ func UpdateLOD():
 		if distance_to_camera >= mesh.lod_min_distance and (distance_to_camera < mesh.lod_max_distance or mesh.lod_max_distance == 0.0):
 			new_visible = true
 
-		var change_state = "-"
 		if mesh.visible and not new_visible:
-			change_state = "+"
+			changes += 1
 		elif not mesh.visible and new_visible:
-			change_state = "+"
+			changes += 1
 		
 		#printd("mesh(%s), %s distance(%s) visible(%s, %s) %s %s" % [mesh, change_state, distance_to_camera, mesh.visible, new_visible, mesh.lod_min_distance, mesh.lod_max_distance])
 
@@ -121,3 +124,9 @@ func UpdateLOD():
 			mesh.visible = false
 		elif not mesh.visible and new_visible:
 			mesh.visible = true
+		if mesh.visible:
+			visible += 1
+		else:
+			hidden += 1
+	
+	print("changes(%s), visible(%s), hidden(%s)" % [changes, visible, hidden])
