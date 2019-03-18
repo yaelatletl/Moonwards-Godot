@@ -1,13 +1,17 @@
 extends Node
 
+var id = "TreeManager"
+var enabled setget tm_enable
 var tree
+export(NodePath) var tree_path
 
 export(bool) var enable_lodmanager = true
 export(bool) var enable_areamanager = true
 export(bool) var enable_boxmesh = true
 export(bool) var enable_hboxsetlod = true #set lod values for lod manager based on hitbox of mesh
-export(float) var lod_aspect_ratio = 10  #lod set as projection of hitbox * aspect_ratio
+export(float) var lod_aspect_ratio = 10  setget set_lod_aspect_ratio #lod set as projection of hitbox * aspect_ratio
 
+export(NodePath) var LodManager
 var scripts = {
 	MeshTool = preload("res://scripts/MeshTool.gd"),
 	TreeStats = preload("res://scripts/TreeStats.gd")
@@ -47,10 +51,35 @@ func hboxsetlod(node, children = true):
 			print(node, " lod(%s) aspect(%s) size(%s) " % [node.lod_max_distance, lod_aspect_ratio, size])
 	return size
 
-func enable_managment():
+func set_lod_aspect_ratio(value):
+	if value > 0:
+		lod_aspect_ratio = value
+	if not enabled:
+		return
 	if enable_hboxsetlod:
 		hboxsetlod(tree)
-		
+	if enable_lodmanager and get_node(LodManager):
+		var lm = get_node(LodManager)
+		lm.UpdateLOD()
+
+func enable_managment():
+	if tree == null:
+		print("TreeManagment faield to enable, tree is not set")
+		return false
+	print("TreeManagment enable")
+	if enable_hboxsetlod:
+		hboxsetlod(tree)
+	if enable_lodmanager and get_node(LodManager):
+		var lm = get_node(LodManager)
+		lm.enabled = false
+		lm.lod_aspect_ratio = lod_aspect_ratio
+		lm.scene_path = lm.get_path_to(tree)
+		lm.enabled = true
+
+func disable_managment():
+	print("TreeManagment disable")
+	if enable_lodmanager and get_node(LodManager):
+		var lm = get_node(LodManager)
 
 func init(tree_root=null):
 	if tree_root == null:
@@ -63,4 +92,16 @@ func init(tree_root=null):
 		enable_managment()
 
 func _ready():
-	init()
+	if enabled:
+		init()
+
+func tm_enable(enable):
+	if enable and enabled == null:
+		enabled = true
+		init()
+	if not enable and enabled:
+		disable_managment()
+		enabled = false
+	if enable and not enabled:
+		if enable_managment():
+			enabled = true
