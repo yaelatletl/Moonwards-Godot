@@ -46,7 +46,7 @@ func debug_apply_options():
 		hide_nodes_random(options.get("dev", "decimate_percent"))
 	set_3fps(options.get("dev", "3FPSlimit"))
 	e_area_lod(options.get("dev", "enable_areas_lod"))
-
+	set_lod_manager(options.get("dev", "TreeManager", false))
 
 var camera_ready_path
 var camera_ready_oldcamera
@@ -70,7 +70,8 @@ func camera_ready(force=false):
 		root.add_child(camera)
 		camera_ready_path = root.get_path_to(camera)
 		camera.get_node("Camera").current = true
-		if camera_ready_oldcamera:
+		if active:
+			print("sync camera position with old camera")
 			camera.translation = camera_ready_oldcamera.translation
 		print("debug: added fly camera to scene")
 		
@@ -175,3 +176,31 @@ func show_performance_monitor(enable):
 			pf.queue_free()
 		pf_path = null
 		options.set("_state_", false, "perf_mon")
+
+func set_lod_manager(enable):
+	var slm = options.get("_state_", "set_lod_manager")
+	var root = get_tree().current_scene
+	if slm == null:
+		#find if lod manager is present in scene
+		for p in utils.get_nodes_type(root, "Node", true):
+			var obj = root.get_node(p)
+			if obj.script and obj.has_meta("id") and obj.id == "TreeManager":
+				slm = p
+				options.set("_state_", p, "set_lod_manager")
+				break
+		if enable == null:
+			#just find if therre is lod manager in the tree
+			return
+	if slm == null:
+		#create/add proper node
+		var tm_path = options.get("dev", "lod_manager_path", "res://scripts/TreeManager.tscn")
+		var tm = ResourceLoader.load(tm_path)
+		tm = tm.instance()
+		root.add_child(tm)
+		options.set("_state_", root.get_path_to(tm), "set_lod_manager")
+		slm = root.get_path_to(tm)
+	
+	var tm = root.get_node(slm)
+	if options.get("LOD", "lod_aspect_ratio"):
+		tm.lod_aspect_ratio = options.get("LOD", "lod_aspect_ratio")
+	tm.enabled = enable
