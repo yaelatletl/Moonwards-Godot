@@ -1,11 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://materials/BlueStone.tres" type="Material" id=1]
 [ext_resource path="res://materials/Cask.tres" type="Material" id=2]
 [ext_resource path="res://model_assets/meshes/FlywheelSimple_NoArrays__FlywheelTower.mesh" type="ArrayMesh" id=3]
 [ext_resource path="res://materials/Metal-Aluminum.tres" type="Material" id=4]
 
-[sub_resource type="ArrayMesh" id=3]
+[sub_resource type="ArrayMesh" id=1]
 resource_name = "Torus000"
 surfaces/0 = {
 "aabb": AABB( -0.269789, -0.0463634, -0.268995, 0.539596, 0.0690178, 0.538872 ),
@@ -32,41 +32,26 @@ surfaces/1 = {
 "vertex_count": 400
 }
 
-[sub_resource type="ConcavePolygonShape" id=4]
+[sub_resource type="ConcavePolygonShape" id=2]
 data = PoolVector3Array( 0, 2.0852, 0, -0.2037, 1.9352, 0.3077, -0.3616, 1.9352, 0.0735, 0, 2.0852, 0, -0.0735, 1.9352, -0.3616, 0.2037, 1.9352, -0.3077, 0, 2.0852, 0, 0.2037, 1.9352, -0.3077, 0.3616, 1.9352, -0.0735, 0, 2.0852, 0, 0.3616, 1.9352, -0.0735, 0.3077, 1.9352, 0.2037, 0, 2.0852, 0, 0.3077, 1.9352, 0.2037, 0.0735, 1.9352, 0.3616, 0.0735, 1.9352, 0.3616, -0.2037, 1.9352, 0.3077, 0, 2.0852, 0, 0, 2.0852, 0, -0.3616, 1.9352, 0.0735, -0.3077, 1.9352, -0.2037, -0.3077, 1.9352, -0.2037, -0.0735, 1.9352, -0.3616, 0, 2.0852, 0, 0.0735, 1.9352, 0.3616, 0.3077, 1.9352, 0.2037, 0.3077, -0.012, 0.2037, 0.3616, 1.9352, -0.0735, 0.2037, 1.9352, -0.3077, 0.2037, -0.012, -0.3077, -0.3077, 1.9352, -0.2037, -0.3616, 1.9352, 0.0735, -0.3616, -0.012, 0.0735, -0.2037, 1.9352, 0.3077, 0.0735, 1.9352, 0.3616, 0.0735, -0.012, 0.3616, 0.3077, 1.9352, 0.2037, 0.3616, 1.9352, -0.0735, 0.3616, -0.012, -0.0735, 0.2037, 1.9352, -0.3077, -0.0735, 1.9352, -0.3616, -0.0735, -0.012, -0.3616, -0.0735, 1.9352, -0.3616, -0.3077, 1.9352, -0.2037, -0.3077, -0.012, -0.2037, -0.3616, 1.9352, 0.0735, -0.2037, 1.9352, 0.3077, -0.2037, -0.012, 0.3077, 0.0735, -0.012, 0.3616, -0.0735, -0.012, -0.3616, -0.3616, -0.012, 0.0735, 0.0735, 1.9352, 0.3616, 0.3077, -0.012, 0.2037, 0.0735, -0.012, 0.3616, 0.3616, 1.9352, -0.0735, 0.2037, -0.012, -0.3077, 0.3616, -0.012, -0.0735, -0.3077, 1.9352, -0.2037, -0.3616, -0.012, 0.0735, -0.3077, -0.012, -0.2037, -0.2037, 1.9352, 0.3077, 0.0735, -0.012, 0.3616, -0.2037, -0.012, 0.3077, 0.3077, 1.9352, 0.2037, 0.3616, -0.012, -0.0735, 0.3077, -0.012, 0.2037, 0.2037, 1.9352, -0.3077, -0.0735, -0.012, -0.3616, 0.2037, -0.012, -0.3077, -0.0735, 1.9352, -0.3616, -0.3077, -0.012, -0.2037, -0.0735, -0.012, -0.3616, -0.3616, 1.9352, 0.0735, -0.2037, -0.012, 0.3077, -0.3616, -0.012, 0.0735, -0.0735, -0.012, -0.3616, 0.3616, -0.012, -0.0735, 0.2037, -0.012, -0.3077, 0.3616, -0.012, -0.0735, 0.0735, -0.012, 0.3616, 0.3077, -0.012, 0.2037, 0.0735, -0.012, 0.3616, -0.3616, -0.012, 0.0735, -0.2037, -0.012, 0.3077, -0.3616, -0.012, 0.0735, -0.0735, -0.012, -0.3616, -0.3077, -0.012, -0.2037, -0.0735, -0.012, -0.3616, 0.0735, -0.012, 0.3616, 0.3616, -0.012, -0.0735 )
 
-[sub_resource type="CylinderMesh" id=5]
+[sub_resource type="CylinderMesh" id=3]
 material = ExtResource( 2 )
 top_radius = 0.03
 bottom_radius = 0.03
 height = 0.2
 radial_segments = 10
 
-[sub_resource type="MultiMesh" id=6]
+[sub_resource type="MultiMesh" id=4]
 transform_format = 1
 instance_count = 18
-mesh = SubResource( 5 )
+mesh = SubResource( 3 )
 transform_array = PoolVector3Array( 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 0.24, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 0.34, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 0.44, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 0.54, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 0.64, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 0.74, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 0.84, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 0.94, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 1.04, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 1.14, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 1.24, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 1.34, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 1.44, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 1.54, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 1.64, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 1.74, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 1.84, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 1.94 )
 
-[sub_resource type="PlaneMesh" id=7]
+[sub_resource type="PlaneMesh" id=5]
 size = Vector2( 0.1, 1.8 )
 
-[sub_resource type="ArrayMesh" id=9]
-resource_name = "Cylinder003"
-surfaces/0 = {
-"aabb": AABB( -0.361605, -0.0119549, -0.361605, 0.72321, 2.09715, 0.72321 ),
-"array_data": PoolByteArray( 121, 164, 16, 178, 193, 115, 5, 64, 217, 235, 9, 51, 0, 127, 0, 0, 74, 36, 185, 190, 78, 180, 247, 63, 54, 137, 150, 61, 210, 117, 9, 0, 116, 155, 80, 190, 78, 180, 247, 63, 203, 134, 157, 62, 230, 117, 39, 0, 116, 155, 80, 62, 78, 180, 247, 63, 203, 134, 157, 190, 26, 117, 217, 0, 108, 137, 150, 189, 78, 180, 247, 63, 74, 36, 185, 190, 247, 117, 210, 0, 74, 36, 185, 62, 78, 180, 247, 63, 108, 137, 150, 189, 46, 117, 247, 0, 203, 134, 157, 62, 78, 180, 247, 63, 116, 155, 80, 62, 39, 117, 26, 0, 81, 137, 150, 61, 78, 180, 247, 63, 74, 36, 185, 62, 9, 117, 46, 0, 203, 134, 157, 190, 78, 180, 247, 63, 116, 155, 80, 190, 217, 117, 230, 0, 81, 137, 150, 61, 78, 180, 247, 63, 74, 36, 185, 62, 70, 0, 105, 0, 203, 134, 157, 62, 124, 222, 67, 188, 116, 155, 80, 62, 70, 0, 105, 0, 203, 134, 157, 62, 78, 180, 247, 63, 116, 155, 80, 62, 70, 0, 105, 0, 74, 36, 185, 62, 78, 180, 247, 63, 108, 137, 150, 189, 105, 0, 186, 0, 116, 155, 80, 62, 124, 222, 67, 188, 203, 134, 157, 190, 105, 0, 186, 0, 116, 155, 80, 62, 78, 180, 247, 63, 203, 134, 157, 190, 105, 0, 186, 0, 203, 134, 157, 190, 78, 180, 247, 63, 116, 155, 80, 190, 132, 0, 232, 0, 74, 36, 185, 190, 124, 222, 67, 188, 54, 137, 150, 61, 132, 0, 232, 0, 74, 36, 185, 190, 78, 180, 247, 63, 54, 137, 150, 61, 132, 0, 232, 0, 116, 155, 80, 190, 78, 180, 247, 63, 203, 134, 157, 62, 232, 0, 124, 0, 81, 137, 150, 61, 124, 222, 67, 188, 74, 36, 185, 62, 232, 0, 124, 0, 81, 137, 150, 61, 78, 180, 247, 63, 74, 36, 185, 62, 232, 0, 124, 0, 203, 134, 157, 62, 78, 180, 247, 63, 116, 155, 80, 62, 124, 0, 24, 0, 74, 36, 185, 62, 124, 222, 67, 188, 108, 137, 150, 189, 124, 0, 24, 0, 74, 36, 185, 62, 78, 180, 247, 63, 108, 137, 150, 189, 124, 0, 24, 0, 116, 155, 80, 62, 78, 180, 247, 63, 203, 134, 157, 190, 24, 0, 132, 0, 108, 137, 150, 189, 124, 222, 67, 188, 74, 36, 185, 190, 24, 0, 132, 0, 108, 137, 150, 189, 78, 180, 247, 63, 74, 36, 185, 190, 24, 0, 132, 0, 108, 137, 150, 189, 78, 180, 247, 63, 74, 36, 185, 190, 186, 0, 151, 0, 203, 134, 157, 190, 124, 222, 67, 188, 116, 155, 80, 190, 186, 0, 151, 0, 203, 134, 157, 190, 78, 180, 247, 63, 116, 155, 80, 190, 186, 0, 151, 0, 74, 36, 185, 190, 78, 180, 247, 63, 54, 137, 150, 61, 151, 0, 70, 0, 116, 155, 80, 190, 124, 222, 67, 188, 203, 134, 157, 62, 151, 0, 70, 0, 116, 155, 80, 190, 78, 180, 247, 63, 203, 134, 157, 62, 151, 0, 70, 0, 81, 137, 150, 61, 124, 222, 67, 188, 74, 36, 185, 62, 0, 129, 0, 0, 74, 36, 185, 190, 124, 222, 67, 188, 54, 137, 150, 61, 0, 129, 0, 0, 108, 137, 150, 189, 124, 222, 67, 188, 74, 36, 185, 190, 0, 130, 0, 0, 81, 137, 150, 61, 124, 222, 67, 188, 74, 36, 185, 62, 70, 0, 105, 0, 74, 36, 185, 62, 124, 222, 67, 188, 108, 137, 150, 189, 105, 0, 186, 0, 203, 134, 157, 190, 124, 222, 67, 188, 116, 155, 80, 190, 132, 0, 232, 0, 116, 155, 80, 190, 124, 222, 67, 188, 203, 134, 157, 62, 232, 0, 124, 0, 203, 134, 157, 62, 124, 222, 67, 188, 116, 155, 80, 62, 124, 0, 24, 0, 116, 155, 80, 62, 124, 222, 67, 188, 203, 134, 157, 190, 24, 0, 132, 0, 108, 137, 150, 189, 124, 222, 67, 188, 74, 36, 185, 190, 186, 0, 151, 0, 74, 36, 185, 190, 124, 222, 67, 188, 54, 137, 150, 61, 151, 0, 70, 0, 116, 155, 80, 62, 124, 222, 67, 188, 203, 134, 157, 190, 0, 129, 0, 0, 74, 36, 185, 62, 124, 222, 67, 188, 108, 137, 150, 189, 0, 129, 0, 0, 203, 134, 157, 62, 124, 222, 67, 188, 116, 155, 80, 62, 0, 129, 0, 0, 116, 155, 80, 190, 124, 222, 67, 188, 203, 134, 157, 62, 0, 129, 0, 0, 203, 134, 157, 190, 124, 222, 67, 188, 116, 155, 80, 190, 0, 129, 0, 0 ),
-"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 4, 0, 3, 0, 0, 0, 3, 0, 5, 0, 0, 0, 5, 0, 6, 0, 0, 0, 6, 0, 7, 0, 7, 0, 2, 0, 0, 0, 0, 0, 1, 0, 8, 0, 8, 0, 4, 0, 0, 0, 9, 0, 11, 0, 10, 0, 12, 0, 14, 0, 13, 0, 15, 0, 17, 0, 16, 0, 18, 0, 20, 0, 19, 0, 21, 0, 23, 0, 22, 0, 24, 0, 26, 0, 25, 0, 27, 0, 29, 0, 28, 0, 30, 0, 32, 0, 31, 0, 33, 0, 35, 0, 34, 0, 9, 0, 10, 0, 36, 0, 12, 0, 13, 0, 37, 0, 15, 0, 16, 0, 38, 0, 18, 0, 19, 0, 39, 0, 21, 0, 22, 0, 40, 0, 24, 0, 25, 0, 41, 0, 27, 0, 28, 0, 42, 0, 30, 0, 31, 0, 43, 0, 35, 0, 45, 0, 44, 0, 45, 0, 33, 0, 46, 0, 33, 0, 34, 0, 47, 0, 34, 0, 35, 0, 48, 0, 35, 0, 33, 0, 45, 0 ),
-"blend_shape_data": [  ],
-"format": 97539,
-"index_count": 90,
-"material": ExtResource( 4 ),
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 49
-}
-
-[sub_resource type="ArrayMesh" id=10]
+[sub_resource type="ArrayMesh" id=6]
 resource_name = "Cylinder002"
 surfaces/0 = {
 "aabb": AABB( -0.362208, -0.15, -0.362208, 0.724416, 2.23519, 0.724416 ),
@@ -81,7 +66,7 @@ surfaces/0 = {
 "vertex_count": 134
 }
 
-[sub_resource type="ArrayMesh" id=11]
+[sub_resource type="ArrayMesh" id=7]
 resource_name = "Torus002"
 surfaces/0 = {
 "aabb": AABB( -0.137159, -0.0193185, 0.216354, 0.274318, 0.038637, 0.057975 ),
@@ -108,7 +93,7 @@ surfaces/1 = {
 "vertex_count": 30
 }
 
-[sub_resource type="ArrayMesh" id=12]
+[sub_resource type="ArrayMesh" id=8]
 resource_name = "Cylinder000"
 surfaces/0 = {
 "aabb": AABB( -0.368997, -0.15, -0.368997, 0.737994, 2.23519, 0.737994 ),
@@ -126,118 +111,119 @@ surfaces/0 = {
 [node name="Scene" type="Spatial"]
 
 [node name="FlywheelSpokes2" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="FlywheelSpokes_Opt" type="MeshInstance" parent="FlywheelSpokes2"]
 transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 1.9, 0 )
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
 
 [node name="FlywheelSpokes_Opt2" type="MeshInstance" parent="FlywheelSpokes2"]
 transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 1.8, 0 )
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
 
 [node name="FlywheelSpokes_Opt3" type="MeshInstance" parent="FlywheelSpokes2"]
 transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 1.7, 0 )
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
 
 [node name="FlywheelSpokes_Opt4" type="MeshInstance" parent="FlywheelSpokes2"]
 transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 1.6, 0 )
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
 
 [node name="FlywheelSpokes_Opt5" type="MeshInstance" parent="FlywheelSpokes2"]
 transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 1.5, 0 )
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
 
 [node name="FlywheelSpokes_Opt6" type="MeshInstance" parent="FlywheelSpokes2"]
 transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 1.4, 0 )
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
 
 [node name="FlywheelSpokes_Opt7" type="MeshInstance" parent="FlywheelSpokes2"]
 transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 1.3, 0 )
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
 
 [node name="FlywheelSpokes_Opt8" type="MeshInstance" parent="FlywheelSpokes2"]
 transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 1.2, 0 )
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
 
 [node name="FlywheelSpokes_Opt9" type="MeshInstance" parent="FlywheelSpokes2"]
 transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 1.1, 0 )
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
 
 [node name="FlywheelSpokes_Opt10" type="MeshInstance" parent="FlywheelSpokes2"]
 transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 1.1, 0 )
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
 
 [node name="FlywheelSpokes_Opt11" type="MeshInstance" parent="FlywheelSpokes2"]
 transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 1, 0 )
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
 
 [node name="FlywheelSpokes_Opt12" type="MeshInstance" parent="FlywheelSpokes2"]
 transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 0.9, 0 )
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
 
 [node name="FlywheelSpokes_Opt13" type="MeshInstance" parent="FlywheelSpokes2"]
 transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 0.8, 0 )
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
 
 [node name="FlywheelSpokes_Opt14" type="MeshInstance" parent="FlywheelSpokes2"]
 transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 0.7, 0 )
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
 
 [node name="FlywheelSpokes_Opt15" type="MeshInstance" parent="FlywheelSpokes2"]
 transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 0.6, 0 )
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
 
 [node name="FlywheelSpokes_Opt16" type="MeshInstance" parent="FlywheelSpokes2"]
 transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 0.5, 0 )
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
 
 [node name="FlywheelSpokes_Opt17" type="MeshInstance" parent="FlywheelSpokes2"]
 transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 0.4, 0 )
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
 
 [node name="FlywheelSpokes_Opt18" type="MeshInstance" parent="FlywheelSpokes2"]
 transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 0.3, 0 )
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
 
 [node name="FlywheelSpokes_Opt19" type="MeshInstance" parent="FlywheelSpokes2"]
 transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 0.2, 0 )
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
 
@@ -250,48 +236,45 @@ material/0 = null
 [node name="FlywheelTower_col" type="StaticBody" parent="FlywheelTower"]
 
 [node name="CollisionShape" type="CollisionShape" parent="FlywheelTower/FlywheelTower_col"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="MultiMeshInstance" type="MultiMeshInstance" parent="." groups=[
 "LodFar",
 ]]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, -0.0627903, 0.494011 )
-multimesh = SubResource( 6 )
+multimesh = SubResource( 4 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 1.03514, 0.704553 )
 visible = false
-mesh = SubResource( 7 )
+mesh = SubResource( 5 )
 material/0 = null
 
 [node name="MeshInstance2" type="MeshInstance" parent="."]
 transform = Transform( 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 0.24 )
 visible = false
-mesh = SubResource( 5 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="MeshInstance3" type="MeshInstance" parent="."]
 transform = Transform( 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 1.9, 0.24 )
 visible = false
-mesh = SubResource( 5 )
-material/0 = null
-
-[node name="FlywheelTower_Col" type="MeshInstance" parent="."]
-transform = Transform( 1.08616, 0, 0, 0, 1.08616, 0, 0, 0, 1.08616, 0, -0.176417, 0 )
-mesh = SubResource( 9 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="FlywheelTower_LOD" type="MeshInstance" parent="."]
-mesh = SubResource( 10 )
+visible = false
+mesh = SubResource( 6 )
 material/0 = null
 
 [node name="FlywheelSpokes_LOD" type="MeshInstance" parent="FlywheelTower_LOD"]
 transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 2.31672e-07, 1.90373, 1.5498e-07 )
-mesh = SubResource( 11 )
+visible = false
+mesh = SubResource( 7 )
 material/0 = null
 material/1 = null
 
 [node name="FlywheelTower_Opt" type="MeshInstance" parent="."]
-mesh = SubResource( 12 )
+mesh = SubResource( 8 )
 material/0 = null
 
