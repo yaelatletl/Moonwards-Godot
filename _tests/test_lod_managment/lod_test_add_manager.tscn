@@ -26,11 +26,11 @@ shadow_enabled = true
 
 [node name="LODMesh" parent="." instance=ExtResource( 2 )]
 script = ExtResource( 3 )
-count = 20
+count = 3
 
 [node name="LODMesh2" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.78204, 0 )
 script = ExtResource( 5 )
 step = 6
-count = 20
+count = 3
 

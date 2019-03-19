@@ -31,7 +31,7 @@ func _ready():
 func on_tree_change():
 	print("debug treechange")
 func on_node_added(node):
-	print("added node %s" % node)
+	print("dgd added node %s" % node.get_path())
 func on_node_removed(node):
 	print("node removed: %s" % node)
 func tree_idle_frame():
@@ -189,10 +189,12 @@ func set_lod_manager(enable):
 				options.set("_state_", p, "set_lod_manager")
 				break
 		if enable == null:
-			#just find if therre is lod manager in the tree
+			#just find if there is lod manager in the tree
+			print("end search for LodManager")
 			return
 	if slm == null:
 		#create/add proper node
+		print("Load TreeManager")
 		var tm_path = options.get("dev", "lod_manager_path", "res://scripts/TreeManager.tscn")
 		var tm = ResourceLoader.load(tm_path)
 		tm = tm.instance()

@@ -19,6 +19,11 @@ var scripts = {
 var MeshTool
 var TreeStats
 
+export(bool) var debug = false
+func printd(s):
+	if debug:
+		print(s)
+
 #Set root path to manage mesh instances below
 func set_path():
 	pass
@@ -48,7 +53,7 @@ func hboxsetlod(node, children = true):
 		# do not set lod if it set manually
 		if node.lod_min_distance == 0 and node.lod_max_distance == 0:
 			node.lod_max_distance = lod_aspect_ratio * sqrt(size)
-			print(node, " lod(%s) aspect(%s) size(%s) " % [node.lod_max_distance, lod_aspect_ratio, size])
+			printd("%s lod(%s) aspect(%s) size(%s) " % [node, node.lod_max_distance, lod_aspect_ratio, size])
 	return size
 
 func set_lod_aspect_ratio(value):
@@ -68,40 +73,63 @@ func enable_managment():
 		return false
 	print("TreeManagment enable")
 	if enable_hboxsetlod:
+		printd("TM start hboxsetlod at %s" % tree.get_path())
 		hboxsetlod(tree)
 	if enable_lodmanager and get_node(LodManager):
 		var lm = get_node(LodManager)
+		printd("found LodManager at %s" % lm.get_path())
 		lm.enabled = false
-		lm.lod_aspect_ratio = lod_aspect_ratio
 		lm.scene_path = lm.get_path_to(tree)
 		lm.enabled = true
+	else:
+		print("LodManager disabled: %s %s" % [enable_lodmanager, LodManager])
+		var lm = get_node(LodManager)
+		lm.enabled = false
 
 func disable_managment():
 	print("TreeManagment disable")
-	if enable_lodmanager and get_node(LodManager):
+	if get_node(LodManager):
 		var lm = get_node(LodManager)
+		lm.enabled = false
+		printd("Disable LodManager %s" % lm.get_path())
 
-func init(tree_root=null):
-	if tree_root == null:
+func init_tree():
+	print("Init Tree manager")
+	if tree == null:
 		if get_tree():
-			tree_root = get_tree().current_scene
-	tree = tree_root
+			tree = get_tree().current_scene
+			printd("tree set to get_tree: %s" % tree)
+	printd("=tree: %s" % tree)
 	if tree:
+		printd("Init meshtool and treestats scripts")
 		MeshTool = scripts.MeshTool.new(tree)
 		TreeStats = scripts.TreeStats.new(tree)
-		enable_managment()
 
 func _ready():
+	printd("TreeManager _ready")
 	if enabled:
-		init()
+		init_tree()
+		enable_managment()
 
 func tm_enable(enable):
-	if enable and enabled == null:
-		enabled = true
-		init()
-	if not enable and enabled:
-		disable_managment()
+	printd("Tree manager tm_enable (%s, %s)" % [enable, enabled])
+	if tree == null and enable:
+		init_tree()
+		if tree == null:
+			printd("Tree manager can't set tree, disabled")
+			enabled = null
+			return
 		enabled = false
-	if enable and not enabled:
-		if enable_managment():
-			enabled = true
+	if tree == null and not enable:
+		if enabled == null:
+			disable_managment()
+			enabled = false
+		return
+
+	if enable :
+		if not enabled:
+			enabled = enable_managment()
+	else:
+		if enabled:
+			disable_managment()
+			enabled = false

@@ -16,11 +16,13 @@ func printd(s):
 		print(s)
 
 func _ready():
+	print("LodManager _ready, enabled(%s)" % enabled)
 	if enabled:
 		enabled = false
 		lod_enable(true)
 
 func lod_enable(turn_on):
+	print("LodManager, lod_enable: %s %s" % [turn_on, enabled])
 	if turn_on and not enabled:
 		print("Enable LodManager, at %s" % get_lodroot().get_path())
 		if get_tree():
