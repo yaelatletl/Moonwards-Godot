@@ -202,6 +202,9 @@ extents = Vector3( 0.144063, 0.147485, 0.160454 )
 [sub_resource type="BoxShape" id=8]
 extents = Vector3( 0.340703, 0.0138273, 0.227196 )
 
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 0.306531, 0.340695, 0.219678 )
+
 [sub_resource type="SpatialMaterial" id=9]
 albedo_color = Color( 0.795079, 0.764522, 0.78743, 1 )
 
@@ -218,9 +221,6 @@ surfaces/0 = {
 "skeleton_aabb": [  ],
 "vertex_count": 1024
 }
-
-[sub_resource type="BoxShape" id=11]
-extents = Vector3( 47.6279, 0.340695, 0.219678 )
 
 [sub_resource type="BoxShape" id=12]
 extents = Vector3( 0.194436, 0.00292289, 2.19402 )
@@ -255,20 +255,20 @@ normal_texture = ExtResource( 131 )
 uv1_scale = Vector3( 5, 5, 5 )
 uv1_triplanar = true
 
-[sub_resource type="BoxShape" id=19]
+[sub_resource type="BoxShape" id=18]
 extents = Vector3( 1.43805, 0.151389, 0.0285998 )
 
-[sub_resource type="BoxShape" id=20]
+[sub_resource type="BoxShape" id=19]
 extents = Vector3( 0.0369691, 0.153464, 0.141528 )
 
-[sub_resource type="BoxShape" id=18]
+[sub_resource type="BoxShape" id=20]
 extents = Vector3( 9.22929, 3.3859, 6.14163 )
 
 [node name="Scene" type="Spatial"]
 
 [node name="Exterior" type="Spatial" parent="."]
 
-[node name="CollisionsExterior" type="Node" parent="Exterior"]
+[node name="CollisionsExterior" type="Spatial" parent="Exterior"]
 
 [node name="AtriumNorthWall" type="StaticBody" parent="Exterior/CollisionsExterior"]
 editor/display_folded = true
@@ -358,6 +358,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77816, 0.11588, -1.20463 )
 shape = SubResource( 6 )
 
 [node name="WindowWellandShield" type="StaticBody" parent="Exterior/CollisionsExterior"]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.346517, 1.97515, 3.37471 )
 
 [node name="CollisionPolygon" type="CollisionPolygon" parent="Exterior/CollisionsExterior/WindowWellandShield"]
@@ -371,6 +372,7 @@ depth = 0.6
 polygon = PoolVector2Array( 0.29233, -0.595867, 0.292331, 0.501202, 0.786571, 0.519924, 1.16849, 0.400111, 1.50547, 0.149247, 1.66647, -0.0529411, 1.67022, -0.700699, 0.296074, -0.723172 )
 
 [node name="CoolingTanks" type="StaticBody" parent="Exterior/CollisionsExterior"]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -3.38701, 1.70563, 1.80264 )
 
 [node name="CollisionPolygon" type="CollisionPolygon" parent="Exterior/CollisionsExterior/CoolingTanks"]
@@ -389,6 +391,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.496887, 0.832286, -0.0522656
 shape = SubResource( 7 )
 
 [node name="Walk-inFridges" type="StaticBody" parent="Exterior/CollisionsExterior"]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09832, 1.25711, 2.03672 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Exterior/CollisionsExterior/Walk-inFridges"]
@@ -400,12 +403,28 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.553505, 0 )
 shape = SubResource( 8 )
 
 [node name="AirlockRamp" type="StaticBody" parent="Exterior/CollisionsExterior"]
+editor/display_folded = true
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.265976, 1.30975, 4.42065 )
 
 [node name="CollisionPolygon" type="CollisionPolygon" parent="Exterior/CollisionsExterior/AirlockRamp"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00872386 )
 depth = 0.35
 polygon = PoolVector2Array( -0.354055, -0.0197804, 0.118048, 0.106862, 0.130071, -0.0181773 )
+
+[node name="RadBarrier_TunnelOutlet" type="StaticBody" parent="Exterior/CollisionsExterior"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7158, 0.601929, -0.206543 )
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="Exterior/CollisionsExterior/RadBarrier_TunnelOutlet"]
+depth = 4.5
+polygon = PoolVector2Array( -0.591468, 0.586989, 0.293118, -0.297597, -0.303868, -0.297597, -1.19281, 0.595704 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Exterior/CollisionsExterior/RadBarrier_TunnelOutlet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.63951, 2.04916 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Exterior/CollisionsExterior/RadBarrier_TunnelOutlet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.63951, -2.0426 )
+shape = SubResource( 11 )
 
 [node name="TunnelWalls002" type="MeshInstance" parent="Exterior" groups=[
 "wall",
@@ -518,21 +537,6 @@ use_in_baked_light = true
 mesh = ExtResource( 13 )
 material/0 = null
 material/1 = null
-
-[node name="RadBarrier_TunnelOutlet" type="StaticBody" parent="Exterior/RadBarrier-TunnnelWindows002"]
-editor/display_folded = true
-
-[node name="CollisionPolygon" type="CollisionPolygon" parent="Exterior/RadBarrier-TunnnelWindows002/RadBarrier_TunnelOutlet"]
-depth = 4.5
-polygon = PoolVector2Array( -0.591468, 0.586989, 0.293118, -0.297597, -0.303868, -0.297597, -1.19281, 0.595704 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Exterior/RadBarrier-TunnnelWindows002/RadBarrier_TunnelOutlet"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.63951, 2.04916 )
-shape = SubResource( 11 )
-
-[node name="CollisionShape2" type="CollisionShape" parent="Exterior/RadBarrier-TunnnelWindows002/RadBarrier_TunnelOutlet"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.63951, -2.0426 )
-shape = SubResource( 11 )
 
 [node name="Interior" type="Spatial" parent="." groups=[
 "interior",
@@ -2227,11 +2231,11 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/AlgaeTubes/AlgaeTubes_col"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.119308, 0 )
-shape = SubResource( 19 )
+shape = SubResource( 18 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="Interior/AlgaeTubes/AlgaeTubes_col"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43532, -0.118671, 0.115817 )
-shape = SubResource( 20 )
+shape = SubResource( 19 )
 
 [node name="AlgaeFarmPost" type="MeshInstance" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1626, 1.56799, -2.76611 )
@@ -2252,7 +2256,7 @@ script = ExtResource( 176 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Triggers/Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96696, 0, 0 )
-shape = SubResource( 18 )
+shape = SubResource( 20 )
 
 [node name="BakedLightmap" type="BakedLightmap" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.68293, 0.565462, 0.844477 )
