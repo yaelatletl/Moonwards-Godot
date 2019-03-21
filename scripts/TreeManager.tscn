@@ -5,7 +5,6 @@
 
 [node name="TreeManager" type="Node"]
 script = ExtResource( 1 )
-enable_lodmanager = false
 enable_areamanager = false
 LodManager = NodePath("LodManager")
 debug = true
