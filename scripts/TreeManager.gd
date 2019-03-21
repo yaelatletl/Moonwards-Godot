@@ -41,31 +41,83 @@ func _process(delta):
 	#call all other managers with new position
 	pass
 
+var update_tree = false
+func track_node_added(node):
+	if not update_tree:
+		return
+	if tree and node:
+		if tree.has_node(node.get_path()):
+			var root = tree.get_tree()
+			root.connect("idle_frame", self, "track_update", [], Node.CONNECT_ONESHOT)
+			update_tree = true
+
+func track_node_removed(node):
+	if node is MeshInstance and MeshTool:
+		#clear cache
+		MeshTool.cache_has_mesh(node, true)
+	if not update_tree:
+		return
+	if tree and node:
+		if tree.has_node(node.get_path()):
+			var root = tree.get_tree()
+			root.connect("idle_frame", self, "track_update", [], Node.CONNECT_ONESHOT)
+			update_tree = true
+
+func track_update():
+	update_tree = false
+	printd("TM track_update")
+	if enable_hboxsetlod:
+		printd("TM update hboxsetlod at %s" % tree.get_path())
+		hboxsetlod(tree)
+
+func track_changes(enable):
+	printd("TM track_changes(%s)" % enable)
+	if tree:
+		var root = tree.get_tree()
+		if root:
+			if enable:
+				root.connect("node_added", self, "track_node_added")
+				root.connect("node_removed", self, "track_node_removed")
+			else:
+				root.disconnect("node_added", self, "track_node_added")
+				root.disconnect("node_removed", self, "track_node_removed")
+		else:
+			print("setup tracking changes, enable(%s), but get_tree is null" % enable)
+
+func hboxsetlod_check(node):
+	var to_set = false
+	if node is MeshInstance:
+		if node.lod_min_distance == 0 and node.lod_max_distance == 0:
+			to_set = true
+		if MeshTool.cache_has_mesh(node):
+			to_set = true
+	return to_set
+
 func hboxsetlod(node, children = true):
 	var size = 0
-	if node is MeshInstance:
+	if hboxsetlod_check(node):
 		MeshTool.mesh = node
 		size += MeshTool.hbox_surface_projection()
 	if children:
-		for path in utils.get_nodes(node, true):
-			size += hboxsetlod(node.get_node(path), true)
-	if node.is_class("MeshInstance") and size > 0:
+		for child in node.get_children():
+			size += hboxsetlod(child, true)
+	if size > 0 and hboxsetlod_check(node):
 		# do not set lod if it set manually
-		if node.lod_min_distance == 0 and node.lod_max_distance == 0:
-			node.lod_max_distance = lod_aspect_ratio * sqrt(size)
-			printd("%s lod(%s) aspect(%s) size(%s) " % [node, node.lod_max_distance, lod_aspect_ratio, size])
+		node.lod_max_distance = lod_aspect_ratio * sqrt(size)
+		printd("%s lod(%s) aspect(%s) size(%s) " % [node, node.lod_max_distance, lod_aspect_ratio, size])
 	return size
 
 func set_lod_aspect_ratio(value):
+	printd("TreeManager update lod_aspect_ratio from %s to %s" % [lod_aspect_ratio, value])
 	if value > 0:
 		lod_aspect_ratio = value
 	if not enabled:
 		return
 	if enable_hboxsetlod:
 		hboxsetlod(tree)
-	if enable_lodmanager and get_node(LodManager):
-		var lm = get_node(LodManager)
-		lm.UpdateLOD()
+		if enable_lodmanager and get_node(LodManager):
+			var lm = get_node(LodManager)
+			lm.UpdateLOD()
 
 func enable_managment():
 	if tree == null:
@@ -85,6 +137,8 @@ func enable_managment():
 		print("LodManager disabled: %s %s" % [enable_lodmanager, LodManager])
 		var lm = get_node(LodManager)
 		lm.enabled = false
+	track_changes(true)
+	return true
 
 func disable_managment():
 	print("TreeManagment disable")
@@ -92,6 +146,8 @@ func disable_managment():
 		var lm = get_node(LodManager)
 		lm.enabled = false
 		printd("Disable LodManager %s" % lm.get_path())
+
+	track_changes(false)
 
 func init_tree():
 	print("Init Tree manager")
@@ -106,7 +162,7 @@ func init_tree():
 		TreeStats = scripts.TreeStats.new(tree)
 
 func _ready():
-	printd("TreeManager _ready")
+	printd("TreeManager _ready, enabled %s" % enabled)
 	if enabled:
 		init_tree()
 		enable_managment()
