@@ -109,9 +109,10 @@ func set_decimate_percent(value):
 
 func set_lod_aspect_ratio(value):
 	options.set("LOD", value, "lod_aspect_ratio")
-	if options.get("_state_", "set_lod_manager"):
+	var lmp = options.get("_state_", "set_lod_manager")
+	if lmp:
 		var root = get_tree().current_scene
-		root.get_node(options.get("_state_", "set_lod_manager")).lod_aspect_ratio = value
+		root.get_node(lmp).lod_aspect_ratio = value
 
 func _on_tLodManager_pressed():
 	var button = $Panel/TabContainer/Dev/VBoxContainer/tLodManager
