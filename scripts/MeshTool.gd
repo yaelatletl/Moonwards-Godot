@@ -10,6 +10,18 @@ func printd(s):
 	if debug:
 		print(s)
 
+func cache_has_id(id):
+	if id == null:
+		return false
+	return mesh_cache.has(id)
+
+func cache_has_mesh(mesh, erase=false):
+	var id = id_mesh(mesh)
+	var has = cache_has_id(id)
+	if erase and has:
+		mesh_cache.erase(id)
+	return has
+
 func cache_vars(id=null):
 	if id == null and mesh != null:
 		id = id_mesh(mesh)
@@ -123,13 +135,16 @@ func hbox_instance():
 	cm.size = bb[1]
 	return cm
 
-func id_mesh(mesh_obj=null):
-	var obj = mesh
-	if mesh_obj != null:
-		obj = mesh_obj
+func id_mesh(obj):
 	if obj == null:
 		print("id_mesh, object is null")
 		return null
+	if obj is MeshInstance:
+		if obj.mesh:
+			obj = obj.mesh
+		else:
+			printd("id_mesh, mesh is null in: %s" % obj.get_path())
+			return null
 	if not obj.is_class("Resource"):
 		print("id_mesh obj(%s) not a Resource type" % obj)
 		return null
