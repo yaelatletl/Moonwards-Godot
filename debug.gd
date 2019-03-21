@@ -182,11 +182,13 @@ func set_lod_manager(enable):
 	var root = get_tree().current_scene
 	if slm == null:
 		#find if lod manager is present in scene
+		print("Look for existing TreeManager")
 		for p in utils.get_nodes_type(root, "Node", true):
 			var obj = root.get_node(p)
-			if obj.script and obj.has_meta("id") and obj.id == "TreeManager":
+			if obj.script and obj.get("id") and obj.id == "TreeManager":
 				slm = p
 				options.set("_state_", p, "set_lod_manager")
+				print("found TreeManager at %s" % p)
 				break
 		if enable == null:
 			#just find if there is lod manager in the tree
@@ -199,8 +201,8 @@ func set_lod_manager(enable):
 		var tm = ResourceLoader.load(tm_path)
 		tm = tm.instance()
 		root.add_child(tm)
-		options.set("_state_", root.get_path_to(tm), "set_lod_manager")
 		slm = root.get_path_to(tm)
+		options.set("_state_", slm, "set_lod_manager")
 	
 	var tm = root.get_node(slm)
 	if options.get("LOD", "lod_aspect_ratio"):
