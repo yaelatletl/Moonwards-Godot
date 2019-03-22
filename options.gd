@@ -100,8 +100,8 @@ func set(category, value, prop = null):
 func del_state(prop):
 	print("options del_stat ::%s" % prop)
 	if options.has("_state_"):
-		if options["_state"].has(prop):
-			options["_state"].erase(prop)
+		if options["_state_"].has(prop):
+			options["_state_"].erase(prop)
 
 func get_tree_options(tree):
 	var arr = utils.get_nodes_type(tree, "Node")
