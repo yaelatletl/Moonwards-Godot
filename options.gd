@@ -97,6 +97,35 @@ func set(category, value, prop = null):
 		options[category] = {}
 	options[category][prop] = value
 
+func del_state(prop):
+	print("options del_stat ::%s" % prop)
+	if options.has("_state_"):
+		if options["_state"].has(prop):
+			options["_state"].erase(prop)
+
+func get_tree_options(tree):
+	var arr = utils.get_nodes_type(tree, "Node")
+	var Options
+	for p in arr:
+		var obj = tree.get_node(p)
+		if obj.name == "Options":
+			Options = obj
+			break
+	return Options
+
+func get_tree_opt(opt):
+	var res = false
+	var root = get_tree().current_scene
+	if root == null:
+		return res
+	#get options unde Node-Options
+	#
+	var Options = get_tree_options(root)
+	if Options:
+		var obj = Options.get_node(opt)
+		if obj:
+			res = true
+	return res
 
 
 ################
