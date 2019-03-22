@@ -45,7 +45,7 @@ func get_lodroot():
 		return get_parent()
 
 func reset(init=true):
-	print("LodManager reset")
+	print("LodManager reset(%s)" % init)
 	camera = null
 	camera_position = Vector3()
 	if mesh_collection.size() > 0:
@@ -67,8 +67,8 @@ func init_scene():
 	GetMeshInstances(get_lodroot(), mesh_collection)
 	camera = get_tree().root.get_viewport().get_camera()
 	
-	yield(get_tree(), "idle_frame")
-	UpdateLOD()
+	if camera:
+		UpdateLOD(true)
 
 func GetMeshInstances(var starting_node, var collection):
 	#consider that starting_nodes can be object of managment as well
@@ -89,21 +89,32 @@ func GetMeshInstances(var starting_node, var collection):
 func _process(delta):
 	if not enabled:
 		return
-	camera = get_tree().root.get_viewport().get_camera()
-	if camera == null:
-		return
-
-	var new_position = camera.global_transform.origin
-	if new_position.distance_to(camera_position) > grid_step:
+	if UpdateCamera():
 		UpdateLOD()
-		camera_position = new_position
 
 func NodeAddedToTree(var node):
 	if get_lodroot().is_a_parent_of(node):
 		GetMeshInstances(node, mesh_collection)
 
-func UpdateLOD():
-	print("LODManager update, collection size %s, position %s" %  [mesh_collection.size(), camera_position])
+func UpdateCamera(force=false):
+	camera = get_tree().root.get_viewport().get_camera()
+	if camera == null:
+		return false
+
+	var new_position = camera.global_transform.origin
+	if force or new_position.distance_to(camera_position) > grid_step:
+		camera_position = new_position
+		return true
+	return false
+
+func UpdateLOD(force=false):
+	if force:
+		var uc = UpdateCamera(force)
+		if not uc :
+			printd("UpdateLOD no camera position defined")
+			return
+		
+	#printd("LODManager update, collection size %s, position %s" %  [mesh_collection.size(), camera_position])
 	var changes = 0
 	var visible = 0
 	var hidden = 0
@@ -132,5 +143,5 @@ func UpdateLOD():
 			visible += 1
 		else:
 			hidden += 1
-	
-	print("changes(%s), visible(%s), hidden(%s)" % [changes, visible, hidden])
+	if changes > 0:
+		print("LM changes(%s), visible(%s), hidden(%s) total(%s)" % [changes, visible, hidden, mesh_collection.size()])
