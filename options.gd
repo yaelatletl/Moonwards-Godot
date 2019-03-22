@@ -94,9 +94,8 @@ func set(category, value, prop = null):
 	if prop == null:
 		options[category] = value
 	elif not options.has(category):
-		options[category] = {prop = value}
-	else:
-		options[category][prop] = value
+		options[category] = {}
+	options[category][prop] = value
 
 
 
