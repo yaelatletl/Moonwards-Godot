@@ -1,33 +1,43 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://model_assets/meshes/SolarPanelUnit__SolarPanel_Opt.mesh" type="ArrayMesh" id=1]
-[ext_resource path="res://model_assets/meshes/SolarPanelUnit__Truss-SolarPanel_Opt.mesh" type="ArrayMesh" id=2]
+[ext_resource path="res://model_assets/meshes/SolarPanelUnit__SolarPanel_LOD.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://model_assets/meshes/SolarPanelUnit__SolarPanel_LOD_Truss-SolarPanel_LOD.mesh" type="ArrayMesh" id=2]
+[ext_resource path="res://model_assets/meshes/SolarPanelUnit__SolarPanel_Opt.mesh" type="ArrayMesh" id=3]
+[ext_resource path="res://model_assets/meshes/SolarPanelUnit__SolarPanel_Opt_Truss-SolarPanel_Opt.mesh" type="ArrayMesh" id=4]
+[ext_resource path="res://model_assets/meshes/SolarPanelUnit__SolarPanel_LodFar.mesh" type="ArrayMesh" id=5]
 
 [node name="Scene" type="Spatial"]
 
-[node name="MeshInstance" type="MeshInstance" parent="." groups=[
-"LodFar",
-]]
-transform = Transform( 0.58739, -0.872008, 0, 1.04641, 0.489492, 0, 0, 0, 2, -0.136011, 0, -2.43298 )
-visible = false
-
-[node name="MeshInstance" type="MeshInstance" parent="MeshInstance"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0121942, 0 )
-
-[node name="SolarPanel_Opt" type="MeshInstance" parent="." groups=[
-"LodNear",
-]]
+[node name="SolarPanel_LOD" type="MeshInstance" parent="."]
 transform = Transform( 0.5, -0.866026, -5.20156e-10, 0.866026, 0.5, -9.00936e-10, 1.04031e-09, 0, 1, -0.118164, 0.0838623, -2.40723 )
 mesh = ExtResource( 1 )
 material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="Truss-SolarPanel_Opt" type="MeshInstance" parent="." groups=[
-"LodNear",
-]]
-transform = Transform( 0.502184, 0, 0, 0, 0.502184, 0, 0, 0, 0.502184, 0.00650251, 0.000623852, 0.051679 )
+[node name="Truss-SolarPanel_LOD" type="MeshInstance" parent="SolarPanel_LOD"]
+transform = Transform( 0.251092, 0.434904, 5.22427e-10, -0.434904, 0.251092, -2.92706e-16, -2.61213e-10, -4.52435e-10, 0.502184, -0.00975339, -0.149584, 2.45891 )
 mesh = ExtResource( 2 )
 material/0 = null
 material/1 = null
+
+[node name="SolarPanel_Opt" type="MeshInstance" parent="."]
+transform = Transform( 0.5, -0.866026, -5.20156e-10, 0.866026, 0.5, -9.00936e-10, 1.04031e-09, 0, 1, -0.118164, 0.0838623, -2.40723 )
+visible = false
+mesh = ExtResource( 3 )
+material/0 = null
+material/1 = null
+material/2 = null
+
+[node name="Truss-SolarPanel_Opt" type="MeshInstance" parent="SolarPanel_Opt"]
+transform = Transform( 0.251092, 0.434904, 5.22427e-10, -0.434904, 0.251092, -2.92706e-16, -2.61213e-10, -4.52435e-10, 0.502184, -0.00975339, -0.149584, 2.45891 )
+mesh = ExtResource( 4 )
+material/0 = null
+material/1 = null
+
+[node name="SolarPanel_LodFar" type="MeshInstance" parent="."]
+transform = Transform( 0.5, -0.866026, -5.20156e-10, 0.866026, 0.5, -9.00936e-10, 1.04031e-09, 0, 1, -0.118164, 0.0838623, -2.40723 )
+visible = false
+mesh = ExtResource( 5 )
+material/0 = null
 

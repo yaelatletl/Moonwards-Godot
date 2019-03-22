@@ -1,189 +1,38 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://model_assets/meshes/FlywheelSimple_NoArrays__FlywheelSpokes2_FlywheelSpokes_Opt.mesh" type="ArrayMesh" id=1]
-[ext_resource path="res://model_assets/meshes/FlywheelSimple_NoArrays__FlywheelTower.mesh" type="ArrayMesh" id=2]
-[ext_resource path="res://materials/Cask.tres" type="Material" id=3]
-[ext_resource path="res://model_assets/meshes/FlywheelSimple_NoArrays__FlywheelTower_LOD.mesh" type="ArrayMesh" id=4]
-[ext_resource path="res://model_assets/meshes/FlywheelSimple_NoArrays__FlywheelTower_LOD_FlywheelSpokes_LOD.mesh" type="ArrayMesh" id=5]
-[ext_resource path="res://model_assets/meshes/FlywheelSimple_NoArrays__FlywheelTower_Opt.mesh" type="ArrayMesh" id=6]
+[ext_resource path="res://model_assets/meshes/FlywheelSimple_NoArrays__FlywheelTower_LOD.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://model_assets/meshes/FlywheelSimple_NoArrays__FlywheelTower_LOD_FlywheelSpokes_LOD.mesh" type="ArrayMesh" id=2]
+[ext_resource path="res://model_assets/meshes/FlywheelSimple_NoArrays__FlywheelTower_Opt.mesh" type="ArrayMesh" id=3]
+[ext_resource path="res://model_assets/meshes/FlywheelSimple_NoArrays__FlywheelTower_Opt_FlywheelSpokes_Opt.mesh" type="ArrayMesh" id=4]
 
 [sub_resource type="ConcavePolygonShape" id=1]
 data = PoolVector3Array( 0, 2.0852, 0, -0.2037, 1.9352, 0.3077, -0.3616, 1.9352, 0.0735, 0, 2.0852, 0, -0.0735, 1.9352, -0.3616, 0.2037, 1.9352, -0.3077, 0, 2.0852, 0, 0.2037, 1.9352, -0.3077, 0.3616, 1.9352, -0.0735, 0, 2.0852, 0, 0.3616, 1.9352, -0.0735, 0.3077, 1.9352, 0.2037, 0, 2.0852, 0, 0.3077, 1.9352, 0.2037, 0.0735, 1.9352, 0.3616, 0.0735, 1.9352, 0.3616, -0.2037, 1.9352, 0.3077, 0, 2.0852, 0, 0, 2.0852, 0, -0.3616, 1.9352, 0.0735, -0.3077, 1.9352, -0.2037, -0.3077, 1.9352, -0.2037, -0.0735, 1.9352, -0.3616, 0, 2.0852, 0, 0.0735, 1.9352, 0.3616, 0.3077, 1.9352, 0.2037, 0.3077, -0.012, 0.2037, 0.3616, 1.9352, -0.0735, 0.2037, 1.9352, -0.3077, 0.2037, -0.012, -0.3077, -0.3077, 1.9352, -0.2037, -0.3616, 1.9352, 0.0735, -0.3616, -0.012, 0.0735, -0.2037, 1.9352, 0.3077, 0.0735, 1.9352, 0.3616, 0.0735, -0.012, 0.3616, 0.3077, 1.9352, 0.2037, 0.3616, 1.9352, -0.0735, 0.3616, -0.012, -0.0735, 0.2037, 1.9352, -0.3077, -0.0735, 1.9352, -0.3616, -0.0735, -0.012, -0.3616, -0.0735, 1.9352, -0.3616, -0.3077, 1.9352, -0.2037, -0.3077, -0.012, -0.2037, -0.3616, 1.9352, 0.0735, -0.2037, 1.9352, 0.3077, -0.2037, -0.012, 0.3077, 0.0735, -0.012, 0.3616, -0.0735, -0.012, -0.3616, -0.3616, -0.012, 0.0735, 0.0735, 1.9352, 0.3616, 0.3077, -0.012, 0.2037, 0.0735, -0.012, 0.3616, 0.3616, 1.9352, -0.0735, 0.2037, -0.012, -0.3077, 0.3616, -0.012, -0.0735, -0.3077, 1.9352, -0.2037, -0.3616, -0.012, 0.0735, -0.3077, -0.012, -0.2037, -0.2037, 1.9352, 0.3077, 0.0735, -0.012, 0.3616, -0.2037, -0.012, 0.3077, 0.3077, 1.9352, 0.2037, 0.3616, -0.012, -0.0735, 0.3077, -0.012, 0.2037, 0.2037, 1.9352, -0.3077, -0.0735, -0.012, -0.3616, 0.2037, -0.012, -0.3077, -0.0735, 1.9352, -0.3616, -0.3077, -0.012, -0.2037, -0.0735, -0.012, -0.3616, -0.3616, 1.9352, 0.0735, -0.2037, -0.012, 0.3077, -0.3616, -0.012, 0.0735, -0.0735, -0.012, -0.3616, 0.3616, -0.012, -0.0735, 0.2037, -0.012, -0.3077, 0.3616, -0.012, -0.0735, 0.0735, -0.012, 0.3616, 0.3077, -0.012, 0.2037, 0.0735, -0.012, 0.3616, -0.3616, -0.012, 0.0735, -0.2037, -0.012, 0.3077, -0.3616, -0.012, 0.0735, -0.0735, -0.012, -0.3616, -0.3077, -0.012, -0.2037, -0.0735, -0.012, -0.3616, 0.0735, -0.012, 0.3616, 0.3616, -0.012, -0.0735 )
 
-[sub_resource type="CylinderMesh" id=2]
-material = ExtResource( 3 )
-top_radius = 0.03
-bottom_radius = 0.03
-height = 0.2
-radial_segments = 10
-
-[sub_resource type="MultiMesh" id=3]
-transform_format = 1
-instance_count = 18
-mesh = SubResource( 2 )
-transform_array = PoolVector3Array( 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 0.24, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 0.34, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 0.44, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 0.54, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 0.64, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 0.74, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 0.84, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 0.94, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 1.04, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 1.14, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 1.24, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 1.34, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 1.44, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 1.54, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 1.64, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 1.74, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 1.84, 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 1.94 )
-
 [node name="Scene" type="Spatial"]
 
-[node name="FlywheelSpokes2" type="Node" parent="."]
-editor/display_folded = true
-
-[node name="FlywheelSpokes_Opt" type="MeshInstance" parent="FlywheelSpokes2"]
-transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 1.9, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-material/1 = null
-
-[node name="FlywheelSpokes_Opt2" type="MeshInstance" parent="FlywheelSpokes2"]
-transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 1.8, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-material/1 = null
-
-[node name="FlywheelSpokes_Opt3" type="MeshInstance" parent="FlywheelSpokes2"]
-transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 1.7, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-material/1 = null
-
-[node name="FlywheelSpokes_Opt4" type="MeshInstance" parent="FlywheelSpokes2"]
-transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 1.6, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-material/1 = null
-
-[node name="FlywheelSpokes_Opt5" type="MeshInstance" parent="FlywheelSpokes2"]
-transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 1.5, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-material/1 = null
-
-[node name="FlywheelSpokes_Opt6" type="MeshInstance" parent="FlywheelSpokes2"]
-transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 1.4, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-material/1 = null
-
-[node name="FlywheelSpokes_Opt7" type="MeshInstance" parent="FlywheelSpokes2"]
-transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 1.3, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-material/1 = null
-
-[node name="FlywheelSpokes_Opt8" type="MeshInstance" parent="FlywheelSpokes2"]
-transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 1.2, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-material/1 = null
-
-[node name="FlywheelSpokes_Opt9" type="MeshInstance" parent="FlywheelSpokes2"]
-transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 1.1, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-material/1 = null
-
-[node name="FlywheelSpokes_Opt10" type="MeshInstance" parent="FlywheelSpokes2"]
-transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 1.1, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-material/1 = null
-
-[node name="FlywheelSpokes_Opt11" type="MeshInstance" parent="FlywheelSpokes2"]
-transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 1, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-material/1 = null
-
-[node name="FlywheelSpokes_Opt12" type="MeshInstance" parent="FlywheelSpokes2"]
-transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 0.9, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-material/1 = null
-
-[node name="FlywheelSpokes_Opt13" type="MeshInstance" parent="FlywheelSpokes2"]
-transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 0.8, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-material/1 = null
-
-[node name="FlywheelSpokes_Opt14" type="MeshInstance" parent="FlywheelSpokes2"]
-transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 0.7, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-material/1 = null
-
-[node name="FlywheelSpokes_Opt15" type="MeshInstance" parent="FlywheelSpokes2"]
-transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 0.6, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-material/1 = null
-
-[node name="FlywheelSpokes_Opt16" type="MeshInstance" parent="FlywheelSpokes2"]
-transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 0.5, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-material/1 = null
-
-[node name="FlywheelSpokes_Opt17" type="MeshInstance" parent="FlywheelSpokes2"]
-transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 0.4, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-material/1 = null
-
-[node name="FlywheelSpokes_Opt18" type="MeshInstance" parent="FlywheelSpokes2"]
-transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 0.3, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-material/1 = null
-
-[node name="FlywheelSpokes_Opt19" type="MeshInstance" parent="FlywheelSpokes2"]
-transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 0, 0.2, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-material/1 = null
-
-[node name="FlywheelTower" type="MeshInstance" parent="." groups=[
-"cs_convex",
-]]
-mesh = ExtResource( 2 )
-material/0 = null
-
-[node name="FlywheelTower_col" type="StaticBody" parent="FlywheelTower"]
-
-[node name="CollisionShape" type="CollisionShape" parent="FlywheelTower/FlywheelTower_col"]
-shape = SubResource( 1 )
-
-[node name="MultiMeshInstance" type="MultiMeshInstance" parent="." groups=[
-"LodFar",
-]]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, -0.0627903, 0.494011 )
-multimesh = SubResource( 3 )
-
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 1.03514, 0.704553 )
-visible = false
-
-[node name="MeshInstance2" type="MeshInstance" parent="."]
-transform = Transform( 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 0.24 )
-visible = false
-
-[node name="MeshInstance3" type="MeshInstance" parent="."]
-transform = Transform( 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 1.9, 0.24 )
-visible = false
-
 [node name="FlywheelTower_LOD" type="MeshInstance" parent="."]
-visible = false
-mesh = ExtResource( 4 )
+mesh = ExtResource( 1 )
 material/0 = null
 
 [node name="FlywheelSpokes_LOD" type="MeshInstance" parent="FlywheelTower_LOD"]
-transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 2.31672e-07, 1.90373, 1.5498e-07 )
-visible = false
-mesh = ExtResource( 5 )
+transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 2.31672e-07, 1.90944, 1.5498e-07 )
+mesh = ExtResource( 2 )
 material/0 = null
 material/1 = null
 
 [node name="FlywheelTower_Opt" type="MeshInstance" parent="."]
-mesh = ExtResource( 6 )
+visible = false
+mesh = ExtResource( 3 )
 material/0 = null
+
+[node name="FlywheelTower_col" type="StaticBody" parent="FlywheelTower_Opt"]
+
+[node name="CollisionShape" type="CollisionShape" parent="FlywheelTower_Opt/FlywheelTower_col"]
+shape = SubResource( 1 )
+
+[node name="FlywheelSpokes_Opt" type="MeshInstance" parent="FlywheelTower_Opt"]
+transform = Transform( 1, 2.66454e-15, 0, -2.66454e-15, 1, 0, 0, 0, 1, 2.31672e-07, 1.87253, 1.5498e-07 )
+mesh = ExtResource( 4 )
+material/0 = null
+material/1 = null
 

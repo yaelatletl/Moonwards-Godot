@@ -1,186 +1,56 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://model_assets/meshes/SolarThermalMirrorSet_CenterCircuit__MiddleMirrorPipeHolder002_MirrorFrame002.mesh" type="ArrayMesh" id=1]
-[ext_resource path="res://model_assets/meshes/SolarThermalMirrorSet_CenterCircuit__MiddleMirrorPipeHolder002_MirrorTowerCables002.mesh" type="ArrayMesh" id=2]
-[ext_resource path="res://model_assets/meshes/SolarThermalMirrorSet_CenterCircuit__MiddleMirrorPipeHolder002_MirrorTowerFrame002.mesh" type="ArrayMesh" id=3]
-[ext_resource path="res://model_assets/meshes/SolarThermalMirrorSet_CenterCircuit__MiddleMirrorPipeHolder002_Pipes-Mirrors-to-Tank.mesh" type="ArrayMesh" id=4]
-[ext_resource path="res://model_assets/meshes/SolarThermalMirrorSet_CenterCircuit__MiddleMirrorPipeHolder002_sodium-reservoir-2001.mesh" type="ArrayMesh" id=5]
-[ext_resource path="res://model_assets/meshes/SolarThermalMirrorSet_CenterCircuit__MiddleMirrorPipeHolder002_StartPipeHolder001.mesh" type="ArrayMesh" id=6]
-[ext_resource path="res://model_assets/meshes/SolarThermalMirrorSet_CenterCircuit__MiddleMirrorPipeHolder002.mesh" type="ArrayMesh" id=7]
-[ext_resource path="res://model_assets/meshes/SolarThermalMirrorSet_CenterCircuit__MiddleMirrorPipeHolder002_EndMirrorPipeHolder001.mesh" type="ArrayMesh" id=8]
-[ext_resource path="res://model_assets/meshes/SolarThermalMirrorSet_CenterCircuit__MiddleMirrorPipeHolder002_excess-sodium-tank000.mesh" type="ArrayMesh" id=9]
-[ext_resource path="res://model_assets/meshes/SolarThermalMirrorSet_CenterCircuit__MiddleMirrorPipeHolder002_HeatPipe-MirrorUnit002.mesh" type="ArrayMesh" id=10]
+[ext_resource path="res://model_assets/meshes/SolarThermalMirrorSet_CenterCircuit__MirrorTowerFrame.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://model_assets/meshes/SolarThermalMirrorSet_CenterCircuit__Pipes-Mirrors-to-Tank.mesh" type="ArrayMesh" id=2]
+[ext_resource path="res://model_assets/meshes/SolarThermalMirrorSet_CenterCircuit__sodium-reservoir-2000.mesh" type="ArrayMesh" id=3]
+[ext_resource path="res://model_assets/meshes/SolarThermalMirrorSet_CenterCircuit__excess-sodium-tank.mesh" type="ArrayMesh" id=4]
+[ext_resource path="res://model_assets/meshes/SolarThermalMirrorSet_CenterCircuit__HeatPipe-MirrorUnit.mesh" type="ArrayMesh" id=5]
+[ext_resource path="res://model_assets/meshes/SolarThermalMirrorSet_CenterCircuit__Mirrors.mesh" type="ArrayMesh" id=6]
+
+[sub_resource type="ConcavePolygonShape" id=1]
+data = PoolVector3Array( -0.1892, -4.2879, -2.3269, -0.1892, -4.2879, -2.1441, -0.1892, -2.2311, -2.1441, 0.1887, -4.2879, 0.0911, 0.1887, -4.2879, -0.0917, 0.1887, -2.2311, -0.0917, 0.1887, -4.2879, -2.3269, -0.1892, -4.2879, -2.3269, -0.1892, -2.2311, -2.3269, 0.1887, -4.2879, -4.3794, 0.1887, -4.2879, -4.5622, 0.1887, -2.2311, -4.5622, -0.1892, -4.2879, 0.0911, 0.1887, -4.2879, 0.0911, 0.1887, -2.2311, 0.0911, 0.1887, -4.2879, -2.1441, 0.1887, -4.2879, -2.3269, 0.1887, -2.2311, -2.3269, -0.1892, -4.2879, -4.3794, 0.1887, -4.2879, -4.3794, 0.1887, -2.2311, -4.3794, -0.1892, -4.2879, -0.0917, -0.1892, -4.2879, 0.0911, -0.1892, -2.2311, 0.0911, -0.1892, -4.2879, -2.1441, 0.1887, -4.2879, -2.1441, 0.1887, -2.2311, -2.1441, 0.1887, -4.2879, -0.0917, -0.1892, -4.2879, -0.0917, -0.1892, -2.2311, -0.0917, -0.1892, -4.2879, -4.5622, -0.1892, -4.2879, -4.3794, -0.1892, -2.2311, -4.3794, 0.1887, -4.2879, -4.5622, -0.1892, -4.2879, -4.5622, -0.1892, -2.2311, -4.5622, -0.1892, -4.2879, -2.3269, -0.1892, -2.2311, -2.1441, -0.1892, -2.2311, -2.3269, 0.1887, -4.2879, 0.0911, 0.1887, -2.2311, -0.0917, 0.1887, -2.2311, 0.0911, 0.1887, -4.2879, -2.3269, -0.1892, -2.2311, -2.3269, 0.1887, -2.2311, -2.3269, 0.1887, -4.2879, -4.3794, 0.1887, -2.2311, -4.5622, 0.1887, -2.2311, -4.3794, -0.1892, -4.2879, 0.0911, 0.1887, -2.2311, 0.0911, -0.1892, -2.2311, 0.0911, 0.1887, -4.2879, -2.1441, 0.1887, -2.2311, -2.3269, 0.1887, -2.2311, -2.1441, -0.1892, -4.2879, -4.3794, 0.1887, -2.2311, -4.3794, -0.1892, -2.2311, -4.3794, -0.1892, -4.2879, -0.0917, -0.1892, -2.2311, 0.0911, -0.1892, -2.2311, -0.0917, -0.1892, -4.2879, -2.1441, 0.1887, -2.2311, -2.1441, -0.1892, -2.2311, -2.1441, 0.1887, -4.2879, -0.0917, -0.1892, -2.2311, -0.0917, 0.1887, -2.2311, -0.0917, -0.1892, -4.2879, -4.5622, -0.1892, -2.2311, -4.3794, -0.1892, -2.2311, -4.5622, 0.1887, -4.2879, -4.5622, -0.1892, -2.2311, -4.5622, 0.1887, -2.2311, -4.5622 )
 
 [node name="Scene" type="Spatial"]
 
-[node name="MirrorFrame002" type="MeshInstance" parent="." index="0"]
-
-transform = Transform( 0.5, -0.866026, 9.29401e-08, 0.866026, 0.5, -1.09718e-08, -3.69683e-08, 8.59747e-08, 1, 9.53675e-07, -4.76838e-07, 2.13501 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
+[node name="MirrorTowerFrame" type="MeshInstance" parent="."]
+transform = Transform( 1, 6.54642e-10, -1.10265e-09, -6.54642e-10, 1, 0, 1.10265e-09, 0, 1, -7.53403e-05, -0.00247526, 2.23424 )
 mesh = ExtResource( 1 )
-skeleton = NodePath("..")
+material/0 = null
+material/1 = null
+material/2 = null
+
+[node name="StaticBody" type="StaticBody" parent="MirrorTowerFrame"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MirrorTowerFrame/StaticBody"]
+transform = Transform( 1, -6.54642e-10, 1.10265e-09, 6.54642e-10, 1, 7.21841e-19, -1.10265e-09, 7.21841e-19, 1, 7.53403e-05, 0.00247526, -0.00117207 )
+shape = SubResource( 1 )
+
+[node name="Pipes-Mirrors-to-Tank" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.0142036, 0.0402347, -0.000924886 )
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="sodium-reservoir-2000" type="MeshInstance" parent="."]
+transform = Transform( 1, 6.83746e-10, -1.10265e-09, -6.83746e-10, 1, 0, 1.10265e-09, 0, 1, 0.00214195, 0.14146, -0.0158253 )
+mesh = ExtResource( 3 )
+material/0 = null
+
+[node name="excess-sodium-tank" type="MeshInstance" parent="."]
+transform = Transform( 1, 6.83746e-10, -1.10265e-09, -6.83746e-10, 1, 0, 1.10265e-09, 0, 1, 0.140466, -1.94113, -0.00229228 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="HeatPipe-MirrorUnit" type="MeshInstance" parent="."]
+transform = Transform( 1, 6.54642e-10, -1.10265e-09, -6.54642e-10, 1, 0, 1.10265e-09, 0, 1, 0, -4.76837e-07, 1.13301 )
+mesh = ExtResource( 5 )
+material/0 = null
+material/1 = null
+
+[node name="Mirrors" type="MeshInstance" parent="."]
+transform = Transform( 0.5, -0.866026, 9.29405e-08, 0.866026, 0.5, -1.09718e-08, -3.69683e-08, 8.59747e-08, 1, 9.53674e-07, -4.76837e-07, 2.13501 )
+mesh = ExtResource( 6 )
 material/0 = null
 material/1 = null
 material/2 = null
 material/3 = null
-
-[node name="Interior" type="Spatial" parent="." index="1" groups=[
-"interior",
-]]
-
-visible = false
-
-[node name="MirrorTowerCables002" type="MeshInstance" parent="Interior" index="0"]
-
-transform = Transform( 1, 6.546e-10, -1.10265e-09, -6.546e-10, 1, -2.22045e-16, 1.10265e-09, -2.22045e-16, 1, -7.53402e-05, -0.00247527, 2.23424 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 2 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="MirrorTowerFrame002" type="MeshInstance" parent="Interior" index="1"]
-
-transform = Transform( 1, 6.546e-10, -1.10265e-09, -6.546e-10, 1, -2.22045e-16, 1.10265e-09, -2.22045e-16, 1, -7.53402e-05, -0.00247527, 2.23424 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 3 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="Pipes-Mirrors-to-Tank" type="MeshInstance" parent="Interior" index="2"]
-
-transform = Transform( 0.1, -1.90333e-18, 1.11022e-16, -1.90333e-18, 0.1, -4.16334e-17, -1.11022e-16, -1.38778e-17, 0.1, 0.0142036, 0.0402347, -0.000924886 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 4 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="sodium-reservoir-2001" type="MeshInstance" parent="Interior" index="3"]
-
-transform = Transform( 1, 6.837e-10, -1.10265e-09, -6.837e-10, 1, -2.22045e-16, 1.10265e-09, -2.22045e-16, 1, 0.00214195, 0.14146, -0.0158253 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 5 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="StartPipeHolder001" type="MeshInstance" parent="Interior" index="4"]
-
-transform = Transform( 1, 2.86828e-08, -1.07585e-08, -2.86828e-08, 1, 1.97116e-09, 1.07585e-08, -1.97116e-09, 1, 0.000857353, -5.32907e-15, 2.23403 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 6 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="MiddleMirrorPipeHolder002" type="MeshInstance" parent="Interior" index="5"]
-
-transform = Transform( 1, 2.79991e-08, -9.65588e-09, -2.79991e-08, 1, 1.97116e-09, 9.65588e-09, -1.97116e-09, 1, 0, 0, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 7 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="EndMirrorPipeHolder001" type="MeshInstance" parent="Interior" index="6"]
-
-transform = Transform( 1, 2.86828e-08, -1.07585e-08, -2.86828e-08, 1, 1.97116e-09, 1.07585e-08, -1.97116e-09, 1, -7.99361e-14, 1.59872e-14, -2.23666 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 8 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="excess-sodium-tank000" type="MeshInstance" parent="Interior" index="7"]
-
-transform = Transform( 1, 6.837e-10, -1.10265e-09, -6.837e-10, 1, -2.22045e-16, 1.10265e-09, -2.22045e-16, 1, 0.140466, -1.94113, -0.00229227 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 9 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="HeatPipe-MirrorUnit002" type="MeshInstance" parent="Interior" index="8"]
-
-transform = Transform( 1, 6.546e-10, -1.10265e-09, -6.546e-10, 1, -2.22045e-16, 1.10265e-09, -2.22045e-16, 1, -2.22045e-14, -4.76837e-07, 1.13301 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 10 )
-skeleton = NodePath("..")
-material/0 = null
-material/1 = null
-
 
