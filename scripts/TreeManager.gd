@@ -43,13 +43,16 @@ func _process(delta):
 
 var update_tree = false
 func track_node_added(node):
-	if not update_tree:
+	if update_tree:
+		return
+	if not node is MeshInstance:
 		return
 	if tree and node:
 		if tree.has_node(node.get_path()):
-			var root = tree.get_tree()
+			var root = get_tree()
 			root.connect("idle_frame", self, "track_update", [], Node.CONNECT_ONESHOT)
 			update_tree = true
+			printd("TM track node added, set update, cuz %s in %s" % [node.get_path(), tree.get_path()])
 
 func track_node_removed(node):
 	if node is MeshInstance and MeshTool:
@@ -57,11 +60,13 @@ func track_node_removed(node):
 		MeshTool.cache_has_mesh(node, true)
 	if not update_tree:
 		return
+	#parent calulated size may change because of removing child nodes, so react on remove too
 	if tree and node:
 		if tree.has_node(node.get_path()):
 			var root = tree.get_tree()
 			root.connect("idle_frame", self, "track_update", [], Node.CONNECT_ONESHOT)
 			update_tree = true
+			printd("TM track node remove, set update, cuz %s in %s" % [node.get_path(), tree.get_path()])
 
 func track_update():
 	update_tree = false
@@ -71,18 +76,17 @@ func track_update():
 		hboxsetlod(tree)
 
 func track_changes(enable):
-	printd("TM track_changes(%s)" % enable)
-	if tree:
-		var root = tree.get_tree()
-		if root:
-			if enable:
-				root.connect("node_added", self, "track_node_added")
-				root.connect("node_removed", self, "track_node_removed")
-			else:
-				root.disconnect("node_added", self, "track_node_added")
-				root.disconnect("node_removed", self, "track_node_removed")
+	printd("TM track_changes(%s) at %s" % [enable, tree])
+	var root = get_tree()
+	if root:
+		if enable:
+			root.connect("node_added", self, "track_node_added")
+			root.connect("node_removed", self, "track_node_removed")
 		else:
-			print("setup tracking changes, enable(%s), but get_tree is null" % enable)
+			root.disconnect("node_added", self, "track_node_added")
+			root.disconnect("node_removed", self, "track_node_removed")
+	else:
+		print("fail to setup tracking changes, enable(%s), but get_tree is null" % enable)
 
 func hboxsetlod_check(node):
 	var to_set = false
@@ -103,8 +107,24 @@ func hboxsetlod(node, children = true):
 			size += hboxsetlod(child, true)
 	if size > 0 and hboxsetlod_check(node):
 		# do not set lod if it set manually
-		node.lod_max_distance = lod_aspect_ratio * sqrt(size)
-		printd("%s lod(%s) aspect(%s) size(%s) " % [node, node.lod_max_distance, lod_aspect_ratio, size])
+		var new_lmd = lod_aspect_ratio * sqrt(size)
+		# round stuff, as there may be problems like that
+		# value rounded in mesh sintance lod
+		# old new 4.995999 4.996 path /root/LODTestingTree/@LODMesh@56/Sphere
+		# [MeshInstance:1406] lod(4.995999) aspect(10) size(0.2496) 
+		# however this one is in reverse
+		# old new 288.67514 288.675135 path /root/LODTestingTree/MeshInstance
+		# [MeshInstance:1249] lod(288.67514) aspect(10) size(833.333333) 
+		# casting to float does not help
+		# which is odd
+		# TODO
+		# comparions needs mostly for being able to print debug changes in sizes
+		# so it not necessaly and can be removed later to jsut assing values
+		# or track it independantly
+		if round(new_lmd*1000) != round(node.lod_max_distance*1000):
+			#printd("old new %s %s path %s" % [node.lod_max_distance, new_lmd, node.get_path()])
+			node.lod_max_distance = new_lmd
+			printd("%s lod(%s) aspect(%s) size(%s) " % [node, node.lod_max_distance, lod_aspect_ratio, size])
 	return size
 
 func set_lod_aspect_ratio(value):
@@ -123,7 +143,7 @@ func enable_managment():
 	if tree == null:
 		print("TreeManagment faield to enable, tree is not set")
 		return false
-	print("TreeManagment enable")
+	print("TM TreeManagment enable, tree %s" % tree.get_path())
 	if enable_hboxsetlod:
 		printd("TM start hboxsetlod at %s" % tree.get_path())
 		hboxsetlod(tree)
