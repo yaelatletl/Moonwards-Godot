@@ -124,7 +124,7 @@ func hboxsetlod(node, children = true):
 		if round(new_lmd*1000) != round(node.lod_max_distance*1000):
 			#printd("old new %s %s path %s" % [node.lod_max_distance, new_lmd, node.get_path()])
 			node.lod_max_distance = new_lmd
-			printd("%s lod(%s) aspect(%s) size(%s) " % [node, node.lod_max_distance, lod_aspect_ratio, size])
+			printd("%s lod(%s) aspect(%s) size(%s) name: %s " % [node, node.lod_max_distance, lod_aspect_ratio, size, node.name])
 	return size
 
 func set_lod_aspect_ratio(value):
