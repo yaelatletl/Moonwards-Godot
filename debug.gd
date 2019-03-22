@@ -25,8 +25,6 @@ func _ready():
 #	tree.connect("idle_frame", self, "tree_idle_frame")
 	
 	debug_apply_options()
-	#insert some camera
-	camera_ready()
 
 func on_tree_change():
 	print("debug treechange")
@@ -47,6 +45,10 @@ func debug_apply_options():
 	set_3fps(options.get("dev", "3FPSlimit"))
 	e_area_lod(options.get("dev", "enable_areas_lod"))
 	set_lod_manager(options.get("dev", "TreeManager", false))
+	
+	#insert some camera
+	if not options.get_tree_opt("NoCamera"):
+		camera_ready()
 
 var camera_ready_path
 var camera_ready_oldcamera
@@ -77,6 +79,7 @@ func camera_ready(force=false):
 		
 
 func on_scene_change():
+	options.del_state("set_lod_manager")
 	debug_apply_options()
 
 func user_scene_changed():
