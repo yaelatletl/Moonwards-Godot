@@ -1,4 +1,7 @@
 extends KinematicBody
+
+export(bool) var debug = false
+
 var CHAR_SCALE = Vector3(0.3, 0.3, 0.3)
 var MaleAvatar = preload("res://model_assets/Avatars/MalePlayer.tscn")
 var FemaleAvatar = preload("res://model_assets/Avatars/FemalePlayer.tscn")
@@ -55,9 +58,16 @@ puppet var puppet_linear_vel
 var RPC_MODE_DISABLED = 0
 var RPC_MODE_PUPPET = 3
 #####################
+func printd(s):
+	if debug:
+		print(s)
+
+#####################
 ## Set/Get functions
 func _enter_tree():
+	printd("Player enter tree")
 	var Player
+	printd("Player %s select avatar, female(%s)" % [get_path(), is_female])
 	if is_female:
 		Player = FemaleAvatar.instance()
 	else:
@@ -67,8 +77,10 @@ func _enter_tree():
 	Player.rotation_degrees.y = -90
 	$Model.add_child(Player)
 	AnimatedCharacter = $Model/Scene
+
 func set_nonetwork(state):
 	nonetwork = state
+	printd("Player %s enable/disable networking, nonetwork(%s)" % [get_path(), nonetwork])
 	if nonetwork:
 		rset_config("puppet_translation", RPC_MODE_DISABLED)
 		rset_config("puppet_transform",  RPC_MODE_DISABLED)
@@ -77,9 +89,11 @@ func set_nonetwork(state):
 		rset_config("puppet_translation", RPC_MODE_PUPPET)
 		rset_config("puppet_transform",  RPC_MODE_PUPPET)
 		rset_config("puppet_linear_vel",  RPC_MODE_PUPPET)
+
 #disable camera view for the player
 func set_player_nocamera(state):
 	nocamera = state
+	printd("Player %s enable/disable camera, nocamera(%s)" % [get_path(), nocamera])
 	if nocamera :
 		get_node("Pivot").visible = false
 		get_node("Pivot/FPSCamera").clear_current()
@@ -113,6 +127,7 @@ func adjust_facing(p_facing, p_target, p_step, p_adjust_rate, current_gn):
 	return (n*cos(ang) + t*sin(ang))*p_facing.length()
 
 func set_player_input(enable):
+	printd("Player %s enable/disable input, enable(%s)" % [get_path(), enable])
 	if not enable:
 		self.get_node(Camera).noinput = true
 		Captured = false
@@ -123,9 +138,32 @@ func set_player_input(enable):
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	input_processing = enable
 
+func mode_run(enable):
+	if enable:
+		max_speed=WALKSPEED
+	else:
+		max_speed=RUNSPEED
+	
+	if flies:
+		max_speed = 2 * max_speed
+	printd("player mode, run(%s) max speed(%s), fly(%s); %s" % [enable, max_speed, flies, get_path()])
+
+func mode_fly(enable=null):
+	flies = !flies
+	if enable != null:
+		flies = enable
+	printd("player mode, fly set to %s; %s" % [flies, get_path()])
 
 func _input(event):
- #### RAYCAST ####
+	# disable enable imput processing, mostly for networ players, they totaly slave of their state
+	if Input.is_action_pressed("player_toggleinput"):
+		input_processing = !input_processing
+		set_player_input(input_processing)
+		
+	if not input_processing:
+		return
+
+	#### RAYCAST ####
 	var Raycast = $Pivot/FPSCamera.get_node("RayCast")
 	if Raycast.is_colliding():
 		var collider = Raycast.get_collider()
@@ -133,12 +171,6 @@ func _input(event):
 		var click_normal = Raycast.get_collision_normal()
 		if collider is Area:
 			collider._input_event (get_viewport().get_camera(), event, click_position, click_normal, 0 )
-	if Input.is_action_pressed("player_toggleinput"):
-		input_processing = !input_processing
-		set_player_input(input_processing)
-		
-	if not input_processing:
-		return
 	
 	#if Input.is_action_pressed("ui_page_up"):
 	#	if Captured:
@@ -151,21 +183,13 @@ func _input(event):
 	if Input.is_key_pressed(KEY_ESCAPE):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
-	if (Input.is_action_pressed("run")):
-		if not flies: 
-			max_speed=RUNSPEED
-		else: 
-			max_speed=RUNSPEED*2
-	else:
-		if  not flies: 
-			max_speed=WALKSPEED
-		else:
-			max_speed=WALKSPEED*2
-	if (Input.is_action_pressed("toggle_fly")):
-		if flies:
-			flies = false
-		else:
-			flies = true
+	if Input.is_action_just_pressed("move_run"):
+		mode_run(true)
+	if Input.is_action_just_released("move_run"):
+		mode_run(false)
+	
+	if Input.is_action_pressed("toggle_fly"):
+		mode_fly()
 	
 func _physics_process(delta):
 #Changes acceleration and max speed.
