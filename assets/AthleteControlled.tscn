@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/AthleteController.gd" type="Script" id=1]
 [ext_resource path="res://model_assets/AthleteRover.tscn" type="PackedScene" id=2]
@@ -31,6 +31,9 @@ node_connections = [ "output", 0, "Transition", "Transition", 0, "Animation", "T
 [sub_resource type="SphereShape" id=5]
 radius = 1.25
 
+[sub_resource type="SphereShape" id=6]
+radius = 0.3
+
 [node name="AthleteControlled" type="Spatial"]
 script = ExtResource( 1 )
 
@@ -59,6 +62,30 @@ shape = SubResource( 5 )
 
 [node name="Scene" parent="KinematicBody" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13393, 0 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.827913, 0.249144, -1.10235 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.078, 0.146419, 0 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.855853, 0.21871, -1.07223 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.859272, 0.19187, 1.03526 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.811905, 0.212671, 1.10014 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape7" type="CollisionShape" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1511, 0.231179, 0 )
+shape = SubResource( 6 )
 
 
 [editable path="KinematicBody/Scene"]
