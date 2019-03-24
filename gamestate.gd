@@ -509,7 +509,7 @@ func create_player(id):
 		player.nocamera = true
 
 	if options.debug:
-		player.input_processing = false
+		player.debug = true
 	world.get_node("players").add_child(player)
 	players[id]["world"] = "%s" % world
 	players[id]["path"] = world.get_path_to(player)
