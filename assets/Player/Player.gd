@@ -154,6 +154,15 @@ func mode_fly(enable=null):
 		flies = enable
 	printd("player mode, fly set to %s; %s" % [flies, get_path()])
 
+func cursor_toggle():
+	match Input.get_mouse_mode():
+		Input.MOUSE_MODE_VISIBLE:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		_:
+			print("player cursor_toggle, do not know what to do, current mode %s at player %s" % [Input.get_mouse_mode(), get_path()])
+
 func _input(event):
 	# disable enable imput processing, mostly for networ players, they totaly slave of their state
 	if Input.is_action_pressed("player_toggleinput"):
@@ -172,16 +181,8 @@ func _input(event):
 		if collider is Area:
 			collider._input_event (get_viewport().get_camera(), event, click_position, click_normal, 0 )
 	
-	#if Input.is_action_pressed("ui_page_up"):
-	#	if Captured:
-	#		Captured = false
-	#		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	#	else:
-	#		Captured = true
-	#		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	#		#############################
 	if Input.is_key_pressed(KEY_ESCAPE):
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		cursor_toggle()
 	
 	if Input.is_action_just_pressed("move_run"):
 		mode_run(true)
