@@ -158,8 +158,10 @@ func cursor_toggle():
 	match Input.get_mouse_mode():
 		Input.MOUSE_MODE_VISIBLE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			printd("player set cursor to captured")
 		Input.MOUSE_MODE_CAPTURED:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			printd("player set cursor to visible")
 		_:
 			print("player cursor_toggle, do not know what to do, current mode %s at player %s" % [Input.get_mouse_mode(), get_path()])
 
@@ -181,7 +183,7 @@ func _input(event):
 		if collider is Area:
 			collider._input_event (get_viewport().get_camera(), event, click_position, click_normal, 0 )
 	
-	if Input.is_key_pressed(KEY_ESCAPE):
+	if Input.is_action_just_pressed("ui_cancel"):
 		cursor_toggle()
 	
 	if Input.is_action_just_pressed("move_run"):
@@ -189,7 +191,7 @@ func _input(event):
 	if Input.is_action_just_released("move_run"):
 		mode_run(false)
 	
-	if Input.is_action_pressed("toggle_fly"):
+	if Input.is_action_just_pressed("toggle_fly"):
 		mode_fly()
 	
 func _physics_process(delta):
@@ -205,6 +207,7 @@ func _physics_process(delta):
 		 up = Vector3(0,1,0) # (up is against gravity)
 	else:
 		 up = -gravity.normalized()
+	
 	var vertical_velocity = up.dot(linear_velocity) # Vertical velocity
 	var horizontal_velocity = linear_velocity - up*vertical_velocity # Horizontal velocity
 	var hdir = horizontal_velocity.normalized() # Horizontal direction
@@ -219,23 +222,21 @@ func _physics_process(delta):
 	#THIS BLOCK IS INTENDED FOR FPS CONTROLLER USE ONLY
 	var aim = $Pivot/FPSCamera.get_global_transform().basis
 
-	if (Input.is_action_pressed("move_forwards")):
-		ismoving = true
+	if Input.is_action_pressed("move_forwards"):
 		if not flies:
 			dir -= aim[2]
-		
 		else:
 			dir += AbsView
-	else:
-		ismoving = false
-	if (Input.is_action_pressed("move_backwards")):
+	if Input.is_action_pressed("move_backwards"):
 		if not flies:
 			dir += aim[2]
 		else:
 			dir -= AbsView
+	if Input.is_action_pressed("move_forwards") or Input.is_action_pressed("move_backwards"):
 		ismoving = true
 	else:
 		ismoving = false
+	
 	if (Input.is_action_pressed("move_left")):
 		dir -= aim[0]
 
@@ -260,8 +261,10 @@ func _physics_process(delta):
 	# 			$Yaw.transform = puppet_transform
 				linear_velocity = puppet_linear_vel
 
-	var jump_attempt = (Input.is_action_pressed("jump") or (Input.is_action_pressed("ui_page_up") and flies))
-	var crouch_attempt = (Input.is_action_pressed("ui_mlook") or (Input.is_action_pressed("ui_page_down") and flies))
+# 	var jump_attempt = (Input.is_action_pressed("jump") or (Input.is_action_pressed("ui_page_up") and flies))
+	var jump_attempt = Input.is_action_pressed("jump")
+# 	var crouch_attempt = (Input.is_action_pressed("ui_mlook") or (Input.is_action_pressed("ui_page_down") and flies))
+	var crouch_attempt = Input.is_action_pressed("ui_mlook")
 	
 	
 #END OF THE BLOCK
