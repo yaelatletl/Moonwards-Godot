@@ -800,6 +800,7 @@ anims/HiArm = SubResource( 5 )
 anims/Neutral = SubResource( 6 )
 
 [node name="Skeleton" type="Skeleton" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
 bones_in_world_transform = true
 bones/0/name = "hand_IK.L"
 bones/0/parent = -1
