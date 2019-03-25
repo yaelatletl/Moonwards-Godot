@@ -46,6 +46,7 @@ export(float) var grav = 1.6
 var gravity = Vector3(0,-grav,0)
 
 var max_speed = 0.0
+var max_speed_vertical = 20 * RUNSPEED #limit general falling speed, even if probably not required
 
 var linear_velocity=Vector3()
 var hspeed = 0
@@ -74,9 +75,11 @@ func _enter_tree():
 		Player = MaleAvatar.instance()
 	
 	Player.name = "Scene"
-	Player.rotation_degrees.y = -90
+# 	Player.rotation_degrees.y = -90
 	$Model.add_child(Player)
 	AnimatedCharacter = $Model/Scene
+	#max_speed = WALKSPEED #init value, is modifyed by mode_run function, if req
+	mode_run(false)
 
 func set_nonetwork(state):
 	nonetwork = state
@@ -363,14 +366,16 @@ func _physics_process(delta):
 			vertical_velocity = 0
 			
 			
-		if vertical_velocity > max_speed:
-			vertical_velocity = max_speed
+		if vertical_velocity > max_speed_vertical:
+			vertical_velocity = max_speed_vertical
+			printd("veritcal velocity(%s) vs max_speed(%s)" % [vertical_velocity, max_speed_vertical])
 	
 	linear_velocity = horizontal_velocity + up*vertical_velocity
 
 	if (is_on_floor()):
 		movement_dir = linear_velocity
 
+	printd("player move/slide v %s g %s d %s ms %s" % [linear_velocity,-gravity.normalized(), dir, max_speed])
 	linear_velocity = move_and_slide(linear_velocity,-gravity.normalized())
 
 	if not nocamera:
