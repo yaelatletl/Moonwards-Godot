@@ -22,7 +22,8 @@ func update_title(text):
 
 
 func _enter_tree():
-	$Confirm.get_cancel().connect("pressed",self,"_on_Cancel") 
+	if not $Confirm.get_cancel().is_connected("pressed",self,"_on_Cancel"):
+		$Confirm.get_cancel().connect("pressed",self,"_on_Cancel") 
 	#Get the popup cancel button and connect it to _on_cancel
 	
 	$Label.text = get_title()
