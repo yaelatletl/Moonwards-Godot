@@ -25,7 +25,9 @@ func _ready():
 #	tree.connect("idle_frame", self, "tree_idle_frame")
 	
 	debug_apply_options()
-
+	#List Features
+	features_list()
+	
 func on_tree_change():
 	print("debug treechange")
 func on_node_added(node):
@@ -211,3 +213,41 @@ func set_lod_manager(enable):
 	if options.get("LOD", "lod_aspect_ratio"):
 		tm.lod_aspect_ratio = options.get("LOD", "lod_aspect_ratio")
 	tm.enabled = enable
+
+func features_list(enabled_only=true):
+	var features = [
+		{ opt = "Android", hint = "Running on Android" },
+		{ opt = "HTML5", hint = "Running on HTML5" },
+		{ opt = "JavaScript", hint = "JavaScript singleton is available" },
+		{ opt = "OSX", hint = "Running on macOS" },
+		{ opt = "iOS", hint = "Running on iOS" },
+		{ opt = "UWP", hint = "Running on UWP" },
+		{ opt = "Windows", hint = "Running on Windows" },
+		{ opt = "X11", hint = "Running on X11 (Linux/BSD desktop)" },
+		{ opt = "Server", hint = "Running on the headless server platform" },
+		{ opt = "debug", hint = "Running on a debug build (including the editor)" },
+		{ opt = "release", hint = "Running on a release build" },
+		{ opt = "editor", hint = "Running on an editor build" },
+		{ opt = "standalone", hint = "Running on a non-editor build" },
+		{ opt = "64", hint = "Running on a 64-bit build (any architecture)" },
+		{ opt = "32", hint = "Running on a 32-bit build (any architecture)" },
+		{ opt = "x86_64", hint = "Running on a 64-bit x86 build" },
+		{ opt = "x86", hint = "Running on a 32-bit x86 build" },
+		{ opt = "arm64", hint = "Running on a 64-bit ARM build" },
+		{ opt = "arm", hint = "Running on a 32-bit ARM build" },
+		{ opt = "mobile", hint = "Host OS is a mobile platform" },
+		{ opt = "pc", hint = "Host OS is a PC platform (desktop/laptop)" },
+		{ opt = "web", hint = "Host OS is a Web browser" },
+		{ opt = "etc", hint = "Textures using ETC1 compression are supported" },
+		{ opt = "etc2", hint = "Textures using ETC2 compression are supported" },
+		{ opt = "s3tc", hint = "Textures using S3TC (DXT/BC) compression are supported" },
+		{ opt = "pvrtc", hint = "Textures using PVRTC compression are supported" }
+	]
+
+	for f in features:
+		if enabled_only:
+			if OS.has_feature(f.opt):
+				print("%s has %s" % [f.opt, OS.has_feature(f.opt)])
+		else:
+			print("%s has %s" % [f.opt, OS.has_feature(f.opt)])
+	
