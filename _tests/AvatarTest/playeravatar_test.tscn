@@ -84,12 +84,9 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="TestCollisionShape/TestCollisionShape_col"]
 shape = SubResource( 9 )
 
-[node name="KinematicBody" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.88889, 28.5536, -1.48328 )
-collision/safe_margin = 0.01
-debug = true
-is_female = false
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 11 )
+
+[node name="KinematicBody" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.7749, 0 )
 
