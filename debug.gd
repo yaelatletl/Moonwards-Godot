@@ -1,6 +1,12 @@
 extends Node
 var id
 
+var debug = true
+var debug_id = "debug.gd:: "
+func printd(s):
+	if debug:
+		print("%s%s", debug_id, s)
+
 func _input(event):
 	#print("debug event: %s" % event)
 	if event.is_action_pressed("debug_active_cameras"):
@@ -81,6 +87,7 @@ func camera_ready(force=false):
 		
 
 func on_scene_change():
+	printd("on_scene_change")
 	options.del_state("set_lod_manager")
 	debug_apply_options()
 
@@ -199,6 +206,15 @@ func set_lod_manager(enable):
 			#just find if there is lod manager in the tree
 			print("end search for LodManager")
 			return
+
+	if not enable:
+		if slm:
+			var tm = root.get_node(slm)
+			tm.enabled = false
+		else:
+			printd("set_lod_manager, attempt to disable notexisting tree manager")
+		return #nothing to do here
+		
 	if slm == null:
 		#create/add proper node
 		print("Load TreeManager")
