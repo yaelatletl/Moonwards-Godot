@@ -59,9 +59,10 @@ puppet var puppet_linear_vel
 var RPC_MODE_DISABLED = 0
 var RPC_MODE_PUPPET = 3
 #####################
+var debug_id = "Player.gd:: "
 func printd(s):
 	if debug:
-		print(s)
+		print("%s%s", debug_id, s)
 
 #####################
 ## Set/Get functions
