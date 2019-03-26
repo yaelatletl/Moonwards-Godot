@@ -59,6 +59,7 @@ material/2 = null
 material/3 = null
 
 [node name="StaticBody" type="StaticBody" parent="LongDome_Opt/LongDomeGround_Opt"]
+visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="LongDome_Opt/LongDomeGround_Opt/StaticBody"]
 transform = Transform( 1, -2.64697e-23, 0, -2.64697e-23, 1, 0, 0, 0, 1, 0, 0, 0 )
