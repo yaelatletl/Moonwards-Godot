@@ -6,10 +6,20 @@ var debug = true
 var scenes = {
 	loaded = null,
 	default = "WorldTest",
+	default_run_scene = "WorldV2Player",
+#	default_run_scene = "WorldTest2",
 	default_singleplayer_scene = "WorldV2",
 	default_mutiplayer_scene = "WorldTest",
 	World = {
 		path = "res://World.tscn"
+	},
+	WorldV2Player = {
+		path = "res://WorldV2Player.tscn",
+		hint = "World with player scene"
+	},
+	WorldAC = {
+		path = "res://World.tscn",
+		hint = "World with active camera"
 	},
 	WorldV2 = {
 		path = "res://WorldV2.tscn"
