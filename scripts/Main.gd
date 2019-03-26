@@ -10,6 +10,7 @@ func _ready():
 	get_viewport().connect("size_changed",self,"_on_size_changed")
 
 
+
 func _on_size_changed():
 	var Newsize = get_viewport().get_visible_rect().size
 	rect_scale = Vector2(1,1)*(Newsize.y/rect_size.y)
@@ -20,7 +21,7 @@ func _on_Run_pressed():
 	$load_timer.start()
 
 func _on_Timer_timeout():
-	get_tree().change_scene(SceneToLoad)
+	get_tree().change_scene(options.scenes[options.scenes.default_run_scene].path)
 
 func _on_Help_pressed():
 	$ui/MainUI/InstructionsContainer.visible = !$ui/MainUI/InstructionsContainer.visible
