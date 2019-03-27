@@ -3,9 +3,25 @@ var id
 
 var debug = true
 var debug_id = "debug.gd:: "
+var debug_list = [
+	{ enable = false, key = "node removed" },
+	{ enable = false, key = "added node" }
+# 	{ enable = true, key = "" }
+]
 func printd(s):
 	if debug:
-		print("%s%s", debug_id, s)
+		if debug_list.size() > 0:
+			var found = false
+			for dl in debug_list:
+				if s.begins_with(dl.key):
+					if dl.enable:
+						print("***", debug_id, s)
+					found = true
+					break
+			if not found:
+				print(debug_id, s)
+		else:
+			print(debug_id, s)
 
 func _input(event):
 	#print("debug event: %s" % event)
@@ -35,13 +51,13 @@ func _ready():
 	features_list()
 	
 func on_tree_change():
-	print("debug treechange")
+	printd("debug treechange")
 func on_node_added(node):
-	print("dgd added node %s" % node.get_path())
+	printd("added node %s" % node.get_path())
 func on_node_removed(node):
-	print("node removed: %s" % node)
+	printd("node removed: %s" % node)
 func tree_idle_frame():
-	print("tree idle frame")
+	printd("tree idle frame")
 
 func debug_apply_options():
 	yield(get_tree(), "idle_frame")

@@ -31,10 +31,10 @@ size = Vector2( 500, 500 )
 
 [sub_resource type="CubeMesh" id=8]
 
-[sub_resource type="SpatialMaterial" id=10]
+[sub_resource type="SpatialMaterial" id=9]
 albedo_color = Color( 0.384314, 0.101961, 0.101961, 1 )
 
-[sub_resource type="ConcavePolygonShape" id=9]
+[sub_resource type="ConcavePolygonShape" id=10]
 data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
 
 [sub_resource type="ProceduralSky" id=11]
@@ -108,12 +108,12 @@ material/0 = null
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25012, 0 )
 mesh = SubResource( 8 )
-material/0 = SubResource( 10 )
+material/0 = SubResource( 9 )
 
 [node name="TestCollisionShape_col" type="StaticBody" parent="TestCollisionShape"]
 
 [node name="CollisionShape" type="CollisionShape" parent="TestCollisionShape/TestCollisionShape_col"]
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 12 )
