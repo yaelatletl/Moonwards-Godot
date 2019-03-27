@@ -8,6 +8,7 @@ var scenes = {
 	default = "WorldTest",
 	default_run_scene = "WorldV2Player",
 #	default_run_scene = "WorldTest2",
+#	default_run_scene = "WorldTest",
 	default_singleplayer_scene = "WorldV2",
 	default_mutiplayer_scene = "WorldTest",
 	World = {
@@ -112,6 +113,14 @@ func del_state(prop):
 	if options.has("_state_"):
 		if options["_state_"].has(prop):
 			options["_state_"].erase(prop)
+
+func has(category, prop = null):
+	var exists = false
+	if options.has(category):
+		exists = true
+	if exists and prop != null:
+		exists = options[category].has(prop)
+	return exists
 
 func get_tree_options(tree):
 	var arr = utils.get_nodes_type(tree, "Node")
