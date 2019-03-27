@@ -20,9 +20,24 @@ var MeshTool
 var TreeStats
 
 export(bool) var debug = false
+var debug_id = "TreeManager:: "
+var debug_list = [
+# 	{ enable = true, key = "" }
+]
 func printd(s):
 	if debug:
-		print(s)
+		if debug_list.size() > 0:
+			var found = false
+			for dl in debug_list:
+				if s.begins_with(dl.key):
+					if dl.enable:
+						print("***", debug_id, s)
+					found = true
+					break
+			if not found:
+				print(debug_id, s)
+		else:
+			print(debug_id, s)
 
 #Set root path to manage mesh instances below
 func set_path():
