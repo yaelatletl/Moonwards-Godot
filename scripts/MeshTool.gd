@@ -6,9 +6,24 @@ var mesh_cache = {}
 var root
 
 export(bool) var debug = false
+var debug_id = "MeshTool:: "
+var debug_list = [
+# 	{ enable = true, key = "" }
+]
 func printd(s):
 	if debug:
-		print(s)
+		if debug_list.size() > 0:
+			var found = false
+			for dl in debug_list:
+				if s.begins_with(dl.key):
+					if dl.enable:
+						print("***", debug_id, s)
+					found = true
+					break
+			if not found:
+				print(debug_id, s)
+		else:
+			print(debug_id, s)
 
 func cache_has_id(id):
 	if id == null:
