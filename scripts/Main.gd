@@ -21,7 +21,8 @@ func _on_Run_pressed():
 	$load_timer.start()
 
 func _on_Timer_timeout():
-	get_tree().change_scene(options.scenes[options.scenes.default_run_scene].path)
+	var worldscene = options.scenes.default_run_scene
+	gamestate.change_scene(worldscene)
 
 func _on_Help_pressed():
 	$ui/MainUI/InstructionsContainer.visible = !$ui/MainUI/InstructionsContainer.visible
