@@ -19,7 +19,16 @@ func _ready():
 	set_process_input(true)
 	originaltranslation = Vector3(translation.x,translation.y,translation.z)
 	originalrotation = Vector3(rotation_degrees.x,rotation_degrees.y,rotation_degrees.z)
-
+	
+	
+func initiate_3rd_person():
+	var camera = preload("res://assets/Player/3RDPersCamera.tscn").instance()
+	camera.Target = get_tree().get_root().get_path_to($Target)
+	camera.Origin = get_tree().get_root().get_path_to($Origin)
+	camera.name = "THRD"
+	add_child(camera)
+	$THRD.set_as_toplevel(true)
+	$THRD._setup()
 func bobbing_effect(time, speed, delta):
 	if speed >= 0.1 and get_parent().get_parent().is_on_floor():
 		var Oscillation = sin(time * speed*3.1416)

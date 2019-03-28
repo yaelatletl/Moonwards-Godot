@@ -8,22 +8,30 @@ export(float) var margin  = 0.05
 #var originalpos = Vector3()
 export(NodePath) var Origin 
 export(NodePath) var Target 
-var target
-var origin
+var target : Vector3
+var origin : Vector3
 var ready : bool = false
 
 #var cameramovement
-#func _enter_tree():
+#func _ready():
 #	#cameramovement = get_node("../..").fixpos
-#	origin = get_node(Origin).translation
-#	target = get_node(Target).translation
+	#get_node(Origin).connect("ready",self, "On_ready")
 
 	
-func _ready():
-	ready = true
-	origin = to_local(get_node(Origin).get_global_transform()[3])
-	rotation_degrees = get_node(Origin).rotation_degrees
-	target = to_local(get_node(Target).get_global_transform()[3])
+func _setup():
+	call_deferred("startup")
+	
+func startup():
+	var root = get_tree().get_root()
+	while (ready == false):
+		if not (Origin == null or Target == null):
+			print(str(Origin) + "    " + str( Target))
+			assert(Origin!=null)
+			assert(Target!=null)
+			origin = to_local(root.get_node(Origin).get_global_transform()[3])
+			rotation_degrees = root.get_node(Origin).rotation_degrees
+			target = to_local(root.get_node(Target).get_global_transform()[3])
+			ready = true
 	
 func _process(delta):
 	
@@ -42,7 +50,7 @@ func _process(delta):
 			#print(target)
 			#linear_velocity = (origin - translation).normalized()*0.01
 			#linear_velocity = move_and_slide(linear_velocity,gravity.normalized())
-			set_global_transform(get_node(Origin).get_global_transform())
+			set_global_transform(get_tree().get_root().get_node(Origin).get_global_transform())
 			#if translation.x <= origin.x-0.2:
 	#		translation.x = translation.x + delta
 	#	if translation.x >= -origin.x+0.2:

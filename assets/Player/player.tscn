@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/Player/FPSCamera.gd" type="Script" id=2]
 [ext_resource path="res://chat/Main_clean.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/Player/3RDPersCamera.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/Player/label.gd" type="Script" id=5]
+[ext_resource path="res://assets/Player/label.gd" type="Script" id=4]
 
 [sub_resource type="QuadMesh" id=1]
 
@@ -74,14 +73,12 @@ material/0 = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0378248, 0.235295 )
 visible = false
 
-[node name="3RDPersCamera" parent="Pivot" instance=ExtResource( 4 )]
-
 [node name="label" type="Label" parent="."]
 margin_right = 40.0
 margin_bottom = 14.0
 rect_scale = Vector2( 3, 3 )
 text = "Default"
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 
 [node name="TextPoint" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28093, 0 )

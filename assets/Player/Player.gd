@@ -81,13 +81,9 @@ func _enter_tree():
 	AnimatedCharacter = $Model/Scene
 	#max_speed = WALKSPEED #init value, is modifyed by mode_run function, if req
 	mode_run(false)
-	initiate_3rd_person()
 
-func initiate_3rd_person():
-	var camera = preload("res://assets/Player/3RDPersCamera.tscn").instance()
-	camera.Target = get_node("/root/").get_path_to($Pivot/FPSCamera/Target)
-	camera.Origin = get_node("/root/").get_path_to($Pivot/FPSCamera/Origin)
-	get_node("/root/").add_child(camera)
+
+
 
 func set_nonetwork(state):
 	nonetwork = state
@@ -405,11 +401,13 @@ func _ready():
 	else:
 		set_player_name(name_label)
 	
+	
 #	$Pivot/FPSCamera/Chat.connect("disable_movement", self, "toggle_chatting")
 	CHAR_SCALE = scale
 	set_process_input(true)
 	if input_processing:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		$Pivot/FPSCamera.initiate_3rd_person()
 
 func set_player_name(new_name):
 	get_node("label").set_text(new_name)
