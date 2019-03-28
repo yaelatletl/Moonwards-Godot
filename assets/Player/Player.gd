@@ -81,6 +81,13 @@ func _enter_tree():
 	AnimatedCharacter = $Model/Scene
 	#max_speed = WALKSPEED #init value, is modifyed by mode_run function, if req
 	mode_run(false)
+	initiate_3rd_person()
+
+func initiate_3rd_person():
+	var camera = preload("res://assets/Player/3RDPersCamera.tscn").instance()
+	camera.Target = get_node("/root/").get_path_to($Pivot/FPSCamera/Target)
+	camera.Origin = get_node("/root/").get_path_to($Pivot/FPSCamera/Origin)
+	get_node("/root/").add_child(camera)
 
 func set_nonetwork(state):
 	nonetwork = state
