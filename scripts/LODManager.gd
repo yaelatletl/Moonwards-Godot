@@ -31,15 +31,15 @@ func printd(s):
 			print(debug_id, s)
 
 func _ready():
-	print("LodManager _ready, enabled(%s)" % enabled)
+	printd("_ready, enabled(%s)" % enabled)
 	if enabled:
 		enabled = false
 		lod_enable(true)
 
 func lod_enable(turn_on):
-	print("LodManager, lod_enable: %s %s" % [turn_on, enabled])
+	printd("lod_enable: %s %s" % [turn_on, enabled])
 	if turn_on and not enabled:
-		print("Enable LodManager, at %s" % get_lodroot().get_path())
+		printd("Enable LodManager, at %s" % get_lodroot().get_path())
 		if get_tree():
 			get_tree().connect("node_added", self, "NodeAddedToTree")
 			enabled = true
@@ -47,7 +47,7 @@ func lod_enable(turn_on):
 		else:
 			print("Failed to enable lod manager, get_tree is null")
 	elif not turn_on and enabled:
-		print("Disable LodManager")
+		printd("Disable LodManager")
 		if get_tree():
 			get_tree().disconnect("node_added", self, "NodeAddedToTree")
 		enabled = false
@@ -60,15 +60,15 @@ func get_lodroot():
 		return get_parent()
 
 func reset(init=true):
-	print("LodManager reset(%s)" % init)
+	printd("reset(%s)" % init)
 	camera = null
 	camera_position = Vector3()
 	if mesh_collection.size() > 0:
-		print("Restore state")
+		printd("Restore state")
 		for ref in mesh_collection:
 			var obj = ref.get_ref()
 			var id = obj.get_instance_id()
-			printd("%s %s %s %s" % [id, obj.get_path(), obj.visible, id_collection[id].visible])
+			printd("rs_mesh %s %s %s %s" % [id, obj.get_path(), obj.visible, id_collection[id].visible])
 			if id_collection.has(id) and obj.visible != id_collection[id].visible:
 				obj.visible = id_collection[id].visible
 	
@@ -159,4 +159,4 @@ func UpdateLOD(force=false):
 		else:
 			hidden += 1
 	if changes > 0:
-		print("LM changes(%s), visible(%s), hidden(%s) total(%s)" % [changes, visible, hidden, mesh_collection.size()])
+		printd("LM %s/%s/%s/%s changes/visible/hidden/total" % [changes, visible, hidden, mesh_collection.size()])
