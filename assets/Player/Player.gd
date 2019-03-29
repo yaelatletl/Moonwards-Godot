@@ -59,11 +59,26 @@ puppet var puppet_linear_vel
 var RPC_MODE_DISABLED = 0
 var RPC_MODE_PUPPET = 3
 #####################
+#var debug = true
 var debug_id = "Player.gd:: "
+var debug_list = [
+	{ enable = false, key = "player move/slide" }
+# 	{ enable = true, key = "" }
+]
 func printd(s):
 	if debug:
-		print("%s%s", debug_id, s)
-
+		if debug_list.size() > 0:
+			var found = false
+			for dl in debug_list:
+				if s.begins_with(dl.key):
+					if dl.enable:
+						print(debug_id, s)
+					found = true
+					break
+			if not found:
+				print(debug_id, s)
+		else:
+			print(debug_id, s)
 #####################
 ## Set/Get functions
 func _enter_tree():
