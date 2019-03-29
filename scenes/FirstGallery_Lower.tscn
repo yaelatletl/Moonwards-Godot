@@ -1,1116 +1,703 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000.mesh" type="ArrayMesh" id=1]
-[ext_resource path="res://model_assets/TubeHab.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_FirstGalleryColumns.mesh" type="ArrayMesh" id=3]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_FirstGalleryConduitMain.mesh" type="ArrayMesh" id=4]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_FirstGalleryFloor_Bottom.mesh" type="ArrayMesh" id=5]
-[ext_resource path="res://scenes/cshapes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_FirstGalleryFloor_Bottom_StaticBody_CollisionShape.shape" type="Shape" id=6]
-[ext_resource path="res://model_assets/LightTube_Large.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Cap002.mesh" type="ArrayMesh" id=8]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Cap003.mesh" type="ArrayMesh" id=9]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Cap004.mesh" type="ArrayMesh" id=10]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Entrance001.mesh" type="ArrayMesh" id=11]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Entrance002.mesh" type="ArrayMesh" id=12]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Entrance003.mesh" type="ArrayMesh" id=13]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Entrance014.mesh" type="ArrayMesh" id=14]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Entrance021.mesh" type="ArrayMesh" id=15]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_UpperGalleryRoof-Bottom-Beams001.mesh" type="ArrayMesh" id=16]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_UpperGalleryRoof-Middle-Beams003.mesh" type="ArrayMesh" id=17]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_UpperGalleryRoof-Middle001.mesh" type="ArrayMesh" id=18]
-[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_UpperGalleryRoof-TopMiddleCap001.mesh" type="ArrayMesh" id=19]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_UpperGalleryRoof-Bottom-Beams001.mesh" type="ArrayMesh" id=2]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_UpperGalleryRoof-Middle-Beams003.mesh" type="ArrayMesh" id=3]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_UpperGalleryRoof-Middle001.mesh" type="ArrayMesh" id=4]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_UpperGalleryRoof-TopMiddleCap001.mesh" type="ArrayMesh" id=5]
+[ext_resource path="res://model_assets/FirstGalleryAnchors_NorthWall.tscn" type="PackedScene" id=6]
+[ext_resource path="res://model_assets/FirstGalleryAnchors_SouthWall.tscn" type="PackedScene" id=7]
+[ext_resource path="res://model_assets/TubeHab.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_FirstGalleryColumns.mesh" type="ArrayMesh" id=9]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_FirstGalleryConduitMain.mesh" type="ArrayMesh" id=10]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_FirstGalleryFloor_Bottom.mesh" type="ArrayMesh" id=11]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Cap002.mesh" type="ArrayMesh" id=12]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Cap003.mesh" type="ArrayMesh" id=13]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Cap004.mesh" type="ArrayMesh" id=14]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Entrance001.mesh" type="ArrayMesh" id=15]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Entrance002.mesh" type="ArrayMesh" id=16]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Entrance003.mesh" type="ArrayMesh" id=17]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Entrance014.mesh" type="ArrayMesh" id=18]
+[ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_TubeHab-Entrance021.mesh" type="ArrayMesh" id=19]
 [ext_resource path="res://scenes/meshes/FirstGallery_Lower__UpperGalleryRoof-Bottom000_FirstGalleryWalls_Bottom.mesh" type="ArrayMesh" id=20]
-[ext_resource path="res://model_assets/FirstGalleryAnchors_NorthWall.tscn" type="PackedScene" id=21]
-[ext_resource path="res://model_assets/FirstGalleryAnchors_SouthWall.tscn" type="PackedScene" id=22]
-[ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=23]
+[ext_resource path="res://_tests/test_lod/AreaLod.gd" type="Script" id=21]
+[ext_resource path="res://model_assets/LightTube_Large.tscn" type="PackedScene" id=22]
 
 [sub_resource type="BoxShape" id=1]
-
 extents = Vector3( 50.2037, 13.3445, 15.6742 )
 
 [node name="Scene" type="Spatial"]
 
-_sections_unfolded = [ "Transform" ]
-
 [node name="UpperGalleryRoof-Bottom000" type="MeshInstance" parent="."]
-
 transform = Transform( 0.991674, -4.27723e-09, -0.128773, 4.33045e-09, 1, 1.33284e-10, 0.128773, -6.8982e-10, 0.991674, 0, 0, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 1 )
-skeleton = NodePath("..")
 material/0 = null
 material/1 = null
-_sections_unfolded = [ "Transform" ]
 
-[node name="Empty_TubeHabLarge" type="Spatial" parent="UpperGalleryRoof-Bottom000"]
+[node name="UpperGalleryRoof-Bottom-Beams001" type="MeshInstance" parent="."]
+transform = Transform( 0.991674, 4.63796e-07, -0.128773, -1.37354e-06, 1, 1.51648e-07, 0.128773, 2.7593e-08, 0.991674, 2.75051, -0.657593, 0.357182 )
+mesh = ExtResource( 2 )
+material/0 = null
 
-transform = Transform( 1.49997, -3.28985e-10, -0.00942472, 0, 1.5, -5.23599e-08, -0.00942472, -5.23588e-08, -1.49997, 43.6014, 34.7362, 10.2083 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_TubeHabLarge" instance=ExtResource( 2 )]
-
-[node name="Empty_TubeHabLarge001" type="Spatial" parent="UpperGalleryRoof-Bottom000"]
-
-transform = Transform( 1.49935, 2.06678e-06, -0.0442667, -2.06534e-06, 1.5, 7.93228e-08, 0.0442667, -1.83379e-08, 1.49935, 0.245218, -2.93042, -6.42343 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_TubeHabLarge001" instance=ExtResource( 2 )]
-
-_sections_unfolded = [ "Transform" ]
-
-[node name="Empty_TubeHabSmall" type="Spatial" parent="UpperGalleryRoof-Bottom000"]
-
-transform = Transform( 0.999978, 2.30146e-10, 0.0065932, 0, 1, -3.49066e-08, 0.0065932, -3.49058e-08, -0.999978, 21.6077, 16.3973, 8.93743 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_TubeHabSmall" instance=ExtResource( 2 )]
-
-[node name="Empty_TubeHabSmall001" type="Spatial" parent="UpperGalleryRoof-Bottom000"]
-
-transform = Transform( 0.999856, 4.72129e-07, -0.0169516, -1.37935e-06, 1, 1.78734e-07, 0.0169516, -3.60395e-08, 0.999856, 27.0762, 20.3723, -7.21054 )
-
-[node name="Scene" parent="UpperGalleryRoof-Bottom000/Empty_TubeHabSmall001" instance=ExtResource( 2 )]
-
-[node name="FirstGalleryColumns" type="MeshInstance" parent="UpperGalleryRoof-Bottom000"]
-
-transform = Transform( 0.991669, 0.00325403, 0.128773, -0.003228, 0.999995, -0.000417947, -0.128773, -1.09277e-06, 0.991674, 72.7068, 58.7229, -1.83968 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
+[node name="UpperGalleryRoof-Middle-Beams003" type="MeshInstance" parent="."]
+transform = Transform( 0.991674, 4.63796e-07, -0.128773, -1.37354e-06, 1, 1.51648e-07, 0.128773, 2.7593e-08, 0.991674, 28.3804, 24.1829, 3.68041 )
 mesh = ExtResource( 3 )
-skeleton = NodePath("..")
 material/0 = null
 
-[node name="FirstGalleryConduitMain" type="MeshInstance" parent="UpperGalleryRoof-Bottom000"]
-
-transform = Transform( 0.999998, 4.66841e-07, 0.00173286, -1.37715e-06, 1, 1.48665e-07, -0.00173286, -3.1764e-08, 0.999999, 41.0682, 27.1899, -0.0513663 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
+[node name="UpperGalleryRoof-Middle001" type="MeshInstance" parent="."]
+transform = Transform( 0.991674, 4.63796e-07, -0.128773, -1.37354e-06, 1, 1.51648e-07, 0.128773, 2.7593e-08, 0.991674, 28.3804, 24.1829, 3.68041 )
 mesh = ExtResource( 4 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="FirstGalleryFloor_Bottom" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" groups=[
-"floor",
-]]
-
-transform = Transform( 0.999998, 4.71171e-07, 0.00173278, -1.38148e-06, 1, 1.4852e-07, -0.00173278, -3.16269e-08, 0.999998, 41.0682, 27.0614, -0.0513663 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 5 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="StaticBody" type="StaticBody" parent="UpperGalleryRoof-Bottom000/FirstGalleryFloor_Bottom"]
-
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="UpperGalleryRoof-Bottom000/FirstGalleryFloor_Bottom/StaticBody"]
-
-shape = ExtResource( 6 )
-disabled = false
-
-[node name="LightTubeLarge017" type="Spatial" parent="UpperGalleryRoof-Bottom000"]
-
-editor/display_folded = true
-transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 44.3017, 37.6696, 6.93342 )
-
-[node name="Scene" parent="UpperGalleryRoof-Bottom000/LightTubeLarge017" instance=ExtResource( 7 )]
-
-[node name="LightTubeLarge018" type="Spatial" parent="UpperGalleryRoof-Bottom000"]
-
-editor/display_folded = true
-transform = Transform( 0.991674, 6.74254e-09, 0.128773, 0, 1, -5.23599e-08, -0.128773, 5.19239e-08, 0.991674, 44.3206, 37.6696, 10.1952 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Scene" parent="UpperGalleryRoof-Bottom000/LightTubeLarge018" instance=ExtResource( 7 )]
-
-[node name="LightTubeLarge019" type="Spatial" parent="UpperGalleryRoof-Bottom000"]
-
-editor/display_folded = true
-transform = Transform( 0.991674, 6.74254e-09, 0.128773, 0, 1, -5.23599e-08, -0.128773, 5.19239e-08, 0.991674, 44.3357, 37.6696, 13.4326 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Scene" parent="UpperGalleryRoof-Bottom000/LightTubeLarge019" instance=ExtResource( 7 )]
-
-[node name="LightTubeLarge039" type="Spatial" parent="UpperGalleryRoof-Bottom000"]
-
-transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 21.9253, 18.5552, 10.6025 )
-
-[node name="TubeHab-Cap002" type="MeshInstance" parent="UpperGalleryRoof-Bottom000"]
-
-transform = Transform( 0.999925, 4.72134e-07, -0.0122226, -1.3802e-06, 1, 1.71108e-07, 0.0122226, -3.49384e-08, 0.999925, 27.4998, 20.5112, -11.9754 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 8 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="TubeHab-Cap003" type="MeshInstance" parent="UpperGalleryRoof-Bottom000"]
-
-transform = Transform( 0.999404, 4.72109e-07, -0.0345149, -1.37583e-06, 1, 2.0703e-07, 0.0345149, -4.01333e-08, 0.999404, 0.96955, -2.71899, -13.5782 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 9 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="TubeHab-Cap004" type="MeshInstance" parent="UpperGalleryRoof-Bottom000"]
-
-transform = Transform( -0.999955, -5.71441e-07, 0.00951353, 1.48285e-06, -1, 1.36013e-07, 0.00951353, 3.08271e-08, 0.999955, 44.1587, 34.9362, 17.374 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 10 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="TubeHab-Entrance001" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" groups=[
-"wall",
-]]
-
-transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 21.9249, 16.5354, 13.7312 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 11 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="TubeHab-Entrance002" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" groups=[
-"wall",
-]]
-
-transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 22.0458, 16.397, 1.82743 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 12 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="TubeHab-Entrance003" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" groups=[
-"wall",
-]]
-
-transform = Transform( -0.999856, -0.0169827, 8.73929e-08, 1.10538e-06, -6.34631e-06, 1, -0.0169828, 0.999856, 6.48345e-06, 43.8562, 34.7264, 3.65761 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 13 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="TubeHab-Entrance014" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" groups=[
-"wall",
-]]
-
-transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 0.639856, -2.75232, -1.7008 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 14 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="TubeHab-Entrance021" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" groups=[
-"wall",
-]]
-
-transform = Transform( 0.991674, 4.72297e-07, 0.128773, -1.38648e-06, 1, -5.75885e-08, -0.128773, -2.14491e-09, 0.991674, 27.3574, 20.5059, -1.82939 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 15 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="UpperGalleryRoof-Bottom-Beams001" type="MeshInstance" parent="UpperGalleryRoof-Bottom000"]
-
-transform = Transform( 1, 4.67818e-07, 2.98023e-08, -1.37787e-06, 1, 1.51515e-07, -2.98023e-08, -3.22278e-08, 1, 2.77361, -0.657593, 1.62422e-05 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 16 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="UpperGalleryRoof-Middle-Beams003" type="MeshInstance" parent="UpperGalleryRoof-Bottom000"]
-
-transform = Transform( 1, 4.67818e-07, 2.98023e-08, -1.37787e-06, 1, 1.51515e-07, -2.98023e-08, -3.22278e-08, 1, 28.618, 24.1829, -0.00485372 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 17 )
-skeleton = NodePath("..")
-material/0 = null
-
-[node name="UpperGalleryRoof-Middle001" type="MeshInstance" parent="UpperGalleryRoof-Bottom000"]
-
-transform = Transform( 1, 4.67818e-07, 1.49012e-08, -1.37787e-06, 1, 1.51515e-07, -1.49012e-08, -3.22278e-08, 1, 28.618, 24.1829, -0.00485372 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 18 )
-skeleton = NodePath("..")
 material/0 = null
 material/1 = null
 
-[node name="UpperGalleryRoof-TopMiddleCap001" type="MeshInstance" parent="UpperGalleryRoof-Bottom000"]
-
-transform = Transform( 1, 4.67818e-07, 2.98023e-08, -1.37787e-06, 1, 1.51515e-07, -2.98023e-08, -3.22278e-08, 1, 24.9203, 20.9407, -0.00475359 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 19 )
-skeleton = NodePath("..")
+[node name="UpperGalleryRoof-TopMiddleCap001" type="MeshInstance" parent="."]
+transform = Transform( 0.991674, 4.63796e-07, -0.128773, -1.37354e-06, 1, 1.51648e-07, 0.128773, 2.7593e-08, 0.991674, 24.7134, 20.9407, 3.20435 )
+mesh = ExtResource( 5 )
 material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="OmniLight" type="OmniLight" parent="UpperGalleryRoof-Bottom000"]
-
-transform = Transform( 1, -1.72778e-15, 0, -2.9976e-15, 1, 0, 0, 1.11022e-16, 1, 6.04838, -2.45703, -0.785407 )
-layers = 1
-light_color = Color( 1, 1, 1, 1 )
-light_energy = 0.4
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
-omni_range = 5.0
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light", "Shadow" ]
-
-[node name="OmniLight5" type="OmniLight" parent="UpperGalleryRoof-Bottom000"]
-
-transform = Transform( 1, -5.30825e-15, 8.9407e-08, -7.46625e-15, 1, 1.11022e-16, -8.9407e-08, 3.33067e-16, 1, -0.223855, -3.73782, -11.7196 )
-layers = 1
-light_color = Color( 1, 1, 1, 1 )
-light_energy = 0.4
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
-omni_range = 5.0
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light", "Shadow" ]
-
-[node name="OmniLight2" type="OmniLight" parent="UpperGalleryRoof-Bottom000"]
-
-transform = Transform( 1, -6.20337e-15, 1.19209e-07, -8.35443e-15, 1, 1.66533e-16, -1.19209e-07, 3.88578e-16, 1, 22.5373, 15.8003, 12.2227 )
-layers = 1
-light_color = Color( 1, 0.99292, 0.886719, 1 )
-light_energy = 0.4
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
-omni_range = 5.0
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light", "Shadow" ]
-
-[node name="OmniLight3" type="OmniLight" parent="UpperGalleryRoof-Bottom000"]
-
-transform = Transform( 1, -8.9026e-15, 1.63913e-07, -1.14977e-14, 1, 2.22045e-16, -1.63913e-07, 4.44089e-16, 1, 27.49, 20.1678, -8.23512 )
-layers = 1
-light_color = Color( 1, 0.99292, 0.886719, 1 )
-light_energy = 0.4
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
-omni_range = 5.0
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light", "Shadow" ]
-
-[node name="OmniLight4" type="OmniLight" parent="UpperGalleryRoof-Bottom000"]
-
-transform = Transform( 1, -1.4766e-14, 1.63913e-07, -1.69517e-14, 1, 2.77556e-16, -1.63913e-07, 4.996e-16, 1, 43.5668, 33.9016, 9.98095 )
-layers = 1
-light_color = Color( 1, 0.99292, 0.886719, 1 )
-light_energy = 0.4
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
-omni_range = 5.4965
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light", "Shadow" ]
-
-[node name="FirstGalleryWalls_Bottom" type="MeshInstance" parent="UpperGalleryRoof-Bottom000" groups=[
-"wall",
-]]
-
-transform = Transform( 1, 1.37881e-06, 0, -1.37881e-06, 1, 3.49066e-08, 4.81295e-14, -3.49066e-08, 1, 41.0682, 27.1857, -0.051366 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 20 )
-skeleton = NodePath("..")
-material/0 = null
-_sections_unfolded = [ "Transform", "material" ]
-
 [node name="Set_FirstGalleryAnchor" type="Spatial" parent="." groups=[
 "interior",
 ]]
-
 editor/display_folded = true
 
 [node name="Empty_FirstGalleryAnchor_North014" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 1.15744e-06, 0, -2.07526e-06, 1, -1.28345e-07, 0, 1.29449e-07, 1, 54.1215, 40.7411, 5.17849 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North014" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North014" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North015" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 1.15744e-06, 0, -2.07526e-06, 1, -1.28345e-07, 0, 1.29449e-07, 1, 53.1998, 39.7867, 5.05996 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North015" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North015" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North016" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 1.15744e-06, 0, -2.07526e-06, 1, -1.28345e-07, 0, 1.29449e-07, 1, 51.7181, 38.3015, 4.86687 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North016" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North016" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North017" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 1.15744e-06, 0, -2.07526e-06, 1, -1.28345e-07, 0, 1.29449e-07, 1, 50.6041, 37.1632, 4.72055 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North017" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North017" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North018" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 1.15744e-06, 0, -2.07526e-06, 1, -1.28345e-07, 0, 1.29449e-07, 1, 49.5819, 36.1588, 4.59046 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North018" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North018" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North019" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 1.15744e-06, 0, -2.07526e-06, 1, -1.28345e-07, 0, 1.29449e-07, 1, 48.2365, 34.8024, 4.40871 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North019" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North019" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North020" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 9.26373e-07, 0, -1.8442e-06, 1, -5.67607e-08, 0, 5.78641e-08, 1, 47.1519, 33.6727, 4.27312 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North020" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North020" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North021" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 9.26373e-07, 0, -1.8442e-06, 1, -5.67607e-08, 0, 5.78641e-08, 1, 46.2761, 32.8287, 4.14615 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North021" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North021" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North022" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 9.26373e-07, 0, -1.8442e-06, 1, -5.67607e-08, 0, 5.78641e-08, 1, 44.8986, 31.3845, 3.97296 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North022" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North022" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North023" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 43.6159, 30.104, 3.81142 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North023" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North023" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North024" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 42.7715, 29.2035, 3.68714 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North024" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North024" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North025" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 41.3603, 27.8044, 3.50853 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North025" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North025" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North026" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 39.6801, 26.577, 3.30149 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North026" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North026" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North027" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 38.6639, 25.8787, 3.17018 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North027" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North027" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North028" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 36.9959, 24.7567, 2.95298 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North028" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North028" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North029" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 35.5052, 23.7712, 2.75891 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North029" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North029" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North030" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 34.4759, 23.0778, 2.6249 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North030" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North030" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North031" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 32.8165, 21.9467, 2.40885 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North031" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North031" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North032" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 31.2888, 20.9548, 2.21 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North032" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North032" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North033" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 30.2701, 20.2732, 2.0772 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North033" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North033" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North034" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 28.6036, 19.1542, 1.85996 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North034" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North034" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North035" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 27.1959, 18.2181, 1.6763 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North035" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North035" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North036" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 26.1441, 17.462, 1.53716 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North036" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North036" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North037" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 24.4052, 16.3231, 1.30876 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North037" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North037" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North038" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 23.4388, 15.1328, 1.17986 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North038" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North038" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North039" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 22.4359, 13.8527, 1.04954 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North039" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North039" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North040" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 21.3118, 12.3732, 0.906044 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North040" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North040" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North041" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 20.266, 11.0002, 0.769734 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North041" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North041" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North042" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 19.3967, 9.85059, 0.655917 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North042" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North042" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North043" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 18.1835, 8.2301, 0.497051 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North043" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North043" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North044" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 17.1446, 6.88452, 0.361055 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North044" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North044" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North045" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 16.2549, 5.71399, 0.244624 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North045" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North045" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North046" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 14.9113, 4.23035, 0.0689434 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North046" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North046" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North047" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 13.6475, 3.12097, -0.0961397 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North047" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North047" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North048" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 12.5838, 2.13391, -0.234988 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North048" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North048" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North049" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 11.0983, 0.790893, -0.428895 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North049" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North049" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North050" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 9.84762, -0.321167, -0.592142 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North050" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North050" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North051" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 8.7775, -1.31067, -0.731908 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North051" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North051" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North052" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 7.29788, -2.65723, -0.925142 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North052" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North052" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_North053" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 6.04569, -3.80042, -1.08867 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North053" instance=ExtResource( 21 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_North053" instance=ExtResource( 6 )]
 
 [node name="Empty_FirstGalleryAnchor_South014" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 53.6587, 40.712, 8.76983 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South014" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South014" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South015" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 52.7372, 39.7577, 8.65131 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South015" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South015" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South016" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 51.2555, 38.2725, 8.45822 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South016" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South016" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South017" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 50.1415, 37.134, 8.3119 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South017" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South017" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South018" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 49.1193, 36.1298, 8.18181 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South018" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South018" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South019" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 47.7738, 34.7733, 8.00005 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South019" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South019" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South020" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 46.6892, 33.6437, 7.86446 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South020" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South020" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South021" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 45.8134, 32.7997, 7.7375 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South021" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South021" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South022" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 44.436, 31.3553, 7.56431 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South022" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South022" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South023" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 43.1532, 30.075, 7.40275 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South023" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South023" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South024" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 42.3089, 29.1744, 7.27849 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South024" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South024" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South025" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 40.8976, 27.7754, 7.09988 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South025" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South025" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South026" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 39.2175, 26.5479, 6.89284 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South026" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South026" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South027" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 38.2013, 25.8496, 6.76153 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South027" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South027" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South028" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 36.5332, 24.7277, 6.54433 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South028" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South028" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South029" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 35.0426, 23.7422, 6.35027 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South029" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South029" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South030" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 34.0133, 23.0487, 6.21625 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South030" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South030" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South031" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 32.3539, 21.9176, 6.0002 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South031" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South031" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South032" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 30.8261, 20.9258, 5.80133 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South032" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South032" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South033" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 29.8075, 20.244, 5.66855 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South033" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South033" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South034" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 28.141, 19.1251, 5.45131 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South034" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South034" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South035" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 26.7332, 18.189, 5.26765 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South035" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South035" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South036" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 25.6815, 17.4329, 5.1285 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South036" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South036" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South037" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 23.9425, 16.2939, 4.90011 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South037" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South037" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South038" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 22.9762, 15.1036, 4.77121 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South038" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South038" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South039" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 21.9733, 13.8235, 4.64089 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South039" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South039" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South040" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 20.8491, 12.344, 4.49739 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South040" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South040" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South041" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 19.8034, 10.9711, 4.36108 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South041" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South041" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South042" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 18.934, 9.82153, 4.24725 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South042" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South042" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South043" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 17.7209, 8.20105, 4.0884 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South043" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South043" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South044" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 16.682, 6.85535, 3.9524 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South044" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South044" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South045" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 15.7924, 5.68494, 3.83598 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South045" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South045" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South046" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 14.4487, 4.20117, 3.66028 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South046" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South046" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South047" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 13.1849, 3.09192, 3.49521 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South047" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South047" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South048" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 12.1212, 2.10474, 3.35636 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South048" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South048" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South049" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 10.6357, 0.761841, 3.16245 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South049" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South049" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South050" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 9.38499, -0.35022, 2.9992 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South050" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South050" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South051" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 8.31488, -1.33984, 2.85944 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South051" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South051" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South052" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 6.83525, -2.68628, 2.6662 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South052" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South052" instance=ExtResource( 7 )]
 
 [node name="Empty_FirstGalleryAnchor_South053" type="Spatial" parent="Set_FirstGalleryAnchor"]
-
 editor/display_folded = true
 transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 5.58307, -3.82959, 2.50268 )
 
-[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South053" instance=ExtResource( 22 )]
+[node name="Scene" parent="Set_FirstGalleryAnchor/Empty_FirstGalleryAnchor_South053" instance=ExtResource( 7 )]
+
+[node name="Empty_TubeHabLarge" type="Spatial" parent="."]
+editor/display_folded = true
+transform = Transform( 1.48869, 3.09086e-13, 0.183809, 6.49429e-09, 1.5, -5.26006e-08, 0.183809, -5.3e-08, -1.48869, 41.9238, 34.7362, 15.738 )
+
+[node name="Scene" parent="Empty_TubeHabLarge" instance=ExtResource( 8 )]
+
+[node name="Empty_TubeHabLarge001" type="Spatial" parent="."]
+editor/display_folded = true
+transform = Transform( 1.48117, 2.04552e-06, -0.236974, -2.05884e-06, 1.5, 7.93309e-08, 0.236974, 2.46926e-07, 1.48117, 1.07034, -2.93042, -6.33837 )
+
+[node name="Scene" parent="Empty_TubeHabLarge001" instance=ExtResource( 8 )]
+
+[node name="Empty_TubeHabSmall" type="Spatial" parent="."]
+editor/display_folded = true
+transform = Transform( 0.990803, 4.45924e-10, 0.135308, 4.33123e-09, 1, -3.50113e-08, 0.135308, -3.52754e-08, -0.990803, 20.2769, 16.3973, 11.6455 )
+
+[node name="Scene" parent="Empty_TubeHabSmall" instance=ExtResource( 8 )]
+
+[node name="Empty_TubeHabSmall001" type="Spatial" parent="."]
+editor/display_folded = true
+transform = Transform( 0.989348, 4.68562e-07, -0.145565, -1.37502e-06, 1, 1.78794e-07, 0.145565, 2.43682e-08, 0.989348, 27.7793, 20.3723, -3.66382 )
+
+[node name="Scene" parent="Empty_TubeHabSmall001" instance=ExtResource( 8 )]
+
+[node name="FirstGalleryColumns" type="MeshInstance" parent="."]
+transform = Transform( 0.999995, 0.00322707, 0, -0.003228, 0.999995, -0.000417946, -6.4075e-07, 0.000417947, 1, 72.3383, 58.7229, 7.53831 )
+mesh = ExtResource( 9 )
+material/0 = null
+
+[node name="FirstGalleryConduitMain" type="MeshInstance" parent="."]
+transform = Transform( 0.991895, 4.62767e-07, -0.127054, -1.37282e-06, 1, 1.48806e-07, 0.127054, 2.79272e-08, 0.991896, 40.7329, 27.1899, 5.23754 )
+mesh = ExtResource( 10 )
+material/0 = null
+
+[node name="FirstGalleryFloor_Bottom" type="MeshInstance" parent="." groups=[
+"floor",
+]]
+transform = Transform( 0.991895, 4.67043e-07, -0.127054, -1.37715e-06, 1, 1.48661e-07, 0.127054, 2.86207e-08, 0.991895, 40.7329, 27.0614, 5.23754 )
+mesh = ExtResource( 11 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 0.991895, 4.67043e-07, -0.127054, -1.37715e-06, 1, 1.48661e-07, 0.127054, 2.86207e-08, 0.991895, 40.7329, 27.0614, 5.23754 )
+
+[node name="TubeHab-Cap002" type="MeshInstance" parent="."]
+transform = Transform( 0.990026, 4.68425e-07, -0.140884, -1.37587e-06, 1, 1.71188e-07, 0.140884, 2.54608e-08, 0.990026, 28.8129, 20.5112, -8.33446 )
+mesh = ExtResource( 12 )
+material/0 = null
+
+[node name="TubeHab-Cap003" type="MeshInstance" parent="."]
+transform = Transform( 0.986638, 4.69069e-07, -0.162924, -1.3715e-06, 1, 2.07014e-07, 0.162924, 2.03059e-08, 0.986638, 2.70998, -2.71899, -13.3403 )
+mesh = ExtResource( 13 )
+material/0 = null
+
+[node name="TubeHab-Cap004" type="MeshInstance" parent="."]
+transform = Transform( -0.992854, -5.66376e-07, -0.119333, 1.47852e-06, -1, 1.36187e-07, -0.119333, -4.23259e-08, 0.992854, 41.5537, 34.9362, 22.9158 )
+mesh = ExtResource( 14 )
+material/0 = null
+
+[node name="TubeHab-Entrance001" type="MeshInstance" parent="." groups=[
+"wall",
+]]
+transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 19.9741, 16.5354, 16.4402 )
+mesh = ExtResource( 15 )
+material/0 = null
+
+[node name="TubeHab-Entrance002" type="MeshInstance" parent="." groups=[
+"wall",
+]]
+transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 21.6269, 16.397, 4.65112 )
+mesh = ExtResource( 16 )
+material/0 = null
+
+[node name="TubeHab-Entrance003" type="MeshInstance" parent="." groups=[
+"wall",
+]]
+transform = Transform( -0.989344, -0.145596, -7.52505e-07, 1.10105e-06, -6.34625e-06, 1, -0.145596, 0.989344, 6.44003e-06, 43.0201, 34.7264, 9.27465 )
+mesh = ExtResource( 17 )
+material/0 = null
+
+[node name="TubeHab-Entrance014" type="MeshInstance" parent="." groups=[
+"wall",
+]]
+transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 0.853546, -2.75232, -1.60424 )
+mesh = ExtResource( 18 )
+material/0 = null
+
+[node name="TubeHab-Entrance021" type="MeshInstance" parent="." groups=[
+"wall",
+]]
+transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 27.3652, 20.5059, 1.70874 )
+mesh = ExtResource( 19 )
+material/0 = null
+
+[node name="FirstGalleryWalls_Bottom" type="MeshInstance" parent="." groups=[
+"wall",
+]]
+transform = Transform( 0.991674, 1.36755e-06, -0.128773, -1.37448e-06, 1, 3.50399e-08, 0.128773, 1.42248e-07, 0.991674, 40.7329, 27.1857, 5.23754 )
+mesh = ExtResource( 20 )
+material/0 = null
 
 [node name="Triggers" type="Spatial" parent="."]
+editor/display_folded = true
 
 [node name="Area" type="Area" parent="Triggers"]
-
-input_ray_pickable = false
-input_capture_on_drag = false
-space_override = 0
-gravity_point = false
-gravity_distance_scale = 0.0
-gravity_vec = Vector3( 0, -1, 0 )
-gravity = 9.8
-linear_damp = 0.1
-angular_damp = 1.0
-priority = 0.0
-monitoring = true
-monitorable = true
-collision_layer = 1
-collision_mask = 1
-audio_bus_override = false
-audio_bus_name = "Master"
-reverb_bus_enable = false
-reverb_bus_name = "Master"
-reverb_bus_amount = 0.0
-reverb_bus_uniformity = 0.0
-script = ExtResource( 23 )
-RootNode = null
-showhide = "interior"
-hideshow = "exterior"
-bygroup = "player"
+script = ExtResource( 21 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Triggers/Area"]
-
 transform = Transform( 0.76117, -0.648553, 0, 0.648553, 0.76117, 0, 0, 0, 1, 23.4044, 17.4992, 0 )
 shape = SubResource( 1 )
-disabled = false
 
+[node name="LightTubes" type="Spatial" parent="."]
+editor/display_folded = true
+
+[node name="LightTubeLarge017" type="Spatial" parent="LightTubes"]
+editor/display_folded = true
+transform = Transform( 1, 4.64364e-07, 0, -1.3822e-06, 1, -5.68987e-08, 0, 5.80022e-08, 1, 43.04, 37.6696, 12.5806 )
+
+[node name="Scene" parent="LightTubes/LightTubeLarge017" instance=ExtResource( 22 )]
+
+[node name="LightTubeLarge018" type="Spatial" parent="LightTubes"]
+editor/display_folded = true
+transform = Transform( 1, -4.27723e-09, 0, 4.27723e-09, 1, -5.16701e-08, 0, 5.167e-08, 1, 42.6387, 37.6696, 15.8176 )
+
+[node name="Scene" parent="LightTubes/LightTubeLarge018" instance=ExtResource( 22 )]
+
+[node name="LightTubeLarge019" type="Spatial" parent="LightTubes"]
+editor/display_folded = true
+transform = Transform( 1, -4.27723e-09, 0, 4.27723e-09, 1, -5.16701e-08, 0, 5.167e-08, 1, 42.2368, 37.6696, 19.03 )
+
+[node name="Scene" parent="LightTubes/LightTubeLarge019" instance=ExtResource( 22 )]
+
+[node name="Lights" type="Spatial" parent="."]
+editor/display_folded = true
+
+[node name="OmniLight" type="OmniLight" parent="Lights"]
+transform = Transform( 0.991674, -4.27723e-09, -0.128773, 4.33045e-09, 1, 1.33285e-10, 0.128773, -6.8982e-10, 0.991674, 6.09916, -2.45703, 2.98023e-07 )
+light_energy = 0.4
+
+[node name="OmniLight5" type="OmniLight" parent="Lights"]
+transform = Transform( 0.991674, -4.27722e-09, -0.128773, 4.33044e-09, 1, 1.33285e-10, 0.128773, -6.89819e-10, 0.991674, 1.28718, -3.73782, -11.6508 )
+light_energy = 0.4
+
+[node name="OmniLight2" type="OmniLight" parent="Lights"]
+transform = Transform( 0.991674, -4.27722e-09, -0.128773, 4.33044e-09, 1, 1.33285e-10, 0.128773, -6.89819e-10, 0.991674, 20.7757, 15.8003, 15.0231 )
+light_color = Color( 1, 0.99292, 0.886719, 1 )
+light_energy = 0.4
+
+[node name="OmniLight3" type="OmniLight" parent="Lights"]
+transform = Transform( 0.991674, -4.27722e-09, -0.128773, 4.33044e-09, 1, 1.33285e-10, 0.128773, -6.89818e-10, 0.991674, 28.3216, 20.1678, -4.62658 )
+light_color = Color( 1, 0.99292, 0.886719, 1 )
+light_energy = 0.4
+
+[node name="OmniLight4" type="OmniLight" parent="Lights"]
+transform = Transform( 0.991674, -4.27722e-09, -0.128773, 4.33043e-09, 1, 1.33285e-10, 0.128773, -6.89818e-10, 0.991674, 41.9188, 33.9016, 15.5081 )
+light_color = Color( 1, 0.99292, 0.886719, 1 )
+light_energy = 0.4
+omni_range = 5.4965
 
