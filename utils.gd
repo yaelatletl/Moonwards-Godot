@@ -95,3 +95,17 @@ func get_cs_list_cs(root):
 			var o = obj.get_node(cspath)
 			nodes.append(root.get_path_to(o))
 	return nodes
+
+var cache_flist = {}
+func file_mtime(fname):
+	# by default handle path's like that 
+	# res://_tests/scene_mp/multiplayer_test_scene.tscn::7
+	var path = fname.rsplit("::")[0]
+	if not cache_flist.has(path):
+		var ff = File.new()
+		if ff.file_exists(path):
+			cache_flist[path] = { mtime = ff.get_modified_time(path) }
+		else:
+			print("**utils.gd:: attempt to get mtime of non existing file %s" % path)
+			cache_flist[path] = { mtime = "nofile" }
+	return cache_flist[path].mtime
