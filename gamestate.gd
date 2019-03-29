@@ -335,7 +335,7 @@ func change_scene(scene):
 	var scenes = options.scenes
 	if not scene in scenes:
 		emit_signal("scene_change_error", "No such scene %s" % scene)
-		emit_signal("gslog", "No such scence %s" % scene)
+		emit_signal("gslog", "No such scene %s" % scene)
 		return
 	
 	emit_signal("gslog", "change_scene to %s" % scene)
@@ -412,6 +412,7 @@ func sg_player_id(id):
 	#scene is not active yet, payers are redistered after scene is changes sucessefully
 
 remote func register_client(id, pdata):
+	printd("remote register_client, local_id(%s): %s %s" % [local_id, id, pdata])
 	if id == local_id:
 		return
 	if players.has(id):
@@ -510,6 +511,13 @@ func create_player(id):
 
 	if options.debug:
 		player.debug = true
+	#apply options, given in register dictionary under ::options
+	if players[id].data.has("options"):
+		var opt = players[id].data.options
+		printd("create_player Apply options to id %s : %s" % [id, opt])
+		for k in opt:
+			player.set(k, opt[k])
+		
 	world.get_node("players").add_child(player)
 	players[id]["world"] = "%s" % world
 	players[id]["path"] = world.get_path_to(player)
@@ -554,3 +562,24 @@ func _ready():
 	bindgg("player_scene")
 	bindgg("player_id")
 	queue_tree_signal(options.scene_id, "player_scene", true)
+	
+var debug = true
+var debug_id = "gamestate:: "
+var debug_list = [
+# 	{ enable = true, key = "" }
+]
+func printd(s):
+	if debug:
+		if debug_list.size() > 0:
+			var found = false
+			for dl in debug_list:
+				if s.begins_with(dl.key):
+					if dl.enable:
+						print(debug_id, s)
+					found = true
+					break
+			if not found:
+				print(debug_id, s)
+		else:
+			print(debug_id, s)
+
