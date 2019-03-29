@@ -6,9 +6,9 @@ var debug = true
 var scenes = {
 	loaded = null,
 	default = "WorldTest",
-	default_run_scene = "WorldV2Player",
+#	default_run_scene = "WorldV2Player",
 #	default_run_scene = "WorldTest2",
-#	default_run_scene = "WorldTest",
+	default_run_scene = "WorldTest",
 	default_singleplayer_scene = "WorldV2",
 	default_mutiplayer_scene = "WorldTest",
 	World = {
@@ -104,9 +104,10 @@ func set(category, value, prop = null):
 	print("options set %s::%s %s" % [category, prop, value])
 	if prop == null:
 		options[category] = value
-	elif not options.has(category):
-		options[category] = {}
-	options[category][prop] = value
+	else:
+		if not options.has(category):
+			options[category] = {}
+		options[category][prop] = value
 
 func del_state(prop):
 	print("options del_stat ::%s" % prop)
@@ -137,7 +138,7 @@ func get_tree_opt(opt):
 	var root = get_tree().current_scene
 	if root == null:
 		return res
-	#get options unde Node-Options
+	#get options under Node-Options
 	#
 	var Options = get_tree_options(root)
 	if Options:
