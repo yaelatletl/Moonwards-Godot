@@ -9,6 +9,7 @@ export(bool) var enable_lodmanager = true
 export(bool) var enable_areamanager = true
 export(bool) var enable_boxmesh = true
 export(bool) var enable_hboxsetlod = true #set lod values for lod manager based on hitbox of mesh
+var enable_hboxsetlod_save_cache = true
 export(float) var lod_aspect_ratio = 10  setget set_lod_aspect_ratio #lod set as projection of hitbox * aspect_ratio
 
 export(NodePath) var LodManager
@@ -142,6 +143,20 @@ func hboxsetlod(node, children = true):
 			printd("%s lod(%s) aspect(%s) size(%s) name: %s " % [node, node.lod_max_distance, lod_aspect_ratio, size, node.name])
 	return size
 
+func hboxsetlod_set(root):
+	if enable_hboxsetlod_save_cache:
+		printd("hboxsetlod get cache")
+		var cache = options.get("TreeManagerCache")
+		if cache != null:
+			printd("hboxsetlod get cache")
+			MeshTool.set_cache(cache)
+	hboxsetlod(root)
+	if enable_hboxsetlod_save_cache:
+		options.set("TreeManagerCache", MeshTool.get_cache())
+		#will accumulate changes, fix that :TODO :FIX
+		printd("hboxsetlod save cache")
+		options.save()
+	
 func set_lod_aspect_ratio(value):
 	printd("TreeManager update lod_aspect_ratio from %s to %s" % [lod_aspect_ratio, value])
 	if value > 0:
@@ -149,7 +164,7 @@ func set_lod_aspect_ratio(value):
 	if not enabled:
 		return
 	if enable_hboxsetlod:
-		hboxsetlod(tree)
+		hboxsetlod_set(tree)
 		if enable_lodmanager and get_node(LodManager):
 			var lm = get_node(LodManager)
 			lm.UpdateLOD()
@@ -161,7 +176,7 @@ func enable_managment():
 	print("TM TreeManagment enable, tree %s" % tree.get_path())
 	if enable_hboxsetlod:
 		printd("TM start hboxsetlod at %s" % tree.get_path())
-		hboxsetlod(tree)
+		hboxsetlod_set(tree)
 	if enable_lodmanager and get_node(LodManager):
 		var lm = get_node(LodManager)
 		printd("found LodManager at %s" % lm.get_path())
