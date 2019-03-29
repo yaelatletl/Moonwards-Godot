@@ -5,9 +5,10 @@ var mesh_info = {}
 var mesh_cache = {}
 var root
 
-export(bool) var debug = false
+export(bool) var debug = true
 var debug_id = "MeshTool:: "
 var debug_list = [
+ 	{ enable = false, key = "id_mesh" },
 # 	{ enable = true, key = "" }
 ]
 func printd(s):
@@ -48,6 +49,13 @@ func cache_vars(id=null):
 		#print("cache_vars hit %s" % id)
 	else:
 		mesh_info = {}
+func get_cache():
+	return mesh_cache
+
+func set_cache(mc):
+	mesh_cache = mc
+	if mesh != null:
+		cache_vars(id_mesh(mesh))
 
 func reset_vars():
 	mesh_info = {}
@@ -76,7 +84,7 @@ func get_mesh():
 	return mesh
 
 func _init(tree=null, obj=null):
-	print("MeshTool::init(%s, %s)" % [tree, obj])
+	printd("init(%s, %s)" % [tree, obj])
 	if tree == null:
 		if get_tree():
 			tree = get_tree().current_scene
@@ -164,4 +172,7 @@ func id_mesh(obj):
 		print("id_mesh obj(%s) not a Resource type" % obj)
 		return null
 	var path = obj.resource_path
-	return path.md5_text()
+	var mtime = utils.file_mtime(path)
+	var id = "%s %s" % [mtime, path]
+	printd("id_mesh %s" % id)
+	return id.md5_text()
