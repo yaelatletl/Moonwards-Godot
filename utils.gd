@@ -109,3 +109,6 @@ func file_mtime(fname):
 			print("**utils.gd:: attempt to get mtime of non existing file %s" % path)
 			cache_flist[path] = { mtime = "nofile" }
 	return cache_flist[path].mtime
+
+func feature_check_server():
+	return OS.has_feature("Server")
