@@ -32,6 +32,7 @@ var scenes = {
 	default_run_scene = "WorldTest",
 	default_singleplayer_scene = "WorldV2",
 	default_mutiplayer_scene = "WorldTest",
+	default_mutiplayer_headless_scene = "WorldTest",
 	World = {
 		path = "res://World.tscn"
 	},
