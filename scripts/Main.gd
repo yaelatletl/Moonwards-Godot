@@ -6,10 +6,25 @@ var current_ui = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if utils.feature_check_server():
+		_ready_headless()
+		return
 	_on_size_changed()
 	get_viewport().connect("size_changed",self,"_on_size_changed")
 
-
+func _ready_headless():
+	print("Setup headless mode")
+	var player_data = {
+		name = "Server Bot",
+		options = {
+			debug = false,
+			nocamera = true
+		}
+	}
+	gamestate.player_register(player_data, true) #local player
+	gamestate.server_set_mode()
+	var worldscene = options.scenes.default_mutiplayer_headless_scene
+	gamestate.change_scene(worldscene)
 
 func _on_size_changed():
 	var Newsize = get_viewport().get_visible_rect().size
