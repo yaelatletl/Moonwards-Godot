@@ -15,7 +15,7 @@ func printd(s):
 			for dl in debug_list:
 				if s.begins_with(dl.key):
 					if dl.enable:
-						print("***", debug_id, s)
+						print(debug_id, s)
 					found = true
 					break
 			if not found:

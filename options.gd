@@ -1,14 +1,35 @@
 extends Node
 
 var OptionsFile = "user://gameoptions.save"
+
 var debug = true
+var debug_id = "Options:: "
+var debug_list = [
+	{ enable = false, key = "options set TreeManagerCache" },
+	{ enable = false, key = "get: TreeManagerCache" },
+#	{ enable = true, key = "" }
+]
+func printd(s):
+	if debug:
+		if debug_list.size() > 0:
+			var found = false
+			for dl in debug_list:
+				if s.begins_with(dl.key):
+					if dl.enable:
+						print(debug_id, s)
+					found = true
+					break
+			if not found:
+				print(debug_id, s)
+		else:
+			print(debug_id, s)
 
 var scenes = {
 	loaded = null,
 	default = "WorldTest",
-	default_run_scene = "WorldV2Player",
+#	default_run_scene = "WorldV2Player",
 #	default_run_scene = "WorldTest2",
-#	default_run_scene = "WorldTest",
+	default_run_scene = "WorldTest",
 	default_singleplayer_scene = "WorldV2",
 	default_mutiplayer_scene = "WorldTest",
 	World = {
@@ -52,7 +73,7 @@ var options = {
 func _ready():
 # 	print("debug set FPS to 3")
 # 	Engine.target_fps = 3
-	print("load options and settings")
+	printd("load options and settings")
 	self.load()
 	
 	#apply generic options
@@ -61,7 +82,7 @@ func _ready():
 func load():
 	var savefile = File.new()
 	if not savefile.file_exists(OptionsFile):
-		print("Nothing was saved before")
+		printd("Nothing was saved before")
 	else:
 		savefile.open(OptionsFile, File.READ)
 		var content = str2var(savefile.get_as_text())
@@ -70,7 +91,7 @@ func load():
 			if content.has("_state_"):
 				content.erase("_state_")
 			options = content
-		print("options loaded from %s" % OptionsFile)
+		printd("options loaded from %s" % OptionsFile)
 
 func save():
 	var savefile = File.new()	
@@ -78,7 +99,7 @@ func save():
 	set("_state_", gamestate.local_id, "game_state_id")
 	savefile.store_line(var2str(options))
 	savefile.close()
-	print("options saved to %s" % OptionsFile)
+	printd("options saved to %s" % OptionsFile)
 
 func get(category, prop = null, default=null):
 	var res
@@ -97,11 +118,11 @@ func get(category, prop = null, default=null):
 		else:
 			options[category] = default
 		res = default
-	print("Options.get: %s::%s==%s" % [category, prop, res])
+	printd("get: %s::%s==%s" % [category, prop, res])
 	return res
 	
 func set(category, value, prop = null):
-	print("options set %s::%s %s" % [category, prop, value])
+	printd("options set %s::%s %s" % [category, prop, value])
 	if prop == null:
 		options[category] = value
 	else:
@@ -110,7 +131,7 @@ func set(category, value, prop = null):
 		options[category][prop] = value
 
 func del_state(prop):
-	print("options del_stat ::%s" % prop)
+	printd("options del_stat ::%s" % prop)
 	if options.has("_state_"):
 		if options["_state_"].has(prop):
 			options["_state_"].erase(prop)
@@ -151,8 +172,8 @@ func get_tree_opt(opt):
 ################
 func set_3fps(enable):
 	if enable:
-		print("debug set FPS to 3")
+		printd("debug set FPS to 3")
 		Engine.target_fps = 3
 	else:
-		print("debug set FPS to 0")
+		printd("debug set FPS to 0")
 		Engine.target_fps = 0
