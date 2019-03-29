@@ -36,6 +36,7 @@ material/1 = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31518, 0.12978, 2.19624 )
 
 [node name="CollisionShape" type="CollisionShape" parent="TubeHabLong/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0245311, 0, 0 )
 shape = SubResource( 2 )
 
 [node name="TubeHabLong_Truss_Opt" type="MeshInstance" parent="."]
