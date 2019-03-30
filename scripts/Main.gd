@@ -16,10 +16,7 @@ func _ready_headless():
 	print("Setup headless mode")
 	var player_data = {
 		name = "Server Bot",
-		options = {
-			debug = true,
-			nocamera = true
-		}
+		options = options.player_opt("server_bot")
 	}
 	gamestate.player_register(player_data, true) #local player
 	gamestate.server_set_mode()
