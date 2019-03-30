@@ -17,7 +17,7 @@ func _ready_headless():
 	var player_data = {
 		name = "Server Bot",
 		options = {
-			debug = false,
+			debug = true,
 			nocamera = true
 		}
 	}
