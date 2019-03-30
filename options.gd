@@ -55,6 +55,59 @@ var scenes = {
 	}
 }
 
+var player_opt = {
+	opt_allow_unknown = true,
+	opt_filter = {
+		debug = true,
+		nocamera = true,
+		name = true,
+		is_female = true
+	},
+	avatar = {
+		debug = debug,
+		nocamera = false,
+		input_processing = true,
+		network = true,
+		puppet = false
+	},
+	puppet = {
+		debug = debug,
+		nocamera = true,
+		input_processing = false,
+		network = true,
+		puppet = true
+	},
+	server_bot = {
+		debug = debug,
+		nocamera = true,
+		network = true,
+		puppet = false
+	}
+}
+
+func player_opt(type, opt = null):
+	var res = {}
+	var filter = player_opt.opt_filter
+	var filter_id = "opt_filter_%s" % type
+	if player_opt.has(filter_id):
+		filter = player_opt[filter_id]
+
+	var allow_unknown = player_opt.opt_allow_unknown
+	if opt != null:
+		for k in opt:
+			if filter.has(k) and filter[k] or allow_unknown:
+				res[k] = opt[k]
+				if not k in filter:
+					printd("player_filter_opt, default allow unknown option %s %s" % [k, opt[k]])
+
+	if not player_opt.has(type):
+		printd("player_filter_opt, unknown player opt type %s" % type)
+	else:
+		var def_opt = player_opt[type]
+		for k in def_opt:
+			res[k] = def_opt[k]
+	return res
+
 #scene for players, node name wich serves an indicator
 var scene_id = "scene_id_30160"
 
