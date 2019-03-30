@@ -61,7 +61,7 @@ func tree_idle_frame():
 
 func debug_apply_options():
 	yield(get_tree(), "idle_frame")
-	print("Apply options to new player scene")
+	printd("Apply options to new player scene")
 	e_collision_shapes(options.get("dev", "enable_collision_shapes"))
 	hidden_nodes = []
 	if options.get("dev", "hide_meshes_random"):
@@ -116,10 +116,10 @@ func print_active_cameras():
 	var root = get_tree().current_scene
 	var cameras = utils.get_nodes_type(root, "Camera", true)
 	for p in cameras:
-		print("%s(%s)" % [p, root.get_node(p).current])
+		printd("%s(%s)" % [p, root.get_node(p).current])
 
 func set_active_camera():
-	print("set camera to lcoal player: %s" % gamestate.local_id)
+	printd("set camera to local player: %s" % gamestate.local_id)
 	gamestate.player_local_camera()
 
 remote func test_remote_call():
@@ -127,10 +127,10 @@ remote func test_remote_call():
 
 func set_3fps(enable):
 	if enable:
-		print("debug set FPS to 3")
+		printd("debug set FPS to 3")
 		Engine.target_fps = 3
 	else:
-		print("debug set FPS to 0")
+		printd("debug set FPS to 0")
 		Engine.target_fps = 0
 
 func e_area_lod(enable=true):
