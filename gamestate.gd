@@ -414,18 +414,24 @@ func sg_player_id(id):
 remote func register_client(id, pdata):
 	printd("remote register_client, local_id(%s): %s %s" % [local_id, id, pdata])
 	if id == local_id:
+		printd("Local player, skipp")
 		return
 	if players.has(id):
-		emit_signal("gslog", "register client(%s): alsready exists(%s)" % [local_id, id])
+		printd("register client(%s): already exists(%s)" % [local_id, id])
 		return
-	emit_signal("gslog", "register_client: id(%s), data: %s" % [id, pdata])
+	printd("register_client: id(%s), data: %s" % [id, pdata])
 	pdata["id"] = id
+	if pdata.has("options"):
+		pdata["options"] = options.player_opt("puppet", pdata["options"])
+	else:
+		pdata["options"] = options.player_opt("puppet")
+
 	player_register(pdata)
 	if RoleServer:
 		#sync existing players
 		rpc("register_client", id, pdata)
 		for p in players:
-			print("**** %s" % players[p])
+			printd("**** %s" % players[p])
 			var pid = players[p].id
 			if pid != id:
 				rpc_id(id, "register_client", pid, players[p].data)
@@ -517,6 +523,9 @@ func create_player(id):
 		printd("create_player Apply options to id %s : %s" % [id, opt])
 		for k in opt:
 			player.set(k, opt[k])
+		if opt.has("input_processing") and opt["input_processing"] == false:
+			printd("disable input for player avatar %s" % id)
+			player.set_process_input(false)
 		
 	world.get_node("players").add_child(player)
 	players[id]["world"] = "%s" % world
