@@ -33,6 +33,7 @@ var up
 var input_processing = true setget set_player_input
 var nocamera = false setget set_player_nocamera
 var nonetwork = true setget set_nonetwork
+var network = !nonetwork setget set_network
 var name_label
 #Options
 export(float) var WALKSPEED = 3.1
@@ -52,6 +53,7 @@ var linear_velocity=Vector3()
 var hspeed = 0
 
 ##Networking
+var puppet = false
 puppet var puppet_translation 
 puppet var puppet_transform 
 puppet var puppet_linear_vel 
@@ -102,6 +104,8 @@ func _enter_tree():
 
 func set_nonetwork(state):
 	nonetwork = state
+	network = !nonetwork
+
 	printd("Player %s enable/disable networking, nonetwork(%s)" % [get_path(), nonetwork])
 	if nonetwork:
 		rset_config("puppet_translation", RPC_MODE_DISABLED)
@@ -111,6 +115,10 @@ func set_nonetwork(state):
 		rset_config("puppet_translation", RPC_MODE_PUPPET)
 		rset_config("puppet_transform",  RPC_MODE_PUPPET)
 		rset_config("puppet_linear_vel",  RPC_MODE_PUPPET)
+
+func set_network(state):
+	set_nonetwork(!state)
+
 
 #disable camera view for the player
 func set_player_nocamera(state):
@@ -189,6 +197,8 @@ func cursor_toggle():
 
 func _input(event):
 	# disable enable imput processing, mostly for networ players, they totaly slave of their state
+	if network:
+		return
 	if Input.is_action_pressed("player_toggleinput"):
 		input_processing = !input_processing
 		set_player_input(input_processing)
@@ -206,6 +216,7 @@ func _input(event):
 			collider._input_event (get_viewport().get_camera(), event, click_position, click_normal, 0 )
 	
 	if Input.is_action_just_pressed("ui_cancel"):
+		printd("event ui_cancel")
 		cursor_toggle()
 	
 	if Input.is_action_just_pressed("move_run"):
@@ -215,11 +226,24 @@ func _input(event):
 	
 	if Input.is_action_just_pressed("toggle_fly"):
 		mode_fly()
-	
+
+func _physics_process_puppet(delta):
+	if not (puppet_transform == null or puppet_translation == null or puppet_linear_vel == null):
+		printd("set puppet(%s) delta(%s) t(%s) lv(%s)" % [name, delta, puppet_translation, puppet_linear_vel])
+		translation = puppet_translation
+#		$Yaw.transform = puppet_transform
+		linear_velocity = puppet_linear_vel
+
 func _physics_process(delta):
 #Changes acceleration and max speed.
 	#if not ActionArea:
 	#	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if not input_processing:
+		return
+
+	if network and puppet:
+		_physics_process_puppet(delta)
+		
 	var v_speed 
 
 	if not flies:
@@ -272,8 +296,9 @@ func _physics_process(delta):
 	if flies:
 		vertical_velocity += dir.y
 	
-	if !nonetwork:
+	if network:
 		if is_network_master():
+			printd("network_master %s, update pupet %s %s" % [name, translation, linear_velocity])
 			rset_unreliable("puppet_translation", translation)
 			rset_unreliable("puppet_transform", $Model.transform)
 			rset_unreliable("puppet_linear_vel", linear_velocity)
