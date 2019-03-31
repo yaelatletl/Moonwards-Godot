@@ -5,7 +5,8 @@
 
 [sub_resource type="CubeMesh" id=1]
 
-[node name="TestCamera" type="Spatial"]
+
+[node name="Spatial" type="Spatial"]
 
 [node name="Camera" type="Camera" parent="."]
 far = 10000.0
@@ -18,5 +19,5 @@ mesh = SubResource( 1 )
 material/0 = null
 
 [node name="Control" parent="." instance=ExtResource( 2 )]
-source_xyz = NodePath("../../TestCamera/Camera")
+source_xyz = NodePath("../Camera")
 

@@ -1,7 +1,5 @@
 extends Control
 
-var namelist = preload("res://namelist.gd").new()
-
 enum STATE {
 	init,
 	server_select, # waiting for sucess on server_select
@@ -13,17 +11,16 @@ var state = STATE.init setget set_state
 func set_name(name = null):
 	if name == null:
 		name = namelist.get_name()
-	if not name == null:
-		$connect/name.text = name
+	$connect/name.text = name
 
 func _ready():
-	# Called every time the node is added to the scene.
-	gamestate.connect("connection_failed", self, "_on_connection_failed")
-	gamestate.connect("connection_succeeded", self, "_on_connection_success")
-	gamestate.connect("player_list_changed", self, "refresh_lobby")
-	gamestate.connect("game_ended", self, "_on_game_ended")
-	gamestate.connect("game_error", self, "_on_game_error")
 	set_name()
+	# Called every time the node is added to the scene.
+# 	gamestate.connect("connection_failed", self, "_on_connection_failed")
+# 	gamestate.connect("connection_succeeded", self, "_on_connection_success")
+# 	gamestate.connect("player_list_changed", self, "refresh_lobby")
+# 	gamestate.connect("game_ended", self, "_on_game_ended")
+# 	gamestate.connect("game_error", self, "_on_game_error")
 
 func state_hide():
 	match state:
@@ -69,6 +66,106 @@ func sg_network_error(msg):
 		STATE.client_connect:
 			$connect/error_label.text = msg
 
+func sg_server_connected():
+	sg_server_up()
+
+func _on_host_pressed():
+	if ($connect/name.text == ""):
+		$connect/error_label.text="Invalid name!"
+		return
+	var player_data = {
+		name = $connect/name.text
+	}
+	gamestate.player_register(player_data, true) #local player
+	self.state = STATE.server_select
+	binddef = {src = gamestate, dest = self }
+	bindsg("network_log")
+	bindsg("server_up")
+	bindsg("network_error")
+	gamestate.server_set_mode()
+
+func _on_join_pressed():
+	if ($connect/name.text == ""):
+		$connect/error_label.text="Invalid name!"
+		return
+
+	set_state(STATE.client_connect)
+	var player_data = {
+		name = $connect/name.text
+	}
+	gamestate.player_register(player_data, true) #local player
+	binddef = {src = gamestate, dest = self }
+	bindsg("network_log")
+	bindsg("server_connected")
+	bindsg("network_error")
+	gamestate.client_server_connect($connect/ip.text)
+	return
+
+
+	var ip = $connect/ip.text
+	if (not ip.is_valid_ip_address()):
+		$connect/error_label.text="Invalid IPv4 address!"
+		return
+
+	$connect/error_label.text=""
+	$connect/host.disabled=true
+	$connect/join.disabled=true
+
+	var player_name = $connect/name.text
+	gamestate.join_game(ip, player_name)
+	# refresh_lobby() gets called by the player_list_changed signal
+
+func _on_connection_success():
+	$connect.hide()
+	$PlayersList.show()
+
+func _on_connection_failed():
+	$connect/host.disabled = false
+	$connect/join.disabled = false
+	$connect/error_label.set_text("Connection failed.")
+
+func _on_game_ended():
+	show()
+	$connect.show()
+	$PlayersList.hide()
+	$connect/host.disabled=false
+	$connect/join.disabled
+
+func _on_game_error(errtxt):
+	$error.dialog_text = errtxt
+	$error.popup_centered_minsize()
+
+func refresh_lobby():
+	var players = gamestate.get_player_list()
+	players.sort()
+	$PlayersList/list.clear()
+	$PlayersList/list.add_item(gamestate.get_player_name() + " (You)")
+	for p in players:
+		$PlayersList/list.add_item(p)
+
+	$PlayersList/start.disabled=not get_tree().is_network_server()
+
+func _on_start_pressed():
+	gamestate.begin_game()
+	hide()
+
+
+func _on_Sinlgeplayer_pressed():
+	var worldscene = options.scenes.default_singleplayer_scene
+	if (get_node("connect/name").text == ""):
+		get_node("connect/error_label").text="Invalid name!"
+		return
+	var player_data = {
+		name = $connect/name.text,
+		network = false
+	}
+	gamestate.RoleNoNetwork = true
+	gamestate.player_register(player_data, true) #local player
+	sg_network_log("change scene to %s" % worldscene)
+	yield(get_tree().create_timer(2), "timeout")
+	state_hide()
+	gamestate.change_scene(worldscene)
+
 func _on_Button2_pressed():
 	set_name()
 	yield(get_tree().create_timer(0.1), "timeout")
@@ -102,66 +199,4 @@ func bindgs(_signal, _sub = null):
 	if obj.is_connected(_signal, obj2, _sub):
 		obj.disconnect(_signal, obj2, _sub)
 
-func _on_host_pressed():
-	if get_node("connect/name").text == "":
-		$connect/error_label.text = "Invalid name!"
-		return
 
-	$connect.hide()
-	$players.show()
-	$connect/error_label.text = ""
-
-	var player_name = get_node("connect/name").text
-	gamestate.host_game(player_name)
-	refresh_lobby()
-
-func _on_join_pressed():
-	if get_node("connect/name").text == "":
-		$connect/error_label.text = "Invalid name!"
-		return
-
-	var ip = get_node("connect/ip").text
-	if not ip.is_valid_ip_address():
-		$connect/error_label.text = "Invalid IPv4 address!"
-		return
-
-	$connect/error_label.text=""
-	$connect/host.disabled = true
-	$connect/join.disabled = true
-
-	var player_name = get_node("connect/name").text
-	gamestate.join_game(ip, player_name)
-	# refresh_lobby() gets called by the player_list_changed signal
-
-func _on_connection_success():
-	$connect.hide()
-	$players.show()
-
-func _on_connection_failed():
-	$connect/host.disabled = false
-	$connect/join.disabled = false
-	$connect/error_label.set_text("Connection failed.")
-
-func _on_game_ended():
-	show()
-	$connect.show()
-	$players.hide()
-	$connect/host.disabled = false
-
-func _on_game_error(errtxt):
-	$error.dialog_text = errtxt
-	$error.popup_centered_minsize()
-
-func refresh_lobby():
-	var players = gamestate.get_player_list()
-	players.sort()
-	$players/list.clear()
-	$players/list.add_item(gamestate.get_player_name() + " (You)")
-	for p in players:
-		$players/list.add_item(p)
-
-	$players/start.disabled = not get_tree().is_network_server()
-
-func _on_start_pressed():
-	self.visible = false
-	gamestate.begin_game()

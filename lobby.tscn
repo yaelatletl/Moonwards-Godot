@@ -1,45 +1,22 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://themes/MainMenu.tres" type="Theme" id=1]
 [ext_resource path="res://lobby.gd" type="Script" id=2]
-[ext_resource path="res://img/MoonwardsLogo2018-1200.png" type="Texture" id=3]
-[ext_resource path="res://scripts/UIElement.gd" type="Script" id=4]
 
-[node name="Lobby" type="VBoxContainer"]
+[node name="lobby" type="HBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = -20.0
-margin_bottom = -20.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 6
+size_flags_vertical = 6
 theme = ExtResource( 1 )
+alignment = 1
 script = ExtResource( 2 )
 
-[node name="Logo" type="TextureRect" parent="."]
-margin_right = 984.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 0, 200 )
-texture = ExtResource( 3 )
-expand = true
-stretch_mode = 6
-
-[node name="Button" type="Button" parent="."]
-margin_top = 204.0
-margin_right = 100.0
-margin_bottom = 229.0
-rect_min_size = Vector2( 100, 25 )
-size_flags_horizontal = 0
-text = "Back"
-script = ExtResource( 4 )
-
 [node name="connect" type="VBoxContainer" parent="."]
-editor/display_folded = true
-margin_left = 392.0
-margin_top = 324.0
-margin_right = 592.0
-margin_bottom = 568.0
+margin_left = 412.0
+margin_top = 228.0
+margin_right = 612.0
+margin_bottom = 472.0
 rect_min_size = Vector2( 200, 0 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -106,7 +83,7 @@ custom_colors/font_color = Color( 0.820312, 0.291595, 0.291595, 1 )
 align = 1
 autowrap = true
 
-[node name="SinglePlayer" type="Button" parent="connect"]
+[node name="Button" type="Button" parent="connect"]
 margin_top = 204.0
 margin_right = 200.0
 margin_bottom = 222.0
@@ -114,7 +91,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "SinglePlayer"
 
-[node name="AnotherName" type="Button" parent="connect"]
+[node name="Button2" type="Button" parent="connect"]
 margin_top = 226.0
 margin_right = 200.0
 margin_bottom = 244.0
@@ -122,48 +99,73 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Another Name"
 
+[node name="PlayersList" type="VBoxContainer" parent="."]
+editor/display_folded = true
+visible = false
+margin_left = 705.0
+margin_top = 328.0
+margin_right = 833.0
+margin_bottom = 372.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+alignment = 1
+
+[node name="label" type="Label" parent="PlayersList"]
+margin_right = 128.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Awaiting Players..."
+
+[node name="start" type="Button" parent="PlayersList"]
+margin_top = 22.0
+margin_right = 128.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "START!"
+
+[node name="list" type="ItemList" parent="PlayersList"]
+margin_top = 44.0
+margin_right = 128.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [node name="error" type="AcceptDialog" parent="."]
 margin_left = 437.0
-margin_top = 550.0
+margin_top = 543.0
 margin_right = 587.0
-margin_bottom = 650.0
+margin_bottom = 643.0
 rect_min_size = Vector2( 150, 100 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
-dialog_text = "Error
-"
 
-[node name="players" type="VBoxContainer" parent="."]
+[node name="WaitServer" type="VBoxContainer" parent="."]
+editor/display_folded = true
 visible = false
-margin_left = 412.0
-margin_top = 501.0
-margin_right = 612.0
-margin_bottom = 755.0
+margin_left = 669.0
+margin_top = 330.0
+margin_right = 869.0
+margin_bottom = 369.0
 rect_min_size = Vector2( 200, 0 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
 alignment = 1
 
-[node name="label" type="Label" parent="players"]
+[node name="Label" type="Label" parent="WaitServer"]
 margin_right = 200.0
-margin_bottom = 28.0
-text = "Awaiting Players..."
-
-[node name="list" type="ItemList" parent="players"]
-margin_top = 32.0
-margin_right = 200.0
-margin_bottom = 232.0
-rect_min_size = Vector2( 100, 200 )
+margin_bottom = 39.0
+rect_min_size = Vector2( 100, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="start" type="Button" parent="players"]
-margin_top = 236.0
-margin_right = 200.0
-margin_bottom = 254.0
-text = "Start"
+text = "Message
+"
+align = 1
+autowrap = true
 
 [connection signal="pressed" from="connect/host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="connect/join" to="." method="_on_join_pressed"]
-[connection signal="pressed" from="connect/AnotherName" to="." method="_on_Button2_pressed"]
-[connection signal="pressed" from="players/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="connect/Button" to="." method="_on_Sinlgeplayer_pressed"]
+[connection signal="pressed" from="connect/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="PlayersList/start" to="." method="_on_start_pressed"]
