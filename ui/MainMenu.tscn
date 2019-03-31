@@ -1,0 +1,130 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://themes/MainMenu.tres" type="Theme" id=1]
+[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://img/MainBG.jpg" type="Texture" id=3]
+[ext_resource path="res://img/MoonwardsLogo2018-1200.png" type="Texture" id=4]
+[ext_resource path="res://scripts/UIElement.gd" type="Script" id=5]
+[ext_resource path="res://ui/Instructions.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/UI/Menu/Options.tscn" type="PackedScene" id=7]
+[ext_resource path="res://lobby.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/UI/Menu/User_Settings_MainMenu.tscn" type="PackedScene" id=9]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 7
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="UI" type="VBoxContainer" parent="VBoxContainer"]
+margin_right = 984.0
+margin_bottom = 660.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Logo" type="TextureRect" parent="VBoxContainer/UI"]
+margin_right = 984.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 0, 200 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="MainUI" type="HBoxContainer" parent="VBoxContainer/UI"]
+margin_top = 204.0
+margin_right = 984.0
+margin_bottom = 660.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="VBoxContainer/UI/MainUI"]
+margin_left = 404.0
+margin_right = 579.0
+margin_bottom = 456.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 175, 0 )
+size_flags_horizontal = 6
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Instructions" type="Button" parent="VBoxContainer/UI/MainUI/ButtonsContainer"]
+margin_top = 83.0
+margin_right = 175.0
+margin_bottom = 123.0
+rect_min_size = Vector2( 0, 40 )
+text = "Instructions"
+script = ExtResource( 5 )
+ui_event = 1
+resource = ExtResource( 6 )
+
+[node name="Run" type="Button" parent="VBoxContainer/UI/MainUI/ButtonsContainer"]
+margin_top = 133.0
+margin_right = 175.0
+margin_bottom = 173.0
+rect_min_size = Vector2( 0, 40 )
+text = "Run"
+script = ExtResource( 5 )
+
+[node name="Options" type="Button" parent="VBoxContainer/UI/MainUI/ButtonsContainer"]
+margin_top = 183.0
+margin_right = 175.0
+margin_bottom = 223.0
+rect_min_size = Vector2( 0, 40 )
+text = "Options"
+script = ExtResource( 5 )
+ui_event = 1
+resource = ExtResource( 7 )
+
+[node name="Display" type="Button" parent="VBoxContainer/UI/MainUI/ButtonsContainer"]
+margin_top = 233.0
+margin_right = 175.0
+margin_bottom = 273.0
+rect_min_size = Vector2( 0, 40 )
+disabled = true
+text = "Display"
+script = ExtResource( 5 )
+
+[node name="RunNet" type="Button" parent="VBoxContainer/UI/MainUI/ButtonsContainer"]
+margin_top = 283.0
+margin_right = 175.0
+margin_bottom = 323.0
+rect_min_size = Vector2( 0, 40 )
+text = "Run Multiplayer"
+script = ExtResource( 5 )
+ui_event = 1
+resource = ExtResource( 8 )
+
+[node name="CfgPlayer" type="Button" parent="VBoxContainer/UI/MainUI/ButtonsContainer"]
+margin_top = 333.0
+margin_right = 175.0
+margin_bottom = 373.0
+rect_min_size = Vector2( 0, 40 )
+text = "Change player settings"
+script = ExtResource( 5 )
+ui_event = 1
+resource = ExtResource( 9 )
+
+[node name="Options" type="Node" parent="."]
+
+[node name="NoCamera" type="Node" parent="Options"]
+
