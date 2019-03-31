@@ -1,7 +1,4 @@
 extends KinematicBody
-
-export(bool) var debug = false
-
 var CHAR_SCALE = Vector3(0.3, 0.3, 0.3)
 var MaleAvatar = preload("res://model_assets/Avatars/MalePlayer.tscn")
 var FemaleAvatar = preload("res://model_assets/Avatars/FemalePlayer.tscn")
@@ -54,12 +51,10 @@ var hspeed = 0
 
 ##Networking
 var puppet = false
-puppet var puppet_translation 
-puppet var puppet_transform 
-puppet var puppet_linear_vel 
+puppet var puppet_translation
+puppet var puppet_transform
+puppet var puppet_linear_vel
 
-var RPC_MODE_DISABLED = 0
-var RPC_MODE_PUPPET = 3
 #####################
 #var debug = true
 var debug_id = "Player.gd:: "
@@ -84,9 +79,7 @@ func printd(s):
 #####################
 ## Set/Get functions
 func _enter_tree():
-	printd("Player enter tree")
 	var Player
-	printd("Player %s select avatar, female(%s)" % [get_path(), is_female])
 	if is_female:
 		Player = FemaleAvatar.instance()
 	else:
@@ -99,31 +92,26 @@ func _enter_tree():
 	#max_speed = WALKSPEED #init value, is modifyed by mode_run function, if req
 	mode_run(false)
 
-
-
-
 func set_nonetwork(state):
 	nonetwork = state
 	network = !nonetwork
 
 	printd("Player %s enable/disable networking, nonetwork(%s)" % [get_path(), nonetwork])
 	if nonetwork:
-		rset_config("puppet_translation", RPC_MODE_DISABLED)
-		rset_config("puppet_transform",  RPC_MODE_DISABLED)
-		rset_config("puppet_linear_vel", RPC_MODE_DISABLED)
+		rset_config("puppet_translation", MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_transform",  MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_linear_vel", MultiplayerAPI.RPC_MODE_DISABLED)
 	else:
-		rset_config("puppet_translation", RPC_MODE_PUPPET)
-		rset_config("puppet_transform",  RPC_MODE_PUPPET)
-		rset_config("puppet_linear_vel",  RPC_MODE_PUPPET)
+		rset_config("puppet_translation", MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_transform",  MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_linear_vel",  MultiplayerAPI.RPC_MODE_PUPPET)
 
 func set_network(state):
 	set_nonetwork(!state)
 
-
 #disable camera view for the player
 func set_player_nocamera(state):
 	nocamera = state
-	printd("Player %s enable/disable camera, nocamera(%s)" % [get_path(), nocamera])
 	if nocamera :
 		get_node("Pivot").visible = false
 		get_node("Pivot/FPSCamera").clear_current()
@@ -157,7 +145,6 @@ func adjust_facing(p_facing, p_target, p_step, p_adjust_rate, current_gn):
 	return (n*cos(ang) + t*sin(ang))*p_facing.length()
 
 func set_player_input(enable):
-	printd("Player %s enable/disable input, enable(%s)" % [get_path(), enable])
 	if not enable:
 		self.get_node(Camera).noinput = true
 		Captured = false
@@ -253,7 +240,6 @@ func _physics_process(delta):
 		 up = Vector3(0,1,0) # (up is against gravity)
 	else:
 		 up = -gravity.normalized()
-	
 	var vertical_velocity = up.dot(linear_velocity) # Vertical velocity
 	var horizontal_velocity = linear_velocity - up*vertical_velocity # Horizontal velocity
 	var hdir = horizontal_velocity.normalized() # Horizontal direction
@@ -419,7 +405,6 @@ func _physics_process(delta):
 	if (is_on_floor()):
 		movement_dir = linear_velocity
 
-	printd("player move/slide v %s g %s d %s ms %s" % [linear_velocity,-gravity.normalized(), dir, max_speed])
 	linear_velocity = move_and_slide(linear_velocity,-gravity.normalized())
 
 	if not nocamera:
@@ -435,14 +420,12 @@ func _physics_process(delta):
 		translationcamera=$Pivot/FPSCamera.get_global_transform().origin
 
 func _ready():
-	$Model/Model.get_surface_material(0).albedo_color = options.get("player", "color")
+#	$Model/Model.get_surface_material(0).albedo_color = options.get("player", "color")
 	if not name_label:
 		set_player_name(options.get("player", "name"))
 	else:
 		set_player_name(name_label)
 	
-	
-#	$Pivot/FPSCamera/Chat.connect("disable_movement", self, "toggle_chatting")
 	CHAR_SCALE = scale
 	set_process_input(true)
 	if input_processing:

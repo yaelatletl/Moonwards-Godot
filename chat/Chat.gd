@@ -1,46 +1,57 @@
 extends Control
 
-var player_id
-var username = ''
 signal disable_movement()
+var chat_visible = true
+var show_duration = 5.0
+var timer = show_duration
+
 func _ready():
 	get_tree().connect("connected_to_server", self, "_connected_ok")
 	get_tree().connect("network_peer_disconnected", self, "_player_disconnected")
-	player_id = str(get_tree().get_network_unique_id())
-	set_process_unhandled_input(false)
+
+func _process(delta):
+	if chat_visible and not $VBoxContainer/ChatInput.has_focus():
+		timer -= delta
+		if timer <= 0.0:
+			$AnimationPlayer.play("FadeOut")
+			$VBoxContainer/ChatInput.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			chat_visible = false
 
 func _player_connected(id):
-	$Display.text += '\n ' + username + ' has joined' #Change str(id) for the username
+	AddMessage(gamestate.players[id] + ' has joined')
 
 func _player_disconnected(id):
-	$Display.text += '\n ' + username + ' has left' #Change str(id) for the username
+	AddMessage(gamestate.players[id] + ' has left')
 
 func _connected_ok():
-	$Display.text += '\n You have joined the room'
-	rpc('announce_user', username)  #Change player_id for username
-
-func _on_Message_Input_text_entered(new_text):
-	$Message_Input.text = ''
-	if not new_text == '':
-		rpc('display_message', self.username, new_text)
-
-
+	AddMessage('You have joined the room')
+	rpc('announce_user', gamestate.username)
 
 sync func display_message(player, new_text):
-	$Display.text += '\n ' + player + ' : ' + new_text
-
+	AddMessage(player + ' : ' + new_text)
+	
 remote func announce_user(player):
-	$Display.text += '\n ' + player + ' has joined the room'
+	AddMessage(player + ' has joined the room')
 
-func _unhandled_input(event):
-	if event is InputEventKey and is_network_master():
-		if event.pressed and event.scancode == KEY_ENTER:
-			if not $Message_Input.has_focus():
-				$Message_Input.grab_focus()
-				emit_signal("disable_movement")
-			else:
-				emit_signal("disable_movement")
-				$Message_Input.release_focus()
+func _input(event):
+	if event.is_action_pressed("toggle_chat"):
+		ShowChat()
+		if not $VBoxContainer/ChatInput.has_focus():
+			$VBoxContainer/ChatInput.grab_focus()
+		else:
+			if not $VBoxContainer/ChatInput.text == "":
+				rpc('display_message', gamestate.username, $VBoxContainer/ChatInput.text)
+			$VBoxContainer/ChatInput.release_focus()
+			$VBoxContainer/ChatInput.clear()
 
+func ShowChat():
+	if not chat_visible:
+		$AnimationPlayer.play("FadeIn")
+	$VBoxContainer/ChatInput.mouse_filter = Control.MOUSE_FILTER_STOP
+	timer = show_duration
+	chat_visible = true
 
-
+func AddMessage(var message):
+	$VBoxContainer/Log.add_text(message)
+	$VBoxContainer/Log.newline()
+	ShowChat()

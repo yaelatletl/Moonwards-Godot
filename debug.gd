@@ -137,7 +137,7 @@ func e_area_lod(enable=true):
 	pass
 
 func e_collision_shapes(enable=true):
-	var root = utils.scene
+	var root = get_tree().current_scene
 	var cs_objects = utils.get_cs_list_cs(root)
 	print("e_collision_shape(enable=%s), found : %s" % [enable, cs_objects.size()])
 	for p in cs_objects:
@@ -192,11 +192,11 @@ var pf_path
 func show_performance_monitor(enable):
 	if enable and not pf_path:
 		var packedscene = ResourceLoader.load("res://scripts/PerformanceMonitor.tscn")
-		var root = get_tree().current_scene
-		var pf = packedscene.instance()
-		root.add_child(pf)
-		pf_path = root.get_path_to(pf)
-		options.set("_state_", true, "perf_mon")
+#		var root = get_tree().current_scene
+#		var pf = packedscene.instance()
+#		root.add_child(pf)
+#		pf_path = root.get_path_to(pf)
+#		options.set("_state_", true, "perf_mon")
 	if not enable and pf_path:
 		var root = get_tree().current_scene
 		var pf = root.get_node(pf_path)
