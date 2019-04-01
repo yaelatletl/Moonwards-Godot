@@ -54,12 +54,10 @@ var hspeed = 0
 
 ##Networking
 var puppet = false
-puppet var puppet_translation 
-puppet var puppet_transform 
-puppet var puppet_linear_vel 
+puppet var puppet_translation
+puppet var puppet_transform
+puppet var puppet_linear_vel
 
-var RPC_MODE_DISABLED = 0
-var RPC_MODE_PUPPET = 3
 #####################
 #var debug = true
 var debug_id = "Player.gd:: "
@@ -99,26 +97,22 @@ func _enter_tree():
 	#max_speed = WALKSPEED #init value, is modifyed by mode_run function, if req
 	mode_run(false)
 
-
-
-
 func set_nonetwork(state):
 	nonetwork = state
 	network = !nonetwork
 
 	printd("Player %s enable/disable networking, nonetwork(%s)" % [get_path(), nonetwork])
 	if nonetwork:
-		rset_config("puppet_translation", RPC_MODE_DISABLED)
-		rset_config("puppet_transform",  RPC_MODE_DISABLED)
-		rset_config("puppet_linear_vel", RPC_MODE_DISABLED)
+		rset_config("puppet_translation", MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_transform",  MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_linear_vel", MultiplayerAPI.RPC_MODE_DISABLED)
 	else:
-		rset_config("puppet_translation", RPC_MODE_PUPPET)
-		rset_config("puppet_transform",  RPC_MODE_PUPPET)
-		rset_config("puppet_linear_vel",  RPC_MODE_PUPPET)
+		rset_config("puppet_translation", MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_transform",  MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_linear_vel",  MultiplayerAPI.RPC_MODE_PUPPET)
 
 func set_network(state):
 	set_nonetwork(!state)
-
 
 #disable camera view for the player
 func set_player_nocamera(state):
@@ -253,7 +247,6 @@ func _physics_process(delta):
 		 up = Vector3(0,1,0) # (up is against gravity)
 	else:
 		 up = -gravity.normalized()
-	
 	var vertical_velocity = up.dot(linear_velocity) # Vertical velocity
 	var horizontal_velocity = linear_velocity - up*vertical_velocity # Horizontal velocity
 	var hdir = horizontal_velocity.normalized() # Horizontal direction
@@ -435,14 +428,12 @@ func _physics_process(delta):
 		translationcamera=$Pivot/FPSCamera.get_global_transform().origin
 
 func _ready():
-	$Model/Model.get_surface_material(0).albedo_color = options.get("player", "color")
+#	$Model/Model.get_surface_material(0).albedo_color = options.get("player", "color")
 	if not name_label:
 		set_player_name(options.get("player", "name"))
 	else:
 		set_player_name(name_label)
 	
-	
-#	$Pivot/FPSCamera/Chat.connect("disable_movement", self, "toggle_chatting")
 	CHAR_SCALE = scale
 	set_process_input(true)
 	if input_processing:
