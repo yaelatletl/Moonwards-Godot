@@ -42,6 +42,9 @@ signal network_log(message) #emmit on change in server status, client status - c
 signal scene_change
 signal scene_change_name(name)
 signal scene_change_error(msg)
+signal loading_progress(percentage)
+signal loading_done
+signal loading_error
 signal player_scene #emit when a scene for players is detected
 
 # Signals to let lobby GUI know what's going on
@@ -592,3 +595,37 @@ func printd(s):
 		else:
 			print(debug_id, s)
 
+#################
+# New UI stuff
+
+var level_loader = preload("res://scripts/LevelLoader.gd").new()
+var world = null
+
+
+func loading_done(var error):
+	if error == OK or error == ERR_FILE_EOF:
+		emit_signal("gslog", "changing scene okay(%s)" % level_loader.error)
+		emit_signal("loading_done")
+	else:
+		emit_signal("gslog", "error changing scene %s" % level_loader.error)
+		emit_signal("loading_error", "Error! " + str(error))
+
+func load_level(var resource):
+	# Check if the resource is valid before switching to loading screen.
+	if resource is String:
+		var directory = Directory.new();
+		if not directory.file_exists(resource):
+			emit_signal("loading_error", "File does not exist: " + resource)
+			return
+	elif resource is PackedScene:
+		if not resource.can_instance():
+			emit_signal("loading_error", "Can not instance resource.")
+			return
+	
+	level_loader.start_loading(resource)
+	yield(self, "loading_done")
+	
+	world = level_loader.new_scene.instance()
+	get_tree().get_root().add_child(world)
+	get_tree().current_scene = world
+	emit_signal("scene_change")
