@@ -18,14 +18,14 @@ func _process(delta):
 			chat_visible = false
 
 func _player_connected(id):
-	AddMessage(gamestate.players[id] + ' has joined')
+	AddMessage(gamestate.player_get("name", id) + ' has joined')
 
 func _player_disconnected(id):
-	AddMessage(gamestate.players[id] + ' has left')
+	AddMessage(gamestate.player_get("name", id) + ' has left')
 
 func _connected_ok():
 	AddMessage('You have joined the room')
-	rpc('announce_user', gamestate.username)
+	rpc('announce_user', gamestate.player_get("name"))
 
 sync func display_message(player, new_text):
 	AddMessage(player + ' : ' + new_text)
@@ -40,7 +40,7 @@ func _input(event):
 			$VBoxContainer/ChatInput.grab_focus()
 		else:
 			if not $VBoxContainer/ChatInput.text == "":
-				rpc('display_message', gamestate.username, $VBoxContainer/ChatInput.text)
+				rpc('display_message', gamestate.player_get("name"), $VBoxContainer/ChatInput.text)
 			$VBoxContainer/ChatInput.release_focus()
 			$VBoxContainer/ChatInput.clear()
 
