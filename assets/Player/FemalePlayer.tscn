@@ -1,0 +1,86 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/Player/PlayerCamera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/Player/FemalePlayer.dae" type="PackedScene" id=3]
+[ext_resource path="res://materials/Turquoise.tres" type="Material" id=4]
+[ext_resource path="res://materials/Chestnut.tres" type="Material" id=5]
+[ext_resource path="res://materials/SmokySkin.tres" type="Material" id=6]
+[ext_resource path="res://materials/Black.tres" type="Material" id=7]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.04
+height = 0.09
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "Female_MoonWalking"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "Female_MoonWalkingBack"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "Female_MoonWalkingLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "Female_MoonWalkingRight"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "CasualStance1"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=7]
+blend_point_0/node = SubResource( 2 )
+blend_point_0/pos = Vector2( 0, 1 )
+blend_point_1/node = SubResource( 3 )
+blend_point_1/pos = Vector2( 0, -1 )
+blend_point_2/node = SubResource( 4 )
+blend_point_2/pos = Vector2( -1, 0 )
+blend_point_3/node = SubResource( 5 )
+blend_point_3/pos = Vector2( 1, 0 )
+blend_point_4/node = SubResource( 6 )
+blend_point_4/pos = Vector2( 0, 0 )
+
+[sub_resource type="AnimationNodeBlendTree" id=8]
+graph_offset = Vector2( 52, -13.25 )
+nodes/Walk/node = SubResource( 7 )
+nodes/Walk/position = Vector2( 400, 100 )
+nodes/output/position = Vector2( 880, 120 )
+node_connections = [ "output", 0, "Walk" ]
+
+[node name="FemalePlayer" type="Spatial"]
+script = ExtResource( 1 )
+camera_control_path = NodePath("PlayerCamera")
+
+[node name="PlayerCamera" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144089, 0 )
+kinematic_body_path = NodePath("../KinematicBody")
+
+[node name="KinematicBody" type="KinematicBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0851043, 0 )
+shape = SubResource( 1 )
+
+[node name="AnimationTree" type="AnimationTree" parent="KinematicBody"]
+tree_root = SubResource( 8 )
+anim_player = NodePath("../Model/AnimationPlayer")
+active = true
+root_motion_track = NodePath("FemaleRig/Skeleton:Root")
+parameters/Walk/blend_position = Vector2( -0.00183821, 1.43333 )
+
+[node name="RootMotionView" type="RootMotionView" parent="KinematicBody"]
+animation_path = NodePath("../AnimationTree")
+cell_size = 0.1
+radius = 2.0
+
+[node name="Model" parent="KinematicBody" instance=ExtResource( 3 )]
+
+[node name="AvatarFemale" parent="KinematicBody/Model/FemaleRig/Skeleton" index="0"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 5 )
+material/2 = ExtResource( 6 )
+material/3 = ExtResource( 7 )
+
+
+[editable path="PlayerCamera"]
+
+[editable path="KinematicBody/Model"]
