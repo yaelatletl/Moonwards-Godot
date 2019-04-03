@@ -101,20 +101,6 @@ func _on_join_pressed():
 	gamestate.client_server_connect($connect/ip.text)
 	return
 
-
-	var ip = $connect/ip.text
-	if (not ip.is_valid_ip_address()):
-		$connect/error_label.text="Invalid IPv4 address!"
-		return
-
-	$connect/error_label.text=""
-	$connect/host.disabled=true
-	$connect/join.disabled=true
-
-	var player_name = $connect/name.text
-	gamestate.join_game(ip, player_name)
-	# refresh_lobby() gets called by the player_list_changed signal
-
 func _on_connection_success():
 	$connect.hide()
 	$PlayersList.show()
