@@ -8,10 +8,20 @@ onready var camera_target = $Pivot/CameraTarget
 onready var look_target = $Pivot/LookTarget
 onready var camera = $Camera
 var current_look_position = Vector3()
+var zoom_step_size = 0.05
 
 func _ready():
-	remove_child(pivot)
-	kinematic_body.add_child(pivot)
+	yield(get_tree(), "idle_frame")
+	remove_child(camera)
+	get_parent().get_parent().add_child(camera)
+
+func _input(event):
+	if event.is_action("scroll_up"):
+		if camera_target.translation.z > 0.15:
+			camera_target.translation.z -= zoom_step_size
+	if event.is_action("scroll_down"):
+		if camera_target.translation.z < 1.0:
+			camera_target.translation.z += zoom_step_size
 
 func _physics_process(delta):
 	var from = pivot.global_transform.origin
@@ -19,6 +29,7 @@ func _physics_process(delta):
 	var local_to = camera_target.translation
 	
 	var col = get_world().direct_space_state.intersect_ray(from, to, [kinematic_body])
+	DrawLine(from, to)
 	
 	var target_position = to
 	if not col.empty():
@@ -34,4 +45,15 @@ func _physics_process(delta):
 
 func Rotate(var direction):
 	pivot.rotation_degrees = Vector3(direction.y, direction.x, 0)
+
+func DrawLine(var from, var to):
+	var im = $Lines
+	im.clear()
+	im.begin(Mesh.PRIMITIVE_LINE_STRIP, null)
+	var origin = im.global_transform.origin
+	
+	im.add_vertex(from - origin)
+	im.add_vertex(to - origin)
+	
+	im.end()
 
