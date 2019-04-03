@@ -24,9 +24,6 @@ environment = ExtResource( 2 )
 
 [node name="Terrain" parent="." instance=ExtResource( 3 )]
 
-[node name="Set_MoltenSoilReactors" parent="Terrain" index="1"]
-editor/display_folded = false
-
 [node name="Empty_MoltenSoilReactor006" parent="Terrain/Set_MoltenSoilReactors" index="1"]
 editor/display_folded = false
 
@@ -34,9 +31,6 @@ editor/display_folded = false
 editor/display_folded = false
 
 [node name="Empty_MoltenSoilReactor003" parent="Terrain/Set_MoltenSoilReactors" index="4"]
-editor/display_folded = false
-
-[node name="Set_BoatRadiators" parent="Terrain" index="2"]
 editor/display_folded = false
 
 [node name="Empty_Radiator-BoatRad012" parent="Terrain/Set_BoatRadiators" index="8"]
@@ -61,6 +55,9 @@ editor/display_folded = false
 editor/display_folded = false
 
 [node name="Empty_TeacupCrater" parent="Terrain" index="12"]
+editor/display_folded = false
+
+[node name="Empty_FirstGalleryUpper" parent="Terrain" index="32"]
 editor/display_folded = false
 
 [node name="Empty_LongDome" parent="Terrain" index="35"]
