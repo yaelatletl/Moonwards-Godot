@@ -29,7 +29,6 @@ func _physics_process(delta):
 	var local_to = camera_target.translation
 	
 	var col = get_world().direct_space_state.intersect_ray(from, to, [kinematic_body])
-	DrawLine(from, to)
 	
 	var target_position = to
 	if not col.empty():
