@@ -62,8 +62,9 @@ puppet var puppet_linear_vel
 #var debug = true
 var debug_id = "Player.gd:: "
 var debug_list = [
-	{ enable = false, key = "player move/slide" }
-# 	{ enable = true, key = "" }
+	{ enable = false, key = "player move/slide" },
+	{ enable = false, key = "network_master 1, update pupet" },
+#	{ enable = true, key = "" }
 ]
 func printd(s):
 	if debug:
