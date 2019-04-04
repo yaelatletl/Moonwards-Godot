@@ -15,7 +15,7 @@ var root_motion = Transform()
 var orientation = Transform()
 var velocity = Vector3()
 
-const GRAVITY = Vector3(0,-9.8, 0)
+const GRAVITY = Vector3(0,-1.62, 0)
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
