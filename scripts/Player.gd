@@ -56,7 +56,7 @@ func _physics_process(delta):
 	root_motion = $KinematicBody/AnimationTree.get_root_motion_transform()
 	orientation *= root_motion
 	
-	var h_velocity = (orientation.origin / delta)
+	var h_velocity = (orientation.origin / delta) * 2.0
 	velocity.x = h_velocity.x
 	velocity.z = h_velocity.z
 	velocity += GRAVITY * delta
