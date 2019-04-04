@@ -12,40 +12,40 @@
 radius = 0.04
 height = 0.09
 
-[sub_resource type="AnimationNodeTimeScale" id=9]
-
-[sub_resource type="AnimationNodeAnimation" id=2]
-animation = "Female_MoonWalking"
+[sub_resource type="AnimationNodeTimeScale" id=2]
 
 [sub_resource type="AnimationNodeAnimation" id=3]
-animation = "Female_MoonWalkingBack"
+animation = "Female_MoonWalking"
 
 [sub_resource type="AnimationNodeAnimation" id=4]
-animation = "Female_MoonWalkingLeft"
+animation = "Female_MoonWalkingBack"
 
 [sub_resource type="AnimationNodeAnimation" id=5]
-animation = "Female_MoonWalkingRight"
+animation = "Female_MoonWalkingLeft"
 
 [sub_resource type="AnimationNodeAnimation" id=6]
+animation = "Female_MoonWalkingRight"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
 animation = "CasualStance1"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=7]
-blend_point_0/node = SubResource( 2 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=8]
+blend_point_0/node = SubResource( 3 )
 blend_point_0/pos = Vector2( 0, 1 )
-blend_point_1/node = SubResource( 3 )
+blend_point_1/node = SubResource( 4 )
 blend_point_1/pos = Vector2( 0, -1 )
-blend_point_2/node = SubResource( 4 )
+blend_point_2/node = SubResource( 5 )
 blend_point_2/pos = Vector2( -1, 0 )
-blend_point_3/node = SubResource( 5 )
+blend_point_3/node = SubResource( 6 )
 blend_point_3/pos = Vector2( 1, 0 )
-blend_point_4/node = SubResource( 6 )
+blend_point_4/node = SubResource( 7 )
 blend_point_4/pos = Vector2( 0, 0 )
 
-[sub_resource type="AnimationNodeBlendTree" id=8]
+[sub_resource type="AnimationNodeBlendTree" id=9]
 graph_offset = Vector2( 52, 26.75 )
-nodes/TimeScale/node = SubResource( 9 )
+nodes/TimeScale/node = SubResource( 2 )
 nodes/TimeScale/position = Vector2( 680, 60 )
-nodes/Walk/node = SubResource( 7 )
+nodes/Walk/node = SubResource( 8 )
 nodes/Walk/position = Vector2( 440, 40 )
 nodes/output/position = Vector2( 880, 120 )
 node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Walk" ]
@@ -65,7 +65,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.08
 shape = SubResource( 1 )
 
 [node name="AnimationTree" type="AnimationTree" parent="KinematicBody"]
-tree_root = SubResource( 8 )
+tree_root = SubResource( 9 )
 anim_player = NodePath("../Model/AnimationPlayer")
 active = true
 root_motion_track = NodePath("FemaleRig/Skeleton:Root")

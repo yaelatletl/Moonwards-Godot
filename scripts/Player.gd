@@ -56,11 +56,11 @@ func _physics_process(delta):
 	root_motion = $KinematicBody/AnimationTree.get_root_motion_transform()
 	orientation *= root_motion
 	
-	var h_velocity = (orientation.origin / delta) * 2.0
+	var h_velocity = (orientation.origin / delta)
 	velocity.x = h_velocity.x
 	velocity.z = h_velocity.z
 	velocity += GRAVITY * delta
-	velocity = $KinematicBody.move_and_slide(velocity,Vector3(0,1,0))
+	velocity = $KinematicBody.move_and_slide_with_snap(velocity, Vector3(1.0, 1.0, 1.0), Vector3(0,1,0), true)
 	
 	orientation.origin = Vector3()
 	orientation = orientation.orthonormalized()

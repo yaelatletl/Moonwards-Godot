@@ -69,6 +69,17 @@ material/0 = SubResource( 4 )
 [node name="CollisionShape" type="CollisionShape" parent="Block9/StaticBody"]
 shape = SubResource( 5 )
 
+[node name="Block15" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 2.39636, 0, 0, 0, 1.03138, 0, 0, 0, 1, 3.49971, 0.248454, 2 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="Block15"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Block15/StaticBody"]
+shape = SubResource( 5 )
+
 [node name="Block3" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.248454, 3 )
@@ -78,6 +89,17 @@ material/0 = SubResource( 4 )
 [node name="StaticBody" type="StaticBody" parent="Block3"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Block3/StaticBody"]
+shape = SubResource( 5 )
+
+[node name="Block16" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31482, 0.641834, 3.21097 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="Block16"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Block16/StaticBody"]
 shape = SubResource( 5 )
 
 [node name="Block8" type="MeshInstance" parent="."]
@@ -166,6 +188,28 @@ material/0 = SubResource( 4 )
 [node name="StaticBody" type="StaticBody" parent="Block12"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Block12/StaticBody"]
+shape = SubResource( 5 )
+
+[node name="Block13" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 3.8637, -0.258819, 0, 1.03528, 0.965926, 0, 0, 0, 1, 2, 0.00628853, 2 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="Block13"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Block13/StaticBody"]
+shape = SubResource( 5 )
+
+[node name="Block14" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( -3.8637, 0.258819, -8.74228e-08, 1.03528, 0.965926, 0, 3.37776e-07, -2.26267e-08, -1, 5, 0.00628853, 2 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="Block14"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Block14/StaticBody"]
 shape = SubResource( 5 )
 
 [node name="Ground" type="MeshInstance" parent="."]
