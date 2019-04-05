@@ -373,9 +373,22 @@ func is_player_scene():
 
 ################
 # Player functions
+func player_apply_opt(pdata, player, id):
+	#apply options, given in register dictionary under ::options
+	if pdata.has("options"):
+		printd("player_apply_opt to %s with %s" % [id, pdata])
+		var opt = pdata.options
+		printd("create_player Apply options to id %s : %s" % [id, opt])
+		for k in opt:
+			player.set(k, opt[k])
+		if opt.has("input_processing") and opt["input_processing"] == false:
+			printd("disable input for player avatar %s" % id)
+			player.set_process_input(false)
+
 func player_register(pdata, localplayer=false):
 	var id
 	if localplayer:
+		pdata["options"] = options.player_opt("avatar", pdata) #merge name with rest of options for Avatar
 		if network_id:
 			id = network_id
 		else:
@@ -390,16 +403,13 @@ func player_register(pdata, localplayer=false):
 	var player = {}
 	player["data"] = pdata
 	player["obj"] = options.player_scene.instance()
-	player["camera"] = localplayer
+	player_apply_opt(player["data"], player["obj"], id)
+# 	player["localplayer"] = localplayer
 	if localplayer:
-		#Switch camera on for local player
-		player.obj.nocamera = false
 		if network_id :
 			player["id"] = id
 		players[id] = player
 	else:
-		#Switch camera off for remote players
-		player.obj.nocamera = true
 		player["id"] = id
 		players[id] = player
 	
@@ -469,6 +479,8 @@ func player_get(prop, id=null):
 		result = client[prop]
 	else:
 		match prop:
+			"name" :
+				result = players[id].obj.name_label
 			_:
 				error = true
 	if error:
@@ -508,28 +520,21 @@ func create_player(id):
 	if players[id].data.has("network"):
 		player.nonetwork = !players[id].data.network
 	
+	printd("cp set_network will set(%s) %s %s" % [players[id].has("id") and not player.nonetwork, players[id].has("id"), not player.nonetwork])
 	if players[id].has("id") and not player.nonetwork:
+		printd("create player set_network_master player id(%s) network id(%s)" % [id, players[id].id])
 		player.set_network_master(players[id].id) #set unique id as master
 	
-	emit_signal("gslog", "==create player(%s) %s; name(%s)" % [id, players[id], players[id].data.name])
-	player.set_player_name(players[id].data.name)
-	if players[id].camera : #local player
-		player.nocamera = false
-	else:
-		player.nocamera = true
+	emit_signal("gslog", "==create player(%s) %s; name(%s)" % [id, players[id], players[id].data.name_label])
+# 	player.set_player_name(players[id].data.name_label)
+# 	if players[id].localplayer : #local player
+# 		player.nocamera = false
+# 	else:
+# 		player.nocamera = true
 
-	if options.debug:
-		player.debug = true
-	#apply options, given in register dictionary under ::options
-	if players[id].data.has("options"):
-		var opt = players[id].data.options
-		printd("create_player Apply options to id %s : %s" % [id, opt])
-		for k in opt:
-			player.set(k, opt[k])
-		if opt.has("input_processing") and opt["input_processing"] == false:
-			printd("disable input for player avatar %s" % id)
-			player.set_process_input(false)
-		
+# 	if options.debug:
+# 		player.debug = true
+
 	world.get_node("players").add_child(player)
 	players[id]["world"] = "%s" % world
 	players[id]["path"] = world.get_path_to(player)

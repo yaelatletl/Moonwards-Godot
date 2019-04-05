@@ -2,10 +2,7 @@ extends Control
 
 func _ready_headless():
 	print("Setup headless mode")
-	var player_data = {
-		name = "Server Bot",
-		options = options.player_opt("server_bot")
-	}
+	var player_data = options.player_opt("server_bot")
 	gamestate.player_register(player_data, true) #local player
 	gamestate.server_set_mode()
 	var worldscene = options.scenes.default_mutiplayer_headless_scene

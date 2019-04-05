@@ -228,16 +228,17 @@ func _physics_process_puppet(delta):
 		translation = puppet_translation
 #		$Yaw.transform = puppet_transform
 		linear_velocity = puppet_linear_vel
+	else:
+		printd("no set puppet(%s) delta(%s) t(%s) lv(%s)" % [name, delta, puppet_translation, puppet_linear_vel])
 
 func _physics_process(delta):
-#Changes acceleration and max speed.
-	#if not ActionArea:
-	#	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	printd("_physics_process  node %s; network/puppet/input(%s/%s/%s); delta(%s)" % [name, network, puppet, input_processing, delta])
+	if network and puppet:
+		_physics_process_puppet(delta)
+
 	if not input_processing:
 		return
 
-	if network and puppet:
-		_physics_process_puppet(delta)
 		
 	var v_speed 
 
@@ -291,16 +292,11 @@ func _physics_process(delta):
 		vertical_velocity += dir.y
 	
 	if network:
+		printd("network_master(%s for %s) %s, update pupet %s %s" % [is_network_master(), get_network_master(), name, translation, linear_velocity])
 		if is_network_master():
-			printd("network_master %s, update pupet %s %s" % [name, translation, linear_velocity])
 			rset_unreliable("puppet_translation", translation)
 			rset_unreliable("puppet_transform", $Model.transform)
 			rset_unreliable("puppet_linear_vel", linear_velocity)
-		else:
-			if not (puppet_transform == null or puppet_translation == null or puppet_linear_vel == null or linear_velocity == null):
-				translation = puppet_translation
-	# 			$Yaw.transform = puppet_transform
-				linear_velocity = puppet_linear_vel
 
 # 	var jump_attempt = (Input.is_action_pressed("jump") or (Input.is_action_pressed("ui_page_up") and flies))
 	var jump_attempt = Input.is_action_pressed("jump")
