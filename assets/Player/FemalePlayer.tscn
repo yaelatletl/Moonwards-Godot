@@ -67,7 +67,7 @@ blend_point_4/node = SubResource( 9 )
 blend_point_4/pos = Vector2( 0, 0 )
 
 [sub_resource type="AnimationNodeBlendTree" id=11]
-graph_offset = Vector2( 143, 10 )
+graph_offset = Vector2( 90, -15 )
 nodes/Animation/node = SubResource( 2 )
 nodes/Animation/position = Vector2( 840, 280 )
 "nodes/Animation 2/node" = SubResource( 13 )
@@ -92,6 +92,11 @@ script = ExtResource( 1 )
 camera_control_path = NodePath("KinematicBody/PlayerCamera")
 
 [node name="KinematicBody" type="KinematicBody" parent="."]
+
+[node name="OnGround" type="RayCast" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0 )
+enabled = true
+cast_to = Vector3( 0, -0.11, 0 )
 
 [node name="PlayerCamera" parent="KinematicBody" instance=ExtResource( 2 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.144089, 0 )

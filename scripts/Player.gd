@@ -17,6 +17,7 @@ var velocity = Vector3()
 var run = false
 var in_air = false
 var land = false
+var jumping = false
 var movementstate = walk
 
 const GRAVITY = Vector3(0,-1.62, 0)
@@ -46,14 +47,15 @@ func _input(event):
 		camera_control.Rotate(look_direction)
 
 func Jump():
+	jumping = false
 	velocity.y += JUMP_SPEED
 
 func _physics_process(delta):
 	
-	if $KinematicBody.is_on_floor() and in_air:
+	if $KinematicBody/OnGround.is_colliding() and in_air:
 		in_air = false
 		land = true
-	elif not $KinematicBody.is_on_floor() and not in_air:
+	elif not $KinematicBody/OnGround.is_colliding() and not in_air:
 		in_air = true
 	
 	HandleMovement(delta)
@@ -93,17 +95,19 @@ func HandleMovement(var delta):
 	#Update the model rotation based on the camera look direction.
 	var target_direction = -camera_control.camera.global_transform.basis.z
 	target_direction.y = 0.0
-	if $KinematicBody/Model.global_transform.origin != $KinematicBody/Model.global_transform.origin - target_direction and not in_air:
+	if $KinematicBody/Model.global_transform.origin != $KinematicBody/Model.global_transform.origin - target_direction and not in_air and not jumping:
 		var target_transform = $KinematicBody/Model.global_transform.looking_at($KinematicBody/Model.global_transform.origin - target_direction, Vector3(0, 1, 0))
 		orientation.basis = $KinematicBody/Model.global_transform.basis.slerp(target_transform.basis, delta * ROTATION_INTERPOLATE_SPEED)
 	
-	#Retrieve the root motion from the animationtree so it can be applied to the KinematicBody.
-	root_motion = $KinematicBody/AnimationTree.get_root_motion_transform()
-	orientation *= root_motion
+	if not in_air:
+		#Retrieve the root motion from the animationtree so it can be applied to the KinematicBody.
+		root_motion = $KinematicBody/AnimationTree.get_root_motion_transform()
+		orientation *= root_motion
+		
+		var h_velocity = (orientation.origin / delta)
+		velocity.x = h_velocity.x
+		velocity.z = h_velocity.z
 	
-	var h_velocity = (orientation.origin / delta)
-	velocity.x = h_velocity.x
-	velocity.z = h_velocity.z
 	velocity += GRAVITY * delta
 	
 	#The true is for stopping on a slope.
@@ -117,5 +121,6 @@ func HandleMovement(var delta):
 		$KinematicBody/Model.global_transform.basis = orientation.basis
 
 func HandleJump():
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and not in_air and not jumping:
+		jumping = true
 		$KinematicBody/AnimationTree["parameters/Jump/active"] = true
