@@ -8,17 +8,46 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Spatial
 
+enum animation_state { #animation states
+	walk_forward,
+	walk_backward,
+	idle,
+	stop
+}
+
+var astate = animation_state.idle setget set_state
 
 func start_walk(speed, direction):
 	if direction:
 		$AnimationPlayer.play(\"Female_MoonWalking\",-1,speed)
+		astate = animation_state.walk_forward
 	else:
 		$AnimationPlayer.play(\"Female_MoonWalking\",-1,-speed,true)
+		astate = animation_state.walk_backward
 	
 func idle():
 	$AnimationPlayer.play(\"Neutral\")
+	astate = animation_state.idle
+
 func stop():
-	$AnimationPlayer.stop()"
+	$AnimationPlayer.stop()
+	astate = animation_state.stop
+
+func set_state(state):
+	if astate == state:
+		return state
+	
+	astate = state
+	match astate:
+		animation_state.stop :
+			stop()
+		animation_state.idle :
+			idle()
+		animation_state.walk_forward :
+			start_walk(1, true)
+		animation_state.walk_backward :
+			start_walk(1, false)
+"
 
 [sub_resource type="Animation" id=2]
 length = 0.0833333
