@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/Player/PlayerCamera.tscn" type="PackedScene" id=2]
@@ -12,6 +12,12 @@
 radius = 0.04
 height = 0.09
 
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "Land"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "Flail-loop"
+
 [sub_resource type="AnimationNodeAnimation" id=2]
 animation = "Jump"
 
@@ -20,7 +26,18 @@ filter_enabled = true
 filters = [ "../..", "FemaleRig/Skeleton:Elbow_Pole.L", "FemaleRig/Skeleton:Elbow_Pole.R", "FemaleRig/Skeleton:Knee_Pole.L", "FemaleRig/Skeleton:Knee_Pole.R", "FemaleRig/Skeleton:foot.L", "FemaleRig/Skeleton:foot.R", "FemaleRig/Skeleton:foot_IK.L", "FemaleRig/Skeleton:foot_IK.R", "FemaleRig/Skeleton:forearm.L", "FemaleRig/Skeleton:forearm.R", "FemaleRig/Skeleton:hand.L", "FemaleRig/Skeleton:hand.R", "FemaleRig/Skeleton:hand_IK.L", "FemaleRig/Skeleton:hand_IK.R", "FemaleRig/Skeleton:shin.L", "FemaleRig/Skeleton:shin.R", "FemaleRig/Skeleton:shoulder.L", "FemaleRig/Skeleton:shoulder.R", "FemaleRig/Skeleton:spine", "FemaleRig/Skeleton:spine.001", "FemaleRig/Skeleton:spine.002", "FemaleRig/Skeleton:spine.003", "FemaleRig/Skeleton:spine.005", "FemaleRig/Skeleton:spine.006", "FemaleRig/Skeleton:thigh.L", "FemaleRig/Skeleton:thigh.R", "FemaleRig/Skeleton:upper_arm.L", "FemaleRig/Skeleton:upper_arm.R" ]
 autorestart_random_delay = 0.0
 
+[sub_resource type="AnimationNodeOneShot" id=15]
+autorestart_random_delay = 0.0
+
 [sub_resource type="AnimationNodeTimeScale" id=4]
+
+[sub_resource type="AnimationNodeTransition" id=16]
+input_count = 2
+xfade_time = 0.1
+input_0/name = "Walk"
+input_0/auto_advance = false
+input_1/name = "Flail"
+input_1/auto_advance = false
 
 [sub_resource type="AnimationNodeAnimation" id=5]
 animation = "Female_MoonWalking-loop"
@@ -50,17 +67,25 @@ blend_point_4/node = SubResource( 9 )
 blend_point_4/pos = Vector2( 0, 0 )
 
 [sub_resource type="AnimationNodeBlendTree" id=11]
-graph_offset = Vector2( 235, 41 )
+graph_offset = Vector2( 143, 10 )
 nodes/Animation/node = SubResource( 2 )
-nodes/Animation/position = Vector2( 420, 240 )
+nodes/Animation/position = Vector2( 840, 280 )
+"nodes/Animation 2/node" = SubResource( 13 )
+"nodes/Animation 2/position" = Vector2( 1040, 280 )
+"nodes/Animation 3/node" = SubResource( 14 )
+"nodes/Animation 3/position" = Vector2( 420, 240 )
 nodes/Jump/node = SubResource( 12 )
-nodes/Jump/position = Vector2( 820, 80 )
+nodes/Jump/position = Vector2( 840, 80 )
+nodes/Land/node = SubResource( 15 )
+nodes/Land/position = Vector2( 1040, 80 )
 nodes/MovementSpeed/node = SubResource( 4 )
-nodes/MovementSpeed/position = Vector2( 560, 80 )
+nodes/MovementSpeed/position = Vector2( 440, 80 )
+nodes/MovementState/node = SubResource( 16 )
+nodes/MovementState/position = Vector2( 640, 80 )
 nodes/Walk/node = SubResource( 10 )
-nodes/Walk/position = Vector2( 320, 80 )
-nodes/output/position = Vector2( 1100, 120 )
-node_connections = [ "output", 0, "Jump", "MovementSpeed", 0, "Walk", "Jump", 0, "MovementSpeed", "Jump", 1, "Animation" ]
+nodes/Walk/position = Vector2( 260, 80 )
+nodes/output/position = Vector2( 1380, 100 )
+node_connections = [ "output", 0, "Land", "MovementState", 0, "MovementSpeed", "MovementState", 1, "Animation 3", "Land", 0, "Jump", "Land", 1, "Animation 2", "MovementSpeed", 0, "Walk", "Jump", 0, "MovementState", "Jump", 1, "Animation" ]
 
 [node name="FemalePlayer" type="Spatial"]
 script = ExtResource( 1 )
@@ -82,7 +107,9 @@ anim_player = NodePath("../Model/AnimationPlayer")
 active = true
 root_motion_track = NodePath("FemaleRig/Skeleton:Root")
 parameters/Jump/active = false
+parameters/Land/active = false
 parameters/MovementSpeed/scale = 1.0
+parameters/MovementState/current = 0
 parameters/Walk/blend_position = Vector2( 0, 0 )
 
 [node name="RootMotionView" type="RootMotionView" parent="KinematicBody"]

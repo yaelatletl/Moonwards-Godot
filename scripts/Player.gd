@@ -15,9 +15,14 @@ var root_motion = Transform()
 var orientation = Transform()
 var velocity = Vector3()
 var run = false
+var in_air = false
+var land = false
+var movementstate = walk
 
 const GRAVITY = Vector3(0,-1.62, 0)
-const JUMP_SPEED = 0.5
+const JUMP_SPEED = 0.75
+const walk = 0
+const flail = 1
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -44,6 +49,13 @@ func Jump():
 	velocity.y += JUMP_SPEED
 
 func _physics_process(delta):
+	
+	if $KinematicBody.is_on_floor() and in_air:
+		in_air = false
+		land = true
+	elif not $KinematicBody.is_on_floor() and not in_air:
+		in_air = true
+	
 	HandleMovement(delta)
 	HandleJump()
 
@@ -51,12 +63,22 @@ func HandleMovement(var delta):
 	var motion_target = Vector2( 	Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 									Input.get_action_strength("move_forwards") - Input.get_action_strength("move_backwards"))
 	
+	if in_air and movementstate == walk:
+		$KinematicBody/AnimationTree["parameters/MovementState/current"] = flail
+		movementstate = flail
+	elif not in_air and movementstate == flail:
+		$KinematicBody/AnimationTree["parameters/MovementState/current"] = walk
+		movementstate = walk
+	
+	if land:
+		$KinematicBody/AnimationTree["parameters/Land/active"] = true
+		land = false
+	
 	#Only control the character when it is on the floor.
-	if $KinematicBody.is_on_floor():
+	if not in_air:
 		motion = motion.linear_interpolate(motion_target, MOTION_INTERPOLATE_SPEED * delta)
 	else:
-		#Interpolate to standing still when in the air.
-		motion = motion.linear_interpolate(Vector2(), MOTION_INTERPOLATE_SPEED * delta)
+		pass
 	$KinematicBody/AnimationTree["parameters/Walk/blend_position"] = motion
 	
 	#Multiply the movement animation when running. The animation takes care of the actual movement speed.
@@ -71,7 +93,7 @@ func HandleMovement(var delta):
 	#Update the model rotation based on the camera look direction.
 	var target_direction = -camera_control.camera.global_transform.basis.z
 	target_direction.y = 0.0
-	if $KinematicBody/Model.global_transform.origin != $KinematicBody/Model.global_transform.origin - target_direction:
+	if $KinematicBody/Model.global_transform.origin != $KinematicBody/Model.global_transform.origin - target_direction and not in_air:
 		var target_transform = $KinematicBody/Model.global_transform.looking_at($KinematicBody/Model.global_transform.origin - target_direction, Vector3(0, 1, 0))
 		orientation.basis = $KinematicBody/Model.global_transform.basis.slerp(target_transform.basis, delta * ROTATION_INTERPOLATE_SPEED)
 	
