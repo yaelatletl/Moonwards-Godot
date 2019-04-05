@@ -1,7 +1,7 @@
 extends Spatial
 
 export (NodePath)var kinematic_body_path
-export (float, 0, 500) var speed = 10
+export (float, 0, 500) var speed = 5
 onready var kinematic_body = get_node(kinematic_body_path)
 onready var pivot = $Pivot
 onready var camera_target = $Pivot/CameraTarget
@@ -34,7 +34,7 @@ func _physics_process(delta):
 	if not col.empty():
 		var raycast_offset = col.position.distance_to(from)
 		if local_to.z > raycast_offset:
-			target_position = pivot.to_global(Vector3(0, 0, max(0.15, raycast_offset - 0.15)))
+			target_position = pivot.to_global(Vector3(0, 0, max(0.05, raycast_offset - 0.15)))
 	
 	camera.global_transform.origin = camera.global_transform.origin.linear_interpolate(target_position, delta * speed)
 	
