@@ -57,6 +57,7 @@ var puppet = false
 puppet var puppet_translation
 puppet var puppet_transform
 puppet var puppet_linear_vel
+puppet var puppet_animation
 
 #####################
 #var debug = true
