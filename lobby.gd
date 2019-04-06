@@ -51,7 +51,7 @@ func sg_network_log(msg):
 	$WaitServer/Label.text = "%s%s\n" % [$WaitServer/Label.text, msg]
 
 func sg_server_up():
-	var worldscene = options.scenes.default_mutiplayer_scene
+	var worldscene = options.scenes.default_multiplayer_scene
 	sg_network_log("change scene to %s" % worldscene)
 	yield(get_tree().create_timer(2), "timeout")
 	state_hide()

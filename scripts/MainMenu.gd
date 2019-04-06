@@ -5,7 +5,7 @@ func _ready_headless():
 	var player_data = options.player_opt("server_bot")
 	gamestate.player_register(player_data, true) #local player
 	gamestate.server_set_mode()
-	var worldscene = options.scenes.default_mutiplayer_headless_scene
+	var worldscene = options.scenes.default_multiplayer_headless_scene
 	gamestate.change_scene(worldscene)
 
 func _ready():

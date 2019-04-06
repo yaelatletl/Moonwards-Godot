@@ -20,7 +20,7 @@ func _ready_headless():
 	}
 	gamestate.player_register(player_data, true) #local player
 	gamestate.server_set_mode()
-	var worldscene = options.scenes.default_mutiplayer_headless_scene
+	var worldscene = options.scenes.default_multiplayer_headless_scene
 	gamestate.change_scene(worldscene)
 
 func _on_size_changed():
