@@ -13,11 +13,41 @@ enum ui_events{
 	queue_ui,
 	set_setting,
 	dismiss,
-	load_level
+	load_level,
+	join_server
 }
+const ui_events_text = ["back", "create_ui", "queue_ui", "set_setting", "dismiss",
+						"load_level", "join_server" ]
+func ui_event_to_text(ui_event):
+	var text = "none"
+	if ui_events_text.size() - 1  > ui_event:
+		text = "unknown ui_event(%s)" % ui_event
+	else:
+		text = ui_events_text[ui_event]
+	return text
 
 func _ready():
 	gamestate.connect("scene_change", self, "SceneChange")
+
+func UIEvent(ui_event, resource=null):
+	match ui_event:
+		ui_events.create_ui:
+			NextUI(resource)
+		ui_events.queue_ui:
+			QueueUI(resource)
+		ui_events.back:
+			Back()
+		ui_events.set_setting:
+			SetSetting()
+		ui_events.dismiss:
+			DismissUI()
+		ui_events.load_level:
+			LoadLevel(resource)
+		_:
+			print("UIManager, no action for %s resource(%s)" % [ui_event_to_text(ui_event), resource])
+
+func SetSetting():
+	print("**implement me UIManager::SetSetting")
 
 func SceneChange():
 	ui_history_queue.clear()
