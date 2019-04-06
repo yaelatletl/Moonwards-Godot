@@ -111,7 +111,7 @@ func HandleMovement(var delta):
 	velocity += GRAVITY * delta
 	
 	#The true is for stopping on a slope.
-	velocity = $KinematicBody.move_and_slide_with_snap(velocity, Vector3(1.0, 1.0, 1.0), Vector3(0,1,0), true)
+	velocity = $KinematicBody.move_and_slide_with_snap(velocity, Vector3(0.0, 0.0, 0.0), Vector3(0,1,0), true)
 	
 	orientation.origin = Vector3()
 	orientation = orientation.orthonormalized()
