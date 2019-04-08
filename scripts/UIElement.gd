@@ -5,8 +5,8 @@ export (PackedScene) var resource
 export (String) var resource_path
 
 func _ready():
-	if resource == null and resource_path != null:
-		resource = ResourceLoader.load(resource_path)
+# 	if resource == null and resource_path != null:
+# 		resource = ResourceLoader.load(resource_path)
 	var node = self
 	if node is Button:
 		self.connect("pressed", self, "ButtonPressed")
@@ -26,5 +26,9 @@ func DropDownChoice(var value):
 	UIEvent()
 
 func UIEvent():
-	UIManager.UIEvent(ui_event, resource)
+	if resource != null:
+		UIManager.UIEvent(ui_event, resource)
+	else:
+		UIManager.UIEvent(ui_event, resource_path)
+
 
