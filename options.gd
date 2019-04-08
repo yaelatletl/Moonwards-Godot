@@ -33,7 +33,7 @@ var scenes = {
 	default_singleplayer_scene = "WorldV2",
 	default_multiplayer_scene = "WorldTest",
 	default_multiplayer_headless_scene = "WorldTest",
-	default_multiplayer_headless_scene
+	default_multiplayer_join_server = "WorldV2",
 	World = {
 		path = "res://World.tscn"
 	},
