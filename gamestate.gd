@@ -626,6 +626,8 @@ func loading_done(var error):
 func load_level(var resource):
 	# Check if the resource is valid before switching to loading screen.
 	if resource is String:
+		if options.scenes.has(resource):
+			resource = options.scenes[resource].path
 		var directory = Directory.new();
 		if not directory.file_exists(resource):
 			emit_signal("loading_error", "File does not exist: " + resource)
