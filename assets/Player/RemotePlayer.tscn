@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/Player/Nametag3D.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/Player/FemalePlayer.dae" type="PackedScene" id=3]
+[ext_resource path="res://assets/Player/FemalePlayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://materials/Turquoise.tres" type="Material" id=4]
 [ext_resource path="res://materials/Chestnut.tres" type="Material" id=5]
 [ext_resource path="res://materials/SmokySkin.tres" type="Material" id=6]

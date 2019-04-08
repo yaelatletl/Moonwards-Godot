@@ -1,13 +1,16 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/Player/Nametag3D.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/Player/PlayerCamera.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/Player/FemalePlayer.dae" type="PackedScene" id=4]
+[ext_resource path="res://assets/Player/FemalePlayer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://materials/Turquoise.tres" type="Material" id=5]
 [ext_resource path="res://materials/Chestnut.tres" type="Material" id=6]
 [ext_resource path="res://materials/SmokySkin.tres" type="Material" id=7]
 [ext_resource path="res://materials/Black.tres" type="Material" id=8]
+[ext_resource path="res://assets/Player/FemalePlayer/Jump.anim" type="Animation" id=9]
+[ext_resource path="res://assets/Player/FemalePlayer/Land.anim" type="Animation" id=10]
+[ext_resource path="res://assets/Player/FemalePlayer/Neutral.anim" type="Animation" id=11]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("KinematicBody/Nametag/Viewport")
@@ -143,6 +146,11 @@ material/0 = ExtResource( 5 )
 material/1 = ExtResource( 6 )
 material/2 = ExtResource( 7 )
 material/3 = ExtResource( 8 )
+
+[node name="AnimationPlayer" parent="KinematicBody/Model" index="1"]
+anims/Jump = ExtResource( 9 )
+anims/Land = ExtResource( 10 )
+anims/Neutral = ExtResource( 11 )
 
 
 [editable path="KinematicBody/Model"]
