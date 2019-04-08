@@ -43,6 +43,8 @@ func UIEvent(ui_event, resource=null):
 			DismissUI()
 		ui_events.load_level:
 			LoadLevel(resource)
+		ui_events.join_server:
+			join_server(resource)
 		_:
 			print("UIManager, no action for %s resource(%s)" % [ui_event_to_text(ui_event), resource])
 
@@ -103,6 +105,8 @@ func DismissUI():
 		on_queued_ui = false
 
 func CreateUI(var resource):
+	if resource is String:
+		resource = ResourceLoader.load(resource)
 	var new_ui = resource.instance()
 	return new_ui
 
@@ -140,3 +144,15 @@ func _input(event):
 
 func LoadLevel(var resource):
 	gamestate.load_level(resource)
+
+func join_server(scene):
+	if scene == null:
+		scene = options.scenes.default_multiplayer_join_server
+	
+	gamestate.load_level(scene)
+	var player_data = {
+		name_label = options.get("user_settings", "name", namelist.get_name())
+	}
+	gamestate.player_register(player_data, true) #local player
+	gamestate.client_server_connect("moonwards.hopto.org")
+	
