@@ -29,7 +29,8 @@ var scenes = {
 	default = "WorldTest",
 #	default_run_scene = "WorldV2Player",
 #	default_run_scene = "WorldTest2",
-	default_run_scene = "WorldTest",
+# 	default_run_scene = "WorldTest",
+	default_run_scene = "WorldV2PlayerV2",
 	default_singleplayer_scene = "WorldV2",
 	default_multiplayer_scene = "WorldTest",
 	default_multiplayer_headless_scene = "WorldTest",
@@ -53,6 +54,9 @@ var scenes = {
 	},
 	WorldTest2 = {
 		path = "res://_tests/scene_mp/multiplayer_test_scene2.tscn"
+	},
+	WorldV2PlayerV2 = {
+		path = "res://WorldV2PlayerV2.tscn"
 	}
 }
 
