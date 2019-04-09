@@ -252,4 +252,5 @@ directional_shadow_blend_splits = true
 directional_shadow_normal_bias = 0.5
 
 [node name="FemalePlayer" parent="." instance=ExtResource( 4 )]
+remote_player = null
 
