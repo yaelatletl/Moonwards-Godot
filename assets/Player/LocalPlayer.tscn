@@ -109,6 +109,11 @@ camera_control_path = NodePath("KinematicBody/PlayerCamera")
 
 [node name="KinematicBody" type="KinematicBody" parent="."]
 
+[node name="SpotLight" type="SpotLight" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 0.0285586, -0.999592, 0, 0.999592, 0.0285586, 0, 0, 0 )
+spot_range = 0.2
+spot_angle = 37.4681
+
 [node name="Nametag" parent="KinematicBody" instance=ExtResource( 2 )]
 material/0 = SubResource( 2 )
 
