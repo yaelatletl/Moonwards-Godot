@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://assets/Player/BrightTeal.material" type="Material" id=1]
-[ext_resource path="res://assets/Player/Chestnut.material" type="Material" id=2]
-[ext_resource path="res://assets/Player/SmokySkin.material" type="Material" id=3]
-[ext_resource path="res://assets/Player/Black.material" type="Material" id=4]
+[ext_resource path="res://materials/Turquoise.tres" type="Material" id=1]
+[ext_resource path="res://materials/Chestnut.tres" type="Material" id=2]
+[ext_resource path="res://materials/SmokySkin.tres" type="Material" id=3]
+[ext_resource path="res://materials/Black.tres" type="Material" id=4]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Cylinder.003"
@@ -15,7 +15,7 @@ surfaces/0 = {
 "format": 97731,
 "index_count": 756,
 "material": ExtResource( 1 ),
-"name": "BrightTeal",
+"name": "Turquoise",
 "primitive": 4,
 "skeleton_aabb": [ AABB( 0, 0, 0, -1, -1, -1 ), AABB( -0.0108184, 0.101108, -0.00755067, 0.0216368, 0.00660167, 0.015971 ), AABB( -0.0112254, 0.101108, -0.00755067, 0.0224508, 0.018101, 0.015971 ), AABB( -0.014908, 0.101108, -0.0090532, 0.029816, 0.0323175, 0.021939 ), AABB( -0.014908, 0.105935, -0.0090532, 0.029816, 0.0274903, 0.021939 ), AABB( 1.04602e-15, 0.135145, -0.00663675, 0.00670877, 0.0044228, 0.0068112 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( -0.00968743, 0.110444, -0.0090532, 0.0317233, 0.0287811, 0.021939 ), AABB( 0.0123786, 0.121829, -0.00708457, 0.0249521, 0.0173961, 0.0106679 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( -0.0220358, 0.110444, -0.0090532, 0.0317233, 0.0287811, 0.021939 ), AABB( -0.0373307, 0.121829, -0.00708457, 0.0249521, 0.0173961, 0.010668 ) ],
 "vertex_count": 137
