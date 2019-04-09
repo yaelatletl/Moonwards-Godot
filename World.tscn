@@ -45,28 +45,28 @@ editor/display_folded = false
 [node name="Empty_RadarTower" parent="Terrain" index="5"]
 editor/display_folded = false
 
-[node name="Empty_MainHangars" parent="Terrain" index="8"]
+[node name="Empty_MainHangars" parent="Terrain" index="7"]
 editor/display_folded = false
 
-[node name="Empty_FirstHangars" parent="Terrain" index="9"]
+[node name="Empty_FirstHangars" parent="Terrain" index="8"]
 editor/display_folded = false
 
-[node name="Empty_AtriumHab" parent="Terrain" index="11"]
+[node name="Empty_AtriumHab" parent="Terrain" index="10"]
 editor/display_folded = false
 
-[node name="Empty_TeacupCrater" parent="Terrain" index="12"]
+[node name="Empty_TeacupCrater" parent="Terrain" index="11"]
 editor/display_folded = false
 
-[node name="Empty_FirstGalleryUpper" parent="Terrain" index="32"]
+[node name="Empty_FirstGalleryUpper" parent="Terrain" index="31"]
 editor/display_folded = false
 
-[node name="Empty_LongDome" parent="Terrain" index="35"]
+[node name="Empty_LongDome" parent="Terrain" index="34"]
 editor/display_folded = false
 
-[node name="Empty_NorthLongAtrium" parent="Terrain" index="37"]
+[node name="Empty_NorthLongAtrium" parent="Terrain" index="36"]
 editor/display_folded = false
 
-[node name="Empty_SouthLongAtrium" parent="Terrain" index="39"]
+[node name="Empty_SouthLongAtrium" parent="Terrain" index="38"]
 editor/display_folded = false
 
 [node name="spawn_points" type="Spatial" parent="."]

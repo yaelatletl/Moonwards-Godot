@@ -20,7 +20,11 @@ environment = ExtResource( 1 )
 [node name="spawn_points" type="Spatial" parent="."]
 
 [node name="0" type="Position3D" parent="spawn_points"]
+<<<<<<< HEAD
 transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -51.2514, -1929.85, -12.1047 )
+=======
+transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -55.4482, -1929.82, -12.2065 )
+>>>>>>> adjust player collision, spawn point, AtriumHab collision
 
 [node name="LocalPlayer" parent="spawn_points/0" instance=ExtResource( 3 )]
 
