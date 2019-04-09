@@ -48,6 +48,7 @@ func _ready():
 		camera_control = get_node(camera_control_path)
 	else:
 		set_process_input(false)
+	SetRemotePlayer(remote_player)
 
 func _input(event):
 	if (event is InputEventMouseMotion):
@@ -179,7 +180,7 @@ func SetUsername(var _username):
 
 func SetNetwork(var enabled):
 	network = enabled
-	nonetwork = ! enable
+	nonetwork = ! enabled
 
 	if network:
 		rset_config("puppet_translation", MultiplayerAPI.RPC_MODE_PUPPET)
@@ -194,3 +195,11 @@ func SetNetwork(var enabled):
 		rset_config("puppet_jump", MultiplayerAPI.RPC_MODE_DISABLED)
 		rset_config("puppet_run", MultiplayerAPI.RPC_MODE_DISABLED)
 
+func SetRemotePlayer(enable):
+	remote_player = enable
+	if not remote_player:
+		$KinematicBody/Nametag.visible = false
+		$Camera.current = true
+	else:
+		$KinematicBody/Nametag.visible = true
+		$Camera.current = false
