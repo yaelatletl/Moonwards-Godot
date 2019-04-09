@@ -151,7 +151,7 @@ func join_server(scene):
 	
 # 	gamestate.load_level(scene)
 	var player_data = {
-		name_label = options.get("user_settings", "name", namelist.get_name())
+		username = options.get("user_settings", "name", namelist.get_name())
 	}
 	gamestate.player_register(player_data, true) #local player
 	gamestate.change_scene(scene)

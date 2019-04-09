@@ -74,7 +74,7 @@ func _on_host_pressed():
 		$connect/error_label.text="Invalid name!"
 		return
 	var player_data = {
-		name_label = $connect/name.text
+		username = $connect/name.text
 	}
 	gamestate.player_register(player_data, true) #local player
 	self.state = STATE.server_select
@@ -91,7 +91,7 @@ func _on_join_pressed():
 
 	set_state(STATE.client_connect)
 	var player_data = {
-		name_label = $connect/name.text
+		username = $connect/name.text
 	}
 	gamestate.player_register(player_data, true) #local player
 	binddef = {src = gamestate, dest = self }
@@ -142,7 +142,7 @@ func _on_Sinlgeplayer_pressed():
 		get_node("connect/error_label").text="Invalid name!"
 		return
 	var player_data = {
-		name_label = $connect/name.text,
+		username = $connect/name.text,
 		network = false
 	}
 	gamestate.RoleNoNetwork = true

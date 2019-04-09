@@ -34,7 +34,7 @@ var input_processing = true setget set_player_input
 var nocamera = false setget set_player_nocamera
 var nonetwork = true setget set_nonetwork
 var network = !nonetwork setget set_network
-var name_label
+var username
 #Options
 export(float) var WALKSPEED = 3.1
 export(float) var RUNSPEED = 4.5
@@ -427,10 +427,10 @@ func _physics_process(delta):
 
 func _ready():
 #	$Model/Model.get_surface_material(0).albedo_color = options.get("player", "color")
-	if not name_label:
+	if not username:
 		set_player_name(options.get("player", "name"))
 	else:
-		set_player_name(name_label)
+		set_player_name(username)
 	
 	CHAR_SCALE = scale
 	set_process_input(true)
@@ -441,7 +441,7 @@ func _ready():
 func set_player_name(new_name):
 	get_node("label").set_text(new_name)
 #	$Pivot/FPSCamera/Chat.username = new_name
-	name_label = new_name
+	username = new_name
 	
 func toggle_chatting():
 	if chatting:

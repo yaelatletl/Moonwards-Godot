@@ -480,7 +480,7 @@ func player_get(prop, id=null):
 	else:
 		match prop:
 			"name" :
-				result = players[id].obj.name_label
+				result = players[id].obj.username
 			_:
 				error = true
 	if error:
@@ -525,8 +525,8 @@ func create_player(id):
 		printd("create player set_network_master player id(%s) network id(%s)" % [id, players[id].id])
 		player.set_network_master(players[id].id) #set unique id as master
 	
-	emit_signal("gslog", "==create player(%s) %s; name(%s)" % [id, players[id], players[id].data.name_label])
-# 	player.set_player_name(players[id].data.name_label)
+	emit_signal("gslog", "==create player(%s) %s; name(%s)" % [id, players[id], players[id].data.username])
+# 	player.set_player_name(players[id].data.username)
 # 	if players[id].localplayer : #local player
 # 		player.nocamera = false
 # 	else:
