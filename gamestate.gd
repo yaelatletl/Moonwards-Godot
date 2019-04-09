@@ -12,9 +12,6 @@ var players = {}
 var network_id
 var local_id
 
-var local_player_resource = preload("res://assets/Player/LocalPlayer.tscn")
-var remote_player_resource = preload("res://assets/Player/RemotePlayer.tscn")
-
 #
 # hold last error message
 var error_msg = "Ok"
@@ -405,21 +402,16 @@ func player_register(pdata, localplayer=false):
 	emit_signal("gslog", "registered player(%s): %s" % [id, pdata])
 	var player = {}
 	player["data"] = pdata
-#	player["obj"] = options.player_scene.instance()
-#	player_apply_opt(player["data"], player["obj"], id)
+	player["obj"] = options.player_scene.instance()
+	player_apply_opt(player["data"], player["obj"], id)
 # 	player["localplayer"] = localplayer
 	if localplayer:
-		player["obj"] = local_player_resource.instance()
 		if network_id :
 			player["id"] = id
 		players[id] = player
 	else:
-		player["obj"] = remote_player_resource.instance()
 		player["id"] = id
 		players[id] = player
-	
-	player["obj"].SetNetwork(true)
-	player["obj"].SetUsername(pdata.name_label)
 	
 	if is_player_scene():
 		create_player(id)
@@ -488,7 +480,7 @@ func player_get(prop, id=null):
 	else:
 		match prop:
 			"name" :
-				result = players[id].obj.username
+				result = players[id].obj.name_label
 			_:
 				error = true
 	if error:
