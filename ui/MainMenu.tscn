@@ -94,7 +94,7 @@ rect_min_size = Vector2( 0, 40 )
 text = "Run"
 script = ExtResource( 5 )
 ui_event = 5
-resource_path = "res://WorldV2.tscn"
+resource_path = "WorldV2PlayerV2"
 
 [node name="Options" type="Button" parent="VBoxContainer/UI/MainUI/ButtonsContainer"]
 margin_top = 208.0
