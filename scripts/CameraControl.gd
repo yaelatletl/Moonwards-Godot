@@ -1,21 +1,25 @@
 extends Spatial
 
-export (NodePath)var kinematic_body_path
+export (NodePath) var kinematic_body_path
+export (NodePath) var kinematic_body_camera
 export (float, 0, 500) var speed = 5
 onready var kinematic_body = get_node(kinematic_body_path)
 onready var pivot = $Pivot
 onready var camera_target = $Pivot/CameraTarget
 onready var look_target = $Pivot/LookTarget
-onready var camera = $Camera
+onready var camera = get_node(kinematic_body_camera)
 var current_look_position = Vector3()
 var zoom_step_size = 0.05
+export (bool) var enabled = false
 
 func _ready():
-	yield(get_tree(), "idle_frame")
-	remove_child(camera)
-	get_parent().get_parent().add_child(camera)
+	if camera == null:
+		enabled = false
+		print("CameraControl:: no camera defined, disabled")
 
 func _input(event):
+	if not enabled:
+		return
 	if event.is_action("scroll_up"):
 		if camera_target.translation.z > 0.15:
 			camera_target.translation.z -= zoom_step_size
@@ -24,6 +28,8 @@ func _input(event):
 			camera_target.translation.z += zoom_step_size
 
 func _physics_process(delta):
+	if not enabled:
+		return
 	var from = pivot.global_transform.origin
 	var to = camera_target.global_transform.origin
 	var local_to = camera_target.translation
