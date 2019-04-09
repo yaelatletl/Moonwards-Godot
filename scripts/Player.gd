@@ -6,6 +6,7 @@ onready var camera_control = null
 
 const MOTION_INTERPOLATE_SPEED = 10
 const ROTATION_INTERPOLATE_SPEED = 10
+const IN_AIR_DELTA = 0.3
 var motion = Vector2()
 
 var look_direction = Vector2()
@@ -71,15 +72,21 @@ func Jump():
 	velocity.y += JUMP_SPEED
 
 func _physics_process(delta):
-	if $KinematicBody/OnGround.is_colliding() and in_air:
-		in_air = false
-		land = true
-	elif not $KinematicBody/OnGround.is_colliding() and not in_air:
-		in_air = true
-	
+	HandleOnGround(delta)
 	HandleControls(delta)
 	UpdateNetworking()
 	HandleMovement()
+
+var in_air_accomulate = 0
+func HandleOnGround(delta):
+	if $KinematicBody/OnGround.is_colliding() and in_air:
+		in_air = false
+		land = true
+		in_air_accomulate = 0
+	elif not $KinematicBody/OnGround.is_colliding() and not in_air:
+		in_air_accomulate += delta
+		if in_air_accomulate >= IN_AIR_DELTA:
+			in_air = true
 
 func HandleMovement():
 	$KinematicBody/AnimationTree["parameters/Walk/blend_position"] = motion
