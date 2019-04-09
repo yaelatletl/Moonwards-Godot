@@ -1,6 +1,6 @@
 extends Spatial
 
-export(bool) var remote_player = false
+export(bool) var remote_player = false setget SetRemotePlayer
 export(NodePath) var camera_control_path
 onready var camera_control = null
 
@@ -19,11 +19,11 @@ var running = false
 var in_air = false
 var land = false
 var jumping = false
-var network = false
+var network = false setget SetNetwork
 var flies = false
 var movementstate = walk
-var username = "username"
-var id = ""
+var username = "username" setget SetUsername
+var id setget SetID
 
 const GRAVITY = Vector3(0,-1.62, 0)
 const JUMP_SPEED = 0.75
@@ -38,7 +38,7 @@ puppet var puppet_jump
 puppet var puppet_run
 puppet var puppet_motion
 
-var nonetwork = false
+var nonetwork = true
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -179,12 +179,18 @@ func SetUsername(var _username):
 
 func SetNetwork(var enabled):
 	network = enabled
+	nonetwork = ! enable
 
 	if network:
 		rset_config("puppet_translation", MultiplayerAPI.RPC_MODE_PUPPET)
 		rset_config("puppet_rotation",  MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_motion",  MultiplayerAPI.RPC_MODE_PUPPET)
 		rset_config("puppet_jump",  MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_run",  MultiplayerAPI.RPC_MODE_PUPPET)
 	else:
 		rset_config("puppet_translation", MultiplayerAPI.RPC_MODE_DISABLED)
 		rset_config("puppet_rotation",  MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_motion",  MultiplayerAPI.RPC_MODE_DISABLED)
 		rset_config("puppet_jump", MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_run", MultiplayerAPI.RPC_MODE_DISABLED)
+
