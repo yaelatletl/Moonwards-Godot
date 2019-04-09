@@ -146,13 +146,16 @@ func LoadLevel(var resource):
 	gamestate.load_level(resource)
 
 func join_server(scene):
-	if scene == null:
+	if scene == null or scene == "":
 		scene = options.scenes.default_multiplayer_join_server
 	
-	gamestate.load_level(scene)
+# 	gamestate.load_level(scene)
 	var player_data = {
 		name_label = options.get("user_settings", "name", namelist.get_name())
 	}
 	gamestate.player_register(player_data, true) #local player
-	gamestate.client_server_connect("moonwards.hopto.org")
+	gamestate.change_scene(scene)
+	yield(gamestate, "scene_change")
+# 	gamestate.client_server_connect("moonwards.hopto.org")
+	gamestate.client_server_connect("127.0.0.1")
 	
