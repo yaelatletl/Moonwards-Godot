@@ -61,7 +61,7 @@ var player_opt = {
 	opt_filter = {
 		debug = true,
 		nocamera = true,
-		name_label = true,
+		username = true,
 		is_female = true
 	},
 	avatar = {
@@ -83,7 +83,7 @@ var player_opt = {
 		nocamera = true,
 		network = true,
 		puppet = false,
-		name_label = "Server Bot"
+		username = "Server Bot"
 	}
 }
 
