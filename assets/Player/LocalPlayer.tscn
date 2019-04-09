@@ -23,8 +23,8 @@ params_billboard_mode = 1
 albedo_texture = SubResource( 1 )
 
 [sub_resource type="CapsuleShape" id=3]
-radius = 0.04
-height = 0.09
+radius = 0.0251801
+height = 0.108889
 
 [sub_resource type="AnimationNodeAnimation" id=4]
 animation = "Land"
@@ -99,7 +99,7 @@ nodes/MovementState/position = Vector2( 640, 80 )
 nodes/Walk/node = SubResource( 16 )
 nodes/Walk/position = Vector2( 260, 80 )
 nodes/output/position = Vector2( 1380, 100 )
-node_connections = [ "output", 0, "Land", "Jump", 0, "MovementState", "Jump", 1, "Animation", "Land", 0, "Jump", "Land", 1, "Animation 2", "MovementSpeed", 0, "Walk", "MovementState", 0, "MovementSpeed", "MovementState", 1, "Animation 3" ]
+node_connections = [ "output", 0, "Land", "Land", 0, "Jump", "Land", 1, "Animation 2", "MovementSpeed", 0, "Walk", "MovementState", 0, "MovementSpeed", "MovementState", 1, "Animation 3", "Jump", 0, "MovementState", "Jump", 1, "Animation" ]
 
 [node name="LocalPlayer" type="Spatial"]
 script = ExtResource( 1 )
@@ -129,7 +129,7 @@ kinematic_body_camera = NodePath("../../Camera")
 enabled = true
 
 [node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0851043, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0836672, 0 )
 shape = SubResource( 3 )
 
 [node name="AnimationTree" type="AnimationTree" parent="KinematicBody"]
