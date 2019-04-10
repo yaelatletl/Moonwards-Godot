@@ -1,0 +1,166 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://assets/Player/avatar_v2/scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/Player/avatar_v2/Nametag3D.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/Player/avatar_v2/PlayerCamera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/Player/avatar_v2/FemalePlayer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://materials/Turquoise.tres" type="Material" id=5]
+[ext_resource path="res://materials/Chestnut.tres" type="Material" id=6]
+[ext_resource path="res://materials/SmokySkin.tres" type="Material" id=7]
+[ext_resource path="res://materials/Black.tres" type="Material" id=8]
+[ext_resource path="res://assets/Player/avatar_v2/FemalePlayer/Jump.anim" type="Animation" id=9]
+[ext_resource path="res://assets/Player/avatar_v2/FemalePlayer/Land.anim" type="Animation" id=10]
+[ext_resource path="res://assets/Player/avatar_v2/FemalePlayer/Neutral.anim" type="Animation" id=11]
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("KinematicBody/Nametag/Viewport")
+
+[sub_resource type="SpatialMaterial" id=2]
+resource_local_to_scene = true
+flags_transparent = true
+flags_unshaded = true
+params_billboard_mode = 1
+albedo_texture = SubResource( 1 )
+
+[sub_resource type="CapsuleShape" id=3]
+radius = 0.0251801
+height = 0.108889
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "Land"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "Flail-loop"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "Jump"
+
+[sub_resource type="AnimationNodeOneShot" id=7]
+filter_enabled = true
+filters = [ "../..", "FemaleRig/Skeleton:Elbow_Pole.L", "FemaleRig/Skeleton:Elbow_Pole.R", "FemaleRig/Skeleton:Knee_Pole.L", "FemaleRig/Skeleton:Knee_Pole.R", "FemaleRig/Skeleton:foot.L", "FemaleRig/Skeleton:foot.R", "FemaleRig/Skeleton:foot_IK.L", "FemaleRig/Skeleton:foot_IK.R", "FemaleRig/Skeleton:forearm.L", "FemaleRig/Skeleton:forearm.R", "FemaleRig/Skeleton:hand.L", "FemaleRig/Skeleton:hand.R", "FemaleRig/Skeleton:hand_IK.L", "FemaleRig/Skeleton:hand_IK.R", "FemaleRig/Skeleton:shin.L", "FemaleRig/Skeleton:shin.R", "FemaleRig/Skeleton:shoulder.L", "FemaleRig/Skeleton:shoulder.R", "FemaleRig/Skeleton:spine", "FemaleRig/Skeleton:spine.001", "FemaleRig/Skeleton:spine.002", "FemaleRig/Skeleton:spine.003", "FemaleRig/Skeleton:spine.005", "FemaleRig/Skeleton:spine.006", "FemaleRig/Skeleton:thigh.L", "FemaleRig/Skeleton:thigh.R", "FemaleRig/Skeleton:upper_arm.L", "FemaleRig/Skeleton:upper_arm.R" ]
+autorestart_random_delay = 0.0
+
+[sub_resource type="AnimationNodeOneShot" id=8]
+autorestart_random_delay = 0.0
+
+[sub_resource type="AnimationNodeTimeScale" id=9]
+
+[sub_resource type="AnimationNodeTransition" id=10]
+input_count = 2
+xfade_time = 0.1
+input_0/name = "Walk"
+input_0/auto_advance = false
+input_1/name = "Flail"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Female_MoonWalking-loop"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "Female_MoonWalkingBack-loop"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "Female_MoonWalkingLeft-loop"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "Female_MoonWalkingRight-loop"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "CasualStance1"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=16]
+blend_point_0/node = SubResource( 11 )
+blend_point_0/pos = Vector2( 0, 1 )
+blend_point_1/node = SubResource( 12 )
+blend_point_1/pos = Vector2( 0, -1 )
+blend_point_2/node = SubResource( 13 )
+blend_point_2/pos = Vector2( -1, 0 )
+blend_point_3/node = SubResource( 14 )
+blend_point_3/pos = Vector2( 1, 0 )
+blend_point_4/node = SubResource( 15 )
+blend_point_4/pos = Vector2( 0, 0 )
+
+[sub_resource type="AnimationNodeBlendTree" id=17]
+graph_offset = Vector2( 90, -15 )
+nodes/Animation/node = SubResource( 6 )
+nodes/Animation/position = Vector2( 840, 280 )
+"nodes/Animation 2/node" = SubResource( 4 )
+"nodes/Animation 2/position" = Vector2( 1040, 280 )
+"nodes/Animation 3/node" = SubResource( 5 )
+"nodes/Animation 3/position" = Vector2( 420, 240 )
+nodes/Jump/node = SubResource( 7 )
+nodes/Jump/position = Vector2( 840, 80 )
+nodes/Land/node = SubResource( 8 )
+nodes/Land/position = Vector2( 1040, 80 )
+nodes/MovementSpeed/node = SubResource( 9 )
+nodes/MovementSpeed/position = Vector2( 440, 80 )
+nodes/MovementState/node = SubResource( 10 )
+nodes/MovementState/position = Vector2( 640, 80 )
+nodes/Walk/node = SubResource( 16 )
+nodes/Walk/position = Vector2( 260, 80 )
+nodes/output/position = Vector2( 1380, 100 )
+node_connections = [ "output", 0, "Land", "Jump", 0, "MovementState", "Jump", 1, "Animation", "Land", 0, "Jump", "Land", 1, "Animation 2", "MovementSpeed", 0, "Walk", "MovementState", 0, "MovementSpeed", "MovementState", 1, "Animation 3" ]
+
+[node name="LocalPlayer" type="Spatial"]
+script = ExtResource( 1 )
+camera_control_path = NodePath("KinematicBody/PlayerCamera")
+
+[node name="Camera" type="Camera" parent="."]
+
+[node name="KinematicBody" type="KinematicBody" parent="."]
+
+[node name="SpotLight" type="SpotLight" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 0.0285586, -0.999592, 0, 0.999592, 0.0285586, 0, 0, 0 )
+spot_range = 0.2
+spot_angle = 37.4681
+
+[node name="Nametag" parent="KinematicBody" instance=ExtResource( 2 )]
+visible = false
+material/0 = SubResource( 2 )
+
+[node name="OnGround" type="RayCast" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0 )
+enabled = true
+cast_to = Vector3( 0, -0.11, 0 )
+
+[node name="PlayerCamera" parent="KinematicBody" instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.144089, 0 )
+kinematic_body_path = NodePath("..")
+kinematic_body_camera = NodePath("../../Camera")
+enabled = true
+
+[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0819332, 0 )
+shape = SubResource( 3 )
+
+[node name="AnimationTree" type="AnimationTree" parent="KinematicBody"]
+tree_root = SubResource( 17 )
+anim_player = NodePath("../Model/AnimationPlayer")
+active = true
+root_motion_track = NodePath("FemaleRig/Skeleton:Root")
+parameters/Jump/active = false
+parameters/Land/active = false
+parameters/MovementSpeed/scale = 1.0
+parameters/MovementState/current = 0
+parameters/Walk/blend_position = Vector2( 0, 0 )
+
+[node name="RootMotionView" type="RootMotionView" parent="KinematicBody"]
+animation_path = NodePath("../AnimationTree")
+cell_size = 0.1
+radius = 2.0
+
+[node name="Model" parent="KinematicBody" instance=ExtResource( 4 )]
+
+[node name="AvatarFemale" parent="KinematicBody/Model/FemaleRig/Skeleton" index="0"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 6 )
+material/2 = ExtResource( 7 )
+material/3 = ExtResource( 8 )
+
+[node name="AnimationPlayer" parent="KinematicBody/Model" index="1"]
+anims/Jump = ExtResource( 9 )
+anims/Land = ExtResource( 10 )
+anims/Neutral = ExtResource( 11 )
+
+
+[editable path="KinematicBody/Model"]
