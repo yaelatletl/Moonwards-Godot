@@ -16,6 +16,8 @@ func _ready():
 	if camera == null:
 		enabled = false
 		print("CameraControl:: no camera defined, disabled")
+	else:
+		print("CameraControl:: camera found, enabled")
 
 func _input(event):
 	if not enabled:
