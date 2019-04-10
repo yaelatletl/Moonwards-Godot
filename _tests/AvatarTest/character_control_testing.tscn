@@ -3,7 +3,8 @@
 [ext_resource path="res://image_textures/LavastoneTexDark1.jpg" type="Texture" id=1]
 [ext_resource path="res://image_textures/LavastoneTexDark2.jpg" type="Texture" id=2]
 [ext_resource path="res://image_textures/Moss1.jpg" type="Texture" id=3]
-[ext_resource path="res://assets/Player/LocalPlayer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/Player/avatar_v2/LocalPlayer.tscn" type="PackedScene" id=4]
+
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.376471, 0.729412, 0.92549, 1 )
