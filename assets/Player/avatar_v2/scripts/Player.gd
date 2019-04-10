@@ -42,7 +42,7 @@ puppet var puppet_motion
 var nonetwork = true
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+# 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	orientation = $KinematicBody/Model.global_transform
 	orientation.origin = Vector3()
 	if not remote_player:
@@ -158,7 +158,7 @@ func HandleControls(var delta):
 		$KinematicBody/Model.global_transform.basis = orientation.basis
 
 func UpdateNetworking():
-	if not network:
+	if nonetwork:
 		return
 	if remote_player:
 		if puppet_translation != null:
@@ -171,12 +171,14 @@ func UpdateNetworking():
 			motion = puppet_motion
 		if puppet_run != null:
 			running = puppet_run
-	else:
+	elif is_network_master():
 		rset_unreliable("puppet_translation", $KinematicBody.global_transform.origin)
 		rset_unreliable("puppet_rotation", $KinematicBody/Model.global_transform.basis)
 		rset_unreliable("puppet_motion", motion)
 		rset_unreliable("puppet_jump", jumping)
 		rset_unreliable("puppet_run", running)
+	else:
+		printd("UpdateNetworking: not a remote player and not a network_master and network(%s)" % network)
 
 func SetID(var _id):
 	id = _id
@@ -188,6 +190,7 @@ func SetUsername(var _username):
 func SetNetwork(var enabled):
 	network = enabled
 	nonetwork = ! enabled
+	printd("Player %s enable/disable networking, nonetwork(%s)" % [get_path(), nonetwork])
 
 	if network:
 		rset_config("puppet_translation", MultiplayerAPI.RPC_MODE_PUPPET)
@@ -210,3 +213,24 @@ func SetRemotePlayer(enable):
 	else:
 		$KinematicBody/Nametag.visible = true
 		$Camera.current = false
+
+#####################
+#var debug = true
+var debug_id = "Player2.gd:: "
+var debug_list = [
+#	{ enable = true, key = "" }
+]
+func printd(s):
+	if debug:
+		if debug_list.size() > 0:
+			var found = false
+			for dl in debug_list:
+				if s.begins_with(dl.key):
+					if dl.enable:
+						print(debug_id, s)
+					found = true
+					break
+			if not found:
+				print(debug_id, s)
+		else:
+			print(debug_id, s)
