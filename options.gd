@@ -118,7 +118,7 @@ func player_opt(type, opt = null):
 var scene_id = "scene_id_30160"
 
 #scene we instance for each player
-var player_scene = preload("res://assets/Player/player.tscn")
+var player_scene = preload("res://assets/assets/Player/avatar_v1/player.tscn")
 
 ############################
 ############################

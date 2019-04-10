@@ -1,7 +1,8 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://addons/CeransDev/LODMesh.gd" type="Script" id=1]
-[ext_resource path="res://assets/Player/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/Player/avatar_v1/player.tscn" type="PackedScene" id=2]
+
 
 
 
