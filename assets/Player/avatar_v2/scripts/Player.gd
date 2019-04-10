@@ -1,8 +1,8 @@
 extends Spatial
 
 export(bool) var remote_player = false setget SetRemotePlayer
-export(NodePath) var camera_control_path
-onready var camera_control = null
+var camera_control_path = "KinematicBody/PlayerCamera"
+var camera_control
 
 const MOTION_INTERPOLATE_SPEED = 10
 const ROTATION_INTERPOLATE_SPEED = 10

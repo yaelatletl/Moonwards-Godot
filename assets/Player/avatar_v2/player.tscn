@@ -103,7 +103,6 @@ node_connections = [ "output", 0, "Land", "Jump", 0, "MovementState", "Jump", 1,
 
 [node name="LocalPlayer" type="Spatial"]
 script = ExtResource( 1 )
-camera_control_path = NodePath("KinematicBody/PlayerCamera")
 
 [node name="Camera" type="Camera" parent="."]
 
