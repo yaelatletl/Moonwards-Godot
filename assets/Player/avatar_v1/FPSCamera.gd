@@ -22,7 +22,7 @@ func _ready():
 	
 	
 func initiate_3rd_person():
-	var camera = preload("res://assets/Player/3RDPersCamera.tscn").instance()
+	var camera = preload("res://assets/Player/avatar_v1/3RDPersCamera.tscn").instance()
 	camera.Target = get_tree().get_root().get_path_to($Target)
 	camera.Origin = get_tree().get_root().get_path_to($Origin)
 	camera.name = "THRD"
