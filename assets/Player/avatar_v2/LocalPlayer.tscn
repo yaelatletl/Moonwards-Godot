@@ -135,11 +135,7 @@ kinematic_body_camera = NodePath("../../Camera")
 enabled = true
 
 [node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
-<<<<<<< HEAD
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0836672, 0 )
-=======
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0819332, 0 )
->>>>>>> adjust player collision, spawn point, AtriumHab collision
 shape = SubResource( 3 )
 
 [node name="AnimationTree" type="AnimationTree" parent="KinematicBody"]
