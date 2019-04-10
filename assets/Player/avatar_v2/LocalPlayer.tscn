@@ -12,11 +12,6 @@
 [ext_resource path="res://assets/Player/avatar_v2/FemalePlayer/Land.anim" type="Animation" id=10]
 [ext_resource path="res://assets/Player/avatar_v2/FemalePlayer/Neutral.anim" type="Animation" id=11]
 
-
-
-
-
-
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("KinematicBody/Nametag/Viewport")
 
@@ -104,7 +99,7 @@ nodes/MovementState/position = Vector2( 640, 80 )
 nodes/Walk/node = SubResource( 16 )
 nodes/Walk/position = Vector2( 260, 80 )
 nodes/output/position = Vector2( 1380, 100 )
-node_connections = [ "output", 0, "Land", "Land", 0, "Jump", "Land", 1, "Animation 2", "MovementSpeed", 0, "Walk", "MovementState", 0, "MovementSpeed", "MovementState", 1, "Animation 3", "Jump", 0, "MovementState", "Jump", 1, "Animation" ]
+node_connections = [ "output", 0, "Land", "Jump", 0, "MovementState", "Jump", 1, "Animation", "Land", 0, "Jump", "Land", 1, "Animation 2", "MovementSpeed", 0, "Walk", "MovementState", 0, "MovementSpeed", "MovementState", 1, "Animation 3" ]
 
 [node name="LocalPlayer" type="Spatial"]
 script = ExtResource( 1 )
