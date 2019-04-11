@@ -4,7 +4,6 @@
 [ext_resource path="res://scenes/TerrainWithMarkers.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/Player/avatar_v2/LocalPlayer.tscn" type="PackedScene" id=3]
 
-
 [node name="world" type="Spatial"]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
@@ -21,7 +20,7 @@ environment = ExtResource( 1 )
 [node name="spawn_points" type="Spatial" parent="."]
 
 [node name="0" type="Position3D" parent="spawn_points"]
-transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -55.4482, -1929.82, -12.2065 )
+transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -55.4482, -1929.76, -14.3414 )
 
 [node name="LocalPlayer" parent="spawn_points/0" instance=ExtResource( 3 )]
 
