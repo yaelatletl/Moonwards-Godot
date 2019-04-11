@@ -42,7 +42,7 @@ puppet var puppet_motion
 var nonetwork = true
 
 func _ready():
-# 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	orientation = $KinematicBody/Model.global_transform
 	orientation.origin = Vector3()
 	if not remote_player:
