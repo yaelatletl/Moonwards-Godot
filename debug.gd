@@ -34,6 +34,8 @@ func _input(event):
 		rpc("test_remote_call")
 	if event.is_action_pressed("debug_force_camera"):
 		camera_ready(true)
+	if event.is_action_pressed("debug_player_list"):
+		print_current_players()
 
 func _ready():
 	randomize()
@@ -283,3 +285,7 @@ func features_list(enabled_only=true):
 		else:
 			print("%s has %s" % [f.opt, OS.has_feature(f.opt)])
 	
+
+func print_current_players():
+	printd("gamestate players")
+	print(gamestate.players)
