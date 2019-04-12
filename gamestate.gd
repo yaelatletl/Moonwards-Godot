@@ -620,8 +620,7 @@ func load_level(var resource):
 	if resource is String:
 		if options.scenes.has(resource):
 			resource = options.scenes[resource].path
-		var directory = Directory.new();
-		if not directory.file_exists(resource):
+		if not ResourceLoader.exists(resource):
 			emit_signal("loading_error", "File does not exist: " + resource)
 			return
 	elif resource is PackedScene:
