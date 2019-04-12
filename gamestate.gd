@@ -44,7 +44,7 @@ signal scene_change_name(name)
 signal scene_change_error(msg)
 signal loading_progress(percentage)
 signal loading_done
-signal loading_error
+signal loading_error(msg)
 signal player_scene #emit when a scene for players is detected
 
 # Signals to let lobby GUI know what's going on
@@ -55,7 +55,7 @@ signal game_ended
 signal game_error(what)
 
 #################
-# utils
+# util functions
 
 func bindsig(_signal, _sub, obj, obj2, d = 0):
 	if _sub == null:
@@ -99,7 +99,7 @@ func bindgg(_signal, _sub = null):
 	bindsig(_signal, _sub, obj, obj2, 0)
 
 #################
-#Track scene changes and add nodes or emit signals
+#Track scene changes and add nodes or emit signals functions
 
 var _queue_attach = {}
 func queue_attach(path, node, permanent = false):
@@ -182,7 +182,7 @@ func queue_attach_on_tree_change():
 
 
 #################
-# signal logging
+# signal logging functions
 
 func sg_network_log(msg):
 	print("Server log: %s" % msg)
@@ -197,6 +197,68 @@ func on_scene_change_log():
 		if get_tree().current_scene :
 			print("current scene: ", get_tree().current_scene)
 
+
+#################
+# general network functions
+
+func net_getsocket():
+	var ns = NetworkedMultiplayerENet.new()
+	return ns
+
+func net_tree_connect(bind=true):
+	var tree = get_tree()
+	
+	var signals = [
+		["connected_to_server", "net_server_connected", tree],
+		["server_disconnected", "net_server_disconnected", tree],
+		["connection_failed", "net_connection_fail", tree],
+		["network_peer_connected", "net_client_connected", tree],
+		["network_peer_disconnected", "net_client_disconnected", tree],
+		["server_up", "net_server_up", self]
+	]
+	#connected_to_server()Emitted whenever this SceneTree's network_peer successfully connected to a server. Only emitted on clients.
+	#server_disconnected()Emitted whenever this SceneTree's network_peer disconnected from server. Only emitted on clients.
+
+	#connection_failed()Emitted whenever this SceneTree's network_peer fails to establish a connection to a server. Only emitted on clients.
+
+	#network_peer_connected( int id )Emitted whenever this SceneTree's network_peer connects with a new peer. ID is the peer ID of the new peer. Clients get notified when other clients connect to the same server. Upon connecting to a server, a client also receives this signal for the server (with ID being 1).
+	#network_peer_disconnected( int id )Emitted whenever this SceneTree's network_peer disconnects from a peer. Clients get notified when other clients disconnect from the same server.
+	for sg in signals:
+		printd("net_tree_connect %s -> %s" % [sg[0], sg[1]])
+		if bind:
+			sg[2].connect(sg[0], self, sg[1])
+		else:
+			sg[2].disconnect(sg[0], self, sg[1])
+
+func net_connection_fail():
+	printd("***********net_connection_fail")
+	NetworkUP = false
+
+func net_client_connected(id):
+	printd("***********net_client_connected(%s)" % id)
+	net_client(id, true)
+
+func net_client_disconnected(id):
+	printd("***********net_client_disconnected(%s)" % id)
+	net_client(id, false)
+
+func net_server_connected():
+	printd("***********net_server_connected")
+	if not NetworkUP:
+		NetworkUP = true
+		net_up()
+
+func net_server_disconnected():
+	printd("***********net_server_disconnected")
+	if NetworkUP:
+		NetworkUP = false
+		net_down()
+
+func net_server_up():
+	printd("***********net_server_up")
+	if not NetworkUP:
+		NetworkUP = true
+		net_up()
 
 #################
 #Server functions
@@ -229,7 +291,7 @@ func server_set_mode(host="localhost"):
 		RoleServer = false
 		return
 	emit_signal("network_log", "prepare to listen on %s:%s" % [server.ip,DEFAULT_PORT])
-	server.connection = NetworkedMultiplayerENet.new()
+	server.connection = net_getsocket()
 	server.connection.set_bind_ip(server.ip)
 	var error = server.connection.create_server(DEFAULT_PORT, MAX_PEERS)
 	if error == 0:
@@ -324,13 +386,13 @@ func client_server_connect(host, port=DEFAULT_PORT):
 	
 	bindtgc("connection_failed")
 	bindtgc("connected_to_server")
-	client.connection = NetworkedMultiplayerENet.new()
+	client.connection = net_getsocket()
 	client.connection.create_client(player_get("ip"), player_get("port"))
 	emit_signal("gslog", "network id %s" % client.connection.get_unique_id())
 	network_id = client.connection.get_unique_id()
 	emit_signal("player_id", network_id)
 	get_tree().set_network_peer(client.connection)
-	
+
 
 ################
 # Scene functions
@@ -570,7 +632,7 @@ func end_game():
 	get_tree().set_network_peer(null) # End networking
 
 func _ready():
-	get_tree().connect("network_peer_connected", self, "_player_connected")
+	#get_tree().connect("network_peer_connected", self, "_player_connected")
 
 	local_id = "local_%s_%s" % [randi(), randi()]
 
@@ -579,7 +641,14 @@ func _ready():
 	bindgg("player_scene")
 	bindgg("player_id")
 	queue_tree_signal(options.scene_id, "player_scene", true)
+	log_all_signals()
 	
+	connect("player_scene", self, "player_scene")
+	net_tree_connect()
+
+#################
+# debug functions
+
 var debug = true
 var debug_id = "gamestate:: "
 var debug_list = [
@@ -600,8 +669,28 @@ func printd(s):
 		else:
 			print(debug_id, s)
 
+func log_all_signals():
+	var sg_ignore = ["gslog"]
+	var sg_added = ""
+	for sg in get_signal_list():
+		if sg.name in sg_ignore:
+			continue
+		#printd("log all signals connect %s" % sg)
+		sg_added = "%s(%s) %s" % [sg.name, sg.args.size(), sg_added]
+		connect(sg.name, self, "log_all_signals_print_%s" % (sg.args.size()+1), ["%s" % sg.name])
+	printd("log_all_signals: %s" % sg_added)
+		
+func log_all_signals_print_1(sg):
+	printd("==========signal0 %s ================" % sg)
+func log_all_signals_print_2(a1, sg):
+	printd("==========signal1 %s ================" % sg)
+	printd("%s" % a1)
+func log_all_signals_print_3(a1, a2, sg):
+	printd("==========signal2 %s ================" % sg)
+	printd("%s, %s" % [a1, a2])
+
 #################
-# New UI stuff
+# New UI functions
 
 var level_loader = preload("res://scripts/LevelLoader.gd").new()
 var world = null
@@ -635,3 +724,32 @@ func load_level(var resource):
 	get_tree().get_root().add_child(world)
 	get_tree().current_scene = world
 	emit_signal("scene_change")
+
+#################
+# avatar network/scene functions
+
+#network and player scene state
+var NetworkUP = false
+var PlayerSceneUP = false
+
+func net_up():
+	if PlayerSceneUP:
+		printd("---------net_up---enable networking in instanced players--------")
+	else:
+		printd("---------net_up---do nothing--------")
+	pass
+func net_down():
+	if PlayerSceneUP:
+		printd("---------net_down---players disable netwokring--------")
+	else:
+		printd("---------net_down---players do nothing--------")
+	pass
+func net_client(id, connected):
+	if connected:
+		printd("------net_client(%s)---make stub for %s---------" % [connected, id])
+	else:
+		printd("------net_client(%s)---disconnect client %s-----" % [connected, id])
+	pass
+func player_scene():
+	printd("--------instance avatars with networking(%s) - players count %s" % [NetworkUP, players.size()])
+	pass
