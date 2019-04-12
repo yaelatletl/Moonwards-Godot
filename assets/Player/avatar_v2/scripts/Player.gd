@@ -66,6 +66,9 @@ func _input(event):
 			look_direction.y = -max_down_aim_angle
 		
 		camera_control.Rotate(look_direction)
+	if event.is_action_pressed("player_back_in_time"):
+		PopRPoint()
+
 
 func Jump():
 	jumping = false
@@ -76,6 +79,7 @@ func _physics_process(delta):
 	HandleControls(delta)
 	UpdateNetworking()
 	HandleMovement()
+	SaveRPoints(delta)
 
 var in_air_accomulate = 0
 func HandleOnGround(delta):
@@ -213,6 +217,34 @@ func SetRemotePlayer(enable):
 	else:
 		$KinematicBody/Nametag.visible = true
 		$Camera.current = false
+
+## Restore Positions
+var rp_max_points = 100
+var rp_delta = 5
+var rp_delta_o = 1
+var rp_time = 0
+var rp_points = []
+
+func PopRPoint():
+	if rp_points.size() > 0:
+			printd("-----%s %s" % [rp_points.size(), rp_points[0]])
+			$KinematicBody.global_transform = rp_points.pop_front()
+			rp_time = 0
+
+func SaveRPoints(delta):
+	#save position if not in air, and if previous one is more than rp_delta
+	rp_time += delta
+	if not in_air:
+			if rp_points.size() == 0:
+					rp_points.append($KinematicBody.global_transform)
+			if rp_points.size() > rp_max_points:
+					rp_points.pop_back()
+			if rp_time > rp_delta:
+					var kbo = $KinematicBody.global_transform.origin
+					if rp_points[0].origin.distance_to(kbo) > rp_delta_o:
+							rp_time = 0
+							rp_points.push_front($KinematicBody.global_transform)
+							printd("+++++%s %s" % [rp_points.size(), rp_points[0]])
 
 #####################
 #var debug = true
