@@ -38,6 +38,8 @@ func _input(event):
 		print_current_players()
 	if event.is_action_pressed("debug_dir_list"):
 		dir_contents()
+	if event.is_action_pressed("mouse_toggle"):
+		mouse_toggle()
 
 func _ready():
 	randomize()
@@ -308,5 +310,15 @@ func dir_contents(path="res://"):
 
 			file_name = dir.get_next()
 	else:
-
 		print("An error occurred when trying to access the path.")
+
+func mouse_toggle():
+	match Input.get_mouse_mode():
+		Input.MOUSE_MODE_VISIBLE:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			printd("set cursor to captured")
+		Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			printd("set cursor to visible")
+		_:
+			print("mouse_toggle, do not know what to do, current mode %s" % Input.get_mouse_mode())
