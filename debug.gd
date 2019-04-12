@@ -36,6 +36,8 @@ func _input(event):
 		camera_ready(true)
 	if event.is_action_pressed("debug_player_list"):
 		print_current_players()
+	if event.is_action_pressed("debug_dir_list"):
+		dir_contents()
 
 func _ready():
 	randomize()
@@ -289,3 +291,22 @@ func features_list(enabled_only=true):
 func print_current_players():
 	printd("gamestate players")
 	print(gamestate.players)
+
+func dir_contents(path="res://"):
+	var dir = Directory.new()
+
+	if dir.open(path) == OK:
+
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+
+		while (file_name != ""):
+			if dir.current_is_dir():
+				print(dir.get_current_dir() + file_name + "/")
+			else:
+				print(dir.get_current_dir() + file_name)
+
+			file_name = dir.get_next()
+	else:
+
+		print("An error occurred when trying to access the path.")
