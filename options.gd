@@ -34,8 +34,8 @@ var scenes = {
 	default_singleplayer_scene = "WorldV2",
 	default_multiplayer_scene = "WorldTest",
 	default_multiplayer_headless_scene = "WorldTest",
-# 	default_multiplayer_join_server = "WorldV2",
-	default_multiplayer_join_server = "WorldTest",
+	default_multiplayer_join_server = "WorldV2",
+#	default_multiplayer_join_server = "WorldTest",
 	World = {
 		path = "res://World.tscn"
 	},
@@ -74,7 +74,9 @@ var player_opt = {
 		nocamera = false,
 		input_processing = true,
 		network = true,
-		puppet = false
+		puppet = false,
+		physics_scale = 0.1,
+		IN_AIR_DELTA = 0.4
 	},
 	puppet = {
 		debug = debug,
