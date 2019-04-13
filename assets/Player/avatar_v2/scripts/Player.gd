@@ -25,7 +25,7 @@ var movementstate = walk
 var username = "username" setget SetUsername
 var id setget SetID
 
-const GRAVITY = Vector3(0,-1.62, 0)
+const GRAVITY = Vector3(0,-0.162, 0)
 const JUMP_SPEED = 0.75
 const walk = 0
 const flail = 1

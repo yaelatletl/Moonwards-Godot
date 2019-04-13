@@ -48,7 +48,6 @@ signal loading_error(msg)
 signal player_scene #emit when a scene for players is detected
 
 # Signals to let lobby GUI know what's going on
-signal player_list_changed
 signal connection_failed
 signal connection_succeeded
 signal game_ended
@@ -588,15 +587,6 @@ func create_player(id):
 		player.set_network_master(players[id].id) #set unique id as master
 	
 	emit_signal("gslog", "==create player(%s) %s; name(%s)" % [id, players[id], players[id].data.username])
-# 	player.set_player_name(players[id].data.username)
-# 	if players[id].localplayer : #local player
-# 		player.nocamera = false
-# 	else:
-# 		player.nocamera = true
-
-# 	if options.debug:
-# 		player.debug = true
-
 	world.get_node("players").add_child(player)
 	players[id]["world"] = "%s" % world
 	players[id]["path"] = world.get_path_to(player)
@@ -731,6 +721,7 @@ func load_level(var resource):
 #network and player scene state
 var NetworkUP = false
 var PlayerSceneUP = false
+#signal player(node_path) #emit when local player instanced to scene
 
 func net_up():
 	if PlayerSceneUP:
