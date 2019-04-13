@@ -728,19 +728,19 @@ func net_up():
 		printd("---------net_up---enable networking in instanced players--------")
 	else:
 		printd("---------net_up---do nothing--------")
-	pass
+
 func net_down():
 	if PlayerSceneUP:
 		printd("---------net_down---players disable netwokring--------")
 	else:
 		printd("---------net_down---players do nothing--------")
-	pass
+
 func net_client(id, connected):
 	if connected:
 		printd("------net_client(%s)---make stub for %s---------" % [connected, id])
 	else:
 		printd("------net_client(%s)---disconnect client %s-----" % [connected, id])
-	pass
+
 func player_scene():
 	printd("--------instance avatars with networking(%s) - players count %s" % [NetworkUP, players.size()])
-	pass
+	PlayerSceneUP = true
