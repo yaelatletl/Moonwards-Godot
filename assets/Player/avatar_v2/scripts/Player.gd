@@ -3,9 +3,30 @@ extends Spatial
 var camera_control_path = "KinematicBody/PlayerCamera"
 var camera_control
 
-const MOTION_INTERPOLATE_SPEED = 10
-const ROTATION_INTERPOLATE_SPEED = 10
-const IN_AIR_DELTA = 0.3
+var MOTION_INTERPOLATE_SPEED = 10
+var ROTATION_INTERPOLATE_SPEED = 10
+var IN_AIR_DELTA = 0.3
+var GRAVITY = Vector3(0,-1.62, 0)
+var SNAP_VECTOR = Vector3(0.0, 0.1, 0.0)
+var JUMP_SPEED = 2.8
+
+const SpeedFeed = {
+	MOTION_INTERPOLATE_SPEED = 10,
+	ROTATION_INTERPOLATE_SPEED = 10,
+	GRAVITY = Vector3(0,-1.62, 0),
+	SNAP_VECTOR = Vector3(0.0, 0.1, 0.0),
+	JUMP_SPEED = 2.8
+}
+var physics_scale = 1 setget SetPScale
+
+func SetPScale(scale):
+	if scale < 0.01 or scale > 100:
+		return
+	for k in SpeedFeed:
+		match k:
+			_:
+				self.set(k, SpeedFeed[k] * scale)
+
 var motion = Vector2()
 
 var look_direction = Vector2()
@@ -25,8 +46,6 @@ var movementstate = walk
 var username = "username" setget SetUsername
 var id setget SetID
 
-const GRAVITY = Vector3(0,-0.162, 0)
-const JUMP_SPEED = 0.75
 const walk = 0
 const flail = 1
 
@@ -156,7 +175,8 @@ func HandleControls(var delta):
 	velocity += GRAVITY * delta
 	
 	#The true is for stopping on a slope.
-	velocity = $KinematicBody.move_and_slide_with_snap(velocity, Vector3(0.0, 0.0, 0.0), Vector3(0,1,0), true)
+	velocity = $KinematicBody.move_and_slide_with_snap(velocity, SNAP_VECTOR, Vector3(0,1,0), true)
+	printd("velocity %s" %velocity)
 	
 	orientation.origin = Vector3()
 	orientation = orientation.orthonormalized()
