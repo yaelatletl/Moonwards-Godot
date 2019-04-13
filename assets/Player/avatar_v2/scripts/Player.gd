@@ -1,6 +1,5 @@
 extends Spatial
 
-export(bool) var remote_player = false setget SetRemotePlayer
 var camera_control_path = "KinematicBody/PlayerCamera"
 var camera_control
 
@@ -32,7 +31,7 @@ const walk = 0
 const flail = 1
 
 ##Networking
-var puppet = false
+export(bool) var puppet = false setget SetRemotePlayer
 puppet var puppet_translation
 puppet var puppet_rotation
 puppet var puppet_jump
@@ -45,11 +44,11 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	orientation = $KinematicBody/Model.global_transform
 	orientation.origin = Vector3()
-	if not remote_player:
+	if not puppet:
 		camera_control = get_node(camera_control_path)
 	else:
 		set_process_input(false)
-	SetRemotePlayer(remote_player)
+	SetRemotePlayer(puppet)
 
 func _input(event):
 	if (event is InputEventMouseMotion):
@@ -102,7 +101,7 @@ func HandleMovement():
 		$KinematicBody/AnimationTree["parameters/MovementSpeed/scale"] = 1.0
 
 func HandleControls(var delta):
-	if remote_player:
+	if puppet:
 		return
 	var motion_target = Vector2( 	Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 									Input.get_action_strength("move_forwards") - Input.get_action_strength("move_backwards"))
@@ -164,7 +163,7 @@ func HandleControls(var delta):
 func UpdateNetworking():
 	if nonetwork:
 		return
-	if remote_player:
+	if puppet:
 		if puppet_translation != null:
 			$KinematicBody.global_transform.origin = puppet_translation
 		if puppet_rotation != null:
@@ -182,7 +181,7 @@ func UpdateNetworking():
 		rset_unreliable("puppet_jump", jumping)
 		rset_unreliable("puppet_run", running)
 	else:
-		printd("UpdateNetworking: not a remote player and not a network_master and network(%s)" % network)
+		printd("UpdateNetworking: not a remote player(%s) and not a network_master and network(%s)" % [get_path(), network])
 
 func SetID(var _id):
 	id = _id
@@ -210,8 +209,8 @@ func SetNetwork(var enabled):
 		rset_config("puppet_run", MultiplayerAPI.RPC_MODE_DISABLED)
 
 func SetRemotePlayer(enable):
-	remote_player = enable
-	if not remote_player:
+	puppet = enable
+	if not puppet:
 		$KinematicBody/Nametag.visible = false
 		$Camera.current = true
 	else:
