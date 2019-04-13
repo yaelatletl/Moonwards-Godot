@@ -55,6 +55,8 @@ func _ready():
 	debug_apply_options()
 	#List Features
 	features_list()
+	#removes sticky and unreliable pressing release for key events, at slower FPS
+	Input.set_use_accumulated_input(false)
 	
 func on_tree_change():
 	printd("debug treechange")
