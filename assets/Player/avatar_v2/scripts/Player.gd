@@ -74,11 +74,16 @@ func Jump():
 	velocity.y += JUMP_SPEED
 
 func _physics_process(delta):
-	HandleOnGround(delta)
-	HandleControls(delta)
-	UpdateNetworking()
-	HandleMovement()
-	SaveRPoints(delta)
+	if puppet:
+		HandleOnGround(delta)
+		UpdateNetworking()
+		HandleMovement()
+	else:
+		HandleOnGround(delta)
+		HandleControls(delta)
+		UpdateNetworking()
+		HandleMovement()
+		SaveRPoints(delta)
 
 var in_air_accomulate = 0
 func HandleOnGround(delta):
@@ -226,7 +231,7 @@ var rp_points = []
 
 func PopRPoint():
 	if rp_points.size() > 0:
-			printd("-----%s %s" % [rp_points.size(), rp_points[0]])
+			printd("-----%s %s %s" % [rp_points.size(), get_path(), rp_points[0]])
 			$KinematicBody.global_transform = rp_points.pop_front()
 			rp_time = 0
 
@@ -243,7 +248,7 @@ func SaveRPoints(delta):
 					if rp_points[0].origin.distance_to(kbo) > rp_delta_o:
 							rp_time = 0
 							rp_points.push_front($KinematicBody.global_transform)
-							printd("+++++%s %s" % [rp_points.size(), rp_points[0]])
+							printd("+++++%s %s %s" % [rp_points.size(), get_path(), rp_points[0]])
 
 #####################
 #var debug = true
