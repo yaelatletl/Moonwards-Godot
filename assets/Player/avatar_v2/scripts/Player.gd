@@ -1,6 +1,5 @@
 extends Spatial
 
-export(bool) var remote_player = false setget SetRemotePlayer
 var camera_control_path = "KinematicBody/PlayerCamera"
 var camera_control
 
@@ -26,13 +25,13 @@ var movementstate = walk
 var username = "username" setget SetUsername
 var id setget SetID
 
-const GRAVITY = Vector3(0,-1.62, 0)
+const GRAVITY = Vector3(0,-0.162, 0)
 const JUMP_SPEED = 0.75
 const walk = 0
 const flail = 1
 
 ##Networking
-var puppet = false
+export(bool) var puppet = false setget SetRemotePlayer
 puppet var puppet_translation
 puppet var puppet_rotation
 puppet var puppet_jump
@@ -45,11 +44,11 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	orientation = $KinematicBody/Model.global_transform
 	orientation.origin = Vector3()
-	if not remote_player:
+	if not puppet:
 		camera_control = get_node(camera_control_path)
 	else:
 		set_process_input(false)
-	SetRemotePlayer(remote_player)
+	SetRemotePlayer(puppet)
 
 func _input(event):
 	if (event is InputEventMouseMotion):
@@ -66,6 +65,9 @@ func _input(event):
 			look_direction.y = -max_down_aim_angle
 		
 		camera_control.Rotate(look_direction)
+	if event.is_action_pressed("player_back_in_time"):
+		PopRPoint()
+
 
 func Jump():
 	jumping = false
@@ -76,6 +78,7 @@ func _physics_process(delta):
 	HandleControls(delta)
 	UpdateNetworking()
 	HandleMovement()
+	SaveRPoints(delta)
 
 var in_air_accomulate = 0
 func HandleOnGround(delta):
@@ -98,7 +101,7 @@ func HandleMovement():
 		$KinematicBody/AnimationTree["parameters/MovementSpeed/scale"] = 1.0
 
 func HandleControls(var delta):
-	if remote_player:
+	if puppet:
 		return
 	var motion_target = Vector2( 	Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 									Input.get_action_strength("move_forwards") - Input.get_action_strength("move_backwards"))
@@ -160,7 +163,7 @@ func HandleControls(var delta):
 func UpdateNetworking():
 	if nonetwork:
 		return
-	if remote_player:
+	if puppet:
 		if puppet_translation != null:
 			$KinematicBody.global_transform.origin = puppet_translation
 		if puppet_rotation != null:
@@ -178,7 +181,7 @@ func UpdateNetworking():
 		rset_unreliable("puppet_jump", jumping)
 		rset_unreliable("puppet_run", running)
 	else:
-		printd("UpdateNetworking: not a remote player and not a network_master and network(%s)" % network)
+		printd("UpdateNetworking: not a remote player(%s) and not a network_master and network(%s)" % [get_path(), network])
 
 func SetID(var _id):
 	id = _id
@@ -206,13 +209,41 @@ func SetNetwork(var enabled):
 		rset_config("puppet_run", MultiplayerAPI.RPC_MODE_DISABLED)
 
 func SetRemotePlayer(enable):
-	remote_player = enable
-	if not remote_player:
+	puppet = enable
+	if not puppet:
 		$KinematicBody/Nametag.visible = false
 		$Camera.current = true
 	else:
 		$KinematicBody/Nametag.visible = true
 		$Camera.current = false
+
+## Restore Positions
+var rp_max_points = 100
+var rp_delta = 5
+var rp_delta_o = 1
+var rp_time = 0
+var rp_points = []
+
+func PopRPoint():
+	if rp_points.size() > 0:
+			printd("-----%s %s" % [rp_points.size(), rp_points[0]])
+			$KinematicBody.global_transform = rp_points.pop_front()
+			rp_time = 0
+
+func SaveRPoints(delta):
+	#save position if not in air, and if previous one is more than rp_delta
+	rp_time += delta
+	if not in_air:
+			if rp_points.size() == 0:
+					rp_points.append($KinematicBody.global_transform)
+			if rp_points.size() > rp_max_points:
+					rp_points.pop_back()
+			if rp_time > rp_delta:
+					var kbo = $KinematicBody.global_transform.origin
+					if rp_points[0].origin.distance_to(kbo) > rp_delta_o:
+							rp_time = 0
+							rp_points.push_front($KinematicBody.global_transform)
+							printd("+++++%s %s" % [rp_points.size(), rp_points[0]])
 
 #####################
 #var debug = true

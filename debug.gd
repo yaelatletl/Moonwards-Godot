@@ -34,6 +34,12 @@ func _input(event):
 		rpc("test_remote_call")
 	if event.is_action_pressed("debug_force_camera"):
 		camera_ready(true)
+	if event.is_action_pressed("debug_player_list"):
+		print_current_players()
+	if event.is_action_pressed("debug_dir_list"):
+		dir_contents()
+	if event.is_action_pressed("mouse_toggle"):
+		mouse_toggle()
 
 func _ready():
 	randomize()
@@ -283,3 +289,36 @@ func features_list(enabled_only=true):
 		else:
 			print("%s has %s" % [f.opt, OS.has_feature(f.opt)])
 	
+
+func print_current_players():
+	printd("gamestate players")
+	print(gamestate.players)
+
+func dir_contents(path="res://"):
+	var dir = Directory.new()
+
+	if dir.open(path) == OK:
+
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+
+		while (file_name != ""):
+			if dir.current_is_dir():
+				print(dir.get_current_dir() + file_name + "/")
+			else:
+				print(dir.get_current_dir() + file_name)
+
+			file_name = dir.get_next()
+	else:
+		print("An error occurred when trying to access the path.")
+
+func mouse_toggle():
+	match Input.get_mouse_mode():
+		Input.MOUSE_MODE_VISIBLE:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			printd("set cursor to captured")
+		Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			printd("set cursor to visible")
+		_:
+			print("mouse_toggle, do not know what to do, current mode %s" % Input.get_mouse_mode())
