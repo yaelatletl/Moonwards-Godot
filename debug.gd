@@ -296,6 +296,9 @@ func features_list(enabled_only=true):
 func print_current_players():
 	printd("gamestate players")
 	print(gamestate.players)
+	for p in gamestate.players.keys():
+		printd("player %s" % gamestate.players[p])
+		printd("obj at %s" % gamestate.players[p].obj.get_path())
 
 func print_groups():
 	#get_nodes_in_group("LODElement)
