@@ -101,6 +101,6 @@ func set_lod_aspect_ratio(value):
 		root.get_node(lmp).lod_aspect_ratio = value
 
 func _on_tLodManager_pressed():
-	var button = $Panel/TabContainer/Dev/VBoxContainer/tLodManager
+	var button = $TabContainer/Dev/VBoxContainer/tLodManager
 	options.set("dev", button.pressed, "TreeManager")
 	debug.set_lod_manager(button.pressed)
