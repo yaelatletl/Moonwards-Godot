@@ -32,7 +32,7 @@ extents = Vector3( 70, 70, 70 )
 ]]
 
 [node name="RadarInsulationSphere" type="MeshInstance" parent="."]
-lod_max_distance = 100.0
+lod_max_distance = 0.0
 mesh = ExtResource( 1 )
 material/0 = null
 

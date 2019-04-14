@@ -41,7 +41,7 @@
 [node name="Scene" type="Spatial"]
 
 [node name="SpaceportMainWhippleShield" type="MeshInstance" parent="."]
-lod_max_distance = 100.0
+lod_max_distance = 0.0
 mesh = ExtResource( 1 )
 material/0 = null
 material/1 = null

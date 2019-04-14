@@ -57,7 +57,7 @@ transform = Transform( 1, -1.20256e-20, 0, -1.20255e-20, 1, 0, 0, 0, 1, 0, 0, -1
 "floor",
 ]]
 visible = false
-lod_max_distance = 200.0
+lod_max_distance = 0.0
 mesh = ExtResource( 3 )
 material/0 = null
 
@@ -65,7 +65,7 @@ material/0 = null
 "wall",
 ]]
 transform = Transform( -1, 1.58151e-06, 1.1531e-07, -1.58151e-06, -1, 1.12994e-13, 1.1531e-07, -6.93692e-14, 1, 11.4131, 3.79956, -43.1472 )
-lod_max_distance = 200.0
+lod_max_distance = 0.0
 mesh = ExtResource( 4 )
 material/0 = null
 material/1 = null
@@ -77,7 +77,7 @@ material/4 = null
 "wall",
 ]]
 transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 31.9473, 0.913086, -22.5842 )
-lod_max_distance = 100.0
+lod_max_distance = 0.0
 mesh = ExtResource( 5 )
 material/0 = null
 material/1 = null
@@ -89,7 +89,7 @@ material/4 = null
 "wall",
 ]]
 transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 11.4214, 0.912964, -2.17212 )
-lod_max_distance = 100.0
+lod_max_distance = 0.0
 mesh = ExtResource( 6 )
 material/0 = null
 material/1 = null
@@ -100,7 +100,7 @@ material/3 = null
 "wall",
 ]]
 transform = Transform( 1, -1.80884e-06, 1.1531e-07, 1.80884e-06, 1, 1.04289e-13, -1.1531e-07, 1.04289e-13, 1, 32.063, -1.66394, -2.19312 )
-lod_max_distance = 100.0
+lod_max_distance = 0.0
 mesh = ExtResource( 7 )
 material/0 = null
 material/1 = null

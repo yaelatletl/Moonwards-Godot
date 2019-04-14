@@ -11,7 +11,7 @@
 
 [node name="RadBlindBeam000" type="MeshInstance" parent="."]
 transform = Transform( 0.999635, 0.0270298, 0, -0.0270298, 0.999635, 0, 0, 0, 1, 0, 0, 0 )
-lod_max_distance = 100.0
+lod_max_distance = 0.0
 mesh = ExtResource( 1 )
 material/0 = null
 
