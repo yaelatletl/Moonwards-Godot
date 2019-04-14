@@ -23,665 +23,274 @@
 [node name="Scene" type="Spatial"]
 
 [node name="LowerGalleryB-Roof" type="MeshInstance" parent="."]
-
 transform = Transform( 0.986331, 0, -0.164778, 0, 1, 0, 0.164778, 0, 0.986331, 0, 0, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 1 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="OmniLight" type="OmniLight" parent="LowerGalleryB-Roof"]
-
 transform = Transform( 1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 0, -2.75219, 0 )
-layers = 1
-light_color = Color( 1, 1, 1, 1 )
 light_energy = 0.5
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 6.02613
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light" ]
 
 [node name="OmniLight2" type="OmniLight" parent="LowerGalleryB-Roof"]
-
 transform = Transform( 1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, -16.1579, -11.6047, -0.093662 )
-layers = 1
-light_color = Color( 1, 1, 1, 1 )
 light_energy = 0.5
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 6.02613
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light" ]
 
 [node name="OmniLight3" type="OmniLight" parent="LowerGalleryB-Roof"]
-
 transform = Transform( 1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, -29.9183, -20.393, 0.0208969 )
-layers = 1
-light_color = Color( 1, 1, 1, 1 )
 light_energy = 0.5
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 6.02613
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light" ]
 
 [node name="OmniLight4" type="OmniLight" parent="LowerGalleryB-Roof"]
-
 transform = Transform( 1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, -42.2165, -27.9625, 0.25493 )
-layers = 1
-light_color = Color( 1, 1, 1, 1 )
 light_energy = 0.5
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 6.02613
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light" ]
 
 [node name="OmniLight5" type="OmniLight" parent="LowerGalleryB-Roof"]
-
 transform = Transform( 1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, -55.6602, -37.9055, -0.0480127 )
-layers = 1
-light_color = Color( 1, 1, 1, 1 )
 light_energy = 0.5
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 6.02613
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light" ]
 
 [node name="OmniLight6" type="OmniLight" parent="LowerGalleryB-Roof"]
-
 transform = Transform( 1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, -64.663, -47.9838, -0.852001 )
-layers = 1
 light_color = Color( 0.863281, 1, 0.945526, 1 )
 light_energy = 0.7
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 3.63363
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light" ]
 
 [node name="OmniLight7" type="OmniLight" parent="LowerGalleryB-Roof"]
-
 transform = Transform( 1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, -47.1102, -38.847, 0.0558619 )
-layers = 1
 light_color = Color( 0.863281, 1, 0.945526, 1 )
 light_energy = 0.7
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 3.63363
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light" ]
 
 [node name="OmniLight8" type="OmniLight" parent="LowerGalleryB-Roof"]
-
 transform = Transform( 1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, -33.4564, -28.1899, 0.447618 )
-layers = 1
 light_color = Color( 0.863281, 1, 0.945526, 1 )
 light_energy = 0.7
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 3.63363
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light" ]
 
 [node name="OmniLight9" type="OmniLight" parent="LowerGalleryB-Roof"]
-
 transform = Transform( 1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, -19.7729, -19.9376, -0.129102 )
-layers = 1
 light_color = Color( 0.863281, 1, 0.945526, 1 )
 light_energy = 0.7
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 3.63363
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light" ]
 
 [node name="OmniLight10" type="OmniLight" parent="LowerGalleryB-Roof"]
-
 transform = Transform( 1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, -6.57205, -11.4025, 0.388438 )
-layers = 1
 light_color = Color( 0.863281, 1, 0.945526, 1 )
 light_energy = 0.7
-light_indirect_energy = 1.0
-light_negative = false
-light_specular = 0.5
-light_bake_mode = 1
-light_cull_mask = -1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_bias = 0.15
-shadow_contact = 0.0
-shadow_reverse_cull_face = false
-editor_only = false
 omni_range = 3.63363
-omni_attenuation = 1.0
-omni_shadow_mode = 1
-omni_shadow_detail = 1
-_sections_unfolded = [ "Light" ]
 
 [node name="2ndLowerGalleryWalls" type="MeshInstance" parent="LowerGalleryB-Roof" groups=[
 "wall",
 ]]
-
 transform = Transform( 0.871859, -0.0231883, -0.489208, -0.489128, 0.00935244, -0.872162, 0.0247993, 0.999687, -0.00318792, -23.9333, -25.424, -8.90561 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 2 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="2ndLowerGalleryWalls_col" type="StaticBody" parent="LowerGalleryB-Roof/2ndLowerGalleryWalls"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="LowerGalleryB-Roof/2ndLowerGalleryWalls/2ndLowerGalleryWalls_col"]
-
 shape = ExtResource( 3 )
-disabled = false
 
 [node name="Empty_TubeHab_Long" type="Spatial" parent="LowerGalleryB-Roof"]
-
 transform = Transform( 1.57513, -1.27523e-06, -0.539611, 1.34799e-06, 1.665, -1.10418e-13, 0.539611, -4.36871e-07, 1.57513, -51.899, -34.354, 24.9559 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="LowerGalleryB-Roof/Empty_TubeHab_Long" instance=ExtResource( 4 )]
 
 [node name="Empty_TubeHab_Long004" type="Spatial" parent="LowerGalleryB-Roof"]
-
 transform = Transform( 1.60182, -1.33259e-06, -0.454309, 1.38515e-06, 1.665, 5.07192e-13, 0.454309, -3.7795e-07, 1.60182, -15.0675, -9.05444, 24.9847 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="LowerGalleryB-Roof/Empty_TubeHab_Long004" instance=ExtResource( 4 )]
 
 [node name="Empty_TubeHab_Long006" type="Spatial" parent="LowerGalleryB-Roof"]
-
 transform = Transform( 1.63948, -1.42207e-06, -0.290369, 1.4442e-06, 1.665, -9.46442e-14, 0.290369, -2.51863e-07, 1.63948, -71.6626, -53.5239, -10.3235 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="LowerGalleryB-Roof/Empty_TubeHab_Long006" instance=ExtResource( 4 )]
 
 [node name="Empty_TubeHabLarge005" type="Spatial" parent="LowerGalleryB-Roof"]
-
 transform = Transform( 1.49997, -1.36008e-06, 0.0097735, 1.36011e-06, 1.5, 4.26326e-14, 0.0097735, -8.86197e-09, -1.49997, -24.3999, -25.6345, -16.1172 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Scene" parent="LowerGalleryB-Roof/Empty_TubeHabLarge005" instance=ExtResource( 5 )]
 
 [node name="LowerGalleriesOverlay002" type="MeshInstance" parent="LowerGalleryB-Roof"]
-
 transform = Transform( 0.999991, 0, -0.00430556, 9.07085e-07, 1, -1.55556e-07, 0.00430556, 0, 0.999991, 1.24412, -1.80823, -0.0115577 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 6 )
-skeleton = NodePath("..")
 
 [node name="LowerGalleryB-Roof001" type="MeshInstance" parent="LowerGalleryB-Roof"]
-
 transform = Transform( 1, 0, -4.47035e-08, 9.07746e-07, 1, -1.51649e-07, 4.47035e-08, 0, 1, 1.25003, -2.7583, 7.96318e-05 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 7 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="TriangularWindow001" type="Spatial" parent="LowerGalleryB-Roof"]
-
 editor/display_folded = true
 transform = Transform( 1.49999, -2.1733e-08, -0.00618526, 1.38238e-06, 1.5, -2.38734e-07, 0.00618523, 5.5577e-09, 1.49999, 0.00923455, -2.46753, -5.05054 )
 
 [node name="Scene" parent="LowerGalleryB-Roof/TriangularWindow001" instance=ExtResource( 8 )]
 
 [node name="TriangularWindow022" type="Spatial" parent="LowerGalleryB-Roof/TriangularWindow001"]
-
 transform = Transform( 1, 6.66134e-16, 0, -1.07733e-13, 1, 1.56541e-14, 0, -1.11022e-16, 1, -4.98258, -3.18318, 0.00046587 )
 
 [node name="Scene" parent="LowerGalleryB-Roof/TriangularWindow001/TriangularWindow022" instance=ExtResource( 8 )]
 
 [node name="TriangularWindow023" type="Spatial" parent="LowerGalleryB-Roof/TriangularWindow001/TriangularWindow022"]
-
 transform = Transform( 1, -1.11022e-15, 0, 6.2797e-14, 1, -1.27676e-14, 0, 3.33067e-16, 1, -4.9779, -3.21726, 0.00263286 )
 
 [node name="Scene" parent="LowerGalleryB-Roof/TriangularWindow001/TriangularWindow022/TriangularWindow023" instance=ExtResource( 8 )]
 
 [node name="TriangularWindow024" type="Spatial" parent="LowerGalleryB-Roof/TriangularWindow001"]
-
 transform = Transform( 1, 6.66134e-16, 0, -1.07733e-13, 1, 1.56541e-14, 0, -1.11022e-16, 1, -14.237, -9.15803, -0.000313997 )
 
 [node name="Scene" parent="LowerGalleryB-Roof/TriangularWindow001/TriangularWindow024" instance=ExtResource( 8 )]
 
 [node name="TriangularWindow025" type="Spatial" parent="LowerGalleryB-Roof/TriangularWindow001"]
-
 transform = Transform( 1, 6.66134e-16, 0, -1.07733e-13, 1, 1.56541e-14, 0, -1.11022e-16, 1, -18.5052, -11.8907, -0.00580049 )
 
 [node name="Scene" parent="LowerGalleryB-Roof/TriangularWindow001/TriangularWindow025" instance=ExtResource( 8 )]
 
 [node name="TriangularWindow026" type="Spatial" parent="LowerGalleryB-Roof/TriangularWindow001"]
-
 transform = Transform( 1, 6.66134e-16, 0, -1.07733e-13, 1, 1.56541e-14, 0, -1.11022e-16, 1, -23.4283, -15.007, -0.00132608 )
 
 [node name="Scene" parent="LowerGalleryB-Roof/TriangularWindow001/TriangularWindow026" instance=ExtResource( 8 )]
 
 [node name="TriangularWindow027" type="Spatial" parent="LowerGalleryB-Roof/TriangularWindow001"]
-
 transform = Transform( 0.999986, 5.80717e-12, -0.00462146, -4.91286e-12, 1, -3.44997e-11, 0.00462139, 3.41895e-11, 0.999986, -28.2456, -18.1208, 0.00433016 )
 
 [node name="Scene" parent="LowerGalleryB-Roof/TriangularWindow001/TriangularWindow027" instance=ExtResource( 8 )]
 
 [node name="TriangularWindow028" type="Spatial" parent="LowerGalleryB-Roof/TriangularWindow001"]
-
 transform = Transform( 0.999986, 1.44732e-08, -0.00462146, -1.44516e-08, 1, 3.83149e-09, 0.00462139, -3.76484e-09, 0.999986, -32.7144, -22.1958, -0.0113826 )
 
 [node name="Scene" parent="LowerGalleryB-Roof/TriangularWindow001/TriangularWindow028" instance=ExtResource( 8 )]
 
 [node name="TriangularWindow029" type="Spatial" parent="LowerGalleryB-Roof/TriangularWindow001"]
-
 transform = Transform( 0.999986, 5.80717e-12, -0.00462146, -4.91286e-12, 1, -3.44997e-11, 0.00462139, 3.41895e-11, 0.999986, -37.6819, -25.3438, -0.0115199 )
 
 [node name="Scene" parent="LowerGalleryB-Roof/TriangularWindow001/TriangularWindow029" instance=ExtResource( 8 )]
 
 [node name="TriangularWindow030" type="Spatial" parent="LowerGalleryB-Roof/TriangularWindow001"]
-
 transform = Transform( 0.999986, 5.80717e-12, -0.00462146, -4.91286e-12, 1, -3.44997e-11, 0.00462139, 3.41895e-11, 0.999986, -41.8087, -27.9955, -0.00110817 )
 
 [node name="Scene" parent="LowerGalleryB-Roof/TriangularWindow001/TriangularWindow030" instance=ExtResource( 8 )]
 
 [node name="TriangularWindow031" type="Spatial" parent="LowerGalleryB-Roof/TriangularWindow001"]
-
 transform = Transform( -0.999986, -1.36539e-07, 0.00462146, -1.36542e-07, 1, 3.44997e-11, -0.00462148, -5.96975e-10, -0.999986, -41.7811, -28.0339, 6.71665 )
 
 [node name="Scene" parent="LowerGalleryB-Roof/TriangularWindow001/TriangularWindow031" instance=ExtResource( 8 )]
 
 [node name="TriangularWindow032" type="Spatial" parent="LowerGalleryB-Roof/TriangularWindow001"]
-
 transform = Transform( -0.999986, -1.36539e-07, 0.00462146, -1.36542e-07, 1, 3.44997e-11, -0.00462148, -5.96975e-10, -0.999986, -37.6569, -25.3513, 6.70684 )
 
 [node name="Scene" parent="LowerGalleryB-Roof/TriangularWindow001/TriangularWindow032" instance=ExtResource( 8 )]
 
 [node name="TriangularWindow033" type="Spatial" parent="LowerGalleryB-Roof/TriangularWindow001"]
-
 transform = Transform( -0.999986, -1.36539e-07, 0.00462146, -1.36542e-07, 1, 3.44997e-11, -0.00462148, -5.96975e-10, -0.999986, -32.69, -22.2045, 6.71683 )
 
 [node name="Scene" parent="LowerGalleryB-Roof/TriangularWindow001/TriangularWindow033" instance=ExtResource( 8 )]
 
 [node name="TriangularWindow034" type="Spatial" parent="LowerGalleryB-Roof/TriangularWindow001"]
-
 transform = Transform( -0.999986, -1.36539e-07, 0.00462146, -1.36542e-07, 1, 3.44997e-11, -0.00462148, -5.96975e-10, -0.999986, -28.2211, -18.1087, 6.70793 )
 
 [node name="Scene" parent="LowerGalleryB-Roof/TriangularWindow001/TriangularWindow034" instance=ExtResource( 8 )]
 
 [node name="TriangularWindow035" type="Spatial" parent="LowerGalleryB-Roof/TriangularWindow001"]
-
 transform = Transform( -1, -1.36522e-07, -4.47035e-08, -1.3652e-07, 1, -6.40932e-13, 4.47035e-08, -1.29674e-13, -1, -23.3984, -15.0018, 6.71306 )
 
 [node name="Scene" parent="LowerGalleryB-Roof/TriangularWindow001/TriangularWindow035" instance=ExtResource( 8 )]
 
 [node name="TriangularWindow036" type="Spatial" parent="LowerGalleryB-Roof/TriangularWindow001"]
-
 transform = Transform( -1, -1.36522e-07, -4.47035e-08, -1.3652e-07, 1, -6.40932e-13, 4.47035e-08, -1.29674e-13, -1, -18.4776, -11.8844, 6.70698 )
 
 [node name="Scene" parent="LowerGalleryB-Roof/TriangularWindow001/TriangularWindow036" instance=ExtResource( 8 )]
 
 [node name="TriangularWindow037" type="Spatial" parent="LowerGalleryB-Roof/TriangularWindow001"]
-
 transform = Transform( -1, -1.36522e-07, -4.47035e-08, -1.3652e-07, 1, -6.40932e-13, 4.47035e-08, -1.29674e-13, -1, -14.2072, -9.1599, 6.71144 )
 
 [node name="Scene" parent="LowerGalleryB-Roof/TriangularWindow001/TriangularWindow037" instance=ExtResource( 8 )]
 
 [node name="TriangularWindow038" type="Spatial" parent="LowerGalleryB-Roof/TriangularWindow001"]
-
 transform = Transform( -1, -1.36522e-07, -4.47035e-08, -1.3652e-07, 1, -6.40932e-13, 4.47035e-08, -1.29674e-13, -1, -9.93653, -6.39304, 6.71735 )
 
 [node name="Scene" parent="LowerGalleryB-Roof/TriangularWindow001/TriangularWindow038" instance=ExtResource( 8 )]
 
 [node name="TriangularWindow039" type="Spatial" parent="LowerGalleryB-Roof/TriangularWindow001"]
-
 transform = Transform( -1, -1.36522e-07, -4.47035e-08, -1.3652e-07, 1, -6.40932e-13, 4.47035e-08, -1.29674e-13, -1, -4.95734, -3.17683, 6.71053 )
 
 [node name="Scene" parent="LowerGalleryB-Roof/TriangularWindow001/TriangularWindow039" instance=ExtResource( 8 )]
 
 [node name="TriangularWindow040" type="Spatial" parent="LowerGalleryB-Roof/TriangularWindow001"]
-
 transform = Transform( -1, -1.36522e-07, -4.47035e-08, -1.3652e-07, 1, -6.40932e-13, 4.47035e-08, -1.29674e-13, -1, 0.0226905, 0.00870764, 6.72602 )
 
 [node name="Scene" parent="LowerGalleryB-Roof/TriangularWindow001/TriangularWindow040" instance=ExtResource( 8 )]
 
 [node name="TubeHab-Cap007" type="MeshInstance" parent="LowerGalleryB-Roof"]
-
 transform = Transform( 0.17015, -2.55585e-08, 0.0573888, 1.72863e-07, 0.179567, 7.74802e-08, 0.0573888, -9.06086e-09, -0.17015, -53.0482, -34.1299, 30.081 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 9 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="TubeHab-Cap008" type="MeshInstance" parent="LowerGalleryB-Roof"]
-
 transform = Transform( 0.172728, -2.59671e-08, 0.0490868, 1.76463e-07, 0.179567, 7.03351e-08, 0.0490868, -7.81329e-09, -0.172728, -15.9393, -8.82678, 30.1618 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 9 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="TubeHab-Entrance008" type="MeshInstance" parent="LowerGalleryB-Roof" groups=[
 "wall",
 ]]
-
 transform = Transform( 0.986331, 0, 0.164778, 9.20326e-07, 1, 0, -0.164778, 0, 0.986331, -20.8955, -23.4102, -25.5762 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 10 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="TubeHab-Entrance008_col" type="StaticBody" parent="LowerGalleryB-Roof/TubeHab-Entrance008"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="LowerGalleryB-Roof/TubeHab-Entrance008/TubeHab-Entrance008_col"]
-
 shape = ExtResource( 11 )
-disabled = false
 
 [node name="TubeHab-Entrance013" type="MeshInstance" parent="LowerGalleryB-Roof" groups=[
 "wall",
 ]]
-
 transform = Transform( 0.871859, -0.0231883, -0.489208, -0.489128, 0.00935244, -0.872162, 0.0247993, 0.999687, -0.00318792, -23.9333, -25.424, -8.90561 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 12 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="TubeHab-Entrance013_col" type="StaticBody" parent="LowerGalleryB-Roof/TubeHab-Entrance013"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="LowerGalleryB-Roof/TubeHab-Entrance013/TubeHab-Entrance013_col"]
-
 shape = ExtResource( 13 )
-disabled = false
 
 [node name="TubeHab-Entrance016" type="MeshInstance" parent="LowerGalleryB-Roof" groups=[
 "wall",
 ]]
-
 transform = Transform( 0.999991, 0, -0.00430556, 9.07085e-07, 1, -1.55556e-07, 0.00430556, 0, 0.999991, -45.2369, -33.8301, 7.05015 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 14 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="TubeHab-Entrance016_col" type="StaticBody" parent="LowerGalleryB-Roof/TubeHab-Entrance016"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="LowerGalleryB-Roof/TubeHab-Entrance016/TubeHab-Entrance016_col"]
-
 shape = ExtResource( 15 )
-disabled = false
 
 [node name="TubeHab-Entrance017" type="MeshInstance" parent="LowerGalleryB-Roof" groups=[
 "wall",
 ]]
-
 transform = Transform( 0.986331, 0, 0.164778, 9.20326e-07, 1, 0, -0.164778, 0, 0.986331, 1.24412, -2.7583, -0.0115577 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 16 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="TubeHab-Entrance017_col" type="StaticBody" parent="LowerGalleryB-Roof/TubeHab-Entrance017"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="LowerGalleryB-Roof/TubeHab-Entrance017/TubeHab-Entrance017_col"]
-
 shape = ExtResource( 17 )
-disabled = false
 
 [node name="TubeHab-Entrance022" type="MeshInstance" parent="LowerGalleryB-Roof" groups=[
 "wall",
 ]]
-
 transform = Transform( 0.999991, 0, -0.00430556, 9.07085e-07, 1, -1.55556e-07, 0.00430556, 0, 0.999991, -9.26863, -9.12769, 6.77193 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 mesh = ExtResource( 18 )
-skeleton = NodePath("..")
 material/0 = null
 
 [node name="TubeHab-Entrance022_col" type="StaticBody" parent="LowerGalleryB-Roof/TubeHab-Entrance022"]
 
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
 [node name="CollisionShape" type="CollisionShape" parent="LowerGalleryB-Roof/TubeHab-Entrance022/TubeHab-Entrance022_col"]
-
 shape = ExtResource( 19 )
-disabled = false
-
 
