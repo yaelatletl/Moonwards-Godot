@@ -13,6 +13,7 @@ material/0 = null
 material/1 = null
 material/2 = null
 script = ExtResource( 2 )
+substitute = NodePath("../TowerRadiator3x_Opt")
 
 [node name="TowerRadiator3x_Opt" type="MeshInstance" parent="."]
 mesh = ExtResource( 3 )
