@@ -37,7 +37,8 @@ func _input(event):
 	if event.is_action_pressed("debug_player_list"):
 		print_current_players()
 	if event.is_action_pressed("debug_dir_list"):
-		dir_contents()
+		#dir_contents()
+		print_groups()
 	if event.is_action_pressed("mouse_toggle"):
 		mouse_toggle()
 
@@ -295,6 +296,20 @@ func features_list(enabled_only=true):
 func print_current_players():
 	printd("gamestate players")
 	print(gamestate.players)
+
+func print_groups():
+	#get_nodes_in_group("LODElement)
+	printd("List of nodes in LODElement group")
+	for obj in get_tree().get_nodes_in_group("LODElement"):
+		print(obj.get_path())
+	printd("List of nodes in wall group")
+	for obj in get_tree().get_nodes_in_group("wall"):
+		print(obj.get_path())
+# 	for p in get_tree().call_group("LODElement", "get_path"):
+# 		printd(p)
+# 	printd("List of nodes in wall group")
+# 	for p in get_tree().call_group("wall", "get_path"):
+# 		printd(p)
 
 func dir_contents(path="res://"):
 	var dir = Directory.new()
