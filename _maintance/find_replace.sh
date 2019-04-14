@@ -22,4 +22,4 @@ echo "search in" $DIR, replace \"$SRC\" with \"$DEST\"
 
 sed_str="{s#"$SRC"#"$DEST"#g;}"
 echo $sed_str
-find $DIR \( -iname '*.tscn' -or -iname '*.gd' \) -type f -print0 | xargs -0 grep -l -z $1 | xargs sed -i -e "$sed_str"
+find $DIR \( -iname '*.tscn' -or -iname '*.gd' \) -type f -print0 | xargs -0 grep -l -z "$1" | xargs sed -i -e "$sed_str"
