@@ -112,3 +112,45 @@ func file_mtime(fname):
 
 func feature_check_server():
 	return OS.has_feature("Server")
+
+func get_node_file(node):
+	node = get_node_root(node)
+	var filename
+	if node:
+		filename = node.filename
+	return filename
+
+func get_node_root(node):
+	if node is String:
+		node = get_tree().get_node(node)
+	while node != null and (node.filename == null or node.filename == ""):
+		node = node.get_parent()
+	return node
+
+#########################
+var debug = true
+var debug_id = "utils.gd:: "
+var debug_list = [
+# 	{ enable = true, key = "" }
+]
+func printd(s):
+	if debug:
+		if debug_list.size() > 0:
+			var found = false
+			for dl in debug_list:
+				if s.begins_with(dl.key):
+					if dl.enable:
+						print(debug_id, s)
+					found = true
+					break
+			if not found:
+				print(debug_id, s)
+		else:
+			print(debug_id, s)
+
+func printdd(id, s):
+	var odi = debug_id
+	debug_id = id
+	printd(s)
+	debug_id = odi
+	#^ fix that crap with verbose level and stuff
