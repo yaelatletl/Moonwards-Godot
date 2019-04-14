@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://materials/BlueGray_NoCull.tres" type="Material" id=1]
 [ext_resource path="res://materials/ButterYellow.tres" type="Material" id=2]
@@ -6,12 +6,13 @@
 [ext_resource path="res://materials/MirrorInsulation.tres" type="Material" id=4]
 [ext_resource path="res://materials/Mint.tres" type="Material" id=5]
 [ext_resource path="res://materials/Caramel.tres" type="Material" id=6]
-[ext_resource path="res://model_assets/SolarThermalMirrorSet_SideCircuit.tscn" type="PackedScene" id=7]
-[ext_resource path="res://model_assets/TowerRadiator.tscn" type="PackedScene" id=8]
-[ext_resource path="res://materials/Metal-MixedAlloy.tres" type="Material" id=9]
-[ext_resource path="res://materials/Blue.tres" type="Material" id=10]
-[ext_resource path="res://materials/Metal-Steel.tres" type="Material" id=11]
-[ext_resource path="res://materials/Metal-Aluminum.tres" type="Material" id=12]
+[ext_resource path="res://scripts/LODElement.gd" type="Script" id=7]
+[ext_resource path="res://model_assets/SolarThermalMirrorSet_SideCircuit.tscn" type="PackedScene" id=8]
+[ext_resource path="res://model_assets/TowerRadiator.tscn" type="PackedScene" id=9]
+[ext_resource path="res://materials/Metal-MixedAlloy.tres" type="Material" id=10]
+[ext_resource path="res://materials/Blue.tres" type="Material" id=11]
+[ext_resource path="res://materials/Metal-Steel.tres" type="Material" id=12]
+[ext_resource path="res://materials/Metal-Aluminum.tres" type="Material" id=13]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Cone009"
@@ -124,7 +125,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97539,
 "index_count": 360,
-"material": ExtResource( 9 ),
+"material": ExtResource( 10 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 70
@@ -178,7 +179,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 97539,
 "index_count": 744,
-"material": ExtResource( 10 ),
+"material": ExtResource( 11 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 294
@@ -205,7 +206,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 97539,
 "index_count": 282,
-"material": ExtResource( 11 ),
+"material": ExtResource( 12 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 124
@@ -217,7 +218,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 97539,
 "index_count": 1488,
-"material": ExtResource( 10 ),
+"material": ExtResource( 11 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 579
@@ -268,7 +269,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 97539,
 "index_count": 708,
-"material": ExtResource( 12 ),
+"material": ExtResource( 13 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 168
@@ -280,7 +281,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 97539,
 "index_count": 744,
-"material": ExtResource( 10 ),
+"material": ExtResource( 11 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 252
@@ -295,7 +296,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97539,
 "index_count": 648,
-"material": ExtResource( 9 ),
+"material": ExtResource( 10 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 240
@@ -338,6 +339,8 @@ material/3 = null
 material/4 = null
 material/5 = null
 material/6 = null
+script = ExtResource( 7 )
+substitute = NodePath("../MoltenSoilReactor_Tower_Opt")
 
 [node name="MoltenSoilReactor_Tower_Opt" type="MeshInstance" parent="."]
 transform = Transform( 1.3305, 0, 0, 0, 1.3305, 0, 0, 0, 1.3305, 0, 0.00933721, 0 )
@@ -347,12 +350,12 @@ material/0 = null
 [node name="Empty_SolarThermalMirrorSet_SideCircuit" type="Spatial" parent="MoltenSoilReactor_Tower_Opt"]
 transform = Transform( 0.751598, 0, -1.11997e-08, 0, 0.751598, 0, 1.11997e-08, 0, 0.751598, 0.00220195, 3.21663, 2.37884 )
 
-[node name="Scene" parent="MoltenSoilReactor_Tower_Opt/Empty_SolarThermalMirrorSet_SideCircuit" instance=ExtResource( 7 )]
+[node name="Scene" parent="MoltenSoilReactor_Tower_Opt/Empty_SolarThermalMirrorSet_SideCircuit" instance=ExtResource( 8 )]
 
 [node name="Empty_TowerRadiator" type="Spatial" parent="MoltenSoilReactor_Tower_Opt"]
 transform = Transform( 0.751598, 0, -1.11997e-08, 0, 0.751598, 0, 1.11997e-08, 0, 0.751598, -2.95575, 1.18341, 0.567919 )
 
-[node name="Scene" parent="MoltenSoilReactor_Tower_Opt/Empty_TowerRadiator" instance=ExtResource( 8 )]
+[node name="Scene" parent="MoltenSoilReactor_Tower_Opt/Empty_TowerRadiator" instance=ExtResource( 9 )]
 
 [node name="MSReactor-HeatExchangerPipe" type="MeshInstance" parent="MoltenSoilReactor_Tower_Opt"]
 transform = Transform( 0.751598, 0, -1.11997e-08, 0, 0.751598, 0, 1.11997e-08, 0, 0.751598, -0.669759, 1.05441, 0.0847749 )

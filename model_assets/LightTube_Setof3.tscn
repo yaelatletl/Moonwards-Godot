@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://model_assets/meshes/LightTube_Setof3__LightTube_Large_Opt003.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://model_assets/meshes/LightTube_Setof3__LightTube_Large_LOD003.mesh" type="ArrayMesh" id=2]
-[ext_resource path="res://model_assets/meshes/LightTube_Setof3__LightTube_Large_Opt002.mesh" type="ArrayMesh" id=3]
-[ext_resource path="res://model_assets/meshes/LightTube_Setof3__LightTube_Large_LOD002.mesh" type="ArrayMesh" id=4]
-[ext_resource path="res://model_assets/meshes/LightTube_Setof3__LightTube_Large_Opt001.mesh" type="ArrayMesh" id=5]
-[ext_resource path="res://model_assets/meshes/LightTube_Setof3__LightTube_Large_LOD001.mesh" type="ArrayMesh" id=6]
+[ext_resource path="res://scripts/LODElement.gd" type="Script" id=3]
+[ext_resource path="res://model_assets/meshes/LightTube_Setof3__LightTube_Large_Opt002.mesh" type="ArrayMesh" id=4]
+[ext_resource path="res://model_assets/meshes/LightTube_Setof3__LightTube_Large_LOD002.mesh" type="ArrayMesh" id=5]
+[ext_resource path="res://model_assets/meshes/LightTube_Setof3__LightTube_Large_Opt001.mesh" type="ArrayMesh" id=6]
+[ext_resource path="res://model_assets/meshes/LightTube_Setof3__LightTube_Large_LOD001.mesh" type="ArrayMesh" id=7]
 
 [node name="Scene" type="Spatial"]
 
@@ -28,10 +29,12 @@ material/0 = null
 material/1 = null
 material/2 = null
 material/3 = null
+script = ExtResource( 3 )
+substitute = NodePath("../LightTube_Large_Opt003")
 
 [node name="LightTube_Large_Opt002" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0.566078, 0.181068, -0.0384903 )
-mesh = ExtResource( 3 )
+mesh = ExtResource( 4 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -43,15 +46,17 @@ material/6 = null
 [node name="LightTube_Large_LOD002" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0.566078, 0.181068, -0.0384903 )
 visible = false
-mesh = ExtResource( 4 )
+mesh = ExtResource( 5 )
 material/0 = null
 material/1 = null
 material/2 = null
 material/3 = null
+script = ExtResource( 3 )
+substitute = NodePath("../LightTube_Large_Opt002")
 
 [node name="LightTube_Large_Opt001" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, -0.361656, -0.090416, 0.806969 )
-mesh = ExtResource( 5 )
+mesh = ExtResource( 6 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -63,9 +68,11 @@ material/6 = null
 [node name="LightTube_Large_LOD001" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, -0.361656, -0.090416, 0.806969 )
 visible = false
-mesh = ExtResource( 6 )
+mesh = ExtResource( 7 )
 material/0 = null
 material/1 = null
 material/2 = null
 material/3 = null
+script = ExtResource( 3 )
+substitute = NodePath("../LightTube_Large_Opt001")
 
