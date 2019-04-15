@@ -49,6 +49,7 @@ func cache_vars(id=null):
 		#print("cache_vars hit %s" % id)
 	else:
 		mesh_info = {}
+
 func get_cache():
 	return mesh_cache
 
@@ -62,10 +63,10 @@ func reset_vars():
 
 func set_mesh(obj):
 	if obj == null:
-		print("set_mesh, obj == null")
+		printd("set_mesh, obj == null")
 		return
 	if root == null:
-		print("scene tree is not defined")
+		printd("scene tree is not defined")
 	
 	cache_vars()
 	mesh = null
@@ -91,6 +92,14 @@ func _init(tree=null, obj=null):
 	root = tree
 	set_mesh(obj)
 
+func get_facescount():
+	if mesh == null:
+		return
+	if mesh_info.has("faces_count"):
+		return mesh_info.faces_count
+	mesh_info["faces_count"] = mesh.get_faces().size()
+	return mesh_info.faces_count
+
 func get_median():
 	if mesh == null:
 		return
@@ -102,10 +111,12 @@ func get_median():
 	for v in mesh.get_faces():
 		vsum += v
 		count += 1
-	
-	vsum /= count
+	if count > 0:
+		vsum /= count
+	mesh_info["vert_median"] = vsum
+	mesh_info["faces_count"] = count
 	return vsum
-	
+
 func get_hitbox():
 	if mesh == null:
 		print("get_hitbox mesh is null")
@@ -114,6 +125,7 @@ func get_hitbox():
 		return mesh_info.hitbox
 	
 	var box  #x, -x y, -y, z, -z
+	var fcount = 0
 	for v in mesh.get_faces():
 		if box == null:
 			box = [v.x, v.x, v.y, v.y, v.z, v.z]
@@ -130,11 +142,32 @@ func get_hitbox():
 			box[4] = v.z
 		if v.z < box[5]:
 			box[5] = v.z
+		fcount += 1
 	if box == null:
 		#mesh with no faces
 		box = [0,0,0,0,0,0]
-	mesh_info["hitbox"] = [Vector3(box[1], box[3], box[5]), Vector3(box[0] - box[1], box[2] - box[3], box[4] - box[5])] 
+	mesh_info["hitbox"] = [Vector3(box[1], box[3], box[5]), Vector3(box[0] - box[1], box[2] - box[3], box[4] - box[5])]
+	mesh_info["faces_count"] = fcount
 	return mesh_info["hitbox"]
+
+func get_hitbox_sum(b1=null, b2=null):
+	if b1 == null:
+		b1 = [Vector3(0,0,0),Vector3(0,0,0)]
+	if b2 == null:
+		b2 = get_hitbox()
+	if b2 == null:
+		b2 = [Vector3(0,0,0),Vector3(0,0,0)]
+	for k in ["x", "y", "z"]:
+		if abs(b1[1][k]) < abs(b2[1][k]):
+			b1[1][k] = abs(b2[1][k])
+	return b1
+
+func get_hitbox_max(b1):
+	var res = 0
+	for k in ["x", "y", "z"]:
+		if abs(b1[1][k]) > res:
+			res = abs(b1[1][k])
+	return res
 
 func hbox_volume():
 	var bb = get_hitbox()
@@ -159,18 +192,19 @@ func hbox_instance():
 	return cm
 
 func id_mesh(obj):
+	var noid = null
 	if obj == null:
-		print("id_mesh, object is null")
-		return null
+		printd("id_mesh, object is null")
+		return noid
 	if obj is MeshInstance:
 		if obj.mesh:
 			obj = obj.mesh
 		else:
 			printd("id_mesh, mesh is null in: %s" % obj.get_path())
-			return null
+			return noid
 	if not obj.is_class("Resource"):
-		print("id_mesh obj(%s) not a Resource type" % obj)
-		return null
+		#print("id_mesh obj(%s) not a Resource type" % obj)
+		return noid
 	var path = obj.resource_path
 	var mtime = utils.file_mtime(path)
 	var id = "%s %s" % [mtime, path]
