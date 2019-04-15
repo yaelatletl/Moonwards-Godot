@@ -24,7 +24,7 @@ data = PoolVector3Array( 30.2852, 3.3001, -88.5412, 33.9383, 3.3001, -87.4168, 3
 
 [node name="Scene" type="Spatial"]
 
-[node name="LongDome_Opt" type="Spatial" parent="."]
+[node name="LongDome_Opt" type="MeshInstance" parent="."]
 
 [node name="RockSmallD" type="MeshInstance" parent="LongDome_Opt"]
 transform = Transform( 0.768534, 0.144844, 0.623198, -0.171937, 0.984963, -0.0168902, -0.616273, -0.0941703, 0.781882, 26.3208, -15.8079, -26.1348 )
@@ -92,7 +92,7 @@ omni_range = 21.7266
 transform = Transform( 1, 1.83912e-16, 0, 1.83912e-16, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 2 )
 
-[node name="LongDome_LOD" type="Spatial" parent="."]
+[node name="LongDome_LOD" type="MeshInstance" parent="."]
 visible = false
 script = ExtResource( 8 )
 substitute = NodePath("../LongDome_Opt")
