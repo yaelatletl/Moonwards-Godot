@@ -19,7 +19,7 @@ environment = ExtResource( 1 )
 [node name="spawn_points" type="Spatial" parent="."]
 
 [node name="0" type="Position3D" parent="spawn_points"]
-transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -51.2514, -1922.5, 47.991 )
+transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -55.4765, -1929.73, -14.579 )
 
 [node name="1" type="Position3D" parent="spawn_points"]
 transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -51.2514, -1922.5, 54.5361 )

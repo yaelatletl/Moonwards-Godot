@@ -109,15 +109,14 @@ spot_angle = 35.0
 
 [node name="OmniLight" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 9.92309e-10, 0, 1, 0, -9.92309e-10, 0, 1, -11.9848, 0.693812, 0.000487328 )
-light_energy = 0.5
+light_energy = 0.8
 light_indirect_energy = 0.3
-omni_range = 3.0
+omni_range = 4.3
 
 [node name="OmniLight2" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 9.92309e-10, 0, 1, 0, -9.92309e-10, 0, 1, -5.37973, 0.693812, 0.000487328 )
-light_energy = 0.5
 light_indirect_energy = 0.3
-omni_range = 3.8
+omni_range = 5.4
 
 [node name="MainColonyAirlocksOverlay_LOD" type="MeshInstance" parent="."]
 visible = false
