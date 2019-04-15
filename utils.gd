@@ -106,7 +106,7 @@ func file_mtime(fname):
 		if ff.file_exists(path):
 			cache_flist[path] = { mtime = ff.get_modified_time(path) }
 		else:
-			print("**utils.gd:: attempt to get mtime of non existing file %s" % path)
+			printd("**utils.gd:: attempt to get mtime of non existing file '%s'" % path)
 			cache_flist[path] = { mtime = "nofile" }
 	return cache_flist[path].mtime
 
@@ -150,7 +150,7 @@ func printd(s):
 
 func printdd(id, s):
 	var odi = debug_id
-	debug_id = id
+	debug_id = "%s:: " % id
 	printd(s)
 	debug_id = odi
 	#^ fix that crap with verbose level and stuff
