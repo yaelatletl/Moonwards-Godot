@@ -45,6 +45,7 @@ func get_node_list(root, groups):
 func _ready():
 	if not enabled:
 		printd("AreaLod disabled at %s %s" % [get_path(), utils.get_node_root(self)])
+		return
 	init_all()
 
 func init_all():

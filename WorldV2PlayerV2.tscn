@@ -23,6 +23,7 @@ environment = ExtResource( 1 )
 transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -55.4482, -1929.76, -14.3414 )
 
 [node name="LocalPlayer" parent="spawn_points/0" instance=ExtResource( 3 )]
+physics_scale = 0.1
 
 [node name="1" type="Position3D" parent="spawn_points"]
 transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -51.2514, -1922.5, 54.5361 )

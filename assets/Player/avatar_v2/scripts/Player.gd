@@ -11,13 +11,13 @@ var SNAP_VECTOR = Vector3(0.0, 0.1, 0.0)
 var JUMP_SPEED = 2.8
 
 const SpeedFeed = {
-	MOTION_INTERPOLATE_SPEED = 10,
-	ROTATION_INTERPOLATE_SPEED = 10,
+# 	MOTION_INTERPOLATE_SPEED = 10,
+# 	ROTATION_INTERPOLATE_SPEED = 10,
 	GRAVITY = Vector3(0,-1.62, 0),
 	SNAP_VECTOR = Vector3(0.0, 0.1, 0.0),
 	JUMP_SPEED = 2.8
 }
-var physics_scale = 1 setget SetPScale
+export(float) var physics_scale = 1 setget SetPScale
 
 func SetPScale(scale):
 	if scale < 0.01 or scale > 100:
@@ -57,7 +57,7 @@ puppet var puppet_jump
 puppet var puppet_run
 puppet var puppet_motion
 
-var nonetwork = true
+var nonetwork = ! network
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
