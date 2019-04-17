@@ -27,6 +27,8 @@ signal gslog(msg)
 # network user related
 signal user_join #emit when user is fully registered
 signal user_leave #emit on leave of registered user
+signal user_name_disconnected(name) #emit when user is joined, for chat
+signal user_name_connected(name) #emit when user is disconnected, for chat
 signal user_msg(id, msg) #emit message of id user
 signal player_id(id) #emit id of player after establishing a connection
 #network server
@@ -513,6 +515,7 @@ remote func register_client(id, pdata):
 remote func unregister_client(id):
 	emit_signal("gslog", "unregister client (%s)" % id)
 	if players.has(id):
+		emit_signal("user_name_disconnected", "%s" % player_get("name", id))
 		if players[id].obj:
 			players[id].obj.queue_free()
 		players.erase(id)
@@ -590,6 +593,7 @@ func create_player(id):
 	world.get_node("players").add_child(player)
 	players[id]["world"] = "%s" % world
 	players[id]["path"] = world.get_path_to(player)
+	emit_signal("user_name_connected", player_get("name", id))
 
 #set current camera to local player
 func player_local_camera(activate = true):
