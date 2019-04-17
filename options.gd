@@ -94,6 +94,18 @@ var player_opt = {
 	}
 }
 
+func set_defaults():
+	# set some default values, probably improve that
+	get("dev", "enable_areas_lod", true)
+	get("dev", "enable_collision_shapes", true)
+	get("dev", "3FPSlimit", true)
+	get("dev", "3FPSlimit_value", 30)
+	get("dev", "hide_meshes_random", false)
+	get("dev", "decimate_percent", 90)
+	get("dev", "TreeManager", true)
+	get("LOD", "lod_aspect_ratio", 150)
+	# get("dev", "lod_manager_path", "res://scripts/TreeManager.tscn")
+
 func player_opt(type, opt = null):
 	var res = {}
 	var filter = player_opt.opt_filter
@@ -142,6 +154,7 @@ func _ready():
 # 	Engine.target_fps = 3
 	printd("load options and settings")
 	self.load()
+	set_defaults()
 	
 	#apply generic options
 	set_3fps(get("dev", "3FPSlimit"))
