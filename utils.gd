@@ -15,6 +15,19 @@ func obj_has_groups(obj, groups):
 			break
 	return has
 
+func obj_has_property(obj, pstr):
+	var has = false
+	if obj == null:
+		return has
+	
+	var plist = obj.get_property_list()
+	var pnames = []
+	for pl in plist:
+		pnames.append(pl.name)
+	
+	has = pnames.has(pstr)
+	return has
+
 func get_nodes(root, recurent=false):
 	var nodes = []
 	var objects = root.get_children()
