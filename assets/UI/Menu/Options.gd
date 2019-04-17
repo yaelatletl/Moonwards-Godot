@@ -22,21 +22,24 @@ func _ready():
 	print("option control ready")
 	var button
 	button = $TabContainer/Dev/VBoxContainer/tAreas
-	button.pressed = options.get("dev", "enable_areas_lod", true)
+	button.pressed = options.get("dev", "enable_areas_lod")
 	button = $TabContainer/Dev/VBoxContainer/tCollisionShapes
-	button.pressed = options.get("dev", "enable_collision_shapes", true)
+	button.pressed = options.get("dev", "enable_collision_shapes")
 	button = $TabContainer/Dev/VBoxContainer/tFPSLim
-	button.pressed = options.get("dev", "3FPSlimit", false)
+	button.pressed = options.get("dev", "3FPSlimit")
+	button = $TabContainer/Dev/VBoxContainer/sFPSLim
+	button.value = options.get("dev", "3FPSlimit_value")
+	button.connect("changed", self, "set_fps_limit")
 	button = $TabContainer/Dev/VBoxContainer/tDecimate
-	button.pressed = options.get("dev", "hide_meshes_random", false)
+	button.pressed = options.get("dev", "hide_meshes_random")
 	button = $TabContainer/Dev/VBoxContainer/sDecimatePercent
-	button.value = options.get("dev", "decimate_percent", 90)
+	button.value = options.get("dev", "decimate_percent")
 	button.connect("changed", self, "set_decimate_percent")
 	
 	button = $TabContainer/Dev/VBoxContainer/tLodManager
-	button.pressed = options.get("dev", "TreeManager", false)
+	button.pressed = options.get("dev", "TreeManager")
 	button = $TabContainer/Dev/VBoxContainer/sHBoxAspect
-	button.value = options.get("LOD", "lod_aspect_ratio", 150)
+	button.value = options.get("LOD", "lod_aspect_ratio")
 	button.connect("changed", self, "set_lod_aspect_ratio")
 	
 	button = $TabContainer/Dev/VBoxContainer/tPMonitor
@@ -67,8 +70,14 @@ func _on_tCollisionShapes_pressed():
 
 func _on_tFPSLim_pressed():
 	var button = $TabContainer/Dev/VBoxContainer/tFPSLim
-	debug.set_3fps(button.pressed)
+	var button2 = $TabContainer/Dev/VBoxContainer/sFPSLim
+	debug.set_3fps(button.pressed, button2.value)
 	options.set("dev", button.pressed, "3FPSlimit")
+
+func set_fps_limit(value):
+	options.set("dev", value, "3FPSlimit_value")
+	var button = $TabContainer/Dev/VBoxContainer/tFPSLim
+	debug.set_3fps(button.pressed, value)
 
 func _on_tDecimate_pressed():
 	var dp = options.get("dev", "decimate_percent", 90)
@@ -104,3 +113,4 @@ func _on_tLodManager_pressed():
 	var button = $TabContainer/Dev/VBoxContainer/tLodManager
 	options.set("dev", button.pressed, "TreeManager")
 	debug.set_lod_manager(button.pressed)
+
