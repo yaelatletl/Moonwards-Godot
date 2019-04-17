@@ -62,6 +62,7 @@ var scenes = {
 }
 
 var player_opt = {
+	player_group = "player",
 	opt_allow_unknown = true,
 	opt_filter = {
 		debug = true,
