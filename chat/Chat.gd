@@ -6,8 +6,8 @@ var show_duration = 5.0
 var timer = show_duration
 
 func _ready():
-	get_tree().connect("connected_to_server", self, "_connected_ok")
-	get_tree().connect("network_peer_disconnected", self, "_player_disconnected")
+	gamestate.connect("user_name_disconnected", self, "_player_disconnected")
+	gamestate.connect("user_name_connected" , self, "_player_connected")
 
 func _process(delta):
 	if chat_visible and not $VBoxContainer/ChatInput.has_focus():
@@ -17,11 +17,13 @@ func _process(delta):
 			$VBoxContainer/ChatInput.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			chat_visible = false
 
-func _player_connected(id):
-	AddMessage(gamestate.player_get("name", id) + ' has joined')
+func _player_connected(name):
+	var msg = "%s has joined" % name #clean if name is null
+	AddMessage(msg)
 
-func _player_disconnected(id):
-	AddMessage(gamestate.player_get("name", id) + ' has left')
+func _player_disconnected(name):
+	var msg = "%s has left" % name #clean if name is null
+	AddMessage(msg)
 
 func _connected_ok():
 	AddMessage('You have joined the room')
