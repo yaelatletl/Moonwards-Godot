@@ -69,6 +69,20 @@ func _ready():
 		set_process_input(false)
 	SetRemotePlayer(puppet)
 
+func _enter_tree():
+	add_to_player_group()
+
+func add_to_player_group(): # for local only
+	if not  is_inside_tree():
+		return
+	var pg = "player"
+	if puppet == false and not is_in_group(pg):
+		printd("add avatar(%s), puppet(%s) to %s group" % [get_path(), puppet, pg])
+		add_to_group(pg, true)
+	if puppet == true and is_in_group(pg):
+		printd("remove avatar(%s), puppet(%s) from %s group" % [get_path(), puppet, pg])
+		remove_from_group(pg)
+
 func _input(event):
 	if (event is InputEventMouseMotion):
 		look_direction.x -= event.relative.x * mouse_sensitivity
@@ -234,6 +248,7 @@ func SetNetwork(var enabled):
 
 func SetRemotePlayer(enable):
 	puppet = enable
+	add_to_player_group()
 	if not puppet:
 		$KinematicBody/Nametag.visible = false
 		$Camera.current = true
