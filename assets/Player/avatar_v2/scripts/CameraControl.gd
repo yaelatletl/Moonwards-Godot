@@ -18,6 +18,7 @@ func _ready():
 		print("CameraControl:: no camera defined, disabled")
 	else:
 		print("CameraControl:: camera found, enabled")
+		camera.far = 10000
 
 func _input(event):
 	if not enabled:
