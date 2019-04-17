@@ -2,6 +2,7 @@ extends HBoxContainer
 
 signal changed(val)
 
+export(bool) var enabled = true setget set_enabled
 export(String) var label = "Label"
 export(int) var mi = 1
 export(int) var ma = 100
@@ -35,6 +36,8 @@ func _ready():
 	$OptionInput.share($OptionSlider)
 	$OptionSlider.connect("value_changed", self, "notify_changed")
 	
+	set_enabled(enabled)
+	
 	connect("changed", self, "debug_value")
 
 func debug_value(val):
@@ -43,6 +46,11 @@ func debug_value(val):
 func notify_changed(val):
 	if not mouse_active:
 		emit_signal("changed", val)
+
+func set_enabled(state):
+	$OptionSlider.scrollable = state
+	$OptionSlider.editable = state
+	$OptionInput.editable = state
 
 func _input(event):
 	if event.is_class("InputEventMouseButton"):
