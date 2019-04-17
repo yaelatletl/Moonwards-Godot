@@ -240,11 +240,16 @@ func lodelement_set(root):
 		#weight both branches to determine lod_min and max
 		var sweight = lodelement_weight(e.get_sub_node())
 		var weight = lodelement_weight(e)
-# 		printd("weights %s %s" % [sweight, weight])
-# 		printd("node lod %s %s" % [e.get_sub_node().lod_min_distance, e.get_sub_node().lod_max_distance])
-# 		printd("sub  lod %s %s" % [e.lod_min_distance, e.lod_max_distance])
+		if weight.vcount < 1:
+			weight.vcount = 1
 		var proportion = sqrt(sweight.vcount/weight.vcount)
-# 		printd("proportion %s" % proportion)
+		if proportion > 50:
+			printd("weights %s %s" % [sweight, weight])
+			printd("node lod %s %s" % [e.get_sub_node().lod_min_distance, e.get_sub_node().lod_max_distance])
+			printd("sub  lod %s %s" % [e.lod_min_distance, e.lod_max_distance])
+			printd("proportion %s" % proportion)
+			printd("proportion is %s in %s, reduced to 50" % [proportion, e.get_path()])
+			proportion = 50
 		if proportion > 1:
 			e.get_sub_node().lod_max_distance = e.lod_max_distance / proportion
 			e.lod_min_distance = e.get_sub_node().lod_max_distance
