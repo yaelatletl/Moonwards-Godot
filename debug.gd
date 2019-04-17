@@ -75,9 +75,9 @@ func debug_apply_options():
 	hidden_nodes = []
 	if options.get("dev", "hide_meshes_random"):
 		hide_nodes_random(options.get("dev", "decimate_percent"))
-	set_3fps(options.get("dev", "3FPSlimit"))
+	set_3fps(options.get("dev", "3FPSlimit"), options.get("dev", "3FPSlimit_value"))
 	e_area_lod(options.get("dev", "enable_areas_lod"))
-	set_lod_manager(options.get("dev", "TreeManager", false))
+	set_lod_manager(options.get("dev", "TreeManager"))
 	
 	#insert some camera
 	if not options.get_tree_opt("NoCamera"):
@@ -134,10 +134,10 @@ func set_active_camera():
 remote func test_remote_call():
 	print("test_remote_call (%s)" % id)
 
-func set_3fps(enable):
+func set_3fps(enable, value = 3):
 	if enable:
-		printd("debug set FPS to 3")
-		Engine.target_fps = 3
+		printd("debug set FPS to %s" % round(value))
+		Engine.target_fps = round(value)
 	else:
 		printd("debug set FPS to 0")
 		Engine.target_fps = 0
