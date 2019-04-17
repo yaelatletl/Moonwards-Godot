@@ -262,7 +262,7 @@ func SetRemotePlayer(enable):
 ## Restore Positions
 var rp_max_points = 100
 var rp_delta = 5
-var rp_delta_o = 1
+var rp_delta_o = 1 #minimal offset to be recorded
 var rp_time = 0
 var rp_points = []
 
