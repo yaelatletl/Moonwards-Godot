@@ -4,6 +4,10 @@ signal close
 signal save
 var signal_close = false
 
+const id = "Options.gd"
+func printd(s):
+	utils.printdd(id, s)
+
 func get_tab_index():
 	return $TabContainer.current_tab
 
@@ -44,6 +48,36 @@ func _ready():
 	
 	button = $TabContainer/Dev/VBoxContainer/tPMonitor
 	button.pressed = options.get("_state_", "perf_mon", false)
+	
+	button = $TabContainer/Dev/VBoxContainer/sPlayerSpeed
+	init_playerspeed_control(button)
+
+func _get_player():
+	var res
+	var tree = get_tree()
+	var pg = options.player_opt.player_group
+	if tree.has_group(pg):
+		var player = tree.get_nodes_in_group(pg)[0]
+		if player and utils.obj_has_property(player, "SPEED_SCALE"):
+			res = player
+	return res
+
+func init_playerspeed_control(button):
+	var player = _get_player()
+	if player:
+		button.enabled = true
+		button.value = player.get("SPEED_SCALE")
+		button.connect("changed", self, "set_player_speed")
+		printd("found player %s at %s, enable speed changes" % [player, player.get_path()])
+	else:
+		button.enabled = false
+		button.value = 0
+
+func set_player_speed(value):
+	var player = _get_player()
+	if player:
+		player.set("SPEED_SCALE", value)
+		printd("set_player_speed to value %s" % value)
 
 func _on_GameState_tab_clicked(tab):
 	print("_on_GameState_tab_clicked(tab): ", tab)

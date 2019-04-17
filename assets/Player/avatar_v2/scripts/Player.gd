@@ -9,6 +9,7 @@ var IN_AIR_DELTA = 0.3
 var GRAVITY = Vector3(0,-1.62, 0)
 var SNAP_VECTOR = Vector3(0.0, 0.1, 0.0)
 var JUMP_SPEED = 2.8
+var SPEED_SCALE = 15 #use as 0.1*SPEED_SCALE for time being because of slider for speed setting is int, in Options.gd
 
 const SpeedFeed = {
 # 	MOTION_INTERPOLATE_SPEED = 10,
@@ -161,6 +162,7 @@ func HandleControls(var delta):
 	#Only control the character when it is on the floor.
 	if not in_air:
 		motion = motion.linear_interpolate(motion_target, MOTION_INTERPOLATE_SPEED * delta)
+# 		printd("%s = motion.linear_interpolate(%s, %s * %s)" % [motion, motion_target, MOTION_INTERPOLATE_SPEED, delta])
 	else:
 		pass
 	
@@ -182,7 +184,8 @@ func HandleControls(var delta):
 		root_motion = $KinematicBody/AnimationTree.get_root_motion_transform()
 		orientation *= root_motion
 		
-		var h_velocity = (orientation.origin / delta)
+		var h_velocity = (orientation.origin / delta) * 0.1 * SPEED_SCALE
+# 		printd("h_velocity(%s) = (orientation.origin(%s) / delta(%s))" % [h_velocity, orientation.origin, delta])
 		velocity.x = h_velocity.x
 		velocity.z = h_velocity.z
 	
