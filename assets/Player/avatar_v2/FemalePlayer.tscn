@@ -2579,6 +2579,7 @@ material/2 = null
 material/3 = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_process_mode = 0
 anims/CasualStance1 = SubResource( 2 )
 anims/Default = SubResource( 3 )
 anims/Female_MoonWalking-loop = SubResource( 4 )

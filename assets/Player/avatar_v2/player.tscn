@@ -38,10 +38,8 @@ animation = "Jump"
 [sub_resource type="AnimationNodeOneShot" id=7]
 filter_enabled = true
 filters = [ "../..", "FemaleRig/Skeleton:Elbow_Pole.L", "FemaleRig/Skeleton:Elbow_Pole.R", "FemaleRig/Skeleton:Knee_Pole.L", "FemaleRig/Skeleton:Knee_Pole.R", "FemaleRig/Skeleton:foot.L", "FemaleRig/Skeleton:foot.R", "FemaleRig/Skeleton:foot_IK.L", "FemaleRig/Skeleton:foot_IK.R", "FemaleRig/Skeleton:forearm.L", "FemaleRig/Skeleton:forearm.R", "FemaleRig/Skeleton:hand.L", "FemaleRig/Skeleton:hand.R", "FemaleRig/Skeleton:hand_IK.L", "FemaleRig/Skeleton:hand_IK.R", "FemaleRig/Skeleton:shin.L", "FemaleRig/Skeleton:shin.R", "FemaleRig/Skeleton:shoulder.L", "FemaleRig/Skeleton:shoulder.R", "FemaleRig/Skeleton:spine", "FemaleRig/Skeleton:spine.001", "FemaleRig/Skeleton:spine.002", "FemaleRig/Skeleton:spine.003", "FemaleRig/Skeleton:spine.005", "FemaleRig/Skeleton:spine.006", "FemaleRig/Skeleton:thigh.L", "FemaleRig/Skeleton:thigh.R", "FemaleRig/Skeleton:upper_arm.L", "FemaleRig/Skeleton:upper_arm.R" ]
-autorestart_random_delay = 0.0
 
 [sub_resource type="AnimationNodeOneShot" id=8]
-autorestart_random_delay = 0.0
 
 [sub_resource type="AnimationNodeTimeScale" id=9]
 
@@ -136,6 +134,7 @@ shape = SubResource( 3 )
 tree_root = SubResource( 17 )
 anim_player = NodePath("../Model/AnimationPlayer")
 active = true
+process_mode = 0
 root_motion_track = NodePath("FemaleRig/Skeleton:Root")
 parameters/Jump/active = false
 parameters/Land/active = false
