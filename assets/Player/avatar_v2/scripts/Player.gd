@@ -31,6 +31,7 @@ func SetPScale(scale):
 var motion = Vector2()
 
 var look_direction = Vector2()
+var ground_normal = Vector3(0.0, -1.0, 0.0)
 var mouse_sensitivity = 0.10
 var max_up_aim_angle = 55.0
 var max_down_aim_angle = 55.0
@@ -172,6 +173,8 @@ func HandleControls(var delta):
 	else:
 		running = false
 	
+	ground_normal = $KinematicBody/OnGround.get_collision_normal()
+	
 	#Update the model rotation based on the camera look direction.
 	var target_direction = -camera_control.camera.global_transform.basis.z
 	target_direction.y = 0.0
@@ -185,14 +188,28 @@ func HandleControls(var delta):
 		orientation *= root_motion
 		
 		var h_velocity = (orientation.origin / delta) * 0.1 * SPEED_SCALE
+		
+		if not in_air:
+			var velocity_direction = h_velocity.normalized()
+			var slide_direction = velocity_direction.slide(ground_normal)
+			h_velocity = slide_direction * h_velocity.length()
+			CreateDebugLine(Vector3(0.0, 0.03, 0.0), slide_direction)
+		
 # 		printd("h_velocity(%s) = (orientation.origin(%s) / delta(%s))" % [h_velocity, orientation.origin, delta])
 		velocity.x = h_velocity.x
 		velocity.z = h_velocity.z
 	
 	velocity += GRAVITY * delta
 	
+	if in_air or Vector3(0.0, -1.0, 0.0).cross(-ground_normal).length() > 0.85:
+#		CreateDebugLine(Vector3(0.0, 0.03, 0.0), Vector3(0.0, -1.0, 0.0) * 0.06)
+		$KinematicBody/OnGround.cast_to = Vector3(0.0, -1.0, 0.0) * 0.06
+	else:
+#		CreateDebugLine(Vector3(0.0, 0.03, 0.0), -ground_normal * 0.06)
+		$KinematicBody/OnGround.cast_to = -ground_normal * 0.06
+	
 	#The true is for stopping on a slope.
-	velocity = $KinematicBody.move_and_slide_with_snap(velocity, SNAP_VECTOR, Vector3(0,1,0), true)
+	velocity = $KinematicBody.move_and_slide(velocity, Vector3(0,1,0), true)
 	
 	orientation.origin = Vector3()
 	orientation = orientation.orthonormalized()
@@ -200,6 +217,13 @@ func HandleControls(var delta):
 	#The model direction is calculated with both camera direction and animation movement.
 	if motion_target != Vector2():
 		$KinematicBody/Model.global_transform.basis = orientation.basis
+
+func CreateDebugLine(var from, var to):
+	$KinematicBody/ImmediateGeometry.clear()
+	$KinematicBody/ImmediateGeometry.begin(Mesh.PRIMITIVE_LINE_STRIP, null)
+	$KinematicBody/ImmediateGeometry.add_vertex(from)
+	$KinematicBody/ImmediateGeometry.add_vertex(to)
+	$KinematicBody/ImmediateGeometry.end()
 
 func UpdateNetworking():
 	if nonetwork:
