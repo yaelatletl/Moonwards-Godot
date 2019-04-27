@@ -71,40 +71,40 @@ custom_fonts/italics_font = ExtResource( 5 )
 custom_fonts/bold_font = ExtResource( 6 )
 custom_fonts/normal_font = ExtResource( 7 )
 bbcode_enabled = true
-bbcode_text = "[b]To move use your keyboard and mouse[/b]
+bbcode_text = "Move your player with keyboard and mouse
         [b]W[/b] or [i]Up arrow[/i] - Forward
         [b]S[/b] or [i]Down arrow[/i] - Backward
         [b]A[/b] or [i]Left arrow[/i] - Sideways left
         [b]D[/b] or [i]Right arrow[/i] - Sideways right
+		[b]Shift[/b] - Move faster
+		[b] Spacebar[/b] - Jump
+**If the Player gets stuck or falls through the ground, press [b]R[/b] to go back 5 seconds and try again
+		
+Or press [b]C[/b] to toggle the [i]Flying Camera[/i] mode:
+		Same controls as above, plus
         [b]Q[/b] or [i]Page Up[/i] - Move Up
         [b]E[/b] or [i]Page Down[/i] - Move Down
-		
-[b]Scroll wheel[/b]
-         - scroll up - move faster
-         - scroll down - move slower
+         Scroll wheel up - move faster
+         Scroll wheel down - move slower
 
-[b]In game[/b]
-Press Esc to see a menu with options for your mouse, general speed, and others.
-If the app is running slowly, try reducing the setting for Far. This limits how far away the camera can see.
-
-Press Esc again to close the menu.
+Press [b]Ctrl[/b] to get your mouse cursor back
 "
-text = "To move use your keyboard and mouse
+text = "Move your player with keyboard and mouse
         W or Up arrow - Forward
         S or Down arrow - Backward
         A or Left arrow - Sideways left
         D or Right arrow - Sideways right
+		Shift - Move faster
+		 Spacebar - Jump
+**If the Player gets stuck or falls through the ground, press R to go back 5 seconds and try again
+		
+Or press C to toggle the Flying Camera mode:
+		Same controls as above, plus
         Q or Page Up - Move Up
         E or Page Down - Move Down
-		
-Scroll wheel
-         - scroll up - move faster
-         - scroll down - move slower
+         Scroll wheel up - move faster
+         Scroll wheel down - move slower
 
-In game
-Press Esc to see a menu with options for your mouse, general speed, and others.
-If the app is running slowly, try reducing the setting for Far. This limits how far away the camera can see.
-
-Press Esc again to close the menu.
+Press Ctrl to get your mouse cursor back
 "
 
