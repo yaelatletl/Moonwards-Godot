@@ -14,10 +14,11 @@ enum ui_events{
 	set_setting,
 	dismiss,
 	load_level,
-	join_server
+	join_server,
+	run_locally
 }
 const ui_events_text = ["back", "create_ui", "queue_ui", "set_setting", "dismiss",
-						"load_level", "join_server" ]
+						"load_level", "join_server", "run_locally" ]
 func ui_event_to_text(ui_event):
 	var text = "none"
 	if ui_events_text.size() - 1  > ui_event:
@@ -45,6 +46,8 @@ func UIEvent(ui_event, resource=null):
 			LoadLevel(resource)
 		ui_events.join_server:
 			join_server(resource)
+		ui_events.run_locally:
+			run_local(resource)
 		_:
 			print("UIManager, no action for %s resource(%s)" % [ui_event_to_text(ui_event), resource])
 
@@ -155,3 +158,13 @@ func join_server(scene):
 	gamestate.player_register(player_data, true) #local player
 	gamestate.load_level(scene)
 	gamestate.client_server_connect(options.join_server_host)
+
+func run_local(scene):
+	if scene == null or scene == "":
+		scene = options.scenes.default_multiplayer_join_server
+	
+	var player_data = {
+		username = options.get("user_settings", "name", namelist.get_name())
+	}
+	gamestate.player_register(player_data, true) #local player
+	gamestate.load_level(scene)
