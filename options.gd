@@ -64,6 +64,7 @@ var scenes = {
 var player_opt = {
 	player_group = "player",
 	opt_allow_unknown = true,
+	PlayerGroup = "PlayerGroup", #local player group
 	opt_filter = {
 		debug = true,
 		nocamera = true,
@@ -78,6 +79,14 @@ var player_opt = {
 		puppet = false,
 		physics_scale = 0.1,
 		IN_AIR_DELTA = 0.4
+	},
+	avatar_local = {
+		debug = debug,
+		nocamera = false,
+		input_processing = true,
+		network = false,
+		puppet = false,
+		physics_scale = 0.1,
 	},
 	puppet = {
 		debug = debug,

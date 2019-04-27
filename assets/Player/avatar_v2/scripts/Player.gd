@@ -72,12 +72,12 @@ func _ready():
 	SetRemotePlayer(puppet)
 
 func _enter_tree():
-	add_to_player_group()
+	set_player_group()
 
-func add_to_player_group(): # for local only
+func set_player_group(enable=true): # for local only
 	if not  is_inside_tree():
 		return
-	var pg = "player"
+	var pg = options.player_opt.PlayerGroup
 	if puppet == false and not is_in_group(pg):
 		printd("add avatar(%s), puppet(%s) to %s group" % [get_path(), puppet, pg])
 		add_to_group(pg, true)
