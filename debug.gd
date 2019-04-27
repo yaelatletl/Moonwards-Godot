@@ -107,7 +107,7 @@ func camera_ready(force=false):
 		camera.get_node("Camera").current = true
 		if active:
 			print("sync camera position with old camera")
-			camera.global_transform = camera_ready_oldcamera.global_transform
+			camera.global_translate(camera_ready_oldcamera.global_transform.origin)
 		print("debug: added fly camera to scene")
 		
 
