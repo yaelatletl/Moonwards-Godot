@@ -275,7 +275,7 @@ func SetNetwork(var enabled):
 
 func SetRemotePlayer(enable):
 	puppet = enable
-	add_to_player_group()
+	set_player_group()
 	if not puppet:
 		$KinematicBody/Nametag.visible = false
 		$Camera.current = true
