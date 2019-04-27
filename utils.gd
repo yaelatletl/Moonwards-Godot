@@ -144,6 +144,10 @@ func get_node_root(node):
 var debug = true
 var debug_id = "utils.gd:: "
 var debug_list = [
+	#LODElement
+	{ enable = false, key = "LOD substitute " },
+	{ enable = false, key = "show" },
+	{ enable = false, key = "hide" }
 # 	{ enable = true, key = "" }
 ]
 func printd(s):
