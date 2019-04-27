@@ -799,7 +799,6 @@ material/3 = null
 shape = SubResource( 26 )
 
 [node name="ScooterRamps" type="Spatial" parent="Interior"]
-editor/display_folded = true
 
 [node name="ScooterRamp_1" type="MeshInstance" parent="Interior/ScooterRamps"]
 editor/display_folded = true
