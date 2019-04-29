@@ -448,10 +448,10 @@ func player_apply_opt(pdata, player, id):
 			printd("disable input for player avatar %s" % id)
 			player.set_process_input(false)
 
-func player_register(pdata, localplayer=false):
+func player_register(pdata, localplayer=false, opt_id = "avatar"):
 	var id
 	if localplayer:
-		pdata["options"] = options.player_opt("avatar", pdata) #merge name with rest of options for Avatar
+		pdata["options"] = options.player_opt(opt_id, pdata) #merge name with rest of options for Avatar
 		if network_id:
 			id = network_id
 		else:
