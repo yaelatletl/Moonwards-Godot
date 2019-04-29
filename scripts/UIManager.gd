@@ -161,10 +161,10 @@ func join_server(scene):
 
 func run_local(scene):
 	if scene == null or scene == "":
-		scene = options.scenes.default_multiplayer_join_server
-	
-	var player_data = {
-		username = options.get("user_settings", "name", namelist.get_name())
-	}
-	gamestate.player_register(player_data, true) #local player
+		scene = options.scenes.default_run_scene
+# 	
+# 	var player_data = {
+# 		username = options.get("user_settings", "name", namelist.get_name())
+# 	}
+# 	gamestate.player_register(player_data, true) #local player
 	gamestate.load_level(scene)
