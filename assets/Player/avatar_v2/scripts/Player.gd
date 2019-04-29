@@ -20,16 +20,10 @@ const SpeedFeed = {
 }
 export(float) var physics_scale = 1 setget SetPScale
 
-func SetPScale(scale):
-	if scale < 0.01 or scale > 100:
-		return
-	for k in SpeedFeed:
-		match k:
-			_:
-				self.set(k, SpeedFeed[k] * scale)
-
 var motion = Vector2()
 
+#################################
+# Current state of player avatar
 var look_direction = Vector2()
 var ground_normal = Vector3(0.0, -1.0, 0.0)
 var mouse_sensitivity = 0.10
@@ -40,10 +34,10 @@ var orientation = Transform()
 var velocity = Vector3()
 var animation_speed = 1.0
 var in_air = false
+var in_air_accomulate = 0 #smooth short in air situations, duration is IN_AIR_DELTA
 var land = false
 var jumping = false
 var jump_timeout = 0.0
-var network = false setget SetNetwork
 var flies = false
 var movementstate = walk
 var username = "username" setget SetUsername
@@ -52,6 +46,7 @@ var id setget SetID
 const walk = 0
 const flail = 1
 
+#################################
 ##Networking
 export(bool) var puppet = false setget SetRemotePlayer
 puppet var puppet_translation
@@ -60,8 +55,11 @@ puppet var puppet_jump
 puppet var puppet_animation_speed
 puppet var puppet_motion
 
+var network = false setget SetNetwork
 var nonetwork = ! network
 
+#################################
+# Init functions
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	orientation = $KinematicBody/Model.global_transform
@@ -86,6 +84,23 @@ func set_player_group(enable=true): # for local only
 		printd("remove avatar(%s), puppet(%s) from %s group" % [get_path(), puppet, pg])
 		remove_from_group(pg)
 
+func SetID(var _id):
+	id = _id
+
+func SetUsername(var _username):
+	username = _username
+	$KinematicBody/Nametag/Viewport/Username.text = username
+
+func SetPScale(scale):
+	if scale < 0.01 or scale > 100:
+		return
+	for k in SpeedFeed:
+		match k:
+			_:
+				self.set(k, SpeedFeed[k] * scale)
+
+#################################
+# _process functions
 func _input(event):
 	if (event is InputEventMouseMotion):
 		look_direction.x -= event.relative.x * mouse_sensitivity
@@ -125,7 +140,6 @@ func _physics_process(delta):
 		HandleMovement()
 		SaveRPoints(delta)
 
-var in_air_accomulate = 0
 func HandleOnGround(delta):
 	if ($KinematicBody/OnGround.is_colliding() or $KinematicBody/OnGround2.is_colliding()) and in_air:
 		in_air = false
@@ -194,6 +208,8 @@ func HandleControls(var delta):
 		var slide_direction = velocity_direction.slide(ground_normal)
 		h_velocity = slide_direction * h_velocity.length()
 		$KinematicBody/OnGround2.cast_to = (Vector3(0.0, -1.0, 0.0) - velocity_direction).normalized() * 0.05
+		if options.debug:
+			CreateDebugLine(Vector3(0.0, 0.03, 0.0), slide_direction)
 		
 # 		printd("h_velocity(%s) = (orientation.origin(%s) / delta(%s))" % [h_velocity, orientation.origin, delta])
 		velocity.x = h_velocity.x
@@ -213,13 +229,8 @@ func HandleControls(var delta):
 	if motion_target != Vector2():
 		$KinematicBody/Model.global_transform.basis = orientation.basis
 
-func CreateDebugLine(var from, var to):
-	$KinematicBody/ImmediateGeometry.clear()
-	$KinematicBody/ImmediateGeometry.begin(Mesh.PRIMITIVE_LINE_STRIP, null)
-	$KinematicBody/ImmediateGeometry.add_vertex(from)
-	$KinematicBody/ImmediateGeometry.add_vertex(to)
-	$KinematicBody/ImmediateGeometry.end()
-
+#################################
+# networking functions
 func UpdateNetworking():
 	if nonetwork:
 		return
@@ -242,13 +253,6 @@ func UpdateNetworking():
 		rset_unreliable("puppet_animation_speed", animation_speed)
 	else:
 		printd("UpdateNetworking: not a remote player(%s) and not a network_master and network(%s)" % [get_path(), network])
-
-func SetID(var _id):
-	id = _id
-
-func SetUsername(var _username):
-	username = _username
-	$KinematicBody/Nametag/Viewport/Username.text = username
 
 func SetNetwork(var enabled):
 	network = enabled
@@ -277,6 +281,15 @@ func SetRemotePlayer(enable):
 	else:
 		$KinematicBody/Nametag.visible = true
 		$Camera.current = false
+
+#################################
+# debug functions
+func CreateDebugLine(var from, var to):
+	$KinematicBody/ImmediateGeometry.clear()
+	$KinematicBody/ImmediateGeometry.begin(Mesh.PRIMITIVE_LINE_STRIP, null)
+	$KinematicBody/ImmediateGeometry.add_vertex(from)
+	$KinematicBody/ImmediateGeometry.add_vertex(to)
+	$KinematicBody/ImmediateGeometry.end()
 
 ## Restore Positions
 var rp_max_points = 100
