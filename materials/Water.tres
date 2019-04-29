@@ -19,4 +19,3 @@ rim_tint = 0.5
 uv1_scale = Vector3( 3, 6, 3 )
 uv1_offset = Vector3( 0.451334, 0.180534, 0.2708 )
 uv1_triplanar = true
-

@@ -5,4 +5,3 @@ resource_name = "MidnightBlue"
 params_cull_mode = 2
 albedo_color = Color( 0.0235294, 0.207843, 0.341176, 1 )
 roughness = 0.8
-

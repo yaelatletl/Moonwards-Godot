@@ -4,4 +4,3 @@
 resource_name = "White"
 params_cull_mode = 2
 roughness = 0.8
-

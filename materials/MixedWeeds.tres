@@ -11,4 +11,3 @@ normal_scale = 1.0
 normal_texture = ExtResource( 2 )
 uv1_scale = Vector3( 5, 5, 5 )
 uv1_triplanar = true
-
