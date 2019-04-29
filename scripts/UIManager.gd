@@ -155,16 +155,16 @@ func join_server(scene):
 	var player_data = {
 		username = options.get("user_settings", "name", namelist.get_name())
 	}
-	gamestate.player_register(player_data, true) #local player
+	gamestate.player_register(player_data, true, "avatar") #local player
 	gamestate.load_level(scene)
 	gamestate.client_server_connect(options.join_server_host)
 
 func run_local(scene):
 	if scene == null or scene == "":
 		scene = options.scenes.default_run_scene
-# 	
-# 	var player_data = {
-# 		username = options.get("user_settings", "name", namelist.get_name())
-# 	}
-# 	gamestate.player_register(player_data, true) #local player
+
+	var player_data = {
+		username = options.get("user_settings", "name", namelist.get_name())
+	}
+	gamestate.player_register(player_data, true, "avatar_local") #local player
 	gamestate.load_level(scene)
