@@ -26,10 +26,10 @@ func _ready():
 func _input(event):
 	if not enabled:
 		return
-	if event.is_action("scroll_up"):
+	if event.is_action("scroll_up") and not Input.is_action_pressed("move_run"):
 		if camera_target.translation.z > 0.15:
 			camera_target.translation.z -= zoom_step_size
-	if event.is_action("scroll_down"):
+	if event.is_action("scroll_down") and not Input.is_action_pressed("move_run"):
 		if camera_target.translation.z < 1.0:
 			camera_target.translation.z += zoom_step_size
 

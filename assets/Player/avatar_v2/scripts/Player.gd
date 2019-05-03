@@ -38,7 +38,7 @@ var max_down_aim_angle = 55.0
 var root_motion = Transform()
 var orientation = Transform()
 var velocity = Vector3()
-var running = false
+var animation_speed = 1.0
 var in_air = false
 var land = false
 var jumping = false
@@ -57,7 +57,7 @@ export(bool) var puppet = false setget SetRemotePlayer
 puppet var puppet_translation
 puppet var puppet_rotation
 puppet var puppet_jump
-puppet var puppet_run
+puppet var puppet_animation_speed
 puppet var puppet_motion
 
 var nonetwork = ! network
@@ -103,7 +103,11 @@ func _input(event):
 		camera_control.Rotate(look_direction)
 	if event.is_action_pressed("player_back_in_time"):
 		PopRPoint()
-
+	
+	if event.is_action_pressed("scroll_up") and Input.is_action_pressed("move_run") and animation_speed < 3.0:
+		animation_speed += 0.25
+	elif event.is_action_pressed("scroll_down") and Input.is_action_pressed("move_run") and animation_speed > 0.5:
+		animation_speed -= 0.25
 
 func Jump():
 	velocity.y += JUMP_SPEED
@@ -134,10 +138,7 @@ func HandleOnGround(delta):
 
 func HandleMovement():
 	$KinematicBody/AnimationTree["parameters/Walk/blend_position"] = motion
-	if running:
-		$KinematicBody/AnimationTree["parameters/MovementSpeed/scale"] = 3.0
-	else:
-		$KinematicBody/AnimationTree["parameters/MovementSpeed/scale"] = 1.0
+	$KinematicBody/AnimationTree["parameters/MovementSpeed/scale"] = animation_speed
 
 func HandleControls(var delta):
 	if puppet:
@@ -170,12 +171,6 @@ func HandleControls(var delta):
 # 		printd("%s = motion.linear_interpolate(%s, %s * %s)" % [motion, motion_target, MOTION_INTERPOLATE_SPEED, delta])
 	else:
 		pass
-	
-	#Multiply the movement animation when running. The animation takes care of the actual movement speed.
-	if Input.is_action_pressed("move_run"):
-		running = true
-	else:
-		running = false
 	
 	if $KinematicBody/OnGround2.is_colliding():
 		ground_normal = $KinematicBody/OnGround2.get_collision_normal()
@@ -237,14 +232,14 @@ func UpdateNetworking():
 			jumping = puppet_jump
 		if puppet_motion != null:
 			motion = puppet_motion
-		if puppet_run != null:
-			running = puppet_run
+		if puppet_animation_speed != null:
+			animation_speed = puppet_animation_speed
 	elif is_network_master():
 		rset_unreliable("puppet_translation", $KinematicBody.global_transform.origin)
 		rset_unreliable("puppet_rotation", $KinematicBody/Model.global_transform.basis)
 		rset_unreliable("puppet_motion", motion)
 		rset_unreliable("puppet_jump", jumping)
-		rset_unreliable("puppet_run", running)
+		rset_unreliable("puppet_animation_speed", animation_speed)
 	else:
 		printd("UpdateNetworking: not a remote player(%s) and not a network_master and network(%s)" % [get_path(), network])
 
