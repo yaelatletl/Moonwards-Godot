@@ -105,7 +105,6 @@ func _input(event):
 
 
 func Jump():
-	jumping = false
 	velocity.y += JUMP_SPEED
 
 func _physics_process(delta):
@@ -122,19 +121,18 @@ func _physics_process(delta):
 
 var in_air_accomulate = 0
 func HandleOnGround(delta):
-	if $KinematicBody/OnGround.is_colliding() and in_air:
+	if $KinematicBody/OnGround.is_colliding() and $KinematicBody/OnGround2.is_colliding() and in_air:
 		in_air = false
 		land = true
 		in_air_accomulate = 0
-	elif not $KinematicBody/OnGround.is_colliding() and not in_air:
+	elif not $KinematicBody/OnGround.is_colliding() and not $KinematicBody/OnGround2.is_colliding() and not in_air:
 		in_air_accomulate += delta
 		if in_air_accomulate >= IN_AIR_DELTA:
 			in_air = true
+			jumping = false
 
 func HandleMovement():
 	$KinematicBody/AnimationTree["parameters/Walk/blend_position"] = motion
-	if jumping:
-		$KinematicBody/AnimationTree["parameters/Jump/active"] = true
 	if running:
 		$KinematicBody/AnimationTree["parameters/MovementSpeed/scale"] = 3.0
 	else:
@@ -148,6 +146,7 @@ func HandleControls(var delta):
 	
 	if Input.is_action_just_pressed("jump") and not in_air and not jumping:
 		jumping = true
+		$KinematicBody/AnimationTree["parameters/Jump/active"] = true
 	
 	if in_air and movementstate == walk:
 		$KinematicBody/AnimationTree["parameters/MovementState/current"] = flail
@@ -173,7 +172,10 @@ func HandleControls(var delta):
 	else:
 		running = false
 	
-	ground_normal = $KinematicBody/OnGround.get_collision_normal()
+	if $KinematicBody/OnGround2.is_colliding():
+		ground_normal = $KinematicBody/OnGround2.get_collision_normal()
+	else:
+		ground_normal = $KinematicBody/OnGround.get_collision_normal()
 	
 	#Update the model rotation based on the camera look direction.
 	var target_direction = -camera_control.camera.global_transform.basis.z
@@ -188,28 +190,21 @@ func HandleControls(var delta):
 		orientation *= root_motion
 		
 		var h_velocity = (orientation.origin / delta) * 0.1 * SPEED_SCALE
-		
-		if not in_air:
-			var velocity_direction = h_velocity.normalized()
-			var slide_direction = velocity_direction.slide(ground_normal)
-			h_velocity = slide_direction * h_velocity.length()
-			CreateDebugLine(Vector3(0.0, 0.03, 0.0), slide_direction)
+		var velocity_direction = h_velocity.normalized()
+		var slide_direction = velocity_direction.slide(ground_normal)
+		h_velocity = slide_direction * h_velocity.length()
+		$KinematicBody/OnGround2.cast_to = (Vector3(0.0, -1.0, 0.0) - velocity_direction).normalized() * 0.05
 		
 # 		printd("h_velocity(%s) = (orientation.origin(%s) / delta(%s))" % [h_velocity, orientation.origin, delta])
 		velocity.x = h_velocity.x
+		if not jumping:
+			velocity.y = h_velocity.y
 		velocity.z = h_velocity.z
 	
 	velocity += GRAVITY * delta
 	
-	if in_air or Vector3(0.0, -1.0, 0.0).cross(-ground_normal).length() > 0.85:
-#		CreateDebugLine(Vector3(0.0, 0.03, 0.0), Vector3(0.0, -1.0, 0.0) * 0.06)
-		$KinematicBody/OnGround.cast_to = Vector3(0.0, -1.0, 0.0) * 0.06
-	else:
-#		CreateDebugLine(Vector3(0.0, 0.03, 0.0), -ground_normal * 0.06)
-		$KinematicBody/OnGround.cast_to = -ground_normal * 0.06
-	
 	#The true is for stopping on a slope.
-	velocity = $KinematicBody.move_and_slide(velocity, Vector3(0,1,0), true)
+	velocity = $KinematicBody.move_and_slide(velocity, Vector3(0,1,0), motion_target == Vector2())
 	
 	orientation.origin = Vector3()
 	orientation = orientation.orthonormalized()
