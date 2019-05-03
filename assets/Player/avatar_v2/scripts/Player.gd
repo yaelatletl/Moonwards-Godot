@@ -42,6 +42,7 @@ var running = false
 var in_air = false
 var land = false
 var jumping = false
+var jump_timeout = 0.0
 var network = false setget SetNetwork
 var flies = false
 var movementstate = walk
@@ -106,6 +107,7 @@ func _input(event):
 
 func Jump():
 	velocity.y += JUMP_SPEED
+	jump_timeout = 1.0
 
 func _physics_process(delta):
 	if puppet:
@@ -129,7 +131,6 @@ func HandleOnGround(delta):
 		in_air_accomulate += delta
 		if in_air_accomulate >= IN_AIR_DELTA:
 			in_air = true
-			jumping = false
 
 func HandleMovement():
 	$KinematicBody/AnimationTree["parameters/Walk/blend_position"] = motion
@@ -144,7 +145,11 @@ func HandleControls(var delta):
 	var motion_target = Vector2( 	Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 									Input.get_action_strength("move_forwards") - Input.get_action_strength("move_backwards"))
 	
-	if Input.is_action_just_pressed("jump") and not in_air and not jumping:
+	if jump_timeout > 0.0:
+		jump_timeout -= delta
+		if jump_timeout <= 0.0:
+			jumping = false
+	elif Input.is_action_just_pressed("jump") and not in_air and not jumping:
 		jumping = true
 		$KinematicBody/AnimationTree["parameters/Jump/active"] = true
 	
