@@ -19,6 +19,9 @@ func _ready():
 	else:
 		print("CameraControl:: camera found, enabled")
 		camera.far = 10000
+		camera.global_transform.origin = camera_target.global_transform.origin
+		current_look_position = look_target.global_transform.origin
+		camera.look_at(current_look_position, Vector3(0,1,0))
 
 func _input(event):
 	if not enabled:
