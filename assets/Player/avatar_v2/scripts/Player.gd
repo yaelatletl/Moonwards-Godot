@@ -121,7 +121,7 @@ func _physics_process(delta):
 
 var in_air_accomulate = 0
 func HandleOnGround(delta):
-	if $KinematicBody/OnGround.is_colliding() and $KinematicBody/OnGround2.is_colliding() and in_air:
+	if ($KinematicBody/OnGround.is_colliding() or $KinematicBody/OnGround2.is_colliding()) and in_air:
 		in_air = false
 		land = true
 		in_air_accomulate = 0
