@@ -147,7 +147,8 @@ var player_scene = preload("res://assets/Player/avatar_v2/player.tscn")
 
 #Join server host
 #var join_server_host = "127.0.0.1"
-var join_server_host = "moonwards.hopto.org"
+#var join_server_host = "moonwards.hopto.org"
+var join_server_host = "mainhabs.moonwards.com"
 
 ############################
 ############################
