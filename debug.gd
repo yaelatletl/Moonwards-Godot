@@ -101,7 +101,7 @@ func camera_ready(force=false):
 	if camera_ready_oldcamera:
 		active = true
 	if not active or force:
-		var camera = ResourceLoader.load("res://assets/Player/player_flycamera.tscn").instance()
+		var camera = ResourceLoader.load("res://assets/Player/flycamera/player.tscn").instance()
 		root.add_child(camera)
 		camera_ready_path = root.get_path_to(camera)
 		camera.get_node("Camera").current = true
