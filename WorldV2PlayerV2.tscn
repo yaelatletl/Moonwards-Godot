@@ -2,7 +2,7 @@
 
 [ext_resource path="res://world_environments/StarrySky.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/TerrainWithMarkers.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/Player/avatar_v2/LocalPlayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/Player/avatar_v2/player.tscn" type="PackedScene" id=3]
 
 [node name="world" type="Spatial"]
 
@@ -24,15 +24,6 @@ transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.99731
 
 [node name="LocalPlayer" parent="spawn_points/0" instance=ExtResource( 3 )]
 physics_scale = 0.1
-
-[node name="1" type="Position3D" parent="spawn_points"]
-transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -51.2514, -1922.5, 54.5361 )
-
-[node name="2" type="Position3D" parent="spawn_points"]
-transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -51.2514, -1922.5, 51.2183 )
-
-[node name="3" type="Position3D" parent="spawn_points"]
-transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -51.2514, -1922.5, 57.8166 )
 
 [node name="players" type="Spatial" parent="."]
 

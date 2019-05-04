@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ScooterRamps_ScooterRamp_1.mesh" type="ArrayMesh" id=2]
 [ext_resource path="res://image_textures/LavastoneTexDark2.jpg" type="Texture" id=3]
 [ext_resource path="res://image_textures/Moss1.jpg" type="Texture" id=4]
-[ext_resource path="res://assets/Player/avatar_v2/LocalPlayer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/Player/avatar_v2/player.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.376471, 0.729412, 0.92549, 1 )
