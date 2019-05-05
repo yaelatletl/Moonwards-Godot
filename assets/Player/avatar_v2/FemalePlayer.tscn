@@ -2591,4 +2591,3 @@ anims/HiArm = SubResource( 9 )
 anims/Jump = SubResource( 10 )
 anims/Land = SubResource( 11 )
 anims/Neutral = SubResource( 12 )
-

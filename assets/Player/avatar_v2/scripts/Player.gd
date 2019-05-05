@@ -2,6 +2,7 @@ extends Spatial
 
 var camera_control_path = "KinematicBody/PlayerCamera"
 var camera_control
+var stairs_class = preload("res://_tests/Stairs/Stairs.gd")
 
 var MOTION_INTERPOLATE_SPEED = 10
 var ROTATION_INTERPOLATE_SPEED = 10
@@ -39,12 +40,17 @@ var land = false
 var jumping = false
 var jump_timeout = 0.0
 var flies = false
+var climbing_stairs = false
+var stairs = null
+var climb_point = 0
+var climb_progress = 0.0
 var movementstate = walk
 var username = "username" setget SetUsername
 var id setget SetID
 
 const walk = 0
 const flail = 1
+const climb = 2
 
 #################################
 ##Networking
@@ -119,6 +125,12 @@ func _input(event):
 	if event.is_action_pressed("player_back_in_time"):
 		PopRPoint()
 	
+	if event.is_action_pressed("use"):
+		if not climbing_stairs:
+			DoStairsCheck()
+		else:
+			StopStairsClimb()
+	
 	if event.is_action_pressed("scroll_up") and Input.is_action_pressed("move_run") and animation_speed < 3.0:
 		animation_speed += 0.25
 	elif event.is_action_pressed("scroll_down") and Input.is_action_pressed("move_run") and animation_speed > 0.5:
@@ -145,7 +157,7 @@ func HandleOnGround(delta):
 		in_air = false
 		land = true
 		in_air_accomulate = 0
-	elif not $KinematicBody/OnGround.is_colliding() and not $KinematicBody/OnGround2.is_colliding() and not in_air:
+	elif not $KinematicBody/OnGround.is_colliding() and not $KinematicBody/OnGround2.is_colliding() and not in_air and not climbing_stairs:
 		in_air_accomulate += delta
 		if in_air_accomulate >= IN_AIR_DELTA:
 			in_air = true
@@ -167,6 +179,10 @@ func HandleControls(var delta):
 	elif Input.is_action_just_pressed("jump") and not in_air and not jumping:
 		jumping = true
 		$KinematicBody/AnimationTree["parameters/Jump/active"] = true
+	
+	if climbing_stairs:
+		UpdateClimbingStairs(delta)
+		return
 	
 	if in_air and movementstate == walk:
 		$KinematicBody/AnimationTree["parameters/MovementState/current"] = flail
@@ -228,6 +244,116 @@ func HandleControls(var delta):
 	#The model direction is calculated with both camera direction and animation movement.
 	if motion_target != Vector2():
 		$KinematicBody/Model.global_transform.basis = orientation.basis
+
+func UpdateClimbingStairs(var delta):
+	var kb_pos = $KinematicBody.global_transform.origin
+	
+	var input_direction = (Input.get_action_strength("move_forwards") - Input.get_action_strength("move_backwards"))
+	climb_progress += input_direction * delta * 2.0
+	
+	#Check for next climb point.
+	if climb_point + 1 < stairs.climb_points.size() and kb_pos.y > stairs.climb_points[climb_point].y:
+		climb_point += 1
+		print(climb_point)
+	#Check for previous climb point.
+	elif climb_point - 1 >= 0 and kb_pos.y < stairs.climb_points[climb_point - 1].y:
+		climb_point -= 1
+		print(climb_point)
+	
+	if climb_point == stairs.climb_points.size() - 1 and kb_pos.y > stairs.climb_points[climb_point].y and not input_direction <= 0.0:
+		$KinematicBody/AnimationTree["parameters/MovementState/current"] = walk
+		
+		var motion_target = Vector2( 	Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
+										Input.get_action_strength("move_forwards") - Input.get_action_strength("move_backwards"))
+		motion = motion.linear_interpolate(motion_target, MOTION_INTERPOLATE_SPEED * delta)
+		
+		#Update the model rotation based on the camera look direction.
+		var target_direction = -camera_control.camera.global_transform.basis.z
+		target_direction.y = 0.0
+	
+		var target_transform = $KinematicBody/Model.global_transform.looking_at($KinematicBody/Model.global_transform.origin - target_direction, Vector3(0, 1, 0))
+		orientation.basis = $KinematicBody/Model.global_transform.basis.slerp(target_transform.basis, delta * ROTATION_INTERPOLATE_SPEED)
+	
+		#Retrieve the root motion from the animationtree so it can be applied to the KinematicBody.
+		root_motion = $KinematicBody/AnimationTree.get_root_motion_transform()
+		orientation *= root_motion
+		
+		var h_velocity = (orientation.origin / delta) * 0.1 * SPEED_SCALE
+		
+		velocity.x = h_velocity.x
+		velocity.y = 0.0
+		velocity.z = h_velocity.z
+		
+		orientation.origin = Vector3()
+		orientation = orientation.orthonormalized()
+		if motion_target != Vector2():
+			$KinematicBody/Model.global_transform.basis = orientation.basis
+		
+		#Stop climbing at the top when too far away from the stairs.
+		if kb_pos.distance_to(stairs.climb_points[climb_point]) > 0.12:
+			StopStairsClimb()
+	else:
+		$KinematicBody/AnimationTree["parameters/MovementState/current"] = climb
+		#Automatically move towards the climbing point horizontally.
+		var flat_velocity = (stairs.climb_points[climb_point] - kb_pos) * delta * 150.0
+		flat_velocity.y = 0.0
+		velocity = flat_velocity
+		velocity += Vector3(0, input_direction * delta * 3.0, 0)
+	
+	#When moving down and at the bottom of the stairs, then let go.
+	if input_direction < 0.0 and kb_pos.y < stairs.climb_points[0].y:
+		StopStairsClimb()
+	
+	if climb_progress > 2.0:
+		climb_progress = 0.0
+	elif climb_progress < 0.0:
+		climb_progress = 2.0
+	
+	$KinematicBody/AnimationTree["parameters/ClimbProgress/seek_position"] = climb_progress
+	
+	velocity = $KinematicBody.move_and_slide(velocity, Vector3(0,1,0), false)
+
+func StopStairsClimb():
+	climbing_stairs = false
+	stairs = null
+	climb_point = -1
+	$KinematicBody/AnimationTree["parameters/MovementState/current"] = walk
+
+func DoStairsCheck():
+	var space_state = get_world().direct_space_state
+	var params = PhysicsShapeQueryParameters.new()
+	var sphere = SphereShape.new()
+	var kb_pos = $KinematicBody.global_transform.origin
+	
+	sphere.radius = 0.5
+	params.set_shape(sphere)
+	params.collide_with_areas = true
+	params.collide_with_bodies = false
+	params.transform.origin = kb_pos
+	
+	var results = space_state.intersect_shape(params)
+	#Remove all Area objects that are not stairs.
+	for result in results:
+		if not result.collider is stairs_class:
+			results.erase(result)
+	
+	#Get the closest stairs to start climbing.
+	var closest_stairs = null
+	for result in results:
+		if closest_stairs == null or result.collider.global_transform.origin.distance_to(kb_pos) < closest_stairs.global_transform.origin.distance_to(kb_pos):
+			closest_stairs = result.collider
+	
+	if closest_stairs != null:
+		var target_transform = $KinematicBody/Model.global_transform.looking_at($KinematicBody/Model.global_transform.origin - closest_stairs.GetLookDirection(kb_pos), Vector3(0, 1, 0))
+		$KinematicBody/Model.global_transform.basis = target_transform.basis
+		orientation.basis = target_transform.basis
+		
+		climbing_stairs = true
+		stairs = closest_stairs
+		#Get the closest step to start climbing from.
+		for index in stairs.climb_points.size():
+			if climb_point == -1 or stairs.climb_points[index].distance_to(kb_pos) < stairs.climb_points[climb_point].distance_to(kb_pos):
+				climb_point = index
 
 #################################
 # networking functions
