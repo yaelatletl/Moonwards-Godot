@@ -28,4 +28,3 @@ physics_scale = 0.1
 [node name="players" type="Spatial" parent="."]
 
 [node name="scene_id_30160" type="Spatial" parent="."]
-

@@ -10,4 +10,3 @@ albedo_texture = ExtResource( 1 )
 roughness = 0.6
 uv1_scale = Vector3( 0.3, 0.3, 0.3 )
 uv1_triplanar = true
-

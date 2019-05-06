@@ -6,4 +6,3 @@
 resource_name = "ICG_Baked"
 albedo_color = Color( 0.903545, 0.903545, 0.903545, 1 )
 albedo_texture = ExtResource( 1 )
-

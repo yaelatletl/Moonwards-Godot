@@ -4,4 +4,3 @@
 resource_name = "Fused-Surface"
 params_cull_mode = 2
 albedo_color = Color( 0.8, 0.8, 0.8, 1 )
-
