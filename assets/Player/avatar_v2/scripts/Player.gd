@@ -44,6 +44,7 @@ var climbing_stairs = false
 var stairs = null
 var climb_point = 0
 var climb_progress = 0.0
+var climb_direction = 1.0
 var movementstate = walk
 var username = "username" setget SetUsername
 var id setget SetID
@@ -176,7 +177,7 @@ func HandleControls(var delta):
 		jump_timeout -= delta
 		if jump_timeout <= 0.0:
 			jumping = false
-	elif Input.is_action_just_pressed("jump") and not in_air and not jumping:
+	elif Input.is_action_just_pressed("jump") and not in_air and not jumping and not climbing_stairs:
 		jumping = true
 		$KinematicBody/AnimationTree["parameters/Jump/active"] = true
 	
@@ -249,16 +250,19 @@ func UpdateClimbingStairs(var delta):
 	var kb_pos = $KinematicBody.global_transform.origin
 	
 	var input_direction = (Input.get_action_strength("move_forwards") - Input.get_action_strength("move_backwards"))
-	climb_progress += input_direction * delta * 2.0
+#	climb_progress += abs(input_direction) * delta * 2.0
+	
+	if climb_point % 2 == 0:
+		climb_progress = abs((2.0 if climb_direction > 0.0 else 0.0) - abs((kb_pos.y - stairs.climb_points[climb_point].y) / stairs.step_size))
+	else:
+		climb_progress = abs((2.0 if climb_direction > 0.0 else 0.0) - (1.0 + abs(kb_pos.y - stairs.climb_points[climb_point].y) / stairs.step_size))
 	
 	#Check for next climb point.
 	if climb_point + 1 < stairs.climb_points.size() and kb_pos.y > stairs.climb_points[climb_point].y:
 		climb_point += 1
-		print(climb_point)
 	#Check for previous climb point.
 	elif climb_point - 1 >= 0 and kb_pos.y < stairs.climb_points[climb_point - 1].y:
 		climb_point -= 1
-		print(climb_point)
 	
 	if climb_point == stairs.climb_points.size() - 1 and kb_pos.y > stairs.climb_points[climb_point].y and not input_direction <= 0.0:
 		$KinematicBody/AnimationTree["parameters/MovementState/current"] = walk
@@ -299,17 +303,27 @@ func UpdateClimbingStairs(var delta):
 		flat_velocity.y = 0.0
 		velocity = flat_velocity
 		velocity += Vector3(0, input_direction * delta * 3.0, 0)
+		var target_transform = $KinematicBody/Model.global_transform.looking_at($KinematicBody/Model.global_transform.origin - stairs.GetLookDirection(kb_pos), Vector3(0, 1, 0))
+		$KinematicBody/Model.global_transform.basis = target_transform.basis
+		orientation.basis = target_transform.basis
 	
 	#When moving down and at the bottom of the stairs, then let go.
 	if input_direction < 0.0 and kb_pos.y < stairs.climb_points[0].y:
 		StopStairsClimb()
 	
-	if climb_progress > 2.0:
-		climb_progress = 0.0
-	elif climb_progress < 0.0:
-		climb_progress = 2.0
+	if input_direction > 0.0:
+		if $KinematicBody/AnimationTree["parameters/ClimbDirection/current"] == 1:
+			$KinematicBody/AnimationTree["parameters/ClimbDirection/current"] = 0
+			climb_direction = 1.0
+	elif input_direction < 0.0:
+		if $KinematicBody/AnimationTree["parameters/ClimbDirection/current"] == 0:
+			climb_direction = -1.0
+			$KinematicBody/AnimationTree["parameters/ClimbDirection/current"] = 1
 	
-	$KinematicBody/AnimationTree["parameters/ClimbProgress/seek_position"] = climb_progress
+	if climb_direction == 1.0:
+		$KinematicBody/AnimationTree["parameters/ClimbProgressUp/seek_position"] = climb_progress
+	else:
+		$KinematicBody/AnimationTree["parameters/ClimbProgressDown/seek_position"] = climb_progress
 	
 	velocity = $KinematicBody.move_and_slide(velocity, Vector3(0,1,0), false)
 
@@ -325,7 +339,7 @@ func DoStairsCheck():
 	var sphere = SphereShape.new()
 	var kb_pos = $KinematicBody.global_transform.origin
 	
-	sphere.radius = 0.5
+	sphere.radius = 0.1
 	params.set_shape(sphere)
 	params.collide_with_areas = true
 	params.collide_with_bodies = false
@@ -344,10 +358,6 @@ func DoStairsCheck():
 			closest_stairs = result.collider
 	
 	if closest_stairs != null:
-		var target_transform = $KinematicBody/Model.global_transform.looking_at($KinematicBody/Model.global_transform.origin - closest_stairs.GetLookDirection(kb_pos), Vector3(0, 1, 0))
-		$KinematicBody/Model.global_transform.basis = target_transform.basis
-		orientation.basis = target_transform.basis
-		
 		climbing_stairs = true
 		stairs = closest_stairs
 		#Get the closest step to start climbing from.

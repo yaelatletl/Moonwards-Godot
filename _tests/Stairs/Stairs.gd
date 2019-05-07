@@ -1,17 +1,17 @@
 extends Area
 
 var climb_points = []
+var step_size = 0.0535
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var step_size = 0.053
 	var step_position = $CollisionShape.global_transform.origin
 	var max_y = step_position.y + $CollisionShape.shape.extents.y
 	step_position.y -= $CollisionShape.shape.extents.y
 	
 	while true:
 		climb_points.append(step_position)
-		CreateDebugObject(step_position)
+#		CreateDebugObject(step_position)
 		step_position.y += step_size
 		if step_position.y > max_y:
 			break
