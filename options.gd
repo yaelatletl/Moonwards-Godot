@@ -36,9 +36,6 @@ var scenes = {
 	default_multiplayer_headless_scene = "WorldTest",
 	default_multiplayer_join_server = "WorldV2",
 #	default_multiplayer_join_server = "WorldTest",
-	World = {
-		path = "res://World.tscn"
-	},
 	WorldV2Player = {
 		path = "res://WorldV2Player.tscn",
 		hint = "World with player scene"
