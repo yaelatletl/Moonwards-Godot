@@ -11,4 +11,4 @@ fi
 echo "search in" $DIR
 
 #find $DIR -iname '*.tscn' -iname '*.gd' -type f -print0 | xargs -0 echo grep $1
-find $DIR \( -iname '*.tscn' -or -iname '*.gd' \) -type f -print0 | xargs -0 grep "$1"
+find $DIR \( -iname '*.tscn' -or -iname '*.gd' -or -iname '*.godot' \) -type f -print0 | xargs -0 grep "$1"
