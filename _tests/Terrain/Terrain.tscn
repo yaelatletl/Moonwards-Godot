@@ -5,7 +5,7 @@
 [ext_resource path="res://image_textures/Colored-Lalande2.jpg" type="Texture" id=3]
 [ext_resource path="res://image_textures/LavastoneTex2-4096.jpg" type="Texture" id=4]
 [ext_resource path="res://image_textures/Normal-Lalande.jpg" type="Texture" id=5]
-[ext_resource path="res://assets/AthleteControlled.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/Player/athlete_rover/player.tscn" type="PackedScene" id=6]
 
 [sub_resource type="PanoramaSky" id=1]
 panorama = ExtResource( 1 )
