@@ -43,10 +43,6 @@ var scenes = {
 		path = "res://WorldV2Player.tscn",
 		hint = "World with player scene"
 	},
-	WorldAC = {
-		path = "res://World.tscn",
-		hint = "World with active camera"
-	},
 	WorldV2 = {
 		path = "res://WorldV2.tscn"
 	},
