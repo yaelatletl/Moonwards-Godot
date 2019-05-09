@@ -361,7 +361,7 @@ func DoStairsCheck():
 		climbing_stairs = true
 		stairs = closest_stairs
 		#Get the closest step to start climbing from.
-ee		for index in stairs.climb_points.size():
+		for index in stairs.climb_points.size():
 			if climb_point == -1 or stairs.climb_points[index].distance_to(kb_pos) < stairs.climb_points[climb_point].distance_to(kb_pos):
 				climb_point = index
 
