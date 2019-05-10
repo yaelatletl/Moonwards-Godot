@@ -7,4 +7,3 @@ albedo_color = Color( 0.192157, 0.0156863, 0.0196078, 1 )
 distance_fade_mode = 3
 distance_fade_min_distance = 0.1
 distance_fade_max_distance = 0.2
-

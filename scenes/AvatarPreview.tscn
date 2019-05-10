@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scripts/AvatarPreview.gd" type="Script" id=1]
+[ext_resource path="res://model_assets/Avatars/FemalePlayer.dae" type="PackedScene" id=2]
+[ext_resource path="res://model_assets/Avatars/MalePlayer.dae" type="PackedScene" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "CasualStance1"
+
+[sub_resource type="AnimationNodeBlendTree" id=7]
+nodes/Animation/node = SubResource( 6 )
+nodes/Animation/position = Vector2( 280, 80 )
+nodes/output/position = Vector2( 600, 60 )
+node_connections = [ "output", 0, "Animation" ]
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "CasualStance"
+
+[sub_resource type="AnimationNodeBlendTree" id=9]
+nodes/Animation/node = SubResource( 8 )
+nodes/Animation/position = Vector2( 220, 100 )
+nodes/output/position = Vector2( 420, 140 )
+node_connections = [ "output", 0, "Animation" ]
+
+[sub_resource type="ProceduralSky" id=4]
+
+[sub_resource type="Environment" id=5]
+background_mode = 2
+background_sky = SubResource( 4 )
+
+[node name="AvatarPreview" type="Spatial"]
+script = ExtResource( 1 )
+base_material = SubResource( 1 )
+
+[node name="Female" parent="." instance=ExtResource( 2 )]
+
+[node name="AnimationTree" type="AnimationTree" parent="Female"]
+tree_root = SubResource( 7 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+
+[node name="Male" parent="." instance=ExtResource( 3 )]
+
+[node name="AnimationTree" type="AnimationTree" parent="Male"]
+tree_root = SubResource( 9 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0745523, 0.149967 )
+current = true
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.463926, -0.82256, 0.328889, -0.0257623, 0.358575, 0.933145, -0.8855, -0.441383, 0.145161, 0, 0.448935, 0 )
+visible = false
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 5 )
+
+[editable path="Female"]
+
+[editable path="Male"]

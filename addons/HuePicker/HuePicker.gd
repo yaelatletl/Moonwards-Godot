@@ -30,7 +30,7 @@ func color_changed(value):
 	#Plugins, so try to figure out a way to determine that we're SPECIFICALLY
 	#editing this property from the Inspector, somehow.  Hack!!!
 	if Engine.editor_hint == true and $Hue_Circle != null: 
-		$Hue_Circle._sethue(value.h, self)
+		$Hue_Circle._sethue(value.h)
 	
 	emit_signal('color_changed', value)
 
@@ -77,7 +77,7 @@ func _on_ColorPicker_color_changed(color):
 	#	#Prevent from accidentally resetting the internal hue if color's out of range
 	var c = Color(color.r, color.g, color.b, 1)
 	if c != ColorN('black', 1) and c != ColorN('white', 1) and c.s !=0:
-		$Hue_Circle._sethue(self.color.h, self)
+		$Hue_Circle._sethue(self.color.h)
 
 	self.color = color
 	$Hue_Circle.reposition_hue_indicator()
