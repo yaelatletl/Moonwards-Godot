@@ -6,33 +6,47 @@ var update_list_found = false
 var done_updating = false
 var download_queue = []
 var next_update = true
+var updater_started = false
+var updater_enabled = false
 
-func _ready():
-	AddText("Starting Updater...")
-	CheckForUpdates()
-	set_process(false)
-	if not update_list_found:
-		AddText("Updater Done")
+signal receive_update_message
 
 func _process(delta):
-	if download_queue.size() == 0:
+	if not updater_enabled:
+		set_process(false)
+		return
+	if get_tree() != null and not updater_started:
+		updater_started = true
+		AddText("Starting Updater...")
+		CheckForUpdates()
+		set_process(false)
+		ReadTestFile()
+		if not update_list_found:
+			AddText("Updater Done")
+	elif download_queue.size() == 0:
 		set_process(false)
 		AddText("Updater Done")
 		LoadPackages()
-		ReadTestFile()
 	elif next_update:
 		AddText("Getting update " + download_queue[0])
 		next_update = false
-		var error = request.request(server_url + download_queue[0])
+		var file = File.new()
+		var packed_scene_path = "user://updates/" + download_queue[0]
 		
-		if error != OK:
-			AddText("Error requesting update " + download_queue[0])
+		if file.file_exists(packed_scene_path):
+			AddText("Packed scene already exists. Skipping download.")
 			next_update = true
 			download_queue.remove(0)
+		else:
+			var error = request.request(server_url + download_queue[0])
+			if error != OK:
+				AddText("Error requesting update " + download_queue[0])
+				next_update = true
+				download_queue.remove(0)
 
 func LoadPackages():
 	var directory = Directory.new()
-	if directory.open("res://updates/") == OK:
+	if directory.open("user://updates/") == OK:
 		directory.list_dir_begin()
 		#Go through the whole updates folder and find the files.
 		var file_name = directory.get_next()
@@ -46,21 +60,22 @@ func LoadPackages():
 					#Load the pck file into the project.
 					var success = ProjectSettings.load_resource_pack(directory.get_current_dir() + file_name)
 					AddText("Loading File: " + directory.get_current_dir() + file_name + " success" if success else " unsuccessful")
+					ReadTestFile()
 			file_name = directory.get_next()
 	else:
 		print("An error occurred when trying to access the path.")
 
 func ReadTestFile():
 	var file = File.new()
-	AddText("Exists : " + str(file.file_exists("res://_tests/Updater/update_001.txt")))
-	if file.open("res://_tests/Updater/update_001.txt", File.READ) == OK:
+	
+	if file.open("res://_tests/Updater/update_content.txt", File.READ) == OK:
 		while not file.eof_reached():
 			AddText(file.get_line())
 	else:
 		AddText("Failed reading file")
 
 func AddText(var text):
-	$VBoxContainer/RichTextLabel.text += text + "\n"
+	emit_signal("receive_update_message", text)
 
 func CheckForUpdates():
 	request = HTTPRequest.new()
@@ -75,15 +90,19 @@ func CheckForUpdates():
 
 func ReceiveUpdate( result, response_code, headers, body ):
 	var file = File.new()
-	var packed_scene_path = "res://updates/" + download_queue[0]
+	var directory = Directory.new()
+	var packed_scene_path = "user://updates/" + download_queue[0]
 	
-	if file.file_exists(packed_scene_path):
-		AddText("Packed scene already exists. Skipping download.")
+	if not directory.dir_exists("user://updates/"):
+		directory.make_dir("user://updates/")
+	
+	if response_code != HTTPClient.RESPONSE_OK:
+		AddText("Received response code " + str(response_code) + ".")
 	else:
 		file.open(packed_scene_path, File.WRITE)
 		file.store_buffer(body)
 		file.close()
-		AddText("Done writing " + "res://updates/" + download_queue[0])
+		AddText("Done writing " + "user://updates/" + download_queue[0])
 	
 	download_queue.remove(0)
 	next_update = true
