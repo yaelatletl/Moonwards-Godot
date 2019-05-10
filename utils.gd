@@ -2,6 +2,24 @@ extends Node
 
 var scene setget , get_scene
 
+func _input(var event):
+	if event.is_action_pressed("screenshot_key"):
+		CreateScreenshot()
+
+func CreateScreenshot():
+	get_viewport().set_clear_mode(Viewport.CLEAR_MODE_ONLY_NEXT_FRAME)
+	# Let two frames pass to make sure the screen was captured
+	yield(get_tree(), "idle_frame")
+	yield(get_tree(), "idle_frame")
+	
+	# Retrieve the captured image
+	var image = get_viewport().get_texture().get_data()
+	
+	# Flip it on the y-axis (because it's flipped)
+	image.flip_y()
+	var date_time = OS.get_datetime()
+	image.save_png("user://screenshot_" + str(date_time.year) + str(date_time.month) + str(date_time.day) + str(date_time.hour) + str(date_time.minute) + str(date_time.second) + ".png")
+
 func array_add(a, b):
 	for i in b:
 		a.append(i)
