@@ -6,4 +6,7 @@ func _ready():
 func AddLogMessage(var text):
 	if not self.visible:
 		self.visible = true
-	$VBoxContainer/RichTextLabel.text += text + "\n"
+	$VBoxContainer/VBoxContainer/RichTextLabel.text += text + "\n"
+
+func SwitchScene():
+	get_tree().change_scene("res://scenes/NewContentUI.tscn")

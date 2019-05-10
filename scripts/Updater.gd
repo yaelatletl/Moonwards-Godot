@@ -7,7 +7,7 @@ var done_updating = false
 var download_queue = []
 var next_update = true
 var updater_started = false
-var updater_enabled = false
+var updater_enabled = true
 
 signal receive_update_message
 
@@ -20,13 +20,13 @@ func _process(delta):
 		AddText("Starting Updater...")
 		CheckForUpdates()
 		set_process(false)
-		ReadTestFile()
 		if not update_list_found:
 			AddText("Updater Done")
 	elif download_queue.size() == 0:
 		set_process(false)
 		AddText("Updater Done")
 		LoadPackages()
+		AddText("NewContentUI.tscn exists : " + str(ResourceLoader.exists("res://scenes/NewContentUI.tscn")))
 	elif next_update:
 		AddText("Getting update " + download_queue[0])
 		next_update = false
@@ -60,7 +60,6 @@ func LoadPackages():
 					#Load the pck file into the project.
 					var success = ProjectSettings.load_resource_pack(directory.get_current_dir() + file_name)
 					AddText("Loading File: " + directory.get_current_dir() + file_name + " success" if success else " unsuccessful")
-					ReadTestFile()
 			file_name = directory.get_next()
 	else:
 		print("An error occurred when trying to access the path.")
