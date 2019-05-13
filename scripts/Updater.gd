@@ -7,7 +7,8 @@ var done_updating = false
 var download_queue = []
 var next_update = true
 var updater_started = false
-var updater_enabled = true
+var updater_enabled = false
+var file = File.new()
 
 signal receive_update_message
 
@@ -15,34 +16,65 @@ func _process(delta):
 	if not updater_enabled:
 		set_process(false)
 		return
+	GetMD5List()
 	if get_tree() != null and not updater_started:
 		updater_started = true
-		AddText("Starting Updater...")
+		Log("Starting Updater...")
 		CheckForUpdates()
 		set_process(false)
 		if not update_list_found:
-			AddText("Updater Done")
+			Log("Updater Done")
 	elif download_queue.size() == 0:
 		set_process(false)
-		AddText("Updater Done")
+		Log("Updater Done")
 		LoadPackages()
-		AddText("NewContentUI.tscn exists : " + str(ResourceLoader.exists("res://scenes/NewContentUI.tscn")))
+		Log("NewContentUI.tscn exists : " + str(ResourceLoader.exists("res://scenes/NewContentUI.tscn")))
 	elif next_update:
-		AddText("Getting update " + download_queue[0])
+		Log("Getting update " + download_queue[0])
 		next_update = false
 		var file = File.new()
 		var packed_scene_path = "user://updates/" + download_queue[0]
 		
 		if file.file_exists(packed_scene_path):
-			AddText("Packed scene already exists. Skipping download.")
+			Log("Packed scene already exists. Skipping download.")
 			next_update = true
 			download_queue.remove(0)
 		else:
 			var error = request.request(server_url + download_queue[0])
 			if error != OK:
-				AddText("Error requesting update " + download_queue[0])
+				Log("Error requesting update " + download_queue[0])
 				next_update = true
 				download_queue.remove(0)
+
+func GetMD5List():
+	var directory = Directory.new()
+	var dictionary = {}
+	if directory.open("res://") == OK:
+		directory.list_dir_begin(true, true)
+		
+		var file_name = directory.get_next()
+		while (file_name != ""):
+			if directory.current_is_dir():
+				GetMD5FromDirectory(file_name + "/", dictionary)
+			else:
+				dictionary["res://" + file_name] = file.get_md5("res://" + file_name)
+				Log("res://" + file_name + " md5= " + file.get_md5("res://" + file_name))
+			file_name = directory.get_next()
+	return dictionary
+
+func GetMD5FromDirectory(var path, var dictionary):
+	var directory = Directory.new()
+	if directory.open(path) == OK:
+		directory.list_dir_begin(true, true)
+		
+		var file_name = directory.get_next()
+		while (file_name != ""):
+			if directory.current_is_dir():
+				GetMD5FromDirectory(file_name + "/", dictionary)
+			else:
+				dictionary["res://" + path + file_name] = file.get_md5("res://" + path + file_name)
+				Log("res://" + path + file_name + " md5= " + file.get_md5("res://" + path + file_name))
+			file_name = directory.get_next()
 
 func LoadPackages():
 	var directory = Directory.new()
@@ -53,13 +85,13 @@ func LoadPackages():
 		while (file_name != ""):
 			#A file has been found.
 			if not directory.current_is_dir():
-				AddText("Found File: " + file_name)
+				Log("Found File: " + file_name)
 				var split_filename = file_name.split(".")
 				#Check if the file is a packed scene we can load.
 				if split_filename[split_filename.size() - 1] == "pck":
 					#Load the pck file into the project.
 					var success = ProjectSettings.load_resource_pack(directory.get_current_dir() + file_name)
-					AddText("Loading File: " + directory.get_current_dir() + file_name + " success" if success else " unsuccessful")
+					Log("Loading File: " + directory.get_current_dir() + file_name + " success" if success else " unsuccessful")
 			file_name = directory.get_next()
 	else:
 		print("An error occurred when trying to access the path.")
@@ -69,11 +101,11 @@ func ReadTestFile():
 	
 	if file.open("res://_tests/Updater/update_content.txt", File.READ) == OK:
 		while not file.eof_reached():
-			AddText(file.get_line())
+			Log(file.get_line())
 	else:
-		AddText("Failed reading file")
+		Log("Failed reading file")
 
-func AddText(var text):
+func Log(var text):
 	emit_signal("receive_update_message", text)
 
 func CheckForUpdates():
@@ -96,12 +128,12 @@ func ReceiveUpdate( result, response_code, headers, body ):
 		directory.make_dir("user://updates/")
 	
 	if response_code != HTTPClient.RESPONSE_OK:
-		AddText("Received response code " + str(response_code) + ".")
+		Log("Received response code " + str(response_code) + ".")
 	else:
 		file.open(packed_scene_path, File.WRITE)
 		file.store_buffer(body)
 		file.close()
-		AddText("Done writing " + "user://updates/" + download_queue[0])
+		Log("Done writing " + "user://updates/" + download_queue[0])
 	
 	download_queue.remove(0)
 	next_update = true
@@ -109,13 +141,13 @@ func ReceiveUpdate( result, response_code, headers, body ):
 func ReceiveUpdateJSON( result, response_code, headers, body ):
 	var json = JSON.parse(body.get_string_from_utf8())
 	
-	AddText("Updates found in json:")
+	Log("Updates found in json:")
 	
 	for update in json.result["updates"]:
-		AddText(update)
+		Log(update)
 		download_queue.append(update)
 	
-	AddText("End of json file.")
+	Log("End of json file.")
 	request.disconnect("request_completed", self, "ReceiveUpdateJSON")
 	request.connect("request_completed", self, "ReceiveUpdate")
 	set_process(true)
