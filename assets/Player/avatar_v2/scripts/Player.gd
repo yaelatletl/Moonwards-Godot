@@ -225,8 +225,6 @@ func HandleControls(var delta):
 		var slide_direction = velocity_direction.slide(ground_normal)
 		h_velocity = slide_direction * h_velocity.length()
 		$KinematicBody/OnGround2.cast_to = (Vector3(0.0, -1.0, 0.0) - velocity_direction).normalized() * 0.05
-		if options.debug:
-			CreateDebugLine(Vector3(0.0, 0.03, 0.0), slide_direction)
 		
 # 		printd("h_velocity(%s) = (orientation.origin(%s) / delta(%s))" % [h_velocity, orientation.origin, delta])
 		velocity.x = h_velocity.x
