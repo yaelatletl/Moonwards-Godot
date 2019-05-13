@@ -12,33 +12,47 @@ enum genders{
 	male
 }
 
-var username = 'Player Name'
-var gender = genders.female
+var username
+var gender
 var current_slot = slots.pants
-var pants_color = Color8(49,4,5,255)
-var shirt_color = Color8(87,235,192,255)
-var skin_color = Color8(150,112,86,255)
-var hair_color = Color8(0,0,0,255)
+var pants_color
+var shirt_color
+var skin_color 
+var hair_color
+var savefile_json
 
 func loader():
 	var savefile = File.new()
 	if not savefile.file_exists("user://settings.save"):
-		print("Nothing was saved before")
 		save()
 	
 	savefile.open("user://settings.save", File.READ)
-	var content = parse_json(savefile.get_as_text())
+	savefile_json = parse_json(savefile.get_as_text())
 	savefile.close()
-	gender = content["gender"]
-	username = content["username"]
-	pants_color = Color8(content["pantsR"],content["pantsG"],content["pantsB"],255)
-	shirt_color = Color8(content["shirtR"],content["shirtG"],content["shirtB"],255)
-	skin_color = Color8(content["skinR"],content["skinG"],content["skinB"],255)
-	hair_color = Color8(content["hairR"],content["hairG"],content["hairB"],255)
+	gender = SafeGetSetting("gender", genders.female)
+	username = SafeGetSetting("username", "Player Name")
+	
+	pants_color = SafeGetColor("pants", Color8(49,4,5,255))
+	shirt_color = SafeGetColor("shirt", Color8(87,235,192,255))
+	skin_color = SafeGetColor("skin", Color8(150,112,86,255))
+	hair_color = SafeGetColor("hair", Color8(0,0,0,255))
+	
 	$VBoxContainer/UsernameContainer/UsernameTextEdit.text = username
 	SwitchSlot()
 	$ViewportContainer/Viewport/AvatarPreview.SetGender(gender)
 	$VBoxContainer/Gender.selected = gender
+
+func SafeGetColor(var color_name, var default_color):
+	if not savefile_json.has(color_name):
+		return default_color
+	else:
+		return Color8(savefile_json[color_name + "R"],savefile_json[color_name + "G"],savefile_json[color_name + "B"],255)
+
+func SafeGetSetting(var setting_name, var default_value):
+	if not savefile_json.has(setting_name):
+		return default_value
+	else:
+		return savefile_json[setting_name]
 
 func save():
 	var savefile = File.new()

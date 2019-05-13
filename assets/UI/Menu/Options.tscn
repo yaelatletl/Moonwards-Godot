@@ -54,9 +54,10 @@ anchor_bottom = 1.0
 margin_top = 38.0
 
 [node name="UserSettings" parent="TabContainer/Player" instance=ExtResource( 3 )]
-margin_right = -197.0
-margin_bottom = -122.0
-rect_scale = Vector2( 1.2, 1.2 )
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
 
 [node name="Dev" type="Tabs" parent="TabContainer"]
 visible = false
@@ -184,7 +185,6 @@ margin_bottom = 25.0
 rect_min_size = Vector2( 25, 25 )
 text = "X"
 script = ExtResource( 6 )
-
 [connection signal="focus_entered" from="TabContainer/Dev/VBoxContainer" to="." method="_on_VBoxContainer_focus_entered"]
 [connection signal="pressed" from="TabContainer/Dev/VBoxContainer/tAreas" to="." method="_on_tAreas_pressed"]
 [connection signal="pressed" from="TabContainer/Dev/VBoxContainer/tCollisionShapes" to="." method="_on_tCollisionShapes_pressed"]
