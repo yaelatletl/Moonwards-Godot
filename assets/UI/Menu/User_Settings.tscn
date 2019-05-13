@@ -36,20 +36,21 @@ size_flags_vertical = 5
 alignment = 1
 
 [node name="UsernameLabel" type="Label" parent="VBoxContainer/UsernameContainer"]
-margin_left = 118.0
 margin_top = 5.0
-margin_right = 188.0
+margin_right = 253.0
 margin_bottom = 19.0
+size_flags_horizontal = 3
 size_flags_vertical = 6
 text = "Username:"
 align = 1
 valign = 3
 
 [node name="UsernameTextEdit" type="LineEdit" parent="VBoxContainer/UsernameContainer"]
-margin_left = 192.0
-margin_right = 392.0
+margin_left = 257.0
+margin_right = 510.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 3
 text = "Player1"
 align = 1
 context_menu_enabled = false
