@@ -345,9 +345,12 @@ func DoStairsCheck():
 	
 	var results = space_state.intersect_shape(params)
 	#Remove all Area objects that are not stairs.
-	for result in results:
-		if not result.collider is stairs_class:
-			results.erase(result)
+	var result_index = 0
+	for result in range(results.size()):
+		if not results[result_index].collider is stairs_class:
+			results.remove(result_index)
+		else:
+			result_index += 1
 	
 	#Get the closest stairs to start climbing.
 	var closest_stairs = null
