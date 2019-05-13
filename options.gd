@@ -1,28 +1,11 @@
 extends Node
+var id = "options.gd"
+var debug = true
 
 var OptionsFile = "user://gameoptions.save"
 
-var debug = true
-var debug_id = "Options:: "
-var debug_list = [
-	{ enable = false, key = "options set TreeManagerCache" },
-	{ enable = false, key = "get: TreeManagerCache" },
-#	{ enable = true, key = "" }
-]
 func printd(s):
-	if debug:
-		if debug_list.size() > 0:
-			var found = false
-			for dl in debug_list:
-				if s.begins_with(dl.key):
-					if dl.enable:
-						print(debug_id, s)
-					found = true
-					break
-			if not found:
-				print(debug_id, s)
-		else:
-			print(debug_id, s)
+	logg.print_fd(id, s)
 
 var scenes = {
 	loaded = null,
@@ -151,9 +134,6 @@ func _ready():
 	printd("load options and settings")
 	self.load()
 	set_defaults()
-	
-	#apply generic options
-	set_3fps(get("dev", "3FPSlimit"))
 
 func load():
 	var savefile = File.new()
@@ -244,12 +224,3 @@ func get_tree_opt(opt):
 			res = true
 	return res
 
-
-################
-func set_3fps(enable):
-	if enable:
-		printd("debug set FPS to 3")
-		Engine.target_fps = 3
-	else:
-		printd("debug set FPS to 0")
-		Engine.target_fps = 0

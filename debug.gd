@@ -1,27 +1,9 @@
 extends Node
 var id
 
-var debug = true
-var debug_id = "debug.gd:: "
-var debug_list = [
-	{ enable = false, key = "node removed" },
-	{ enable = false, key = "added node" }
-# 	{ enable = true, key = "" }
-]
+var debug_id = "debug.gd"
 func printd(s):
-	if debug:
-		if debug_list.size() > 0:
-			var found = false
-			for dl in debug_list:
-				if s.begins_with(dl.key):
-					if dl.enable:
-						print(debug_id, s)
-					found = true
-					break
-			if not found:
-				print(debug_id, s)
-		else:
-			print(debug_id, s)
+	logg.print_fd(debug_id, s)
 
 func _input(event):
 	#print("debug event: %s" % event)
@@ -148,7 +130,7 @@ func e_area_lod(enable=true):
 func e_collision_shapes(enable=true):
 	var root = utils.scene
 	var cs_objects = utils.get_cs_list_cs(root)
-	print("e_collision_shape(enable=%s), found : %s" % [enable, cs_objects.size()])
+	printd("e_collision_shape(enable=%s), found : %s" % [enable, cs_objects.size()])
 	for p in cs_objects:
 		var obj = root.get_node(p)
 		obj.disabled = !enable
@@ -219,17 +201,17 @@ func set_lod_manager(enable):
 	var root = get_tree().current_scene
 	if slm == null:
 		#find if lod manager is present in scene
-		print("Look for existing TreeManager")
+		printd("Look for existing TreeManager")
 		for p in utils.get_nodes_type(root, "Node", true):
 			var obj = root.get_node(p)
 			if obj.script and obj.get("id") and obj.id == "TreeManager":
 				slm = p
 				options.set("_state_", p, "set_lod_manager")
-				print("found TreeManager at %s" % p)
+				printd("found TreeManager at %s" % p)
 				break
 		if enable == null:
 			#just find if there is lod manager in the tree
-			print("end search for LodManager")
+			printd("end search for LodManager")
 			return
 
 	if not enable:
@@ -242,7 +224,7 @@ func set_lod_manager(enable):
 		
 	if slm == null:
 		#create/add proper node
-		print("Load TreeManager")
+		printd("Load TreeManager")
 		var tm_path = options.get("dev", "lod_manager_path", "res://scripts/TreeManager.tscn")
 		var tm = ResourceLoader.load(tm_path)
 		tm = tm.instance()
@@ -285,12 +267,15 @@ func features_list(enabled_only=true):
 		{ opt = "pvrtc", hint = "Textures using PVRTC compression are supported" }
 	]
 
+	if enabled_only:
+		printd("OS:: print only enabled features")
+	
 	for f in features:
 		if enabled_only:
 			if OS.has_feature(f.opt):
-				print("%s has %s" % [f.opt, OS.has_feature(f.opt)])
+				printd("OS::%s has %s" % [f.opt, OS.has_feature(f.opt)])
 		else:
-			print("%s has %s" % [f.opt, OS.has_feature(f.opt)])
+			printd("OS::%s has %s" % [f.opt, OS.has_feature(f.opt)])
 	
 
 func print_current_players():

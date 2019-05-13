@@ -1,30 +1,13 @@
 extends Node
+var id = "MeshTool"
 
 var mesh setget set_mesh, get_mesh
 var mesh_info = {}
 var mesh_cache = {}
 var root
 
-export(bool) var debug = true
-var debug_id = "MeshTool:: "
-var debug_list = [
- 	{ enable = false, key = "id_mesh" },
-# 	{ enable = true, key = "" }
-]
 func printd(s):
-	if debug:
-		if debug_list.size() > 0:
-			var found = false
-			for dl in debug_list:
-				if s.begins_with(dl.key):
-					if dl.enable:
-						print("***", debug_id, s)
-					found = true
-					break
-			if not found:
-				print(debug_id, s)
-		else:
-			print(debug_id, s)
+	logg.print_fd(id, s)
 
 func cache_has_id(id):
 	if id == null:
@@ -119,7 +102,7 @@ func get_median():
 
 func get_hitbox():
 	if mesh == null:
-		print("get_hitbox mesh is null")
+		printd("get_hitbox mesh is null")
 		return
 	if mesh_info.has("hitbox"):
 		return mesh_info.hitbox
@@ -208,5 +191,5 @@ func id_mesh(obj):
 	var path = obj.resource_path
 	var mtime = utils.file_mtime(path)
 	var id = "%s %s" % [mtime, path]
-	printd("id_mesh %s" % id)
+# 	printd("id_mesh %s" % id)
 	return id.md5_text()

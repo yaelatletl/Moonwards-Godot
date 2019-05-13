@@ -455,23 +455,6 @@ func SaveRPoints(delta):
 							rp_points.push_front($KinematicBody.global_transform)
 							printd("+++++%s %s %s" % [rp_points.size(), get_path(), rp_points[0]])
 
-#####################
-#var debug = true
-var debug_id = "Player2.gd:: "
-var debug_list = [
-#	{ enable = true, key = "" }
-]
+var debug_id = "Player2.gd"
 func printd(s):
-	if debug:
-		if debug_list.size() > 0:
-			var found = false
-			for dl in debug_list:
-				if s.begins_with(dl.key):
-					if dl.enable:
-						print(debug_id, s)
-					found = true
-					break
-			if not found:
-				print(debug_id, s)
-		else:
-			print(debug_id, s)
+	logg.print_fd(debug_id, s)

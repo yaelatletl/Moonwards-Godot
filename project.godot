@@ -22,6 +22,7 @@ boot_splash/main_loop_type=""
 
 [autoload]
 
+logg="*res://scripts/log.gd"
 options="*res://options.gd"
 gamestate="*res://gamestate.gd"
 namelist="*res://namelist.gd"

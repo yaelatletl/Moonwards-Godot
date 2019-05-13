@@ -1,37 +1,17 @@
 extends Node
+var id = "LodManager"
 
 export(float) var grid_step = 10
 export(bool) var enabled = true setget lod_enable
 export(NodePath) var scene_path setget set_scene_path
 
-var id = "LodManager"
 var camera = null
 var camera_position = Vector3()
 var mesh_collection = []
 var id_collection = {}
 
-export(bool) var debug = false
-var debug_id = "LodManager:: "
-var debug_list = [
-# 	{ enable = false, key = "mesh([MeshInstance:" },
-# 	{ enable = false, key = "dd " }
-#	{ enable = true, key = "" }
-#	{ enable = false, key = "" }
-]
 func printd(s):
-	if debug:
-		if debug_list.size() > 0:
-			var found = false
-			for dl in debug_list:
-				if s.begins_with(dl.key):
-					if dl.enable:
-						print("***", debug_id, s)
-					found = true
-					break
-			if not found:
-				print(debug_id, s)
-		else:
-			print(debug_id, s)
+	logg.print_fd(id, s)
 
 func _ready():
 	printd("_ready, enabled(%s)" % enabled)

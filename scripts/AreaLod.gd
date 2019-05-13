@@ -1,4 +1,5 @@
 extends Area
+var id = "AreaLod"
 
 export(NodePath) var RootNode
 export(bool) var enabled = false
@@ -12,7 +13,7 @@ var nodes_hs
 var id_path
 
 func printd(s):
-	utils.printdd("AreaLod", s)
+	logg.print_fd(id, s)
 
 func array_add(a, b):
 	for i in b:

@@ -186,17 +186,17 @@ func queue_attach_on_tree_change():
 # signal logging functions
 
 func sg_network_log(msg):
-	print("Server log: %s" % msg)
+	printd("Server log: %s" % msg)
 
 func sg_gslog(msg):
-	print("gamestate log: %s" % msg)
+	printd("gamestate log: %s" % msg)
 
 func on_scene_change_log():
-	print("===gs on_scene_change")
-	print("get_tree: ", get_tree())
+	printd("===gs on_scene_change")
+	printd("get_tree: %s" % get_tree())
 	if get_tree():
 		if get_tree().current_scene :
-			print("current scene: ", get_tree().current_scene)
+			printd("current scene: %s" % get_tree().current_scene)
 
 
 #################
@@ -643,25 +643,9 @@ func _ready():
 #################
 # debug functions
 
-var debug = true
-var debug_id = "gamestate:: "
-var debug_list = [
-# 	{ enable = true, key = "" }
-]
+var debug_id = "gamestate"
 func printd(s):
-	if debug:
-		if debug_list.size() > 0:
-			var found = false
-			for dl in debug_list:
-				if s.begins_with(dl.key):
-					if dl.enable:
-						print(debug_id, s)
-					found = true
-					break
-			if not found:
-				print(debug_id, s)
-		else:
-			print(debug_id, s)
+	logg.print_fd(debug_id, s)
 
 func log_all_signals():
 	var sg_ignore = ["gslog"]
@@ -729,15 +713,15 @@ var PlayerSceneUP = false
 
 func net_up():
 	if PlayerSceneUP:
-		printd("---------net_up---enable networking in instanced players--------")
+		printd("------net_up---enable networking in instanced players--------")
 	else:
-		printd("---------net_up---do nothing--------")
+		printd("------net_up---do nothing--------")
 
 func net_down():
 	if PlayerSceneUP:
-		printd("---------net_down---players disable netwokring--------")
+		printd("------net_down---players disable netwokring--------")
 	else:
-		printd("---------net_down---players do nothing--------")
+		printd("------net_down---players do nothing--------")
 
 func net_client(id, connected):
 	if connected:
@@ -746,5 +730,5 @@ func net_client(id, connected):
 		printd("------net_client(%s)---disconnect client %s-----" % [connected, id])
 
 func player_scene():
-	printd("--------instance avatars with networking(%s) - players count %s" % [NetworkUP, players.size()])
+	printd("------instance avatars with networking(%s) - players count %s" % [NetworkUP, players.size()])
 	PlayerSceneUP = true

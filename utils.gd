@@ -137,7 +137,7 @@ func file_mtime(fname):
 		if ff.file_exists(path):
 			cache_flist[path] = { mtime = ff.get_modified_time(path) }
 		else:
-			printd("**utils.gd:: attempt to get mtime of non existing file '%s'" % path)
+			printd("attempt to get mtime of non existing file '%s'" % path)
 			cache_flist[path] = { mtime = "nofile" }
 	return cache_flist[path].mtime
 
@@ -159,33 +159,6 @@ func get_node_root(node):
 	return node
 
 #########################
-var debug = true
-var debug_id = "utils.gd:: "
-var debug_list = [
-	#LODElement
-	{ enable = false, key = "LOD substitute " },
-	{ enable = false, key = "show" },
-	{ enable = false, key = "hide" }
-# 	{ enable = true, key = "" }
-]
+var debug_id = "utils.gd"
 func printd(s):
-	if debug:
-		if debug_list.size() > 0:
-			var found = false
-			for dl in debug_list:
-				if s.begins_with(dl.key):
-					if dl.enable:
-						print(debug_id, s)
-					found = true
-					break
-			if not found:
-				print(debug_id, s)
-		else:
-			print(debug_id, s)
-
-func printdd(id, s):
-	var odi = debug_id
-	debug_id = "%s:: " % id
-	printd(s)
-	debug_id = odi
-	#^ fix that crap with verbose level and stuff
+	logg.print_fd(debug_id, s)

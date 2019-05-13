@@ -6,7 +6,7 @@ var signal_close = false
 
 const id = "Options.gd"
 func printd(s):
-	utils.printdd(id, s)
+	logg.print_fd(id, s)
 
 func get_tab_index():
 	return $TabContainer.current_tab
