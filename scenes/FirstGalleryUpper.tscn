@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=2]
+[gd_scene load_steps=86 format=2]
 
 [ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_MoonwardsBooth_MoonwardsBoothMain_Opt.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://model_assets/RemoteOperationBooth.tscn" type="PackedScene" id=2]
@@ -11,44 +11,45 @@
 [ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_MoonwardsBooth_MakersMonument.mesh" type="ArrayMesh" id=9]
 [ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_Floors_Floor-FG-Entrance-1.mesh" type="ArrayMesh" id=10]
 [ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_Floors_Floor-FG-Entrance-2.mesh" type="ArrayMesh" id=11]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_Floors_Floor-FG-Entrance-3.mesh" type="ArrayMesh" id=12]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_Floors_Floor-FG-Entrance-4.mesh" type="ArrayMesh" id=13]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_Floors_Floor-FG-Entrance-5.mesh" type="ArrayMesh" id=14]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_Floors_Floor-FG-Top-1.mesh" type="ArrayMesh" id=15]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_Floors_Floor-FG-Top-2.mesh" type="ArrayMesh" id=16]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_Floors_Floor-FG-Top-3.mesh" type="ArrayMesh" id=17]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_Floors_FloorFG-Top-4.mesh" type="ArrayMesh" id=18]
-[ext_resource path="res://model_assets/FirstGalleryAnchors_NorthWall.tscn" type="PackedScene" id=19]
-[ext_resource path="res://model_assets/FirstGalleryAnchors_SouthWall.tscn" type="PackedScene" id=20]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_FirstGalleryColumns-Top.mesh" type="ArrayMesh" id=21]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_FirstGalleryConduitTop.mesh" type="ArrayMesh" id=22]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_FirstGalleryConduitUpper.mesh" type="ArrayMesh" id=23]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_HabShellStructures_MainColonyAirlocks_Opt.mesh" type="ArrayMesh" id=24]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_WaterPipeRecHab1.mesh" type="ArrayMesh" id=25]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_HabShellStructures_GalleryRoofBeams_Opt.mesh" type="ArrayMesh" id=26]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_HabShellStructures_Passage-Mouth-North-BigAtrium-FirstGalley_Opt.mesh" type="ArrayMesh" id=27]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_HabShellStructures_Passage-BigAtrium-FirstGallery_Opt.mesh" type="ArrayMesh" id=28]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStairs_ShimmyStairs_1.mesh" type="ArrayMesh" id=29]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStairs_ShimmyStairs_2.mesh" type="ArrayMesh" id=30]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStairs_ShimmyStairs_3.mesh" type="ArrayMesh" id=31]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStairs_ShimmyStairs_4.mesh" type="ArrayMesh" id=32]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStairs_ShimmyStairs_5.mesh" type="ArrayMesh" id=33]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStairs_ShimmyStairs_6.mesh" type="ArrayMesh" id=34]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStairs_ShimmyStairs_7.mesh" type="ArrayMesh" id=35]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStairs_ShimmyStairs_8.mesh" type="ArrayMesh" id=36]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStairs_ShimmyStairs_9.mesh" type="ArrayMesh" id=37]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStairs_ShimmyStairs_10.mesh" type="ArrayMesh" id=38]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ScooterRamps_ScooterRamp_1.mesh" type="ArrayMesh" id=39]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ScooterRamps_ScooterRamp_2.mesh" type="ArrayMesh" id=40]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ScooterRamps_ScooterRamp_3.mesh" type="ArrayMesh" id=41]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ScooterRamps_ScooterRamp_4.mesh" type="ArrayMesh" id=42]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ScooterRamps_ScooterRamp_5.mesh" type="ArrayMesh" id=43]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Exterior_FirstGalleryFloor_Top_Opt.mesh" type="ArrayMesh" id=44]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Exterior_FirstGalleryWalls_Top_Opt.mesh" type="ArrayMesh" id=45]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Exterior_GalleryRoof_Top_Exterior.mesh" type="ArrayMesh" id=46]
-[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Exterior_GalleryRoof_Top.mesh" type="ArrayMesh" id=47]
-[ext_resource path="res://scripts/AreaLod.gd" type="Script" id=48]
-[ext_resource path="res://scenes/lightmaps/FirstGalleryUpper_4098242162_bldata.res" type="BakedLightmapData" id=49]
+[ext_resource path="res://model_assets/Contributions/SCTR_Bucknell_Opt.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_Floors_Floor-FG-Entrance-3.mesh" type="ArrayMesh" id=13]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_Floors_Floor-FG-Entrance-4.mesh" type="ArrayMesh" id=14]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_Floors_Floor-FG-Entrance-5.mesh" type="ArrayMesh" id=15]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_Floors_Floor-FG-Top-1.mesh" type="ArrayMesh" id=16]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_Floors_Floor-FG-Top-2.mesh" type="ArrayMesh" id=17]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_Floors_Floor-FG-Top-3.mesh" type="ArrayMesh" id=18]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_Floors_FloorFG-Top-4.mesh" type="ArrayMesh" id=19]
+[ext_resource path="res://model_assets/FirstGalleryAnchors_NorthWall.tscn" type="PackedScene" id=20]
+[ext_resource path="res://model_assets/FirstGalleryAnchors_SouthWall.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_FirstGalleryColumns-Top.mesh" type="ArrayMesh" id=22]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_FirstGalleryConduitTop.mesh" type="ArrayMesh" id=23]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_FirstGalleryConduitUpper.mesh" type="ArrayMesh" id=24]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_HabShellStructures_MainColonyAirlocks_Opt.mesh" type="ArrayMesh" id=25]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__GalleryRoof-TopEnd_WaterPipeRecHab1.mesh" type="ArrayMesh" id=26]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_HabShellStructures_GalleryRoofBeams_Opt.mesh" type="ArrayMesh" id=27]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_HabShellStructures_Passage-Mouth-North-BigAtrium-FirstGalley_Opt.mesh" type="ArrayMesh" id=28]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_HabShellStructures_Passage-BigAtrium-FirstGallery_Opt.mesh" type="ArrayMesh" id=29]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStairs_ShimmyStairs_1.mesh" type="ArrayMesh" id=30]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStairs_ShimmyStairs_2.mesh" type="ArrayMesh" id=31]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStairs_ShimmyStairs_3.mesh" type="ArrayMesh" id=32]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStairs_ShimmyStairs_4.mesh" type="ArrayMesh" id=33]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStairs_ShimmyStairs_5.mesh" type="ArrayMesh" id=34]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStairs_ShimmyStairs_6.mesh" type="ArrayMesh" id=35]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStairs_ShimmyStairs_7.mesh" type="ArrayMesh" id=36]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStairs_ShimmyStairs_8.mesh" type="ArrayMesh" id=37]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStairs_ShimmyStairs_9.mesh" type="ArrayMesh" id=38]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ShimmyStairs_ShimmyStairs_10.mesh" type="ArrayMesh" id=39]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ScooterRamps_ScooterRamp_1.mesh" type="ArrayMesh" id=40]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ScooterRamps_ScooterRamp_2.mesh" type="ArrayMesh" id=41]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ScooterRamps_ScooterRamp_3.mesh" type="ArrayMesh" id=42]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ScooterRamps_ScooterRamp_4.mesh" type="ArrayMesh" id=43]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_ScooterRamps_ScooterRamp_5.mesh" type="ArrayMesh" id=44]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Exterior_FirstGalleryFloor_Top_Opt.mesh" type="ArrayMesh" id=45]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Exterior_FirstGalleryWalls_Top_Opt.mesh" type="ArrayMesh" id=46]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Exterior_GalleryRoof_Top_Exterior.mesh" type="ArrayMesh" id=47]
+[ext_resource path="res://scenes/meshes/FirstGalleryUpper__Exterior_GalleryRoof_Top.mesh" type="ArrayMesh" id=48]
+[ext_resource path="res://scripts/AreaLod.gd" type="Script" id=49]
+[ext_resource path="res://scenes/lightmaps/FirstGalleryUpper_4098242162_bldata.res" type="BakedLightmapData" id=50]
 
 [sub_resource type="ConcavePolygonShape" id=1]
 data = PoolVector3Array( 0, -0.0089, 0, 0.1468, 0.0154, -0.1468, 0, 0.0154, -0.2076, 0, 0.02, 0, 0, 0.02, -0.2076, 0.1468, 0.02, -0.1468, 0, 0.02, -0.2076, 0, 0.0154, -0.2076, 0.1468, 0.0154, -0.1468, 0, -0.0089, 0, 0.2076, 0.0154, 0, 0.1468, 0.0154, -0.1468, 0, 0.02, 0, 0.1468, 0.02, -0.1468, 0.2076, 0.02, 0, 0.1468, 0.02, -0.1468, 0.1468, 0.0154, -0.1468, 0.2076, 0.0154, 0, 0, -0.0089, 0, 0.1468, 0.0154, 0.1468, 0.2076, 0.0154, 0, 0, 0.02, 0, 0.2076, 0.02, 0, 0.1468, 0.02, 0.1468, 0.2076, 0.02, 0, 0.2076, 0.0154, 0, 0.1468, 0.0154, 0.1468, 0, -0.0089, 0, 0, 0.0154, 0.2076, 0.1468, 0.0154, 0.1468, 0, 0.02, 0, 0.1468, 0.02, 0.1468, 0, 0.02, 0.2076, 0.1468, 0.02, 0.1468, 0.1468, 0.0154, 0.1468, 0, 0.0154, 0.2076, 0, -0.0089, 0, -0.1468, 0.0154, 0.1468, 0, 0.0154, 0.2076, 0, 0.02, 0, 0, 0.02, 0.2076, -0.1468, 0.02, 0.1468, 0, 0.02, 0.2076, 0, 0.0154, 0.2076, -0.1468, 0.0154, 0.1468, 0, -0.0089, 0, -0.2076, 0.0154, 0, -0.1468, 0.0154, 0.1468, 0, 0.02, 0, -0.1468, 0.02, 0.1468, -0.2076, 0.02, 0, -0.1468, 0.02, 0.1468, -0.1468, 0.0154, 0.1468, -0.2076, 0.0154, 0, 0, -0.0089, 0, -0.1468, 0.0154, -0.1468, -0.2076, 0.0154, 0, 0, 0.02, 0, -0.2076, 0.02, 0, -0.1468, 0.02, -0.1468, -0.2076, 0.02, 0, -0.2076, 0.0154, 0, -0.1468, 0.0154, -0.1468, 0, -0.0089, 0, 0, 0.0154, -0.2076, -0.1468, 0.0154, -0.1468, 0, 0.02, 0, -0.1468, 0.02, -0.1468, 0, 0.02, -0.2076, -0.1468, 0.02, -0.1468, -0.1468, 0.0154, -0.1468, 0, 0.0154, -0.2076, -0.3306, -0.585, 0.1939, -0.3083, -0.5085, 0.181, -0.2967, -0.5855, 0.1744, -0.2952, -0.4222, 0.1654, -0.3137, -0.4289, 0.1761, -0.3118, -0.5085, 0.175, -0.1725, 0.0191, 0.1027, -0.2164, -0.0263, 0.128, -0.2199, -0.0263, 0.122, -0.2164, -0.0263, 0.128, -0.2652, -0.1675, 0.1562, -0.2687, -0.1675, 0.1501, -0.2652, -0.1675, 0.1562, -0.2747, -0.3381, 0.1617, -0.2782, -0.3381, 0.1556, -0.2747, -0.3381, 0.1617, -0.3102, -0.4289, 0.1822, -0.3137, -0.4289, 0.1761, -0.3102, -0.4289, 0.1822, -0.3306, -0.585, 0.1939, -0.3341, -0.585, 0.1879, -0.3306, -0.585, 0.1939, -0.2967, -0.5855, 0.1744, -0.3002, -0.5855, 0.1683, -0.2967, -0.5855, 0.1744, -0.3083, -0.5085, 0.181, -0.3118, -0.5085, 0.175, -0.3083, -0.5085, 0.181, -0.2917, -0.4222, 0.1715, -0.2952, -0.4222, 0.1654, -0.2917, -0.4222, 0.1715, -0.2512, -0.3688, 0.1481, -0.2547, -0.3688, 0.1421, -0.2512, -0.3688, 0.1481, -0.2173, -0.327, 0.1285, -0.2208, -0.327, 0.1225, -0.2173, -0.327, 0.1285, -0.2247, -0.287, 0.1328, -0.2282, -0.287, 0.1267, -0.2247, -0.287, 0.1328, -0.2501, -0.2705, 0.1475, -0.2536, -0.2705, 0.1414, -0.2501, -0.2705, 0.1475, -0.2487, -0.1712, 0.1467, -0.2522, -0.1712, 0.1406, -0.2487, -0.1712, 0.1467, -0.2214, -0.0927, 0.1309, -0.2249, -0.0927, 0.1248, -0.2214, -0.0927, 0.1309, -0.1858, -0.0506, 0.1104, -0.1893, -0.0506, 0.1043, -0.1858, -0.0506, 0.1104, -0.1725, 0.0191, 0.1027, -0.176, 0.0191, 0.0966, 0.3333, -0.585, 0.1893, 0.3109, -0.5085, 0.1764, 0.2994, -0.5855, 0.1698, 0.2909, -0.4222, 0.1729, 0.3093, -0.4289, 0.1836, 0.3074, -0.5085, 0.1825, 0.1752, 0.0191, 0.0981, 0.2191, -0.0263, 0.1234, 0.2156, -0.0263, 0.1295, 0.2191, -0.0263, 0.1234, 0.2678, -0.1675, 0.1516, 0.2643, -0.1675, 0.1576, 0.2678, -0.1675, 0.1516, 0.2774, -0.3381, 0.1571, 0.2739, -0.3381, 0.1632, 0.2774, -0.3381, 0.1571, 0.3128, -0.4289, 0.1776, 0.3093, -0.4289, 0.1836, 0.3128, -0.4289, 0.1776, 0.3333, -0.585, 0.1893, 0.3298, -0.585, 0.1954, 0.3333, -0.585, 0.1893, 0.2994, -0.5855, 0.1698, 0.2959, -0.5855, 0.1758, 0.2994, -0.5855, 0.1698, 0.3109, -0.5085, 0.1764, 0.3074, -0.5085, 0.1825, 0.3109, -0.5085, 0.1764, 0.2944, -0.4222, 0.1669, 0.2909, -0.4222, 0.1729, 0.2944, -0.4222, 0.1669, 0.2539, -0.3688, 0.1435, 0.2504, -0.3688, 0.1496, 0.2539, -0.3688, 0.1435, 0.22, -0.327, 0.124, 0.2165, -0.327, 0.13, 0.22, -0.327, 0.124, 0.2273, -0.287, 0.1282, 0.2238, -0.287, 0.1342, 0.2273, -0.287, 0.1282, 0.2527, -0.2705, 0.1429, 0.2492, -0.2705, 0.1489, 0.2527, -0.2705, 0.1429, 0.2514, -0.1712, 0.1421, 0.2479, -0.1712, 0.1481, 0.2514, -0.1712, 0.1421, 0.2241, -0.0927, 0.1263, 0.2206, -0.0927, 0.1324, 0.2241, -0.0927, 0.1263, 0.1885, -0.0506, 0.1058, 0.185, -0.0506, 0.1118, 0.1885, -0.0506, 0.1058, 0.1752, 0.0191, 0.0981, 0.1717, 0.0191, 0.1041, -0.0027, -0.585, -0.3833, -0.0027, -0.5085, -0.3575, -0.0027, -0.5855, -0.3441, 0.0043, -0.4222, -0.3384, 0.0043, -0.4289, -0.3597, 0.0043, -0.5085, -0.3575, -0.0027, 0.0191, -0.2007, -0.0027, -0.0263, -0.2514, 0.0043, -0.0263, -0.2514, -0.0027, -0.0263, -0.2514, -0.0027, -0.1675, -0.3077, 0.0043, -0.1675, -0.3077, -0.0027, -0.1675, -0.3077, -0.0027, -0.3381, -0.3188, 0.0043, -0.3381, -0.3188, -0.0027, -0.3381, -0.3188, -0.0027, -0.4289, -0.3597, 0.0043, -0.4289, -0.3597, -0.0027, -0.4289, -0.3597, -0.0027, -0.585, -0.3833, 0.0043, -0.585, -0.3833, -0.0027, -0.585, -0.3833, -0.0027, -0.5855, -0.3441, 0.0043, -0.5855, -0.3441, -0.0027, -0.5855, -0.3441, -0.0027, -0.5085, -0.3575, 0.0043, -0.5085, -0.3575, -0.0027, -0.5085, -0.3575, -0.0027, -0.4222, -0.3384, 0.0043, -0.4222, -0.3384, -0.0027, -0.4222, -0.3384, -0.0027, -0.3688, -0.2916, 0.0043, -0.3688, -0.2916, -0.0027, -0.3688, -0.2916, -0.0027, -0.327, -0.2525, 0.0043, -0.327, -0.2525, -0.0027, -0.327, -0.2525, -0.0027, -0.287, -0.261, 0.0043, -0.287, -0.261, -0.0027, -0.287, -0.261, -0.0027, -0.2705, -0.2903, 0.0043, -0.2705, -0.2903, -0.0027, -0.2705, -0.2903, -0.0027, -0.1712, -0.2887, 0.0043, -0.1712, -0.2887, -0.0027, -0.1712, -0.2887, -0.0027, -0.0927, -0.2572, 0.0043, -0.0927, -0.2572, -0.0027, -0.0927, -0.2572, -0.0027, -0.0506, -0.2161, 0.0043, -0.0506, -0.2161, -0.0027, -0.0506, -0.2161, -0.0027, 0.0191, -0.2007, 0.0043, 0.0191, -0.2007, 0, -0.3163, 0, 0.1838, -0.2858, -0.1838, 0, -0.2858, -0.26, 0, -0.2801, 0, 0, -0.2801, -0.26, 0.1838, -0.2801, -0.1838, 0, -0.2801, -0.26, 0, -0.2858, -0.26, 0.1838, -0.2858, -0.1838, 0, -0.3163, 0, 0.26, -0.2858, 0, 0.1838, -0.2858, -0.1838, 0, -0.2801, 0, 0.1838, -0.2801, -0.1838, 0.26, -0.2801, 0, 0.1838, -0.2801, -0.1838, 0.1838, -0.2858, -0.1838, 0.26, -0.2858, 0, 0, -0.3163, 0, 0.1838, -0.2858, 0.1838, 0.26, -0.2858, 0, 0, -0.2801, 0, 0.26, -0.2801, 0, 0.1838, -0.2801, 0.1838, 0.26, -0.2801, 0, 0.26, -0.2858, 0, 0.1838, -0.2858, 0.1838, 0, -0.3163, 0, 0, -0.2858, 0.26, 0.1838, -0.2858, 0.1838, 0, -0.2801, 0, 0.1838, -0.2801, 0.1838, 0, -0.2801, 0.26, 0.1838, -0.2801, 0.1838, 0.1838, -0.2858, 0.1838, 0, -0.2858, 0.26, 0, -0.3163, 0, -0.1838, -0.2858, 0.1838, 0, -0.2858, 0.26, 0, -0.2801, 0, 0, -0.2801, 0.26, -0.1838, -0.2801, 0.1838, 0, -0.2801, 0.26, 0, -0.2858, 0.26, -0.1838, -0.2858, 0.1838, 0, -0.3163, 0, -0.26, -0.2858, 0, -0.1838, -0.2858, 0.1838, 0, -0.2801, 0, -0.1838, -0.2801, 0.1838, -0.26, -0.2801, 0, -0.1838, -0.2801, 0.1838, -0.1838, -0.2858, 0.1838, -0.26, -0.2858, 0, 0, -0.3163, 0, -0.1838, -0.2858, -0.1838, -0.26, -0.2858, 0, 0, -0.2801, 0, -0.26, -0.2801, 0, -0.1838, -0.2801, -0.1838, -0.26, -0.2801, 0, -0.26, -0.2858, 0, -0.1838, -0.2858, -0.1838, 0, -0.3163, 0, 0, -0.2858, -0.26, -0.1838, -0.2858, -0.1838, 0, -0.2801, 0, -0.1838, -0.2801, -0.1838, 0, -0.2801, -0.26, -0.1838, -0.2801, -0.1838, -0.1838, -0.2858, -0.1838, 0, -0.2858, -0.26, 0, 0.02, -0.2076, 0.1468, 0.0154, -0.1468, 0.1468, 0.02, -0.1468, 0.1468, 0.02, -0.1468, 0.2076, 0.0154, 0, 0.2076, 0.02, 0, 0.2076, 0.02, 0, 0.1468, 0.0154, 0.1468, 0.1468, 0.02, 0.1468, 0.1468, 0.02, 0.1468, 0, 0.0154, 0.2076, 0, 0.02, 0.2076, 0, 0.02, 0.2076, -0.1468, 0.0154, 0.1468, -0.1468, 0.02, 0.1468, -0.1468, 0.02, 0.1468, -0.2076, 0.0154, 0, -0.2076, 0.02, 0, -0.2076, 0.02, 0, -0.1468, 0.0154, -0.1468, -0.1468, 0.02, -0.1468, -0.1468, 0.02, -0.1468, 0, 0.0154, -0.2076, 0, 0.02, -0.2076, -0.1725, 0.0191, 0.1027, -0.1858, -0.0506, 0.1104, -0.2164, -0.0263, 0.128, -0.2164, -0.0263, 0.128, -0.2214, -0.0927, 0.1309, -0.2652, -0.1675, 0.1562, -0.2747, -0.3381, 0.1617, -0.2917, -0.4222, 0.1715, -0.3102, -0.4289, 0.1822, -0.3102, -0.4289, 0.1822, -0.3083, -0.5085, 0.181, -0.3306, -0.585, 0.1939, -0.2917, -0.4222, 0.1715, -0.3083, -0.5085, 0.181, -0.3102, -0.4289, 0.1822, -0.2214, -0.0927, 0.1309, -0.2164, -0.0263, 0.128, -0.1858, -0.0506, 0.1104, -0.2487, -0.1712, 0.1467, -0.2652, -0.1675, 0.1562, -0.2214, -0.0927, 0.1309, -0.2173, -0.327, 0.1285, -0.2747, -0.3381, 0.1617, -0.2247, -0.287, 0.1328, -0.2247, -0.287, 0.1328, -0.2747, -0.3381, 0.1617, -0.2501, -0.2705, 0.1475, -0.2501, -0.2705, 0.1475, -0.2652, -0.1675, 0.1562, -0.2487, -0.1712, 0.1467, -0.2501, -0.2705, 0.1475, -0.2747, -0.3381, 0.1617, -0.2652, -0.1675, 0.1562, -0.2512, -0.3688, 0.1481, -0.2747, -0.3381, 0.1617, -0.2173, -0.327, 0.1285, -0.2917, -0.4222, 0.1715, -0.2747, -0.3381, 0.1617, -0.2512, -0.3688, 0.1481, -0.2687, -0.1675, 0.1501, -0.2249, -0.0927, 0.1248, -0.2199, -0.0263, 0.122, -0.2199, -0.0263, 0.122, -0.1893, -0.0506, 0.1043, -0.176, 0.0191, 0.0966, -0.2249, -0.0927, 0.1248, -0.1893, -0.0506, 0.1043, -0.2199, -0.0263, 0.122, -0.3341, -0.585, 0.1879, -0.3118, -0.5085, 0.175, -0.3137, -0.4289, 0.1761, -0.3137, -0.4289, 0.1761, -0.2952, -0.4222, 0.1654, -0.2782, -0.3381, 0.1556, -0.2687, -0.1675, 0.1501, -0.2522, -0.1712, 0.1406, -0.2249, -0.0927, 0.1248, -0.2536, -0.2705, 0.1414, -0.2782, -0.3381, 0.1556, -0.2282, -0.287, 0.1267, -0.2282, -0.287, 0.1267, -0.2782, -0.3381, 0.1556, -0.2208, -0.327, 0.1225, -0.2687, -0.1675, 0.1501, -0.2536, -0.2705, 0.1414, -0.2522, -0.1712, 0.1406, -0.2782, -0.3381, 0.1556, -0.2536, -0.2705, 0.1414, -0.2687, -0.1675, 0.1501, -0.2208, -0.327, 0.1225, -0.2782, -0.3381, 0.1556, -0.2547, -0.3688, 0.1421, -0.2547, -0.3688, 0.1421, -0.2782, -0.3381, 0.1556, -0.2952, -0.4222, 0.1654, -0.3118, -0.5085, 0.175, -0.3341, -0.585, 0.1879, -0.3002, -0.5855, 0.1683, -0.1725, 0.0191, 0.1027, -0.2199, -0.0263, 0.122, -0.176, 0.0191, 0.0966, -0.2164, -0.0263, 0.128, -0.2687, -0.1675, 0.1501, -0.2199, -0.0263, 0.122, -0.2652, -0.1675, 0.1562, -0.2782, -0.3381, 0.1556, -0.2687, -0.1675, 0.1501, -0.2747, -0.3381, 0.1617, -0.3137, -0.4289, 0.1761, -0.2782, -0.3381, 0.1556, -0.3102, -0.4289, 0.1822, -0.3341, -0.585, 0.1879, -0.3137, -0.4289, 0.1761, -0.3306, -0.585, 0.1939, -0.3002, -0.5855, 0.1683, -0.3341, -0.585, 0.1879, -0.2967, -0.5855, 0.1744, -0.3118, -0.5085, 0.175, -0.3002, -0.5855, 0.1683, -0.3083, -0.5085, 0.181, -0.2952, -0.4222, 0.1654, -0.3118, -0.5085, 0.175, -0.2917, -0.4222, 0.1715, -0.2547, -0.3688, 0.1421, -0.2952, -0.4222, 0.1654, -0.2512, -0.3688, 0.1481, -0.2208, -0.327, 0.1225, -0.2547, -0.3688, 0.1421, -0.2173, -0.327, 0.1285, -0.2282, -0.287, 0.1267, -0.2208, -0.327, 0.1225, -0.2247, -0.287, 0.1328, -0.2536, -0.2705, 0.1414, -0.2282, -0.287, 0.1267, -0.2501, -0.2705, 0.1475, -0.2522, -0.1712, 0.1406, -0.2536, -0.2705, 0.1414, -0.2487, -0.1712, 0.1467, -0.2249, -0.0927, 0.1248, -0.2522, -0.1712, 0.1406, -0.2214, -0.0927, 0.1309, -0.1893, -0.0506, 0.1043, -0.2249, -0.0927, 0.1248, -0.1858, -0.0506, 0.1104, -0.176, 0.0191, 0.0966, -0.1893, -0.0506, 0.1043, 0.1752, 0.0191, 0.0981, 0.1885, -0.0506, 0.1058, 0.2191, -0.0263, 0.1234, 0.2191, -0.0263, 0.1234, 0.2241, -0.0927, 0.1263, 0.2678, -0.1675, 0.1516, 0.2774, -0.3381, 0.1571, 0.2944, -0.4222, 0.1669, 0.3128, -0.4289, 0.1776, 0.3128, -0.4289, 0.1776, 0.3109, -0.5085, 0.1764, 0.3333, -0.585, 0.1893, 0.2944, -0.4222, 0.1669, 0.3109, -0.5085, 0.1764, 0.3128, -0.4289, 0.1776, 0.2241, -0.0927, 0.1263, 0.2191, -0.0263, 0.1234, 0.1885, -0.0506, 0.1058, 0.2514, -0.1712, 0.1421, 0.2678, -0.1675, 0.1516, 0.2241, -0.0927, 0.1263, 0.22, -0.327, 0.124, 0.2774, -0.3381, 0.1571, 0.2273, -0.287, 0.1282, 0.2273, -0.287, 0.1282, 0.2774, -0.3381, 0.1571, 0.2527, -0.2705, 0.1429, 0.2527, -0.2705, 0.1429, 0.2678, -0.1675, 0.1516, 0.2514, -0.1712, 0.1421, 0.2527, -0.2705, 0.1429, 0.2774, -0.3381, 0.1571, 0.2678, -0.1675, 0.1516, 0.2539, -0.3688, 0.1435, 0.2774, -0.3381, 0.1571, 0.22, -0.327, 0.124, 0.2944, -0.4222, 0.1669, 0.2774, -0.3381, 0.1571, 0.2539, -0.3688, 0.1435, 0.2643, -0.1675, 0.1576, 0.2206, -0.0927, 0.1324, 0.2156, -0.0263, 0.1295, 0.2156, -0.0263, 0.1295, 0.185, -0.0506, 0.1118, 0.1717, 0.0191, 0.1041, 0.2206, -0.0927, 0.1324, 0.185, -0.0506, 0.1118, 0.2156, -0.0263, 0.1295, 0.3298, -0.585, 0.1954, 0.3074, -0.5085, 0.1825, 0.3093, -0.4289, 0.1836, 0.3093, -0.4289, 0.1836, 0.2909, -0.4222, 0.1729, 0.2739, -0.3381, 0.1632, 0.2643, -0.1675, 0.1576, 0.2479, -0.1712, 0.1481, 0.2206, -0.0927, 0.1324, 0.2492, -0.2705, 0.1489, 0.2739, -0.3381, 0.1632, 0.2238, -0.287, 0.1342, 0.2238, -0.287, 0.1342, 0.2739, -0.3381, 0.1632, 0.2165, -0.327, 0.13, 0.2643, -0.1675, 0.1576, 0.2492, -0.2705, 0.1489, 0.2479, -0.1712, 0.1481, 0.2739, -0.3381, 0.1632, 0.2492, -0.2705, 0.1489, 0.2643, -0.1675, 0.1576, 0.2165, -0.327, 0.13, 0.2739, -0.3381, 0.1632, 0.2504, -0.3688, 0.1496, 0.2504, -0.3688, 0.1496, 0.2739, -0.3381, 0.1632, 0.2909, -0.4222, 0.1729, 0.3074, -0.5085, 0.1825, 0.3298, -0.585, 0.1954, 0.2959, -0.5855, 0.1758, 0.1752, 0.0191, 0.0981, 0.2156, -0.0263, 0.1295, 0.1717, 0.0191, 0.1041, 0.2191, -0.0263, 0.1234, 0.2643, -0.1675, 0.1576, 0.2156, -0.0263, 0.1295, 0.2678, -0.1675, 0.1516, 0.2739, -0.3381, 0.1632, 0.2643, -0.1675, 0.1576, 0.2774, -0.3381, 0.1571, 0.3093, -0.4289, 0.1836, 0.2739, -0.3381, 0.1632, 0.3128, -0.4289, 0.1776, 0.3298, -0.585, 0.1954, 0.3093, -0.4289, 0.1836, 0.3333, -0.585, 0.1893, 0.2959, -0.5855, 0.1758, 0.3298, -0.585, 0.1954, 0.2994, -0.5855, 0.1698, 0.3074, -0.5085, 0.1825, 0.2959, -0.5855, 0.1758, 0.3109, -0.5085, 0.1764, 0.2909, -0.4222, 0.1729, 0.3074, -0.5085, 0.1825, 0.2944, -0.4222, 0.1669, 0.2504, -0.3688, 0.1496, 0.2909, -0.4222, 0.1729, 0.2539, -0.3688, 0.1435, 0.2165, -0.327, 0.13, 0.2504, -0.3688, 0.1496, 0.22, -0.327, 0.124, 0.2238, -0.287, 0.1342, 0.2165, -0.327, 0.13, 0.2273, -0.287, 0.1282, 0.2492, -0.2705, 0.1489, 0.2238, -0.287, 0.1342, 0.2527, -0.2705, 0.1429, 0.2479, -0.1712, 0.1481, 0.2492, -0.2705, 0.1489, 0.2514, -0.1712, 0.1421, 0.2206, -0.0927, 0.1324, 0.2479, -0.1712, 0.1481, 0.2241, -0.0927, 0.1263, 0.185, -0.0506, 0.1118, 0.2206, -0.0927, 0.1324, 0.1885, -0.0506, 0.1058, 0.1717, 0.0191, 0.1041, 0.185, -0.0506, 0.1118, -0.0027, 0.0191, -0.2007, -0.0027, -0.0506, -0.2161, -0.0027, -0.0263, -0.2514, -0.0027, -0.0263, -0.2514, -0.0027, -0.0927, -0.2572, -0.0027, -0.1675, -0.3077, -0.0027, -0.3381, -0.3188, -0.0027, -0.4222, -0.3384, -0.0027, -0.4289, -0.3597, -0.0027, -0.4289, -0.3597, -0.0027, -0.5085, -0.3575, -0.0027, -0.585, -0.3833, -0.0027, -0.4222, -0.3384, -0.0027, -0.5085, -0.3575, -0.0027, -0.4289, -0.3597, -0.0027, -0.0927, -0.2572, -0.0027, -0.0263, -0.2514, -0.0027, -0.0506, -0.2161, -0.0027, -0.1712, -0.2887, -0.0027, -0.1675, -0.3077, -0.0027, -0.0927, -0.2572, -0.0027, -0.327, -0.2525, -0.0027, -0.3381, -0.3188, -0.0027, -0.287, -0.261, -0.0027, -0.287, -0.261, -0.0027, -0.3381, -0.3188, -0.0027, -0.2705, -0.2903, -0.0027, -0.2705, -0.2903, -0.0027, -0.1675, -0.3077, -0.0027, -0.1712, -0.2887, -0.0027, -0.2705, -0.2903, -0.0027, -0.3381, -0.3188, -0.0027, -0.1675, -0.3077, -0.0027, -0.3688, -0.2916, -0.0027, -0.3381, -0.3188, -0.0027, -0.327, -0.2525, -0.0027, -0.4222, -0.3384, -0.0027, -0.3381, -0.3188, -0.0027, -0.3688, -0.2916, 0.0043, -0.1675, -0.3077, 0.0043, -0.0927, -0.2572, 0.0043, -0.0263, -0.2514, 0.0043, -0.0263, -0.2514, 0.0043, -0.0506, -0.2161, 0.0043, 0.0191, -0.2007, 0.0043, -0.0927, -0.2572, 0.0043, -0.0506, -0.2161, 0.0043, -0.0263, -0.2514, 0.0043, -0.585, -0.3833, 0.0043, -0.5085, -0.3575, 0.0043, -0.4289, -0.3597, 0.0043, -0.4289, -0.3597, 0.0043, -0.4222, -0.3384, 0.0043, -0.3381, -0.3188, 0.0043, -0.1675, -0.3077, 0.0043, -0.1712, -0.2887, 0.0043, -0.0927, -0.2572, 0.0043, -0.2705, -0.2903, 0.0043, -0.3381, -0.3188, 0.0043, -0.287, -0.261, 0.0043, -0.287, -0.261, 0.0043, -0.3381, -0.3188, 0.0043, -0.327, -0.2525, 0.0043, -0.1675, -0.3077, 0.0043, -0.2705, -0.2903, 0.0043, -0.1712, -0.2887, 0.0043, -0.3381, -0.3188, 0.0043, -0.2705, -0.2903, 0.0043, -0.1675, -0.3077, 0.0043, -0.327, -0.2525, 0.0043, -0.3381, -0.3188, 0.0043, -0.3688, -0.2916, 0.0043, -0.3688, -0.2916, 0.0043, -0.3381, -0.3188, 0.0043, -0.4222, -0.3384, 0.0043, -0.5085, -0.3575, 0.0043, -0.585, -0.3833, 0.0043, -0.5855, -0.3441, -0.0027, 0.0191, -0.2007, 0.0043, -0.0263, -0.2514, 0.0043, 0.0191, -0.2007, -0.0027, -0.0263, -0.2514, 0.0043, -0.1675, -0.3077, 0.0043, -0.0263, -0.2514, -0.0027, -0.1675, -0.3077, 0.0043, -0.3381, -0.3188, 0.0043, -0.1675, -0.3077, -0.0027, -0.3381, -0.3188, 0.0043, -0.4289, -0.3597, 0.0043, -0.3381, -0.3188, -0.0027, -0.4289, -0.3597, 0.0043, -0.585, -0.3833, 0.0043, -0.4289, -0.3597, -0.0027, -0.585, -0.3833, 0.0043, -0.5855, -0.3441, 0.0043, -0.585, -0.3833, -0.0027, -0.5855, -0.3441, 0.0043, -0.5085, -0.3575, 0.0043, -0.5855, -0.3441, -0.0027, -0.5085, -0.3575, 0.0043, -0.4222, -0.3384, 0.0043, -0.5085, -0.3575, -0.0027, -0.4222, -0.3384, 0.0043, -0.3688, -0.2916, 0.0043, -0.4222, -0.3384, -0.0027, -0.3688, -0.2916, 0.0043, -0.327, -0.2525, 0.0043, -0.3688, -0.2916, -0.0027, -0.327, -0.2525, 0.0043, -0.287, -0.261, 0.0043, -0.327, -0.2525, -0.0027, -0.287, -0.261, 0.0043, -0.2705, -0.2903, 0.0043, -0.287, -0.261, -0.0027, -0.2705, -0.2903, 0.0043, -0.1712, -0.2887, 0.0043, -0.2705, -0.2903, -0.0027, -0.1712, -0.2887, 0.0043, -0.0927, -0.2572, 0.0043, -0.1712, -0.2887, -0.0027, -0.0927, -0.2572, 0.0043, -0.0506, -0.2161, 0.0043, -0.0927, -0.2572, -0.0027, -0.0506, -0.2161, 0.0043, 0.0191, -0.2007, 0.0043, -0.0506, -0.2161, 0, -0.2801, -0.26, 0.1838, -0.2858, -0.1838, 0.1838, -0.2801, -0.1838, 0.1838, -0.2801, -0.1838, 0.26, -0.2858, 0, 0.26, -0.2801, 0, 0.26, -0.2801, 0, 0.1838, -0.2858, 0.1838, 0.1838, -0.2801, 0.1838, 0.1838, -0.2801, 0.1838, 0, -0.2858, 0.26, 0, -0.2801, 0.26, 0, -0.2801, 0.26, -0.1838, -0.2858, 0.1838, -0.1838, -0.2801, 0.1838, -0.1838, -0.2801, 0.1838, -0.26, -0.2858, 0, -0.26, -0.2801, 0, -0.26, -0.2801, 0, -0.1838, -0.2858, -0.1838, -0.1838, -0.2801, -0.1838, -0.1838, -0.2801, -0.1838, 0, -0.2858, -0.26, 0, -0.2801, -0.26 )
@@ -332,7 +333,6 @@ material/0 = null
 shape = SubResource( 6 )
 
 [node name="Floor-FG-Entrance-2" type="MeshInstance" parent="Interior/Floors"]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18115, -1.72498, -1.54492 )
 use_in_baked_light = true
 mesh = ExtResource( 11 )
@@ -343,11 +343,14 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Interior/Floors/Floor-FG-Entrance-2/StaticBody"]
 shape = SubResource( 7 )
 
+[node name="Scene" parent="Interior/Floors/Floor-FG-Entrance-2" instance=ExtResource( 12 )]
+transform = Transform( 0.0176879, 0.0301081, 0.01951, -0.0211171, 0.0263222, -0.0214758, -0.0290035, -0.000803331, 0.0275345, -3.94108, 0.121383, 1.85667 )
+
 [node name="Floor-FG-Entrance-3" type="MeshInstance" parent="Interior/Floors"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18115, -2.92493, -1.54492 )
 use_in_baked_light = true
-mesh = ExtResource( 12 )
+mesh = ExtResource( 13 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Interior/Floors/Floor-FG-Entrance-3"]
@@ -359,7 +362,7 @@ shape = SubResource( 8 )
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.56006, -4.125, -0.620116 )
 use_in_baked_light = true
-mesh = ExtResource( 13 )
+mesh = ExtResource( 14 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Interior/Floors/Floor-FG-Entrance-4"]
@@ -370,7 +373,7 @@ shape = SubResource( 9 )
 [node name="Floor-FG-Entrance-5" type="MeshInstance" parent="Interior/Floors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.55908, -5.22498, -0.620116 )
 use_in_baked_light = true
-mesh = ExtResource( 14 )
+mesh = ExtResource( 15 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Interior/Floors/Floor-FG-Entrance-5"]
@@ -382,7 +385,7 @@ shape = SubResource( 10 )
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.20361, -6.42493, 0.0388196 )
 use_in_baked_light = true
-mesh = ExtResource( 15 )
+mesh = ExtResource( 16 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Interior/Floors/Floor-FG-Top-1"]
@@ -394,7 +397,7 @@ shape = SubResource( 11 )
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.27344, -7.625, 0.0388195 )
 use_in_baked_light = true
-mesh = ExtResource( 16 )
+mesh = ExtResource( 17 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Interior/Floors/Floor-FG-Top-2"]
@@ -406,7 +409,7 @@ shape = SubResource( 12 )
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2534, -8.82825, -1.57422 )
 use_in_baked_light = true
-mesh = ExtResource( 17 )
+mesh = ExtResource( 18 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Interior/Floors/Floor-FG-Top-3"]
@@ -418,7 +421,7 @@ shape = SubResource( 13 )
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5195, -10.1223, -2.03125 )
 use_in_baked_light = true
-mesh = ExtResource( 18 )
+mesh = ExtResource( 19 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Interior/Floors/FloorFG-Top-4"]
@@ -432,203 +435,203 @@ shape = SubResource( 14 )
 editor/display_folded = true
 transform = Transform( 1, 1.79292e-06, 0, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -1.70215, -5.94006, -2.04639 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North" instance=ExtResource( 19 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North" instance=ExtResource( 20 )]
 
 [node name="Empty_FirstGalleryAnchor_North001" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_North"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -1.34601, -0.428233, -0.18328 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North001" instance=ExtResource( 19 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North001" instance=ExtResource( 20 )]
 
 [node name="Empty_FirstGalleryAnchor_North002" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_North"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -2.73305, -1.12953, -0.35869 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North002" instance=ExtResource( 19 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North002" instance=ExtResource( 20 )]
 
 [node name="Empty_FirstGalleryAnchor_North003" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_North"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -3.91034, -1.68458, -0.511499 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North003" instance=ExtResource( 19 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North003" instance=ExtResource( 20 )]
 
 [node name="Empty_FirstGalleryAnchor_North004" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_North"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -5.78915, -2.60365, -0.758729 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North004" instance=ExtResource( 19 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North004" instance=ExtResource( 20 )]
 
 [node name="Empty_FirstGalleryAnchor_North005" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_North"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -6.93233, -3.17982, -0.903729 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North005" instance=ExtResource( 19 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North005" instance=ExtResource( 20 )]
 
 [node name="Empty_FirstGalleryAnchor_North006" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_North"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -8.32794, -3.8793, -1.08569 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North006" instance=ExtResource( 19 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North006" instance=ExtResource( 20 )]
 
 [node name="Empty_FirstGalleryAnchor_North007" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_North"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -10.2523, -4.81276, -1.33926 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North007" instance=ExtResource( 19 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North007" instance=ExtResource( 20 )]
 
 [node name="Empty_FirstGalleryAnchor_North008" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_North"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -11.517, -5.42766, -1.50478 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North008" instance=ExtResource( 19 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North008" instance=ExtResource( 20 )]
 
 [node name="Empty_FirstGalleryAnchor_North009" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_North"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -12.483, -5.91946, -1.62639 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North009" instance=ExtResource( 19 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North009" instance=ExtResource( 20 )]
 
 [node name="Empty_FirstGalleryAnchor_North010" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_North"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -13.9623, -7.26607, -1.82328 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North010" instance=ExtResource( 19 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North010" instance=ExtResource( 20 )]
 
 [node name="Empty_FirstGalleryAnchor_North011" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_North"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -15.1344, -8.42327, -1.97669 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North011" instance=ExtResource( 19 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North011" instance=ExtResource( 20 )]
 
 [node name="Empty_FirstGalleryAnchor_North012" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_North"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -16.066, -9.35917, -2.10542 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North012" instance=ExtResource( 19 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North012" instance=ExtResource( 20 )]
 
 [node name="Empty_FirstGalleryAnchor_North013" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_North"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -17.5436, -10.8371, -2.29259 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North013" instance=ExtResource( 19 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_North/Empty_FirstGalleryAnchor_North013" instance=ExtResource( 20 )]
 
 [node name="FirstGalleryAnchors_South" type="Spatial" parent="Interior/HabShellStructures"]
 editor/display_folded = true
 transform = Transform( 1, 1.79292e-06, 0, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -2.16455, -5.96899, 1.54541 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South" instance=ExtResource( 20 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South" instance=ExtResource( 21 )]
 
 [node name="Empty_FirstGalleryAnchor_South001" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_South"]
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -1.34624, -0.428473, -0.18374 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South001" instance=ExtResource( 20 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South001" instance=ExtResource( 21 )]
 transform = Transform( 1, -1.13687e-13, 0, 0, 1, 0, 0, -2.84217e-14, 1, 0, 0, 5.46129e-09 )
 
 [node name="Empty_FirstGalleryAnchor_South002" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_South"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -2.73329, -1.12964, -0.35913 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South002" instance=ExtResource( 20 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South002" instance=ExtResource( 21 )]
 
 [node name="Empty_FirstGalleryAnchor_South003" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_South"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -3.91057, -1.68471, -0.511959 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South003" instance=ExtResource( 20 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South003" instance=ExtResource( 21 )]
 
 [node name="Empty_FirstGalleryAnchor_South004" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_South"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -5.78938, -2.6039, -0.759184 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South004" instance=ExtResource( 20 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South004" instance=ExtResource( 21 )]
 
 [node name="Empty_FirstGalleryAnchor_South005" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_South"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -6.93257, -3.18007, -0.904186 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South005" instance=ExtResource( 20 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South005" instance=ExtResource( 21 )]
 
 [node name="Empty_FirstGalleryAnchor_South006" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_South"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -8.32814, -3.87954, -1.08614 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South006" instance=ExtResource( 20 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South006" instance=ExtResource( 21 )]
 
 [node name="Empty_FirstGalleryAnchor_South007" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_South"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -10.2526, -4.81293, -1.33971 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South007" instance=ExtResource( 20 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South007" instance=ExtResource( 21 )]
 
 [node name="Empty_FirstGalleryAnchor_South008" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_South"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -11.5172, -5.42773, -1.50523 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South008" instance=ExtResource( 20 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South008" instance=ExtResource( 21 )]
 
 [node name="Empty_FirstGalleryAnchor_South009" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_South"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -12.4833, -5.91973, -1.62684 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South009" instance=ExtResource( 20 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South009" instance=ExtResource( 21 )]
 
 [node name="Empty_FirstGalleryAnchor_South010" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_South"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -13.9625, -7.26614, -1.82373 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South010" instance=ExtResource( 20 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South010" instance=ExtResource( 21 )]
 
 [node name="Empty_FirstGalleryAnchor_South011" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_South"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -15.1346, -8.42354, -1.97714 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South011" instance=ExtResource( 20 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South011" instance=ExtResource( 21 )]
 
 [node name="Empty_FirstGalleryAnchor_South012" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_South"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -16.0662, -9.35924, -2.10587 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South012" instance=ExtResource( 20 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South012" instance=ExtResource( 21 )]
 
 [node name="Empty_FirstGalleryAnchor_South013" type="Spatial" parent="Interior/HabShellStructures/FirstGalleryAnchors_South"]
 editor/display_folded = true
 transform = Transform( 1, -2.02731e-19, 0, 0, 1, 0, 0, 0, 1, -17.5438, -10.8373, -2.29303 )
 
-[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South013" instance=ExtResource( 20 )]
+[node name="Scene" parent="Interior/HabShellStructures/FirstGalleryAnchors_South/Empty_FirstGalleryAnchor_South013" instance=ExtResource( 21 )]
 
 [node name="FirstGalleryColumns-Top" type="MeshInstance" parent="Interior/HabShellStructures"]
 transform = Transform( 0.999995, 0.0032284, 0, -0.00322841, 0.999995, -0.000418226, -6.4075e-07, 0.000418225, 1, -2.17578, 0.00354004, -2.1311 )
 use_in_baked_light = true
-mesh = ExtResource( 21 )
+mesh = ExtResource( 22 )
 material/0 = null
 
 [node name="FirstGalleryConduitTop" type="MeshInstance" parent="Interior/HabShellStructures"]
 transform = Transform( 0.991895, 1.81339e-06, -0.127055, -1.82687e-06, 1, 1.04441e-08, 0.127054, 2.21753e-07, 0.991896, 3.07429, -5.24292, 0.402383 )
 use_in_baked_light = true
-mesh = ExtResource( 22 )
+mesh = ExtResource( 23 )
 material/0 = null
 
 [node name="FirstGalleryConduitUpper" type="MeshInstance" parent="Interior/HabShellStructures"]
 transform = Transform( 0.991895, 1.80912e-06, -0.127054, -1.82254e-06, 1, 1.05885e-08, 0.127054, 2.21059e-07, 0.991896, -2.3998, 0.00878906, -0.30326 )
 use_in_baked_light = true
-mesh = ExtResource( 23 )
+mesh = ExtResource( 24 )
 material/0 = null
 
 [node name="MainColonyAirlocks_Opt" type="MeshInstance" parent="Interior/HabShellStructures"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.41846, -1.88135, -1.47974 )
-mesh = ExtResource( 24 )
+mesh = ExtResource( 25 )
 material/0 = null
 
 [node name="WaterPipeRecHab1" type="MeshInstance" parent="Interior/HabShellStructures"]
 transform = Transform( 1, 1.79292e-06, 0, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -14.0024, -9.19629, -3.63549 )
 use_in_baked_light = true
-mesh = ExtResource( 25 )
+mesh = ExtResource( 26 )
 material/0 = null
 
 [node name="GalleryRoofBeams_Opt" type="MeshInstance" parent="Interior/HabShellStructures"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.6846, -10.0395, -2.5593 )
-mesh = ExtResource( 26 )
+mesh = ExtResource( 27 )
 material/0 = null
 material/1 = null
 
@@ -640,12 +643,12 @@ shape = SubResource( 15 )
 
 [node name="Passage-Mouth-North-BigAtrium-FirstGalley_Opt" type="MeshInstance" parent="Interior/HabShellStructures"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45654, -4.42725, -1.51562 )
-mesh = ExtResource( 27 )
+mesh = ExtResource( 28 )
 material/0 = null
 
 [node name="Passage-BigAtrium-FirstGallery_Opt" type="MeshInstance" parent="Interior/HabShellStructures"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.89307, -4.26892, 4.04907 )
-mesh = ExtResource( 28 )
+mesh = ExtResource( 29 )
 material/0 = null
 material/1 = null
 
@@ -660,7 +663,7 @@ editor/display_folded = true
 [node name="ShimmyStairs_1" type="MeshInstance" parent="Interior/ShimmyStairs"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.77295, -0.524902, -0.0722648 )
-mesh = ExtResource( 29 )
+mesh = ExtResource( 30 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -674,7 +677,7 @@ shape = SubResource( 17 )
 [node name="ShimmyStairs_2" type="MeshInstance" parent="Interior/ShimmyStairs"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.46924, -1.72498, 0.0703134 )
-mesh = ExtResource( 30 )
+mesh = ExtResource( 31 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -688,7 +691,7 @@ shape = SubResource( 18 )
 [node name="ShimmyStairs_3" type="MeshInstance" parent="Interior/ShimmyStairs"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.24268, -2.92493, -0.315673 )
-mesh = ExtResource( 31 )
+mesh = ExtResource( 32 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -702,7 +705,7 @@ shape = SubResource( 19 )
 [node name="ShimmyStairs_4" type="MeshInstance" parent="Interior/ShimmyStairs"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93896, -4.125, -0.173095 )
-mesh = ExtResource( 32 )
+mesh = ExtResource( 33 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -716,7 +719,7 @@ shape = SubResource( 20 )
 [node name="ShimmyStairs_5" type="MeshInstance" parent="Interior/ShimmyStairs"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.24268, -5.22498, -0.315673 )
-mesh = ExtResource( 33 )
+mesh = ExtResource( 34 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -730,7 +733,7 @@ shape = SubResource( 21 )
 [node name="ShimmyStairs_6" type="MeshInstance" parent="Interior/ShimmyStairs"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50195, -0.524902, 0.196534 )
-mesh = ExtResource( 34 )
+mesh = ExtResource( 35 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -744,7 +747,7 @@ shape = SubResource( 22 )
 [node name="ShimmyStairs_7" type="MeshInstance" parent="Interior/ShimmyStairs"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.80615, -1.72498, 0.339113 )
-mesh = ExtResource( 35 )
+mesh = ExtResource( 36 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -758,7 +761,7 @@ shape = SubResource( 23 )
 [node name="ShimmyStairs_8" type="MeshInstance" parent="Interior/ShimmyStairs"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50195, -2.92493, 0.196534 )
-mesh = ExtResource( 36 )
+mesh = ExtResource( 37 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -772,7 +775,7 @@ shape = SubResource( 24 )
 [node name="ShimmyStairs_9" type="MeshInstance" parent="Interior/ShimmyStairs"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.80615, -4.125, 0.339113 )
-mesh = ExtResource( 37 )
+mesh = ExtResource( 38 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -786,7 +789,7 @@ shape = SubResource( 25 )
 [node name="ShimmyStairs_10" type="MeshInstance" parent="Interior/ShimmyStairs"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50195, -5.22498, 0.196534 )
-mesh = ExtResource( 38 )
+mesh = ExtResource( 39 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -802,7 +805,7 @@ shape = SubResource( 26 )
 [node name="ScooterRamp_1" type="MeshInstance" parent="Interior/ScooterRamps"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.07764, -1.57104, -1.66016 )
-mesh = ExtResource( 39 )
+mesh = ExtResource( 40 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Interior/ScooterRamps/ScooterRamp_1"]
@@ -813,7 +816,7 @@ shape = SubResource( 27 )
 [node name="ScooterRamp_2" type="MeshInstance" parent="Interior/ScooterRamps"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.07519, -2.76709, 0.402346 )
-mesh = ExtResource( 40 )
+mesh = ExtResource( 41 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Interior/ScooterRamps/ScooterRamp_2"]
@@ -824,7 +827,7 @@ shape = SubResource( 28 )
 [node name="ScooterRamp_3" type="MeshInstance" parent="Interior/ScooterRamps"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.24951, -3.96277, -1.77588 )
-mesh = ExtResource( 41 )
+mesh = ExtResource( 42 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Interior/ScooterRamps/ScooterRamp_3"]
@@ -835,7 +838,7 @@ shape = SubResource( 29 )
 [node name="ScooterRamp_4" type="MeshInstance" parent="Interior/ScooterRamps"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.68848, -5.08032, -0.695311 )
-mesh = ExtResource( 42 )
+mesh = ExtResource( 43 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Interior/ScooterRamps/ScooterRamp_4"]
@@ -846,7 +849,7 @@ shape = SubResource( 30 )
 [node name="ScooterRamp_5" type="MeshInstance" parent="Interior/ScooterRamps"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.18213, -6.27722, -2.26245 )
-mesh = ExtResource( 43 )
+mesh = ExtResource( 44 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Interior/ScooterRamps/ScooterRamp_5"]
@@ -860,7 +863,7 @@ shape = SubResource( 31 )
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37598, -6.06885, 0.470216 )
 use_in_baked_light = true
-mesh = ExtResource( 44 )
+mesh = ExtResource( 45 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Exterior/FirstGalleryFloor_Top_Opt"]
@@ -872,7 +875,7 @@ shape = SubResource( 32 )
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72323, 0.00268555, 0.2307 )
 use_in_baked_light = true
-mesh = ExtResource( 45 )
+mesh = ExtResource( 46 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Exterior/FirstGalleryWalls_Top_Opt"]
@@ -882,14 +885,14 @@ shape = SubResource( 33 )
 
 [node name="GalleryRoof_Top_Exterior" type="MeshInstance" parent="Exterior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3164, -11.8588, -2.50488 )
-mesh = ExtResource( 46 )
+mesh = ExtResource( 47 )
 material/0 = null
 
 [node name="GalleryRoof_Top" type="MeshInstance" parent="Exterior"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3164, -11.8588, -2.50488 )
 use_in_baked_light = true
-mesh = ExtResource( 47 )
+mesh = ExtResource( 48 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -902,7 +905,7 @@ shape = SubResource( 34 )
 [node name="Triggers" type="Spatial" parent="."]
 
 [node name="Area" type="Area" parent="Triggers"]
-script = ExtResource( 48 )
+script = ExtResource( 49 )
 RootNode = NodePath("../..")
 
 [node name="CollisionShape" type="CollisionShape" parent="Triggers/Area"]
@@ -916,4 +919,4 @@ bake_quality = 2
 bake_mode = 1
 bake_extents = Vector3( 15.0307, 11.3572, 7.72338 )
 image_path = "res://scenes/BakedLight/FirstGalleryUpper"
-light_data = ExtResource( 49 )
+light_data = ExtResource( 50 )
