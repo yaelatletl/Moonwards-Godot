@@ -344,7 +344,7 @@ material/0 = null
 shape = SubResource( 7 )
 
 [node name="Scene" parent="Interior/Floors/Floor-FG-Entrance-2" instance=ExtResource( 12 )]
-transform = Transform( 0.0176879, 0.0301081, 0.01951, -0.0211171, 0.0263222, -0.0214758, -0.0290035, -0.000803331, 0.0275345, -3.94108, 0.121383, 1.85667 )
+transform = Transform( 0.0176879, 0.0301081, 0.01951, -0.0211171, 0.0263222, -0.0214758, -0.0290035, -0.000803331, 0.0275345, -3.66296, 0.27073, 1.85667 )
 
 [node name="Floor-FG-Entrance-3" type="MeshInstance" parent="Interior/Floors"]
 editor/display_folded = true

@@ -385,7 +385,7 @@ autoplay = "Key.005Action.001"
 anims/Key.005Action.001 = SubResource( 12 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.50266, 0 )
 light_color = Color( 1, 0.772549, 0, 1 )
-light_energy = 4.8
-omni_range = 41.0
+light_energy = 1.4
+omni_range = 8.60551
