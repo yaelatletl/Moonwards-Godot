@@ -48,6 +48,7 @@ var climb_direction = 1.0
 var movementstate = walk
 var username = "username" setget SetUsername
 var id setget SetID
+var nocamera = false
 
 const walk = 0
 const flail = 1
