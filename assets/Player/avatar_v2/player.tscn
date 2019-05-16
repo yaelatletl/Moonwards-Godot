@@ -138,7 +138,7 @@ nodes/MovementState/position = Vector2( 640, 80 )
 nodes/Walk/node = SubResource( 23 )
 nodes/Walk/position = Vector2( 260, 80 )
 nodes/output/position = Vector2( 1380, 100 )
-node_connections = [ "output", 0, "Land", "Jump", 0, "MovementState", "Jump", 1, "JumpSpeed", "Land", 0, "Jump", "Land", 1, "Animation 2", "ClimbDirection", 0, "ClimbProgressUp", "ClimbDirection", 1, "ClimbProgressDown", "ClimbProgressDown", 0, "Animation 4", "ClimbProgressUp", 0, "Animation 5", "MovementSpeed", 0, "Walk", "MovementState", 0, "MovementSpeed", "MovementState", 1, "Animation 3", "MovementState", 2, "ClimbDirection", "JumpSpeed", 0, "Animation" ]
+node_connections = [ "output", 0, "Land", "Jump", 0, "MovementState", "Jump", 1, "JumpSpeed", "Land", 0, "Jump", "Land", 1, "Animation 2", "ClimbDirection", 0, "ClimbProgressUp", "ClimbDirection", 1, "ClimbProgressDown", "ClimbProgressDown", 0, "Animation 4", "ClimbProgressUp", 0, "Animation 5", "JumpSpeed", 0, "Animation", "MovementSpeed", 0, "Walk", "MovementState", 0, "MovementSpeed", "MovementState", 1, "Animation 3", "MovementState", 2, "ClimbDirection" ]
 
 [node name="LocalPlayer" type="Spatial"]
 script = ExtResource( 1 )
