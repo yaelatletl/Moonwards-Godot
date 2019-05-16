@@ -25,7 +25,7 @@ margin_top = 37.0
 margin_right = -188.0
 margin_bottom = 51.0
 rect_scale = Vector2( 4, 4 )
-text = "Welcome to Cernans Promise!"
+text = "Bucknell Rocket"
 align = 1
 
 [node name="Slide_2" type="Control" parent="Slides"]

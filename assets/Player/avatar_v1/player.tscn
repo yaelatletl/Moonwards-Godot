@@ -4,9 +4,6 @@
 [ext_resource path="res://assets/Player/avatar_v1/FPSCamera.gd" type="Script" id=2]
 [ext_resource path="res://assets/Player/avatar_v1/label.gd" type="Script" id=3]
 
-
-
-
 [sub_resource type="QuadMesh" id=1]
 size = Vector2( 0.01, 0.01 )
 
@@ -85,4 +82,3 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28093, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 5 )
-
