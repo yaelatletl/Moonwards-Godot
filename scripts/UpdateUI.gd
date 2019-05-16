@@ -10,3 +10,9 @@ func AddLogMessage(var text):
 
 func SwitchScene():
 	get_tree().change_scene("res://scenes/NewContentUI.tscn")
+
+func RunUpdateServer():
+	Updater.RunUpdateServer()
+
+func RunUpdateClient():
+	Updater.RunUpdateClient()

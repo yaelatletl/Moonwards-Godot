@@ -1,50 +1,155 @@
 extends Control
 
-var request
-var server_url = "http://107.173.129.154/moonwards/"
-var update_list_found = false
 var done_updating = false
-var download_queue = []
-var next_update = true
-var updater_started = false
-var updater_enabled = false
+var updater_enabled = true
 var file = File.new()
+
+var server_md5_list
+var SERVER_PORT = 8000
+var MAX_PLAYERS = 32
+var SERVER_IP = "127.0.0.1"
+var peer
+var client_ids = []
+var client_id
 
 signal receive_update_message
 
 func _process(delta):
+	pass
+
+func _ready():
+	yield(get_tree(), "idle_frame")
 	if not updater_enabled:
 		set_process(false)
 		return
-	GetMD5List()
-	if get_tree() != null and not updater_started:
-		updater_started = true
-		Log("Starting Updater...")
-		CheckForUpdates()
-		set_process(false)
-		if not update_list_found:
-			Log("Updater Done")
-	elif download_queue.size() == 0:
-		set_process(false)
-		Log("Updater Done")
-		LoadPackages()
-		Log("NewContentUI.tscn exists : " + str(ResourceLoader.exists("res://scenes/NewContentUI.tscn")))
-	elif next_update:
-		Log("Getting update " + download_queue[0])
-		next_update = false
-		var file = File.new()
-		var packed_scene_path = "user://updates/" + download_queue[0]
+	Log("Updater enabled")
+
+func RunUpdateServer():
+	#Connect all the function so they can be handled by the server.
+	get_tree().connect("network_peer_connected", self, "ServerPeerConnected")
+	get_tree().connect("network_peer_disconnected", self, "ServerPeerDisconnected")
+	
+	peer = NetworkedMultiplayerENet.new()
+	peer.set_bind_ip(IP.resolve_hostname("localhost", 1))
+	var error = peer.create_server(SERVER_PORT, MAX_PLAYERS)
+	get_tree().set_network_peer(peer)
+	
+	Log("Create server. " + "Error code : " + str(error))
+	Log("Getting MD5 List...")
+	yield(get_tree(), "idle_frame")
+	yield(get_tree(), "idle_frame")
+	server_md5_list = GetMD5List()
+	Log("Done!")
+
+func ServerPeerConnected(var id):
+	Log("Peer connected " + str(id))
+	client_ids.append(id)
+
+func ServerPeerDisconnected(var id):
+	Log("Peer disconnected " + str(id))
+
+func RunUpdateClient():
+	#Load all previous packages so those won't have to be downloaded from the server.
+	LoadPackages()
+	
+	#Connect all the function so they can be handled by the client.
+	get_tree().connect("connected_to_server", self, "ClientConnectedOK")
+	get_tree().connect("connection_failed", self, "ClientConnectedFailed")
+	get_tree().connect("server_disconnected", self, "ClientDisconnectedByServer")
+	
+	peer = NetworkedMultiplayerENet.new()
+	var error = peer.create_client(SERVER_IP, SERVER_PORT)
+	get_tree().set_network_peer(peer)
+	
+	Log("Connect to server. " + "Error code : " + str(error))
+
+func ClientConnectedOK():
+	Log("Connected OK.")
+	ClientSendMd5List()
+
+func ClientConnectedFailed():
+	Log("Connected Failed.")
+
+func ClientDisconnectedByServer():
+	Log("The server disconnected.")
+
+func ClientSendMd5List():
+	Log("Sending md5 list...")
+	#The server always has the id 1. So just send it to id 1 without sending it to the other clients.
+	rpc_id(1, "ServerReceiveMD5List", get_tree().get_network_unique_id(), GetMD5List())
+
+remote func ServerReceiveMD5List(var client_id, var md5_list):
+	Log("Server received md5 list.")
+	var file = File.new()
+	
+	var updated_files = {}
+	for key in server_md5_list:
+		#Check if the client has the file.
+		if not md5_list.has(key):
+			updated_files[key] = server_md5_list[key]
+			Log("New file found " + server_md5_list[key] + " md5 : " + key)
+	
+	if updated_files.empty():
+		Log("No new files found!")
+		return
+	else:
+		Log("Found " + str(updated_files.size()) + " updates.")
+	
+	var packer = PCKPacker.new()
+	var directory = Directory.new()
+	var package_path = "user://update_cache/" + str(client_id) + "_update.pck"
+	
+	#The server writes to a different directory so it doesn't conflict with the client update directory.
+	if not directory.dir_exists("user://update_cache/"):
+		directory.make_dir("user://update_cache/")
+	
+	packer.pck_start(package_path, 4)
+	
+	for key in updated_files:
+#		Log("Adding file : " + updated_files[key])
+		var split_asset_name = updated_files[key].split("/")
+		var asset_name = split_asset_name[split_asset_name.size() - 1]
+		packer.add_file(updated_files[key], asset_name)
+	
+	packer.flush(true)
+	
+	Log("Sending update package.")
+	file.open(package_path, File.READ)
+	var buffer = file.get_buffer(file.get_len())
+	rpc_id(client_id, "ClientReceiveUpdate", buffer)
+	file.close()
+	Log("Sending done. Removing cache.")
+	directory.remove(package_path)
+
+remote func ClientReceiveUpdate(var buffer):
+	var directory = Directory.new()
+	
+	if not directory.dir_exists("user://updates/"):
+		directory.make_dir("user://updates/")
+	
+	#This will name the package by number. i.e. 00005.pck
+	var nr_packages = 0
+	if directory.open("user://updates/") == OK:
+		directory.list_dir_begin(true, true)
+		var file_name = directory.get_next()
+		while (file_name != ""):
+			if not directory.current_is_dir():
+				nr_packages += 1
+			file_name = directory.get_next()
+		directory.list_dir_end()
 		
-		if file.file_exists(packed_scene_path):
-			Log("Packed scene already exists. Skipping download.")
-			next_update = true
-			download_queue.remove(0)
-		else:
-			var error = request.request(server_url + download_queue[0])
-			if error != OK:
-				Log("Error requesting update " + download_queue[0])
-				next_update = true
-				download_queue.remove(0)
+		var package_name = str(nr_packages).pad_zeros(5)
+		var file = File.new()
+		
+		Log("Package size : " + str(buffer.size()) + " bytes.")
+		Log("Writing update to : user://updates/" + package_name + ".pck")
+		#Write the actual package by using the buffer received.
+		file.open("user://updates/" + package_name + ".pck", File.WRITE)
+		file.store_buffer(buffer)
+		file.close()
+		Log("Done writing new update package. " + package_name + ".pck")
+	else:
+		Log("Could not write to user directory.")
 
 func GetMD5List():
 	var directory = Directory.new()
@@ -57,8 +162,8 @@ func GetMD5List():
 			if directory.current_is_dir():
 				GetMD5FromDirectory(file_name + "/", dictionary)
 			else:
-				dictionary["res://" + file_name] = file.get_md5("res://" + file_name)
-				Log("res://" + file_name + " md5= " + file.get_md5("res://" + file_name))
+				dictionary[file.get_md5("res://" + file_name)] = "res://" + file_name
+#				Log("res://" + file_name + " md5= " + file.get_md5("res://" + file_name))
 			file_name = directory.get_next()
 	return dictionary
 
@@ -72,8 +177,8 @@ func GetMD5FromDirectory(var path, var dictionary):
 			if directory.current_is_dir():
 				GetMD5FromDirectory(file_name + "/", dictionary)
 			else:
-				dictionary["res://" + path + file_name] = file.get_md5("res://" + path + file_name)
-				Log("res://" + path + file_name + " md5= " + file.get_md5("res://" + path + file_name))
+				dictionary[file.get_md5("res://" + path + file_name)] = "res://" + path + file_name
+#				Log("res://" + path + file_name + " md5= " + file.get_md5("res://" + path + file_name))
 			file_name = directory.get_next()
 
 func LoadPackages():
@@ -96,59 +201,5 @@ func LoadPackages():
 	else:
 		print("An error occurred when trying to access the path.")
 
-func ReadTestFile():
-	var file = File.new()
-	
-	if file.open("res://_tests/Updater/update_content.txt", File.READ) == OK:
-		while not file.eof_reached():
-			Log(file.get_line())
-	else:
-		Log("Failed reading file")
-
 func Log(var text):
 	emit_signal("receive_update_message", text)
-
-func CheckForUpdates():
-	request = HTTPRequest.new()
-	add_child(request)
-	request.connect("request_completed", self, "ReceiveUpdateJSON")
-	var error = request.request(server_url + "updates.json")
-	
-	if error != OK:
-		return
-	else:
-		update_list_found = true
-
-func ReceiveUpdate( result, response_code, headers, body ):
-	var file = File.new()
-	var directory = Directory.new()
-	var packed_scene_path = "user://updates/" + download_queue[0]
-	
-	if not directory.dir_exists("user://updates/"):
-		directory.make_dir("user://updates/")
-	
-	if response_code != HTTPClient.RESPONSE_OK:
-		Log("Received response code " + str(response_code) + ".")
-	else:
-		file.open(packed_scene_path, File.WRITE)
-		file.store_buffer(body)
-		file.close()
-		Log("Done writing " + "user://updates/" + download_queue[0])
-	
-	download_queue.remove(0)
-	next_update = true
-
-func ReceiveUpdateJSON( result, response_code, headers, body ):
-	var json = JSON.parse(body.get_string_from_utf8())
-	
-	Log("Updates found in json:")
-	
-	for update in json.result["updates"]:
-		Log(update)
-		download_queue.append(update)
-	
-	Log("End of json file.")
-	request.disconnect("request_completed", self, "ReceiveUpdateJSON")
-	request.connect("request_completed", self, "ReceiveUpdate")
-	set_process(true)
-	

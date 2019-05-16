@@ -27,15 +27,29 @@ size_flags_vertical = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer"]
 margin_right = 1024.0
-margin_bottom = 676.0
+margin_bottom = 628.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/normal = SubResource( 1 )
 scroll_following = true
 
 [node name="SwitchScene" type="Button" parent="VBoxContainer/VBoxContainer"]
+margin_top = 632.0
+margin_right = 1024.0
+margin_bottom = 652.0
+text = "Switch Scene"
+
+[node name="RunServer" type="Button" parent="VBoxContainer/VBoxContainer"]
+margin_top = 656.0
+margin_right = 1024.0
+margin_bottom = 676.0
+text = "Run Server"
+
+[node name="RunClient" type="Button" parent="VBoxContainer/VBoxContainer"]
 margin_top = 680.0
 margin_right = 1024.0
 margin_bottom = 700.0
-text = "Switch Scene"
+text = "Run Client"
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/SwitchScene" to="." method="SwitchScene"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/RunServer" to="." method="RunUpdateServer"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/RunClient" to="." method="RunUpdateClient"]
