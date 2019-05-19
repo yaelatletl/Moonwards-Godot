@@ -25,6 +25,7 @@ func _ready():
 	Log("Updater enabled")
 
 func RunUpdateServer():
+	debug_id = "%sServer" % debug_id
 	#Connect all the function so they can be handled by the server.
 	get_tree().connect("network_peer_connected", self, "ServerPeerConnected")
 	get_tree().connect("network_peer_disconnected", self, "ServerPeerDisconnected")
@@ -49,6 +50,7 @@ func ServerPeerDisconnected(var id):
 	Log("Peer disconnected " + str(id))
 
 func RunUpdateClient():
+	debug_id = "%sClient" % debug_id
 	#Load all previous packages so those won't have to be downloaded from the server.
 	LoadPackages()
 	
@@ -59,6 +61,9 @@ func RunUpdateClient():
 	
 	peer = NetworkedMultiplayerENet.new()
 	var error = peer.create_client(SERVER_IP, SERVER_PORT)
+	if get_tree().is_network_server():
+		Log("Tree in server mode")
+		
 	get_tree().set_network_peer(peer)
 	
 	Log("Connect to server. " + "Error code : " + str(error))
@@ -106,10 +111,11 @@ remote func ServerReceiveMD5List(var client_id, var md5_list):
 	packer.pck_start(package_path, 4)
 	
 	for key in updated_files:
-#		Log("Adding file : " + updated_files[key])
 		var split_asset_name = updated_files[key].split("/")
 		var asset_name = split_asset_name[split_asset_name.size() - 1]
-		packer.add_file(updated_files[key], asset_name)
+		Log("Adding file : %s, asset(%s)" % [updated_files[key], asset_name])
+# 		packer.add_file(updated_files[key], asset_name)
+		packer.add_file(updated_files[key], updated_files[key])
 	
 	packer.flush(true)
 	
@@ -119,7 +125,10 @@ remote func ServerReceiveMD5List(var client_id, var md5_list):
 	rpc_id(client_id, "ClientReceiveUpdate", buffer)
 	file.close()
 	Log("Sending done. Removing cache.")
-	directory.remove(package_path)
+	if not options.debug:
+		directory.remove(package_path)
+	else:
+		Log("options.debug is set, do not clean chache package")
 
 remote func ClientReceiveUpdate(var buffer):
 	var directory = Directory.new()
@@ -154,32 +163,45 @@ remote func ClientReceiveUpdate(var buffer):
 func GetMD5List():
 	var directory = Directory.new()
 	var dictionary = {}
-	if directory.open("res://") == OK:
-		directory.list_dir_begin(true, true)
-		
-		var file_name = directory.get_next()
-		while (file_name != ""):
-			if directory.current_is_dir():
-				GetMD5FromDirectory(file_name + "/", dictionary)
-			else:
-				dictionary[file.get_md5("res://" + file_name)] = "res://" + file_name
-#				Log("res://" + file_name + " md5= " + file.get_md5("res://" + file_name))
-			file_name = directory.get_next()
-	return dictionary
-
-func GetMD5FromDirectory(var path, var dictionary):
-	var directory = Directory.new()
+	var path = "res://"
 	if directory.open(path) == OK:
 		directory.list_dir_begin(true, true)
 		
 		var file_name = directory.get_next()
 		while (file_name != ""):
+			file_name = path + file_name
 			if directory.current_is_dir():
-				GetMD5FromDirectory(file_name + "/", dictionary)
+				file_name += "/"
+				Log("GetMD5List dive in: %s" % file_name)
+				GetMD5FromDirectory(file_name, dictionary)
 			else:
-				dictionary[file.get_md5("res://" + path + file_name)] = "res://" + path + file_name
-#				Log("res://" + path + file_name + " md5= " + file.get_md5("res://" + path + file_name))
+				var file_md5 = "%s" % file.get_md5(file_name)
+				dictionary[file_md5] = file_name
+				Log("%s md5=%s" % [file_name, file_md5])
 			file_name = directory.get_next()
+	Log("GetMD5List total list of files %s" % dictionary.size())
+	return dictionary
+
+func GetMD5FromDirectory(var path, var dictionary):
+	var directory = Directory.new()
+	if directory.open(path) == OK:
+		Log("GetMD5FromDirectory open %s, cwd(%s)" % [path, directory.get_current_dir()])
+		directory.list_dir_begin(true, true)
+		
+		var file_name = directory.get_next()
+		while (file_name != ""):
+			file_name = path + file_name
+			if directory.current_is_dir():
+				file_name += "/"
+				Log("GetMD5FromDirectory dive in: %s" % file_name)
+				GetMD5FromDirectory(file_name, dictionary)
+			else:
+				var file_md5 = "%s" % file.get_md5(file_name)
+				dictionary[file_md5] = file_name
+				Log("%s md5=%s" % [file_name, file_md5])
+			file_name = directory.get_next()
+	else:
+		Log("GetMD5FromDirectory fail to open %s" % path)
 
 func LoadPackages():
 	var directory = Directory.new()
@@ -203,3 +225,8 @@ func LoadPackages():
 
 func Log(var text):
 	emit_signal("receive_update_message", text)
+	printd(text)
+
+var debug_id = "Updater"
+func printd(s):
+	logg.print_fd(debug_id, s)

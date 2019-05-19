@@ -25,7 +25,12 @@ margin_bottom = 700.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="State" type="Label" parent="VBoxContainer/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 14.0
+
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer"]
+margin_top = 18.0
 margin_right = 1024.0
 margin_bottom = 628.0
 size_flags_horizontal = 3
@@ -50,6 +55,7 @@ margin_top = 680.0
 margin_right = 1024.0
 margin_bottom = 700.0
 text = "Run Client"
+
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/SwitchScene" to="." method="SwitchScene"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/RunServer" to="." method="RunUpdateServer"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/RunClient" to="." method="RunUpdateClient"]
