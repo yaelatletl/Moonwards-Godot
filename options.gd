@@ -2,6 +2,28 @@ extends Node
 var id = "options.gd"
 var debug = true
 
+signal user_settings_changed
+
+enum slots{
+	pants,
+	shirt,
+	skin,
+	hair
+}
+
+enum genders{
+	female,
+	male
+}
+
+var username
+var gender
+var pants_color
+var shirt_color
+var skin_color 
+var hair_color
+var savefile_json
+
 var OptionsFile = "user://gameoptions.save"
 
 func printd(s):
@@ -134,6 +156,7 @@ func _ready():
 	printd("load options and settings")
 	self.load()
 	set_defaults()
+	LoadUserSettings()
 
 func load():
 	var savefile = File.new()
@@ -224,3 +247,59 @@ func get_tree_opt(opt):
 			res = true
 	return res
 
+func LoadUserSettings():
+	var savefile = File.new()
+	if not savefile.file_exists("user://settings.save"):
+		save()
+	
+	savefile.open("user://settings.save", File.READ)
+	savefile_json = parse_json(savefile.get_as_text())
+	savefile.close()
+	gender = SafeGetSetting("gender", genders.female)
+	username = SafeGetSetting("username", "Player Name")
+	
+	pants_color = SafeGetColor("pants", Color8(49,4,5,255))
+	shirt_color = SafeGetColor("shirt", Color8(87,235,192,255))
+	skin_color = SafeGetColor("skin", Color8(150,112,86,255))
+	hair_color = SafeGetColor("hair", Color8(0,0,0,255))
+
+func SafeGetColor(var color_name, var default_color):
+	if not savefile_json.has(color_name + "R") or not savefile_json.has(color_name + "G") or not savefile_json.has(color_name + "B"):
+		return default_color
+	else:
+		return Color8(savefile_json[color_name + "R"],savefile_json[color_name + "G"],savefile_json[color_name + "B"],255)
+
+func SafeGetSetting(var setting_name, var default_value):
+	if not savefile_json.has(setting_name):
+		return default_value
+	else:
+		return savefile_json[setting_name]
+
+func SaveUserSettings():
+	var savefile = File.new()
+	savefile.open("user://settings.save", File.WRITE)
+	var save_dict = {
+		
+		"username" : username,
+		"gender" : gender,
+		
+		"pantsR" : pants_color.r*255, # Vector3 is not supported by JSON
+		"pantsG" : pants_color.g*255,
+		"pantsB" : pants_color.b*255,
+		
+		"shirtR" : shirt_color.r*255,
+		"shirtG" : shirt_color.g*255,
+		"shirtB" : shirt_color.b*255,
+		
+		"skinR" : skin_color.r*255,
+		"skinG" : skin_color.g*255,
+		"skinB" : skin_color.b*255,
+		
+		"hairR" : hair_color.r*255,
+		"hairG" : hair_color.g*255,
+		"hairB" : hair_color.b*255,
+		
+		}
+	savefile.store_line(to_json(save_dict))
+	savefile.close()
+	emit_signal("user_settings_changed")

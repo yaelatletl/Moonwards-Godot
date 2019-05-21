@@ -66,6 +66,11 @@ puppet var puppet_motion
 var network = false setget SetNetwork
 var nonetwork = ! network
 
+var pants_mat
+var shirt_mat
+var skin_mat
+var hair_mat
+
 #################################
 # Init functions
 func _ready():
@@ -74,9 +79,39 @@ func _ready():
 	orientation.origin = Vector3()
 	if not puppet:
 		camera_control = get_node(camera_control_path)
+		options.connect("user_settings_changed", self, "ApplyUserSettings")
+		SetupMaterials()
+		ApplyUserSettings()
 	else:
 		set_process_input(false)
 	SetRemotePlayer(puppet)
+
+func SetupMaterials():
+	hair_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(0).duplicate()
+	pants_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(1).duplicate()
+	shirt_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(2).duplicate()
+	skin_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(3).duplicate()
+	
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.set_surface_material(0, shirt_mat)
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.set_surface_material(1, pants_mat)
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.set_surface_material(2, skin_mat)
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.set_surface_material(3, hair_mat)
+	
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(0, hair_mat)
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(1, pants_mat)
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(2, shirt_mat)
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(3, skin_mat)
+
+func ApplyUserSettings():
+	pants_mat.albedo_color = options.pants_color
+	shirt_mat.albedo_color = options.shirt_color
+	skin_mat.albedo_color = options.skin_color
+	hair_mat.albedo_color = options.hair_color
+	
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.visible = (options.gender == options.genders.female)
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.visible = (options.gender == options.genders.male)
+	
+	SetUsername(options.username)
 
 func _enter_tree():
 	set_player_group()

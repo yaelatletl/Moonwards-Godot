@@ -1,17 +1,13 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://assets/Player/avatar_v2/scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/Player/avatar_v2/Nametag3D.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/Player/avatar_v2/PlayerCamera.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/Player/avatar_v2/FemalePlayer.tscn" type="PackedScene" id=4]
-[ext_resource path="res://materials/Turquoise.tres" type="Material" id=5]
+[ext_resource path="res://model_assets/Avatars/AvatarRig.dae" type="PackedScene" id=4]
+[ext_resource path="res://materials/BrightTeal.tres" type="Material" id=5]
 [ext_resource path="res://materials/Chestnut.tres" type="Material" id=6]
 [ext_resource path="res://materials/SmokySkin.tres" type="Material" id=7]
 [ext_resource path="res://materials/Black.tres" type="Material" id=8]
-[ext_resource path="res://assets/Player/avatar_v2/FemalePlayer/Jump.anim" type="Animation" id=9]
-[ext_resource path="res://assets/Player/avatar_v2/FemalePlayer/Land.anim" type="Animation" id=10]
-[ext_resource path="res://assets/Player/avatar_v2/FemalePlayer/Neutral.anim" type="Animation" id=11]
-[ext_resource path="res://model_assets/Avatars/FemalePlayer.dae" type="PackedScene" id=12]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
@@ -38,10 +34,10 @@ animation = "Land"
 animation = "Flail-loop"
 
 [sub_resource type="AnimationNodeAnimation" id=7]
-animation = "ClimbDown2-loop"
+animation = "ClimbDown-loop"
 
 [sub_resource type="AnimationNodeAnimation" id=8]
-animation = "ClimbUp2-loop"
+animation = "ClimbUp-loop"
 
 [sub_resource type="AnimationNodeAnimation" id=9]
 animation = "Jump"
@@ -81,19 +77,19 @@ input_2/name = "Climb"
 input_2/auto_advance = false
 
 [sub_resource type="AnimationNodeAnimation" id=18]
-animation = "Female_MoonWalking-loop"
+animation = "MoonWalking-loop"
 
 [sub_resource type="AnimationNodeAnimation" id=19]
-animation = "Female_MoonWalkingBack-loop"
+animation = "MoonWalkingBack-loop"
 
 [sub_resource type="AnimationNodeAnimation" id=20]
-animation = "Female_MoonWalkingLeft-loop"
+animation = "MoonWalkingLeft-loop"
 
 [sub_resource type="AnimationNodeAnimation" id=21]
-animation = "Female_MoonWalkingRight-loop"
+animation = "MoonWalkingRight-loop"
 
 [sub_resource type="AnimationNodeAnimation" id=22]
-animation = "CasualStance1"
+animation = "CasualStance"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id=23]
 blend_point_0/node = SubResource( 18 )
@@ -108,7 +104,7 @@ blend_point_4/node = SubResource( 22 )
 blend_point_4/pos = Vector2( 0, 0 )
 
 [sub_resource type="AnimationNodeBlendTree" id=24]
-graph_offset = Vector2( 311, 210 )
+graph_offset = Vector2( -208, 13 )
 nodes/Animation/node = SubResource( 9 )
 nodes/Animation/position = Vector2( 840, 380 )
 "nodes/Animation 2/node" = SubResource( 5 )
@@ -151,10 +147,9 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0 )
 material_override = SubResource( 1 )
 
-[node name="SpotLight" type="SpotLight" parent="KinematicBody"]
-transform = Transform( 1, 0, 0, 0, 0.0285586, -0.999592, 0, 0.999592, 0.0285586, 0, 0, 0 )
-spot_range = 0.2
-spot_angle = 37.4681
+[node name="Light" type="OmniLight" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 0.0285586, -0.999592, 0, 0.999592, 0.0285586, 0, 0.174787, 0 )
+omni_range = 1.5
 
 [node name="Nametag" parent="KinematicBody" instance=ExtResource( 2 )]
 visible = false
@@ -201,31 +196,24 @@ animation_path = NodePath("../AnimationTree")
 cell_size = 0.1
 radius = 2.0
 
-[node name="Model2" parent="KinematicBody" instance=ExtResource( 4 )]
-visible = false
-
-[node name="AvatarFemale" parent="KinematicBody/Model2/FemaleRig/Skeleton" index="0"]
-material/0 = ExtResource( 5 )
-material/1 = ExtResource( 6 )
-material/2 = ExtResource( 7 )
-material/3 = ExtResource( 8 )
-
-[node name="AnimationPlayer" parent="KinematicBody/Model2" index="1"]
-anims/Jump = ExtResource( 9 )
-anims/Land = ExtResource( 10 )
-anims/Neutral = ExtResource( 11 )
-
-[node name="Model" parent="KinematicBody" instance=ExtResource( 12 )]
+[node name="Model" parent="KinematicBody" instance=ExtResource( 4 )]
 
 [node name="AvatarFemale" parent="KinematicBody/Model/FemaleRig/Skeleton" index="0"]
+visible = false
+lod_max_distance = 1.0
 material/0 = ExtResource( 5 )
 material/1 = ExtResource( 6 )
 material/2 = ExtResource( 7 )
 material/3 = ExtResource( 8 )
+
+[node name="AvatarMale" parent="KinematicBody/Model/FemaleRig/Skeleton" index="1"]
+lod_max_distance = 1.0
+material/0 = ExtResource( 8 )
+material/1 = ExtResource( 6 )
+material/2 = ExtResource( 5 )
+material/3 = ExtResource( 7 )
 
 [node name="AnimationPlayer" parent="KinematicBody/Model" index="1"]
 playback_process_mode = 0
-
-[editable path="KinematicBody/Model2"]
 
 [editable path="KinematicBody/Model"]
