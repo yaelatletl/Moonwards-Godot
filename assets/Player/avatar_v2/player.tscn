@@ -200,6 +200,7 @@ radius = 2.0
 
 [node name="AvatarFemale" parent="KinematicBody/Model/FemaleRig/Skeleton" index="0"]
 visible = false
+lod_min_distance = 5.0
 lod_max_distance = 1.0
 material/0 = ExtResource( 5 )
 material/1 = ExtResource( 6 )
@@ -207,6 +208,7 @@ material/2 = ExtResource( 7 )
 material/3 = ExtResource( 8 )
 
 [node name="AvatarMale" parent="KinematicBody/Model/FemaleRig/Skeleton" index="1"]
+lod_min_distance = 5.0
 lod_max_distance = 1.0
 material/0 = ExtResource( 8 )
 material/1 = ExtResource( 6 )
