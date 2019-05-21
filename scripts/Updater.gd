@@ -1,7 +1,7 @@
 extends Control
 
 var done_updating = false
-var updater_enabled = true
+var updater_enabled = false
 var file = File.new()
 
 var server_md5_list
