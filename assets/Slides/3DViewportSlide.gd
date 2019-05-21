@@ -5,6 +5,7 @@ var content_path = ""
 var index = 0 
 var disabled_direction = 1 #1 is for right click/ left key, 2 is for left click, right key 0 is for none
 var delay
+var has_focus = false
 
 func update_slides():
 	if index != 0 and index < $ColorRect/Content.get_child_count():
@@ -42,20 +43,14 @@ func _on_size_changed():
 
 
 func _input(event):
-	if event is InputEventMouseButton and delay.is_stopped():
-		
-		if event.button_index == 1  and  disabled_direction != 2:
-			index += 1
-		if event.button_index == 2 and disabled_direction != 1:
-			index -= 1
-		update_slides()
-		
-	if event is InputEventKey and delay.is_stopped():
-		if Input.is_action_pressed("ui_right") and  disabled_direction != 2:
-			index += 1
-		if Input.is_action_pressed("ui_left") and disabled_direction != 1:
-			index -= 1
-		update_slides()
+	if has_focus:
+		if event is InputEventKey and delay.is_stopped():
+			if Input.is_action_pressed("left_click") and  disabled_direction != 2:
+				index += 1
+				update_slides()
+			if Input.is_action_pressed("right_click") and disabled_direction != 1:
+				index -= 1
+				update_slides()
 
 func create_content_path():
 	var ss = Content.resource_path.split("/")
