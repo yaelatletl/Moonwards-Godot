@@ -111,6 +111,11 @@ func ApplyUserSettings():
 	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.visible = (options.gender == options.genders.female)
 	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.visible = (options.gender == options.genders.male)
 	
+	if options.gender == options.genders.male:
+		$KinematicBody/Model/FemaleRig/Skeleton.scale = Vector3(1.1, 1.1, 1.1)
+	else:
+		$KinematicBody/Model/FemaleRig/Skeleton.scale = Vector3(1.0, 1.0, 1.0)
+	
 	SetUsername(options.username)
 
 func _enter_tree():
