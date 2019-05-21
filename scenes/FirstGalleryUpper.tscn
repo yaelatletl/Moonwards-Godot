@@ -13,7 +13,7 @@
 [ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_Floors_Floor-FG-Entrance-2.mesh" type="ArrayMesh" id=11]
 [ext_resource path="res://model_assets/Contributions/SCTR_Bucknell_Opt.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/Slides/ScreenViewer.tscn" type="PackedScene" id=13]
-[ext_resource path="res://assets/Slides/BucknellRocket/BucknellRocketSlides.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/Slides/BucknellRocket/Slide00.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_Floors_Floor-FG-Entrance-3.mesh" type="ArrayMesh" id=15]
 [ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_Floors_Floor-FG-Entrance-4.mesh" type="ArrayMesh" id=16]
 [ext_resource path="res://scenes/meshes/FirstGalleryUpper__Interior_Floors_Floor-FG-Entrance-5.mesh" type="ArrayMesh" id=17]
@@ -354,6 +354,8 @@ transform = Transform( 0.0176879, 0.0301081, 0.01951, -0.0211171, 0.0263222, -0.
 [node name="Screen" parent="Interior/Floors/Floor-FG-Entrance-2/BucknellRocket" instance=ExtResource( 13 )]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -4.1232, 0.202016, 1.72918 )
 Content = ExtResource( 14 )
+Size = Vector2( 1024, 700 )
+Hologram = false
 
 [node name="Floor-FG-Entrance-3" type="MeshInstance" parent="Interior/Floors"]
 editor/display_folded = true
