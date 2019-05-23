@@ -17,7 +17,7 @@ enum genders{
 }
 
 var username = "default"
-var gender = "other"
+var gender = genders.female
 var pants_color = Color(1,1,1,1)
 var shirt_color = Color(1,1,1,1)
 var skin_color = Color(1,1,1,1)
