@@ -13,7 +13,7 @@ func _ready():
 	$VBoxContainer/UsernameContainer/UsernameTextEdit.text = options.username
 	SwitchSlot()
 	$ViewportContainer/Viewport/AvatarPreview.SetGender(options.gender)
-	$VBoxContainer/Gender.selected = options.gender
+	$VBoxContainer/Gender.selected = int(options.gender)
 	$ViewportContainer/Viewport.size = $ViewportContainer.rect_size
 
 func _on_HuePicker_Hue_Selected(color):
