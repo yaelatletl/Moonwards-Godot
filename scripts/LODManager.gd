@@ -71,7 +71,10 @@ func init_scene():
 	else:
 		printd("init_scene, no camera found")
 
-func set_scene_path(path): #, force_update=false): Setters-getter only accept one argument, second argument is not actually used
+func set_scene_path(path):
+	set_scene_path_update(path, false)
+
+func set_scene_path_update(path, force_update=false): 
 	if not enabled:
 		scene_path = path
 		return
