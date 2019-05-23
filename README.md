@@ -7,7 +7,9 @@ Thus you must run the following commands in a terminal from inside the folder wh
 
     git init
     git lfs install
-    git clone https://github.com/moonwards1/Moonwards-Virtual-Moon.git
+    git clone https://github.com/moonwards1/Moonwards-Virtual-Moon.git path/to/destination
+    
+
  
  
 
