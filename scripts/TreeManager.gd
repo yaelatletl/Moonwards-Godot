@@ -101,6 +101,9 @@ func hboxsetlod_check(node):
 	if node is MeshInstance:
 		if node.lod_min_distance == 0 and node.lod_max_distance == 0:
 			to_set = true
+		else:
+			MeshTool.cache_has_mesh(node, true) ##erase from cache if exists
+		
 		if MeshTool.cache_has_mesh(node):
 			to_set = true
 	return to_set
