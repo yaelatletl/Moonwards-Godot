@@ -25,6 +25,7 @@ var hair_color
 var savefile_json
 
 var OptionsFile = "user://gameoptions.save"
+var User_file = "user://settings.save"
 
 func printd(s):
 	logg.print_fd(id, s)
@@ -249,10 +250,11 @@ func get_tree_opt(opt):
 
 func LoadUserSettings():
 	var savefile = File.new()
-	if not savefile.file_exists("user://settings.save"):
-		save()
+	if not savefile.file_exists(User_file):
+		SaveUserSettings()
 	
-	savefile.open("user://settings.save", File.READ)
+	savefile.open(User_file, File.READ)
+	print(savefile.get_as_text())
 	savefile_json = parse_json(savefile.get_as_text())
 	savefile.close()
 	gender = SafeGetSetting("gender", genders.female)
@@ -270,6 +272,7 @@ func SafeGetColor(var color_name, var default_color):
 		return Color8(savefile_json[color_name + "R"],savefile_json[color_name + "G"],savefile_json[color_name + "B"],255)
 
 func SafeGetSetting(var setting_name, var default_value):
+	
 	if not savefile_json.has(setting_name):
 		return default_value
 	else:
@@ -277,7 +280,7 @@ func SafeGetSetting(var setting_name, var default_value):
 
 func SaveUserSettings():
 	var savefile = File.new()
-	savefile.open("user://settings.save", File.WRITE)
+	savefile.open(User_file, File.WRITE)
 	var save_dict = {
 		
 		"username" : username,
