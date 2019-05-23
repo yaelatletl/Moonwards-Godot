@@ -92,7 +92,7 @@ func GetMeshInstances(var starting_node, var collection):
 	nodes.append(starting_node)
 	for child in nodes:
 		var id = child.get_instance_id()
-		if child is MeshInstance and (child.lod_min_distance != 0.0 or child.lod_max_distance != 0.0) and (child.lod_min_distance > child.lod_max_distance):
+		if child is MeshInstance and (child.lod_min_distance != 0.0 or child.lod_max_distance != 0.0) and not (child.lod_min_distance > child.lod_max_distance):
 			if not id_collection.has(id):
 				collection.append(weakref(child))
 				id_collection[id] = {
