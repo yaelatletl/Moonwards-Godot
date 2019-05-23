@@ -149,6 +149,7 @@ material_override = SubResource( 1 )
 
 [node name="Light" type="OmniLight" parent="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 0.0285586, -0.999592, 0, 0.999592, 0.0285586, 0, 0.174787, 0 )
+visible = false
 omni_range = 1.5
 
 [node name="Nametag" parent="KinematicBody" instance=ExtResource( 2 )]
