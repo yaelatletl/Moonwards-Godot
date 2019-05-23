@@ -268,9 +268,9 @@ func enable_managment():
 		var lm = get_node(LodManager)
 		printd("found LodManager at %s" % lm.get_path())
 		if enable_hboxsetlod:
-			lm.set_scene_path(lm.get_path_to(tree), true)
+			lm.set_scene_path_update(lm.get_path_to(tree), true)
 		else:
-			lm.set_scene_path(lm.get_path_to(tree), true)
+			lm.set_scene_path_update(lm.get_path_to(tree), true)
 		lm.enabled = true
 	else:
 		printd("LodManager disabled: %s %s" % [enable_lodmanager, LodManager])
