@@ -16,12 +16,12 @@ enum genders{
 	male
 }
 
-var username
-var gender
-var pants_color
-var shirt_color
-var skin_color 
-var hair_color
+var username = "default"
+var gender = "other"
+var pants_color = Color(1,1,1,1)
+var shirt_color = Color(1,1,1,1)
+var skin_color = Color(1,1,1,1)
+var hair_color = Color(1,1,1,1)
 var savefile_json
 
 var OptionsFile = "user://gameoptions.save"
