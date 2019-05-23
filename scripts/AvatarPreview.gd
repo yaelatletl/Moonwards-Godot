@@ -6,7 +6,7 @@ var pants_mat
 var shirt_mat
 var skin_mat
 var hair_mat
-
+var selected 
 func _ready():
 	pants_mat = base_material.duplicate()
 	shirt_mat = base_material.duplicate()
@@ -30,7 +30,7 @@ func SetColors(var pants, var shirt, var skin, var hair):
 	hair_mat.albedo_color = hair
 
 func SetGender(var gender):
-	if gender == 0:
+	if int(gender) == 0:
 		$Female.show()
 		$Male.hide()
 	else:
