@@ -1,11 +1,12 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://themes/MainMenu.tres" type="Theme" id=1]
 [ext_resource path="res://assets/UI/Menu/Options.gd" type="Script" id=2]
 [ext_resource path="res://assets/UI/Menu/User_Settings.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/UI/control_elements/LabelSliderMix/LabelSliderMix.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/UI/Menu/Controls_settings.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scripts/UIElement.gd" type="Script" id=6]
+[ext_resource path="res://assets/UI/control_elements/LabelOptionButton/LabelOptionButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/UI/Menu/Controls_settings.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/UIElement.gd" type="Script" id=7]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 0.0
@@ -54,10 +55,6 @@ anchor_bottom = 1.0
 margin_top = 38.0
 
 [node name="UserSettings" parent="TabContainer/Player" instance=ExtResource( 3 )]
-margin_left = 0.0
-margin_top = 0.0
-margin_right = 0.0
-margin_bottom = 0.0
 
 [node name="Dev" type="Tabs" parent="TabContainer"]
 visible = false
@@ -158,6 +155,12 @@ mi = 0
 ma = 500
 ticks = 50
 
+[node name="SelectFlyCamera" parent="TabContainer/Dev/VBoxContainer" instance=ExtResource( 5 )]
+margin_top = 344.0
+margin_right = 984.0
+margin_bottom = 372.0
+label = "Select Fly Camera"
+
 [node name="Display" type="Tabs" parent="TabContainer"]
 visible = false
 anchor_right = 1.0
@@ -170,7 +173,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 38.0
 
-[node name="Controls" parent="TabContainer" instance=ExtResource( 5 )]
+[node name="Controls" parent="TabContainer" instance=ExtResource( 6 )]
 visible = false
 margin_left = 0.0
 margin_top = 38.0
@@ -184,7 +187,8 @@ margin_left = -25.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 25, 25 )
 text = "X"
-script = ExtResource( 6 )
+script = ExtResource( 7 )
+
 [connection signal="focus_entered" from="TabContainer/Dev/VBoxContainer" to="." method="_on_VBoxContainer_focus_entered"]
 [connection signal="pressed" from="TabContainer/Dev/VBoxContainer/tAreas" to="." method="_on_tAreas_pressed"]
 [connection signal="pressed" from="TabContainer/Dev/VBoxContainer/tCollisionShapes" to="." method="_on_tCollisionShapes_pressed"]

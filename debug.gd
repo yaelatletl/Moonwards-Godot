@@ -83,14 +83,16 @@ func camera_ready(force=false):
 	if camera_ready_oldcamera:
 		active = true
 	if not active or force:
-		var camera = load("res://assets/media_mode_camera.tscn").instance()
+		var camera_used = options.get("dev", "flycamera", 0)
+		var camera_path = options.fly_cameras[camera_used].path
+		var camera = load(camera_path).instance()
 		root.add_child(camera)
 		camera_ready_path = root.get_path_to(camera)
 		camera.current = true
 		if active:
 			print("sync camera position with old camera")
-			camera.global_transform = camera_ready_oldcamera.global_transform
-		print("debug: added fly camera to scene")
+			camera.camera.global_translate(camera_ready_oldcamera.global_transform.origin)
+		printd("added fly camera to scene, index %s" % camera_used)
 		
 
 func on_scene_change():

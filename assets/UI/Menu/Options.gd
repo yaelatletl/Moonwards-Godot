@@ -51,6 +51,12 @@ func _ready():
 	
 	button = $TabContainer/Dev/VBoxContainer/sPlayerSpeed
 	init_playerspeed_control(button)
+	
+	button = $TabContainer/Dev/VBoxContainer/SelectFlyCamera
+	for i in range(options.fly_cameras.size()):
+		button.add_item(options.fly_cameras[i].label, i)
+	button.button.selected = options.get("dev", "flycamera", 0)
+	button.connect("changed", self, "set_fly_camera")
 
 func _get_player():
 	var res
@@ -148,3 +154,5 @@ func _on_tLodManager_pressed():
 	options.set("dev", button.pressed, "TreeManager")
 	debug.set_lod_manager(button.pressed)
 
+func set_fly_camera(value):
+	options.set("dev", value, "flycamera")

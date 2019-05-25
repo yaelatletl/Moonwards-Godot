@@ -52,6 +52,11 @@ var scenes = {
 	}
 }
 
+var fly_cameras = [
+	{ "label" : "Fly Camera", 	"path" : "res://assets/Player/flycamera/player.tscn"},
+	{ "label" : "Media Camera", "path" : "res://assets/Player/flycamera_ac/player.tscn" }
+]
+
 var player_opt = {
 	player_group = "player",
 	opt_allow_unknown = true,
@@ -306,3 +311,4 @@ func SaveUserSettings():
 	savefile.store_line(to_json(save_dict))
 	savefile.close()
 	emit_signal("user_settings_changed")
+
