@@ -1799,3 +1799,4 @@ bake_energy = 5.0
 bake_extents = Vector3( 8.6806, 2.73205, 4.09921 )
 image_path = "res://scenes/BakedLight/AtriumHab"
 light_data = ExtResource( 106 )
+
