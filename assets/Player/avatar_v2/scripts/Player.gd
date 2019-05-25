@@ -221,6 +221,7 @@ func HandleControls(var delta):
 	elif Input.is_action_just_pressed("jump") and not in_air and not jumping and not climbing_stairs:
 		jumping = true
 		$KinematicBody/AnimationTree["parameters/Jump/active"] = true
+		Jump()
 	
 	if climbing_stairs:
 		UpdateClimbingStairs(delta)
