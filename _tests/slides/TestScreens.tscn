@@ -23,9 +23,9 @@ material/0 = SubResource( 2 )
 shape = SubResource( 3 )
 
 [node name="Screen" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.383868, 1.35681, -0.432728 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.383868, 1.19987, -0.432728 )
 Content = ExtResource( 2 )
 Hologram = true
 
 [node name="LocalPlayer" parent="." instance=ExtResource( 3 )]
-transform = Transform( -0.999111, 0, 0.042166, 0, 1, 0, -0.042166, 0, -0.999111, 0, 0.148076, 0.271815 )
+transform = Transform( -0.650568, 0, 0.759449, 0, 1, 0, -0.759449, 0, -0.650568, 0, 0.148076, 1.16061 )

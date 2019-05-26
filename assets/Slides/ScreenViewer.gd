@@ -10,7 +10,7 @@ export(Vector2) var Size = Vector2(1024,700)
 export(bool) var Hologram = false
 
 func _input(event):
-	# Check if the event is a non-mouse event
+	# Check if the event is a non-mouse event 
 	var is_mouse_event = false
 	var mouse_events = [InputEventMouseButton, InputEventMouseMotion, InputEventScreenDrag, InputEventScreenTouch]
 	for mouse_event in mouse_events:
@@ -21,7 +21,6 @@ func _input(event):
 	# If it is, then pass the event to the viewport
 	if (is_mouse_event == false):
 		viewport.input(event)
-
 
 # Mouse events for Area
 func _on_area_input_event(camera, event, click_pos, click_normal, shape_idx):
@@ -71,13 +70,26 @@ func _ready():
 	viewport = get_node("Viewport")
 	viewport.size = Size
 	if Content != null:
-			viewport.add_child(Content.instance())
+		viewport.add_child(Content.instance())
 	else:
 		print("ERROR: Assign a Content to this screen!")
+	
 	get_node("Area").connect("input_event", self, "_on_area_input_event")
+	get_node("InteractionTrigger").connect("body_entered", self, "_start_interaction")
+	get_node("InteractionTrigger").connect("body_exited", self, "_stop_interaction")
+	
 	if Hologram:
 		var mat = $Area/Quad.get_surface_material(0)
 		mat.albedo_color.a = 0.7
 		mat.flags_transparent = true
 		$Area/Quad.set_surface_material(0, mat)
-  
+
+func _start_interaction(body):
+	var player = body.get_parent()
+	if(player.has_method("ShowMouseCursor")):
+		player.call("ShowMouseCursor")
+
+func _stop_interaction(body):
+	var player = body.get_parent()
+	if(player.has_method("HideMouseCursor")):
+		player.call("HideMouseCursor")

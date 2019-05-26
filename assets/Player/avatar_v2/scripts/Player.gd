@@ -178,6 +178,12 @@ func _input(event):
 	elif event.is_action_pressed("scroll_down") and Input.is_action_pressed("move_run") and animation_speed > 0.5:
 		animation_speed -= 0.25
 
+func ShowMouseCursor():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+
+func HideMouseCursor():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 func Jump():
 	velocity.y += JUMP_SPEED
 	jump_timeout = 1.0
