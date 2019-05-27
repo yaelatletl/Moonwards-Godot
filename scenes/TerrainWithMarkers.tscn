@@ -377,7 +377,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -140.088, -1986.86, -17.9028 )
 [node name="Scene" parent="Empty_FirstGalleryLower" instance=ExtResource( 26 )]
 
 [node name="Empty_FirstGalleryUpper" type="Spatial" parent="."]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.5742, -1928.14, -8.2334 )
 
 [node name="Scene" parent="Empty_FirstGalleryUpper" instance=ExtResource( 27 )]
