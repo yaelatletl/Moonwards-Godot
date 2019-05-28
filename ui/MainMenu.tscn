@@ -131,4 +131,3 @@ visible = false
 [node name="Options" type="Node" parent="."]
 
 [node name="NoCamera" type="Node" parent="Options"]
-

@@ -398,7 +398,7 @@ func DoStairsCheck():
 	var sphere = SphereShape.new()
 	var kb_pos = $KinematicBody.global_transform.origin
 	
-	sphere.radius = 0.1
+	sphere.radius = 0.03
 	params.set_shape(sphere)
 	params.collide_with_areas = true
 	params.collide_with_bodies = false
