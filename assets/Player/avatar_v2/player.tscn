@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://assets/Player/avatar_v2/scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/Player/avatar_v2/Nametag3D.tscn" type="PackedScene" id=2]
@@ -40,7 +40,7 @@ animation = "ClimbDown-loop"
 animation = "ClimbUp-loop"
 
 [sub_resource type="AnimationNodeAnimation" id=9]
-animation = "Jump"
+animation = "JumpPose"
 
 [sub_resource type="AnimationNodeTransition" id=10]
 input_count = 2
@@ -54,19 +54,16 @@ input_1/auto_advance = false
 
 [sub_resource type="AnimationNodeTimeSeek" id=12]
 
-[sub_resource type="AnimationNodeOneShot" id=13]
+[sub_resource type="AnimationNodeBlend2" id=23]
 filter_enabled = true
-filters = [ "../..", "FemaleRig/Skeleton:Elbow_Pole.L", "FemaleRig/Skeleton:Elbow_Pole.R", "FemaleRig/Skeleton:Knee_Pole.L", "FemaleRig/Skeleton:Knee_Pole.R", "FemaleRig/Skeleton:foot.L", "FemaleRig/Skeleton:foot.R", "FemaleRig/Skeleton:foot_IK.L", "FemaleRig/Skeleton:foot_IK.R", "FemaleRig/Skeleton:forearm.L", "FemaleRig/Skeleton:forearm.R", "FemaleRig/Skeleton:hand.L", "FemaleRig/Skeleton:hand.R", "FemaleRig/Skeleton:hand_IK.L", "FemaleRig/Skeleton:hand_IK.R", "FemaleRig/Skeleton:shin.L", "FemaleRig/Skeleton:shin.R", "FemaleRig/Skeleton:shoulder.L", "FemaleRig/Skeleton:shoulder.R", "FemaleRig/Skeleton:spine", "FemaleRig/Skeleton:spine.001", "FemaleRig/Skeleton:spine.002", "FemaleRig/Skeleton:spine.003", "FemaleRig/Skeleton:spine.005", "FemaleRig/Skeleton:spine.006", "FemaleRig/Skeleton:thigh.L", "FemaleRig/Skeleton:thigh.R", "FemaleRig/Skeleton:upper_arm.L", "FemaleRig/Skeleton:upper_arm.R" ]
-autorestart_random_delay = 9.10844e-44
+filters = [ "FemaleRig", "FemaleRig/Skeleton:Elbow_Pole.L", "FemaleRig/Skeleton:Elbow_Pole.R", "FemaleRig/Skeleton:forearm.L", "FemaleRig/Skeleton:forearm.R", "FemaleRig/Skeleton:hand.L", "FemaleRig/Skeleton:hand.R", "FemaleRig/Skeleton:hand_IK.L", "FemaleRig/Skeleton:hand_IK.R", "FemaleRig/Skeleton:shoulder.L", "FemaleRig/Skeleton:shoulder.R", "FemaleRig/Skeleton:spine.001", "FemaleRig/Skeleton:spine.002", "FemaleRig/Skeleton:spine.003", "FemaleRig/Skeleton:spine.005", "FemaleRig/Skeleton:spine.006", "FemaleRig/Skeleton:upper_arm.L", "FemaleRig/Skeleton:upper_arm.R" ]
+
+[sub_resource type="AnimationNodeOneShot" id=13]
+autorestart_random_delay = 1.38329e-26
 
 [sub_resource type="AnimationNodeTimeScale" id=14]
 
-[sub_resource type="AnimationNodeOneShot" id=15]
-autorestart_random_delay = 1.38329e-26
-
-[sub_resource type="AnimationNodeTimeScale" id=16]
-
-[sub_resource type="AnimationNodeTransition" id=17]
+[sub_resource type="AnimationNodeTransition" id=15]
 input_count = 3
 xfade_time = 0.1
 input_0/name = "Walk"
@@ -76,39 +73,39 @@ input_1/auto_advance = false
 input_2/name = "Climb"
 input_2/auto_advance = false
 
-[sub_resource type="AnimationNodeAnimation" id=18]
+[sub_resource type="AnimationNodeAnimation" id=16]
 animation = "MoonWalking-loop"
 
-[sub_resource type="AnimationNodeAnimation" id=19]
+[sub_resource type="AnimationNodeAnimation" id=17]
 animation = "MoonWalkingBack-loop"
 
-[sub_resource type="AnimationNodeAnimation" id=20]
+[sub_resource type="AnimationNodeAnimation" id=18]
 animation = "MoonWalkingLeft-loop"
 
-[sub_resource type="AnimationNodeAnimation" id=21]
+[sub_resource type="AnimationNodeAnimation" id=19]
 animation = "MoonWalkingRight-loop"
 
-[sub_resource type="AnimationNodeAnimation" id=22]
+[sub_resource type="AnimationNodeAnimation" id=20]
 animation = "CasualStance"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=23]
-blend_point_0/node = SubResource( 18 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=21]
+blend_point_0/node = SubResource( 16 )
 blend_point_0/pos = Vector2( 0, 1 )
-blend_point_1/node = SubResource( 19 )
+blend_point_1/node = SubResource( 17 )
 blend_point_1/pos = Vector2( 0, -1 )
-blend_point_2/node = SubResource( 20 )
+blend_point_2/node = SubResource( 18 )
 blend_point_2/pos = Vector2( -1, 0 )
-blend_point_3/node = SubResource( 21 )
+blend_point_3/node = SubResource( 19 )
 blend_point_3/pos = Vector2( 1, 0 )
-blend_point_4/node = SubResource( 22 )
+blend_point_4/node = SubResource( 20 )
 blend_point_4/pos = Vector2( 0, 0 )
 
-[sub_resource type="AnimationNodeBlendTree" id=24]
-graph_offset = Vector2( -208, 13 )
+[sub_resource type="AnimationNodeBlendTree" id=22]
+graph_offset = Vector2( -131, 7 )
 nodes/Animation/node = SubResource( 9 )
-nodes/Animation/position = Vector2( 840, 380 )
+nodes/Animation/position = Vector2( 440, 460 )
 "nodes/Animation 2/node" = SubResource( 5 )
-"nodes/Animation 2/position" = Vector2( 1040, 280 )
+"nodes/Animation 2/position" = Vector2( 1200, 280 )
 "nodes/Animation 3/node" = SubResource( 6 )
 "nodes/Animation 3/position" = Vector2( 440, 200 )
 "nodes/Animation 4/node" = SubResource( 7 )
@@ -121,20 +118,18 @@ nodes/ClimbProgressDown/node = SubResource( 11 )
 nodes/ClimbProgressDown/position = Vector2( 160, 400 )
 nodes/ClimbProgressUp/node = SubResource( 12 )
 nodes/ClimbProgressUp/position = Vector2( 160, 280 )
-nodes/Jump/node = SubResource( 13 )
-nodes/Jump/position = Vector2( 840, 80 )
-nodes/JumpSpeed/node = SubResource( 14 )
-nodes/JumpSpeed/position = Vector2( 840, 260 )
-nodes/Land/node = SubResource( 15 )
-nodes/Land/position = Vector2( 1040, 80 )
-nodes/MovementSpeed/node = SubResource( 16 )
+nodes/JumpAmount/node = SubResource( 23 )
+nodes/JumpAmount/position = Vector2( 960, 120 )
+nodes/Land/node = SubResource( 13 )
+nodes/Land/position = Vector2( 1180, 80 )
+nodes/MovementSpeed/node = SubResource( 14 )
 nodes/MovementSpeed/position = Vector2( 440, 80 )
-nodes/MovementState/node = SubResource( 17 )
-nodes/MovementState/position = Vector2( 640, 80 )
-nodes/Walk/node = SubResource( 23 )
+nodes/MovementState/node = SubResource( 15 )
+nodes/MovementState/position = Vector2( 740, 80 )
+nodes/Walk/node = SubResource( 21 )
 nodes/Walk/position = Vector2( 260, 80 )
 nodes/output/position = Vector2( 1380, 100 )
-node_connections = [ "output", 0, "Land", "Jump", 0, "MovementState", "Jump", 1, "JumpSpeed", "Land", 0, "Jump", "Land", 1, "Animation 2", "ClimbDirection", 0, "ClimbProgressUp", "ClimbDirection", 1, "ClimbProgressDown", "ClimbProgressDown", 0, "Animation 4", "ClimbProgressUp", 0, "Animation 5", "JumpSpeed", 0, "Animation", "MovementSpeed", 0, "Walk", "MovementState", 0, "MovementSpeed", "MovementState", 1, "Animation 3", "MovementState", 2, "ClimbDirection" ]
+node_connections = [ "output", 0, "Land", "Land", 0, "JumpAmount", "Land", 1, "Animation 2", "ClimbDirection", 0, "ClimbProgressUp", "ClimbDirection", 1, "ClimbProgressDown", "ClimbProgressDown", 0, "Animation 4", "ClimbProgressUp", 0, "Animation 5", "MovementSpeed", 0, "Walk", "MovementState", 0, "MovementSpeed", "MovementState", 1, "Animation 3", "MovementState", 2, "ClimbDirection", "JumpAmount", 0, "MovementState", "JumpAmount", 1, "Animation" ]
 
 [node name="LocalPlayer" type="Spatial"]
 script = ExtResource( 1 )
@@ -177,7 +172,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.08
 shape = SubResource( 4 )
 
 [node name="AnimationTree" type="AnimationTree" parent="KinematicBody"]
-tree_root = SubResource( 24 )
+tree_root = SubResource( 22 )
 anim_player = NodePath("../Model/AnimationPlayer")
 active = true
 process_mode = 0
@@ -185,8 +180,7 @@ root_motion_track = NodePath("FemaleRig/Skeleton:Root")
 parameters/ClimbDirection/current = 0
 parameters/ClimbProgressDown/seek_position = -1.0
 parameters/ClimbProgressUp/seek_position = -1.0
-parameters/Jump/active = false
-parameters/JumpSpeed/scale = 2.0
+parameters/JumpAmount/blend_amount = 0.0
 parameters/Land/active = false
 parameters/MovementSpeed/scale = 1.0
 parameters/MovementState/current = 0
@@ -200,7 +194,6 @@ radius = 2.0
 [node name="Model" parent="KinematicBody" instance=ExtResource( 4 )]
 
 [node name="AvatarFemale" parent="KinematicBody/Model/FemaleRig/Skeleton" index="0"]
-visible = false
 lod_min_distance = 5.0
 lod_max_distance = 1.0
 material/0 = ExtResource( 5 )
@@ -209,6 +202,7 @@ material/2 = ExtResource( 7 )
 material/3 = ExtResource( 8 )
 
 [node name="AvatarMale" parent="KinematicBody/Model/FemaleRig/Skeleton" index="1"]
+visible = false
 lod_min_distance = 5.0
 lod_max_distance = 1.0
 material/0 = ExtResource( 8 )
