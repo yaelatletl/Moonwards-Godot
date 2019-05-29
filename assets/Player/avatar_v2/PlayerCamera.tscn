@@ -13,4 +13,3 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25 )
 
 [node name="LookTarget" type="Spatial" parent="Pivot"]
-

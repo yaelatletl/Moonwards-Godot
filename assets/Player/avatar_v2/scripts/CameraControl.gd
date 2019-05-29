@@ -12,6 +12,7 @@ onready var camera = get_node(kinematic_body_camera)
 var current_look_position = Vector3()
 var zoom_step_size = 0.05
 export (bool) var enabled = false
+var excluded_bodies = [kinematic_body]
 
 func _ready():
 	if camera == null:
@@ -42,10 +43,13 @@ func _physics_process(delta):
 	var to = camera_target.global_transform.origin
 	var local_to = camera_target.translation
 	
-	var col = get_world().direct_space_state.intersect_ray(from, to, [kinematic_body])
+	var col = get_world().direct_space_state.intersect_ray(from, to, excluded_bodies)
 	
 	var target_position = to
 	if not col.empty():
+		if col.collider.is_in_group("no_camera_collide"):
+			excluded_bodies.append(col.collider)
+			return
 		var raycast_offset = col.position.distance_to(from)
 		if local_to.z > raycast_offset:
 			target_position = pivot.to_global(Vector3(0, 0, max(0.05, raycast_offset - 0.15)))

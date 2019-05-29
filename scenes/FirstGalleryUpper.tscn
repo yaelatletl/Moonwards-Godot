@@ -762,7 +762,9 @@ material/1 = null
 material/2 = null
 material/3 = null
 
-[node name="StaticBody" type="StaticBody" parent="Interior/ShimmyStairs/ShimmyStairs_1"]
+[node name="StaticBody" type="StaticBody" parent="Interior/ShimmyStairs/ShimmyStairs_1" groups=[
+"no_camera_collide",
+]]
 editor/display_folded = true
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStairs/ShimmyStairs_1/StaticBody"]
@@ -794,7 +796,9 @@ material/1 = null
 material/2 = null
 material/3 = null
 
-[node name="StaticBody" type="StaticBody" parent="Interior/ShimmyStairs/ShimmyStairs_2"]
+[node name="StaticBody" type="StaticBody" parent="Interior/ShimmyStairs/ShimmyStairs_2" groups=[
+"no_camera_collide",
+]]
 editor/display_folded = true
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStairs/ShimmyStairs_2/StaticBody"]
@@ -826,7 +830,9 @@ material/1 = null
 material/2 = null
 material/3 = null
 
-[node name="StaticBody" type="StaticBody" parent="Interior/ShimmyStairs/ShimmyStairs_3"]
+[node name="StaticBody" type="StaticBody" parent="Interior/ShimmyStairs/ShimmyStairs_3" groups=[
+"no_camera_collide",
+]]
 editor/display_folded = true
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStairs/ShimmyStairs_3/StaticBody"]
@@ -858,7 +864,9 @@ material/1 = null
 material/2 = null
 material/3 = null
 
-[node name="StaticBody" type="StaticBody" parent="Interior/ShimmyStairs/ShimmyStairs_4"]
+[node name="StaticBody" type="StaticBody" parent="Interior/ShimmyStairs/ShimmyStairs_4" groups=[
+"no_camera_collide",
+]]
 editor/display_folded = true
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStairs/ShimmyStairs_4/StaticBody"]
@@ -890,7 +898,9 @@ material/1 = null
 material/2 = null
 material/3 = null
 
-[node name="StaticBody" type="StaticBody" parent="Interior/ShimmyStairs/ShimmyStairs_5"]
+[node name="StaticBody" type="StaticBody" parent="Interior/ShimmyStairs/ShimmyStairs_5" groups=[
+"no_camera_collide",
+]]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStairs/ShimmyStairs_5/StaticBody"]
 shape = SubResource( 29 )
@@ -921,7 +931,9 @@ material/1 = null
 material/2 = null
 material/3 = null
 
-[node name="StaticBody" type="StaticBody" parent="Interior/ShimmyStairs/ShimmyStairs_6"]
+[node name="StaticBody" type="StaticBody" parent="Interior/ShimmyStairs/ShimmyStairs_6" groups=[
+"no_camera_collide",
+]]
 editor/display_folded = true
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStairs/ShimmyStairs_6/StaticBody"]
@@ -953,7 +965,9 @@ material/1 = null
 material/2 = null
 material/3 = null
 
-[node name="StaticBody" type="StaticBody" parent="Interior/ShimmyStairs/ShimmyStairs_7"]
+[node name="StaticBody" type="StaticBody" parent="Interior/ShimmyStairs/ShimmyStairs_7" groups=[
+"no_camera_collide",
+]]
 editor/display_folded = true
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStairs/ShimmyStairs_7/StaticBody"]
@@ -985,7 +999,9 @@ material/1 = null
 material/2 = null
 material/3 = null
 
-[node name="StaticBody" type="StaticBody" parent="Interior/ShimmyStairs/ShimmyStairs_8"]
+[node name="StaticBody" type="StaticBody" parent="Interior/ShimmyStairs/ShimmyStairs_8" groups=[
+"no_camera_collide",
+]]
 editor/display_folded = true
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStairs/ShimmyStairs_8/StaticBody"]
@@ -1017,7 +1033,9 @@ material/1 = null
 material/2 = null
 material/3 = null
 
-[node name="StaticBody" type="StaticBody" parent="Interior/ShimmyStairs/ShimmyStairs_9"]
+[node name="StaticBody" type="StaticBody" parent="Interior/ShimmyStairs/ShimmyStairs_9" groups=[
+"no_camera_collide",
+]]
 editor/display_folded = true
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStairs/ShimmyStairs_9/StaticBody"]
@@ -1049,7 +1067,9 @@ material/1 = null
 material/2 = null
 material/3 = null
 
-[node name="StaticBody" type="StaticBody" parent="Interior/ShimmyStairs/ShimmyStairs_10"]
+[node name="StaticBody" type="StaticBody" parent="Interior/ShimmyStairs/ShimmyStairs_10" groups=[
+"no_camera_collide",
+]]
 editor/display_folded = true
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStairs/ShimmyStairs_10/StaticBody"]
