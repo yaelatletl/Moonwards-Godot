@@ -12,7 +12,7 @@ enum slots{
 func _ready():
 	$VBoxContainer/UsernameContainer/UsernameTextEdit.text = options.username
 	SwitchSlot()
-	$ViewportContainer/Viewport/AvatarPreview.SetGender(options.gender)
+	_on_Gender_item_selected(options.gender)
 	$VBoxContainer/Gender.selected = int(options.gender)
 	$ViewportContainer/Viewport.size = $ViewportContainer.rect_size
 
@@ -52,6 +52,11 @@ func SwitchSlot():
 func _on_Gender_item_selected(ID):
 	options.gender = ID
 	$ViewportContainer/Viewport/AvatarPreview.SetGender(options.gender)
-
+	if ID == 0:
+		$ViewportContainer/Female.show()
+		$ViewportContainer/Male.hide()
+	else:
+		$ViewportContainer/Female.hide()
+		$ViewportContainer/Male.show()
 func _on_UsernameTextEdit_text_changed(new_text):
 	options.username = new_text
