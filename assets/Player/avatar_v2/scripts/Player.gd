@@ -75,6 +75,9 @@ var shirt_mat
 var skin_mat
 var hair_mat
 
+var colors setget SetPuppetColors
+var gender setget SetPuppetGender
+
 #################################
 # Init functions
 func _ready():
@@ -105,6 +108,23 @@ func SetupMaterials():
 	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(1, pants_mat)
 	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(2, shirt_mat)
 	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(3, skin_mat)
+
+func SetPuppetColors(var colors):
+	SetupMaterials()
+	
+	pants_mat.albedo_color = colors.pants
+	shirt_mat.albedo_color = colors.shirt
+	skin_mat.albedo_color = colors.skin
+	hair_mat.albedo_color = colors.hair
+
+func SetPuppetGender(var gender):
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.visible = (gender == options.genders.female)
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.visible = (gender == options.genders.male)
+	
+	if options.gender == options.genders.male:
+		$KinematicBody/Model/FemaleRig/Skeleton.scale = Vector3(1.1, 1.1, 1.1)
+	else:
+		$KinematicBody/Model/FemaleRig/Skeleton.scale = Vector3(1.0, 1.0, 1.0)
 
 func ApplyUserSettings():
 	pants_mat.albedo_color = options.pants_color
@@ -290,7 +310,7 @@ func HandleControls(var delta):
 		
 # 		printd("h_velocity(%s) = (orientation.origin(%s) / delta(%s))" % [h_velocity, orientation.origin, delta])
 		velocity.x = h_velocity.x
-		if ground_normal != Vector3(0.0, 1.0, 0.0):
+		if ground_normal.angle_to(Vector3(0.0, 1.0, 0.0)) > 0.1:
 			velocity.y = h_velocity.y
 		velocity.z = h_velocity.z
 	
