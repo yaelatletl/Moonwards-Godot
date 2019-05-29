@@ -290,7 +290,7 @@ func HandleControls(var delta):
 		
 # 		printd("h_velocity(%s) = (orientation.origin(%s) / delta(%s))" % [h_velocity, orientation.origin, delta])
 		velocity.x = h_velocity.x
-		if ground_normal != Vector3(0.0, 1.0, 0.0):
+		if ground_normal.angle_to(Vector3(0.0, 1.0, 0.0)) > 0.1:
 			velocity.y = h_velocity.y
 		velocity.z = h_velocity.z
 	
