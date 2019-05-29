@@ -1,12 +1,14 @@
 extends Node
 
 var SceneOptions = "res://assets/UI/Menu/Options.tscn"
+var SceneMenu = "res://assets/UI/Menu/Main_menu.tscn"
 var Options = null
 
 
 func _input(event):
 	if event.is_action_pressed("ui_menu_options"):
 		OptionsPanel()
+
 
 func OptionsPanel():
 		if Options:

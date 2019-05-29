@@ -22,8 +22,10 @@ margin_bottom = 20.0
 
 [node name="Button" type="Button" parent="."]
 margin_left = 222.0
-margin_right = 266.0
+margin_right = 272.0
 margin_bottom = 20.0
+rect_min_size = Vector2( 50, 0 )
+button_mask = 3
 text = "Right"
 
 [node name="Confirm" type="ConfirmationDialog" parent="."]
@@ -46,6 +48,5 @@ margin_right = 108.0
 margin_bottom = 20.0
 text = "Right"
 align = 1
-
 [connection signal="pressed" from="Button" to="." method="_on_change_control_pressed"]
 [connection signal="confirmed" from="Confirm" to="." method="_on_Popup_confirmed"]

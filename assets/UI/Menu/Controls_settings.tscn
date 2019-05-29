@@ -19,103 +19,113 @@ margin_right = 353.451
 margin_bottom = 318.401
 
 [node name="Sub1" type="VBoxContainer" parent="Main"]
-margin_right = 266.0
-margin_bottom = 276.0
-rect_scale = Vector2( 1.6, 1.6 )
+margin_right = 272.0
+margin_bottom = 308.0
 alignment = 1
 
 [node name="move_forwards" parent="Main/Sub1" instance=ExtResource( 2 )]
 margin_top = 0.0
-margin_right = 266.0
+margin_right = 272.0
 margin_bottom = 20.0
 Label_text = "Move forwards"
 
 [node name="HSeparator7" type="HSeparator" parent="Main/Sub1"]
 margin_top = 24.0
-margin_right = 266.0
+margin_right = 272.0
 margin_bottom = 28.0
 
-[node name="jump" parent="Main/Sub1" instance=ExtResource( 2 )]
-margin_top = 32.0
-margin_right = 266.0
-margin_bottom = 52.0
-Label_text = "Jump"
-
-[node name="HSeparator" type="HSeparator" parent="Main/Sub1"]
-margin_top = 56.0
-margin_right = 266.0
-margin_bottom = 60.0
-
 [node name="move_backwards" parent="Main/Sub1" instance=ExtResource( 2 )]
-margin_top = 64.0
-margin_right = 266.0
-margin_bottom = 84.0
+margin_top = 32.0
+margin_right = 272.0
+margin_bottom = 52.0
 Label_text = "Move Backwards"
 
 [node name="HSeparator2" type="HSeparator" parent="Main/Sub1"]
-margin_top = 88.0
-margin_right = 266.0
-margin_bottom = 92.0
+margin_top = 56.0
+margin_right = 272.0
+margin_bottom = 60.0
 
 [node name="move_left" parent="Main/Sub1" instance=ExtResource( 2 )]
-margin_top = 96.0
-margin_right = 266.0
-margin_bottom = 116.0
+margin_top = 64.0
+margin_right = 272.0
+margin_bottom = 84.0
 Label_text = "Move Left"
 
 [node name="HSeparator3" type="HSeparator" parent="Main/Sub1"]
-margin_top = 120.0
-margin_right = 266.0
-margin_bottom = 124.0
+margin_top = 88.0
+margin_right = 272.0
+margin_bottom = 92.0
 
 [node name="move_right" parent="Main/Sub1" instance=ExtResource( 2 )]
-margin_top = 128.0
-margin_right = 266.0
-margin_bottom = 148.0
+margin_top = 96.0
+margin_right = 272.0
+margin_bottom = 116.0
 Label_text = "Move Right"
+
+[node name="HSeparator" type="HSeparator" parent="Main/Sub1"]
+margin_top = 120.0
+margin_right = 272.0
+margin_bottom = 124.0
+
+[node name="jump" parent="Main/Sub1" instance=ExtResource( 2 )]
+margin_top = 128.0
+margin_right = 272.0
+margin_bottom = 148.0
+Label_text = "Jump"
 
 [node name="HSeparator4" type="HSeparator" parent="Main/Sub1"]
 margin_top = 152.0
-margin_right = 266.0
+margin_right = 272.0
 margin_bottom = 156.0
 
 [node name="ui_up" parent="Main/Sub1" instance=ExtResource( 2 )]
 margin_top = 160.0
-margin_right = 266.0
+margin_right = 272.0
 margin_bottom = 180.0
 Label_text = "Up Navigation"
 
 [node name="HSeparator5" type="HSeparator" parent="Main/Sub1"]
 margin_top = 184.0
-margin_right = 266.0
+margin_right = 272.0
 margin_bottom = 188.0
 
 [node name="ui_right" parent="Main/Sub1" instance=ExtResource( 2 )]
 margin_top = 192.0
-margin_right = 266.0
+margin_right = 272.0
 margin_bottom = 212.0
 Label_text = "Right navigation"
 
 [node name="HSeparator6" type="HSeparator" parent="Main/Sub1"]
 margin_top = 216.0
-margin_right = 266.0
+margin_right = 272.0
 margin_bottom = 220.0
 
 [node name="ui_left" parent="Main/Sub1" instance=ExtResource( 2 )]
 margin_top = 224.0
-margin_right = 266.0
+margin_right = 272.0
 margin_bottom = 244.0
 Label_text = "Left navigation"
 
-[node name="HSeparator8" type="HSeparator" parent="Main/Sub1"]
+[node name="HSeparator9" type="HSeparator" parent="Main/Sub1"]
 margin_top = 248.0
-margin_right = 266.0
+margin_right = 272.0
 margin_bottom = 252.0
 
-[node name="ui_menu_options" parent="Main/Sub1" instance=ExtResource( 2 )]
+[node name="ui_down" parent="Main/Sub1" instance=ExtResource( 2 )]
 margin_top = 256.0
-margin_right = 266.0
+margin_right = 272.0
 margin_bottom = 276.0
+Label_text = "Down navigation"
+
+[node name="HSeparator8" type="HSeparator" parent="Main/Sub1"]
+margin_top = 280.0
+margin_right = 272.0
+margin_bottom = 284.0
+
+[node name="ui_menu_options" parent="Main/Sub1" instance=ExtResource( 2 )]
+margin_top = 288.0
+margin_right = 272.0
+margin_bottom = 308.0
 Label_text = "Options menu"
 
 [node name="Button" type="Button" parent="."]
@@ -123,7 +133,5 @@ margin_left = 836.888
 margin_top = 600.747
 margin_right = 932.888
 margin_bottom = 620.747
-rect_scale = Vector2( 1.6, 1.6 )
 text = "Save settings"
-
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

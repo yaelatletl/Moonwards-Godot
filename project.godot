@@ -31,6 +31,7 @@ debug="*res://debug.gd"
 UI="*res://UserInterface.gd"
 UIManager="*res://scripts/UIManager.gd"
 Updater="*res://scripts/Updater.gd"
+Input_Map="*res://input_maping.gd"
 
 [compression]
 
