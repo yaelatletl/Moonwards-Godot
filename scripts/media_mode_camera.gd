@@ -9,6 +9,7 @@ var max_down_aim_angle = 80.0
 var mouse_sensitivity = 0.10
 var velocity = Vector3()
 var look_velocity = Vector3()
+var mouse_down = false
 
 var velocity_damp = 0.95
 var look_acceleration = 0.2
@@ -23,6 +24,11 @@ func _process(delta):
 	look_velocity = look_velocity * velocity_damp
 	
 	rotation_degrees += look_velocity
+	
+	if Input.is_action_pressed("left_click"):
+		mouse_down = true
+	else:
+		mouse_down = false
 	
 	if rotation_degrees.x > max_up_aim_angle:
 		rotation_degrees.x = max_up_aim_angle
@@ -49,8 +55,9 @@ func _process(delta):
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		look_velocity.y -= event.relative.x * mouse_sensitivity * look_acceleration
-		look_velocity.x -= event.relative.y * mouse_sensitivity * look_acceleration
+		if mouse_down:
+			look_velocity.y -= event.relative.x * mouse_sensitivity * look_acceleration
+			look_velocity.x -= event.relative.y * mouse_sensitivity * look_acceleration
 	
 	if event.is_action_pressed("scroll_up"):
 		movement_acceleration = min(2.0, movement_acceleration + 0.05)
