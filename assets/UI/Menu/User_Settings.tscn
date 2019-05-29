@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/UserSettings.gd" type="Script" id=1]
 [ext_resource path="res://addons/HuePicker/HuePicker.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/AvatarPreview.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/UI/Menu/Visual_selector.gd" type="Script" id=4]
 
 [node name="UserSettings" type="HBoxContainer"]
 anchor_right = 1.0
@@ -123,6 +122,7 @@ handle_input_locally = false
 render_target_update_mode = 3
 
 [node name="AvatarPreview" parent="ViewportContainer/Viewport" instance=ExtResource( 3 )]
+visible = false
 
 [node name="Female" type="Control" parent="ViewportContainer"]
 editor/display_folded = true
@@ -137,6 +137,10 @@ margin_top = 219.61
 margin_right = 294.096
 margin_bottom = 325.61
 rect_rotation = 0.842541
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
 
 [node name="Pants" type="Button" parent="ViewportContainer/Female"]
 margin_left = 208.734
@@ -144,12 +148,20 @@ margin_top = 218.757
 margin_right = 238.734
 margin_bottom = 324.757
 rect_rotation = -2.18987
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
 
 [node name="Shirt" type="Button" parent="ViewportContainer/Female"]
 margin_left = 221.0
 margin_top = 98.0
 margin_right = 284.0
 margin_bottom = 228.0
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
 
 [node name="Skin4" type="Button" parent="ViewportContainer/Female"]
 margin_left = 199.0
@@ -157,24 +169,40 @@ margin_top = 95.0
 margin_right = 223.0
 margin_bottom = 251.0
 rect_rotation = 5.68706
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
 
 [node name="Shirt3" type="Button" parent="ViewportContainer/Female"]
 margin_left = 287.0
 margin_top = 103.0
 margin_right = 318.0
 margin_bottom = 211.0
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
 
 [node name="Hair" type="Button" parent="ViewportContainer/Female"]
 margin_left = 222.0
 margin_top = 27.0
 margin_right = 280.0
 margin_bottom = 77.0
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
 
 [node name="Skin3" type="Button" parent="ViewportContainer/Female"]
 margin_left = 232.0
 margin_top = 36.0
 margin_right = 270.0
 margin_bottom = 88.0
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
 
 [node name="Skin" type="Button" parent="ViewportContainer/Female"]
 margin_left = 218.243
@@ -183,7 +211,9 @@ margin_right = 241.243
 margin_bottom = 424.0
 rect_rotation = 2.15079
 focus_mode = 0
+action_mode = 0
 enabled_focus_mode = 0
+flat = true
 
 [node name="Skin2" type="Button" parent="ViewportContainer/Female"]
 margin_left = 267.051
@@ -191,6 +221,10 @@ margin_top = 329.463
 margin_right = 294.051
 margin_bottom = 423.463
 rect_rotation = -6.56456
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
 
 [node name="Male" type="Control" parent="ViewportContainer"]
 editor/display_folded = true
@@ -204,6 +238,10 @@ margin_left = 212.0
 margin_top = 81.0
 margin_right = 284.0
 margin_bottom = 233.0
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
 
 [node name="Pants2" type="Button" parent="ViewportContainer/Male"]
 margin_left = 253.0
@@ -211,6 +249,10 @@ margin_top = 219.0
 margin_right = 282.0
 margin_bottom = 326.0
 rect_rotation = -3.15087
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
 
 [node name="Pants" type="Button" parent="ViewportContainer/Male"]
 margin_left = 211.0
@@ -218,6 +260,10 @@ margin_top = 221.0
 margin_right = 242.0
 margin_bottom = 317.0
 rect_rotation = 2.99568
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
 
 [node name="Skin4" type="Button" parent="ViewportContainer/Male"]
 margin_left = 191.0
@@ -225,6 +271,10 @@ margin_top = 84.0
 margin_right = 211.0
 margin_bottom = 261.0
 rect_rotation = 3.09336
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
 
 [node name="Shirt3" type="Button" parent="ViewportContainer/Male"]
 margin_left = 281.0
@@ -232,18 +282,30 @@ margin_top = 89.0
 margin_right = 304.0
 margin_bottom = 254.0
 rect_rotation = -2.75996
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
 
 [node name="Hair" type="Button" parent="ViewportContainer/Male"]
 margin_left = 222.0
 margin_top = 5.0
 margin_right = 276.0
 margin_bottom = 62.0
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
 
 [node name="Skin3" type="Button" parent="ViewportContainer/Male"]
 margin_left = 231.0
 margin_top = 16.0
 margin_right = 267.0
 margin_bottom = 67.0
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
 
 [node name="Skin" type="Button" parent="ViewportContainer/Male"]
 margin_left = 202.0
@@ -251,30 +313,19 @@ margin_top = 320.0
 margin_right = 229.0
 margin_bottom = 416.0
 focus_mode = 0
+action_mode = 0
 enabled_focus_mode = 0
+flat = true
 
 [node name="Skin2" type="Button" parent="ViewportContainer/Male"]
 margin_left = 255.0
 margin_top = 318.0
 margin_right = 278.0
 margin_bottom = 416.0
-
-[node name="Visual_selector" type="Area2D" parent="."]
-visible = false
-position = Vector2( 514, 100 )
-script = ExtResource( 4 )
-
-[node name="Pants" type="CollisionPolygon2D" parent="Visual_selector"]
-polygon = PoolVector2Array( 213.583, 213.446, 229.131, 211.338, 249.949, 230.839, 275.825, 208.757, 290.401, 208.757, 296.121, 329.879, 266.93, 327.948, 258.559, 317.859, 258.118, 242.961, 243.888, 242.961, 238.101, 323.645, 220.953, 328.789, 205.972, 326.23 )
-
-[node name="Shirt" type="CollisionPolygon2D" parent="Visual_selector"]
-polygon = PoolVector2Array( 211.492, 131.837, 217.287, 103.689, 221.78, 89.8575, 248.236, 91.3095, 268.891, 86.7291, 277.416, 103.197, 283.9, 128.054, 276.335, 186.413, 287.142, 204.785, 266.068, 208.568, 252.559, 223.698, 228.783, 204.245, 217.436, 206.947, 222.839, 186.413 )
-
-[node name="Skin" type="CollisionPolygon2D" parent="Visual_selector"]
-polygon = PoolVector2Array( 238.923, 75.0333, 232.936, 47.4914, 247.745, 39.004, 228.374, 41.5222, 230.311, 23.7007, 247.939, 9.75352, 266.535, 25.2504, 265.954, 35.7108, 250.845, 39.1977, 265.268, 43.899, 269.459, 58.2687, 261.675, 76.8295, 286.223, 83.4156, 302.389, 90.0017, 315.124, 165.588, 302.025, 183.775, 306.421, 225.158, 297.315, 260.635, 292.945, 225.68, 290.959, 197.08, 286.542, 119.508, 283.361, 88.5572, 261.725, 79.6807, 257.828, 87.7798, 239.838, 87.7798, 239.811, 79.1259, 210.131, 86.0606, 208.466, 104.646, 213.264, 172.231, 205.902, 249.558, 198.718, 251.354, 199.915, 181.302, 194.526, 109.454, 193.928, 88.4977, 209.495, 81.9116 )
-
-[node name="Hair" type="CollisionPolygon2D" parent="Visual_selector"]
-polygon = PoolVector2Array( 263.362, 75.5792, 265.235, 76.5708, 275.592, 63.3489, 267.532, 42.7725, 271.332, 37.9932, 269.66, 21.6865, 258.37, 6.21609, 234.537, 7.05234, 225.757, 18.3416, 224.921, 40.0838, 227.847, 44.265, 228.266, 49.7006, 224.921, 62.2442, 234.119, 74.3697, 238.076, 73.7325, 232.055, 47.59, 245.592, 39.7212, 228.133, 42.0835, 227.647, 32.7691, 229.996, 22.8067, 247.086, 9.36846, 248.975, 9.36848, 266.675, 24.384, 266.974, 35.7202, 265.184, 36.9134, 251.461, 38.8028, 265.482, 42.8799, 270.156, 58.492, 265.681, 68.9332 )
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
 [connection signal="text_changed" from="VBoxContainer/UsernameContainer/UsernameTextEdit" to="." method="_on_UsernameTextEdit_text_changed"]
 [connection signal="item_selected" from="VBoxContainer/Gender" to="." method="_on_Gender_item_selected"]
 [connection signal="item_selected" from="VBoxContainer/SlotOption" to="." method="_on_SlotOption_item_selected"]
