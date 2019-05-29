@@ -1,7 +1,10 @@
+tool
 extends Area
 
 var climb_points = []
 var step_size = 0.0535
+
+export (float) var height = 0.5 setget SetHeight
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +18,11 @@ func _ready():
 		step_position.y += step_size
 		if step_position.y > max_y:
 			break
+
+func SetHeight(var new_height):
+	$CollisionShape.shape.extents.y = new_height
+	$CollisionShape.translation.y = new_height
+	height = new_height
 
 func GetLookDirection(var position):
 	var flat_position = global_transform.origin

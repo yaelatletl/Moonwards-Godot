@@ -4,12 +4,14 @@ var camera_control_path = "KinematicBody/PlayerCamera"
 var camera_control
 var stairs_class = preload("res://_tests/Stairs/Stairs.gd")
 
-var MOTION_INTERPOLATE_SPEED = 10
+var MOTION_INTERPOLATE_SPEED = 8
 var ROTATION_INTERPOLATE_SPEED = 10
 var IN_AIR_DELTA = 0.3
 var GRAVITY = Vector3(0,-1.62, 0)
 var SNAP_VECTOR = Vector3(0.0, 0.1, 0.0)
 var JUMP_SPEED = 2.8
+var MIN_JUMP_SPEED = 0.2
+var MAX_JUMP_TIMER = 0.5
 var SPEED_SCALE = 15 #use as 0.1*SPEED_SCALE for time being because of slider for speed setting is int, in Options.gd
 
 const SpeedFeed = {
@@ -49,10 +51,12 @@ var movementstate = walk
 var username = "username" setget SetUsername
 var id setget SetID
 var nocamera = false
+var jump_timer = 0.0
 
 const walk = 0
 const flail = 1
 const climb = 2
+const jump = 3
 
 #################################
 ##Networking
@@ -70,6 +74,9 @@ var pants_mat
 var shirt_mat
 var skin_mat
 var hair_mat
+
+var colors setget SetPuppetColors
+var gender setget SetPuppetGender
 
 #################################
 # Init functions
@@ -101,6 +108,23 @@ func SetupMaterials():
 	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(1, pants_mat)
 	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(2, shirt_mat)
 	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(3, skin_mat)
+
+func SetPuppetColors(var colors):
+	SetupMaterials()
+	
+	pants_mat.albedo_color = colors.pants
+	shirt_mat.albedo_color = colors.shirt
+	skin_mat.albedo_color = colors.skin
+	hair_mat.albedo_color = colors.hair
+
+func SetPuppetGender(var gender):
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.visible = (gender == options.genders.female)
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.visible = (gender == options.genders.male)
+	
+	if options.gender == options.genders.male:
+		$KinematicBody/Model/FemaleRig/Skeleton.scale = Vector3(1.1, 1.1, 1.1)
+	else:
+		$KinematicBody/Model/FemaleRig/Skeleton.scale = Vector3(1.0, 1.0, 1.0)
 
 func ApplyUserSettings():
 	pants_mat.albedo_color = options.pants_color
@@ -184,8 +208,9 @@ func ShowMouseCursor():
 func HideMouseCursor():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-func Jump():
-	velocity.y += JUMP_SPEED
+func Jump(var timer):
+	var new_jump_vel = max(MIN_JUMP_SPEED, min(JUMP_SPEED, timer * JUMP_SPEED / MAX_JUMP_TIMER))
+	velocity.y += new_jump_vel
 	jump_timeout = 1.0
 
 func _physics_process(delta):
@@ -223,11 +248,20 @@ func HandleControls(var delta):
 	if jump_timeout > 0.0:
 		jump_timeout -= delta
 		if jump_timeout <= 0.0:
+			$KinematicBody/AnimationTree["parameters/JumpAmount/blend_amount"] = 0.0
 			jumping = false
-	elif Input.is_action_just_pressed("jump") and not in_air and not jumping and not climbing_stairs:
-		jumping = true
-		$KinematicBody/AnimationTree["parameters/Jump/active"] = true
-		Jump()
+		else:
+			$KinematicBody/AnimationTree["parameters/JumpAmount/blend_amount"] = jump_timeout / 2.0
+	elif Input.is_action_pressed("jump") and not in_air and not climbing_stairs and jump_timer < MAX_JUMP_TIMER:
+		jump_timer += delta
+		$KinematicBody/AnimationTree["parameters/JumpAmount/blend_amount"] = jump_timer / MAX_JUMP_TIMER
+		if not jumping:
+			jumping = true
+	elif jumping:
+		Jump(jump_timer)
+		jump_timer = 0.0
+		$KinematicBody/AnimationTree["parameters/MovementState/current"] = flail
+		movementstate = flail
 	
 	if climbing_stairs:
 		UpdateClimbingStairs(delta)
@@ -236,7 +270,7 @@ func HandleControls(var delta):
 	if in_air and movementstate == walk:
 		$KinematicBody/AnimationTree["parameters/MovementState/current"] = flail
 		movementstate = flail
-	elif not in_air and movementstate == flail:
+	elif not in_air and movementstate == flail and jump_timeout <= 0.0:
 		$KinematicBody/AnimationTree["parameters/MovementState/current"] = walk
 		movementstate = walk
 	
@@ -259,11 +293,11 @@ func HandleControls(var delta):
 	#Update the model rotation based on the camera look direction.
 	var target_direction = -camera_control.camera.global_transform.basis.z
 	target_direction.y = 0.0
-	if $KinematicBody/Model.global_transform.origin != $KinematicBody/Model.global_transform.origin - target_direction and not in_air and not jumping:
+	if $KinematicBody/Model.global_transform.origin != $KinematicBody/Model.global_transform.origin - target_direction and not in_air:
 		var target_transform = $KinematicBody/Model.global_transform.looking_at($KinematicBody/Model.global_transform.origin - target_direction, Vector3(0, 1, 0))
 		orientation.basis = $KinematicBody/Model.global_transform.basis.slerp(target_transform.basis, delta * ROTATION_INTERPOLATE_SPEED)
 	
-	if not in_air:
+	if not in_air and not jumping:
 		#Retrieve the root motion from the animationtree so it can be applied to the KinematicBody.
 		root_motion = $KinematicBody/AnimationTree.get_root_motion_transform()
 		orientation *= root_motion
@@ -276,13 +310,12 @@ func HandleControls(var delta):
 		
 # 		printd("h_velocity(%s) = (orientation.origin(%s) / delta(%s))" % [h_velocity, orientation.origin, delta])
 		velocity.x = h_velocity.x
-		if not jumping:
+		if ground_normal.angle_to(Vector3(0.0, 1.0, 0.0)) > 0.1:
 			velocity.y = h_velocity.y
 		velocity.z = h_velocity.z
 	
 	velocity += GRAVITY * delta
 	
-	#The true is for stopping on a slope.
 	velocity = $KinematicBody.move_and_slide(velocity, Vector3(0,1,0), motion_target == Vector2())
 	
 	orientation.origin = Vector3()
@@ -385,7 +418,7 @@ func DoStairsCheck():
 	var sphere = SphereShape.new()
 	var kb_pos = $KinematicBody.global_transform.origin
 	
-	sphere.radius = 0.1
+	sphere.radius = 0.03
 	params.set_shape(sphere)
 	params.collide_with_areas = true
 	params.collide_with_bodies = false

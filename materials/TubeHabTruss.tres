@@ -13,4 +13,3 @@ transmission = Color( 0.337255, 0, 0, 1 )
 transmission_texture = ExtResource( 1 )
 uv1_scale = Vector3( 6, 6, 6 )
 uv1_triplanar = true
-

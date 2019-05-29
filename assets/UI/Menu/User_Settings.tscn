@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/UserSettings.gd" type="Script" id=1]
 [ext_resource path="res://addons/HuePicker/HuePicker.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/AvatarPreview.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/UI/Menu/Visual_Selector.gd" type="Script" id=4]
 
 [node name="UserSettings" type="HBoxContainer"]
 anchor_right = 1.0
@@ -122,8 +123,251 @@ handle_input_locally = false
 render_target_update_mode = 3
 
 [node name="AvatarPreview" parent="ViewportContainer/Viewport" instance=ExtResource( 3 )]
+
+[node name="Female" type="Control" parent="ViewportContainer"]
+margin_bottom = 700.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Pants2" type="Button" parent="ViewportContainer/Female"]
+margin_left = 264.096
+margin_top = 219.61
+margin_right = 294.096
+margin_bottom = 325.61
+rect_rotation = 0.842541
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="Pants" type="Button" parent="ViewportContainer/Female"]
+margin_left = 208.734
+margin_top = 218.757
+margin_right = 238.734
+margin_bottom = 324.757
+rect_rotation = -2.18987
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="Shirt" type="Button" parent="ViewportContainer/Female"]
+margin_left = 221.0
+margin_top = 98.0
+margin_right = 284.0
+margin_bottom = 184.0
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="Pants3" type="Button" parent="ViewportContainer/Female"]
+margin_left = 221.0
+margin_top = 180.0
+margin_right = 284.0
+margin_bottom = 228.0
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="Skin4" type="Button" parent="ViewportContainer/Female"]
+margin_left = 199.0
+margin_top = 95.0
+margin_right = 223.0
+margin_bottom = 251.0
+rect_rotation = 5.68706
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="Skin5" type="Button" parent="ViewportContainer/Female"]
+margin_left = 287.0
+margin_top = 103.0
+margin_right = 318.0
+margin_bottom = 211.0
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="Hair" type="Button" parent="ViewportContainer/Female"]
+margin_left = 222.0
+margin_top = 27.0
+margin_right = 280.0
+margin_bottom = 77.0
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="Skin3" type="Button" parent="ViewportContainer/Female"]
+margin_left = 232.0
+margin_top = 36.0
+margin_right = 270.0
+margin_bottom = 88.0
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="Skin" type="Button" parent="ViewportContainer/Female"]
+margin_left = 218.243
+margin_top = 327.0
+margin_right = 241.243
+margin_bottom = 424.0
+rect_rotation = 2.15079
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="Skin2" type="Button" parent="ViewportContainer/Female"]
+margin_left = 267.051
+margin_top = 329.463
+margin_right = 294.051
+margin_bottom = 423.463
+rect_rotation = -6.56456
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="Male" type="Control" parent="ViewportContainer"]
+margin_bottom = 700.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Shirt" type="Button" parent="ViewportContainer/Male"]
+margin_left = 212.0
+margin_top = 81.0
+margin_right = 284.0
+margin_bottom = 185.0
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="Pants3" type="Button" parent="ViewportContainer/Male"]
+margin_left = 212.0
+margin_top = 180.0
+margin_right = 284.0
+margin_bottom = 233.0
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="Pants2" type="Button" parent="ViewportContainer/Male"]
+margin_left = 253.0
+margin_top = 219.0
+margin_right = 282.0
+margin_bottom = 326.0
+rect_rotation = -3.15087
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="Pants" type="Button" parent="ViewportContainer/Male"]
+margin_left = 211.0
+margin_top = 221.0
+margin_right = 242.0
+margin_bottom = 317.0
+rect_rotation = 2.99568
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="Skin4" type="Button" parent="ViewportContainer/Male"]
+margin_left = 191.0
+margin_top = 84.0
+margin_right = 211.0
+margin_bottom = 261.0
+rect_rotation = 3.09336
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="Skin5" type="Button" parent="ViewportContainer/Male"]
+margin_left = 281.0
+margin_top = 89.0
+margin_right = 304.0
+margin_bottom = 254.0
+rect_rotation = -2.75996
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="Hair" type="Button" parent="ViewportContainer/Male"]
+margin_left = 222.0
+margin_top = 5.0
+margin_right = 276.0
+margin_bottom = 62.0
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="Skin3" type="Button" parent="ViewportContainer/Male"]
+margin_left = 231.0
+margin_top = 16.0
+margin_right = 267.0
+margin_bottom = 67.0
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="Skin" type="Button" parent="ViewportContainer/Male"]
+margin_left = 202.0
+margin_top = 320.0
+margin_right = 229.0
+margin_bottom = 416.0
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="Skin2" type="Button" parent="ViewportContainer/Male"]
+margin_left = 255.0
+margin_top = 318.0
+margin_right = 278.0
+margin_bottom = 416.0
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
 [connection signal="text_changed" from="VBoxContainer/UsernameContainer/UsernameTextEdit" to="." method="_on_UsernameTextEdit_text_changed"]
 [connection signal="item_selected" from="VBoxContainer/Gender" to="." method="_on_Gender_item_selected"]
 [connection signal="item_selected" from="VBoxContainer/SlotOption" to="." method="_on_SlotOption_item_selected"]
 [connection signal="Hue_Selected" from="VBoxContainer/HuePicker" to="." method="_on_HuePicker_Hue_Selected"]
 [connection signal="pressed" from="VBoxContainer/SaveButton" to="." method="_on_SaveButton_pressed"]
+[connection signal="pressed" from="ViewportContainer/Female/Pants2" to="ViewportContainer/Female" method="_on_pants_selected"]
+[connection signal="pressed" from="ViewportContainer/Female/Pants" to="ViewportContainer/Female" method="_on_pants_selected"]
+[connection signal="pressed" from="ViewportContainer/Female/Shirt" to="ViewportContainer/Female" method="_on_shirt_selected"]
+[connection signal="pressed" from="ViewportContainer/Female/Pants3" to="ViewportContainer/Female" method="_on_pants_selected"]
+[connection signal="pressed" from="ViewportContainer/Female/Skin4" to="ViewportContainer/Female" method="_on_skin_selected"]
+[connection signal="pressed" from="ViewportContainer/Female/Skin5" to="ViewportContainer/Female" method="_on_skin_selected"]
+[connection signal="pressed" from="ViewportContainer/Female/Hair" to="ViewportContainer/Female" method="_on_hair_selected"]
+[connection signal="pressed" from="ViewportContainer/Female/Skin3" to="ViewportContainer/Female" method="_on_skin_selected"]
+[connection signal="pressed" from="ViewportContainer/Female/Skin" to="ViewportContainer/Female" method="_on_skin_selected"]
+[connection signal="pressed" from="ViewportContainer/Female/Skin2" to="ViewportContainer/Female" method="_on_skin_selected"]
+[connection signal="pressed" from="ViewportContainer/Male/Shirt" to="ViewportContainer/Male" method="_on_shirt_selected"]
+[connection signal="pressed" from="ViewportContainer/Male/Pants3" to="ViewportContainer/Male" method="_on_pants_selected"]
+[connection signal="pressed" from="ViewportContainer/Male/Pants2" to="ViewportContainer/Male" method="_on_pants_selected"]
+[connection signal="pressed" from="ViewportContainer/Male/Pants" to="ViewportContainer/Male" method="_on_pants_selected"]
+[connection signal="pressed" from="ViewportContainer/Male/Skin4" to="ViewportContainer/Male" method="_on_skin_selected"]
+[connection signal="pressed" from="ViewportContainer/Male/Skin5" to="ViewportContainer/Male" method="_on_skin_selected"]
+[connection signal="pressed" from="ViewportContainer/Male/Hair" to="ViewportContainer/Male" method="_on_hair_selected"]
+[connection signal="pressed" from="ViewportContainer/Male/Skin3" to="ViewportContainer/Male" method="_on_skin_selected"]
+[connection signal="pressed" from="ViewportContainer/Male/Skin" to="ViewportContainer/Male" method="_on_skin_selected"]
+[connection signal="pressed" from="ViewportContainer/Male/Skin2" to="ViewportContainer/Male" method="_on_skin_selected"]

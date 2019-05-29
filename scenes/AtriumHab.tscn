@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=2]
+[gd_scene load_steps=136 format=2]
 
 [ext_resource path="res://scenes/meshes/AtriumHab__Exterior_Tunnel.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://scenes/meshes/AtriumHab__Exterior_Tunnel_RadBarrier_TunnelEnd.mesh" type="ArrayMesh" id=2]
@@ -105,7 +105,6 @@
 [ext_resource path="res://scenes/meshes/AtriumHab__Interior_ShimmyStairs_ShimmyStairs6.mesh" type="ArrayMesh" id=103]
 [ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ShimmyStair-Step1011_ShimmyStair-Step1011_col_CollisionShape.shape" type="Shape" id=104]
 [ext_resource path="res://scripts/AreaLod.gd" type="Script" id=105]
-[ext_resource path="res://scenes/lightmaps/AtriumHab_4098242162_bldata.res" type="BakedLightmapData" id=106]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.306531, 0.340695, 0.219678 )
@@ -1790,13 +1789,3 @@ script = ExtResource( 105 )
 [node name="CollisionShape" type="CollisionShape" parent="Triggers/Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96696, 0, 0 )
 shape = SubResource( 30 )
-
-[node name="BakedLightmap" type="BakedLightmap" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.68293, 0.565462, 0.844477 )
-bake_quality = 2
-bake_mode = 1
-bake_energy = 5.0
-bake_extents = Vector3( 8.6806, 2.73205, 4.09921 )
-image_path = "res://scenes/BakedLight/AtriumHab"
-light_data = ExtResource( 106 )
-

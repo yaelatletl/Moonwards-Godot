@@ -162,3 +162,10 @@ func get_node_root(node):
 var debug_id = "utils.gd"
 func printd(s):
 	logg.print_fd(debug_id, s)
+	
+	
+func get_safe_bool(obj, propetry):
+	if obj_has_property(obj, propetry):
+		return obj.get(propetry)
+	else:
+		return false
