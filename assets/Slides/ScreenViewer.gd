@@ -10,14 +10,14 @@ export(Vector2) var Size = Vector2(1024,700)
 export(bool) var Hologram = false
 
 func _input(event):
-	# Check if the event is a non-mouse event 
+	# Check if the event is a non-mouse event InputEventMouseMotion
 	var is_mouse_event = false
-	var mouse_events = [InputEventMouseButton, InputEventMouseMotion, InputEventScreenDrag, InputEventScreenTouch]
+	var mouse_events = [InputEventMouseButton, InputEventScreenDrag, InputEventScreenTouch]
 	for mouse_event in mouse_events:
 		if (event is mouse_event):
 			is_mouse_event = true
 			break
-  
+
 	# If it is, then pass the event to the viewport
 	if (is_mouse_event == false):
 		viewport.input(event)
@@ -64,7 +64,6 @@ func _on_area_input_event(camera, event, click_pos, click_normal, shape_idx):
 	
 	# Send the event to the viewport
 	viewport.input(event)
-
 
 func _ready():
 	viewport = get_node("Viewport")

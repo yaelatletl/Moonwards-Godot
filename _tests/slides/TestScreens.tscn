@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/Slides/ScreenViewer.tscn" type="PackedScene" id=1]
-[ext_resource path="res://_tests/slides/Example.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/Slides/BucknellRocket/Slide00.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/Player/avatar_v2/player.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CubeMesh" id=1]
@@ -23,7 +23,7 @@ material/0 = SubResource( 2 )
 shape = SubResource( 3 )
 
 [node name="Screen" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.383868, 1.19987, -0.432728 )
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -0.383868, 1.12469, -0.432728 )
 Content = ExtResource( 2 )
 Hologram = true
 

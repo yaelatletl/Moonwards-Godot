@@ -22,8 +22,8 @@ func update_slides():
 		disabled_direction = 2
 	if index < $ColorRect/Content.get_child_count():
 		$ColorRect/Content.get_child(index).visible = true
-		var vp_scene = load(construct_viewport_res_path(index))
-		$ColorRect/ViewportContainer/Viewport.add_child(vp_scene.instance())
+		var vp_scene = load(construct_viewport_res_path(index)).instance()
+		$ColorRect/ViewportContainer/Viewport.add_child(vp_scene)
 
 func _ready():
 	create_content_path()
@@ -44,13 +44,13 @@ func _on_size_changed():
 
 func _input(event):
 	if has_focus:
-		if event is InputEventKey and delay.is_stopped():
-			if Input.is_action_pressed("left_click") and  disabled_direction != 2:
+		if event is InputEventMouseButton and delay.is_stopped():
+			
+			if event.button_index == 1  and  disabled_direction != 2 and not event.is_pressed():
 				index += 1
-				update_slides()
-			if Input.is_action_pressed("right_click") and disabled_direction != 1:
+			if event.button_index == 2 and disabled_direction != 1 and not event.is_pressed():
 				index -= 1
-				update_slides()
+			update_slides()
 
 func create_content_path():
 	var ss = Content.resource_path.split("/")
