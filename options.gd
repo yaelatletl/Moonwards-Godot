@@ -65,7 +65,8 @@ var player_opt = {
 		debug = true,
 		nocamera = true,
 		username = true,
-		is_female = true
+		gender = true,
+		colors = true
 	},
 	avatar = {
 		debug = debug,
