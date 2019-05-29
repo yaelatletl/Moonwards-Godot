@@ -1,6 +1,6 @@
 extends Node
 
-const CONFIG_FILE = "res://inputmap.cfg"
+const CONFIG_FILE = "user://inputmap.cfg"
 var INPUT_ACTIONS = []
 
 func _ready():
