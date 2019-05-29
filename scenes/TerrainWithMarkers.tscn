@@ -445,7 +445,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.83027, 1.16467, -2.96712 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.846313, 0 )
 
 [node name="Earth" parent="." instance=ExtResource( 40 )]
-transform = Transform( 0.193992, -1.56462e-07, 0.672582, -0.640091, 0.214938, 0.184621, -0.206519, -0.666185, 0.059566, -258.36, 684.437, 521.226 )
+transform = Transform( 0.193992, -1.56462e-07, 0.672582, -0.640091, 0.214938, 0.184621, -0.206519, -0.666185, 0.059566, -258.36, 684.437, 424.434 )
 
 [node name="Lalande_Baked" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -770.962, -2161.24, -231.565 )
