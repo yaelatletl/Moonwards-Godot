@@ -123,7 +123,6 @@ handle_input_locally = false
 render_target_update_mode = 3
 
 [node name="AvatarPreview" parent="ViewportContainer/Viewport" instance=ExtResource( 3 )]
-visible = false
 
 [node name="Female" type="Control" parent="ViewportContainer"]
 margin_bottom = 700.0
@@ -158,6 +157,16 @@ flat = true
 margin_left = 221.0
 margin_top = 98.0
 margin_right = 284.0
+margin_bottom = 184.0
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="Pants3" type="Button" parent="ViewportContainer/Female"]
+margin_left = 221.0
+margin_top = 180.0
+margin_right = 284.0
 margin_bottom = 228.0
 focus_mode = 0
 action_mode = 0
@@ -175,7 +184,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Shirt3" type="Button" parent="ViewportContainer/Female"]
+[node name="Skin5" type="Button" parent="ViewportContainer/Female"]
 margin_left = 287.0
 margin_top = 103.0
 margin_right = 318.0
@@ -228,8 +237,8 @@ enabled_focus_mode = 0
 flat = true
 
 [node name="Male" type="Control" parent="ViewportContainer"]
-editor/display_folded = true
 margin_bottom = 700.0
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -237,6 +246,16 @@ __meta__ = {
 [node name="Shirt" type="Button" parent="ViewportContainer/Male"]
 margin_left = 212.0
 margin_top = 81.0
+margin_right = 284.0
+margin_bottom = 185.0
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="Pants3" type="Button" parent="ViewportContainer/Male"]
+margin_left = 212.0
+margin_top = 180.0
 margin_right = 284.0
 margin_bottom = 233.0
 focus_mode = 0
@@ -277,7 +296,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Shirt3" type="Button" parent="ViewportContainer/Male"]
+[node name="Skin5" type="Button" parent="ViewportContainer/Male"]
 margin_left = 281.0
 margin_top = 89.0
 margin_right = 304.0
@@ -335,3 +354,20 @@ flat = true
 [connection signal="pressed" from="ViewportContainer/Female/Pants2" to="ViewportContainer/Female" method="_on_pants_selected"]
 [connection signal="pressed" from="ViewportContainer/Female/Pants" to="ViewportContainer/Female" method="_on_pants_selected"]
 [connection signal="pressed" from="ViewportContainer/Female/Shirt" to="ViewportContainer/Female" method="_on_shirt_selected"]
+[connection signal="pressed" from="ViewportContainer/Female/Pants3" to="ViewportContainer/Female" method="_on_pants_selected"]
+[connection signal="pressed" from="ViewportContainer/Female/Skin4" to="ViewportContainer/Female" method="_on_skin_selected"]
+[connection signal="pressed" from="ViewportContainer/Female/Skin5" to="ViewportContainer/Female" method="_on_skin_selected"]
+[connection signal="pressed" from="ViewportContainer/Female/Hair" to="ViewportContainer/Female" method="_on_hair_selected"]
+[connection signal="pressed" from="ViewportContainer/Female/Skin3" to="ViewportContainer/Female" method="_on_skin_selected"]
+[connection signal="pressed" from="ViewportContainer/Female/Skin" to="ViewportContainer/Female" method="_on_skin_selected"]
+[connection signal="pressed" from="ViewportContainer/Female/Skin2" to="ViewportContainer/Female" method="_on_skin_selected"]
+[connection signal="pressed" from="ViewportContainer/Male/Shirt" to="ViewportContainer/Male" method="_on_shirt_selected"]
+[connection signal="pressed" from="ViewportContainer/Male/Pants3" to="ViewportContainer/Male" method="_on_pants_selected"]
+[connection signal="pressed" from="ViewportContainer/Male/Pants2" to="ViewportContainer/Male" method="_on_pants_selected"]
+[connection signal="pressed" from="ViewportContainer/Male/Pants" to="ViewportContainer/Male" method="_on_pants_selected"]
+[connection signal="pressed" from="ViewportContainer/Male/Skin4" to="ViewportContainer/Male" method="_on_skin_selected"]
+[connection signal="pressed" from="ViewportContainer/Male/Skin5" to="ViewportContainer/Male" method="_on_skin_selected"]
+[connection signal="pressed" from="ViewportContainer/Male/Hair" to="ViewportContainer/Male" method="_on_hair_selected"]
+[connection signal="pressed" from="ViewportContainer/Male/Skin3" to="ViewportContainer/Male" method="_on_skin_selected"]
+[connection signal="pressed" from="ViewportContainer/Male/Skin" to="ViewportContainer/Male" method="_on_skin_selected"]
+[connection signal="pressed" from="ViewportContainer/Male/Skin2" to="ViewportContainer/Male" method="_on_skin_selected"]
