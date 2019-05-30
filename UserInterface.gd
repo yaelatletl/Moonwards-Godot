@@ -12,7 +12,7 @@ func _enter_tree():
 	
 
 func _input(event):
-	if event.is_action_pressed("ui_menu_options"):
+	if event.is_action_pressed("ui_menu_options") and not self.has_node("Control"):
 		MainPanel()
 
 func MainPanel():
