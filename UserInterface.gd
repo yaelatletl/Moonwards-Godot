@@ -1,7 +1,7 @@
 extends Control
 
 var SceneOptions = "res://assets/UI/Menu/Options.tscn"
-var SceneMenu = "res://assets/UI/Menu/Main_menu.tscn"
+var SceneMenu = "res://assets/UI/Menu/In_game_menu.tscn"
 var Options = null
 var Menu = null
 
@@ -9,7 +9,6 @@ func _enter_tree():
 	
 	UIManager.RegisterBaseUI(self)
 
-	
 
 func _input(event):
 	if event.is_action_pressed("ui_menu_options") and not self.has_node("Control"):

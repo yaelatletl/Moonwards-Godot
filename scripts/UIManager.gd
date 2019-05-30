@@ -15,7 +15,9 @@ enum ui_events{
 	dismiss,
 	load_level,
 	join_server,
-	run_locally
+	run_locally,
+	main_menu,
+	exit
 }
 const ui_events_text = ["back", "create_ui", "queue_ui", "set_setting", "dismiss",
 						"load_level", "join_server", "run_locally" ]

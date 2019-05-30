@@ -70,40 +70,46 @@ func sg_server_connected():
 	sg_server_up()
 
 func _on_host_pressed():
-	if ($connect/name.text == ""):
-		$connect/error_label.text="Invalid name!"
-		return
-	var player_data = {
-		username = $connect/name.text,
-		gender = options.gender,
-		colors = {"pants" : options.pants_color, "shirt" : options.shirt_color, "skin" : options.skin_color, "hair" : options.hair_color}
-	}
-	gamestate.player_register(player_data, true) #local player
-	self.state = STATE.server_select
-	binddef = {src = gamestate, dest = self }
-	bindsg("network_log")
-	bindsg("server_up")
-	bindsg("network_error")
-	gamestate.server_set_mode()
+	if not (gamestate.RoleServer or gamestate.RoleClient):
+		if ($connect/name.text == ""):
+			$connect/error_label.text="Invalid name!"
+			return
+		var player_data = {
+			username = $connect/name.text,
+			gender = options.gender,
+			colors = {"pants" : options.pants_color, "shirt" : options.shirt_color, "skin" : options.skin_color, "hair" : options.hair_color}
+		}
+		gamestate.player_register(player_data, true) #local player
+		self.state = STATE.server_select
+		binddef = {src = gamestate, dest = self }
+		bindsg("network_log")
+		bindsg("server_up")
+		bindsg("network_error")
+		gamestate.server_set_mode()
+	else:
+		emit_signal("network_error", "Already in server or client mode")
 
 func _on_join_pressed():
-	if ($connect/name.text == ""):
-		$connect/error_label.text="Invalid name!"
-		return
+	if not (gamestate.RoleServer or gamestate.RoleClient):
+		if ($connect/name.text == ""):
+			$connect/error_label.text="Invalid name!"
+			return
 
-	set_state(STATE.client_connect)
-	var player_data = {
-		username = $connect/name.text,
-		gender = options.gender,
-		colors = {"pants" : options.pants_color, "shirt" : options.shirt_color, "skin" : options.skin_color, "hair" : options.hair_color}
-	}
-	gamestate.player_register(player_data, true) #local player
-	binddef = {src = gamestate, dest = self }
-	bindsg("network_log")
-	bindsg("server_connected")
-	bindsg("network_error")
-	gamestate.client_server_connect($connect/ip.text)
-	return
+		set_state(STATE.client_connect)
+		var player_data = {
+			username = $connect/name.text,
+			gender = options.gender,
+			colors = {"pants" : options.pants_color, "shirt" : options.shirt_color, "skin" : options.skin_color, "hair" : options.hair_color}
+		}
+		gamestate.player_register(player_data, true) #local player
+		binddef = {src = gamestate, dest = self }
+		bindsg("network_log")
+		bindsg("server_connected")
+		bindsg("network_error")
+		gamestate.client_server_connect($connect/ip.text)
+		return
+	else: 
+		emit_signal("network_error", "Already in server or client mode")
 
 func _on_connection_success():
 	$connect.hide()
