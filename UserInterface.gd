@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
 var SceneOptions = "res://assets/UI/Menu/Options.tscn"
 var SceneMenu = "res://assets/UI/Menu/Main_menu.tscn"
@@ -6,15 +6,13 @@ var Options = null
 var Menu = null
 
 func _enter_tree():
-	var Base = Control.new()
-	Base.set_name("Base")
-	if get_tree().get_root().has_node("world/UI_in_game"):
-		UIManager.RegisterBaseUI("/root/world/UI_in_game")
-	pass
+	
+	UIManager.RegisterBaseUI(self)
+
 	
 
 func _input(event):
-	if event.is_action_pressed("ui_menu_options") and get_tree().get_root().has_node("world/ChatUI"):
+	if event.is_action_pressed("ui_menu_options"):
 		MainPanel()
 
 func MainPanel():
@@ -25,8 +23,8 @@ func MainPanel():
 	else:
 		Menu = ResourceLoader.load(SceneMenu).instance()
 		Menu.name = "Menu"
-		get_node("/root/world/UI_in_game").add_child(Menu)
-		UIManager.SetCurrentUI(get_node("/root/world/UI_in_game/Menu"))
+		add_child(Menu)
+		UIManager.SetCurrentUI(get_node("Menu"))
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func OptionsPanel():
