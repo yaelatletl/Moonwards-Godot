@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://img/MoonwardsLogo2018-1200.png" type="Texture" id=1]
 [ext_resource path="res://scripts/UIElement.gd" type="Script" id=2]
@@ -6,8 +6,14 @@
 [ext_resource path="res://assets/UI/Menu/Options.tscn" type="PackedScene" id=4]
 [ext_resource path="res://lobby.tscn" type="PackedScene" id=5]
 
+[sub_resource type="GDScript" id=1]
+script/source = "extends VBoxContainer
+
+func _ready():
+	UIManager.SetCurrentUI(self)
+"
+
 [node name="VBoxContainer" type="VBoxContainer"]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
@@ -16,6 +22,7 @@ margin_right = -20.0
 margin_bottom = -20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = SubResource( 1 )
 
 [node name="UI" type="VBoxContainer" parent="."]
 margin_right = 984.0

@@ -1,5 +1,5 @@
 extends Control
-
+var xyz = null
 
 func _process(delta):
 	$Panel/FPS.text = str(Performance.get_monitor(Performance.TIME_FPS))
