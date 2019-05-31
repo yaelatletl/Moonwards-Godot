@@ -1,50 +1,33 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/AvatarPreview.gd" type="Script" id=1]
-[ext_resource path="res://model_assets/Avatars/FemalePlayer.dae" type="PackedScene" id=2]
-[ext_resource path="res://model_assets/Avatars/MalePlayer.dae" type="PackedScene" id=3]
+[ext_resource path="res://model_assets/Avatars/AvatarRig.dae" type="PackedScene" id=2]
 
 [sub_resource type="SpatialMaterial" id=1]
 
 [sub_resource type="AnimationNodeAnimation" id=2]
-animation = "CasualStance1"
+animation = "CasualStance"
 
 [sub_resource type="AnimationNodeBlendTree" id=3]
 nodes/Animation/node = SubResource( 2 )
-nodes/Animation/position = Vector2( 280, 80 )
-nodes/output/position = Vector2( 600, 60 )
-node_connections = [ "output", 0, "Animation" ]
-
-[sub_resource type="AnimationNodeAnimation" id=4]
-animation = "CasualStance"
-
-[sub_resource type="AnimationNodeBlendTree" id=5]
-nodes/Animation/node = SubResource( 4 )
 nodes/Animation/position = Vector2( 220, 100 )
 nodes/output/position = Vector2( 420, 140 )
 node_connections = [ "output", 0, "Animation" ]
 
-[sub_resource type="ProceduralSky" id=6]
+[sub_resource type="ProceduralSky" id=4]
 
-[sub_resource type="Environment" id=7]
+[sub_resource type="Environment" id=5]
 background_mode = 2
-background_sky = SubResource( 6 )
+background_sky = SubResource( 4 )
 
 [node name="AvatarPreview" type="Spatial"]
 script = ExtResource( 1 )
 base_material = SubResource( 1 )
 
-[node name="Female" parent="." instance=ExtResource( 2 )]
+[node name="AvatarRig" parent="." instance=ExtResource( 2 )]
 
-[node name="AnimationTree" type="AnimationTree" parent="Female"]
+[node name="AnimationTree" type="AnimationTree" parent="AvatarRig"]
 tree_root = SubResource( 3 )
-anim_player = NodePath("../AnimationPlayer")
-active = true
-
-[node name="Male" parent="." instance=ExtResource( 3 )]
-
-[node name="AnimationTree" type="AnimationTree" parent="Male"]
-tree_root = SubResource( 5 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 
@@ -58,8 +41,6 @@ visible = false
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 7 )
+environment = SubResource( 5 )
 
-[editable path="Female"]
-
-[editable path="Male"]
+[editable path="AvatarRig"]

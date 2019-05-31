@@ -8,7 +8,8 @@ enum slots{
 	pants,
 	shirt,
 	skin,
-	hair
+	hair,
+	shoes
 }
 
 enum genders{
@@ -22,6 +23,7 @@ var pants_color = Color(1,1,1,1)
 var shirt_color = Color(1,1,1,1)
 var skin_color = Color(1,1,1,1)
 var hair_color = Color(1,1,1,1)
+var shoes_color = Color(1,1,1,1)
 var savefile_json
 
 var OptionsFile = "user://gameoptions.save"
@@ -270,6 +272,7 @@ func LoadUserSettings():
 	shirt_color = SafeGetColor("shirt", Color8(87,235,192,255))
 	skin_color = SafeGetColor("skin", Color8(150,112,86,255))
 	hair_color = SafeGetColor("hair", Color8(0,0,0,255))
+	shoes_color = SafeGetColor("hair", Color8(78,158,187,255))
 
 func SafeGetColor(var color_name, var default_color):
 	if not savefile_json.has(color_name + "R") or not savefile_json.has(color_name + "G") or not savefile_json.has(color_name + "B"):
@@ -307,6 +310,10 @@ func SaveUserSettings():
 		"hairR" : hair_color.r*255,
 		"hairG" : hair_color.g*255,
 		"hairB" : hair_color.b*255,
+		
+		"shoesR" : shoes_color.r*255,
+		"shoesG" : shoes_color.g*255,
+		"shoesB" : shoes_color.b*255,
 		
 		}
 	savefile.store_line(to_json(save_dict))

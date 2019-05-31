@@ -6,7 +6,8 @@ enum slots{
 	pants,
 	shirt,
 	skin,
-	hair
+	hair,
+	shoes
 }
 
 func _ready():
@@ -25,7 +26,9 @@ func _on_HuePicker_Hue_Selected(color):
 		options.skin_color = color
 	elif current_slot == slots.hair:
 		options.hair_color = color
-	$ViewportContainer/Viewport/AvatarPreview.SetColors(options.pants_color, options.shirt_color, options.skin_color, options.hair_color)
+	elif current_slot == slots.shoes:
+		options.shoes_color = color
+	$ViewportContainer/Viewport/AvatarPreview.SetColors(options.pants_color, options.shirt_color, options.skin_color, options.hair_color, options.shoes_color)
 
 func _on_CfgPlayer_pressed():
 	$WindowDialog.popup_centered()
@@ -47,7 +50,9 @@ func SwitchSlot():
 		$VBoxContainer/HuePicker.color = options.skin_color
 	elif current_slot == slots.hair:
 		$VBoxContainer/HuePicker.color = options.hair_color
-	$ViewportContainer/Viewport/AvatarPreview.SetColors(options.pants_color, options.shirt_color, options.skin_color, options.hair_color)
+	elif current_slot == slots.shoes:
+		$VBoxContainer/HuePicker.color = options.shoes_color
+	$ViewportContainer/Viewport/AvatarPreview.SetColors(options.pants_color, options.shirt_color, options.skin_color, options.hair_color, options.shoes_color)
 
 func _on_Gender_item_selected(ID):
 	options.gender = ID

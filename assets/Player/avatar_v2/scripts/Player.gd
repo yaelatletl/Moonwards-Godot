@@ -77,6 +77,7 @@ var pants_mat
 var shirt_mat
 var skin_mat
 var hair_mat
+var shoes_mat
 
 var colors setget SetPuppetColors
 var gender setget SetPuppetGender
@@ -97,20 +98,23 @@ func _ready():
 	SetRemotePlayer(puppet)
 
 func SetupMaterials():
-	hair_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(0).duplicate()
+	shirt_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(0).duplicate()
 	pants_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(1).duplicate()
-	shirt_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(2).duplicate()
-	skin_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(3).duplicate()
+	skin_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(2).duplicate()
+	shoes_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(3).duplicate()
+	hair_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(3).duplicate()
 	
 	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.set_surface_material(0, shirt_mat)
 	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.set_surface_material(1, pants_mat)
 	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.set_surface_material(2, skin_mat)
-	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.set_surface_material(3, hair_mat)
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.set_surface_material(3, shoes_mat)
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.set_surface_material(4, hair_mat)
 	
-	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(0, hair_mat)
-	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(1, pants_mat)
-	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(2, shirt_mat)
-	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(3, skin_mat)
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(0, shoes_mat)
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(1, hair_mat)
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(2, pants_mat)
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(3, shirt_mat)
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(4, skin_mat)
 
 func SetPuppetColors(var colors):
 	SetupMaterials()
@@ -119,6 +123,7 @@ func SetPuppetColors(var colors):
 	shirt_mat.albedo_color = colors.shirt
 	skin_mat.albedo_color = colors.skin
 	hair_mat.albedo_color = colors.hair
+	shoes_mat.albedo_color = colors.shoes
 
 func SetPuppetGender(var gender):
 	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.visible = (gender == options.genders.female)

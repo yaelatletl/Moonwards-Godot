@@ -84,7 +84,7 @@ margin_top = 262.0
 margin_right = 510.0
 margin_bottom = 282.0
 text = "Pants"
-items = [ "Pants", null, false, 0, null, "Shirt", null, false, 1, null, "Skin", null, false, 2, null, "Hair", null, false, 3, null ]
+items = [ "Pants", null, false, 0, null, "Shirt", null, false, 1, null, "Skin", null, false, 2, null, "Hair", null, false, 3, null, "Shoes", null, false, 4, null ]
 selected = 0
 
 [node name="HuePicker" parent="VBoxContainer" instance=ExtResource( 2 )]
