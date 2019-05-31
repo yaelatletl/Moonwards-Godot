@@ -2,7 +2,6 @@
 
 [resource]
 resource_name = "Black"
-flags_transparent = true
 params_cull_mode = 2
 albedo_color = Color( 0, 0, 0, 1 )
 metallic = 0.31

@@ -247,54 +247,56 @@ extents = Vector3( 29.7738, 11.6184, 9.53069 )
 ]]
 
 [node name="Lights" type="Spatial" parent="Interior"]
-editor/display_folded = true
 
 [node name="OmniLight" type="OmniLight" parent="Interior/Lights"]
 transform = Transform( 0.762846, 1.91632e-06, -0.64658, -1.25376e-06, 1, 1.48457e-06, 0.64658, -3.21839e-07, 0.762846, 2.73535, -0.792463, 0.44751 )
-light_energy = 0.6
+light_bake_mode = 2
 shadow_enabled = true
+omni_range = 2.1995
 
 [node name="OmniLight2" type="OmniLight" parent="Interior/Lights"]
-transform = Transform( 0.762846, 1.91632e-06, -0.64658, -1.25376e-06, 1, 1.48457e-06, 0.64658, -3.21839e-07, 0.762846, -3.45993, 0.81727, 0.447511 )
-light_color = Color( 0.980469, 0.970654, 0.823441, 1 )
-light_energy = 0.6
+transform = Transform( 0.762846, 1.91632e-06, -0.64658, -1.25376e-06, 1, 1.48457e-06, 0.64658, -3.2184e-07, 0.762846, -3.38089, 0.637605, -0.463558 )
+light_bake_mode = 2
 shadow_enabled = true
+omni_range = 1.92607
 
 [node name="OmniLight3" type="OmniLight" parent="Interior/Lights"]
-transform = Transform( 1, 1.79291e-06, -6.02889e-13, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -1.82215, -2.64552, 0.33553 )
-light_energy = 0.76
+transform = Transform( 1, 1.79291e-06, -6.02889e-13, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -1.82215, -2.16781, 0.33553 )
+light_bake_mode = 2
 shadow_enabled = true
+omni_range = 1.76004
 
 [node name="OmniLight4" type="OmniLight" parent="Interior/Lights"]
-transform = Transform( 1, 1.79291e-06, -6.02889e-13, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -5.2692, -3.13014, 0.00186992 )
-light_color = Color( 0.945312, 0.827148, 0.827148, 1 )
-light_energy = 0.9
+transform = Transform( 1, 1.79291e-06, -6.02889e-13, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -5.2692, -3.40676, -0.916908 )
+light_bake_mode = 2
 shadow_enabled = true
+omni_range = 1.80143
 
 [node name="OmniLight5" type="OmniLight" parent="Interior/Lights"]
-transform = Transform( 1, 1.79291e-06, -6.02889e-13, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -4.55908, -5.35491, -0.620115 )
-light_energy = 0.9
+transform = Transform( 1, 1.79291e-06, -6.02889e-13, -1.79291e-06, 1, -3.36263e-07, 0, 3.36263e-07, 1, -4.55908, -5.79606, -0.620115 )
+light_bake_mode = 2
 shadow_enabled = true
+omni_range = 2.14171
 
 [node name="OmniLight6" type="OmniLight" parent="Interior/Lights"]
-transform = Transform( 0.992109, 1.81409e-06, -0.125378, -1.82778e-06, 1, 5.87132e-09, 0.125378, 2.23338e-07, 0.992109, -12.2571, -6.42493, -0.919943 )
-light_energy = 0.9
+transform = Transform( 0.992109, 1.81409e-06, -0.125378, -1.82778e-06, 1, 5.87132e-09, 0.125378, 2.23338e-07, 0.992109, -12.1779, -5.66312, -1.54683 )
+light_bake_mode = 2
 shadow_enabled = true
-omni_range = 5.44414
+omni_range = 2.11869
 
 [node name="OmniLight7" type="OmniLight" parent="Interior/Lights"]
-transform = Transform( 0.131869, 2.08756e-06, -0.991267, 9.49032e-07, 1, 2.2322e-06, 0.991267, -1.2351e-06, 0.131869, 2.43995, -4.32795, 0.379888 )
-light_color = Color( 0.988281, 0.975463, 0.891769, 1 )
+transform = Transform( 0.131869, 2.08756e-06, -0.991267, 9.49032e-07, 1, 2.2322e-06, 0.991267, -1.2351e-06, 0.131869, 2.47796, -4.5585, 0.665588 )
+light_bake_mode = 2
 shadow_enabled = true
-omni_range = 3.0
+omni_range = 1.91353
 
 [node name="OmniLight8" type="OmniLight" parent="Interior/Lights"]
-transform = Transform( 0.0854718, 1.4841e-06, 0.996341, 1.84908e-06, 1, -1.64818e-06, -0.996341, 1.98319e-06, 0.0854718, -15.0632, -11.1695, -2.03124 )
-light_energy = 1.05
+transform = Transform( 0.0854718, 1.4841e-06, 0.996341, 1.84908e-06, 1, -1.64818e-06, -0.996341, 1.98319e-06, 0.0854718, -15.0662, -10.7651, -1.99609 )
+light_bake_mode = 2
 shadow_enabled = true
+omni_range = 2.47418
 
 [node name="MoonwardsBooth" type="Spatial" parent="Interior"]
-editor/display_folded = true
 
 [node name="MoonwardsBoothMain_Opt" type="MeshInstance" parent="Interior/MoonwardsBooth"]
 editor/display_folded = true
@@ -414,7 +416,6 @@ material/0 = null
 shape = SubResource( 6 )
 
 [node name="Floor-FG-Entrance-2" type="MeshInstance" parent="Interior/Floors"]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18115, -1.72498, -1.54492 )
 use_in_baked_light = true
 mesh = ExtResource( 11 )
@@ -427,7 +428,6 @@ editor/display_folded = true
 shape = SubResource( 7 )
 
 [node name="BucknellRocket" type="Spatial" parent="Interior/Floors/Floor-FG-Entrance-2"]
-editor/display_folded = true
 
 [node name="Scene" parent="Interior/Floors/Floor-FG-Entrance-2/BucknellRocket" instance=ExtResource( 12 )]
 transform = Transform( 0.0176879, 0.0301081, 0.01951, -0.0211171, 0.0263222, -0.0214758, -0.0290035, -0.000803331, 0.0275345, -3.66296, 0.27073, 1.85667 )
@@ -435,8 +435,6 @@ transform = Transform( 0.0176879, 0.0301081, 0.01951, -0.0211171, 0.0263222, -0.
 [node name="Screen" parent="Interior/Floors/Floor-FG-Entrance-2/BucknellRocket" instance=ExtResource( 13 )]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -4.1232, 0.202016, 1.72918 )
 Content = ExtResource( 14 )
-Size = Vector2( 1024, 700 )
-Hologram = false
 
 [node name="Floor-FG-Entrance-3" type="MeshInstance" parent="Interior/Floors"]
 editor/display_folded = true
