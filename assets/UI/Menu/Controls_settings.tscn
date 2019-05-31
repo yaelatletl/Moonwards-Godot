@@ -20,113 +20,180 @@ margin_bottom = 318.401
 
 [node name="Sub1" type="VBoxContainer" parent="Main"]
 margin_right = 272.0
-margin_bottom = 308.0
+margin_bottom = 276.0
 alignment = 1
 
 [node name="move_forwards" parent="Main/Sub1" instance=ExtResource( 2 )]
-margin_top = 0.0
+margin_top = 16.0
 margin_right = 272.0
-margin_bottom = 20.0
+margin_bottom = 36.0
 Label_text = "Move forwards"
 
 [node name="HSeparator7" type="HSeparator" parent="Main/Sub1"]
-margin_top = 24.0
+margin_top = 40.0
 margin_right = 272.0
-margin_bottom = 28.0
+margin_bottom = 44.0
 
 [node name="move_backwards" parent="Main/Sub1" instance=ExtResource( 2 )]
-margin_top = 32.0
+margin_top = 48.0
 margin_right = 272.0
-margin_bottom = 52.0
+margin_bottom = 68.0
 Label_text = "Move Backwards"
 
 [node name="HSeparator2" type="HSeparator" parent="Main/Sub1"]
-margin_top = 56.0
+margin_top = 72.0
 margin_right = 272.0
-margin_bottom = 60.0
+margin_bottom = 76.0
 
 [node name="move_left" parent="Main/Sub1" instance=ExtResource( 2 )]
-margin_top = 64.0
+margin_top = 80.0
 margin_right = 272.0
-margin_bottom = 84.0
+margin_bottom = 100.0
 Label_text = "Move Left"
 
 [node name="HSeparator3" type="HSeparator" parent="Main/Sub1"]
-margin_top = 88.0
+margin_top = 104.0
 margin_right = 272.0
-margin_bottom = 92.0
+margin_bottom = 108.0
 
 [node name="move_right" parent="Main/Sub1" instance=ExtResource( 2 )]
-margin_top = 96.0
+margin_top = 112.0
 margin_right = 272.0
-margin_bottom = 116.0
+margin_bottom = 132.0
 Label_text = "Move Right"
 
 [node name="HSeparator" type="HSeparator" parent="Main/Sub1"]
-margin_top = 120.0
+margin_top = 136.0
 margin_right = 272.0
-margin_bottom = 124.0
+margin_bottom = 140.0
 
 [node name="jump" parent="Main/Sub1" instance=ExtResource( 2 )]
-margin_top = 128.0
+margin_top = 144.0
 margin_right = 272.0
-margin_bottom = 148.0
+margin_bottom = 164.0
 Label_text = "Jump"
 
-[node name="HSeparator4" type="HSeparator" parent="Main/Sub1"]
-margin_top = 152.0
-margin_right = 272.0
-margin_bottom = 156.0
-
-[node name="ui_up" parent="Main/Sub1" instance=ExtResource( 2 )]
-margin_top = 160.0
-margin_right = 272.0
-margin_bottom = 180.0
-Label_text = "Up Navigation (Fly cam)"
-
-[node name="HSeparator5" type="HSeparator" parent="Main/Sub1"]
-margin_top = 184.0
-margin_right = 272.0
-margin_bottom = 188.0
-
-[node name="ui_right" parent="Main/Sub1" instance=ExtResource( 2 )]
-margin_top = 192.0
-margin_right = 272.0
-margin_bottom = 212.0
-Label_text = "Right navigation (Fly cam)"
-
-[node name="HSeparator6" type="HSeparator" parent="Main/Sub1"]
-margin_top = 216.0
-margin_right = 272.0
-margin_bottom = 220.0
-
-[node name="ui_left" parent="Main/Sub1" instance=ExtResource( 2 )]
-margin_top = 224.0
-margin_right = 272.0
-margin_bottom = 244.0
-Label_text = "Left navigation (Fly cam)"
-
-[node name="HSeparator9" type="HSeparator" parent="Main/Sub1"]
-margin_top = 248.0
-margin_right = 272.0
-margin_bottom = 252.0
-
-[node name="ui_down" parent="Main/Sub1" instance=ExtResource( 2 )]
-margin_top = 256.0
-margin_right = 272.0
-margin_bottom = 276.0
-Label_text = "Down navigation (Fly cam)"
-
 [node name="HSeparator8" type="HSeparator" parent="Main/Sub1"]
-margin_top = 280.0
+margin_top = 168.0
 margin_right = 272.0
-margin_bottom = 284.0
+margin_bottom = 172.0
 
 [node name="ui_menu_options" parent="Main/Sub1" instance=ExtResource( 2 )]
-margin_top = 288.0
+margin_top = 176.0
 margin_right = 272.0
-margin_bottom = 308.0
+margin_bottom = 196.0
 Label_text = "Options menu"
+
+[node name="HSeparator10" type="HSeparator" parent="Main/Sub1"]
+margin_top = 200.0
+margin_right = 272.0
+margin_bottom = 204.0
+
+[node name="show_diagram" parent="Main/Sub1" instance=ExtResource( 2 )]
+margin_top = 208.0
+margin_right = 272.0
+margin_bottom = 228.0
+Label_text = "Display controls"
+
+[node name="HSeparator11" type="HSeparator" parent="Main/Sub1"]
+margin_top = 232.0
+margin_right = 272.0
+margin_bottom = 236.0
+
+[node name="player_back_in_time" parent="Main/Sub1" instance=ExtResource( 2 )]
+margin_top = 240.0
+margin_right = 272.0
+margin_bottom = 260.0
+Label_text = "Get unstuck"
+
+[node name="Sub2" type="VBoxContainer" parent="Main"]
+margin_left = 284.0
+margin_right = 632.0
+margin_bottom = 276.0
+alignment = 1
+
+[node name="ui_up" parent="Main/Sub2" instance=ExtResource( 2 )]
+margin_top = 16.0
+margin_right = 348.0
+margin_bottom = 36.0
+Label_text = "Up Navigation (Fly cam)"
+
+[node name="HSeparator5" type="HSeparator" parent="Main/Sub2"]
+margin_top = 40.0
+margin_right = 348.0
+margin_bottom = 44.0
+
+[node name="ui_right" parent="Main/Sub2" instance=ExtResource( 2 )]
+margin_top = 48.0
+margin_right = 348.0
+margin_bottom = 68.0
+Label_text = "Right navigation (Fly cam)"
+
+[node name="HSeparator6" type="HSeparator" parent="Main/Sub2"]
+margin_top = 72.0
+margin_right = 348.0
+margin_bottom = 76.0
+
+[node name="ui_left" parent="Main/Sub2" instance=ExtResource( 2 )]
+margin_top = 80.0
+margin_right = 348.0
+margin_bottom = 100.0
+Label_text = "Left navigation (Fly cam)"
+
+[node name="HSeparator9" type="HSeparator" parent="Main/Sub2"]
+margin_top = 104.0
+margin_right = 348.0
+margin_bottom = 108.0
+
+[node name="ui_down" parent="Main/Sub2" instance=ExtResource( 2 )]
+margin_top = 112.0
+margin_right = 348.0
+margin_bottom = 132.0
+Label_text = "Down navigation (Fly cam)"
+
+[node name="HSeparator4" type="HSeparator" parent="Main/Sub2"]
+margin_top = 136.0
+margin_right = 348.0
+margin_bottom = 140.0
+
+[node name="debug_force_camera" parent="Main/Sub2" instance=ExtResource( 2 )]
+margin_top = 144.0
+margin_right = 348.0
+margin_bottom = 164.0
+Label_text = "Enable Fly Camera"
+
+[node name="HSeparator12" type="HSeparator" parent="Main/Sub2"]
+margin_top = 168.0
+margin_right = 348.0
+margin_bottom = 172.0
+
+[node name="ui_accept" parent="Main/Sub2" instance=ExtResource( 2 )]
+margin_top = 176.0
+margin_right = 348.0
+margin_bottom = 196.0
+Label_text = "Use chat / send message"
+
+[node name="HSeparator14" type="HSeparator" parent="Main/Sub2"]
+margin_top = 200.0
+margin_right = 348.0
+margin_bottom = 204.0
+
+[node name="alt" parent="Main/Sub2" instance=ExtResource( 2 )]
+margin_top = 208.0
+margin_right = 348.0
+margin_bottom = 228.0
+Label_text = "Change facial expression"
+
+[node name="HSeparator15" type="HSeparator" parent="Main/Sub2"]
+margin_top = 232.0
+margin_right = 348.0
+margin_bottom = 236.0
+
+[node name="shift" parent="Main/Sub2" instance=ExtResource( 2 )]
+margin_top = 240.0
+margin_right = 348.0
+margin_bottom = 260.0
+Label_text = "Change player speed"
 
 [node name="Button" type="Button" parent="."]
 margin_left = 836.888
