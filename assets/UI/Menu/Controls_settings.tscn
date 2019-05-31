@@ -108,90 +108,90 @@ Label_text = "Get unstuck"
 
 [node name="Sub2" type="VBoxContainer" parent="Main"]
 margin_left = 284.0
-margin_right = 632.0
+margin_right = 556.0
 margin_bottom = 276.0
 alignment = 1
 
 [node name="ui_up" parent="Main/Sub2" instance=ExtResource( 2 )]
 margin_top = 16.0
-margin_right = 348.0
+margin_right = 272.0
 margin_bottom = 36.0
 Label_text = "Up Navigation (Fly cam)"
 
 [node name="HSeparator5" type="HSeparator" parent="Main/Sub2"]
 margin_top = 40.0
-margin_right = 348.0
+margin_right = 272.0
 margin_bottom = 44.0
 
 [node name="ui_right" parent="Main/Sub2" instance=ExtResource( 2 )]
 margin_top = 48.0
-margin_right = 348.0
+margin_right = 272.0
 margin_bottom = 68.0
 Label_text = "Right navigation (Fly cam)"
 
 [node name="HSeparator6" type="HSeparator" parent="Main/Sub2"]
 margin_top = 72.0
-margin_right = 348.0
+margin_right = 272.0
 margin_bottom = 76.0
 
 [node name="ui_left" parent="Main/Sub2" instance=ExtResource( 2 )]
 margin_top = 80.0
-margin_right = 348.0
+margin_right = 272.0
 margin_bottom = 100.0
 Label_text = "Left navigation (Fly cam)"
 
 [node name="HSeparator9" type="HSeparator" parent="Main/Sub2"]
 margin_top = 104.0
-margin_right = 348.0
+margin_right = 272.0
 margin_bottom = 108.0
 
 [node name="ui_down" parent="Main/Sub2" instance=ExtResource( 2 )]
 margin_top = 112.0
-margin_right = 348.0
+margin_right = 272.0
 margin_bottom = 132.0
 Label_text = "Down navigation (Fly cam)"
 
 [node name="HSeparator4" type="HSeparator" parent="Main/Sub2"]
 margin_top = 136.0
-margin_right = 348.0
+margin_right = 272.0
 margin_bottom = 140.0
 
 [node name="debug_force_camera" parent="Main/Sub2" instance=ExtResource( 2 )]
 margin_top = 144.0
-margin_right = 348.0
+margin_right = 272.0
 margin_bottom = 164.0
 Label_text = "Enable Fly Camera"
 
 [node name="HSeparator12" type="HSeparator" parent="Main/Sub2"]
 margin_top = 168.0
-margin_right = 348.0
+margin_right = 272.0
 margin_bottom = 172.0
 
 [node name="ui_accept" parent="Main/Sub2" instance=ExtResource( 2 )]
 margin_top = 176.0
-margin_right = 348.0
+margin_right = 272.0
 margin_bottom = 196.0
 Label_text = "Use chat / send message"
 
 [node name="HSeparator14" type="HSeparator" parent="Main/Sub2"]
 margin_top = 200.0
-margin_right = 348.0
+margin_right = 272.0
 margin_bottom = 204.0
 
 [node name="alt" parent="Main/Sub2" instance=ExtResource( 2 )]
 margin_top = 208.0
-margin_right = 348.0
+margin_right = 272.0
 margin_bottom = 228.0
 Label_text = "Change facial expression"
 
 [node name="HSeparator15" type="HSeparator" parent="Main/Sub2"]
 margin_top = 232.0
-margin_right = 348.0
+margin_right = 272.0
 margin_bottom = 236.0
 
 [node name="shift" parent="Main/Sub2" instance=ExtResource( 2 )]
 margin_top = 240.0
-margin_right = 348.0
+margin_right = 272.0
 margin_bottom = 260.0
 Label_text = "Change player speed"
 

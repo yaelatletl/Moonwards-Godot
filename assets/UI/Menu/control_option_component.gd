@@ -22,6 +22,7 @@ func update_title(text):
 
 
 func _enter_tree():
+	var is_key = false
 	if not $Confirm.get_cancel().is_connected("pressed",self,"_on_Cancel"):
 		$Confirm.get_cancel().connect("pressed",self,"_on_Cancel") 
 	#Get the popup cancel button and connect it to _on_cancel
@@ -29,10 +30,15 @@ func _enter_tree():
 	$Label.text = get_title()
 	titlelabel = get_title()
 	if InputMap.has_action(str(name)):
-		current_scancode = InputMap.get_action_list(str(name))[0].scancode
-		update_labels()
-		#Get the first action asociated with this input
-		get_node("Button").disabled = false
+		for members in range(0,InputMap.get_action_list(str(name)).size()):
+			if InputMap.get_action_list(str(name))[members] is InputEventKey:
+				current_scancode = InputMap.get_action_list(str(name))[members].scancode
+				is_key = true
+				break
+		if is_key:	
+			update_labels()
+			#Get the first action asociated with this input
+			get_node("Button").disabled = false
 		
 
 
