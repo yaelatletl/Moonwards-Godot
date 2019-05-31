@@ -35,11 +35,14 @@ var max_down_aim_angle = 55.0
 var root_motion = Transform()
 var orientation = Transform()
 var velocity = Vector3()
+var motion_target = Vector3()
+var input_direction  = 0.0
 var animation_speed = 1.0
 var in_air = false
 var in_air_accomulate = 0 #smooth short in air situations, duration is IN_AIR_DELTA
 var land = false
-var jumping = false
+var is_jumping = false
+var jump = false
 var jump_timeout = 0.0
 var flies = false
 var climbing_stairs = false
@@ -47,16 +50,16 @@ var stairs = null
 var climb_point = 0
 var climb_progress = 0.0
 var climb_direction = 1.0
-var movementstate = walk
+var movementstate = walking
 var username = "username" setget SetUsername
 var id setget SetID
 var nocamera = false
 var jump_timer = 0.0
 
-const walk = 0
-const flail = 1
-const climb = 2
-const jump = 3
+const walking = 0
+const flailing = 1
+const climbing = 2
+const jumping = 3
 
 #################################
 ##Networking
@@ -199,6 +202,12 @@ func _input(event):
 		else:
 			StopStairsClimb()
 	
+	if event.is_action("scroll_up") and not Input.is_action_pressed("move_run"):
+		camera_control.DecreaseDistance()
+	
+	if event.is_action("scroll_down") and not Input.is_action_pressed("move_run"):
+		camera_control.IncreaseDistance()
+	
 	if event.is_action_pressed("scroll_up") and Input.is_action_pressed("move_run") and animation_speed < 3.0:
 		animation_speed += 0.25
 	elif event.is_action_pressed("scroll_down") and Input.is_action_pressed("move_run") and animation_speed > 0.5:
@@ -242,39 +251,48 @@ func HandleMovement():
 	$KinematicBody/AnimationTree["parameters/MovementSpeed/scale"] = animation_speed
 
 func HandleControls(var delta):
-	if puppet or UIManager.has_ui:
+	if puppet:
 		return
-	var motion_target = Vector2( 	Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-									Input.get_action_strength("move_forwards") - Input.get_action_strength("move_backwards"))
+	
+	if UIManager.has_ui:
+		motion_target = Vector2()
+		input_direction = 0.0
+		jump = false
+	else:
+		jump = Input.is_action_pressed("jump")
+		input_direction = (Input.get_action_strength("move_forwards") - Input.get_action_strength("move_backwards"))
+		motion_target = Vector2( 	Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
+										Input.get_action_strength("move_forwards") - Input.get_action_strength("move_backwards"))
 	
 	if jump_timeout > 0.0:
 		jump_timeout -= delta
 		if jump_timeout <= 0.0:
 			$KinematicBody/AnimationTree["parameters/JumpAmount/blend_amount"] = 0.0
-			jumping = false
+			is_jumping = false
 		else:
 			$KinematicBody/AnimationTree["parameters/JumpAmount/blend_amount"] = jump_timeout / 2.0
-	elif Input.is_action_pressed("jump") and not in_air and not climbing_stairs and jump_timer < MAX_JUMP_TIMER:
+	elif jump and not in_air and not climbing_stairs and jump_timer < MAX_JUMP_TIMER:
+		jump = false
 		jump_timer += delta
 		$KinematicBody/AnimationTree["parameters/JumpAmount/blend_amount"] = jump_timer / MAX_JUMP_TIMER
-		if not jumping:
-			jumping = true
-	elif jumping:
+		if not is_jumping:
+			is_jumping = true
+	elif is_jumping:
 		Jump(jump_timer)
 		jump_timer = 0.0
-		$KinematicBody/AnimationTree["parameters/MovementState/current"] = flail
-		movementstate = flail
+		$KinematicBody/AnimationTree["parameters/MovementState/current"] = flailing
+		movementstate = flailing
 	
 	if climbing_stairs:
 		UpdateClimbingStairs(delta)
 		return
 	
-	if in_air and movementstate == walk:
-		$KinematicBody/AnimationTree["parameters/MovementState/current"] = flail
-		movementstate = flail
-	elif not in_air and movementstate == flail and jump_timeout <= 0.0:
-		$KinematicBody/AnimationTree["parameters/MovementState/current"] = walk
-		movementstate = walk
+	if in_air and movementstate == walking:
+		$KinematicBody/AnimationTree["parameters/MovementState/current"] = flailing
+		movementstate = flailing
+	elif not in_air and movementstate == flailing and jump_timeout <= 0.0:
+		$KinematicBody/AnimationTree["parameters/MovementState/current"] = walking
+		movementstate = walking
 	
 	if land:
 		$KinematicBody/AnimationTree["parameters/Land/active"] = true
@@ -299,7 +317,7 @@ func HandleControls(var delta):
 		var target_transform = $KinematicBody/Model.global_transform.looking_at($KinematicBody/Model.global_transform.origin - target_direction, Vector3(0, 1, 0))
 		orientation.basis = $KinematicBody/Model.global_transform.basis.slerp(target_transform.basis, delta * ROTATION_INTERPOLATE_SPEED)
 	
-	if not in_air and not jumping:
+	if not in_air and not is_jumping:
 		#Retrieve the root motion from the animationtree so it can be applied to the KinematicBody.
 		root_motion = $KinematicBody/AnimationTree.get_root_motion_transform()
 		orientation *= root_motion
@@ -330,9 +348,6 @@ func HandleControls(var delta):
 func UpdateClimbingStairs(var delta):
 	var kb_pos = $KinematicBody.global_transform.origin
 	
-	var input_direction = (Input.get_action_strength("move_forwards") - Input.get_action_strength("move_backwards"))
-#	climb_progress += abs(input_direction) * delta * 2.0
-	
 	if climb_point % 2 == 0:
 		climb_progress = abs((2.0 if climb_direction > 0.0 else 0.0) - abs((kb_pos.y - stairs.climb_points[climb_point].y) / stairs.step_size))
 	else:
@@ -346,10 +361,8 @@ func UpdateClimbingStairs(var delta):
 		climb_point -= 1
 	
 	if climb_point == stairs.climb_points.size() - 1 and kb_pos.y > stairs.climb_points[climb_point].y and not input_direction <= 0.0:
-		$KinematicBody/AnimationTree["parameters/MovementState/current"] = walk
+		$KinematicBody/AnimationTree["parameters/MovementState/current"] = walking
 		
-		var motion_target = Vector2( 	Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-										Input.get_action_strength("move_forwards") - Input.get_action_strength("move_backwards"))
 		motion = motion.linear_interpolate(motion_target, MOTION_INTERPOLATE_SPEED * delta)
 		
 		#Update the model rotation based on the camera look direction.
@@ -378,7 +391,7 @@ func UpdateClimbingStairs(var delta):
 		if kb_pos.distance_to(stairs.climb_points[climb_point]) > 0.12:
 			StopStairsClimb()
 	else:
-		$KinematicBody/AnimationTree["parameters/MovementState/current"] = climb
+		$KinematicBody/AnimationTree["parameters/MovementState/current"] = climbing
 		#Automatically move towards the climbing point horizontally.
 		var flat_velocity = (stairs.climb_points[climb_point] - kb_pos) * delta * 150.0
 		flat_velocity.y = 0.0
@@ -412,7 +425,7 @@ func StopStairsClimb():
 	climbing_stairs = false
 	stairs = null
 	climb_point = -1
-	$KinematicBody/AnimationTree["parameters/MovementState/current"] = walk
+	$KinematicBody/AnimationTree["parameters/MovementState/current"] = walking
 
 func DoStairsCheck():
 	var space_state = get_world().direct_space_state
@@ -460,7 +473,7 @@ func UpdateNetworking():
 		if puppet_rotation != null:
 			$KinematicBody/Model.global_transform.basis = puppet_rotation
 		if puppet_jump != null:
-			jumping = puppet_jump
+			jump = puppet_jump
 		if puppet_motion != null:
 			motion = puppet_motion
 		if puppet_animation_speed != null:

@@ -13,7 +13,7 @@ func _input(event):
 		if added_menu_ui:
 			UIManager.ClearUI()
 			added_menu_ui = false
-		else:
+		elif UIManager.RequestFocus():
 			UIManager.SwitchUI(SceneMenu)
 			added_menu_ui = true
 

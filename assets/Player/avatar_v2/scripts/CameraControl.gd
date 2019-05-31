@@ -27,15 +27,17 @@ func _ready():
 		camera.look_at(current_look_position, Vector3(0,1,0))
 		excluded_bodies.append(kinematic_body)
 
-func _input(event):
+func IncreaseDistance():
 	if not enabled:
 		return
-	if event.is_action("scroll_up") and not Input.is_action_pressed("move_run"):
-		if camera_target.translation.z > 0.15:
-			camera_target.translation.z -= zoom_step_size
-	if event.is_action("scroll_down") and not Input.is_action_pressed("move_run"):
-		if camera_target.translation.z < 1.0:
-			camera_target.translation.z += zoom_step_size
+	if camera_target.translation.z < 1.0:
+		camera_target.translation.z += zoom_step_size
+
+func DecreaseDistance():
+	if not enabled:
+		return
+	if camera_target.translation.z > 0.15:
+		camera_target.translation.z -= zoom_step_size
 
 func _physics_process(delta):
 	if not enabled:

@@ -37,10 +37,12 @@ remote func announce_user(player):
 
 func _input(event):
 	if event.is_action_pressed("toggle_chat"):
-		ShowChat()
-		if not $VBoxContainer/ChatInput.has_focus():
-			$VBoxContainer/ChatInput.grab_focus()
-		else:
+		if UIManager.RequestFocus():
+			ShowChat()
+			if not $VBoxContainer/ChatInput.has_focus():
+				$VBoxContainer/ChatInput.grab_focus()
+		elif chat_visible:
+			UIManager.ReleaseFocus()
 			if not $VBoxContainer/ChatInput.text == "":
 				rpc('display_message', gamestate.player_get("name"), $VBoxContainer/ChatInput.text)
 			$VBoxContainer/ChatInput.release_focus()

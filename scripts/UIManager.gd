@@ -147,6 +147,16 @@ func _input(event):
 		else:
 			Back()
 
+func RequestFocus():
+	if has_ui:
+		return false
+	else:
+		has_ui = true
+		return true
+
+func ReleaseFocus():
+	has_ui = false
+
 func LoadLevel(var resource):
 	gamestate.load_level(resource)
 
