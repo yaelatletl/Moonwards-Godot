@@ -174,6 +174,8 @@ func SetPScale(scale):
 #################################
 # _process functions
 func _input(event):
+	if UIManager.has_ui:
+		return
 	if (event is InputEventMouseMotion):
 		look_direction.x -= event.relative.x * mouse_sensitivity
 		look_direction.y -= event.relative.y * mouse_sensitivity
@@ -240,7 +242,7 @@ func HandleMovement():
 	$KinematicBody/AnimationTree["parameters/MovementSpeed/scale"] = animation_speed
 
 func HandleControls(var delta):
-	if puppet:
+	if puppet or UIManager.has_ui:
 		return
 	var motion_target = Vector2( 	Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 									Input.get_action_strength("move_forwards") - Input.get_action_strength("move_backwards"))

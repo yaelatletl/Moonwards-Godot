@@ -3,28 +3,19 @@ extends Control
 var SceneOptions = "res://assets/UI/Menu/Options.tscn"
 var SceneMenu = "res://assets/UI/Menu/In_game_menu.tscn"
 var Options = null
-var Menu = null
+var added_menu_ui = false
 
-func _enter_tree():
-	
+func _ready():
 	UIManager.RegisterBaseUI(self)
 
-
 func _input(event):
-	if event.is_action_pressed("ui_menu_options") and not self.has_node("Control"):
-		MainPanel()
-
-func MainPanel():
-	if Menu:
-		Menu.queue_free()
-		Menu = null
-		Input.set_mouse_mode(options.get("_state_", "menu_options_mm", Input.MOUSE_MODE_VISIBLE))
-	else:
-		Menu = ResourceLoader.load(SceneMenu).instance()
-		Menu.name = "Menu"
-		add_child(Menu)
-		UIManager.SetCurrentUI(get_node("Menu"))
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if event.is_action_pressed("ui_menu_options"):
+		if added_menu_ui:
+			UIManager.ClearUI()
+			added_menu_ui = false
+		else:
+			UIManager.SwitchUI(SceneMenu)
+			added_menu_ui = true
 
 func OptionsPanel():
 		if Options:

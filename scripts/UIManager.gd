@@ -106,7 +106,6 @@ func DismissUI():
 	# When there is no history then the UI can be removed completely.
 	else:
 		ClearUI()
-		LockMouse()
 		on_queued_ui = false
 
 func CreateUI(var resource):
@@ -119,6 +118,7 @@ func ClearUI():
 	has_ui = false
 	current_ui.queue_free()
 	current_ui = null
+	LockMouse()
 
 func NextUI(var next_ui):
 	QueueCurrentUI()
