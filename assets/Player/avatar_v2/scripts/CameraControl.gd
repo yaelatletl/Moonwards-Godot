@@ -12,7 +12,7 @@ onready var camera = get_node(kinematic_body_camera)
 var current_look_position = Vector3()
 var zoom_step_size = 0.05
 export (bool) var enabled = false
-var excluded_bodies = [kinematic_body]
+var excluded_bodies = []
 
 func _ready():
 	if camera == null:
@@ -25,6 +25,7 @@ func _ready():
 		camera.global_transform.origin = camera_target.global_transform.origin
 		current_look_position = look_target.global_transform.origin
 		camera.look_at(current_look_position, Vector3(0,1,0))
+		excluded_bodies.append(kinematic_body)
 
 func _input(event):
 	if not enabled:
