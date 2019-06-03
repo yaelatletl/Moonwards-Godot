@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://assets/Player/avatar_v2/scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/Player/avatar_v2/Nametag3D.tscn" type="PackedScene" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://materials/SmokySkin.tres" type="Material" id=7]
 [ext_resource path="res://materials/Eggplant.tres" type="Material" id=8]
 [ext_resource path="res://materials/Black.tres" type="Material" id=9]
-[ext_resource path="res://materials/CoralPiink.tres" type="Material" id=10]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
@@ -209,7 +208,7 @@ material/4 = ExtResource( 9 )
 lod_min_distance = 5.0
 lod_max_distance = 1.0
 material/0 = ExtResource( 9 )
-material/1 = ExtResource( 10 )
+material/1 = ExtResource( 8 )
 material/2 = ExtResource( 6 )
 material/3 = ExtResource( 5 )
 material/4 = ExtResource( 7 )
