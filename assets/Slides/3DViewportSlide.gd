@@ -24,6 +24,7 @@ func update_slides():
 		$ColorRect/Content.get_child(index).visible = true
 		var vp_scene = load(construct_viewport_res_path(index)).instance()
 		$ColorRect/ViewportContainer/Viewport.add_child(vp_scene)
+	hide_buttons_on_edges()
 
 func _ready():
 	create_content_path()
@@ -83,3 +84,14 @@ func remove_previous_viewport():
 		var vp_content = $ColorRect/ViewportContainer/Viewport.get_child(0)
 		$ColorRect/ViewportContainer/Viewport.remove_child(vp_content)
 		vp_content.queue_free()
+
+func hide_buttons_on_edges():
+	if(not $ColorRect/Buttons/Next.visible):
+		$ColorRect/Buttons/Next.show()
+	if(not $ColorRect/Buttons/Prev.visible):
+		$ColorRect/Buttons/Prev.show()
+	
+	if(disabled_direction == 1):
+		$ColorRect/Buttons/Prev.hide()
+	elif(disabled_direction == 2):
+		$ColorRect/Buttons/Next.hide()
