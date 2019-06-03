@@ -4,6 +4,7 @@
 [ext_resource path="res://assets/Slides/lightmask.png" type="Texture" id=2]
 
 [sub_resource type="PlaneMesh" id=1]
+flip_faces = true
 
 [sub_resource type="ViewportTexture" id=2]
 viewport_path = NodePath("Viewport")
@@ -14,7 +15,6 @@ flags_transparent = true
 flags_albedo_tex_force_srgb = true
 params_depth_draw_mode = 3
 albedo_texture = SubResource( 2 )
-roughness = 0.0
 emission_enabled = true
 emission = Color( 0.529412, 0.529412, 0.529412, 1 )
 emission_energy = 1.0
@@ -50,12 +50,11 @@ size = Vector2( 1024, 700 )
 transparent_bg = true
 hdr = false
 usage = 0
-render_target_v_flip = true
 
 [node name="Area" type="Area" parent="."]
 
 [node name="Quad" type="MeshInstance" parent="Area"]
-transform = Transform( -1, 8.74228e-08, -4.37114e-08, -4.37114e-08, 1.91069e-15, 1, 8.74228e-08, 1, 1.91069e-15, 0, 0, 0 )
+transform = Transform( 1, -1.74846e-07, 4.37114e-08, -4.37114e-08, 1.91069e-15, 1, -1.74846e-07, -1, -5.73206e-15, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 3 )
 
