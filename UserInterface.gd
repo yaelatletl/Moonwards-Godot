@@ -14,7 +14,7 @@ func _input(event):
 			UIManager.ClearUI()
 			added_menu_ui = false
 		elif UIManager.RequestFocus():
-			UIManager.SwitchUI(SceneMenu)
+			UIManager.NextUI(SceneMenu)
 			added_menu_ui = true
 
 func OptionsPanel():
