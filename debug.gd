@@ -68,6 +68,11 @@ func debug_apply_options():
 var camera_ready_path
 var camera_ready_oldcamera
 func camera_ready(force=false):
+	
+	#The debug camera can not be spawned when the chat or other UI is active.
+	if UIManager.has_ui:
+		return
+	
 	yield(get_tree(), "idle_frame")
 	var root = get_tree().current_scene
 	if camera_ready_path:
