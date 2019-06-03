@@ -67,7 +67,7 @@ func Back():
 	if not CanGoBack():
 		return
 	#Delete the current UI before going back.
-	if current_ui != null:
+	if is_instance_valid(current_ui):
 		current_ui.queue_free()
 	AddPreviousUI()
 	
@@ -82,8 +82,9 @@ func LockMouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func QueueCurrentUI():
-	current_ui.get_parent().remove_child(current_ui)
-	ui_history_queue.append(current_ui)
+	if is_instance_valid(current_ui):
+		current_ui.get_parent().remove_child(current_ui)
+		ui_history_queue.append(current_ui)
 
 func QueueUI(var resource):
 	if ui_future_queue.empty() and not on_queued_ui:
