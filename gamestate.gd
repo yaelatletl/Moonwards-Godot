@@ -11,6 +11,8 @@ var players = {}
 
 var network_id
 var local_id
+var chat_ui_resource = preload("res://chat/ChatUI.tscn")
+var chat_ui = null
 
 #
 # hold last error message
@@ -422,6 +424,10 @@ func sg_player_scene():
 	for p in players:
 		create_player(p)
 	
+	#The ChatUI should only be added when there is networking going on.
+	if RoleClient or RoleServer:
+		AddChatUI()
+	
 	if RoleClient:
 		#report client to server
 		rpc_id(1, "register_client", network_id, players[local_id].data)
@@ -732,3 +738,8 @@ func net_client(id, connected):
 func player_scene():
 	printd("------instance avatars with networking(%s) - players count %s" % [NetworkUP, players.size()])
 	PlayerSceneUP = true
+
+func AddChatUI():
+	if not is_instance_valid(chat_ui):
+		chat_ui = chat_ui_resource.instance()
+		get_tree().root.add_child(chat_ui)
