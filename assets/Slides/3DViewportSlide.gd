@@ -39,18 +39,31 @@ func _ready():
 	
 func _on_size_changed():
 	var Newsize = get_viewport().get_visible_rect().size
-	$ColorRect.rect_scale = Newsize/Vector2(1366,768)
-
+	$ColorRect.rect_scale = Newsize/Vector2(1024,700)
 
 func _input(event):
 	if has_focus:
-		if event is InputEventMouseButton and delay.is_stopped():
+		if event is InputEventMouseButton and event.button_index == 1:
 			
-			if event.button_index == 1  and  disabled_direction != 2 and not event.is_pressed():
+			if disabled_direction != 2 and not event.is_pressed() and is_button_pressed(event.position, true):
 				index += 1
-			if event.button_index == 2 and disabled_direction != 1 and not event.is_pressed():
+			if disabled_direction != 1 and not event.is_pressed() and is_button_pressed(event.position, false):
 				index -= 1
 			update_slides()
+
+func is_button_pressed(event_position, next):
+	var invert_mouse = get_viewport().size - event_position
+	
+	var button
+	if(next):
+		button = $ColorRect/Buttons/Next
+	else:
+		button = $ColorRect/Buttons/Prev
+	
+	if(button.rect_position.x <= invert_mouse.x and invert_mouse.x <= button.rect_position.x + button.rect_size.x):
+		if(button.rect_position.y <= invert_mouse.y and invert_mouse.y <= button.rect_position.y + button.rect_size.y):
+			return true
+	return false
 
 func create_content_path():
 	var ss = Content.resource_path.split("/")
