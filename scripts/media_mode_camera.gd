@@ -2,6 +2,7 @@ extends Camera
 
 func _ready():
 	look_direction = rotation_degrees
+	UIManager.RequestFocus()
 
 var look_direction = Vector3()
 var max_up_aim_angle = 80.0
@@ -64,3 +65,8 @@ func _input(event):
 		
 	if event.is_action_pressed("scroll_down"):
 		movement_acceleration = max(0.0, movement_acceleration - 0.05)
+
+func _notification(message): 
+	if message == NOTIFICATION_PREDELETE: 
+		# Release the focus when this node is being freed.
+		UIManager.ReleaseFocus()
