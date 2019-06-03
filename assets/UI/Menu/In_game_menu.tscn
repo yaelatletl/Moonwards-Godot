@@ -106,4 +106,4 @@ margin_bottom = 348.0
 rect_min_size = Vector2( 0, 40 )
 text = "Exit"
 script = ExtResource( 2 )
-ui_event = 9
+ui_event = 8

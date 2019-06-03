@@ -19,7 +19,7 @@ enum ui_events{
 	exit
 }
 const ui_events_text = ["back", "create_ui", "queue_ui", "set_setting", "dismiss",
-						"load_level", "join_server", "run_locally" ]
+						"load_level", "join_server", "run_locally", "exit" ]
 func ui_event_to_text(ui_event):
 	var text = "none"
 	if ui_events_text.size() - 1  > ui_event:
@@ -49,6 +49,8 @@ func UIEvent(ui_event, resource=null):
 			join_server(resource)
 		ui_events.run_locally:
 			run_local(resource)
+		ui_events.exit:
+			Exit()
 		_:
 			print("UIManager, no action for %s resource(%s)" % [ui_event_to_text(ui_event), resource])
 
@@ -180,3 +182,6 @@ func run_local(scene):
 	}
 	gamestate.player_register(player_data, true, "avatar_local") #local player
 	gamestate.load_level(scene)
+
+func Exit():
+	get_tree().quit()
