@@ -99,7 +99,7 @@ func _on_join_pressed():
 		var player_data = {
 			username = $connect/name.text,
 			gender = options.gender,
-			colors = {"pants" : options.pants_color, "shirt" : options.shirt_color, "skin" : options.skin_color, "hair" : options.hair_color}
+			colors = {"pants" : options.pants_color, "shirt" : options.shirt_color, "skin" : options.skin_color, "hair" : options.hair_color, "shoes" : options.shoes_color}
 		}
 		gamestate.player_register(player_data, true) #local player
 		binddef = {src = gamestate, dest = self }
