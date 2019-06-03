@@ -12,3 +12,6 @@ func _on_skin_selected():
 func _on_hair_selected():
 	get_node(SlotOptionPath).select(3)
 	get_node(SlotOptionPath).emit_signal("item_selected",3)
+func _on_shoes_selected():
+	get_node(SlotOptionPath).select(4)
+	get_node(SlotOptionPath).emit_signal("item_selected",4)
