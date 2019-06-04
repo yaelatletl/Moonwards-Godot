@@ -2,6 +2,8 @@ extends Node
 var id = "options.gd"
 var debug = true
 
+#############################
+# user avatar options
 signal user_settings_changed
 
 enum slots{
@@ -29,9 +31,13 @@ var savefile_json
 var OptionsFile = "user://gameoptions.save"
 var User_file = "user://settings.save"
 
+#############################
+# debug function
 func printd(s):
 	logg.print_fd(id, s)
 
+#############################
+# load scene options
 var scenes = {
 	loaded = null,
 	default = "WorldTest",
@@ -59,6 +65,8 @@ var fly_cameras = [
 	{ "label" : "Media Camera", "path" : "res://assets/Player/flycamera_ac/player.tscn" }
 ]
 
+#############################
+#player instancing options
 var player_opt = {
 	player_group = "player",
 	opt_allow_unknown = true,
@@ -103,6 +111,27 @@ var player_opt = {
 	}
 }
 
+#############################
+# update variables
+var update_filter = {
+	#basic glob pattern match
+	"exclude" : [
+		"*.blend",
+		"res://_tests/*",
+		"res://_maintance/*",
+		"res://addons/CeransDev/*",
+		"res://_tests.ignore/*"
+	],
+	"include" : [
+	],
+	#basic string match
+	"ignore" : [
+	]
+}
+
+
+#############################
+# functions and variable to sort
 func set_defaults():
 	# set some default values, probably improve that
 	get("dev", "enable_areas_lod", true)
@@ -182,7 +211,7 @@ func load():
 		printd("options loaded from %s" % OptionsFile)
 
 func save():
-	var savefile = File.new()	
+	var savefile = File.new()
 	savefile.open(OptionsFile, File.WRITE)
 	set("_state_", gamestate.local_id, "game_state_id")
 	savefile.store_line(var2str(options))
@@ -319,4 +348,3 @@ func SaveUserSettings():
 	savefile.store_line(to_json(save_dict))
 	savefile.close()
 	emit_signal("user_settings_changed")
-
