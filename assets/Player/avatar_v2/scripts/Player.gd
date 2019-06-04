@@ -407,7 +407,7 @@ func UpdateClimbingStairs(var delta):
 		orientation.basis = target_transform.basis
 	
 	#When moving down and at the bottom of the stairs, then let go.
-	if input_direction < 0.0 and kb_pos.y < stairs.climb_points[0].y:
+	if input_direction < 0.0 and climb_point < 2 and not in_air:
 		StopStairsClimb()
 	
 	if input_direction > 0.0:
