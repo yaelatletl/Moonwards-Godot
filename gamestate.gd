@@ -583,7 +583,7 @@ func create_player(id):
 	emit_signal("gslog", "select spawn point(%s/%s)" % [spawn_pos, spawn_pcount])
 	spawn_pos = world.get_node("spawn_points").get_child(spawn_pos).translation
 	var player = players[id].obj
-	player.flies = true # MUST CHANGE WHEN COLLISIONS ARE DONE
+#	player.flies = true # MUST CHANGE WHEN COLLISIONS ARE DONE
 	player.set_name(str(id)) # Use unique ID as node name
 	player.translation=spawn_pos
 	
