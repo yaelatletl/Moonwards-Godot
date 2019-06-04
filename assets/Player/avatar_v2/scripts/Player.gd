@@ -50,6 +50,7 @@ var stairs = null
 var climb_point = 0
 var climb_progress = 0.0
 var climb_direction = 1.0
+var climb_look_direction = Vector3()
 var movementstate = walking
 var username = "username" setget SetUsername
 var id setget SetID
@@ -392,6 +393,8 @@ func UpdateClimbingStairs(var delta):
 		if motion_target != Vector2():
 			$KinematicBody/Model.global_transform.basis = orientation.basis
 		
+		climb_look_direction = stairs.GetLookDirection(kb_pos)
+		
 		#Stop climbing at the top when too far away from the stairs.
 		if kb_pos.distance_to(stairs.climb_points[climb_point]) > 0.12:
 			StopStairsClimb()
@@ -402,7 +405,7 @@ func UpdateClimbingStairs(var delta):
 		flat_velocity.y = 0.0
 		velocity = flat_velocity
 		velocity += Vector3(0, input_direction * delta * 3.0, 0)
-		var target_transform = $KinematicBody/Model.global_transform.looking_at($KinematicBody/Model.global_transform.origin - stairs.GetLookDirection(kb_pos), Vector3(0, 1, 0))
+		var target_transform = $KinematicBody/Model.global_transform.looking_at($KinematicBody/Model.global_transform.origin - climb_look_direction, Vector3(0, 1, 0))
 		$KinematicBody/Model.global_transform.basis = target_transform.basis
 		orientation.basis = target_transform.basis
 	
@@ -462,6 +465,7 @@ func DoStairsCheck():
 	if closest_stairs != null:
 		climbing_stairs = true
 		stairs = closest_stairs
+		climb_look_direction = stairs.GetLookDirection(kb_pos)
 		#Get the closest step to start climbing from.
 		for index in stairs.climb_points.size():
 			if climb_point == -1 or stairs.climb_points[index].distance_to(kb_pos) < stairs.climb_points[climb_point].distance_to(kb_pos):
