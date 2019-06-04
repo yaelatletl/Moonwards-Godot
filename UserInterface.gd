@@ -2,8 +2,10 @@ extends Control
 
 var SceneOptions = "res://assets/UI/Menu/Options.tscn"
 var SceneMenu = "res://assets/UI/Menu/In_game_menu.tscn"
+var SceneDiagram = "res://assets/UI/Diagram.tscn"
 var Options = null
 var added_menu_ui = false
+var diagram_visible = false
 
 func _ready():
 	UIManager.RegisterBaseUI(self)
@@ -12,10 +14,15 @@ func _input(event):
 	if event.is_action_pressed("ui_menu_options"):
 		if added_menu_ui:
 			UIManager.ClearUI()
-			added_menu_ui = false
 		elif UIManager.RequestFocus():
 			UIManager.NextUI(SceneMenu)
-			added_menu_ui = true
+		added_menu_ui = not added_menu_ui
+	if event.is_action_pressed("show_diagram"):
+		if diagram_visible:
+			UIManager.ClearUI()
+		elif UIManager.RequestFocus():
+			UIManager.NextUI(SceneDiagram)
+		diagram_visible = not diagram_visible
 
 func OptionsPanel():
 		if Options:

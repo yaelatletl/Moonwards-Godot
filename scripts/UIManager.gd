@@ -142,7 +142,7 @@ func SetCurrentUI(var new_ui):
 	current_ui = new_ui
 
 func _input(event):
-	if event.is_action_pressed("escape"):
+	if event.is_action_pressed("ui_menu_options"):
 		# When pressing escape the future UI queue is used before going back.
 		if not ui_future_queue.empty() and on_queued_ui:
 			DismissUI()
