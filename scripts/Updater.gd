@@ -1,7 +1,7 @@
 extends Control
 
-var updater_enabled = true
-var upt_debug = true
+var updater_enabled = false
+var upt_debug = false
 var protocol_version = "0.1"
 
 const UPDATE_CHUNK_SIZE = 1000000
@@ -341,7 +341,7 @@ func upt_create(opt):
 	
 	updated_files = compare["add"] + compare["update"]
 	
-	print(updated_files)
+# 	print(updated_files)
 	
 	if updated_files.empty():
 		printd("No new files found!")
