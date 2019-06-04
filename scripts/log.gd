@@ -117,27 +117,79 @@ var dd_filter = {
 		{ vl = 4, enabled = true, key = "remove avatar"},
 		{ vl = 4, enabled = true, key = "add avatar"},
 		{ vl = -2, enabled = true, key = "UpdateNetworking: not a remote player"},
+	],
+	"UpdaterServer": [
+		{ vl = 9, enabled = true, key = "skip"},
+		{ vl = 9, enabled = true, key = "res://"},
+		{ vl = 8, enabled = true, key = "GetMD5FromDirectory"},
+		{ vl = 1, enabled = true, key = "Create server"},
+		{ vl = 0, enabled = true, key = "Getting MD5 List"},
+		{ vl = 2, enabled = true, key = "GetMD5List total"},
+		{ vl = 2, enabled = true, key = "get md5id, dict"},
+		{ vl = 0, enabled = true, key = "Done"},
+		{ vl = 0, enabled = true, key = ""}
+	],
+	"UpdaterClient": [
+		{ vl = 9, enabled = true, key = "skip"},
+		{ vl = 9, enabled = true, key = "res://"},
+		{ vl = 8, enabled = true, key = "GetMD5FromDirectory"},
+		{ vl = 5, enabled = true, key = "Found File"},
+		{ vl = 3, enabled = true, key = "Loading File"},
+		{ vl = 3, enabled = true, key = "Update files filter list"},
+		{ vl = 0, enabled = true, key = "Get tree checksum"},
+		{ vl = 4, enabled = true, key = "ClientReceiveUpdate"},
+		{ vl = 0, enabled = true, key = ""}
+	],
+	"Updater": [
+		{ vl = 0, enabled = true, key = ""}
 	]
 # 		{ vl = 9, enabled = true, key = ""},
 # 		{ vl = 9, enabled = true, key = ""},
 # 		{ vl = 9, enabled = true, key = ""},
 }
 
-
-func print_fd(id, s):
-	if not debug:
-		return
+func test_fd(id, s):
+	var found = 1
 	if dd_filter.has(id):
 		var filter = dd_filter[id]
 		if filter.size() > 0:
-			var found = false
+			found = 2
 			for dl in filter:
 				if s.begins_with(dl.key):
 					if dl.enabled and dl.vl <= dd_verbosity:
-						print("%-12s:: " % id, s)
-					found = true
+						found = 3
+					else:
+						found = -1
 					break
-			if not found:
-				print(id, "***", s)
-	else:
-		print("*=*", id, "***", s)
+	return found
+
+func print_fd(id, s):
+	var pp = test_fd(id, s)
+	match pp:
+		1:
+			print("*=*", id, "***", s)
+		3:
+			print("%-12s:: " % id, s)
+# 		-1:
+# 			pass #found but no need to print for enabled/verbosity level reasons
+		2:
+			print(id, "***", s)
+
+
+# func print_fd(id, s):
+# 	if not debug:
+# 		return
+# 	if dd_filter.has(id):
+# 		var filter = dd_filter[id]
+# 		if filter.size() > 0:
+# 			var found = false
+# 			for dl in filter:
+# 				if s.begins_with(dl.key):
+# 					if dl.enabled and dl.vl <= dd_verbosity:
+# 						print("%-12s:: " % id, s)
+# 					found = true
+# 					break
+# 			if not found:
+# 				print(id, "***", s)
+# 	else:
+# 		print("*=*", id, "***", s)
