@@ -9,6 +9,7 @@ var diagram_visible = false
 
 func _ready():
 	UIManager.RegisterBaseUI(self)
+	UIManager.NextUI(SceneDiagram)
 
 func _input(event):
 	if event.is_action_pressed("ui_menu_options"):
