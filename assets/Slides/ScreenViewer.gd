@@ -18,8 +18,7 @@ func _input(event):
 			is_mouse_event = true
 			break
 	
-	# If it is, then pass the event to the viewport
-	if (is_mouse_event == false):
+	if (is_mouse_event):
 		viewport.input(event)
 
 # Mouse events for Area
@@ -66,6 +65,7 @@ func _on_area_input_event(camera, event, click_pos, click_normal, shape_idx):
 	viewport.input(event)
 
 func _ready():
+	set_process_input(false)
 	viewport = get_node("Viewport")
 	viewport.size = Size
 	if Content != null:
@@ -84,11 +84,13 @@ func _ready():
 		$Area/Quad.set_surface_material(0, mat)
 
 func _start_interaction(body):
+	set_process_input(true)
 	var player = body.get_parent()
 	if(player.has_method("ShowMouseCursor")):
 		player.call("ShowMouseCursor")
 
 func _stop_interaction(body):
+	set_process_input(false)
 	var player = body.get_parent()
 	if(player.has_method("HideMouseCursor")):
 		player.call("HideMouseCursor")

@@ -85,5 +85,6 @@ transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.99731
 [node name="UI_in_game" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 theme = ExtResource( 4 )
 script = ExtResource( 5 )
