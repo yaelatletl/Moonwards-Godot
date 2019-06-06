@@ -9,21 +9,24 @@ var diagram_visible = false
 
 func _ready():
 	UIManager.RegisterBaseUI(self)
-	UIManager.NextUI(SceneDiagram)
+	if UIManager.RequestFocus():
+		UIManager.NextUI(SceneDiagram)
 
 func _input(event):
 	if event.is_action_pressed("ui_menu_options"):
 		if added_menu_ui:
 			UIManager.ClearUI()
+			added_menu_ui = false
 		elif UIManager.RequestFocus():
 			UIManager.NextUI(SceneMenu)
-		added_menu_ui = not added_menu_ui
+			added_menu_ui = true
 	if event.is_action_pressed("show_diagram"):
 		if diagram_visible:
 			UIManager.ClearUI()
+			diagram_visible = false
 		elif UIManager.RequestFocus():
 			UIManager.NextUI(SceneDiagram)
-		diagram_visible = not diagram_visible
+			diagram_visible = true
 
 func OptionsPanel():
 		if Options:

@@ -6,12 +6,8 @@
 script/source = "extends Control
 func _ready():
 	$AnimationPlayer.play(\"idle\")
-	UIManager.SetCurrentUI(self)
+
 func _on_Timer_timeout():
-	
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	#UIManager.RequestFocus()
-	get_parent().diagram_visible = false
 	UIManager.ClearUI()"
 
 [sub_resource type="Animation" id=2]
