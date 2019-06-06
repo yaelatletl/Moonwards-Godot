@@ -13,6 +13,7 @@ viewport_path = NodePath("Viewport")
 resource_local_to_scene = true
 flags_transparent = true
 flags_albedo_tex_force_srgb = true
+params_cull_mode = 2
 params_depth_draw_mode = 3
 albedo_texture = SubResource( 2 )
 emission_enabled = true
