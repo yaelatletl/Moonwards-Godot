@@ -38,6 +38,8 @@ func _on_SaveButton_pressed():
 	UIManager.Back()
 
 func _on_SlotOption_item_selected(ID):
+	$ViewportContainer/Viewport/AvatarPreview.clean_selected()
+	$ViewportContainer/Viewport/AvatarPreview.set_selected(ID)
 	current_slot = ID
 	SwitchSlot()
 

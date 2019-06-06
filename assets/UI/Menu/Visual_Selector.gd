@@ -1,5 +1,8 @@
 extends Control
 export(NodePath) var SlotOptionPath = "../../VBoxContainer/SlotOption"
+
+func _ready():
+	get_node(SlotOptionPath).emit_signal("item_selected",0)
 func _on_pants_selected():
 	get_node(SlotOptionPath).select(0)
 	get_node(SlotOptionPath).emit_signal("item_selected",0)
