@@ -2,7 +2,6 @@ extends Camera
 
 func _ready():
 	look_direction = rotation_degrees
-	UIManager.RequestFocus()
 
 var look_direction = Vector3()
 var max_up_aim_angle = 80.0
@@ -17,6 +16,9 @@ var look_acceleration = 0.2
 var movement_acceleration = 0.2
 
 func _process(delta):
+	if not UIManager.has_ui:
+		UIManager.RequestFocus()
+	
 	var forward_direction = global_transform.basis.z
 	var right_direction = global_transform.basis.x
 	global_transform.origin += velocity

@@ -120,6 +120,8 @@ func _process(delta):
 	if movement:
 		_update_movement(delta)
 
+	if not UIManager.has_ui:
+		UIManager.RequestFocus()
 
 	# Called when collision are enabled
 	_update_distance()
