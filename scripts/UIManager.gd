@@ -117,9 +117,10 @@ func CreateUI(var resource):
 	return new_ui
 
 func ClearUI():
+	if current_ui!=null:
+		current_ui.queue_free()
+		current_ui = null
 	has_ui = false
-	current_ui.queue_free()
-	current_ui = null
 	LockMouse()
 
 func NextUI(var next_ui):
