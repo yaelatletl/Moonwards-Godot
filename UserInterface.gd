@@ -21,7 +21,8 @@ func _ready():
 	add_child(time)
 
 func timedout():
-	$SceneDiagram.exit()
+	if get_node_or_null("SceneDiagram") != null:
+		$SceneDiagram.exit()
 	$time.queue_free()
 
 
