@@ -1,9 +1,43 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/UserSettings.gd" type="Script" id=1]
 [ext_resource path="res://addons/HuePicker/HuePicker.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/AvatarPreview.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/UI/Menu/Visual_Selector.gd" type="Script" id=4]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends HBoxContainer
+
+signal gender_changed(IDX)
+
+func _ready():
+	if options.gender == 1:
+		get_node(\"Male\").pressed = true
+	else:
+		get_node(\"Female\").pressed = true
+		
+
+func _on_Male_toggled(button_pressed):
+	if button_pressed:
+		emit_signal(\"gender_changed\",1)
+		get_node(\"Female\").pressed = false
+		get_node(\"../../VBoxContainer/Gender\").select(1)
+	else:
+		get_node(\"Female\").pressed = true
+		emit_signal(\"gender_changed\",0)
+		get_node(\"../../VBoxContainer/Gender\").select(0)
+		
+
+func _on_Female_toggled(button_pressed):
+	if button_pressed:
+		emit_signal(\"gender_changed\",0)
+		get_node(\"Male\").pressed = false
+		get_node(\"../../VBoxContainer/Gender\").select(0)
+	else:
+		get_node(\"Male\").pressed = true
+		emit_signal(\"gender_changed\",1)
+		get_node(\"../../VBoxContainer/Gender\").select(1)
+"
 
 [node name="UserSettings" type="HBoxContainer"]
 anchor_right = 1.0
@@ -14,7 +48,7 @@ alignment = 1
 script = ExtResource( 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_right = 510.0
+margin_right = 512.0
 margin_bottom = 700.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -23,14 +57,14 @@ alignment = 1
 
 [node name="Label3" type="Label" parent="VBoxContainer"]
 margin_top = 101.0
-margin_right = 510.0
+margin_right = 512.0
 margin_bottom = 115.0
 text = "Use an account to sync your settings"
 align = 1
 
 [node name="UsernameContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 130.0
-margin_right = 510.0
+margin_right = 512.0
 margin_bottom = 154.0
 size_flags_horizontal = 5
 size_flags_vertical = 5
@@ -38,7 +72,7 @@ alignment = 1
 
 [node name="UsernameLabel" type="Label" parent="VBoxContainer/UsernameContainer"]
 margin_top = 5.0
-margin_right = 253.0
+margin_right = 254.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -47,8 +81,8 @@ align = 1
 valign = 3
 
 [node name="UsernameTextEdit" type="LineEdit" parent="VBoxContainer/UsernameContainer"]
-margin_left = 257.0
-margin_right = 510.0
+margin_left = 258.0
+margin_right = 512.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 200, 0 )
 size_flags_horizontal = 3
@@ -56,17 +90,18 @@ text = "Player1"
 align = 1
 context_menu_enabled = false
 caret_blink = true
+caret_position = 7
 
 [node name="GenderLabel" type="Label" parent="VBoxContainer"]
 margin_top = 169.0
-margin_right = 510.0
+margin_right = 512.0
 margin_bottom = 183.0
 text = "Gender:"
 align = 1
 
 [node name="Gender" type="OptionButton" parent="VBoxContainer"]
 margin_top = 198.0
-margin_right = 510.0
+margin_right = 512.0
 margin_bottom = 218.0
 text = "Female"
 items = [ "Female", null, false, 0, null, "Male", null, false, 1, null ]
@@ -74,23 +109,23 @@ selected = 0
 
 [node name="ColorSlotLabel" type="Label" parent="VBoxContainer"]
 margin_top = 233.0
-margin_right = 510.0
+margin_right = 512.0
 margin_bottom = 247.0
 text = "Color Slot:"
 align = 1
 
 [node name="SlotOption" type="OptionButton" parent="VBoxContainer"]
 margin_top = 262.0
-margin_right = 510.0
+margin_right = 512.0
 margin_bottom = 282.0
 text = "Pants"
 items = [ "Pants", null, false, 0, null, "Shirt", null, false, 1, null, "Skin", null, false, 2, null, "Hair", null, false, 3, null, "Shoes", null, false, 4, null ]
 selected = 0
 
 [node name="HuePicker" parent="VBoxContainer" instance=ExtResource( 2 )]
-margin_left = 127.0
+margin_left = 128.0
 margin_top = 297.0
-margin_right = 383.0
+margin_right = 384.0
 margin_bottom = 553.0
 rect_min_size = Vector2( 256, 256 )
 rect_clip_content = true
@@ -98,24 +133,50 @@ size_flags_horizontal = 4
 size_flags_vertical = 5
 
 [node name="SaveButton" type="Button" parent="VBoxContainer"]
-margin_left = 230.0
+margin_left = 231.0
 margin_top = 568.0
-margin_right = 280.0
+margin_right = 281.0
 margin_bottom = 598.0
 rect_min_size = Vector2( 50, 30 )
 size_flags_horizontal = 4
 text = "Save"
 
-[node name="ViewportContainer" type="ViewportContainer" parent="."]
-margin_left = 514.0
-margin_top = 100.0
+[node name="VSeparator" type="VSeparator" parent="."]
+margin_left = 516.0
+margin_right = 520.0
+margin_bottom = 700.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+margin_left = 524.0
 margin_right = 1024.0
-margin_bottom = 600.0
+margin_bottom = 700.0
+alignment = 1
+
+[node name="Spacer2" type="VBoxContainer" parent="VBoxContainer2"]
+margin_right = 500.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 0, 10 )
+
+[node name="UsernameTextEdit2" type="LineEdit" parent="VBoxContainer2"]
+margin_top = 14.0
+margin_right = 500.0
+margin_bottom = 38.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 3
+text = "Player1"
+align = 1
+context_menu_enabled = false
+caret_blink = true
+
+[node name="ViewportContainer" type="ViewportContainer" parent="VBoxContainer2"]
+margin_top = 92.0
+margin_right = 500.0
+margin_bottom = 592.0
 rect_min_size = Vector2( 500, 500 )
 size_flags_horizontal = 3
 size_flags_vertical = 6
 
-[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+[node name="Viewport" type="Viewport" parent="VBoxContainer2/ViewportContainer"]
 size = Vector2( 500, 500 )
 own_world = true
 transparent_bg = true
@@ -123,16 +184,17 @@ handle_input_locally = false
 msaa = 3
 render_target_update_mode = 3
 
-[node name="AvatarPreview" parent="ViewportContainer/Viewport" instance=ExtResource( 3 )]
+[node name="AvatarPreview" parent="VBoxContainer2/ViewportContainer/Viewport" instance=ExtResource( 3 )]
 
-[node name="Female" type="Control" parent="ViewportContainer"]
+[node name="Female" type="Control" parent="VBoxContainer2/ViewportContainer"]
+editor/display_folded = true
 margin_bottom = 700.0
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Pants2" type="Button" parent="ViewportContainer/Female"]
+[node name="Pants2" type="Button" parent="VBoxContainer2/ViewportContainer/Female"]
 margin_left = 264.096
 margin_top = 219.61
 margin_right = 294.096
@@ -143,7 +205,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Pants" type="Button" parent="ViewportContainer/Female"]
+[node name="Pants" type="Button" parent="VBoxContainer2/ViewportContainer/Female"]
 margin_left = 208.734
 margin_top = 218.757
 margin_right = 238.734
@@ -154,7 +216,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Shirt" type="Button" parent="ViewportContainer/Female"]
+[node name="Shirt" type="Button" parent="VBoxContainer2/ViewportContainer/Female"]
 margin_left = 221.0
 margin_top = 98.0
 margin_right = 284.0
@@ -164,7 +226,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Pants3" type="Button" parent="ViewportContainer/Female"]
+[node name="Pants3" type="Button" parent="VBoxContainer2/ViewportContainer/Female"]
 margin_left = 221.0
 margin_top = 180.0
 margin_right = 284.0
@@ -174,7 +236,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Skin4" type="Button" parent="ViewportContainer/Female"]
+[node name="Skin4" type="Button" parent="VBoxContainer2/ViewportContainer/Female"]
 margin_left = 199.0
 margin_top = 95.0
 margin_right = 223.0
@@ -185,7 +247,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Skin5" type="Button" parent="ViewportContainer/Female"]
+[node name="Skin5" type="Button" parent="VBoxContainer2/ViewportContainer/Female"]
 margin_left = 287.0
 margin_top = 103.0
 margin_right = 318.0
@@ -195,7 +257,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Hair" type="Button" parent="ViewportContainer/Female"]
+[node name="Hair" type="Button" parent="VBoxContainer2/ViewportContainer/Female"]
 margin_left = 222.0
 margin_top = 27.0
 margin_right = 280.0
@@ -205,7 +267,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Skin3" type="Button" parent="ViewportContainer/Female"]
+[node name="Skin3" type="Button" parent="VBoxContainer2/ViewportContainer/Female"]
 margin_left = 232.0
 margin_top = 36.0
 margin_right = 270.0
@@ -215,7 +277,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Skin" type="Button" parent="ViewportContainer/Female"]
+[node name="Skin" type="Button" parent="VBoxContainer2/ViewportContainer/Female"]
 margin_left = 218.243
 margin_top = 327.0
 margin_right = 241.243
@@ -226,7 +288,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Skin6" type="Button" parent="ViewportContainer/Female"]
+[node name="Skin6" type="Button" parent="VBoxContainer2/ViewportContainer/Female"]
 margin_left = 215.0
 margin_top = 410.0
 margin_right = 247.0
@@ -237,7 +299,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Shoes" type="Button" parent="ViewportContainer/Female"]
+[node name="Shoes" type="Button" parent="VBoxContainer2/ViewportContainer/Female"]
 margin_left = 267.051
 margin_top = 329.463
 margin_right = 294.051
@@ -248,7 +310,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Shoes2" type="Button" parent="ViewportContainer/Female"]
+[node name="Shoes2" type="Button" parent="VBoxContainer2/ViewportContainer/Female"]
 margin_left = 277.0
 margin_top = 419.0
 margin_right = 314.0
@@ -259,11 +321,12 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Male" type="Control" parent="ViewportContainer"]
+[node name="Male" type="Control" parent="VBoxContainer2/ViewportContainer"]
+editor/display_folded = true
 margin_bottom = 700.0
 script = ExtResource( 4 )
 
-[node name="Shirt" type="Button" parent="ViewportContainer/Male"]
+[node name="Shirt" type="Button" parent="VBoxContainer2/ViewportContainer/Male"]
 margin_left = 218.0
 margin_top = 96.0
 margin_right = 284.0
@@ -273,7 +336,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Pants3" type="Button" parent="ViewportContainer/Male"]
+[node name="Pants3" type="Button" parent="VBoxContainer2/ViewportContainer/Male"]
 margin_left = 217.119
 margin_top = 189.101
 margin_right = 289.119
@@ -283,7 +346,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Pants2" type="Button" parent="ViewportContainer/Male"]
+[node name="Pants2" type="Button" parent="VBoxContainer2/ViewportContainer/Male"]
 margin_left = 259.0
 margin_top = 232.0
 margin_right = 291.0
@@ -294,7 +357,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Pants" type="Button" parent="ViewportContainer/Male"]
+[node name="Pants" type="Button" parent="VBoxContainer2/ViewportContainer/Male"]
 margin_left = 216.119
 margin_top = 231.807
 margin_right = 247.119
@@ -305,7 +368,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Skin4" type="Button" parent="ViewportContainer/Male"]
+[node name="Skin4" type="Button" parent="VBoxContainer2/ViewportContainer/Male"]
 margin_left = 199.0
 margin_top = 106.0
 margin_right = 219.0
@@ -316,7 +379,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Skin6" type="Button" parent="ViewportContainer/Male"]
+[node name="Skin6" type="Button" parent="VBoxContainer2/ViewportContainer/Male"]
 margin_left = 192.826
 margin_top = 179.587
 margin_right = 215.826
@@ -327,7 +390,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Skin5" type="Button" parent="ViewportContainer/Male"]
+[node name="Skin5" type="Button" parent="VBoxContainer2/ViewportContainer/Male"]
 margin_left = 282.0
 margin_top = 106.0
 margin_right = 319.0
@@ -338,7 +401,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Hair" type="Button" parent="ViewportContainer/Male"]
+[node name="Hair" type="Button" parent="VBoxContainer2/ViewportContainer/Male"]
 margin_left = 222.0
 margin_top = 5.0
 margin_right = 276.0
@@ -348,7 +411,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Skin3" type="Button" parent="ViewportContainer/Male"]
+[node name="Skin3" type="Button" parent="VBoxContainer2/ViewportContainer/Male"]
 margin_left = 231.0
 margin_top = 16.0
 margin_right = 267.0
@@ -358,7 +421,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Skin" type="Button" parent="ViewportContainer/Male"]
+[node name="Skin" type="Button" parent="VBoxContainer2/ViewportContainer/Male"]
 margin_left = 217.0
 margin_top = 327.0
 margin_right = 244.0
@@ -368,7 +431,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Skin2" type="Button" parent="ViewportContainer/Male"]
+[node name="Skin2" type="Button" parent="VBoxContainer2/ViewportContainer/Male"]
 margin_left = 273.0
 margin_top = 332.0
 margin_right = 297.0
@@ -378,7 +441,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Skin7" type="Button" parent="ViewportContainer/Male"]
+[node name="Skin7" type="Button" parent="VBoxContainer2/ViewportContainer/Male"]
 margin_left = 282.0
 margin_top = 416.0
 margin_right = 314.0
@@ -388,7 +451,7 @@ action_mode = 0
 enabled_focus_mode = 0
 flat = true
 
-[node name="Skin8" type="Button" parent="ViewportContainer/Male"]
+[node name="Skin8" type="Button" parent="VBoxContainer2/ViewportContainer/Male"]
 margin_left = 214.0
 margin_top = 411.0
 margin_right = 243.0
@@ -397,33 +460,66 @@ focus_mode = 0
 action_mode = 0
 enabled_focus_mode = 0
 flat = true
+
+[node name="GenderVisual" type="HBoxContainer" parent="VBoxContainer2"]
+margin_top = 646.0
+margin_right = 500.0
+margin_bottom = 686.0
+alignment = 1
+script = SubResource( 1 )
+
+[node name="Male" type="Button" parent="VBoxContainer2/GenderVisual"]
+margin_left = 158.0
+margin_right = 248.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 90, 40 )
+toggle_mode = true
+text = "Male"
+
+[node name="Female" type="Button" parent="VBoxContainer2/GenderVisual"]
+margin_left = 252.0
+margin_right = 342.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 90, 40 )
+toggle_mode = true
+text = "Female"
+
+[node name="Spacer" type="VBoxContainer" parent="VBoxContainer2"]
+margin_top = 690.0
+margin_right = 500.0
+margin_bottom = 700.0
+rect_min_size = Vector2( 0, 10 )
 [connection signal="text_changed" from="VBoxContainer/UsernameContainer/UsernameTextEdit" to="." method="_on_UsernameTextEdit_text_changed"]
 [connection signal="item_selected" from="VBoxContainer/Gender" to="." method="_on_Gender_item_selected"]
 [connection signal="item_selected" from="VBoxContainer/SlotOption" to="." method="_on_SlotOption_item_selected"]
 [connection signal="Hue_Selected" from="VBoxContainer/HuePicker" to="." method="_on_HuePicker_Hue_Selected"]
 [connection signal="pressed" from="VBoxContainer/SaveButton" to="." method="_on_SaveButton_pressed"]
-[connection signal="pressed" from="ViewportContainer/Female/Pants2" to="ViewportContainer/Female" method="_on_pants_selected"]
-[connection signal="pressed" from="ViewportContainer/Female/Pants" to="ViewportContainer/Female" method="_on_pants_selected"]
-[connection signal="pressed" from="ViewportContainer/Female/Shirt" to="ViewportContainer/Female" method="_on_shirt_selected"]
-[connection signal="pressed" from="ViewportContainer/Female/Pants3" to="ViewportContainer/Female" method="_on_pants_selected"]
-[connection signal="pressed" from="ViewportContainer/Female/Skin4" to="ViewportContainer/Female" method="_on_skin_selected"]
-[connection signal="pressed" from="ViewportContainer/Female/Skin5" to="ViewportContainer/Female" method="_on_skin_selected"]
-[connection signal="pressed" from="ViewportContainer/Female/Hair" to="ViewportContainer/Female" method="_on_hair_selected"]
-[connection signal="pressed" from="ViewportContainer/Female/Skin3" to="ViewportContainer/Female" method="_on_skin_selected"]
-[connection signal="pressed" from="ViewportContainer/Female/Skin" to="ViewportContainer/Female" method="_on_skin_selected"]
-[connection signal="pressed" from="ViewportContainer/Female/Skin6" to="ViewportContainer/Female" method="_on_shoes_selected"]
-[connection signal="pressed" from="ViewportContainer/Female/Shoes" to="ViewportContainer/Female" method="_on_skin_selected"]
-[connection signal="pressed" from="ViewportContainer/Female/Shoes2" to="ViewportContainer/Female" method="_on_shoes_selected"]
-[connection signal="pressed" from="ViewportContainer/Male/Shirt" to="ViewportContainer/Male" method="_on_shirt_selected"]
-[connection signal="pressed" from="ViewportContainer/Male/Pants3" to="ViewportContainer/Male" method="_on_pants_selected"]
-[connection signal="pressed" from="ViewportContainer/Male/Pants2" to="ViewportContainer/Male" method="_on_pants_selected"]
-[connection signal="pressed" from="ViewportContainer/Male/Pants" to="ViewportContainer/Male" method="_on_pants_selected"]
-[connection signal="pressed" from="ViewportContainer/Male/Skin4" to="ViewportContainer/Male" method="_on_skin_selected"]
-[connection signal="pressed" from="ViewportContainer/Male/Skin6" to="ViewportContainer/Male" method="_on_skin_selected"]
-[connection signal="pressed" from="ViewportContainer/Male/Skin5" to="ViewportContainer/Male" method="_on_skin_selected"]
-[connection signal="pressed" from="ViewportContainer/Male/Hair" to="ViewportContainer/Male" method="_on_hair_selected"]
-[connection signal="pressed" from="ViewportContainer/Male/Skin3" to="ViewportContainer/Male" method="_on_skin_selected"]
-[connection signal="pressed" from="ViewportContainer/Male/Skin" to="ViewportContainer/Male" method="_on_skin_selected"]
-[connection signal="pressed" from="ViewportContainer/Male/Skin2" to="ViewportContainer/Male" method="_on_skin_selected"]
-[connection signal="pressed" from="ViewportContainer/Male/Skin7" to="ViewportContainer/Male" method="_on_shoes_selected"]
-[connection signal="pressed" from="ViewportContainer/Male/Skin8" to="ViewportContainer/Male" method="_on_shoes_selected"]
+[connection signal="text_changed" from="VBoxContainer2/UsernameTextEdit2" to="." method="_on_UsernameTextEdit2_text_changed"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Female/Pants2" to="VBoxContainer2/ViewportContainer/Female" method="_on_pants_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Female/Pants" to="VBoxContainer2/ViewportContainer/Female" method="_on_pants_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Female/Shirt" to="VBoxContainer2/ViewportContainer/Female" method="_on_shirt_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Female/Pants3" to="VBoxContainer2/ViewportContainer/Female" method="_on_pants_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Female/Skin4" to="VBoxContainer2/ViewportContainer/Female" method="_on_skin_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Female/Skin5" to="VBoxContainer2/ViewportContainer/Female" method="_on_skin_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Female/Hair" to="VBoxContainer2/ViewportContainer/Female" method="_on_hair_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Female/Skin3" to="VBoxContainer2/ViewportContainer/Female" method="_on_skin_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Female/Skin" to="VBoxContainer2/ViewportContainer/Female" method="_on_skin_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Female/Skin6" to="VBoxContainer2/ViewportContainer/Female" method="_on_shoes_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Female/Shoes" to="VBoxContainer2/ViewportContainer/Female" method="_on_skin_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Female/Shoes2" to="VBoxContainer2/ViewportContainer/Female" method="_on_shoes_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Male/Shirt" to="VBoxContainer2/ViewportContainer/Male" method="_on_shirt_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Male/Pants3" to="VBoxContainer2/ViewportContainer/Male" method="_on_pants_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Male/Pants2" to="VBoxContainer2/ViewportContainer/Male" method="_on_pants_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Male/Pants" to="VBoxContainer2/ViewportContainer/Male" method="_on_pants_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Male/Skin4" to="VBoxContainer2/ViewportContainer/Male" method="_on_skin_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Male/Skin6" to="VBoxContainer2/ViewportContainer/Male" method="_on_skin_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Male/Skin5" to="VBoxContainer2/ViewportContainer/Male" method="_on_skin_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Male/Hair" to="VBoxContainer2/ViewportContainer/Male" method="_on_hair_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Male/Skin3" to="VBoxContainer2/ViewportContainer/Male" method="_on_skin_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Male/Skin" to="VBoxContainer2/ViewportContainer/Male" method="_on_skin_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Male/Skin2" to="VBoxContainer2/ViewportContainer/Male" method="_on_skin_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Male/Skin7" to="VBoxContainer2/ViewportContainer/Male" method="_on_shoes_selected"]
+[connection signal="pressed" from="VBoxContainer2/ViewportContainer/Male/Skin8" to="VBoxContainer2/ViewportContainer/Male" method="_on_shoes_selected"]
+[connection signal="gender_changed" from="VBoxContainer2/GenderVisual" to="." method="_on_Gender_item_selected"]
+[connection signal="toggled" from="VBoxContainer2/GenderVisual/Male" to="VBoxContainer2/GenderVisual" method="_on_Male_toggled"]
+[connection signal="toggled" from="VBoxContainer2/GenderVisual/Female" to="VBoxContainer2/GenderVisual" method="_on_Female_toggled"]

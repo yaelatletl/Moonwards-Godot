@@ -1,5 +1,5 @@
 extends Control
-export(NodePath) var SlotOptionPath = "../../VBoxContainer/SlotOption"
+export(NodePath) var SlotOptionPath = "../../../VBoxContainer/SlotOption"
 
 func _ready():
 	get_node(SlotOptionPath).emit_signal("item_selected",0)
