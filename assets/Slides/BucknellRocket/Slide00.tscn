@@ -81,6 +81,8 @@ margin_right = 50.2847
 margin_bottom = 22.5773
 rect_scale = Vector2( 4, 4 )
 focus_mode = 0
+shortcut_in_tooltip = false
+button_mask = 0
 enabled_focus_mode = 0
 text = "Next"
 
@@ -98,5 +100,7 @@ margin_right = 72.6548
 margin_bottom = 25.4723
 rect_scale = Vector2( 4, 4 )
 focus_mode = 0
+shortcut_in_tooltip = false
+button_mask = 0
 enabled_focus_mode = 0
 text = "Previous"

@@ -63,7 +63,7 @@ material/0 = SubResource( 3 )
 shape = SubResource( 5 )
 
 [node name="InteractionTrigger" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.01, 0, 0, 0, 0.4, 0, 0.99, 0.4 )
+transform = Transform( 1, 0, 0, 0, 0.01, 0, 0, 0, 0.4, 0, -0.99, 0.4 )
 
 [node name="CollisionShape" type="CollisionShape" parent="InteractionTrigger"]
 shape = SubResource( 6 )

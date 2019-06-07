@@ -9,18 +9,6 @@ export(PackedScene) var Content = null
 export(Vector2) var Size = Vector2(1024,700)
 export(bool) var Hologram = false
 
-func _input(event):
-	# Check if the event is a non-mouse event
-	var is_mouse_event = false
-	var mouse_events = [InputEventMouseButton, InputEventMouseMotion, InputEventScreenDrag, InputEventScreenTouch]
-	for mouse_event in mouse_events:
-		if (event is mouse_event):
-			is_mouse_event = true
-			break
-	
-	if (is_mouse_event):
-		viewport.input(event)
-
 # Mouse events for Area
 func _on_area_input_event(camera, event, click_pos, click_normal, shape_idx):
 	# Use click pos (click in 3d space, convert to area space)

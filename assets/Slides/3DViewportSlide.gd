@@ -49,17 +49,15 @@ func _input(event):
 			index -= 1
 			update_slides()
 
-func is_button_pressed(event_position, next):
-	var invert_mouse = get_viewport().size - event_position
-	
+func is_button_pressed(event_position, next):	
 	var button
 	if(next):
 		button = $ColorRect/Buttons/Next
 	else:
 		button = $ColorRect/Buttons/Prev
 	
-	if(button.rect_position.x <= invert_mouse.x and invert_mouse.x <= button.rect_position.x + button.rect_size.x):
-		if(button.rect_position.y <= invert_mouse.y and invert_mouse.y <= button.rect_position.y + button.rect_size.y):
+	if(button.rect_position.x <= event_position.x and event_position.x <= button.rect_position.x + button.rect_size.x):
+		if(button.rect_position.y <= event_position.y and event_position.y <= button.rect_position.y + button.rect_size.y):
 			return true
 	return false
 
