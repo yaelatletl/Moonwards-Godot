@@ -9,8 +9,21 @@ var diagram_visible = false
 
 func _ready():
 	UIManager.RegisterBaseUI(self)
-	if UIManager.RequestFocus():
-		UIManager.NextUI(SceneDiagram)
+	SceneDiagram = load(SceneDiagram)
+	var now = SceneDiagram.instance()
+	now.name="SceneDiagram"
+	var time = Timer.new()
+	time.name = "time"
+	time.wait_time=7.0
+	time.autostart=true
+	time.connect("timeout",self,"timedout")
+	add_child(now)
+	add_child(time)
+
+func timedout():
+	$SceneDiagram.exit()
+	$time.queue_free()
+
 
 func _input(event):
 	if event.is_action_pressed("ui_menu_options"):
@@ -22,10 +35,9 @@ func _input(event):
 			added_menu_ui = true
 	if event.is_action_pressed("show_diagram"):
 		if diagram_visible:
-			UIManager.ClearUI()
-			diagram_visible = false
-		elif UIManager.RequestFocus():
-			UIManager.NextUI(SceneDiagram)
+			pass
+		else:
+			add_child(SceneDiagram.instance())
 			diagram_visible = true
 
 func OptionsPanel():
