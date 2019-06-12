@@ -42,7 +42,14 @@ func save_to_config(section, key, value):
 	var err = config.load(CONFIG_FILE)
 	if err:
 		print("Error code when loading config file: ", err)
+		return -1
 	else:
 		config.set_value(section, key, value)
 		config.save(CONFIG_FILE)
+		return 0
 
+func save_all():
+	for action in InputMap.get_actions():
+		for member in range(0,InputMap.get_action_list(action).size()):
+			if InputMap.get_action_list(action)[member] is InputEventKey:
+					save_to_config("input", action, InputMap.get_action_list(action)[member].scancode)
