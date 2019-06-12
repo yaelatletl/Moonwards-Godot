@@ -10,8 +10,10 @@ onready var camera_target = $Pivot/CameraTarget
 onready var look_target = $Pivot/LookTarget
 onready var camera = get_node(kinematic_body_camera)
 var current_look_position = Vector3()
-var zoom_step_size = 0.05
 export (bool) var enabled = false
+export (float) var max_zoom_distance = 1.0
+export (float) var min_zoom_distance = 0.15
+export (float) var zoom_step_size = 0.05
 var excluded_bodies = []
 
 func _ready():
@@ -19,7 +21,7 @@ func _ready():
 		enabled = false
 		printd("camera not defined, disabled")
 	else:
-		var camera_far = 10000
+		var camera_far = 50000
 		printd("camera found, enabled, set far %s" % camera_far)
 		camera.far = camera_far
 		camera.global_transform.origin = camera_target.global_transform.origin
@@ -30,13 +32,13 @@ func _ready():
 func IncreaseDistance():
 	if not enabled:
 		return
-	if camera_target.translation.z < 1.0:
+	if camera_target.translation.z < max_zoom_distance:
 		camera_target.translation.z += zoom_step_size
 
 func DecreaseDistance():
 	if not enabled:
 		return
-	if camera_target.translation.z > 0.15:
+	if camera_target.translation.z > min_zoom_distance:
 		camera_target.translation.z -= zoom_step_size
 
 func _physics_process(delta):
