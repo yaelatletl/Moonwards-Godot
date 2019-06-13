@@ -80,6 +80,7 @@ enabled_focus_mode = 0
 text = "Next"
 
 [node name="PrevButton" type="Button" parent="ColorRect/Buttons"]
+visible = false
 margin_left = 55.6548
 margin_top = 515.472
 margin_right = 122.655

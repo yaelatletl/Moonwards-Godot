@@ -430,11 +430,13 @@ shape = SubResource( 7 )
 [node name="BucknellRocket" type="Spatial" parent="Interior/Floors/Floor-FG-Entrance-2"]
 
 [node name="Scene" parent="Interior/Floors/Floor-FG-Entrance-2/BucknellRocket" instance=ExtResource( 12 )]
-transform = Transform( 0.0176879, 0.0301081, 0.01951, -0.0211171, 0.0263222, -0.0214758, -0.0290035, -0.000803331, 0.0275345, -3.66296, 0.27073, 1.85667 )
+transform = Transform( 0.00442198, 0.00752702, 0.0048775, -0.00527928, 0.00658055, -0.00536895, -0.00725088, -0.000200832, 0.00688363, -3.91054, 0.323879, 1.79864 )
 
 [node name="Screen" parent="Interior/Floors/Floor-FG-Entrance-2/BucknellRocket" instance=ExtResource( 13 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -4.1232, 0.202016, 1.72918 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -3.69842, 0.202016, 1.77522 )
 Content = ExtResource( 14 )
+Size = Vector2( 1024, 700 )
+Hologram = false
 
 [node name="Floor-FG-Entrance-3" type="MeshInstance" parent="Interior/Floors"]
 editor/display_folded = true
