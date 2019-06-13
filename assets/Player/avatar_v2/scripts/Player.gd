@@ -56,6 +56,7 @@ var username = "username" setget SetUsername
 var id setget SetID
 var nocamera = false
 var jump_timer = 0.0
+onready var model = $KinematicBody/Model
 
 const walking = 0
 const flailing = 1
@@ -87,7 +88,7 @@ var gender setget SetPuppetGender
 # Init functions
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	orientation = $KinematicBody/Model.global_transform
+	orientation = model.global_transform
 	orientation.origin = Vector3()
 	if not puppet:
 		camera_control = get_node(camera_control_path)
@@ -243,14 +244,16 @@ func _physics_process(delta):
 		SaveRPoints(delta)
 
 func HandleOnGround(delta):
-	if ($KinematicBody/OnGround.is_colliding() or $KinematicBody/OnGround2.is_colliding()) and in_air:
+	if $KinematicBody/OnGround.is_colliding() and in_air:
 		in_air = false
 		land = true
 		in_air_accomulate = 0
-	elif not $KinematicBody/OnGround.is_colliding() and not $KinematicBody/OnGround2.is_colliding() and not in_air and not climbing_stairs:
+		$KinematicBody/OnGround.cast_to.y = -0.1
+	elif not $KinematicBody/OnGround.is_colliding() and not in_air and not climbing_stairs:
 		in_air_accomulate += delta
 		if in_air_accomulate >= IN_AIR_DELTA:
 			in_air = true
+			$KinematicBody/OnGround.cast_to.y = -0.04
 
 func HandleMovement():
 	$KinematicBody/AnimationTree["parameters/Walk/blend_position"] = motion
@@ -311,17 +314,14 @@ func HandleControls(var delta):
 	else:
 		pass
 	
-	if $KinematicBody/OnGround2.is_colliding():
-		ground_normal = $KinematicBody/OnGround2.get_collision_normal()
-	else:
-		ground_normal = $KinematicBody/OnGround.get_collision_normal()
+	ground_normal = $KinematicBody/OnGround.get_collision_normal()
 	
 	#Update the model rotation based on the camera look direction.
 	var target_direction = -camera_control.camera.global_transform.basis.z
 	target_direction.y = 0.0
-	if $KinematicBody/Model.global_transform.origin != $KinematicBody/Model.global_transform.origin - target_direction and not in_air:
-		var target_transform = $KinematicBody/Model.global_transform.looking_at($KinematicBody/Model.global_transform.origin - target_direction, Vector3(0, 1, 0))
-		orientation.basis = $KinematicBody/Model.global_transform.basis.slerp(target_transform.basis, delta * ROTATION_INTERPOLATE_SPEED)
+	if model.global_transform.origin != model.global_transform.origin - target_direction and not in_air:
+		var target_transform = model.global_transform.looking_at(model.global_transform.origin - target_direction, Vector3(0, 1, 0))
+		orientation.basis = model.global_transform.basis.slerp(target_transform.basis, delta * ROTATION_INTERPOLATE_SPEED)
 	
 	if not in_air and not is_jumping:
 		#Retrieve the root motion from the animationtree so it can be applied to the KinematicBody.
@@ -332,15 +332,21 @@ func HandleControls(var delta):
 		var velocity_direction = h_velocity.normalized()
 		var slide_direction = velocity_direction.slide(ground_normal)
 		h_velocity = slide_direction * h_velocity.length()
-		$KinematicBody/OnGround2.cast_to = (Vector3(0.0, -1.0, 0.0) - velocity_direction).normalized() * 0.05
 		
 # 		printd("h_velocity(%s) = (orientation.origin(%s) / delta(%s))" % [h_velocity, orientation.origin, delta])
 		velocity.x = h_velocity.x
-		if ground_normal.angle_to(Vector3(0.0, 1.0, 0.0)) > 0.1:
-			velocity.y = h_velocity.y
+		velocity.y = h_velocity.y
+		
+		#When the character is moving apply a bigger gravity so that the character stays on the ground.
+		if motion_target != Vector2():
+			velocity.y += -2.0 * animation_speed * delta
+		else:
+			velocity += GRAVITY * delta
+		
 		velocity.z = h_velocity.z
-	
-	velocity += GRAVITY * delta
+	else:
+		#When in the air or jumping apply the normal gravity to the character.
+		velocity += GRAVITY * delta
 	
 	velocity = $KinematicBody.move_and_slide(velocity, Vector3(0,1,0), motion_target == Vector2())
 	
@@ -349,7 +355,7 @@ func HandleControls(var delta):
 	
 	#The model direction is calculated with both camera direction and animation movement.
 	if motion_target != Vector2():
-		$KinematicBody/Model.global_transform.basis = orientation.basis
+		model.global_transform.basis = orientation.basis
 
 func UpdateClimbingStairs(var delta):
 	var kb_pos = $KinematicBody.global_transform.origin
@@ -375,8 +381,8 @@ func UpdateClimbingStairs(var delta):
 		var target_direction = -camera_control.camera.global_transform.basis.z
 		target_direction.y = 0.0
 	
-		var target_transform = $KinematicBody/Model.global_transform.looking_at($KinematicBody/Model.global_transform.origin - target_direction, Vector3(0, 1, 0))
-		orientation.basis = $KinematicBody/Model.global_transform.basis.slerp(target_transform.basis, delta * ROTATION_INTERPOLATE_SPEED)
+		var target_transform = model.global_transform.looking_at(model.global_transform.origin - target_direction, Vector3(0, 1, 0))
+		orientation.basis = model.global_transform.basis.slerp(target_transform.basis, delta * ROTATION_INTERPOLATE_SPEED)
 	
 		#Retrieve the root motion from the animationtree so it can be applied to the KinematicBody.
 		root_motion = $KinematicBody/AnimationTree.get_root_motion_transform()
@@ -390,8 +396,8 @@ func UpdateClimbingStairs(var delta):
 		
 		orientation.origin = Vector3()
 		orientation = orientation.orthonormalized()
-		if motion_target != Vector2():
-			$KinematicBody/Model.global_transform.basis = orientation.basis
+#		if motion_target != Vector2():
+#			model.global_transform.basis = orientation.basis
 		
 		climb_look_direction = stairs.GetLookDirection(kb_pos)
 		
@@ -405,8 +411,8 @@ func UpdateClimbingStairs(var delta):
 		flat_velocity.y = 0.0
 		velocity = flat_velocity
 		velocity += Vector3(0, input_direction * delta * 3.0, 0)
-		var target_transform = $KinematicBody/Model.global_transform.looking_at($KinematicBody/Model.global_transform.origin - climb_look_direction, Vector3(0, 1, 0))
-		$KinematicBody/Model.global_transform.basis = target_transform.basis
+		var target_transform = model.global_transform.looking_at(model.global_transform.origin - climb_look_direction, Vector3(0, 1, 0))
+		model.global_transform.basis = target_transform.basis
 		orientation.basis = target_transform.basis
 	
 	#When moving down and at the bottom of the stairs, then let go.
@@ -480,7 +486,7 @@ func UpdateNetworking():
 		if puppet_translation != null:
 			$KinematicBody.global_transform.origin = puppet_translation
 		if puppet_rotation != null:
-			$KinematicBody/Model.global_transform.basis = puppet_rotation
+			model.global_transform.basis = puppet_rotation
 		if puppet_jump != null:
 			jump = puppet_jump
 		if puppet_motion != null:
@@ -489,7 +495,7 @@ func UpdateNetworking():
 			animation_speed = puppet_animation_speed
 	elif is_network_master():
 		rset_unreliable("puppet_translation", $KinematicBody.global_transform.origin)
-		rset_unreliable("puppet_rotation", $KinematicBody/Model.global_transform.basis)
+		rset_unreliable("puppet_rotation", model.global_transform.basis)
 		rset_unreliable("puppet_motion", motion)
 		rset_unreliable("puppet_jump", jumping)
 		rset_unreliable("puppet_animation_speed", animation_speed)
