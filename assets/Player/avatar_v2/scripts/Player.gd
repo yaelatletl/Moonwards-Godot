@@ -35,7 +35,7 @@ var max_down_aim_angle = 55.0
 var root_motion = Transform()
 var orientation = Transform()
 var velocity = Vector3()
-var motion_target = Vector3()
+var motion_target = Vector2()
 var input_direction  = 0.0
 var animation_speed = 1.0
 var in_air = false
@@ -200,6 +200,24 @@ func _input(event):
 			look_direction.y = -max_down_aim_angle
 		
 		camera_control.Rotate(look_direction)
+	
+	if event.is_action_pressed("move_right"):
+		motion_target.x = motion_target.x + 1.0
+	elif event.is_action_released("move_right"):
+		motion_target.x = motion_target.x - 1.0
+	elif event.is_action_pressed("move_left"):
+		motion_target.x = motion_target.x - 1.0
+	elif event.is_action_released("move_left"):
+		motion_target.x = motion_target.x + 1.0
+	elif event.is_action_pressed("move_forwards"):
+		motion_target.y = motion_target.y + 1.0
+	elif event.is_action_released("move_forwards"):
+		motion_target.y = motion_target.y - 1.0
+	elif event.is_action_pressed("move_backwards"):
+		motion_target.y = motion_target.y - 1.0
+	elif event.is_action_released("move_backwards"):
+		motion_target.y = motion_target.y + 1.0
+	
 	if event.is_action_pressed("player_back_in_time"):
 		PopRPoint()
 	
@@ -270,8 +288,6 @@ func HandleControls(var delta):
 	else:
 		jump = Input.is_action_pressed("jump")
 		input_direction = (Input.get_action_strength("move_forwards") - Input.get_action_strength("move_backwards"))
-		motion_target = Vector2( 	Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-										Input.get_action_strength("move_forwards") - Input.get_action_strength("move_backwards"))
 	
 	if jump_timeout > 0.0:
 		jump_timeout -= delta
