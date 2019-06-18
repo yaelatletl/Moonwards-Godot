@@ -4,3 +4,41 @@
 
 [node name="players" type="Spatial" parent="."]
 
+[node name="scene_id_30160" type="Spatial" parent="."]
+
+[node name="spawn_points" type="Spatial" parent="."]
+editor/display_folded = true
+
+[node name="0" type="Position3D" parent="spawn_points"]
+transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -55.4482, -1929.8, -14.3414 )
+
+[node name="1" type="Position3D" parent="spawn_points"]
+transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -55.4482, -1929.8, -14.8894 )
+
+[node name="2" type="Position3D" parent="spawn_points"]
+transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -55.4482, -1929.8, -15.5764 )
+
+[node name="3" type="Position3D" parent="spawn_points"]
+transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -51.4516, -1929.86, -12.17 )
+
+[node name="4" type="Position3D" parent="spawn_points"]
+transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -52.4997, -1929.86, -11.5596 )
+
+[node name="5" type="Position3D" parent="spawn_points"]
+transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -53.4978, -1929.86, -12.245 )
+
+[node name="6" type="Position3D" parent="spawn_points"]
+transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -54.4605, -1929.86, -11.5229 )
+
+[node name="7" type="Position3D" parent="spawn_points"]
+transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -56.4462, -1929.86, -11.5229 )
+
+[node name="8" type="Position3D" parent="spawn_points"]
+transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -57.4572, -1929.86, -12.2521 )
+
+[node name="9" type="Position3D" parent="spawn_points"]
+transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -58.4564, -1929.86, -11.5319 )
+
+[node name="10" type="Position3D" parent="spawn_points"]
+transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -59.4707, -1929.86, -12.2348 )
+
