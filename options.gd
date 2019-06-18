@@ -46,7 +46,7 @@ var scenes = {
 	default_run_scene = "WorldV2",
 	default_singleplayer_scene = "WorldV2",
 	default_multiplayer_scene = "WorldV2",
-	default_multiplayer_headless_scene = "WorldTest",
+	default_multiplayer_headless_scene = "WorldServer",
 	default_multiplayer_join_server = "WorldV2",
 #	default_multiplayer_join_server = "WorldTest",
 	WorldV2 = {
@@ -57,6 +57,9 @@ var scenes = {
 	},
 	WorldTest2 = {
 		path = "res://_tests/scene_mp/multiplayer_test_scene2.tscn"
+	},
+	WorldServer = {
+		path = "res://WorldServer.tscn"
 	}
 }
 
