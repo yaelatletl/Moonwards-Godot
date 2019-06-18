@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=2]
+[gd_scene load_steps=142 format=2]
 
 [ext_resource path="res://scenes/meshes/AtriumHab__Exterior_Tunnel.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://scenes/meshes/AtriumHab__Exterior_Tunnel_RadBarrier_TunnelEnd.mesh" type="ArrayMesh" id=2]
@@ -96,15 +96,16 @@
 [ext_resource path="res://scenes/meshes/AtriumHab__Interior_KitchenAndLaundry_OvensHeatPump.mesh" type="ArrayMesh" id=94]
 [ext_resource path="res://scenes/meshes/AtriumHab__Interior_ShimmyStairs_ShimmyStairs1.mesh" type="ArrayMesh" id=95]
 [ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ShimmyStair-Steps001_ShimmyStair-Steps001_col_CollisionShape.shape" type="Shape" id=96]
-[ext_resource path="res://scenes/meshes/AtriumHab__Interior_ShimmyStairs_ShimmyStair2.mesh" type="ArrayMesh" id=97]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_Shimmy-Stairs008_ShimmyStair-Step1008_ShimmyStair-Step1008_col_CollisionShape.shape" type="Shape" id=98]
-[ext_resource path="res://scenes/meshes/AtriumHab__Interior_ShimmyStairs_ShimmyStairs3.mesh" type="ArrayMesh" id=99]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_Shimmy-Stairs009_ShimmyStair-Step1009_ShimmyStair-Step1009_col_CollisionShape.shape" type="Shape" id=100]
-[ext_resource path="res://scenes/meshes/AtriumHab__Interior_ShimmyStairs_ShimmyStairs4.mesh" type="ArrayMesh" id=101]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ShimmyStair-Step1010_ShimmyStair-Step1010_col_CollisionShape.shape" type="Shape" id=102]
-[ext_resource path="res://scenes/meshes/AtriumHab__Interior_ShimmyStairs_ShimmyStairs6.mesh" type="ArrayMesh" id=103]
-[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ShimmyStair-Step1011_ShimmyStair-Step1011_col_CollisionShape.shape" type="Shape" id=104]
-[ext_resource path="res://scripts/AreaLod.gd" type="Script" id=105]
+[ext_resource path="res://_tests/Stairs/StairsAreaSingle.tscn" type="PackedScene" id=97]
+[ext_resource path="res://scenes/meshes/AtriumHab__Interior_ShimmyStairs_ShimmyStair2.mesh" type="ArrayMesh" id=98]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_Shimmy-Stairs008_ShimmyStair-Step1008_ShimmyStair-Step1008_col_CollisionShape.shape" type="Shape" id=99]
+[ext_resource path="res://scenes/meshes/AtriumHab__Interior_ShimmyStairs_ShimmyStairs3.mesh" type="ArrayMesh" id=100]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_Shimmy-Stairs009_ShimmyStair-Step1009_ShimmyStair-Step1009_col_CollisionShape.shape" type="Shape" id=101]
+[ext_resource path="res://scenes/meshes/AtriumHab__Interior_ShimmyStairs_ShimmyStairs4.mesh" type="ArrayMesh" id=102]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ShimmyStair-Step1010_ShimmyStair-Step1010_col_CollisionShape.shape" type="Shape" id=103]
+[ext_resource path="res://scenes/meshes/AtriumHab__Interior_ShimmyStairs_ShimmyStairs6.mesh" type="ArrayMesh" id=104]
+[ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ShimmyStair-Step1011_ShimmyStair-Step1011_col_CollisionShape.shape" type="Shape" id=105]
+[ext_resource path="res://scripts/AreaLod.gd" type="Script" id=106]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.306531, 0.340695, 0.219678 )
@@ -259,6 +260,26 @@ data = PoolVector3Array( -0.04, 0.05, 0, -0.04, -0.04, 0, -0.04, -0.04, -0.04, 0
 data = PoolVector3Array( -0.0349, 0.0349, 0.0349, -0.0349, -0.0175, 0.0349, -0.0349, -0.0175, -0.0349, -0.0349, 0.0349, -0.0349, -0.0349, -0.0175, -0.0349, 0.0349, -0.0175, -0.0349, 0.0349, 0.0349, -0.0349, 0.0349, -0.0175, -0.0349, 0.0349, -0.0175, 0.0349, 0.0349, 0.0349, 0.0349, 0.0349, -0.0175, 0.0349, -0.0349, -0.0175, 0.0349, 0.0349, -0.0175, -0.0349, -0.0349, -0.0175, -0.0349, -0.0349, -0.0175, 0.0349, -0.0349, 0.0349, -0.0396, -0.0349, 0.0035, -0.0396, -0.0349, 0.0035, -0.0849, -0.0349, 0.0349, -0.0849, -0.0349, 0.0035, -0.0849, 0.0349, 0.0035, -0.0849, 0.0349, 0.0349, -0.0849, 0.0349, 0.0035, -0.0849, 0.0349, 0.0035, -0.0396, 0.0349, 0.0349, -0.0396, 0.0349, 0.0035, -0.0396, -0.0349, 0.0035, -0.0396, 0.0349, 0.0035, -0.0849, -0.0349, 0.0035, -0.0849, -0.0349, 0.0035, -0.0396, -0.0382, 0.0346, -0.0373, -0.0382, 0.0025, -0.0373, -0.0382, 0.0025, -0.0867, -0.0382, 0.0346, -0.0867, -0.0382, 0.0025, -0.0867, 0.0361, 0.0025, -0.0867, 0.0361, 0.0346, -0.0373, 0.0361, 0.0025, -0.0373, 0.0361, 0.0025, 0.0367, 0.0361, 0.0346, 0.0367, 0.0361, 0.0025, 0.0367, -0.0382, 0.0025, 0.0367, 0.0361, -0.018, -0.0373, -0.0382, -0.018, -0.0373, -0.0382, -0.018, 0.0367, 0.0361, 0.0346, -0.0867, 0.0361, 0.0025, -0.0867, 0.0361, 0.0025, -0.0373, -0.0382, 0.0346, 0.0367, -0.0382, 0.0025, 0.0367, -0.0382, 0.0025, -0.0373, -0.0382, 0.0025, 0.0367, -0.0382, -0.018, 0.0367, -0.0382, -0.018, -0.0373, 0.0361, 0.0025, 0.0367, 0.0361, -0.018, 0.0367, -0.0382, -0.018, 0.0367, 0.0361, 0.0025, -0.0373, 0.0361, -0.018, -0.0373, 0.0361, -0.018, 0.0367, -0.0382, 0.0025, -0.0373, 0.0361, 0.0025, -0.0373, 0.0361, 0.0025, -0.0867, 0.0361, 0.0025, -0.0373, -0.0382, 0.0025, -0.0373, -0.0382, -0.018, -0.0373, -0.0382, 0.0346, -0.0867, -0.0349, 0.0349, -0.0849, 0.0349, 0.0349, -0.0849, 0.0361, 0.0346, -0.0867, 0.0349, 0.0349, -0.0849, 0.0349, 0.0349, -0.0396, 0.0361, 0.0346, -0.0373, 0.0349, 0.0349, -0.0396, -0.0349, 0.0349, -0.0396, -0.0382, 0.0346, -0.0373, -0.0349, 0.0349, -0.0396, -0.0349, 0.0349, -0.0849, -0.0382, 0.0346, -0.0373, -0.0349, 0.0349, -0.0349, 0.0349, 0.0349, -0.0349, 0.0361, 0.0346, -0.0373, 0.0349, 0.0349, -0.0349, 0.0349, 0.0349, 0.0349, 0.0361, 0.0346, 0.0367, 0.0349, 0.0349, 0.0349, -0.0349, 0.0349, 0.0349, -0.0382, 0.0346, 0.0367, -0.0349, 0.0349, 0.0349, -0.0349, 0.0349, -0.0349, -0.0349, 0.0349, 0.0349, -0.0349, -0.0175, -0.0349, -0.0349, 0.0349, -0.0349, -0.0349, 0.0349, -0.0349, 0.0349, -0.0175, -0.0349, 0.0349, 0.0349, -0.0349, 0.0349, 0.0349, -0.0349, 0.0349, -0.0175, 0.0349, 0.0349, 0.0349, 0.0349, 0.0349, 0.0349, 0.0349, -0.0349, -0.0175, 0.0349, -0.0349, 0.0349, 0.0349, 0.0349, -0.0175, -0.0349, -0.0349, -0.0175, 0.0349, 0.0349, -0.0175, 0.0349, -0.0349, 0.0349, -0.0396, -0.0349, 0.0035, -0.0849, -0.0349, 0.0349, -0.0849, -0.0349, 0.0349, -0.0849, 0.0349, 0.0035, -0.0849, 0.0349, 0.0349, -0.0849, 0.0349, 0.0349, -0.0849, 0.0349, 0.0035, -0.0396, 0.0349, 0.0349, -0.0396, 0.0349, 0.0349, -0.0396, -0.0349, 0.0035, -0.0396, -0.0349, 0.0349, -0.0396, 0.0349, 0.0035, -0.0849, -0.0349, 0.0035, -0.0396, 0.0349, 0.0035, -0.0396, -0.0382, 0.0346, -0.0373, -0.0382, 0.0025, -0.0867, -0.0382, 0.0346, -0.0867, -0.0382, 0.0346, -0.0867, 0.0361, 0.0025, -0.0867, 0.0361, 0.0346, -0.0867, 0.0361, 0.0346, -0.0373, 0.0361, 0.0025, 0.0367, 0.0361, 0.0346, 0.0367, 0.0361, 0.0346, 0.0367, -0.0382, 0.0025, 0.0367, -0.0382, 0.0346, 0.0367, 0.0361, -0.018, -0.0373, -0.0382, -0.018, 0.0367, 0.0361, -0.018, 0.0367, 0.0361, 0.0346, -0.0867, 0.0361, 0.0025, -0.0373, 0.0361, 0.0346, -0.0373, -0.0382, 0.0346, 0.0367, -0.0382, 0.0025, -0.0373, -0.0382, 0.0346, -0.0373, -0.0382, 0.0025, 0.0367, -0.0382, -0.018, -0.0373, -0.0382, 0.0025, -0.0373, 0.0361, 0.0025, 0.0367, -0.0382, -0.018, 0.0367, -0.0382, 0.0025, 0.0367, 0.0361, 0.0025, -0.0373, 0.0361, -0.018, 0.0367, 0.0361, 0.0025, 0.0367, -0.0382, 0.0025, -0.0373, 0.0361, 0.0025, -0.0867, -0.0382, 0.0025, -0.0867, 0.0361, 0.0025, -0.0373, -0.0382, -0.018, -0.0373, 0.0361, -0.018, -0.0373, -0.0382, 0.0346, -0.0867, 0.0349, 0.0349, -0.0849, 0.0361, 0.0346, -0.0867, 0.0361, 0.0346, -0.0867, 0.0349, 0.0349, -0.0396, 0.0361, 0.0346, -0.0373, 0.0361, 0.0346, -0.0373, -0.0349, 0.0349, -0.0396, -0.0382, 0.0346, -0.0373, -0.0382, 0.0346, -0.0373, -0.0349, 0.0349, -0.0849, -0.0382, 0.0346, -0.0867, -0.0382, 0.0346, -0.0373, 0.0349, 0.0349, -0.0349, 0.0361, 0.0346, -0.0373, 0.0361, 0.0346, -0.0373, 0.0349, 0.0349, 0.0349, 0.0361, 0.0346, 0.0367, 0.0361, 0.0346, 0.0367, -0.0349, 0.0349, 0.0349, -0.0382, 0.0346, 0.0367, -0.0382, 0.0346, 0.0367, -0.0349, 0.0349, -0.0349, -0.0382, 0.0346, -0.0373 )
 
 [sub_resource type="BoxShape" id=30]
+resource_local_to_scene = true
+extents = Vector3( 0.05, 0.161, 0.05 )
+
+[sub_resource type="BoxShape" id=31]
+resource_local_to_scene = true
+extents = Vector3( 0.05, 0.161, 0.05 )
+
+[sub_resource type="BoxShape" id=32]
+resource_local_to_scene = true
+extents = Vector3( 0.05, 0.162, 0.05 )
+
+[sub_resource type="BoxShape" id=33]
+resource_local_to_scene = true
+extents = Vector3( 0.05, 0.217, 0.05 )
+
+[sub_resource type="BoxShape" id=34]
+resource_local_to_scene = true
+extents = Vector3( 0.05, 0.162, 0.05 )
+
+[sub_resource type="BoxShape" id=35]
 extents = Vector3( 9.22929, 3.3859, 6.14163 )
 
 [node name="AtriumHab" type="Spatial"]
@@ -573,7 +594,6 @@ material/0 = null
 ]]
 
 [node name="Tunnel_Structures" type="Spatial" parent="Interior"]
-editor/display_folded = true
 
 [node name="HealthCentrifuge" parent="Interior/Tunnel_Structures" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.82031, 0.416992, -0.204346 )
@@ -1704,7 +1724,6 @@ light_energy = 0.3
 omni_range = 2.41433
 
 [node name="ShimmyStairs" type="Spatial" parent="Interior"]
-editor/display_folded = true
 
 [node name="ShimmyStairs1" type="MeshInstance" parent="Interior/ShimmyStairs"]
 editor/display_folded = true
@@ -1716,16 +1735,28 @@ material/1 = null
 material/2 = null
 
 [node name="ShimmyStair-Steps001_col" type="StaticBody" parent="Interior/ShimmyStairs/ShimmyStairs1"]
+editor/display_folded = true
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStairs/ShimmyStairs1/ShimmyStair-Steps001_col"]
 shape = ExtResource( 96 )
 
+[node name="StairsArea" parent="Interior/ShimmyStairs/ShimmyStairs1" instance=ExtResource( 97 )]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0494834, -0.282104, -0.00526333 )
+
+[node name="Area" parent="Interior/ShimmyStairs/ShimmyStairs1/StairsArea" index="0"]
+height = 0.161
+
+[node name="CollisionShape" parent="Interior/ShimmyStairs/ShimmyStairs1/StairsArea/Area" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.161, 0 )
+shape = SubResource( 30 )
+
 [node name="ShimmyStair2" type="MeshInstance" parent="Interior/ShimmyStairs"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.62891, 1.04285, 0.893799 )
 use_in_baked_light = true
-mesh = ExtResource( 97 )
+mesh = ExtResource( 98 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -1733,13 +1764,23 @@ material/2 = null
 [node name="ShimmyStair-Step1008_col" type="StaticBody" parent="Interior/ShimmyStairs/ShimmyStair2"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStairs/ShimmyStair2/ShimmyStair-Step1008_col"]
-shape = ExtResource( 98 )
+shape = ExtResource( 99 )
+
+[node name="StairsArea" parent="Interior/ShimmyStairs/ShimmyStair2" instance=ExtResource( 97 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0492868, -0.282296, -0.00536245 )
+
+[node name="Area" parent="Interior/ShimmyStairs/ShimmyStair2/StairsArea" index="0"]
+height = 0.161
+
+[node name="CollisionShape" parent="Interior/ShimmyStairs/ShimmyStair2/StairsArea/Area" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.161, 0 )
+shape = SubResource( 31 )
 
 [node name="ShimmyStairs3" type="MeshInstance" parent="Interior/ShimmyStairs"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63086, 0.692749, 1.59717 )
 use_in_baked_light = true
-mesh = ExtResource( 99 )
+mesh = ExtResource( 100 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -1748,13 +1789,23 @@ material/2 = null
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -5.96046e-08, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStairs/ShimmyStairs3/ShimmyStair-Step1009_col"]
-shape = ExtResource( 100 )
+shape = ExtResource( 101 )
+
+[node name="StairsArea" parent="Interior/ShimmyStairs/ShimmyStairs3" instance=ExtResource( 97 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0461787, -0.282607, -0.00943732 )
+
+[node name="Area" parent="Interior/ShimmyStairs/ShimmyStairs3/StairsArea" index="0"]
+height = 0.162
+
+[node name="CollisionShape" parent="Interior/ShimmyStairs/ShimmyStairs3/StairsArea/Area" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.162, 0 )
+shape = SubResource( 32 )
 
 [node name="ShimmyStairs4" type="MeshInstance" parent="Interior/ShimmyStairs"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.08154, 0.539673, -0.806396 )
 use_in_baked_light = true
-mesh = ExtResource( 101 )
+mesh = ExtResource( 102 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -1763,13 +1814,23 @@ material/2 = null
 transform = Transform( -1, 0, -3.89414e-07, 0, 1, 0, 3.89414e-07, 0, -1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStairs/ShimmyStairs4/ShimmyStair-Step1010_col"]
-shape = ExtResource( 102 )
+shape = ExtResource( 103 )
+
+[node name="StairsArea" parent="Interior/ShimmyStairs/ShimmyStairs4" instance=ExtResource( 97 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.00878143, -0.390394, 0.0461864 )
+
+[node name="Area" parent="Interior/ShimmyStairs/ShimmyStairs4/StairsArea" index="0"]
+height = 0.217
+
+[node name="CollisionShape" parent="Interior/ShimmyStairs/ShimmyStairs4/StairsArea/Area" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.217, 0 )
+shape = SubResource( 33 )
 
 [node name="ShimmyStairs6" type="MeshInstance" parent="Interior/ShimmyStairs"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.37451, 0.103638, -0.963135 )
 use_in_baked_light = true
-mesh = ExtResource( 103 )
+mesh = ExtResource( 104 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -1778,13 +1839,33 @@ material/2 = null
 transform = Transform( 1, -4.92007e-14, -3.25841e-07, 0, -1, 1.50996e-07, -3.25841e-07, -1.50996e-07, -1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Interior/ShimmyStairs/ShimmyStairs6/ShimmyStair-Step1011_col"]
-shape = ExtResource( 104 )
+shape = ExtResource( 105 )
+
+[node name="StairsArea" parent="Interior/ShimmyStairs/ShimmyStairs6" instance=ExtResource( 97 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.00149345, -0.28214, -0.0462177 )
+
+[node name="Area" parent="Interior/ShimmyStairs/ShimmyStairs6/StairsArea" index="0"]
+height = 0.162
+
+[node name="CollisionShape" parent="Interior/ShimmyStairs/ShimmyStairs6/StairsArea/Area" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.162, 0 )
+shape = SubResource( 34 )
 
 [node name="Triggers" type="Spatial" parent="."]
 
 [node name="Area" type="Area" parent="Triggers"]
-script = ExtResource( 105 )
+script = ExtResource( 106 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Triggers/Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96696, 0, 0 )
-shape = SubResource( 30 )
+shape = SubResource( 35 )
+
+[editable path="Interior/ShimmyStairs/ShimmyStairs1/StairsArea"]
+
+[editable path="Interior/ShimmyStairs/ShimmyStair2/StairsArea"]
+
+[editable path="Interior/ShimmyStairs/ShimmyStairs3/StairsArea"]
+
+[editable path="Interior/ShimmyStairs/ShimmyStairs4/StairsArea"]
+
+[editable path="Interior/ShimmyStairs/ShimmyStairs6/StairsArea"]
