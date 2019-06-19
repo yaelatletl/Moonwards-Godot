@@ -106,7 +106,7 @@ func _on_join_pressed():
 		bindsg("network_log")
 		bindsg("server_connected")
 		bindsg("network_error")
-		gamestate.client_server_connect($connect/ip.text)
+		gamestate.client_server_connect($connect/ipcontainer/ip.text)
 		return
 	else: 
 		emit_signal("network_error", "Already in server or client mode")
