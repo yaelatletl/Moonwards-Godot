@@ -82,7 +82,7 @@ margin_bottom = 28.0
 rect_min_size = Vector2( 120, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "1.0.0.127"
+text = "127.0.0.1"
 align = 1
 caret_blink = true
 
