@@ -37,7 +37,7 @@ func _input(event):
 	if event.is_action_pressed("show_diagram"):
 		if diagram_visible:
 			pass
-		elif UIManager.RequestFocus():
+		else:
 			add_child(SceneDiagram.instance())
 			diagram_visible = true
 
