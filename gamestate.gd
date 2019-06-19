@@ -379,7 +379,7 @@ func client_server_connect(host, port=DEFAULT_PORT):
 	client.host = host
 	client.ip = IP.resolve_hostname(host, 1) #TYPE_IPV4 - ipv4 adresses only
 	if not client.ip.is_valid_ip_address():
-		var msg = "fail to resolve host(%s) to ip adress" % server.host
+		var msg = "fail to resolve host(%s) to ip adress" % client.host
 		emit_signal("network_log", msg)
 		emit_signal("network_error", msg)
 		RoleClient = false
