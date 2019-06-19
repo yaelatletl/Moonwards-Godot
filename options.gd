@@ -240,7 +240,7 @@ func get(category, prop = null, default=null):
 		res = default
 	printd("get: %s::%s==%s" % [category, prop, res])
 	return res
-	
+
 func set(category, value, prop = null):
 	printd("options set %s::%s %s" % [category, prop, value])
 	if prop == null:
@@ -292,19 +292,19 @@ func LoadUserSettings():
 	var savefile = File.new()
 	if not savefile.file_exists(User_file):
 		SaveUserSettings()
-	
+
 	savefile.open(User_file, File.READ)
 	print(savefile.get_as_text())
 	savefile_json = parse_json(savefile.get_as_text())
 	savefile.close()
 	gender = SafeGetSetting("gender", genders.female)
 	username = SafeGetSetting("username", "Player Name")
-	
+
 	pants_color = SafeGetColor("pants", Color8(49,4,5,255))
 	shirt_color = SafeGetColor("shirt", Color8(87,235,192,255))
 	skin_color = SafeGetColor("skin", Color8(150,112,86,255))
 	hair_color = SafeGetColor("hair", Color8(0,0,0,255))
-	shoes_color = SafeGetColor("hair", Color8(78,158,187,255))
+	shoes_color = SafeGetColor("shoes", Color8(78,158,187,255))
 
 func SafeGetColor(var color_name, var default_color):
 	if not savefile_json.has(color_name + "R") or not savefile_json.has(color_name + "G") or not savefile_json.has(color_name + "B"):
@@ -313,7 +313,7 @@ func SafeGetColor(var color_name, var default_color):
 		return Color8(savefile_json[color_name + "R"],savefile_json[color_name + "G"],savefile_json[color_name + "B"],255)
 
 func SafeGetSetting(var setting_name, var default_value):
-	
+
 	if not savefile_json.has(setting_name):
 		return default_value
 	else:
@@ -323,30 +323,30 @@ func SaveUserSettings():
 	var savefile = File.new()
 	savefile.open(User_file, File.WRITE)
 	var save_dict = {
-		
+
 		"username" : username,
 		"gender" : gender,
-		
+
 		"pantsR" : pants_color.r*255, # Vector3 is not supported by JSON
 		"pantsG" : pants_color.g*255,
 		"pantsB" : pants_color.b*255,
-		
+
 		"shirtR" : shirt_color.r*255,
 		"shirtG" : shirt_color.g*255,
 		"shirtB" : shirt_color.b*255,
-		
+
 		"skinR" : skin_color.r*255,
 		"skinG" : skin_color.g*255,
 		"skinB" : skin_color.b*255,
-		
+
 		"hairR" : hair_color.r*255,
 		"hairG" : hair_color.g*255,
 		"hairB" : hair_color.b*255,
-		
+
 		"shoesR" : shoes_color.r*255,
 		"shoesG" : shoes_color.g*255,
 		"shoesB" : shoes_color.b*255,
-		
+
 		}
 	savefile.store_line(to_json(save_dict))
 	savefile.close()
