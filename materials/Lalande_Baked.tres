@@ -5,5 +5,7 @@
 [resource]
 flags_disable_ambient_light = true
 albedo_texture = ExtResource( 1 )
+normal_enabled = true
+normal_scale = 1.0
 uv1_scale = Vector3( 1.035, 1.037, 1 )
 uv1_offset = Vector3( -0.053, 0.005, 0 )
