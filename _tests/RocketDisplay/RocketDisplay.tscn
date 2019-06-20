@@ -5,7 +5,7 @@
 [ext_resource path="res://_tests/RocketDisplay/SlideButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://model_assets/Contributions/SCTR_Bucknell_Opt.tscn" type="PackedScene" id=4]
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=1]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera:translation")
 tracks/0/interp = 1
@@ -31,7 +31,7 @@ tracks/1/keys = {
 "values": [ Vector3( 9.82831, -177.21, 1.21365 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=2]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera:translation")
 tracks/0/interp = 1
@@ -57,7 +57,7 @@ tracks/1/keys = {
 "values": [ Vector3( -26.0181, 47.3612, 1.33071 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera:translation")
 tracks/0/interp = 1
@@ -83,7 +83,7 @@ tracks/1/keys = {
 "values": [ Vector3( -4.20272, 89.0269, 1.19905 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=4]
 resource_name = "4"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera:translation")
@@ -110,8 +110,7 @@ tracks/1/keys = {
 "values": [ Vector3( 28.9689, -121.393, 1.36688 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Transition"
+[sub_resource type="Animation" id=5]
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera:translation")
@@ -138,11 +137,11 @@ tracks/1/keys = {
 "values": [ Vector3( 0, -90, 0 ), Vector3( 0, 90, 0 ) ]
 }
 
-[sub_resource type="ProceduralSky" id=13]
+[sub_resource type="ProceduralSky" id=6]
 
-[sub_resource type="Environment" id=14]
+[sub_resource type="Environment" id=7]
 background_mode = 2
-background_sky = SubResource( 13 )
+background_sky = SubResource( 6 )
 
 [node name="RocketDisplay" type="Spatial"]
 script = ExtResource( 1 )
@@ -235,14 +234,14 @@ text = "4"
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14, 17, 14 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/1 = SubResource( 10 )
-anims/2 = SubResource( 11 )
-anims/3 = SubResource( 12 )
-anims/4 = SubResource( 15 )
-anims/Transition = SubResource( 3 )
+anims/1 = SubResource( 1 )
+anims/2 = SubResource( 2 )
+anims/3 = SubResource( 3 )
+anims/4 = SubResource( 4 )
+anims/Transition = SubResource( 5 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 14 )
+environment = SubResource( 7 )
 
 [node name="Rocket" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0 )
