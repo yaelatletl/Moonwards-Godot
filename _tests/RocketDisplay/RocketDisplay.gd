@@ -1,11 +1,31 @@
 extends Spatial
 
+var info_boxes = []
+var slide_buttons = []
+var current_slide = ""
+
 func _ready():
-	pass
+	yield(get_tree(), "idle_frame")
+	GoToSlide("1")
+
+func RegisterInfoBox(var box):
+	info_boxes.append(box)
+
+func RegisterSlideButton(var button):
+	slide_buttons.append(button)
 
 func GoToSlide(var index):
-	if $AnimationPlayer.is_playing():
+	if $AnimationPlayer.is_playing() or index == current_slide:
 		return
+	
+	current_slide = index
+	
+	for box in info_boxes:
+		if box.show_text:
+			box.ToggleVisible()
+	
+	for button in slide_buttons:
+		button.SetActive(button.slide_id == current_slide)
 	
 	var target_animation = $AnimationPlayer.get_animation(index)
 	var target_translation = target_animation.track_get_key_value(target_animation.find_track("Camera:translation"), 0)
