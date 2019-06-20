@@ -161,18 +161,6 @@ margin_right = 984.0
 margin_bottom = 372.0
 label = "Select Fly Camera"
 
-[node name="Display" type="Tabs" parent="TabContainer"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 38.0
-
-[node name="GameState" type="Tabs" parent="TabContainer"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 38.0
-
 [node name="Controls" parent="TabContainer" instance=ExtResource( 6 )]
 visible = false
 margin_left = 0.0
@@ -188,7 +176,6 @@ margin_bottom = 25.0
 rect_min_size = Vector2( 25, 25 )
 text = "X"
 script = ExtResource( 7 )
-
 [connection signal="focus_entered" from="TabContainer/Dev/VBoxContainer" to="." method="_on_VBoxContainer_focus_entered"]
 [connection signal="pressed" from="TabContainer/Dev/VBoxContainer/tAreas" to="." method="_on_tAreas_pressed"]
 [connection signal="pressed" from="TabContainer/Dev/VBoxContainer/tCollisionShapes" to="." method="_on_tCollisionShapes_pressed"]

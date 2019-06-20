@@ -9,16 +9,16 @@ var diagram_visible = false
 
 func _ready():
 	UIManager.RegisterBaseUI(self)
-	SceneDiagram = load(SceneDiagram)
-	var now = SceneDiagram.instance()
-	now.name="SceneDiagram"
-	var time = Timer.new()
-	time.name = "time"
-	time.wait_time=7.0
-	time.autostart=true
-	time.connect("timeout",self,"timedout")
-	add_child(now)
-	add_child(time)
+	#SceneDiagram = load(SceneDiagram)
+	#var now = SceneDiagram.instance()
+	#now.name="SceneDiagram"
+	#var time = Timer.new()
+	#time.name = "time"
+	#time.wait_time=7.0
+	#time.autostart=true
+	#time.connect("timeout",self,"timedout")
+	#add_child(now)
+	#add_child(time)
 
 func timedout():
 	if get_node_or_null("SceneDiagram") != null:
