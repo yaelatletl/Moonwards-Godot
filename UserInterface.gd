@@ -1,7 +1,7 @@
 extends Control
 
 var SceneOptions = "res://assets/UI/Menu/Options.tscn"
-var SceneMenu = "res://assets/UI/Menu/In_game_menu.tscn"
+var SceneMenu = "res://assets/UI/Menu/Main_menu.tscn"
 var SceneDiagram = "res://assets/UI/Diagram.tscn"
 var Options = null
 var added_menu_ui = false
