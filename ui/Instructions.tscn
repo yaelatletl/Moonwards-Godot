@@ -86,658 +86,698 @@ size_flags_horizontal = 5
 size_flags_vertical = 5
 script = SubResource( 5 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Background/ScrollContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="Background/ScrollContainer"]
 margin_right = 984.0
 margin_bottom = 427.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/ScrollContainer/CenterContainer"]
+margin_left = 149.0
+margin_top = 79.0
+margin_right = 834.0
+margin_bottom = 347.0
 size_flags_horizontal = 11
 size_flags_vertical = 3
 alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="Background/ScrollContainer/VBoxContainer"]
-margin_top = 73.0
-margin_right = 984.0
-margin_bottom = 77.0
+[node name="HSeparator" type="HSeparator" parent="Background/ScrollContainer/CenterContainer/VBoxContainer"]
+margin_right = 685.0
+margin_bottom = 4.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Background/ScrollContainer/VBoxContainer"]
-margin_top = 81.0
-margin_right = 984.0
-margin_bottom = 346.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/ScrollContainer/CenterContainer/VBoxContainer"]
+margin_top = 8.0
+margin_right = 685.0
+margin_bottom = 260.0
 
-[node name="VSeparator" type="VSeparator" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
 margin_right = 4.0
-margin_bottom = 265.0
+margin_bottom = 252.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
 margin_left = 8.0
-margin_right = 317.0
-margin_bottom = 265.0
+margin_right = 336.0
+margin_bottom = 252.0
 
-[node name="Movement" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_right = 309.0
+[node name="Movement" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 328.0
 margin_bottom = 14.0
 text = "Move your player with keyboard and mouse"
 
-[node name="HSeparator" type="HSeparator" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 18.0
-margin_right = 309.0
+margin_right = 328.0
 margin_bottom = 22.0
 
-[node name="move_forwards" type="HBoxContainer" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="move_forwards" type="HBoxContainer" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 26.0
-margin_right = 309.0
+margin_right = 328.0
 margin_bottom = 40.0
 alignment = 1
 script = ExtResource( 3 )
 
-[node name="control" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_forwards"]
-margin_right = 120.0
+[node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_forwards"]
+margin_right = 130.0
 margin_bottom = 14.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
 text = "W or Up arrow "
 align = 1
 valign = 1
+autowrap = true
 
-[node name="fill6" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_forwards"]
-margin_left = 124.0
-margin_right = 185.0
+[node name="fill6" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_forwards"]
+margin_left = 134.0
+margin_right = 194.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 60, 0 )
 size_flags_horizontal = 3
 text = "-----------"
 align = 1
 
-[node name="Description" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_forwards"]
-margin_left = 189.0
-margin_right = 309.0
+[node name="Description" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_forwards"]
+margin_left = 198.0
+margin_right = 328.0
 margin_bottom = 14.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
 text = "Forward"
 align = 1
 valign = 1
 
-[node name="move_backwards" type="HBoxContainer" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="move_backwards" type="HBoxContainer" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 44.0
-margin_right = 309.0
+margin_right = 328.0
 margin_bottom = 58.0
 alignment = 1
 script = ExtResource( 3 )
 
-[node name="control" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_backwards"]
-margin_right = 120.0
+[node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_backwards"]
+margin_right = 130.0
 margin_bottom = 14.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
 text = "W or Up arrow "
 align = 1
 valign = 1
+autowrap = true
 
-[node name="fill5" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_backwards"]
-margin_left = 124.0
-margin_right = 185.0
+[node name="fill5" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_backwards"]
+margin_left = 134.0
+margin_right = 194.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 60, 0 )
 size_flags_horizontal = 3
 text = "-----------"
 align = 1
 
-[node name="Description" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_backwards"]
-margin_left = 189.0
-margin_right = 309.0
+[node name="Description" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_backwards"]
+margin_left = 198.0
+margin_right = 328.0
 margin_bottom = 14.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
 text = "Backward"
 align = 1
 valign = 1
 
-[node name="move_left" type="HBoxContainer" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="move_left" type="HBoxContainer" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 62.0
-margin_right = 309.0
+margin_right = 328.0
 margin_bottom = 76.0
 alignment = 1
 script = ExtResource( 3 )
 
-[node name="control" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_left"]
-margin_right = 120.0
+[node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_left"]
+margin_right = 130.0
 margin_bottom = 14.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
 text = "W or Up arrow "
 align = 1
 valign = 1
+autowrap = true
 
-[node name="fill4" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_left"]
-margin_left = 124.0
-margin_right = 185.0
+[node name="fill4" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_left"]
+margin_left = 134.0
+margin_right = 194.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 60, 0 )
 size_flags_horizontal = 3
 text = "-----------"
 align = 1
 
-[node name="Description" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_left"]
-margin_left = 189.0
-margin_right = 309.0
+[node name="Description" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_left"]
+margin_left = 198.0
+margin_right = 328.0
 margin_bottom = 14.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
 text = "Sideways left"
 align = 1
 valign = 1
 
-[node name="move_right" type="HBoxContainer" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="move_right" type="HBoxContainer" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 80.0
-margin_right = 309.0
+margin_right = 328.0
 margin_bottom = 94.0
 alignment = 1
 script = ExtResource( 3 )
 
-[node name="control" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_right"]
-margin_right = 120.0
+[node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_right"]
+margin_right = 130.0
 margin_bottom = 14.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
 text = "W or Up arrow "
 align = 1
 valign = 1
+autowrap = true
 
-[node name="fill3" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_right"]
-margin_left = 124.0
-margin_right = 185.0
+[node name="fill3" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_right"]
+margin_left = 134.0
+margin_right = 194.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 60, 0 )
 size_flags_horizontal = 3
 text = "-----------"
 align = 1
 
-[node name="Description" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_right"]
-margin_left = 189.0
-margin_right = 309.0
+[node name="Description" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_right"]
+margin_left = 198.0
+margin_right = 328.0
 margin_bottom = 14.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
 text = "Sideways right"
 align = 1
 valign = 1
 
-[node name="faster" type="HBoxContainer" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="faster" type="HBoxContainer" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 98.0
-margin_right = 309.0
+margin_right = 328.0
 margin_bottom = 112.0
 alignment = 1
 script = SubResource( 4 )
 
-[node name="control" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/faster"]
-margin_right = 120.0
+[node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/faster"]
+margin_right = 130.0
 margin_bottom = 14.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
 text = "W or Up arrow "
 align = 1
 valign = 1
+autowrap = true
 
-[node name="fill2" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/faster"]
-margin_left = 124.0
-margin_right = 185.0
+[node name="fill2" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/faster"]
+margin_left = 134.0
+margin_right = 194.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 60, 0 )
 size_flags_horizontal = 3
 text = "-----------"
 align = 1
 
-[node name="Description" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/faster"]
-margin_left = 189.0
-margin_right = 309.0
+[node name="Description" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/faster"]
+margin_left = 198.0
+margin_right = 328.0
 margin_bottom = 14.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
 text = "Change speed"
 align = 1
 valign = 1
 
-[node name="jump" type="HBoxContainer" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="jump" type="HBoxContainer" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 116.0
-margin_right = 309.0
+margin_right = 328.0
 margin_bottom = 130.0
 alignment = 1
 script = ExtResource( 3 )
 
-[node name="control" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/jump"]
-margin_right = 120.0
+[node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/jump"]
+margin_right = 130.0
 margin_bottom = 14.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
 text = "W or Up arrow "
 align = 1
 valign = 1
+autowrap = true
 
-[node name="fill" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/jump"]
-margin_left = 124.0
-margin_right = 185.0
+[node name="fill" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/jump"]
+margin_left = 134.0
+margin_right = 194.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 60, 0 )
 size_flags_horizontal = 3
 text = "-----------"
 align = 1
 
-[node name="Description" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/jump"]
-margin_left = 189.0
-margin_right = 309.0
+[node name="Description" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/jump"]
+margin_left = 198.0
+margin_right = 328.0
 margin_bottom = 14.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
 text = "Jump"
 align = 1
 valign = 1
 
-[node name="zoom" type="HBoxContainer" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="zoom" type="HBoxContainer" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 134.0
-margin_right = 309.0
+margin_right = 328.0
 margin_bottom = 148.0
 alignment = 1
 
-[node name="control" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/zoom"]
-margin_right = 120.0
+[node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/zoom"]
+margin_right = 130.0
 margin_bottom = 14.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
 text = "Scroll"
 align = 1
 valign = 1
+autowrap = true
 
-[node name="fill2" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/zoom"]
-margin_left = 124.0
-margin_right = 185.0
+[node name="fill2" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/zoom"]
+margin_left = 134.0
+margin_right = 194.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 60, 0 )
 size_flags_horizontal = 3
 text = "-----------"
 align = 1
 
-[node name="Description" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/zoom"]
-margin_left = 189.0
-margin_right = 309.0
+[node name="Description" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/zoom"]
+margin_left = 198.0
+margin_right = 328.0
 margin_bottom = 14.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
 text = "Zoom view"
 align = 1
 valign = 1
 
-[node name="use" type="HBoxContainer" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="use" type="HBoxContainer" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 152.0
-margin_right = 309.0
+margin_right = 328.0
 margin_bottom = 200.0
 alignment = 1
 script = ExtResource( 3 )
 
-[node name="control" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/use"]
+[node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/use"]
 margin_top = 17.0
-margin_right = 120.0
+margin_right = 130.0
 margin_bottom = 31.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
 text = "W or Up arrow "
 align = 1
 valign = 1
+autowrap = true
 
-[node name="fill3" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/use"]
-margin_left = 124.0
+[node name="fill3" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/use"]
+margin_left = 134.0
 margin_top = 17.0
-margin_right = 184.0
+margin_right = 194.0
 margin_bottom = 31.0
 rect_min_size = Vector2( 60, 0 )
 size_flags_horizontal = 3
 text = "-----------"
 align = 1
 
-[node name="Description" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/use"]
-margin_left = 188.0
-margin_right = 309.0
+[node name="Description" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/use"]
+margin_left = 198.0
+margin_right = 328.0
 margin_bottom = 48.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
 text = "Use or activate 
 (e.g. vertical stairs)
 "
 align = 1
 valign = 1
 
-[node name="VSeparator2" type="VSeparator" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer"]
-margin_left = 321.0
-margin_right = 325.0
-margin_bottom = 265.0
+[node name="HSeparator3" type="HSeparator" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 204.0
+margin_right = 328.0
+margin_bottom = 208.0
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer"]
-editor/display_folded = true
-margin_left = 329.0
-margin_right = 637.0
-margin_bottom = 265.0
-rect_min_size = Vector2( 60, 0 )
-
-[node name="Falling" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_right = 308.0
-margin_bottom = 14.0
+[node name="Falling" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 212.0
+margin_right = 328.0
+margin_bottom = 226.0
 text = "If you get stuck or fall through the ground"
 
-[node name="HSeparator" type="HSeparator" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 18.0
-margin_right = 308.0
-margin_bottom = 22.0
+[node name="HSeparator2" type="HSeparator" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 230.0
+margin_right = 328.0
+margin_bottom = 234.0
 
-[node name="player_back_in_time" type="HBoxContainer" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 26.0
-margin_right = 308.0
-margin_bottom = 108.0
+[node name="player_back_in_time" type="HBoxContainer" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 238.0
+margin_right = 328.0
+margin_bottom = 252.0
 alignment = 1
 script = ExtResource( 3 )
 
-[node name="control" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/player_back_in_time"]
-margin_top = 34.0
-margin_right = 120.0
-margin_bottom = 48.0
-rect_min_size = Vector2( 120, 0 )
+[node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/player_back_in_time"]
+margin_right = 130.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
 text = "R "
 align = 1
+autowrap = true
 
-[node name="fill4" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/player_back_in_time"]
-margin_left = 124.0
-margin_top = 34.0
-margin_right = 184.0
-margin_bottom = 48.0
+[node name="fill4" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/player_back_in_time"]
+margin_left = 134.0
+margin_right = 194.0
+margin_bottom = 14.0
 rect_min_size = Vector2( 60, 0 )
 size_flags_horizontal = 3
 text = "-----------"
 align = 1
 
-[node name="Description" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/player_back_in_time"]
-margin_left = 188.0
-margin_right = 308.0
-margin_bottom = 82.0
-rect_min_size = Vector2( 120, 0 )
+[node name="Description" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/player_back_in_time"]
+margin_left = 198.0
+margin_right = 328.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
-text = "To go back
-in time 5
-seconds
-and try
-again"
+custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
+text = "Go back in time 5s"
 align = 1
 
-[node name="HSeparator2" type="HSeparator" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 112.0
-margin_right = 308.0
-margin_bottom = 116.0
+[node name="VSeparator2" type="VSeparator" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 340.0
+margin_right = 344.0
+margin_bottom = 252.0
 
-[node name="Camera" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 120.0
-margin_right = 308.0
-margin_bottom = 134.0
+[node name="VBoxContainer2" type="VBoxContainer" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 348.0
+margin_right = 677.0
+margin_bottom = 252.0
+rect_min_size = Vector2( 60, 0 )
+
+[node name="Camera" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 329.0
+margin_bottom = 14.0
 text = "Camera controls"
 
-[node name="HSeparator3" type="HSeparator" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 138.0
-margin_right = 308.0
-margin_bottom = 142.0
+[node name="HSeparator3" type="HSeparator" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 18.0
+margin_right = 329.0
+margin_bottom = 22.0
 
-[node name="control" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 146.0
-margin_right = 308.0
-margin_bottom = 177.0
+[node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 26.0
+margin_right = 329.0
+margin_bottom = 40.0
 rect_min_size = Vector2( 60, 0 )
 size_flags_horizontal = 3
-text = "Same as the previous section, plus:
-"
+text = "Same as the previous section, plus:"
 
-[node name="ui_page_up" type="HBoxContainer" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 181.0
-margin_right = 308.0
-margin_bottom = 195.0
+[node name="debug_force_camera" type="HBoxContainer" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 44.0
+margin_right = 329.0
+margin_bottom = 58.0
 script = ExtResource( 3 )
 
-[node name="control" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_page_up"]
-margin_right = 120.0
+[node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/debug_force_camera"]
+margin_right = 130.0
 margin_bottom = 14.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
 text = "Page Up "
 align = 1
+autowrap = true
 
-[node name="fill5" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_page_up"]
-margin_left = 124.0
-margin_right = 184.0
+[node name="fill5" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/debug_force_camera"]
+margin_left = 134.0
+margin_right = 195.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 60, 0 )
 size_flags_horizontal = 3
 text = "-----------"
 align = 1
 
-[node name="Description" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_page_up"]
-margin_left = 188.0
-margin_right = 308.0
+[node name="Description" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/debug_force_camera"]
+margin_left = 199.0
+margin_right = 329.0
 margin_bottom = 14.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
+text = "Toggle on/off"
+align = 1
+
+[node name="ui_page_up" type="HBoxContainer" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 62.0
+margin_right = 329.0
+margin_bottom = 76.0
+script = ExtResource( 3 )
+
+[node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_page_up"]
+margin_right = 130.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 130, 0 )
+size_flags_horizontal = 3
+text = "Page Up "
+align = 1
+autowrap = true
+
+[node name="fill5" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_page_up"]
+margin_left = 134.0
+margin_right = 195.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 60, 0 )
+size_flags_horizontal = 3
+text = "-----------"
+align = 1
+
+[node name="Description" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_page_up"]
+margin_left = 199.0
+margin_right = 329.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 130, 0 )
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
 text = "Move Up"
 align = 1
 
-[node name="ui_page_down" type="HBoxContainer" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 199.0
-margin_right = 308.0
-margin_bottom = 213.0
+[node name="ui_page_down" type="HBoxContainer" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 80.0
+margin_right = 329.0
+margin_bottom = 94.0
 alignment = 1
 script = ExtResource( 3 )
 
-[node name="control" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_page_down"]
-margin_right = 120.0
+[node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_page_down"]
+margin_right = 130.0
 margin_bottom = 14.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
 text = "Page Down"
 align = 1
+autowrap = true
 
-[node name="fill6" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_page_down"]
-margin_left = 124.0
-margin_right = 184.0
+[node name="fill6" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_page_down"]
+margin_left = 134.0
+margin_right = 195.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 60, 0 )
 size_flags_horizontal = 3
 text = "-----------"
 align = 1
 
-[node name="Description" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_page_down"]
-margin_left = 188.0
-margin_right = 308.0
+[node name="Description" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_page_down"]
+margin_left = 199.0
+margin_right = 329.0
 margin_bottom = 14.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
 text = "Move Down"
 align = 1
 
-[node name="faster" type="HBoxContainer" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 217.0
-margin_right = 308.0
-margin_bottom = 231.0
+[node name="faster" type="HBoxContainer" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 98.0
+margin_right = 329.0
+margin_bottom = 112.0
 alignment = 1
 
-[node name="control" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/faster"]
-margin_right = 120.0
+[node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/faster"]
+margin_right = 130.0
 margin_bottom = 14.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
 text = "Scroll Wheel Up"
 align = 1
+autowrap = true
 
-[node name="fill7" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/faster"]
-margin_left = 124.0
-margin_right = 184.0
+[node name="fill7" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/faster"]
+margin_left = 134.0
+margin_right = 195.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 60, 0 )
 size_flags_horizontal = 3
 text = "-----------"
 align = 1
 
-[node name="Description" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/faster"]
-margin_left = 188.0
-margin_right = 308.0
+[node name="Description" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/faster"]
+margin_left = 199.0
+margin_right = 329.0
 margin_bottom = 14.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
 text = "Move faster"
 align = 1
 
-[node name="slower" type="HBoxContainer" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 235.0
-margin_right = 308.0
-margin_bottom = 249.0
+[node name="slower" type="HBoxContainer" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 116.0
+margin_right = 329.0
+margin_bottom = 130.0
 alignment = 1
 
-[node name="control" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/slower"]
-margin_right = 120.0
+[node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/slower"]
+margin_right = 130.0
 margin_bottom = 14.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
 text = "Scroll Wheel Down"
 align = 1
+autowrap = true
 
-[node name="fill8" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/slower"]
-margin_left = 124.0
-margin_right = 184.0
+[node name="fill8" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/slower"]
+margin_left = 134.0
+margin_right = 195.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 60, 0 )
 size_flags_horizontal = 3
 text = "-----------"
 align = 1
 
-[node name="Description" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/slower"]
-margin_left = 188.0
-margin_right = 308.0
+[node name="Description" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/slower"]
+margin_left = 199.0
+margin_right = 329.0
 margin_bottom = 14.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
 text = "Move slower"
 align = 1
 
-[node name="HSeparator5" type="HSeparator" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 253.0
-margin_right = 308.0
-margin_bottom = 257.0
-rect_min_size = Vector2( 120, 0 )
+[node name="HSeparator5" type="HSeparator" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 134.0
+margin_right = 329.0
+margin_bottom = 138.0
 
-[node name="ui_accept" type="HBoxContainer" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 261.0
-margin_right = 308.0
-margin_bottom = 261.0
-alignment = 1
-
-[node name="ui_menu_options" type="HBoxContainer" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 265.0
-margin_right = 308.0
-margin_bottom = 265.0
-alignment = 1
-
-[node name="VSeparator4" type="VSeparator" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer"]
-margin_left = 641.0
-margin_right = 645.0
-margin_bottom = 265.0
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer"]
-margin_left = 649.0
-margin_right = 957.0
-margin_bottom = 265.0
-rect_min_size = Vector2( 120, 0 )
-
-[node name="Misc" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
-margin_right = 308.0
-margin_bottom = 14.0
+[node name="Misc" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 142.0
+margin_right = 329.0
+margin_bottom = 156.0
 text = "Misc"
 
-[node name="HSeparator4" type="HSeparator" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
-margin_top = 18.0
-margin_right = 308.0
-margin_bottom = 22.0
+[node name="HSeparator4" type="HSeparator" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 160.0
+margin_right = 329.0
+margin_bottom = 164.0
 
-[node name="ui_accept" type="HBoxContainer" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
-margin_top = 26.0
-margin_right = 308.0
-margin_bottom = 91.0
+[node name="ui_accept" type="HBoxContainer" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 168.0
+margin_right = 329.0
+margin_bottom = 199.0
 alignment = 1
 script = ExtResource( 3 )
 
-[node name="control" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer3/ui_accept"]
-margin_top = 17.0
-margin_right = 120.0
-margin_bottom = 48.0
-rect_min_size = Vector2( 120, 0 )
-size_flags_horizontal = 3
-text = "Scroll Wheel Down
-"
-
-[node name="fill9" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer3/ui_accept"]
-margin_left = 124.0
-margin_top = 25.0
-margin_right = 184.0
-margin_bottom = 39.0
-rect_min_size = Vector2( 60, 0 )
-size_flags_horizontal = 3
-text = "-----------"
-align = 1
-
-[node name="Description" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer3/ui_accept"]
-margin_left = 188.0
-margin_right = 308.0
-margin_bottom = 65.0
-rect_min_size = Vector2( 120, 0 )
-size_flags_horizontal = 3
-text = "Call up chat
-and also
-enter text 
-there"
-align = 1
-
-[node name="ui_menu_options" type="HBoxContainer" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
-margin_top = 95.0
-margin_right = 308.0
-margin_bottom = 126.0
-alignment = 1
-script = ExtResource( 3 )
-
-[node name="control" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer3/ui_menu_options"]
-margin_right = 120.0
+[node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_accept"]
+margin_right = 130.0
 margin_bottom = 31.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
 text = "Scroll Wheel Down
 "
+align = 1
+autowrap = true
 
-[node name="fill10" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer3/ui_menu_options"]
-margin_left = 124.0
+[node name="fill9" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_accept"]
+margin_left = 134.0
 margin_top = 8.0
-margin_right = 184.0
+margin_right = 194.0
 margin_bottom = 22.0
 rect_min_size = Vector2( 60, 0 )
 size_flags_horizontal = 3
 text = "-----------"
 align = 1
 
-[node name="Description" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer3/ui_menu_options"]
-margin_left = 188.0
-margin_right = 308.0
+[node name="Description" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_accept"]
+margin_left = 198.0
+margin_right = 329.0
 margin_bottom = 31.0
-rect_min_size = Vector2( 120, 0 )
+rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
+text = "Call up chat and also
+enter text there"
+align = 1
+
+[node name="ui_menu_options" type="HBoxContainer" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+editor/display_folded = true
+margin_top = 203.0
+margin_right = 329.0
+margin_bottom = 234.0
+alignment = 1
+script = ExtResource( 3 )
+
+[node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_menu_options"]
+margin_right = 130.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 130, 0 )
+size_flags_horizontal = 3
+text = "Scroll Wheel Down
+"
+align = 1
+autowrap = true
+
+[node name="fill10" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_menu_options"]
+margin_left = 134.0
+margin_top = 8.0
+margin_right = 195.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 60, 0 )
+size_flags_horizontal = 3
+text = "-----------"
+align = 1
+
+[node name="Description" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_menu_options"]
+margin_left = 199.0
+margin_right = 329.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 130, 0 )
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
 text = "Bring up in
 game menu"
 align = 1
 
-[node name="VSeparator3" type="VSeparator" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer"]
-margin_left = 961.0
-margin_right = 965.0
-margin_bottom = 265.0
+[node name="VSeparator4" type="VSeparator" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 681.0
+margin_right = 685.0
+margin_bottom = 252.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
 visible = false
 self_modulate = Color( 0.929412, 0.862745, 0.862745, 1 )
 material = SubResource( 3 )
@@ -789,7 +829,7 @@ Press C to toggle the Flying Camera mode:
          Scroll wheel down - move slower
 "
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
 visible = false
 self_modulate = Color( 0.929412, 0.862745, 0.862745, 1 )
 material = SubResource( 3 )
@@ -817,7 +857,7 @@ Esc  -  bring up in-game menu
 
 "
 
-[node name="HSeparator2" type="HSeparator" parent="Background/ScrollContainer/VBoxContainer"]
-margin_top = 350.0
-margin_right = 984.0
-margin_bottom = 354.0
+[node name="HSeparator2" type="HSeparator" parent="Background/ScrollContainer/CenterContainer/VBoxContainer"]
+margin_top = 264.0
+margin_right = 685.0
+margin_bottom = 268.0
