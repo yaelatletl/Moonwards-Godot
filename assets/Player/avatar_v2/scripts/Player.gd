@@ -141,6 +141,7 @@ func ApplyUserSettings():
 	shirt_mat.albedo_color = options.shirt_color
 	skin_mat.albedo_color = options.skin_color
 	hair_mat.albedo_color = options.hair_color
+	shoes_mat.albedo_color = options.shoes_color
 	
 	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.visible = (options.gender == options.genders.female)
 	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.visible = (options.gender == options.genders.male)
