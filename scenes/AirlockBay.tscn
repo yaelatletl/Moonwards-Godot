@@ -91,27 +91,32 @@ transform = Transform( -1.45704e-08, -2.20007e-15, -0.333333, -5.03319e-08, 0.33
 transform = Transform( 0.982396, 2.94605e-08, -0.186811, 0.186811, -1.60238e-07, 0.982396, -9.92308e-10, -1, -1.62921e-07, -3.44733, 0.64897, 0.0140755 )
 light_energy = 1.5
 shadow_enabled = true
+shadow_bias = 0.02
 spot_range = 1.76615
 spot_angle = 46.5622
 
 [node name="OmniLight" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 9.92309e-10, 0, 1, 0, -9.92309e-10, 0, 1, -11.9848, 0.421841, 0.000487328 )
 shadow_enabled = true
+shadow_bias = 0.02
 omni_range = 1.45152
 
 [node name="OmniLight3" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 9.92309e-10, 0, 1, 0, -9.92309e-10, 0, 1, -8.94403, 0.421841, 0.000487328 )
 shadow_enabled = true
+shadow_bias = 0.02
 omni_range = 1.45152
 
 [node name="OmniLight4" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 9.92309e-10, 0, 1, 0, -9.92309e-10, 0, 1, -15.2858, 0.421841, 0.733787 )
 shadow_enabled = true
+shadow_bias = 0.02
 omni_range = 1.45152
 
 [node name="OmniLight2" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 9.92309e-10, 0, 1, 0, -9.92309e-10, 0, 1, -5.37973, 0.470091, 0.000487328 )
 shadow_enabled = true
+shadow_bias = 0.02
 omni_range = 1.4666
 
 [node name="MainColonyAirlocksOverlay_LOD" type="MeshInstance" parent="."]

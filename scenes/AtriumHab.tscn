@@ -833,6 +833,7 @@ material/1 = null
 shape = SubResource( 20 )
 
 [node name="GardenWall" type="MeshInstance" parent="Interior/Atrium_Objects"]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65332, -1.69312, -0.275146 )
 mesh = ExtResource( 56 )
 material/0 = null
@@ -862,6 +863,7 @@ mesh = ExtResource( 59 )
 material/0 = null
 
 [node name="PondStructures" type="MeshInstance" parent="Interior/Atrium_Objects"]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.921387, -1.65771, -0.696289 )
 mesh = ExtResource( 60 )
 material/0 = null
@@ -1146,15 +1148,19 @@ omni_range = 1.96585
 
 [node name="OmniLight3" type="OmniLight" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.02951, 0.70059, -0.206543 )
-light_energy = 0.4
+light_energy = 0.8
 light_bake_mode = 2
+shadow_enabled = true
+shadow_bias = 0.02
 omni_range = 3.33062
 
 [node name="OmniLight4" type="OmniLight" parent="Interior"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.34586, 0.798223, -0.206543 )
-light_energy = 0.4
+light_energy = 0.8
 light_indirect_energy = 1.5
 light_bake_mode = 2
+shadow_enabled = true
+shadow_bias = 0.02
 omni_range = 3.39642
 
 [node name="Quarters" type="Spatial" parent="Interior"]
