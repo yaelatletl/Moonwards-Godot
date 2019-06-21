@@ -25,10 +25,10 @@ export (float, 0.0, 1.0) var acceleration = 0.1
 export (float, 0.0, 1.0) var deceleration = 0.5
 export var max_speed = Vector3(1.0, 1.0, 1.0)
 export var local = true
-export var forward_action = "ui_up"
-export var backward_action = "ui_down"
-export var left_action = "ui_left"
-export var right_action = "ui_right"
+export var forward_action = "move_forwards"
+export var backward_action = "move_backwards"
+export var left_action = "move_left"
+export var right_action = "move_right"
 export var up_action = "ui_page_up"
 export var down_action = "ui_page_down"
 export var ui_mlook = "ui_mlook"
@@ -49,7 +49,7 @@ var _speed = Vector3(0.0, 0.0, 0.0)
 var _gui
 
 func _ready():
-	
+
 	_check_actions([forward_action, backward_action, left_action, right_action, gui_action, up_action, down_action, ui_mlook])
 
 	if privot:
@@ -76,7 +76,7 @@ func _input(event):
 	if mouselook:
 		if event is InputEventMouseMotion:
 			_mouse_position = event.relative
-    
+
 	if event is InputEventMouseButton:
 		if event.is_pressed():
 			# zoom in/out
@@ -104,7 +104,7 @@ func _input(event):
 			_direction.x = 1
 		elif not Input.is_action_pressed(left_action) and not Input.is_action_pressed(right_action):
 			_direction.x = 0
-			
+
 		if event.is_action_pressed(up_action):
 			_direction.y = 1
 		if event.is_action_pressed(down_action):
@@ -138,11 +138,11 @@ func _process(delta):
 
 func _update_movement(delta):
 	var offset = max_speed * acceleration * _direction
-	
+
 	_speed.x = clamp(_speed.x + offset.x, -max_speed.x, max_speed.x)
 	_speed.y = clamp(_speed.y + offset.y, -max_speed.y, max_speed.y)
 	_speed.z = clamp(_speed.z + offset.z, -max_speed.z, max_speed.z)
-	
+
 	# Apply deceleration if no input
 	if _direction.x == 0:
 		_speed.x *= (1.0 - deceleration)
@@ -193,7 +193,7 @@ func _update_distance():
 
 func _update_process_func():
 	# Use physics process if collision are enabled
-	# Why? 
+	# Why?
 	if collisions and privot:
 		set_physics_process(true)
 		set_process(false)

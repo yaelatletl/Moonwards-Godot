@@ -158,10 +158,10 @@ acceleration = 0.5
 deceleration = 0.5
 max_speed = Vector3( 1, 1, 1 )
 local = true
-forward_action = "ui_up"
-backward_action = "ui_down"
-left_action = "ui_left"
-right_action = "ui_right"
+forward_action = "move_forwards"
+backward_action = "move_backwards"
+left_action = "move_left"
+right_action = "move_right"
 up_action = "ui_page_up"
 down_action = "ui_page_down"
 ui_mlook = "ui_mlook"
@@ -368,5 +368,3 @@ bygroup = "player"
 
 shape = SubResource( 6 )
 disabled = false
-
-
