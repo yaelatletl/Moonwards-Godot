@@ -156,12 +156,12 @@ text = "-----------"
 align = 1
 
 [node name="Description" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_forwards"]
-margin_left = 198.0
-margin_right = 328.0
+margin_left = 197.302
+margin_right = 327.302
 margin_bottom = 14.0
 rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
-custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
+custom_colors/font_color = Color( 1, 0.984314, 0, 1 )
 text = "Forward"
 align = 1
 valign = 1
@@ -198,7 +198,7 @@ margin_right = 328.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
-custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
+custom_colors/font_color = Color( 1, 0.984314, 0, 1 )
 text = "Backward"
 align = 1
 valign = 1
@@ -235,7 +235,7 @@ margin_right = 328.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
-custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
+custom_colors/font_color = Color( 1, 0.984314, 0, 1 )
 text = "Sideways left"
 align = 1
 valign = 1
@@ -268,11 +268,12 @@ align = 1
 
 [node name="Description" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_right"]
 margin_left = 198.0
+margin_top = -0.902527
 margin_right = 328.0
-margin_bottom = 14.0
+margin_bottom = 13.0975
 rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
-custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
+custom_colors/font_color = Color( 1, 0.984314, 0, 1 )
 text = "Sideways right"
 align = 1
 valign = 1
@@ -305,11 +306,12 @@ align = 1
 
 [node name="Description" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/faster"]
 margin_left = 198.0
+margin_top = -0.902527
 margin_right = 328.0
-margin_bottom = 14.0
+margin_bottom = 13.0975
 rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
-custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
+custom_colors/font_color = Color( 1, 0.984314, 0, 1 )
 text = "Change speed"
 align = 1
 valign = 1
@@ -342,11 +344,12 @@ align = 1
 
 [node name="Description" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/jump"]
 margin_left = 198.0
+margin_top = -0.902527
 margin_right = 328.0
-margin_bottom = 14.0
+margin_bottom = 13.0975
 rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
-custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
+custom_colors/font_color = Color( 1, 0.984314, 0, 1 )
 text = "Jump"
 align = 1
 valign = 1
@@ -382,7 +385,7 @@ margin_right = 328.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
-custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
+custom_colors/font_color = Color( 1, 0.984314, 0, 1 )
 text = "Zoom view"
 align = 1
 valign = 1
@@ -421,7 +424,7 @@ margin_right = 328.0
 margin_bottom = 48.0
 rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
-custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
+custom_colors/font_color = Color( 1, 0.984314, 0, 1 )
 text = "Use or activate 
 (e.g. vertical stairs)
 "
@@ -475,7 +478,7 @@ margin_right = 328.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
-custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
+custom_colors/font_color = Color( 1, 0.984314, 0, 1 )
 text = "Go back in time 5s"
 align = 1
 
@@ -538,7 +541,7 @@ margin_right = 329.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
-custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
+custom_colors/font_color = Color( 1, 0.984314, 0, 1 )
 text = "Toggle on/off"
 align = 1
 
@@ -572,7 +575,7 @@ margin_right = 329.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
-custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
+custom_colors/font_color = Color( 1, 0.984314, 0, 1 )
 text = "Move Up"
 align = 1
 
@@ -607,7 +610,7 @@ margin_right = 329.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
-custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
+custom_colors/font_color = Color( 1, 0.984314, 0, 1 )
 text = "Move Down"
 align = 1
 
@@ -641,7 +644,7 @@ margin_right = 329.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
-custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
+custom_colors/font_color = Color( 1, 0.984314, 0, 1 )
 text = "Move faster"
 align = 1
 
@@ -675,7 +678,7 @@ margin_right = 329.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
-custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
+custom_colors/font_color = Color( 1, 0.984314, 0, 1 )
 text = "Move slower"
 align = 1
 
@@ -695,14 +698,14 @@ margin_top = 160.0
 margin_right = 329.0
 margin_bottom = 164.0
 
-[node name="ui_accept" type="HBoxContainer" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="toggle_chat" type="HBoxContainer" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 margin_top = 168.0
 margin_right = 329.0
 margin_bottom = 199.0
 alignment = 1
 script = ExtResource( 3 )
 
-[node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_accept"]
+[node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/toggle_chat"]
 margin_right = 130.0
 margin_bottom = 31.0
 rect_min_size = Vector2( 130, 0 )
@@ -712,7 +715,7 @@ text = "Scroll Wheel Down
 align = 1
 autowrap = true
 
-[node name="fill9" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_accept"]
+[node name="fill9" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/toggle_chat"]
 margin_left = 134.0
 margin_top = 8.0
 margin_right = 194.0
@@ -722,13 +725,13 @@ size_flags_horizontal = 3
 text = "-----------"
 align = 1
 
-[node name="Description" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_accept"]
+[node name="Description" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/toggle_chat"]
 margin_left = 198.0
 margin_right = 329.0
 margin_bottom = 31.0
 rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
-custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
+custom_colors/font_color = Color( 1, 0.984314, 0, 1 )
 text = "Call up chat and also
 enter text there"
 align = 1
@@ -767,7 +770,7 @@ margin_right = 329.0
 margin_bottom = 31.0
 rect_min_size = Vector2( 130, 0 )
 size_flags_horizontal = 3
-custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
+custom_colors/font_color = Color( 1, 0.984314, 0, 1 )
 text = "Bring up in
 game menu"
 align = 1
