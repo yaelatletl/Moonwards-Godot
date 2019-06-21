@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://materials/Metal-MixedAlloy.tres" type="Material" id=1]
 [ext_resource path="res://materials/Black.tres" type="Material" id=2]
@@ -56,11 +56,21 @@ surfaces/3 = {
 "vertex_count": 1308
 }
 
+[sub_resource type="CylinderShape" id=2]
+radius = 0.0521459
+height = 0.467994
+
 [node name="Scene" type="Spatial"]
 
-[node name="Cylinder" type="MeshInstance" parent="."]
+[node name="Makers_Monument" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
 material/2 = null
 material/3 = null
+
+[node name="StaticBody" type="StaticBody" parent="Makers_Monument"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Makers_Monument/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.231844, 0 )
+shape = SubResource( 2 )
