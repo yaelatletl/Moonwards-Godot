@@ -167,7 +167,7 @@ margin_top = 168.0
 margin_right = 272.0
 margin_bottom = 172.0
 
-[node name="ui_accept" parent="Main/Sub2" instance=ExtResource( 2 )]
+[node name="toggle_chat" parent="Main/Sub2" instance=ExtResource( 2 )]
 margin_top = 176.0
 margin_right = 272.0
 margin_bottom = 196.0
