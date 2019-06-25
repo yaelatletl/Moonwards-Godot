@@ -243,6 +243,10 @@ alt={
  ]
 }
 
+[layer_names]
+
+3d_physics/layer_2="InteractiveObject"
+
 [physics]
 
 common/physics_fps=30

@@ -8,6 +8,3 @@ metallic = 0.31
 roughness = 0.28
 transmission_enabled = true
 transmission = Color( 0.556863, 0.552941, 0.552941, 1 )
-distance_fade_mode = 3
-distance_fade_min_distance = 0.1
-distance_fade_max_distance = 0.2

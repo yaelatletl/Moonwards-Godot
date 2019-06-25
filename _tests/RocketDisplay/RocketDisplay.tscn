@@ -1,16 +1,74 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://_tests/RocketDisplay/RocketDisplay.gd" type="Script" id=1]
-[ext_resource path="res://_tests/RocketDisplay/SlideButton.tscn" type="PackedScene" id=2]
-[ext_resource path="res://_tests/RocketDisplay/InfoBox.tscn" type="PackedScene" id=3]
-[ext_resource path="res://_tests/RocketDisplay/CameraControl.gd" type="Script" id=4]
-[ext_resource path="res://model_assets/Contributions/SCTR_Bucknell_Opt.tscn" type="PackedScene" id=5]
-[ext_resource path="res://_tests/RocketDisplay/fire_particle.png" type="Texture" id=6]
+[ext_resource path="res://_tests/RocketDisplay/InfoBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://themes/MainMenu.tres" type="Theme" id=3]
+[ext_resource path="res://_tests/RocketDisplay/SlideButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://_tests/RocketDisplay/CameraControl.gd" type="Script" id=5]
+[ext_resource path="res://model_assets/Contributions/SCTR_Bucknell_Opt.tscn" type="PackedScene" id=6]
+[ext_resource path="res://_tests/RocketDisplay/fire_particle.png" type="Texture" id=7]
+[ext_resource path="res://_tests/RocketDisplay/FireParticleMesh.obj" type="ArrayMesh" id=8]
 
-[sub_resource type="CubeMesh" id=19]
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 5, 5, 5 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "Stage1"
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 10, 10, 10 )
+
+[sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="Animation" id=22]
+resource_name = "Stage0"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Rocket:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 45, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Rocket/RocketBody/RocketScoop:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Rocket/Particles:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Rocket/OmniLight:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=4]
 length = 2.0
 step = 0.05
 tracks/0/type = "value"
@@ -25,21 +83,8 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( 45, 0, 0 ), Vector3( 0, 0, 0 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Rocket/Particles:emitting")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
 
-[sub_resource type="Animation" id=2]
-resource_name = "Stage2"
+[sub_resource type="Animation" id=5]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rocket/Particles:emitting")
@@ -65,9 +110,20 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Rocket/OmniLight:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.9 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=3]
-resource_name = "Stage3"
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rocket:rotation_degrees")
 tracks/0/interp = 1
@@ -94,9 +150,20 @@ tracks/1/keys = {
 "method": "StartNozzleAnimation"
 } ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Rocket/RocketBody/RocketScoop:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
-[sub_resource type="Animation" id=18]
-resource_name = "Stage4"
+[sub_resource type="Animation" id=7]
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -112,7 +179,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera:translation")
 tracks/0/interp = 1
@@ -150,7 +217,7 @@ tracks/2/keys = {
 "values": [ Vector3( 1, 10, -1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera:translation")
 tracks/0/interp = 1
@@ -188,7 +255,7 @@ tracks/2/keys = {
 "values": [ Vector3( 1, 19, -1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=10]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera:translation")
 tracks/0/interp = 1
@@ -226,8 +293,7 @@ tracks/2/keys = {
 "values": [ Vector3( 0, 8, 0 ) ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "4"
+[sub_resource type="Animation" id=11]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera:translation")
 tracks/0/interp = 1
@@ -265,7 +331,8 @@ tracks/2/keys = {
 "values": [ Vector3( 0, 25, 0 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=12]
+length = 2.0
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera:translation")
@@ -274,7 +341,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( -14, 8, 8 ), Vector3( -14, 17, 14 ) ]
@@ -286,68 +353,110 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, -90, 0 ), Vector3( 0, 90, 0 ) ]
 }
 
-[sub_resource type="ProceduralSky" id=9]
+[sub_resource type="ProceduralSky" id=13]
 
-[sub_resource type="Environment" id=10]
+[sub_resource type="Environment" id=14]
 background_mode = 2
-background_sky = SubResource( 9 )
+background_sky = SubResource( 13 )
 
-[sub_resource type="SpatialMaterial" id=11]
+[sub_resource type="SpatialMaterial" id=15]
 flags_transparent = true
 flags_unshaded = true
 vertex_color_use_as_albedo = true
 params_specular_mode = 4
-params_blend_mode = 1
 params_cull_mode = 2
-params_billboard_mode = 3
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-albedo_texture = ExtResource( 6 )
+albedo_texture = ExtResource( 7 )
+proximity_fade_enable = true
+proximity_fade_distance = 0.1
 
-[sub_resource type="Gradient" id=12]
+[sub_resource type="Gradient" id=16]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 0.682617, 0, 1 )
 
-[sub_resource type="GradientTexture" id=13]
-gradient = SubResource( 12 )
+[sub_resource type="GradientTexture" id=17]
+gradient = SubResource( 16 )
 
-[sub_resource type="Curve" id=14]
-max_value = 15.0
-_data = [ Vector2( 0, 1 ), 0.0, 33.5864, 0, 0, Vector2( 1, 15 ), 3.78708, 0.0, 0, 0 ]
+[sub_resource type="Curve" id=18]
+max_value = 3.0
+_data = [ Vector2( 0, 0 ), 0.0, 4.67949, 0, 0, Vector2( 1, 3 ), 5.64853, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=15]
-curve = SubResource( 14 )
+[sub_resource type="CurveTexture" id=19]
+curve = SubResource( 18 )
 
-[sub_resource type="ParticlesMaterial" id=16]
+[sub_resource type="ParticlesMaterial" id=20]
 flag_align_y = true
-spread = 3.0
+flag_rotate_y = true
+spread = 2.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 100.0
-scale_curve = SubResource( 15 )
-color_ramp = SubResource( 13 )
-
-[sub_resource type="PlaneMesh" id=17]
+angular_velocity = 1.0
+linear_accel = 37.74
+angle = 720.0
+angle_random = 1.0
+scale = 0.1
+scale_curve = SubResource( 19 )
+color_ramp = SubResource( 17 )
 
 [node name="RocketDisplay" type="Spatial"]
+
+[node name="Controller" type="Area" parent="."]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0 )
+collision_layer = 2
+collision_mask = 0
 script = ExtResource( 1 )
 
-[node name="Control" type="Control" parent="."]
+[node name="InfoBox1" parent="Controller" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 6, -3 )
+visible = false
+text = " If superconducting magnets are used, a high degree of stabiility can be attained and energy losses due to interacting magnetic fields are very small. The Moon has big advantages here, too. The night-time temperature on the lunar surface drops below the temperature at which several high-temperature superconductors work."
+control_path = NodePath("../../../../../Spatial/Control/VBoxContainer/HBoxContainer/Button1")
+
+[node name="InfoBox2" parent="Controller" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 34, 13 )
+visible = false
+text = " To reduce losses from drag, flywheels work in a vacuum. The Moon has plenty of that.
+Friction losses in the bearings also need to be minimized. Suspending the flywheel's shaft magnetically eliminates friction completely. The Moon again has a big advantage here in that only a sixth of the force is needed to suspend a given mass, allowing the use of much smaller magnets for the same job."
+control_path = NodePath("../../../../../Spatial/Control/VBoxContainer/HBoxContainer/Button2")
+
+[node name="InfoBox3" parent="Controller" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 6, -2 )
+visible = false
+text = "Flywheels store energy as rotation. A motor spins them up until they are rotating at thousands of times per minute. For the Moon, this would be done during the day with energy from solar panels. Energy is drawn from the flywheel by instead making the flywheel spin the motor. That causes its electromagnet to generate an electric current. This drains their energy over the lunar night when the solar panels aren't working. "
+control_path = NodePath("../../../../../Spatial/Control/VBoxContainer/HBoxContainer/Button3")
+
+[node name="InfoBox4" parent="Controller" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 13, 6 )
+visible = false
+text = "Stone frames are also desirable as high-speed flywheels spin so fast that they are under tremendous outward tension at their rims. Occasionally this leads to catastrophic failure in which the flywheel shatters, the fragments flying in all directions."
+control_path = NodePath("../../../../../Spatial/Control/VBoxContainer/HBoxContainer/Button4")
+
+[node name="CollisionShape" type="CollisionShape" parent="Controller"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.3441, -21.6618, 4.00301 )
+shape = SubResource( 1 )
+
+[node name="Block" type="MeshInstance" parent="Controller/CollisionShape"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.170292, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Control" type="Control" parent="Controller"]
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Controller/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-
-[node name="MainWindow" type="HBoxContainer" parent="Control/VBoxContainer"]
+[node name="MainWindow" type="HBoxContainer" parent="Controller/Control/VBoxContainer"]
 margin_right = 1024.0
 margin_bottom = 700.0
 rect_min_size = Vector2( 0, 500 )
@@ -355,7 +464,7 @@ mouse_filter = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="PreviousButton" type="Button" parent="Control/VBoxContainer/MainWindow"]
+[node name="PreviousButton" type="Button" parent="Controller/Control/VBoxContainer/MainWindow"]
 margin_top = 325.0
 margin_right = 100.0
 margin_bottom = 375.0
@@ -364,14 +473,14 @@ size_flags_horizontal = 5
 size_flags_vertical = 4
 text = "Previous"
 
-[node name="Control" type="Control" parent="Control/VBoxContainer/MainWindow"]
+[node name="Control" type="Control" parent="Controller/Control/VBoxContainer/MainWindow"]
 margin_left = 104.0
 margin_right = 920.0
 margin_bottom = 700.0
 mouse_filter = 2
 size_flags_horizontal = 3
 
-[node name="NextButton" type="Button" parent="Control/VBoxContainer/MainWindow"]
+[node name="NextButton" type="Button" parent="Controller/Control/VBoxContainer/MainWindow"]
 margin_left = 924.0
 margin_top = 325.0
 margin_right = 1024.0
@@ -380,7 +489,7 @@ rect_min_size = Vector2( 100, 50 )
 size_flags_vertical = 4
 text = "Next"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Controller/Control/VBoxContainer"]
 visible = false
 margin_top = 504.0
 margin_right = 1024.0
@@ -390,127 +499,96 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Button1" parent="Control/VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+[node name="Button1" parent="Controller/Control/VBoxContainer/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 406.0
 margin_right = 456.0
-control_path = NodePath("../../../..")
+control_path = NodePath("../../../../../Controller")
+info_box = NodePath("../../../../InfoBox1")
 stage = 1
 
-[node name="InfoBox" parent="Control/VBoxContainer/HBoxContainer/Button1" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 6, -3 )
-visible = false
-text = " If superconducting magnets are used, a high degree of stabiility can be attained and energy losses due to interacting magnetic fields are very small. The Moon has big advantages here, too. The night-time temperature on the lunar surface drops below the temperature at which several high-temperature superconductors work."
-control_path = NodePath("..")
-
-[node name="Button2" parent="Control/VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+[node name="Button2" parent="Controller/Control/VBoxContainer/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 460.0
 margin_right = 510.0
-control_path = NodePath("../../../..")
+control_path = NodePath("../../../../../Controller")
+info_box = NodePath("../../../../InfoBox2")
 stage = 2
 
-[node name="Label" parent="Control/VBoxContainer/HBoxContainer/Button2" index="1"]
-text = "2"
-
-[node name="InfoBox" parent="Control/VBoxContainer/HBoxContainer/Button2" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 34, 13 )
-visible = false
-text = " To reduce losses from drag, flywheels work in a vacuum. The Moon has plenty of that.
-Friction losses in the bearings also need to be minimized. Suspending the flywheel's shaft magnetically eliminates friction completely. The Moon again has a big advantage here in that only a sixth of the force is needed to suspend a given mass, allowing the use of much smaller magnets for the same job."
-control_path = NodePath("..")
-
-[node name="Button3" parent="Control/VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+[node name="Button3" parent="Controller/Control/VBoxContainer/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 514.0
 margin_right = 564.0
-control_path = NodePath("../../../..")
+control_path = NodePath("../../../../../Controller")
+info_box = NodePath("../../../../InfoBox3")
 stage = 3
 
-[node name="Label" parent="Control/VBoxContainer/HBoxContainer/Button3" index="1"]
-text = "3"
-
-[node name="InfoBox" parent="Control/VBoxContainer/HBoxContainer/Button3" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 6, -2 )
-visible = false
-text = "Flywheels store energy as rotation. A motor spins them up until they are rotating at thousands of times per minute. For the Moon, this would be done during the day with energy from solar panels. Energy is drawn from the flywheel by instead making the flywheel spin the motor. That causes its electromagnet to generate an electric current. This drains their energy over the lunar night when the solar panels aren't working. "
-control_path = NodePath("..")
-
-[node name="Button4" parent="Control/VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+[node name="Button4" parent="Controller/Control/VBoxContainer/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 568.0
 margin_right = 618.0
-control_path = NodePath("../../../..")
+control_path = NodePath("../../../../../Controller")
+info_box = NodePath("../../../../InfoBox4")
 stage = 4
 
-[node name="Label" parent="Control/VBoxContainer/HBoxContainer/Button4" index="1"]
-text = "4"
+[node name="Camera" type="Camera" parent="Controller"]
+transform = Transform( 0.45958, 0, -0.888136, 0, 1, 0, 0.888136, 0, 0.45958, -14, 9.368, 8.912 )
+current = true
+near = 0.01
 
-[node name="InfoBox4" parent="Control/VBoxContainer/HBoxContainer/Button4" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 13, 6 )
-visible = false
-text = "Stone frames are also desirable as high-speed flywheels spin so fast that they are under tremendous outward tension at their rims. Occasionally this leads to catastrophic failure in which the flywheel shatters, the fragments flying in all directions."
-control_path = NodePath("..")
-
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.750192, 0.388945, -0.534728, 0, 0.808699, 0.588223, 0.66122, -0.44128, 0.606679, -7.5696, 16.2115, 14.0338 )
-
-[node name="CameraPivot" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0 )
-script = ExtResource( 4 )
+[node name="CameraPivot" type="Spatial" parent="Controller"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 10, -1 )
+script = ExtResource( 5 )
+max_zoom_distance = 30.0
 camera_path = NodePath("../Camera")
 
-[node name="MeshInstance" type="MeshInstance" parent="CameraPivot"]
+[node name="MeshInstance" type="MeshInstance" parent="Controller/CameraPivot"]
 visible = false
-mesh = SubResource( 19 )
+mesh = SubResource( 3 )
 material/0 = null
 
-[node name="CameraPosition" type="Spatial" parent="CameraPivot"]
+[node name="CameraPosition" type="Spatial" parent="Controller/CameraPivot"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90735e-06, 0, 15 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Stage1 = SubResource( 1 )
-anims/Stage2 = SubResource( 2 )
-anims/Stage3 = SubResource( 3 )
-anims/Stage4 = SubResource( 18 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Controller"]
+anims/Stage0 = SubResource( 22 )
+anims/Stage1 = SubResource( 4 )
+anims/Stage2 = SubResource( 5 )
+anims/Stage3 = SubResource( 6 )
+anims/Stage4 = SubResource( 7 )
 
-[node name="CameraAnimationPlayer" type="AnimationPlayer" parent="."]
-anims/1 = SubResource( 4 )
-anims/2 = SubResource( 5 )
-anims/3 = SubResource( 6 )
-anims/4 = SubResource( 7 )
-anims/Transition = SubResource( 8 )
+[node name="CameraAnimationPlayer" type="AnimationPlayer" parent="Controller"]
+anims/1 = SubResource( 8 )
+anims/2 = SubResource( 9 )
+anims/3 = SubResource( 10 )
+anims/4 = SubResource( 11 )
+anims/Transition = SubResource( 12 )
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 10 )
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Controller"]
+environment = SubResource( 14 )
 
-[node name="Rocket" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0 )
+[node name="Rocket" parent="Controller" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
-[node name="Particles" type="Particles" parent="Rocket"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 3.98478, 0.348623 )
-material_override = SubResource( 11 )
-cast_shadow = 0
-lifetime = 0.15
-local_coords = false
-draw_order = 2
-process_material = SubResource( 16 )
-draw_pass_1 = SubResource( 17 )
-
-[node name="ThrustFanBlades_Opt" parent="Rocket/RocketBody" index="2"]
+[node name="ThrustFanBlades_Opt" parent="Controller/Rocket/RocketBody" index="2"]
 transform = Transform( -1, 0, 5.80134e-07, 0, 1, 0, -5.80134e-07, 0, -1, 3.63588e-06, -1.8605, -2.38419e-07 )
 
-[node name="VariableInlet" parent="Rocket/RocketBody" index="3"]
+[node name="VariableInlet" parent="Controller/Rocket/RocketBody" index="3"]
 "blend_shapes/Key 1" = 0.0
 
-[node name="OmniLight" parent="Rocket" index="2"]
+[node name="OmniLight" parent="Controller/Rocket" index="1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.612558, 0 )
 visible = false
-[connection signal="pressed" from="Control/VBoxContainer/MainWindow/PreviousButton" to="." method="PreviousStage"]
-[connection signal="pressed" from="Control/VBoxContainer/MainWindow/NextButton" to="." method="NextStage"]
+omni_range = 0.5
 
-[editable path="Control/VBoxContainer/HBoxContainer/Button1"]
+[node name="Particles" type="Particles" parent="Controller/Rocket"]
+transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, 0, 8.64834, 0.348623 )
+material_override = SubResource( 15 )
+cast_shadow = 0
+emitting = false
+lifetime = 0.2
+visibility_aabb = AABB( -4, -4, -4, 8, 8, 80.18 )
+local_coords = false
+process_material = SubResource( 20 )
+draw_pass_1 = ExtResource( 8 )
+[connection signal="pressed" from="Controller/Control/VBoxContainer/MainWindow/PreviousButton" to="Controller" method="PreviousStage"]
+[connection signal="pressed" from="Controller/Control/VBoxContainer/MainWindow/NextButton" to="Controller" method="NextStage"]
 
-[editable path="Control/VBoxContainer/HBoxContainer/Button2"]
-
-[editable path="Control/VBoxContainer/HBoxContainer/Button3"]
-
-[editable path="Control/VBoxContainer/HBoxContainer/Button4"]
-
-[editable path="Rocket"]
+[editable path="Controller/Rocket"]

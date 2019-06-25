@@ -224,7 +224,7 @@ func _input(event):
 	
 	if event.is_action_pressed("use"):
 		if not climbing_stairs:
-			DoStairsCheck()
+			DoInteractiveObjectCheck()
 		else:
 			StopStairsClimb()
 	
@@ -458,7 +458,7 @@ func StopStairsClimb():
 	climb_point = -1
 	$KinematicBody/AnimationTree["parameters/MovementState/current"] = walking
 
-func DoStairsCheck():
+func DoInteractiveObjectCheck():
 	var space_state = get_world().direct_space_state
 	var params = PhysicsShapeQueryParameters.new()
 	var sphere = SphereShape.new()
@@ -469,30 +469,27 @@ func DoStairsCheck():
 	params.collide_with_areas = true
 	params.collide_with_bodies = false
 	params.transform.origin = kb_pos
+	params.collision_mask = 2
 	
 	var results = space_state.intersect_shape(params)
-	#Remove all Area objects that are not stairs.
-	var result_index = 0
-	for result in range(results.size()):
-		if not results[result_index].collider is stairs_class:
-			results.remove(result_index)
-		else:
-			result_index += 1
 	
 	#Get the closest stairs to start climbing.
-	var closest_stairs = null
+	var closest_object = null
 	for result in results:
-		if closest_stairs == null or result.collider.global_transform.origin.distance_to(kb_pos) < closest_stairs.global_transform.origin.distance_to(kb_pos):
-			closest_stairs = result.collider
+		if closest_object == null or result.collider.global_transform.origin.distance_to(kb_pos) < closest_object.global_transform.origin.distance_to(kb_pos):
+			closest_object = result.collider
 	
-	if closest_stairs != null:
-		climbing_stairs = true
-		stairs = closest_stairs
-		climb_look_direction = stairs.GetLookDirection(kb_pos)
-		#Get the closest step to start climbing from.
-		for index in stairs.climb_points.size():
-			if climb_point == -1 or stairs.climb_points[index].distance_to(kb_pos) < stairs.climb_points[climb_point].distance_to(kb_pos):
-				climb_point = index
+	if closest_object != null:
+		if closest_object is stairs_class:
+			climbing_stairs = true
+			stairs = closest_object
+			climb_look_direction = stairs.GetLookDirection(kb_pos)
+			#Get the closest step to start climbing from.
+			for index in stairs.climb_points.size():
+				if climb_point == -1 or stairs.climb_points[index].distance_to(kb_pos) < stairs.climb_points[climb_point].distance_to(kb_pos):
+					climb_point = index
+		elif closest_object.has_method("Activate"):
+			closest_object.Activate()
 
 #################################
 # networking functions
