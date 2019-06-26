@@ -67,8 +67,10 @@ func debug_apply_options():
 
 var camera_ready_path
 var camera_ready_oldcamera
+var camera
+var camera_path
+var camera_used
 func camera_ready(force=false):
-	
 	#The debug camera can not be spawned when the chat or other UI is active.
 	if UIManager.has_ui and not camera_ready_path:
 		return
@@ -77,28 +79,30 @@ func camera_ready(force=false):
 	var root = get_tree().current_scene
 	if camera_ready_path:
 		root.get_node(camera_ready_path).queue_free()
+		
 		if camera_ready_oldcamera:
 			camera_ready_oldcamera.current = true
 		camera_ready_oldcamera = null
 		camera_ready_path = null
+		yield(get_tree(), "idle_frame")
+		UIManager.ClearUI()
 		return
 	
 	var active = false
-	var camera_ready_oldcamera = get_tree().root.get_viewport().get_camera()
+	camera_ready_oldcamera = get_tree().root.get_viewport().get_camera()
 	if camera_ready_oldcamera:
 		active = true
 	if not active or force:
-		var camera_used = options.get("dev", "flycamera", 0)
-		var camera_path = options.fly_cameras[camera_used].path
-		var camera = load(camera_path).instance()
+		camera_used = options.get("dev", "flycamera", 0)
+		camera_path = options.fly_cameras[camera_used].path
+		camera = load(camera_path).instance()
 		root.add_child(camera)
 		camera_ready_path = root.get_path_to(camera)
 		camera.current = true
 		if active:
-			print("sync camera position with old camera")
+			printd("sync camera position with old camera")
 			camera.camera.global_transform = camera_ready_oldcamera.global_transform
 		printd("added fly camera to scene, index %s" % camera_used)
-		
 
 func on_scene_change():
 	printd("on_scene_change")

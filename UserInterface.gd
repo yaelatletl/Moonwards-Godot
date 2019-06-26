@@ -9,7 +9,7 @@ var diagram_visible = false
 
 func _ready():
 	UIManager.RegisterBaseUI(self)
-	#SceneDiagram = load(SceneDiagram)
+	SceneDiagram = load(SceneDiagram)
 	#var now = SceneDiagram.instance()
 	#now.name="SceneDiagram"
 	#var time = Timer.new()
