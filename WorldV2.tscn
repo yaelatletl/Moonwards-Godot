@@ -33,12 +33,12 @@ material/0 = SubResource( 2 )
 transform = Transform( 0.464405, -0.383106, -0.798472, 0.542739, -0.589336, 0.598429, -0.69983, -0.711276, -0.0657634, -115.743, -1866.29, 119.666 )
 light_energy = 2.0
 shadow_enabled = true
-shadow_bias = 0.02
+shadow_bias = 0.03
 directional_shadow_split_1 = 0.01
 directional_shadow_split_2 = 0.02
 directional_shadow_split_3 = 0.05
 directional_shadow_blend_splits = true
-directional_shadow_normal_bias = 0.0
+directional_shadow_normal_bias = 0.15
 directional_shadow_depth_range = 1
 
 [node name="Terrain" parent="." instance=ExtResource( 3 )]
