@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://_tests/RocketDisplay/RocketDisplay.gd" type="Script" id=1]
 [ext_resource path="res://_tests/RocketDisplay/InfoBox.tscn" type="PackedScene" id=2]
@@ -17,7 +17,7 @@ size = Vector3( 10, 10, 10 )
 
 [sub_resource type="CubeMesh" id=3]
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=4]
 resource_name = "Stage0"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rocket:rotation_degrees")
@@ -68,7 +68,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 2.0
 step = 0.05
 tracks/0/type = "value"
@@ -84,7 +84,7 @@ tracks/0/keys = {
 "values": [ Vector3( 45, 0, 0 ), Vector3( 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rocket/Particles:emitting")
@@ -123,7 +123,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rocket:rotation_degrees")
 tracks/0/interp = 1
@@ -163,7 +163,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -179,7 +179,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera:translation")
 tracks/0/interp = 1
@@ -217,7 +217,7 @@ tracks/2/keys = {
 "values": [ Vector3( 1, 10, -1 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera:translation")
 tracks/0/interp = 1
@@ -255,7 +255,7 @@ tracks/2/keys = {
 "values": [ Vector3( 1, 19, -1 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera:translation")
 tracks/0/interp = 1
@@ -293,7 +293,7 @@ tracks/2/keys = {
 "values": [ Vector3( 0, 8, 0 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera:translation")
 tracks/0/interp = 1
@@ -331,7 +331,7 @@ tracks/2/keys = {
 "values": [ Vector3( 0, 25, 0 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 length = 2.0
 step = 0.05
 tracks/0/type = "value"
@@ -359,13 +359,7 @@ tracks/1/keys = {
 "values": [ Vector3( 0, -90, 0 ), Vector3( 0, 90, 0 ) ]
 }
 
-[sub_resource type="ProceduralSky" id=13]
-
-[sub_resource type="Environment" id=14]
-background_mode = 2
-background_sky = SubResource( 13 )
-
-[sub_resource type="SpatialMaterial" id=15]
+[sub_resource type="SpatialMaterial" id=14]
 flags_transparent = true
 flags_unshaded = true
 vertex_color_use_as_albedo = true
@@ -375,20 +369,20 @@ albedo_texture = ExtResource( 7 )
 proximity_fade_enable = true
 proximity_fade_distance = 0.1
 
-[sub_resource type="Gradient" id=16]
+[sub_resource type="Gradient" id=15]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 0.682617, 0, 1 )
 
-[sub_resource type="GradientTexture" id=17]
-gradient = SubResource( 16 )
+[sub_resource type="GradientTexture" id=16]
+gradient = SubResource( 15 )
 
-[sub_resource type="Curve" id=18]
+[sub_resource type="Curve" id=17]
 max_value = 3.0
 _data = [ Vector2( 0, 0 ), 0.0, 4.67949, 0, 0, Vector2( 1, 3 ), 5.64853, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=19]
-curve = SubResource( 18 )
+[sub_resource type="CurveTexture" id=18]
+curve = SubResource( 17 )
 
-[sub_resource type="ParticlesMaterial" id=20]
+[sub_resource type="ParticlesMaterial" id=19]
 flag_align_y = true
 flag_rotate_y = true
 spread = 2.0
@@ -399,8 +393,8 @@ linear_accel = 37.74
 angle = 720.0
 angle_random = 1.0
 scale = 0.1
-scale_curve = SubResource( 19 )
-color_ramp = SubResource( 17 )
+scale_curve = SubResource( 18 )
+color_ramp = SubResource( 16 )
 
 [node name="RocketDisplay" type="Spatial"]
 
@@ -548,24 +542,20 @@ material/0 = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90735e-06, 0, 15 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Controller"]
-anims/Stage0 = SubResource( 22 )
-anims/Stage1 = SubResource( 4 )
-anims/Stage2 = SubResource( 5 )
-anims/Stage3 = SubResource( 6 )
-anims/Stage4 = SubResource( 7 )
+anims/Stage0 = SubResource( 4 )
+anims/Stage1 = SubResource( 5 )
+anims/Stage2 = SubResource( 6 )
+anims/Stage3 = SubResource( 7 )
+anims/Stage4 = SubResource( 8 )
 
 [node name="CameraAnimationPlayer" type="AnimationPlayer" parent="Controller"]
-anims/1 = SubResource( 8 )
-anims/2 = SubResource( 9 )
-anims/3 = SubResource( 10 )
-anims/4 = SubResource( 11 )
-anims/Transition = SubResource( 12 )
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Controller"]
-environment = SubResource( 14 )
+anims/1 = SubResource( 9 )
+anims/2 = SubResource( 10 )
+anims/3 = SubResource( 11 )
+anims/4 = SubResource( 12 )
+anims/Transition = SubResource( 13 )
 
 [node name="Rocket" parent="Controller" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="ThrustFanBlades_Opt" parent="Controller/Rocket/RocketBody" index="2"]
 transform = Transform( -1, 0, 5.80134e-07, 0, 1, 0, -5.80134e-07, 0, -1, 3.63588e-06, -1.8605, -2.38419e-07 )
@@ -580,13 +570,13 @@ omni_range = 0.5
 
 [node name="Particles" type="Particles" parent="Controller/Rocket"]
 transform = Transform( 1, 0, 4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, 0, 8.64834, 0.348623 )
-material_override = SubResource( 15 )
+material_override = SubResource( 14 )
 cast_shadow = 0
 emitting = false
 lifetime = 0.2
 visibility_aabb = AABB( -4, -4, -4, 8, 8, 80.18 )
 local_coords = false
-process_material = SubResource( 20 )
+process_material = SubResource( 19 )
 draw_pass_1 = ExtResource( 8 )
 [connection signal="pressed" from="Controller/Control/VBoxContainer/MainWindow/PreviousButton" to="Controller" method="PreviousStage"]
 [connection signal="pressed" from="Controller/Control/VBoxContainer/MainWindow/NextButton" to="Controller" method="NextStage"]
