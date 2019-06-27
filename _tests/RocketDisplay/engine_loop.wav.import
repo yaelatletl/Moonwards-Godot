@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/engine_loop.wav-bef40790bfd65aeba71cf2a6d7e2aa50.sample"
+
+[deps]
+
+source_file="res://_tests/RocketDisplay/engine_loop.wav"
+dest_files=[ "res://.import/engine_loop.wav-bef40790bfd65aeba71cf2a6d7e2aa50.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0

@@ -16,13 +16,13 @@ alignment = 1
 script = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
-margin_top = 103.0
+margin_top = 275.0
 margin_right = 800.0
-margin_bottom = 497.0
+margin_bottom = 325.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 custom_fonts/font = SubResource( 1 )
-text = "Flywheels store energy as rotation. A motor spins them up until they are rotating at thousands of times per minute. For the Moon, this would be done during the day with energy from solar panels. Energy is drawn from the flywheel by instead making the flywheel spin the motor. That causes its electromagnet to generate an electric current. This drains their energy over the lunar night when the solar panels aren't working. "
+text = "Example text"
 align = 1
 valign = 1
 autowrap = true

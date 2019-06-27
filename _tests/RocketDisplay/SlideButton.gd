@@ -10,7 +10,6 @@ func _ready():
 
 func SetActive(var _active):
 	active = _active
-	get_node(info_box).SetActive(active)
 	if active:
 		$TextureRect.modulate = Color(1.0, 1.0, 1.0, 1.0)
 	else:

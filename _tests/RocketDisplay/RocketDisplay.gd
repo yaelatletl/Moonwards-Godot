@@ -9,6 +9,7 @@ var return_camera_rotation
 func _ready():
 	$CameraAnimationPlayer.connect("animation_finished", self, "AnimationFinished")
 	$Control.visible = false
+#	Activate()
 
 func Activate():
 	var camera_transform = get_tree().root.get_camera().global_transform
@@ -34,7 +35,7 @@ func AnimationFinished(var animation_name):
 		DeActivate()
 	else:
 		#Put the pivot in front of the camera, and reset the camera position.
-		var pivot_distance = abs($Camera.translation.z)
+		var pivot_distance = $Camera.translation.distance_to(Vector3())
 		$CameraPivot.translation = $Camera.translation + (-$Camera.global_transform.basis.z * pivot_distance)
 		$CameraPivot.rotation_degrees = $Camera.rotation_degrees
 		$CameraPivot/CameraPosition.translation = Vector3(0.0, 0.0, pivot_distance)
@@ -45,6 +46,9 @@ func StartNozzleAnimation():
 
 func StartInletAnimation():
 	$Rocket/RocketBody/VariableInlet/AnimationPlayer.play("Key.005Action.001")
+
+func StartBladesAnimation():
+	$Rocket/RocketBody/ThrustFanBlades_Opt/AnimationPlayer.play("ThrustFanBlades_OptAction.001")
 
 func RegisterSlideButton(var button):
 	slide_buttons.append(button)
@@ -63,11 +67,6 @@ func PreviousStage():
 
 func GoToCurrentStage():
 	if current_stage > 0 and current_stage < max_stages + 1:
-		if current_stage == 1:
-			$Control/VBoxContainer/MainWindow/PreviousButton.text = "Quit"
-		else:
-			$Control/VBoxContainer/MainWindow/PreviousButton.text = "Previous"
-		
 		if current_stage == max_stages:
 			$Control/VBoxContainer/MainWindow/NextButton.text = "Quit"
 		else:
