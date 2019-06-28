@@ -22,10 +22,10 @@ boot_splash/main_loop_type=""
 
 [autoload]
 
+namelist="*res://namelist.gd"
 logg="*res://scripts/log.gd"
 options="*res://options.gd"
 gamestate="*res://gamestate.gd"
-namelist="*res://namelist.gd"
 utils="*res://utils.gd"
 debug="*res://debug.gd"
 UIManager="*res://scripts/UIManager.gd"
@@ -87,8 +87,8 @@ ui_page_up={
 }
 ui_page_down={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777236,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":81,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":81,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777236,"unicode":0,"echo":false,"script":null)
  ]
 }
 ui_mlook={
@@ -242,10 +242,6 @@ alt={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777240,"unicode":0,"echo":false,"script":null)
  ]
 }
-
-[layer_names]
-
-3d_physics/layer_2="InteractiveObject"
 
 [physics]
 
