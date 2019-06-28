@@ -185,10 +185,6 @@ var join_server_host = "mainhabs.moonwards.com"
 ############################
 #Other options
 var options = {
-	player = {
-		color = Color8(50, 100, 150,255),
-		name = "PlayerDefaultName"
-	}
 }
 
 func _ready():

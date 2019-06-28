@@ -14,7 +14,7 @@ func set_name(name = null):
 	$connect/name.text = name
 
 func _ready():
-	set_name()
+	set_name(options.username)
 	# Called every time the node is added to the scene.
 # 	gamestate.connect("connection_failed", self, "_on_connection_failed")
 # 	gamestate.connect("connection_succeeded", self, "_on_connection_success")
