@@ -72,7 +72,7 @@ func Back():
 	if is_instance_valid(current_ui):
 		current_ui.queue_free()
 	AddPreviousUI()
-	
+
 func AddPreviousUI():
 	base_ui.add_child(ui_history_queue.front())
 	SetCurrentUI(ui_history_queue.pop_front())
@@ -166,9 +166,9 @@ func LoadLevel(var resource):
 func join_server(scene):
 	if scene == null or scene == "":
 		scene = options.scenes.default_multiplayer_join_server
-	
+
 	var player_data = {
-		username = options.get("user_settings", "name", namelist.get_name())
+		username = options.username
 	}
 	gamestate.player_register(player_data, true, "avatar") #local player
 	gamestate.load_level(scene)
@@ -179,7 +179,7 @@ func run_local(scene):
 		scene = options.scenes.default_run_scene
 
 	var player_data = {
-		username = options.get("user_settings", "name", namelist.get_name())
+		username = options.username
 	}
 	gamestate.player_register(player_data, true, "avatar_local") #local player
 	gamestate.load_level(scene)
