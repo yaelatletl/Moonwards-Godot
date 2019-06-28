@@ -1215,7 +1215,7 @@ stream = ExtResource( 7 )
 max_distance = 1.0
 
 [node name="Rocket" parent="Controller" instance=ExtResource( 8 )]
-transform = Transform( 0.75, 0, 0, 0, -3.27835e-08, -0.75, 0, 0.75, -3.27835e-08, 0, 10, 0 )
+transform = Transform( 0.75, 0, 0, 0, 0.53033, -0.53033, 0, 0.53033, 0.53033, 0, 0, 0 )
 
 [node name="AnimationPlayer" parent="Controller/Rocket/RocketBody/PYBB_Nozzle_Opt" index="0"]
 anims/NozzleOpen = SubResource( 14 )
@@ -1224,7 +1224,7 @@ anims/NozzleOpen = SubResource( 14 )
 material/0 = SubResource( 15 )
 
 [node name="ThrustFanBlades_Opt" parent="Controller/Rocket/RocketBody" index="2"]
-transform = Transform( 0.888761, 0, 0.458372, 0, 1, 0, -0.458372, 0, 0.888761, 3.63588e-06, -1.8605, -2.38419e-07 )
+transform = Transform( 0.998015, 0, 0.0629749, 0, 1, 0, -0.0629749, 0, 0.998015, 3.63588e-06, -1.8605, -2.38419e-07 )
 
 [node name="AnimationPlayer" parent="Controller/Rocket/RocketBody/ThrustFanBlades_Opt" index="0"]
 anims/BladesRotate = SubResource( 16 )
