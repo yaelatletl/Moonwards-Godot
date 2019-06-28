@@ -2,7 +2,7 @@ extends Spatial
 
 var slide_buttons = []
 var current_stage = 1
-var max_stages = 4
+var max_stages = 5
 var return_camera_translation
 var return_camera_rotation
 
@@ -12,6 +12,7 @@ func _ready():
 #	Activate()
 
 func Activate():
+	$CollisionShape/Display.visible = false
 	var camera_transform = get_tree().root.get_camera().global_transform
 	$Camera.global_transform = camera_transform
 	return_camera_translation = $Camera.translation 
@@ -24,6 +25,7 @@ func Activate():
 	$Control.visible = true
 
 func DeActivate():
+	$CollisionShape/Display.visible = true
 	$Camera.current = false
 	current_stage = 0
 	$Control.visible = false
@@ -42,13 +44,16 @@ func AnimationFinished(var animation_name):
 		$CameraPivot.SetEnabled(true)
 
 func StartNozzleAnimation():
-	$Rocket/RocketBody/PYBB_Nozzle_Opt/AnimationPlayer.play("Key.004Action.001")
+	$Rocket/RocketBody/PYBB_Nozzle_Opt/AnimationPlayer.play("NozzleOpen")
 
-func StartInletAnimation():
-	$Rocket/RocketBody/VariableInlet/AnimationPlayer.play("Key.005Action.001")
+func StartInletOpenAnimation():
+	$Rocket/RocketBody/VariableInlet/AnimationPlayer.play("InletOpen")
+
+func StartInletCloseAnimation():
+	$Rocket/RocketBody/VariableInlet/AnimationPlayer.play("InletClose")
 
 func StartBladesAnimation():
-	$Rocket/RocketBody/ThrustFanBlades_Opt/AnimationPlayer.play("ThrustFanBlades_OptAction.001")
+	$Rocket/RocketBody/ThrustFanBlades_Opt/AnimationPlayer.play("BladesRotate")
 
 func RegisterSlideButton(var button):
 	slide_buttons.append(button)
@@ -67,12 +72,19 @@ func PreviousStage():
 
 func GoToCurrentStage():
 	if current_stage > 0 and current_stage < max_stages + 1:
+		if current_stage == 1:
+			$Control/VBoxContainer/MainWindow/PreviousButton.text = "Quit"
+		else:
+			$Control/VBoxContainer/MainWindow/PreviousButton.text = "Previous"
+		
 		if current_stage == max_stages:
 			$Control/VBoxContainer/MainWindow/NextButton.text = "Quit"
 		else:
 			$Control/VBoxContainer/MainWindow/NextButton.text = "Next"
 		
 		$AnimationPlayer.play("Stage" + str(current_stage))
+	else:
+		$AnimationPlayer.play("Stage0")
 	
 	GoToCameraStage()
 
@@ -87,9 +99,13 @@ func GoToCameraStage():
 		to_rotation = return_camera_rotation
 	else:
 		#Going to the next or previous camera translation.
-		var target_animation = $CameraAnimationPlayer.get_animation(str(current_stage))
-		to_translation = target_animation.track_get_key_value(target_animation.find_track("Camera:translation"), 0)
-		to_rotation = target_animation.track_get_key_value(target_animation.find_track("Camera:rotation_degrees"), 0)
+		var target_animation = $AnimationPlayer.get_animation("Stage" + str(current_stage))
+		var translation_idx = target_animation.find_track("Camera:translation")
+		to_translation = target_animation.track_get_key_value(translation_idx, 0)
+		target_animation.track_set_enabled(translation_idx, false)
+		var rotation_idx = target_animation.find_track("Camera:rotation_degrees")
+		target_animation.track_set_enabled(rotation_idx, false)
+		to_rotation = target_animation.track_get_key_value(rotation_idx, 0)
 	
 	$CameraPivot.SetEnabled(false)
 	
