@@ -42,18 +42,11 @@ func AnimationFinished(var animation_name):
 		$CameraPivot.rotation_degrees = $Camera.rotation_degrees
 		$CameraPivot/CameraPosition.translation = Vector3(0.0, 0.0, pivot_distance)
 		$CameraPivot.SetEnabled(true)
-
-func StartNozzleAnimation():
-	$Rocket/RocketBody/PYBB_Nozzle_Opt/AnimationPlayer.play("NozzleOpen")
-
-func StartInletOpenAnimation():
-	$Rocket/RocketBody/VariableInlet/AnimationPlayer.play("InletOpen")
-
-func StartInletCloseAnimation():
-	$Rocket/RocketBody/VariableInlet/AnimationPlayer.play("InletClose")
-
 func StartBladesAnimation():
 	$Rocket/RocketBody/ThrustFanBlades_Opt/AnimationPlayer.play("BladesRotate")
+
+func StopBladesAnimation():
+	$Rocket/RocketBody/ThrustFanBlades_Opt/AnimationPlayer.stop()
 
 func RegisterSlideButton(var button):
 	slide_buttons.append(button)
