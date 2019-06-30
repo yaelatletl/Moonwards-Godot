@@ -1,7 +1,9 @@
 extends Control
 
-var updater_enabled = false
-var upt_debug = false
+# var updater_enabled = false
+# var upt_debug = false
+var updater_enabled = true
+var upt_debug = true
 var protocol_version = "0.1"
 
 const UPDATE_CHUNK_SIZE = 1000000
@@ -66,6 +68,19 @@ func _ready():
 		return
 	Log("Updater enabled")
 	connect("update_ready", self, "thread_active_correction")
+
+func toClient(client_id, command, data=null):
+	printd("toClient: %s" % command)
+	rpc_id(client_id, "UpdateProtocolClient", command, data)
+	if command == "abort":
+		#close connnection with client, peer initialised in RunUpdateServer
+		if peer != null:
+			peer.disconnect_peer(client_id)
+
+func toServer(command, data=null):
+	printd("toServer: %s" % command)
+	rpc_id(1, "UpdateProtocolServer", get_tree().get_network_unique_id(), command, data)
+
 
 func RunUpdateServer():
 	debug_id = "UpdaterServer"
@@ -140,17 +155,13 @@ func ClientDisconnectedByServer():
 	Log("The server disconnected.")
 
 func ClientCheckProtocol():
-	Log("Check protocol version, initiate update")
-	rpc_id(1, "ServerUpdateProtocol", get_tree().get_network_unique_id(), protocol_version)
-
-func ClientSendMD5id():
-	Log("Send tree id %s" % tree_md5id)
-	rpc_id(1, "ServerReceiveMD5id", get_tree().get_network_unique_id(), tree_md5id)
+	Log("Check protocol version")
+	toServer("protocol_version", protocol_version)
 
 func ClientWaitForUpdate():
 	Log("wait for update")
 	yield(get_tree().create_timer(client_wait_timeout), "timeout")
-	ClientSendMD5id()
+	toServer("tree_id", tree_md5id)
 
 func ClientUpdateInfo(info):
 	var size = -1
@@ -160,21 +171,17 @@ func ClientUpdateInfo(info):
 	ClientUpdateFilter(info)
 	#store total size for downloading
 	update_status["target_size"] = size
+	update_status["current_size"] = 0
 	return size
 
-func ClientSendMD5List():
-	Log("Sending md5 list...")
-	#The server always has the id 1. So just send it to id 1 without sending it to the other clients.
-	rpc_id(1, "ServerReceiveMD5List", get_tree().get_network_unique_id(), tree_md5_list, tree_md5id)
-
-remote func ClientCheckUpdateResult(result, data=null):
-	match result:
+remote func UpdateProtocolClient(command, data=null):
+	match command:
 		"client_protocol_ok":
 			Log("Update protocol version match")
-			ClientSendMD5id()
+			toServer("tree_id", tree_md5id)
 		"list":
 			Log("Send md5 list to server")
-			ClientSendMD5List()
+			toServer("tree_list", [tree_md5_list, tree_md5id])
 		"current":
 			Log("No update needed")
 			ClientUpdateEnd(true)
@@ -186,13 +193,12 @@ remote func ClientCheckUpdateResult(result, data=null):
 			Log("prepare for update, get information about update")
 			var size = ClientUpdateInfo(data)
 			if size > 0:
-				rpc_id(1, "ServerSendUpdate", get_tree().get_network_unique_id(), tree_md5id)
+				toServer("send_data", tree_md5id)
 			else:
 				ClientUpdateEnd(true)
 			upt_info_save(data)
-		"update_data":
-			Log("Server ready to send update")
-# 			rpc_id(1, "ServerSendUpdate", get_tree().get_network_unique_id(), tree_md5id)
+		"recv_data":
+			ClientReceiveUpdate(data)
 		"restart":
 			Log("Server says restart update process")
 			ClientUpdateEnd(false)
@@ -204,8 +210,22 @@ remote func ClientCheckUpdateResult(result, data=null):
 			Log("Update failed, some server error, id %s" % tree_md5id)
 			ClientUpdateEnd(false)
 		_:
-			Log("unknown response, (%s)" % result)
+			Log("unknown command/response from server, (%s)" % command)
 			ClientUpdateEnd(false)
+
+remote func UpdateProtocolServer(client_id, command, data=null):
+	match command:
+		"protocol_version":
+			ServerUpdateProtocol(client_id, data)
+		"tree_id" :
+			ServerReceiveMD5id(client_id, data)
+		"tree_list" :
+			ServerReceiveMD5List(client_id, data[0], data[1])
+		"send_data" :
+			ServerSendUpdate(client_id, data)
+		_:
+			Log("unknown command/response from client, (%s)" % command)
+			toClient(client_id, "abort")
 
 func ClientUpdateFilter(info):
 	if info == null:
@@ -368,52 +388,52 @@ func upt_create(opt):
 	upt_save_update_info(client_id, server_id, compare)
 	emit_signal("update_ready", client_id)
 
-remote func ServerUpdateProtocol(var client_id, var version):
+func ServerUpdateProtocol(var client_id, var version):
 	if version != protocol_version:
 		Log("mismatch update protocol version")
-		rpc_id(client_id, "ClientCheckUpdateResult", "client_protocol_mismatch")
+		toClient(client_id, "client_protocol_mismatch")
 	else:
-		rpc_id(client_id, "ClientCheckUpdateResult", "client_protocol_ok")
+		toClient(client_id, "client_protocol_ok")
 
-remote func ServerReceiveMD5id(var client_id, var md5id):
+func ServerReceiveMD5id(var client_id, var md5id):
 	Log("Recieve client tree id : %s, current id is %s" % [md5id, tree_md5id])
 	if md5id == tree_md5id:
-		rpc_id(client_id, "ClientCheckUpdateResult", "current")
+		toClient(client_id, "current")
 		return
 	if upt_exists(md5id):
 		Log("Update for client exist, ready to send")
 		var info = upt_info(md5id)
 		if info == null:
 			Log("Error getting update info, abort update process for %s" % md5id)
-			rpc_id(client_id, "ClientCheckUpdateResult", "abort")
+			toClient(client_id, "abort")
 		else:
-			rpc_id(client_id, "ClientCheckUpdateResult", "update_info", info)
+			toClient(client_id, "update_info", info)
 	else:
 		if thread.is_active():
-			rpc_id(client_id, "ClientCheckUpdateResult", "wait")
+			toClient(client_id, "wait")
 			Log("already making update package, send wait to client")
 		else:
-			rpc_id(client_id, "ClientCheckUpdateResult", "list")
+			toClient(client_id, "list")
 
-remote func ServerReceiveMD5List(var client_id, var md5_list, var md5_id):
+func ServerReceiveMD5List(var client_id, var md5_list, var md5_id):
 	if thread.is_active():
 		Log("Recieving list while packing thread is active, should have not happened, restart update")
-		rpc_id(client_id, "ClientCheckUpdateResult", "restart")
+		toClient(client_id, "restart")
 		return
 		
 	Log("Server received md5 list.")
 	Log("Client list contains %s entries" % md5_list.size())
 	Log("Server list contains %s entries" % tree_md5_list.size())
 	
-	rpc_id(client_id, "ClientCheckUpdateResult", "wait")
+	toClient(client_id, "wait")
 	Log("Start making update, thread")
 	thread.start(self, "upt_create", [md5_id, tree_md5id, md5_list])
 
-remote func ServerSendUpdate(var client_id, var md5_id):
+func ServerSendUpdate(var client_id, var md5_id):
 	if not upt_exists(md5_id):
 		#some mistake happened
 		Log("Client requesting nonexisting update, %s" % md5_id)
-		rpc_id(client_id, "ClientCheckUpdateResult", "abort")
+		toClient(client_id, "abort")
 		return
 	if not client_ids.has(client_id):
 		Log("ServerSendUpdate error, client id does not exists %s" % client_id)
@@ -440,7 +460,7 @@ remote func ServerSendUpdate(var client_id, var md5_id):
 		buffer_size = client_status.target - client_status.pos
 	var buffer = file.get_buffer(buffer_size)
 	Log("Send update chunk to client, %s bytes of %s/%s to %s" % [buffer.size(), client_status.pos, client_status.target, client_id])
-	rpc_id(client_id, "ClientReceiveUpdate", buffer)
+	toClient(client_id, "recv_data", buffer)
 	client_status.pos += buffer.size()
 	
 	if client_status.pos == client_status.target:
@@ -480,7 +500,7 @@ func upt_ClientUpdateName():
 		Log("Could not write to user directory.")
 	return package_name
 
-remote func ClientReceiveUpdate(var buffer):
+func ClientReceiveUpdate(var buffer):
 	if not update_status.has("target_size"):
 		ClientUpdateEnd(false)
 		Log("Error, no data to download, should not be there")
@@ -519,7 +539,7 @@ remote func ClientReceiveUpdate(var buffer):
 		Log("Error update dowloading file, move file to %s, result %s" % [dname, result])
 		ClientUpdateEnd(false)
 	if update_status.current_size < update_status.target_size:
-		rpc_id(1, "ServerSendUpdate", get_tree().get_network_unique_id(), tree_md5id)
+		toServer("send_data", tree_md5id)
 
 func GetMD5List():
 	var dictionary = {}
