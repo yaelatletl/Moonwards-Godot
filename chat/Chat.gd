@@ -8,6 +8,13 @@ var timer = show_duration
 func _ready():
 	gamestate.connect("user_name_disconnected", self, "_player_disconnected")
 	gamestate.connect("user_name_connected" , self, "_player_connected")
+	$AnimationPlayer.connect("animation_finished", self, "_on_animation_end")
+	
+func _on_animation_end(ANname):
+	if ANname == "FadeOut":
+		chat_visible = false
+		self.hide()
+	
 
 func _process(delta):
 	if chat_visible and not $VBoxContainer/ChatInput.has_focus():
@@ -15,7 +22,7 @@ func _process(delta):
 		if timer <= 0.0:
 			$AnimationPlayer.play("FadeOut")
 			$VBoxContainer/ChatInput.mouse_filter = Control.MOUSE_FILTER_IGNORE
-			chat_visible = false
+			
 
 func _player_connected(name):
 	var msg = "%s has joined" % name #clean if name is null
@@ -37,6 +44,7 @@ remote func announce_user(player):
 
 func _input(event):
 	yield(get_tree(),"idle_frame")
+	yield(get_tree(),"idle_frame")
 	if event.is_action_pressed("toggle_chat"):
 		if UIManager.RequestFocus():
 			ShowChat()
@@ -51,6 +59,7 @@ func _input(event):
 
 func ShowChat():
 	if not chat_visible:
+		self.show()
 		$AnimationPlayer.play("FadeIn")
 	$VBoxContainer/ChatInput.mouse_filter = Control.MOUSE_FILTER_STOP
 	timer = show_duration
