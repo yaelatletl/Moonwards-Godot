@@ -36,6 +36,7 @@ remote func announce_user(player):
 	AddMessage(player + ' has joined the room')
 
 func _input(event):
+	yield(get_tree(),"idle_frame")
 	if event.is_action_pressed("toggle_chat"):
 		if UIManager.RequestFocus():
 			ShowChat()
