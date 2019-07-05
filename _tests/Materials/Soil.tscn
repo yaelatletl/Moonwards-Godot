@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://materials/Regolith_test_diffuse2.png" type="Texture" id=1]
-[ext_resource path="res://materials/Regolith_test_diffuse1.png" type="Texture" id=2]
-[ext_resource path="res://image_textures/Heightmap_from_normal2.png" type="Texture" id=3]
-[ext_resource path="res://image_textures/water_normal_2.png" type="Texture" id=4]
-[ext_resource path="res://materials/Regolith_test_normal2.png" type="Texture" id=5]
+[ext_resource path="res://image_textures/Regolith_test_diffuse2.png" type="Texture" id=1]
+[ext_resource path="res://image_textures/Regolith_test_diffuse1.png" type="Texture" id=2]
+[ext_resource path="res://image_textures/water_normal_2.png" type="Texture" id=3]
+[ext_resource path="res://image_textures/Regolith_test_normal2.png" type="Texture" id=4]
+
 
 [sub_resource type="SphereMesh" id=1]
 
@@ -113,10 +113,9 @@ shader_param/uv1_offset = Vector3( 0, -0.1, 0 )
 shader_param/uv2_scale = Vector3( 0.2, 0.2, 0.2 )
 shader_param/uv2_offset = Vector3( 0.5, 0.2, 0 )
 shader_param/texture_albedo = ExtResource( 1 )
-shader_param/texture_normal = ExtResource( 5 )
+shader_param/texture_normal = ExtResource( 4 )
 shader_param/texture_detail_albedo = ExtResource( 2 )
-shader_param/texture_detail_normal = ExtResource( 4 )
-shader_param/texture_detail_mask = ExtResource( 3 )
+shader_param/texture_detail_normal = ExtResource( 3 )
 
 [node name="Spatial" type="Spatial"]
 
