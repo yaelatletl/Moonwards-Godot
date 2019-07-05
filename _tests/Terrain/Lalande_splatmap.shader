@@ -118,9 +118,11 @@ void fragment() {
 	SPECULAR = specular;
 	METALLIC = metallic;
 	ROUGHNESS = 1.0;
-	NORMALMAP = (normal_depth*normal + normal_depth0*normal0 + normal_depth1*normal1 + normal_depth2*normal2);
-	NORMALMAP = (NORMALMAP + globalnormal.rgb)/dot(NORMALMAP, globalnormal.rgb);
-	
+	NORMALMAP = normalize(normal_depth*normal + normal_depth0*normal0 + normal_depth1*normal1 + normal_depth2*normal2);
+	vec3 dif =(mod(NORMALMAP, NORMALMAP+globalnormal.rgb));
+	NORMALMAP = (NORMALMAP + globalnormal.rgb) - (dif*dot(NORMALMAP,globalnormal.rgb));
+	//NORMALMAP = dif;
+	//NORMALMAP = globalnormal.rgb;
 	
 	SSS_STRENGTH=subsurface_scattering_strength;
 	//FLAG!
