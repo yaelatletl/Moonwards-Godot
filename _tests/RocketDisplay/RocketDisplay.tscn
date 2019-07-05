@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://_tests/RocketDisplay/RocketDisplay.gd" type="Script" id=1]
 [ext_resource path="res://_tests/RocketDisplay/InfoBox.tscn" type="PackedScene" id=2]
@@ -11,30 +11,36 @@
 [ext_resource path="res://_tests/RocketDisplay/fire_particle.png" type="Texture" id=9]
 [ext_resource path="res://_tests/RocketDisplay/FireParticleMesh.obj" type="ArrayMesh" id=10]
 
-[sub_resource type="BoxShape" id=1]
+[sub_resource type="ProceduralSky" id=1]
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+
+[sub_resource type="BoxShape" id=3]
 extents = Vector3( 10, 5, 10 )
 
-[sub_resource type="PlaneMesh" id=2]
+[sub_resource type="PlaneMesh" id=4]
 size = Vector2( 15, 10 )
 
-[sub_resource type="ViewportTexture" id=3]
+[sub_resource type="ViewportTexture" id=5]
 viewport_path = NodePath("Controller/CollisionShape/Display/Viewport")
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=6]
 resource_local_to_scene = true
 flags_transparent = true
 flags_unshaded = true
 params_cull_mode = 2
-albedo_texture = SubResource( 3 )
+albedo_texture = SubResource( 5 )
 distance_fade_mode = 3
 distance_fade_min_distance = 1.5
 distance_fade_max_distance = 1.0
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=7]
 size = 32
 font_data = ExtResource( 4 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rocket:rotation_degrees")
 tracks/0/interp = 1
@@ -216,7 +222,7 @@ tracks/14/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=10]
 length = 2.0
 step = 0.05
 tracks/0/type = "value"
@@ -238,49 +244,49 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 1.85 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false, true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Camera:rotation_degrees")
+tracks/2/path = NodePath("Rocket:translation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 2 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( -0.14, 92.29, 0 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Camera:translation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 2 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 35.4744, -4.32811, -1.32142 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Rocket:translation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, -26.4829, 0 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Rocket/Particles:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CameraPivot:translation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -2.40378, 0.245176 ) ]
+}
 tracks/5/type = "value"
-tracks/5/path = NodePath("Rocket/Particles:translation")
+tracks/5/path = NodePath("CameraPivot:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -291,9 +297,57 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ) ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("CameraPivot/CameraPosition/Camera:translation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = false
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 20 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("CameraPivot/CameraPosition/Camera:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = false
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("CameraPivot/CameraPosition:translation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 20 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Rocket/Particles:emitting")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
-[sub_resource type="Animation" id=9]
-length = 5.0
+[sub_resource type="Animation" id=11]
+length = 3.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rocket/Particles:emitting")
 tracks/0/interp = 1
@@ -403,19 +457,19 @@ tracks/8/keys = {
 "values": [ true ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("Camera:translation")
+tracks/9/path = NodePath("Rocket/Particles:process_material:scale")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 2 ),
+"times": PoolRealArray( 1.9 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 10.8527, 18.377, 9.12989 ) ]
+"values": [ 0.1 ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("Camera:rotation_degrees")
+tracks/10/path = NodePath("Rocket/Particles:translation")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -424,39 +478,15 @@ tracks/10/keys = {
 "times": PoolRealArray( 2 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( -24.638, 49.214, 0 ) ]
+"values": [ Vector3( -3.62457e-08, 9.47755, 0.348624 ) ]
 }
-tracks/11/type = "value"
-tracks/11/path = NodePath("Rocket/Particles:process_material:scale")
+tracks/11/type = "method"
+tracks/11/path = NodePath(".")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 1.9 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.1 ]
-}
-tracks/12/type = "value"
-tracks/12/path = NodePath("Rocket/Particles:translation")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
-"times": PoolRealArray( 2 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( -3.62457e-08, 9.47755, 0.348624 ) ]
-}
-tracks/13/type = "method"
-tracks/13/path = NodePath(".")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/keys = {
 "times": PoolRealArray( 2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -464,8 +494,68 @@ tracks/13/keys = {
 "method": "StartBladesAnimation"
 } ]
 }
+tracks/12/type = "value"
+tracks/12/path = NodePath("CameraPivot:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 15.1654, 0.245176 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("CameraPivot/CameraPosition/Camera:translation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = false
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 32.9219 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("CameraPivot:rotation_degrees")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("CameraPivot/CameraPosition/Camera:rotation_degrees")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = false
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("CameraPivot/CameraPosition:translation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 35 ) ]
+}
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=12]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rocket:rotation_degrees")
@@ -528,28 +618,28 @@ tracks/4/keys = {
 "values": [ true ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Camera:translation")
+tracks/5/path = NodePath("CameraPivot/CameraPosition/Camera:translation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( -25.5876, 26.3246, 8.96645 ) ]
+"values": [ Vector3( 0, 0, 51.2362 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Camera:rotation_degrees")
+tracks/6/path = NodePath("CameraPivot/CameraPosition/Camera:rotation_degrees")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
-tracks/6/enabled = true
+tracks/6/enabled = false
 tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( -18.592, -85.2983, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ) ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("Rocket/Particles:translation")
@@ -587,8 +677,44 @@ tracks/9/keys = {
 "update": 0,
 "values": [ 0.0, 0.0 ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath("CameraPivot:translation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 9.89019, 0.245176 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("CameraPivot:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -35, -125, 0 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("CameraPivot/CameraPosition:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 30 ) ]
+}
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=13]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rocket:rotation_degrees")
@@ -639,28 +765,28 @@ tracks/3/keys = {
 "values": [ true ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Camera:translation")
+tracks/4/path = NodePath("CameraPivot/CameraPosition/Camera:translation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
-tracks/4/enabled = true
+tracks/4/enabled = false
 tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( -12.8476, 17.1, 7.91864 ) ]
+"values": [ Vector3( 8.07643e-06, -4.47035e-06, 38.0016 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Camera:rotation_degrees")
+tracks/5/path = NodePath("CameraPivot/CameraPosition/Camera:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( -17.937, -69.513, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("Rocket/Particles:process_material:linear_accel")
@@ -722,9 +848,44 @@ tracks/10/keys = {
 "update": 0,
 "values": [ 1.0, 0.0 ]
 }
+tracks/11/type = "value"
+tracks/11/path = NodePath("CameraPivot:translation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 9.47057, 0.245176 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("CameraPivot:rotation_degrees")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -25, -60, 0 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("CameraPivot/CameraPosition:translation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 40 ) ]
+}
 
-[sub_resource type="Animation" id=12]
-resource_name = "Stage5"
+[sub_resource type="Animation" id=14]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rocket:rotation_degrees")
@@ -739,28 +900,28 @@ tracks/0/keys = {
 "values": [ Vector3( 65, 0, 0 ), Vector3( 90, 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Camera:rotation_degrees")
+tracks/1/path = NodePath("CameraPivot/CameraPosition/Camera:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( -2.045, 90.463, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Camera:translation")
+tracks/2/path = NodePath("CameraPivot/CameraPosition/Camera:translation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 28.7841, 8.22134, -8.48697 ) ]
+"values": [ Vector3( 0, 0, 20 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("InfoBox4:visible")
@@ -872,36 +1033,44 @@ tracks/11/keys = {
 "method": "StopBladesAnimation"
 } ]
 }
-
-[sub_resource type="Animation" id=13]
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("Camera:translation")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+tracks/12/type = "value"
+tracks/12/path = NodePath("CameraPivot:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( -14, 8, 8 ), Vector3( -14, 17, 14 ) ]
+"values": [ Vector3( 0, 10.4573, 0.245176 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Camera:rotation_degrees")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+tracks/13/type = "value"
+tracks/13/path = NodePath("CameraPivot:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, -90, 0 ), Vector3( 0, 90, 0 ) ]
+"values": [ Vector3( -10, -61.8665, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("CameraPivot/CameraPosition:translation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 45 ) ]
 }
 
-[sub_resource type="Animation" id=14]
-resource_name = "NozzleOpen"
+[sub_resource type="Animation" id=15]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:blend_shapes/Key 1")
 tracks/0/interp = 1
@@ -915,7 +1084,7 @@ tracks/0/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
-[sub_resource type="SpatialMaterial" id=15]
+[sub_resource type="SpatialMaterial" id=16]
 params_cull_mode = 2
 albedo_color = Color( 0, 0, 0, 0.95 )
 metallic = 0.31
@@ -923,8 +1092,7 @@ roughness = 0.28
 transmission_enabled = true
 transmission = Color( 0.556863, 0.552941, 0.552941, 1 )
 
-[sub_resource type="Animation" id=16]
-resource_name = "BladesRotate"
+[sub_resource type="Animation" id=17]
 length = 3.0
 loop = true
 step = 0.05
@@ -941,35 +1109,33 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 360, 0 ) ]
 }
 
-[sub_resource type="Animation" id=17]
-resource_name = "InletClose"
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:blend_shapes/Key 1")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 1.0, 0.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:blend_shapes/Key 2")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 1.0 ]
-}
-
 [sub_resource type="Animation" id=18]
-resource_name = "InletOpen"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:blend_shapes/Key 1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:blend_shapes/Key 2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=19]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:blend_shapes/Key 1")
 tracks/0/interp = 1
@@ -995,7 +1161,7 @@ tracks/1/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
-[sub_resource type="SpatialMaterial" id=19]
+[sub_resource type="SpatialMaterial" id=20]
 flags_transparent = true
 flags_unshaded = true
 vertex_color_use_as_albedo = true
@@ -1005,20 +1171,20 @@ albedo_texture = ExtResource( 9 )
 proximity_fade_enable = true
 proximity_fade_distance = 0.1
 
-[sub_resource type="Gradient" id=20]
+[sub_resource type="Gradient" id=21]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 0.682617, 0, 1 )
 
-[sub_resource type="GradientTexture" id=21]
-gradient = SubResource( 20 )
+[sub_resource type="GradientTexture" id=22]
+gradient = SubResource( 21 )
 
-[sub_resource type="Curve" id=22]
+[sub_resource type="Curve" id=23]
 max_value = 2.0
 _data = [ Vector2( 0, 0 ), 0.0, 0.983804, 0, 0, Vector2( 1, 0.9714 ), -6.22616, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=23]
-curve = SubResource( 22 )
+[sub_resource type="CurveTexture" id=24]
+curve = SubResource( 23 )
 
-[sub_resource type="ParticlesMaterial" id=24]
+[sub_resource type="ParticlesMaterial" id=25]
 flag_align_y = true
 flag_rotate_y = true
 spread = 1.0
@@ -1028,55 +1194,55 @@ angular_velocity = 1.0
 linear_accel = 15.0
 angle = 720.0
 scale = 0.1
-scale_curve = SubResource( 23 )
-color_ramp = SubResource( 21 )
+scale_curve = SubResource( 24 )
+color_ramp = SubResource( 22 )
 
 [node name="RocketDisplay" type="Spatial"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
 
 [node name="Controller" type="Area" parent="."]
 transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0 )
 collision_layer = 2
 collision_mask = 0
 script = ExtResource( 1 )
+camera_path = NodePath("CameraPivot/CameraPosition/Camera")
 
 [node name="InfoBox1" parent="Controller" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 7.11202, -3 )
 visible = false
 text = "Rocket introduction."
-control_path = NodePath("../../../../../Spatial/Control/VBoxContainer/HBoxContainer/Button1")
 
 [node name="InfoBox2" parent="Controller" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.27765, 14.9365, -2.75079 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.53667, 22.3092, -2.75079 )
 visible = false
 text = "Blades explanation."
-control_path = NodePath("../../../../../Spatial/Control/VBoxContainer/HBoxContainer/Button2")
 
 [node name="InfoBox3" parent="Controller" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 20.7124, -2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6376, 20.7124, 5.44581 )
 visible = false
 text = "Variable inlet explanation."
-control_path = NodePath("../../../../../Spatial/Control/VBoxContainer/HBoxContainer/Button3")
 
 [node name="InfoBox4" parent="Controller" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 16.355, -0.209904 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 22.7502, -0.209904 )
 visible = false
 text = "Nozzle Explanation"
-control_path = NodePath("../../../../../Spatial/Control/VBoxContainer/HBoxContainer/Button4")
 
 [node name="InfoBox5" parent="Controller" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -3.51897, -5.76367 )
 visible = false
 text = "Vacuum Flight Explanation"
-control_path = NodePath("../../../../../Spatial/Control/VBoxContainer/HBoxContainer/Button4")
 
 [node name="CollisionShape" type="CollisionShape" parent="Controller"]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.3441, -21.6618, 4.00301 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="Display" type="MeshInstance" parent="Controller/CollisionShape"]
 transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 9.98754, 2.41026, 0 )
-mesh = SubResource( 2 )
-material/0 = SubResource( 4 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 6 )
 
 [node name="Viewport" type="Viewport" parent="Controller/CollisionShape/Display"]
 size = Vector2( 350, 200 )
@@ -1090,13 +1256,14 @@ render_target_update_mode = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 3 )
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 7 )
 text = "Bucknell Rocket Display
 Press E to start"
 align = 1
 valign = 1
 
 [node name="Control" type="Control" parent="Controller"]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -1177,30 +1344,26 @@ control_path = NodePath("../../../../../Controller")
 info_box = NodePath("../../../../InfoBox4")
 stage = 4
 
-[node name="Camera" type="Camera" parent="Controller"]
-transform = Transform( -0.808079, -3.56832, 99.933, 0, 99.9363, 3.56844, -99.9967, 0.0288358, -0.807565, 28.7841, 8.22134, -8.48697 )
+[node name="CameraPivot" type="Spatial" parent="Controller"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.40378, 0.245176 )
+script = ExtResource( 6 )
+camera_path = NodePath("CameraPosition/Camera")
+
+[node name="CameraPosition" type="Spatial" parent="Controller/CameraPivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20 )
+
+[node name="Camera" type="Camera" parent="Controller/CameraPivot/CameraPosition"]
+transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 20 )
 current = true
 near = 0.01
 
-[node name="CameraPivot" type="Spatial" parent="Controller"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0 )
-script = ExtResource( 6 )
-max_zoom_distance = 30.0
-camera_path = NodePath("../Camera")
-
-[node name="CameraPosition" type="Spatial" parent="Controller/CameraPivot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25 )
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Controller"]
-anims/Stage0 = SubResource( 7 )
-anims/Stage1 = SubResource( 8 )
-anims/Stage2 = SubResource( 9 )
-anims/Stage3 = SubResource( 10 )
-anims/Stage4 = SubResource( 11 )
-anims/Stage5 = SubResource( 12 )
-
-[node name="CameraAnimationPlayer" type="AnimationPlayer" parent="Controller"]
-anims/Transition = SubResource( 13 )
+anims/Stage0 = SubResource( 9 )
+anims/Stage1 = SubResource( 10 )
+anims/Stage2 = SubResource( 11 )
+anims/Stage3 = SubResource( 12 )
+anims/Stage4 = SubResource( 13 )
+anims/Stage5 = SubResource( 14 )
 
 [node name="EngineSound" type="AudioStreamPlayer3D" parent="Controller"]
 transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0 )
@@ -1208,26 +1371,26 @@ stream = ExtResource( 7 )
 max_distance = 1.0
 
 [node name="Rocket" parent="Controller" instance=ExtResource( 8 )]
-transform = Transform( 0.75, 0, 0, 0, 0.53033, -0.53033, 0, 0.53033, 0.53033, 0, 0, 0 )
+transform = Transform( 0.75, 0, 0, 0, 0.69291, -0.287013, 0, 0.287013, 0.69291, 0, -13.2415, 0 )
 
 [node name="AnimationPlayer" parent="Controller/Rocket/RocketBody/PYBB_Nozzle_Opt" index="0"]
-anims/NozzleOpen = SubResource( 14 )
+anims/NozzleOpen = SubResource( 15 )
 
 [node name="RocketScoop" parent="Controller/Rocket/RocketBody" index="1"]
-material/0 = SubResource( 15 )
+material/0 = SubResource( 16 )
 
 [node name="ThrustFanBlades_Opt" parent="Controller/Rocket/RocketBody" index="2"]
-transform = Transform( 0.535535, 0, 0.844513, 0, 1, 0, -0.844513, 0, 0.535535, 3.63588e-06, -1.8605, -2.38419e-07 )
+transform = Transform( 0.295811, 0, 0.955246, 0, 1, 0, -0.955246, 0, 0.295811, 3.63588e-06, -1.8605, -2.38419e-07 )
 
 [node name="AnimationPlayer" parent="Controller/Rocket/RocketBody/ThrustFanBlades_Opt" index="0"]
-anims/BladesRotate = SubResource( 16 )
+anims/BladesRotate = SubResource( 17 )
 
 [node name="VariableInlet" parent="Controller/Rocket/RocketBody" index="3"]
 "blend_shapes/Key 1" = 0.0
 
 [node name="AnimationPlayer" parent="Controller/Rocket/RocketBody/VariableInlet" index="0"]
-anims/InletClose = SubResource( 17 )
-anims/InletOpen = SubResource( 18 )
+anims/InletClose = SubResource( 18 )
+anims/InletOpen = SubResource( 19 )
 
 [node name="OmniLight" parent="Controller/Rocket" index="1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.612558, 0 )
@@ -1235,14 +1398,14 @@ visible = false
 omni_range = 0.5
 
 [node name="Particles" type="Particles" parent="Controller/Rocket"]
-transform = Transform( 1, 0, 4.37115e-08, 4.37114e-08, -1.19209e-07, -1, 7.10543e-15, 1, -1.19209e-07, 1.50621e-06, -24.9801, -4.10773e-06 )
-material_override = SubResource( 19 )
+transform = Transform( 1, 0, 4.37115e-08, 4.37114e-08, -1.19209e-07, -1, 7.10543e-15, 1, -1.19209e-07, 0, 0, 0 )
+material_override = SubResource( 20 )
 cast_shadow = 0
 emitting = false
 lifetime = 0.2
 visibility_aabb = AABB( -4, -4, -4, 8, 8, 80.18 )
 local_coords = false
-process_material = SubResource( 24 )
+process_material = SubResource( 25 )
 draw_pass_1 = ExtResource( 10 )
 [connection signal="pressed" from="Controller/Control/VBoxContainer/MainWindow/PreviousButton" to="Controller" method="PreviousStage"]
 [connection signal="pressed" from="Controller/Control/VBoxContainer/MainWindow/NextButton" to="Controller" method="NextStage"]

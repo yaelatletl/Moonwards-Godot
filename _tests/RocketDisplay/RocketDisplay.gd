@@ -1,47 +1,62 @@
 extends Spatial
 
 var slide_buttons = []
+var info_boxes = []
 var current_stage = 1
 var max_stages = 5
-var return_camera_translation
-var return_camera_rotation
+var transition_duration = 1.0
+var transition_timer = transition_duration
+var transition_transform_from
+var transition_transform_to_object
+var return_camera
+
+export(NodePath) var camera_path
+onready var camera = get_node(camera_path)
 
 func _ready():
-	$CameraAnimationPlayer.connect("animation_finished", self, "AnimationFinished")
 	$Control.visible = false
-#	Activate()
+	$AnimationPlayer.connect("animation_finished", self, "AnimationFinished")
+	yield(get_tree(), "idle_frame")
+	Activate()
+
+func RegisterInfoBox(var node):
+	info_boxes.append(node)
+
+func _process(delta):
+	if transition_timer < transition_duration:
+		transition_timer += delta
+		$CameraPivot/CameraPosition/Camera.global_transform = transition_transform_from.interpolate_with(transition_transform_to_object.global_transform, EaseInOutQuad(transition_timer / transition_duration))
+		if transition_timer > transition_duration:
+			if current_stage == 0 or current_stage == max_stages + 1:
+				DeActivate()
+
+func EaseInOutQuad(t):
+	return 2*t*t if t<.5 else -1+(4-2*t)*t
+
+func AnimationFinished(var animation_name):
+	$CameraPivot.SetEnabled(true)
 
 func Activate():
 	$CollisionShape/Display.visible = false
-	var camera_transform = get_tree().root.get_camera().global_transform
-	$Camera.global_transform = camera_transform
-	return_camera_translation = $Camera.translation 
-	return_camera_rotation = $Camera.rotation_degrees
+	return_camera = get_tree().root.get_camera()
+	camera.global_transform = return_camera.global_transform
+	
+	camera.current = true
+	
 	UIManager.RequestFocus()
 	UIManager.FreeMouse()
 	current_stage = 1
 	GoToCurrentStage()
-	$Camera.current = true
 	$Control.visible = true
 
 func DeActivate():
 	$CollisionShape/Display.visible = true
-	$Camera.current = false
+	camera.current = false
 	current_stage = 0
 	$Control.visible = false
 	UIManager.ReleaseFocus()
 	UIManager.LockMouse()
 
-func AnimationFinished(var animation_name):
-	if current_stage == 0 or current_stage == max_stages + 1:
-		DeActivate()
-	else:
-		#Put the pivot in front of the camera, and reset the camera position.
-		var pivot_distance = $Camera.translation.distance_to(Vector3())
-		$CameraPivot.translation = $Camera.translation + (-$Camera.global_transform.basis.z * pivot_distance)
-		$CameraPivot.rotation_degrees = $Camera.rotation_degrees
-		$CameraPivot/CameraPosition.translation = Vector3(0.0, 0.0, pivot_distance)
-		$CameraPivot.SetEnabled(true)
 func StartBladesAnimation():
 	$Rocket/RocketBody/ThrustFanBlades_Opt/AnimationPlayer.play("BladesRotate")
 
@@ -79,46 +94,19 @@ func GoToCurrentStage():
 	else:
 		$AnimationPlayer.play("Stage0")
 	
+	for info_box in info_boxes:
+		info_box.visible = false
+	
 	GoToCameraStage()
 
 func GoToCameraStage():
+	transition_transform_from = camera.global_transform
 	
-	var to_translation
-	var to_rotation
-	
-	#Quiting to the player.
-	if current_stage == 0 or current_stage == max_stages + 1:
-		to_translation = return_camera_translation
-		to_rotation = return_camera_rotation
+	if current_stage > 0 and current_stage < max_stages + 1:
+		transition_transform_to_object = $CameraPivot/CameraPosition
 	else:
-		#Going to the next or previous camera translation.
-		var target_animation = $AnimationPlayer.get_animation("Stage" + str(current_stage))
-		var translation_idx = target_animation.find_track("Camera:translation")
-		to_translation = target_animation.track_get_key_value(translation_idx, 0)
-		target_animation.track_set_enabled(translation_idx, false)
-		var rotation_idx = target_animation.find_track("Camera:rotation_degrees")
-		target_animation.track_set_enabled(rotation_idx, false)
-		to_rotation = target_animation.track_get_key_value(rotation_idx, 0)
+		transition_transform_to_object = return_camera
+	
+	transition_timer = 0.0
 	
 	$CameraPivot.SetEnabled(false)
-	
-	for button in slide_buttons:
-		button.SetActive(button.stage != current_stage)
-	
-	StartCameraAnimation(to_translation, to_rotation)
-
-func StartCameraAnimation(var to_translation, var to_rotation):
-	for button in slide_buttons:
-		button.SetActive(button.stage == current_stage)
-	
-	var transition_animation = $CameraAnimationPlayer.get_animation("Transition")
-	
-	transition_animation.track_set_key_value(transition_animation.find_track("Camera:translation"), 0, $Camera.translation)
-	transition_animation.track_set_key_value(transition_animation.find_track("Camera:rotation_degrees"), 0, $Camera.rotation_degrees)
-	
-	transition_animation.track_set_key_value(transition_animation.find_track("Camera:translation"), 1, to_translation)
-	transition_animation.track_set_key_value(transition_animation.find_track("Camera:rotation_degrees"), 1, to_rotation)
-	
-	$CameraAnimationPlayer.play("Transition")
-	
-	
