@@ -16,10 +16,11 @@ enum ui_events{
 	load_level,
 	join_server,
 	run_locally,
-	exit
+	exit,
+	update
 }
 const ui_events_text = ["back", "create_ui", "queue_ui", "set_setting", "dismiss",
-						"load_level", "join_server", "run_locally", "exit" ]
+						"load_level", "join_server", "run_locally", "exit", "update" ]
 func ui_event_to_text(ui_event):
 	var text = "none"
 	if ui_events_text.size() - 1  > ui_event:
@@ -51,6 +52,8 @@ func UIEvent(ui_event, resource=null):
 			run_local(resource)
 		ui_events.exit:
 			Exit()
+		ui_event.update:
+			QueueUI(resource)
 		_:
 			print("UIManager, no action for %s resource(%s)" % [ui_event_to_text(ui_event), resource])
 

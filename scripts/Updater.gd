@@ -622,8 +622,8 @@ func LoadPackageFile(fname):
 # 	printd("LoadPackageFile, application/run/main_scene %s" % ProjectSettings.get_setting("application/run/main_scene"))
 	var success = ProjectSettings.load_resource_pack(fname)
 	Log("Loading File: " + fname + " success" if success else " unsuccessful")
-	if file.file_exists(prjcfg):
-		printd("LoadPackageFile, config file %s present, override" % prjcfg )
+# 	if file.file_exists(prjcfg):
+# 		printd("LoadPackageFile, config file %s present, override" % prjcfg )
 # 		ProjectSettings.set_setting("application/config/project_settings_override", prjcfg)
 
 	printd("LoadPackageFile, application/run/main_scene %s" % ProjectSettings.get_setting("application/run/main_scene"))
