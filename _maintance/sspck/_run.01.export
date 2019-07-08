@@ -1,0 +1,17 @@
+#!/bin/bash
+DIR=`cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd `
+DIR=`dirname $DIR`
+DIR=`dirname $DIR`
+
+
+godot="./Godot_v3.1.1-stable_linux_headless.64"
+prj_dir=$DIR
+dst_dir="$DIR/_maintance/sspck/pck_files"
+date_stamp=`date --utc +%s`
+pack_name="pack_$date_stamp.pck"
+
+echo $godot --path $prj_dir --export "pck" $pack_name
+$godot --path $prj_dir --export "pck" $pack_name
+
+mv $prj_dir/$pack_name $dst_dir/$pack_name
+

@@ -1,0 +1,17 @@
+#!/bin/bash
+DIR=`cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd `
+DIR=`dirname $DIR`
+DIR=`dirname $DIR`
+
+expcfg="$DIR/export_presets.cfg"
+exptmp="$DIR/export_presets.cfg.tmp"
+
+if test -f $exptmp; then
+    if test -f $expcfg; then
+        rm $expcfg
+    fi
+    mv $exptmp $expcfg
+fi
+
+
+

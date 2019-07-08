@@ -1,9 +1,9 @@
 extends Control
 
-# var updater_enabled = false
-# var upt_debug = false
-var updater_enabled = true
-var upt_debug = true
+var updater_enabled = false
+var upt_debug = false
+#var updater_enabled = true
+#var upt_debug = true
 var protocol_version = "0.1"
 
 const UPDATE_CHUNK_SIZE = 1000000
@@ -36,8 +36,26 @@ var client_ids = {}
 var user_updates_path = "user://updates/"
 var user_updates_filter = "user://updates/ignore.lst"
 var server_updates_path = "user://update_cache" #no slash at the end
+var server_package_path = "user://updates_server/"
 
-var filter = options.update_filter
+#############################
+# update variables
+var update_filter = {
+	#basic glob pattern match
+	"exclude" : [
+		"res://_tests/*",
+		"res://_maintance/*",
+		"res://addons/CeransDev/*",
+		"res://_tests.ignore/*"
+	],
+	"include" : [
+	],
+	#basic string match
+	"ignore" : [
+	]
+}
+
+var filter = update_filter
 
 #upate client paramteres
 var client_wait_timeout = 10 #seconds to wait
@@ -81,9 +99,13 @@ func toServer(command, data=null):
 	printd("toServer: %s" % command)
 	rpc_id(1, "UpdateProtocolServer", get_tree().get_network_unique_id(), command, data)
 
-
 func RunUpdateServer():
 	debug_id = "UpdaterServer"
+
+	if not directory.dir_exists(server_package_path):
+		directory.make_dir(server_package_path)
+
+	LoadPackages(server_package_path, true)
 	#Connect all the function so they can be handled by the server.
 	get_tree().connect("network_peer_connected", self, "ServerPeerConnected")
 	get_tree().connect("network_peer_disconnected", self, "ServerPeerDisconnected")
@@ -596,14 +618,23 @@ func GetMD5FromDirectory(var path, var dictionary):
 		Log("GetMD5FromDirectory fail to open %s" % path)
 
 func LoadPackageFile(fname):
+	var prjcfg = "res://project.cfg"
+	printd("LoadPackageFile, application/run/main_scene %s" % ProjectSettings.get_setting("application/run/main_scene"))
 	var success = ProjectSettings.load_resource_pack(fname)
 	Log("Loading File: " + fname + " success" if success else " unsuccessful")
+	if file.file_exists(prjcfg):
+		printd("LoadPackageFile, config file %s present, override" % prjcfg )
+		ProjectSettings.set_setting("application/config/project_settings_override", prjcfg)
+
+	printd("LoadPackageFile, application/run/main_scene %s" % ProjectSettings.get_setting("application/run/main_scene"))
 	return success
 
-func LoadPackages():
+func LoadPackages(path=null, first=false):
+	if path == null:
+		path = user_updates_path
 	var directory = Directory.new()
 	var package_list = []
-	if directory.open(user_updates_path) == OK:
+	if directory.open(path) == OK:
 		directory.list_dir_begin()
 		#Go through the whole updates folder and find the files.
 		var file_name = directory.get_next()
@@ -621,8 +652,12 @@ func LoadPackages():
 	else:
 		print("An error occurred when trying to access the path.")
 	package_list.sort()
-	for fname in package_list:
+	if first and package_list.size() > 0:
+		var fname = package_list.pop_back()
 		LoadPackageFile(fname)
+	else:
+		for fname in package_list:
+			LoadPackageFile(fname)
 
 
 func thread_active_correction(client_id):

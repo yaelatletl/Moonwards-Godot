@@ -114,24 +114,6 @@ var player_opt = {
 	}
 }
 
-#############################
-# update variables
-var update_filter = {
-	#basic glob pattern match
-	"exclude" : [
-		"*.blend",
-		"res://_tests/*",
-		"res://_maintance/*",
-		"res://addons/CeransDev/*",
-		"res://_tests.ignore/*"
-	],
-	"include" : [
-	],
-	#basic string match
-	"ignore" : [
-	]
-}
-
 
 #############################
 # functions and variable to sort
