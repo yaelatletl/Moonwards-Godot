@@ -11,7 +11,7 @@ var velocity = Vector3()
 var look_velocity = Vector3()
 var mouse_down = false
 
-var velocity_damp = 0.95
+var velocity_damp = 0.9
 var look_acceleration = 0.2
 var movement_acceleration = 0.2
 
