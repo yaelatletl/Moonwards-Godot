@@ -618,13 +618,13 @@ func GetMD5FromDirectory(var path, var dictionary):
 		Log("GetMD5FromDirectory fail to open %s" % path)
 
 func LoadPackageFile(fname):
-	var prjcfg = "res://project.cfg"
-	printd("LoadPackageFile, application/run/main_scene %s" % ProjectSettings.get_setting("application/run/main_scene"))
+# 	var prjcfg = "res://project.cfg"
+# 	printd("LoadPackageFile, application/run/main_scene %s" % ProjectSettings.get_setting("application/run/main_scene"))
 	var success = ProjectSettings.load_resource_pack(fname)
 	Log("Loading File: " + fname + " success" if success else " unsuccessful")
 	if file.file_exists(prjcfg):
 		printd("LoadPackageFile, config file %s present, override" % prjcfg )
-		ProjectSettings.set_setting("application/config/project_settings_override", prjcfg)
+# 		ProjectSettings.set_setting("application/config/project_settings_override", prjcfg)
 
 	printd("LoadPackageFile, application/run/main_scene %s" % ProjectSettings.get_setting("application/run/main_scene"))
 	return success

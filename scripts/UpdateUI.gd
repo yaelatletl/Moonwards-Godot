@@ -9,7 +9,7 @@ func AddLogMessage(var text):
 	$VBoxContainer/VBoxContainer/RichTextLabel.text += text + "\n"
 
 func SwitchScene():
-	get_tree().change_scene("res://scenes/NewContentUI.tscn")
+	get_tree().change_scene(ProjectSettings.get_setting("application/run/main_scene"))
 
 func RunUpdateServer():
 	$VBoxContainer/VBoxContainer/State.text = "Server"
