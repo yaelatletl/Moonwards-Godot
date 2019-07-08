@@ -1223,7 +1223,7 @@ text = "The nozzle controlling outflow must also adjust to keep the right pressu
 [node name="InfoBox5" parent="Controller" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -3.51897, -5.76367 )
 visible = false
-text = "Vacuum Flight Explanation"
+text = "Once the rocket reaches space, the inlet closes, so that the hot hydrogen is force backwards instead of also expanding forwards and reducing forwards thrust. Now all thrust comes from the nuclear reactor heating that hydrogen."
 
 [node name="CollisionShape" type="CollisionShape" parent="Controller"]
 editor/display_folded = true
