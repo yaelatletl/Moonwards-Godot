@@ -16,3 +16,4 @@ background_energy = 2.53
 ambient_light_color = Color( 0.347656, 0.347656, 0.347656, 1 )
 ambient_light_energy = 2.95
 ambient_light_sky_contribution = 0.7
+
