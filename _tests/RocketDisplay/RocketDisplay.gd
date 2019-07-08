@@ -16,8 +16,8 @@ onready var camera = get_node(camera_path)
 func _ready():
 	$Control.visible = false
 	$AnimationPlayer.connect("animation_finished", self, "AnimationFinished")
-	yield(get_tree(), "idle_frame")
-	Activate()
+#	yield(get_tree(), "idle_frame")
+#	Activate()
 
 func RegisterInfoBox(var node):
 	info_boxes.append(node)
