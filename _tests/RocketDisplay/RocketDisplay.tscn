@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://_tests/RocketDisplay/RocketDisplay.gd" type="Script" id=1]
 [ext_resource path="res://_tests/RocketDisplay/InfoBox.tscn" type="PackedScene" id=2]
@@ -11,36 +11,30 @@
 [ext_resource path="res://_tests/RocketDisplay/fire_particle.png" type="Texture" id=9]
 [ext_resource path="res://_tests/RocketDisplay/FireParticleMesh.obj" type="ArrayMesh" id=10]
 
-[sub_resource type="ProceduralSky" id=1]
-
-[sub_resource type="Environment" id=2]
-background_mode = 2
-background_sky = SubResource( 1 )
-
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=1]
 extents = Vector3( 10, 5, 10 )
 
-[sub_resource type="PlaneMesh" id=4]
+[sub_resource type="PlaneMesh" id=2]
 size = Vector2( 15, 10 )
 
-[sub_resource type="ViewportTexture" id=5]
+[sub_resource type="ViewportTexture" id=3]
 viewport_path = NodePath("Controller/CollisionShape/Display/Viewport")
 
-[sub_resource type="SpatialMaterial" id=6]
+[sub_resource type="SpatialMaterial" id=4]
 resource_local_to_scene = true
 flags_transparent = true
 flags_unshaded = true
 params_cull_mode = 2
-albedo_texture = SubResource( 5 )
+albedo_texture = SubResource( 3 )
 distance_fade_mode = 3
 distance_fade_min_distance = 1.5
 distance_fade_max_distance = 1.0
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=5]
 size = 32
 font_data = ExtResource( 4 )
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rocket:rotation_degrees")
 tracks/0/interp = 1
@@ -222,7 +216,7 @@ tracks/14/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=7]
 length = 2.0
 step = 0.05
 tracks/0/type = "value"
@@ -346,7 +340,7 @@ tracks/9/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=8]
 length = 3.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rocket/Particles:emitting")
@@ -555,7 +549,7 @@ tracks/16/keys = {
 "values": [ Vector3( 0, 0, 35 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=9]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rocket:rotation_degrees")
@@ -714,7 +708,7 @@ tracks/12/keys = {
 "values": [ Vector3( 0, 0, 30 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=10]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rocket:rotation_degrees")
@@ -885,7 +879,7 @@ tracks/13/keys = {
 "values": [ Vector3( 0, 0, 40 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=11]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rocket:rotation_degrees")
@@ -1070,7 +1064,7 @@ tracks/14/keys = {
 "values": [ Vector3( 0, 0, 45 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=12]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:blend_shapes/Key 1")
 tracks/0/interp = 1
@@ -1084,7 +1078,7 @@ tracks/0/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
-[sub_resource type="SpatialMaterial" id=16]
+[sub_resource type="SpatialMaterial" id=13]
 params_cull_mode = 2
 albedo_color = Color( 0, 0, 0, 0.95 )
 metallic = 0.31
@@ -1092,7 +1086,7 @@ roughness = 0.28
 transmission_enabled = true
 transmission = Color( 0.556863, 0.552941, 0.552941, 1 )
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=14]
 length = 3.0
 loop = true
 step = 0.05
@@ -1109,7 +1103,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 360, 0 ) ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=15]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:blend_shapes/Key 1")
 tracks/0/interp = 1
@@ -1135,7 +1129,7 @@ tracks/1/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=16]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:blend_shapes/Key 1")
 tracks/0/interp = 1
@@ -1161,7 +1155,7 @@ tracks/1/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
-[sub_resource type="SpatialMaterial" id=20]
+[sub_resource type="SpatialMaterial" id=17]
 flags_transparent = true
 flags_unshaded = true
 vertex_color_use_as_albedo = true
@@ -1171,20 +1165,20 @@ albedo_texture = ExtResource( 9 )
 proximity_fade_enable = true
 proximity_fade_distance = 0.1
 
-[sub_resource type="Gradient" id=21]
+[sub_resource type="Gradient" id=18]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 0.682617, 0, 1 )
 
-[sub_resource type="GradientTexture" id=22]
-gradient = SubResource( 21 )
+[sub_resource type="GradientTexture" id=19]
+gradient = SubResource( 18 )
 
-[sub_resource type="Curve" id=23]
+[sub_resource type="Curve" id=20]
 max_value = 2.0
 _data = [ Vector2( 0, 0 ), 0.0, 0.983804, 0, 0, Vector2( 1, 0.9714 ), -6.22616, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=24]
-curve = SubResource( 23 )
+[sub_resource type="CurveTexture" id=21]
+curve = SubResource( 20 )
 
-[sub_resource type="ParticlesMaterial" id=25]
+[sub_resource type="ParticlesMaterial" id=22]
 flag_align_y = true
 flag_rotate_y = true
 spread = 1.0
@@ -1194,13 +1188,10 @@ angular_velocity = 1.0
 linear_accel = 15.0
 angle = 720.0
 scale = 0.1
-scale_curve = SubResource( 24 )
-color_ramp = SubResource( 22 )
+scale_curve = SubResource( 21 )
+color_ramp = SubResource( 19 )
 
 [node name="RocketDisplay" type="Spatial"]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 2 )
 
 [node name="Controller" type="Area" parent="."]
 transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0 )
@@ -1237,12 +1228,12 @@ text = "Vacuum Flight Explanation"
 [node name="CollisionShape" type="CollisionShape" parent="Controller"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.3441, -21.6618, 4.00301 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Display" type="MeshInstance" parent="Controller/CollisionShape"]
 transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 9.98754, 2.41026, 0 )
-mesh = SubResource( 4 )
-material/0 = SubResource( 6 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 4 )
 
 [node name="Viewport" type="Viewport" parent="Controller/CollisionShape/Display"]
 size = Vector2( 350, 200 )
@@ -1256,7 +1247,7 @@ render_target_update_mode = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 3 )
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 5 )
 text = "Bucknell Rocket Display
 Press E to start"
 align = 1
@@ -1358,12 +1349,12 @@ current = true
 near = 0.01
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Controller"]
-anims/Stage0 = SubResource( 9 )
-anims/Stage1 = SubResource( 10 )
-anims/Stage2 = SubResource( 11 )
-anims/Stage3 = SubResource( 12 )
-anims/Stage4 = SubResource( 13 )
-anims/Stage5 = SubResource( 14 )
+anims/Stage0 = SubResource( 6 )
+anims/Stage1 = SubResource( 7 )
+anims/Stage2 = SubResource( 8 )
+anims/Stage3 = SubResource( 9 )
+anims/Stage4 = SubResource( 10 )
+anims/Stage5 = SubResource( 11 )
 
 [node name="EngineSound" type="AudioStreamPlayer3D" parent="Controller"]
 transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0 )
@@ -1374,23 +1365,23 @@ max_distance = 1.0
 transform = Transform( 0.75, 0, 0, 0, 0.69291, -0.287013, 0, 0.287013, 0.69291, 0, -13.2415, 0 )
 
 [node name="AnimationPlayer" parent="Controller/Rocket/RocketBody/PYBB_Nozzle_Opt" index="0"]
-anims/NozzleOpen = SubResource( 15 )
+anims/NozzleOpen = SubResource( 12 )
 
 [node name="RocketScoop" parent="Controller/Rocket/RocketBody" index="1"]
-material/0 = SubResource( 16 )
+material/0 = SubResource( 13 )
 
 [node name="ThrustFanBlades_Opt" parent="Controller/Rocket/RocketBody" index="2"]
 transform = Transform( 0.295811, 0, 0.955246, 0, 1, 0, -0.955246, 0, 0.295811, 3.63588e-06, -1.8605, -2.38419e-07 )
 
 [node name="AnimationPlayer" parent="Controller/Rocket/RocketBody/ThrustFanBlades_Opt" index="0"]
-anims/BladesRotate = SubResource( 17 )
+anims/BladesRotate = SubResource( 14 )
 
 [node name="VariableInlet" parent="Controller/Rocket/RocketBody" index="3"]
 "blend_shapes/Key 1" = 0.0
 
 [node name="AnimationPlayer" parent="Controller/Rocket/RocketBody/VariableInlet" index="0"]
-anims/InletClose = SubResource( 18 )
-anims/InletOpen = SubResource( 19 )
+anims/InletClose = SubResource( 15 )
+anims/InletOpen = SubResource( 16 )
 
 [node name="OmniLight" parent="Controller/Rocket" index="1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.612558, 0 )
@@ -1399,13 +1390,13 @@ omni_range = 0.5
 
 [node name="Particles" type="Particles" parent="Controller/Rocket"]
 transform = Transform( 1, 0, 4.37115e-08, 4.37114e-08, -1.19209e-07, -1, 7.10543e-15, 1, -1.19209e-07, 0, 0, 0 )
-material_override = SubResource( 20 )
+material_override = SubResource( 17 )
 cast_shadow = 0
 emitting = false
 lifetime = 0.2
 visibility_aabb = AABB( -4, -4, -4, 8, 8, 80.18 )
 local_coords = false
-process_material = SubResource( 25 )
+process_material = SubResource( 22 )
 draw_pass_1 = ExtResource( 10 )
 [connection signal="pressed" from="Controller/Control/VBoxContainer/MainWindow/PreviousButton" to="Controller" method="PreviousStage"]
 [connection signal="pressed" from="Controller/Control/VBoxContainer/MainWindow/NextButton" to="Controller" method="NextStage"]
