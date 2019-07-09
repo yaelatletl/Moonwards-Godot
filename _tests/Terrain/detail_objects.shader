@@ -9,6 +9,8 @@ uniform sampler2D rotation_noise_b;
 uniform sampler2D heightmap;
 uniform float terrain_height = 3060;
 uniform float amplitude = 15.0;
+uniform float y_offset = 15.0;
+uniform float scale = 0.5;
 uniform vec2 heightmap_size = vec2(300.0, 300.0);
 
 float get_height(vec2 pos){
@@ -42,9 +44,13 @@ void vertex(){
 	TRANSFORM[2][2] = EMISSION_TRANSFORM[2][2] - mod(EMISSION_TRANSFORM[2][2], texture(rotation_noise_r, pos.xy).r);
 	TRANSFORM[2][3] = EMISSION_TRANSFORM[2][3] - mod(EMISSION_TRANSFORM[2][3], texture(rotation_noise_r, pos.xy).r);
 	
+	TRANSFORM[0][0] *= scale;
+	TRANSFORM[1][1] *= scale;
+	TRANSFORM[2][2] *= scale;
+	
 	pos.y = get_height(pos.xz);
 	
 	TRANSFORM[3][0] = pos.x;
-	TRANSFORM[3][1] = pos.y;
+	TRANSFORM[3][1] = pos.y + y_offset;
 	TRANSFORM[3][2] = pos.z;
 }
