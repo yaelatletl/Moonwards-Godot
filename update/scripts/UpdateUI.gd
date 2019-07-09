@@ -1,6 +1,10 @@
 extends Control
-
+var scripts = {
+	Updater = preload("res://update/scripts/Updater.gd")
+}
+var Updater
 func _ready():
+	Updater = scripts.Updater.new()
 	Updater.connect("receive_update_message", self, "AddLogMessage")
 
 func AddLogMessage(var text):

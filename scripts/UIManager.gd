@@ -52,7 +52,7 @@ func UIEvent(ui_event, resource=null):
 			run_local(resource)
 		ui_events.exit:
 			Exit()
-		ui_event.update:
+		ui_events.update:
 			QueueUI(resource)
 		_:
 			print("UIManager, no action for %s resource(%s)" % [ui_event_to_text(ui_event), resource])
