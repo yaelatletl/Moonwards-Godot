@@ -12,10 +12,10 @@ uniform float amplitude = 15.0;
 uniform vec2 heightmap_size = vec2(300.0, 300.0);
 
 float get_height(vec2 pos){
-	float vectorade = terrain_height*texture(heightmap,pos).r;
-	pos -= 0.5 * heightmap_size;
+	pos += 0.5 * heightmap_size;
 	pos /= heightmap_size;
-	return amplitude * (texture(heightmap, pos).r ) - 2.0*texture(noise,pos).r;
+	float vectorade = amplitude * (texture(heightmap, pos).r );
+	return vectorade - 0.1*texture(noise,pos).r;
 	//return vectorade;
 }
 
