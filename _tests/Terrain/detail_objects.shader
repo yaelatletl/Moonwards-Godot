@@ -7,14 +7,16 @@ uniform sampler2D rotation_noise_r;
 uniform sampler2D rotation_noise_g;
 uniform sampler2D rotation_noise_b;
 uniform sampler2D heightmap;
+uniform float terrain_height = 3060;
 uniform float amplitude = 15.0;
 uniform vec2 heightmap_size = vec2(300.0, 300.0);
 
 float get_height(vec2 pos){
+	float vectorade = terrain_height*texture(heightmap,pos).r;
 	pos -= 0.5 * heightmap_size;
 	pos /= heightmap_size;
-	
-	return amplitude * (texture(heightmap, pos).r  - texture(noise,pos).r);
+	return amplitude * (texture(heightmap, pos).r ) - 2.0*texture(noise,pos).r;
+	//return vectorade;
 }
 
 void vertex(){
@@ -26,10 +28,15 @@ void vertex(){
 	pos.x -= rows * 0.5;
 	pos.z -= rows * 0.5;
 	
-	pos *= texture(rotation_noise_g, pos.xz).b+spacing;
+	pos *= spacing;
 	
 	pos.x += EMISSION_TRANSFORM[3][0] - mod(EMISSION_TRANSFORM[3][0], spacing);
 	pos.z += EMISSION_TRANSFORM[3][2] - mod(EMISSION_TRANSFORM[3][2], spacing);
+	
+	vec3 noise_space = 10.0*texture(rotation_noise_g, 0.001*pos.xz).rgb;
+	pos.x += noise_space.x * spacing;
+	pos.z += noise_space.z * spacing;
+	
 	TRANSFORM[0][0] = EMISSION_TRANSFORM[0][0] - mod(EMISSION_TRANSFORM[0][0], texture(rotation_noise_r, pos.xz).r);
 	TRANSFORM[1][1] = EMISSION_TRANSFORM[1][1] - mod(EMISSION_TRANSFORM[1][1], texture(rotation_noise_r, pos.xy).r);
 	TRANSFORM[2][2] = EMISSION_TRANSFORM[2][2] - mod(EMISSION_TRANSFORM[2][2], texture(rotation_noise_r, pos.xy).r);
