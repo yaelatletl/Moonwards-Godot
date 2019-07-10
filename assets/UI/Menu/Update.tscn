@@ -89,10 +89,12 @@ text = "This is an example of a change log:
 * Removed ugly buttons
 * Added awesomeness
 * Added Moondust
-* Deleted Moondust"
+* Deleted Moondust
+* Fixed name conventions for the change log"
 
 [node name="UpdatingUI" parent="." instance=ExtResource( 2 )]
 visible = false
+
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Update_check" to="." method="_on_Update_check_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Change_log" to="." method="_on_Change_log_pressed"]
 [connection signal="confirmed" from="Change_log" to="." method="_on_Change_log_confirmed"]

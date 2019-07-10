@@ -28,42 +28,60 @@ anchor_bottom = 1.0
 margin_right = 4.0
 margin_bottom = 334.0
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/HBoxContainer"]
-editor/display_folded = true
+[node name="TabContainer" type="TabContainer" parent="Panel/HBoxContainer"]
 margin_left = 8.0
 margin_right = 248.0
 margin_bottom = 334.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+tab_align = 0
 
-[node name="HSeparator" type="HSeparator" parent="Panel/HBoxContainer/VBoxContainer2"]
-margin_right = 240.0
+[node name="Change log" type="Tabs" parent="Panel/HBoxContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -8.0
+margin_right = -16.0
+margin_bottom = -36.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/HBoxContainer/TabContainer/Change log"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 17.0
+margin_top = 32.0
+margin_right = 12.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HSeparator" type="HSeparator" parent="Panel/HBoxContainer/TabContainer/Change log/VBoxContainer2"]
+margin_right = 227.0
 margin_bottom = 4.0
 
-[node name="Title" type="Label" parent="Panel/HBoxContainer/VBoxContainer2"]
+[node name="Title" type="Label" parent="Panel/HBoxContainer/TabContainer/Change log/VBoxContainer2"]
 margin_top = 8.0
-margin_right = 240.0
+margin_right = 227.0
 margin_bottom = 22.0
 text = "What's changed?"
 align = 1
 
-[node name="Panel" type="Panel" parent="Panel/HBoxContainer/VBoxContainer2"]
-editor/display_folded = true
+[node name="Panel" type="Panel" parent="Panel/HBoxContainer/TabContainer/Change log/VBoxContainer2"]
 margin_top = 26.0
-margin_right = 240.0
-margin_bottom = 326.0
+margin_right = 227.0
+margin_bottom = 287.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/HBoxContainer/VBoxContainer2/Panel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/HBoxContainer/TabContainer/Change log/VBoxContainer2/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/HBoxContainer/VBoxContainer2/Panel/ScrollContainer"]
-margin_right = 240.0
-margin_bottom = 300.0
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/HBoxContainer/TabContainer/Change log/VBoxContainer2/Panel/ScrollContainer"]
+margin_right = 227.0
+margin_bottom = 261.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "This is an example of a change log:
@@ -72,10 +90,71 @@ text = "This is an example of a change log:
 * Added Moondust
 * Deleted Moondust"
 
-[node name="HSeparator2" type="HSeparator" parent="Panel/HBoxContainer/VBoxContainer2"]
-margin_top = 330.0
-margin_right = 240.0
-margin_bottom = 334.0
+[node name="HSeparator2" type="HSeparator" parent="Panel/HBoxContainer/TabContainer/Change log/VBoxContainer2"]
+margin_top = 291.0
+margin_right = 227.0
+margin_bottom = 295.0
+
+[node name="Update log" type="Tabs" parent="Panel/HBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Panel/HBoxContainer/TabContainer/Update log"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_bottom = -3.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HSeparator" type="HSeparator" parent="Panel/HBoxContainer/TabContainer/Update log/VBoxContainer3"]
+margin_right = 227.0
+margin_bottom = 4.0
+
+[node name="Title" type="Label" parent="Panel/HBoxContainer/TabContainer/Update log/VBoxContainer3"]
+margin_top = 8.0
+margin_right = 227.0
+margin_bottom = 22.0
+text = "What's changed?"
+align = 1
+
+[node name="Panel" type="Panel" parent="Panel/HBoxContainer/TabContainer/Update log/VBoxContainer3"]
+margin_top = 26.0
+margin_right = 227.0
+margin_bottom = 287.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/HBoxContainer/TabContainer/Update log/VBoxContainer3/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/HBoxContainer/TabContainer/Update log/VBoxContainer3/Panel/ScrollContainer"]
+margin_right = 227.0
+margin_bottom = 261.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "This is an example of an update log:
+checking for updates
+update found
+downloading from main server
+connection timed out
+retrying
+retry failed
+update failed: can't reach server
+"
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/HBoxContainer/TabContainer/Update log/VBoxContainer3"]
+margin_top = 291.0
+margin_right = 227.0
+margin_bottom = 295.0
 
 [node name="VSeparator" type="VSeparator" parent="Panel/HBoxContainer"]
 margin_left = 252.0
@@ -138,3 +217,4 @@ align = 1
 margin_left = 441.0
 margin_right = 445.0
 margin_bottom = 334.0
+
