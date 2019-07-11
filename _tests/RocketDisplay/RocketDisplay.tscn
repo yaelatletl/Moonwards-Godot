@@ -1,15 +1,16 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://_tests/RocketDisplay/RocketDisplay.gd" type="Script" id=1]
 [ext_resource path="res://_tests/RocketDisplay/InfoBox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://themes/MainMenu.tres" type="Theme" id=3]
 [ext_resource path="res://fonts/Exo2-Medium.otf" type="DynamicFontData" id=4]
-[ext_resource path="res://_tests/RocketDisplay/SlideButton.tscn" type="PackedScene" id=5]
-[ext_resource path="res://_tests/RocketDisplay/CameraControl.gd" type="Script" id=6]
-[ext_resource path="res://_tests/RocketDisplay/engine_loop.wav" type="AudioStream" id=7]
-[ext_resource path="res://model_assets/Contributions/SCTR_Bucknell_Opt.tscn" type="PackedScene" id=8]
-[ext_resource path="res://_tests/RocketDisplay/fire_particle.png" type="Texture" id=9]
-[ext_resource path="res://_tests/RocketDisplay/FireParticleMesh.obj" type="ArrayMesh" id=10]
+[ext_resource path="res://themes/Display.tres" type="Theme" id=5]
+[ext_resource path="res://_tests/RocketDisplay/SlideButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://_tests/RocketDisplay/CameraControl.gd" type="Script" id=7]
+[ext_resource path="res://_tests/RocketDisplay/engine_loop.wav" type="AudioStream" id=8]
+[ext_resource path="res://model_assets/Contributions/SCTR_Bucknell_Opt.tscn" type="PackedScene" id=9]
+[ext_resource path="res://_tests/RocketDisplay/fire_particle.png" type="Texture" id=10]
+[ext_resource path="res://_tests/RocketDisplay/FireParticleMesh.obj" type="ArrayMesh" id=11]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 10, 5, 10 )
@@ -215,6 +216,18 @@ tracks/14/keys = {
 "update": 0,
 "values": [ 0.0 ]
 }
+tracks/15/type = "value"
+tracks/15/path = NodePath("Rocket/RocketBody/ThrustFanBlades_Opt:material_override:flags_no_depth_test")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=7]
 length = 2.0
@@ -289,7 +302,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( -35, 40, 0 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("CameraPivot/CameraPosition/Camera:translation")
@@ -421,7 +434,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 3.1 ),
+"times": PoolRealArray( 0, 1.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 1, 0 ]
@@ -445,7 +458,7 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 3.1 ),
+"times": PoolRealArray( 1.9 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
@@ -507,10 +520,10 @@ tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = false
 tracks/13/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 3.5 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 32.9219 ) ]
+"values": [ Vector3( 0, 0, 0 ) ]
 }
 tracks/14/type = "value"
 tracks/14/path = NodePath("CameraPivot:rotation_degrees")
@@ -522,7 +535,7 @@ tracks/14/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( -35, 25, 0 ) ]
 }
 tracks/15/type = "value"
 tracks/15/path = NodePath("CameraPivot/CameraPosition/Camera:rotation_degrees")
@@ -531,7 +544,7 @@ tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = false
 tracks/15/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 3.5 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ) ]
@@ -546,7 +559,19 @@ tracks/16/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 35 ) ]
+"values": [ Vector3( 3.57628e-07, 0, 6.78423 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Rocket/RocketBody/ThrustFanBlades_Opt:material_override:flags_no_depth_test")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -681,7 +706,7 @@ tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 9.89019, 0.245176 ) ]
+"values": [ Vector3( 0, 10.7927, 0.245176 ) ]
 }
 tracks/11/type = "value"
 tracks/11/path = NodePath("CameraPivot:rotation_degrees")
@@ -693,7 +718,7 @@ tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( -35, -125, 0 ) ]
+"values": [ Vector3( -35, -60, 0 ) ]
 }
 tracks/12/type = "value"
 tracks/12/path = NodePath("CameraPivot/CameraPosition:translation")
@@ -705,7 +730,19 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 30 ) ]
+"values": [ Vector3( -8.49366e-07, -1.90735e-06, 24.7887 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("InfoBox4:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -852,7 +889,7 @@ tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 9.47057, 0.245176 ) ]
+"values": [ Vector3( 0, 9.93756, 0.245176 ) ]
 }
 tracks/12/type = "value"
 tracks/12/path = NodePath("CameraPivot:rotation_degrees")
@@ -864,7 +901,7 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( -25, -60, 0 ) ]
+"values": [ Vector3( -25, 50, 0 ) ]
 }
 tracks/13/type = "value"
 tracks/13/path = NodePath("CameraPivot/CameraPosition:translation")
@@ -876,7 +913,7 @@ tracks/13/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 40 ) ]
+"values": [ Vector3( 9.68575e-07, -5.72205e-06, 21.3287 ) ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -1037,7 +1074,7 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 10.4573, 0.245176 ) ]
+"values": [ Vector3( 0.295701, 9.34799, 1.64014 ) ]
 }
 tracks/13/type = "value"
 tracks/13/path = NodePath("CameraPivot:rotation_degrees")
@@ -1049,7 +1086,7 @@ tracks/13/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( -10, -61.8665, 0 ) ]
+"values": [ Vector3( -10, -46.8665, 0 ) ]
 }
 tracks/14/type = "value"
 tracks/14/path = NodePath("CameraPivot/CameraPosition:translation")
@@ -1061,7 +1098,7 @@ tracks/14/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 45 ) ]
+"values": [ Vector3( 1.78814e-06, 0, 21.3867 ) ]
 }
 
 [sub_resource type="Animation" id=12]
@@ -1086,7 +1123,10 @@ roughness = 0.28
 transmission_enabled = true
 transmission = Color( 0.556863, 0.552941, 0.552941, 1 )
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="SpatialMaterial" id=14]
+albedo_color = Color( 0.494118, 0.494118, 0.494118, 1 )
+
+[sub_resource type="Animation" id=15]
 length = 3.0
 loop = true
 step = 0.05
@@ -1103,32 +1143,6 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 360, 0 ) ]
 }
 
-[sub_resource type="Animation" id=15]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:blend_shapes/Key 1")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 1.0, 0.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:blend_shapes/Key 2")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 1.0 ]
-}
-
 [sub_resource type="Animation" id=16]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:blend_shapes/Key 1")
@@ -1140,6 +1154,32 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:blend_shapes/Key 2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=17]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:blend_shapes/Key 1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
 "values": [ 0.0, 1.0 ]
 }
 tracks/1/type = "value"
@@ -1155,41 +1195,40 @@ tracks/1/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
-[sub_resource type="SpatialMaterial" id=17]
+[sub_resource type="SpatialMaterial" id=18]
 flags_transparent = true
 flags_unshaded = true
 vertex_color_use_as_albedo = true
 params_specular_mode = 4
 params_cull_mode = 2
-albedo_texture = ExtResource( 9 )
+albedo_texture = ExtResource( 10 )
 proximity_fade_enable = true
 proximity_fade_distance = 0.1
 
-[sub_resource type="Gradient" id=18]
+[sub_resource type="Gradient" id=19]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 0.682617, 0, 1 )
 
-[sub_resource type="GradientTexture" id=19]
-gradient = SubResource( 18 )
+[sub_resource type="GradientTexture" id=20]
+gradient = SubResource( 19 )
 
-[sub_resource type="Curve" id=20]
+[sub_resource type="Curve" id=21]
 max_value = 2.0
 _data = [ Vector2( 0, 0 ), 0.0, 0.983804, 0, 0, Vector2( 1, 0.9714 ), -6.22616, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=21]
-curve = SubResource( 20 )
+[sub_resource type="CurveTexture" id=22]
+curve = SubResource( 21 )
 
-[sub_resource type="ParticlesMaterial" id=22]
+[sub_resource type="ParticlesMaterial" id=23]
 flag_align_y = true
 flag_rotate_y = true
 spread = 1.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 100.0
 angular_velocity = 1.0
-linear_accel = 15.0
 angle = 720.0
 scale = 0.1
-scale_curve = SubResource( 21 )
-color_ramp = SubResource( 19 )
+scale_curve = SubResource( 22 )
+color_ramp = SubResource( 20 )
 
 [node name="RocketDisplay" type="Spatial"]
 
@@ -1201,27 +1240,27 @@ script = ExtResource( 1 )
 camera_path = NodePath("CameraPivot/CameraPosition/Camera")
 
 [node name="InfoBox1" parent="Controller" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 7.11202, -3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3.76997, -3 )
 visible = false
 text = "We've dreamed since the space age began of rockets that get the oxygen needed to burn their fuel from the air, instead of having to carry it as liquid oxygen (LOX). This design by John Bucknell takes a fresh approach to that. The whole base of the rocket scoops in and accelerates the air towards a single combustion chamber. In this version, a nuclear reactor heats liquid hydrogen, which blows into that chamber and ignites with that air. The combined thrust achieved allows the rocket to carry more than a third of its mass as payload."
 
 [node name="InfoBox2" parent="Controller" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.53667, 22.3092, -2.75079 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.169729, 17.4091, 0.941109 )
 visible = false
 text = "These fan blades rotate at mean speeds of 1.5 Mach, compressing the air drawn through them. Hot hydrogen gas blows in here and ignites with the compressed air. As speed increases, the fan blades rotate to maintain the air intake at the right volume and the shock wave at the right place."
 
 [node name="InfoBox3" parent="Controller" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6376, 20.7124, 5.44581 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.35484, 7.45584, 4.45397 )
 visible = false
 text = "The air inlet is made of many overlapping slats, allowing it to open and close like a flower. As the atmosphere gets thinner with altitude, it dilates to maintain ideal air inflow."
 
 [node name="InfoBox4" parent="Controller" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 22.7502, -0.209904 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.11922, 4.70576, 3.07906 )
 visible = false
 text = "The nozzle controlling outflow must also adjust to keep the right pressure in the combustion chamber. It dilates at high altitude and in vacuum  to maximize  expansion of the gasses backwards."
 
 [node name="InfoBox5" parent="Controller" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -3.51897, -5.76367 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.50517, 5.80315, 6.12235 )
 visible = false
 text = "Once the rocket reaches space, the inlet closes, so that the hot hydrogen is force backwards instead of also expanding forwards and reducing forwards thrust. Now all thrust comes from the nuclear reactor heating that hydrogen."
 
@@ -1254,11 +1293,10 @@ align = 1
 valign = 1
 
 [node name="Control" type="Control" parent="Controller"]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-theme = ExtResource( 3 )
+theme = ExtResource( 5 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Controller/Control"]
 anchor_right = 1.0
@@ -1307,28 +1345,28 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Button1" parent="Controller/Control/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
+[node name="Button1" parent="Controller/Control/VBoxContainer/HBoxContainer" instance=ExtResource( 6 )]
 margin_left = 406.0
 margin_right = 456.0
 control_path = NodePath("../../../../../Controller")
 info_box = NodePath("../../../../InfoBox1")
 stage = 1
 
-[node name="Button2" parent="Controller/Control/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
+[node name="Button2" parent="Controller/Control/VBoxContainer/HBoxContainer" instance=ExtResource( 6 )]
 margin_left = 460.0
 margin_right = 510.0
 control_path = NodePath("../../../../../Controller")
 info_box = NodePath("../../../../InfoBox2")
 stage = 2
 
-[node name="Button3" parent="Controller/Control/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
+[node name="Button3" parent="Controller/Control/VBoxContainer/HBoxContainer" instance=ExtResource( 6 )]
 margin_left = 514.0
 margin_right = 564.0
 control_path = NodePath("../../../../../Controller")
 info_box = NodePath("../../../../InfoBox3")
 stage = 3
 
-[node name="Button4" parent="Controller/Control/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
+[node name="Button4" parent="Controller/Control/VBoxContainer/HBoxContainer" instance=ExtResource( 6 )]
 margin_left = 568.0
 margin_right = 618.0
 control_path = NodePath("../../../../../Controller")
@@ -1336,15 +1374,15 @@ info_box = NodePath("../../../../InfoBox4")
 stage = 4
 
 [node name="CameraPivot" type="Spatial" parent="Controller"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.40378, 0.245176 )
-script = ExtResource( 6 )
+transform = Transform( 0.906307, -0.242404, 0.346188, 0, 0.819152, 0.573576, -0.422618, -0.519837, 0.742403, 0, 15.1654, 0.245176 )
+script = ExtResource( 7 )
 camera_path = NodePath("CameraPosition/Camera")
 
 [node name="CameraPosition" type="Spatial" parent="Controller/CameraPivot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20 )
+transform = Transform( 1, -1.49012e-08, 1.19209e-07, 0, 1, -1.78814e-07, 1.78814e-07, -5.96046e-08, 1, 3.57628e-07, 0, 6.78423 )
 
 [node name="Camera" type="Camera" parent="Controller/CameraPivot/CameraPosition"]
-transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 20 )
+transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0 )
 current = true
 near = 0.01
 
@@ -1358,11 +1396,14 @@ anims/Stage5 = SubResource( 11 )
 
 [node name="EngineSound" type="AudioStreamPlayer3D" parent="Controller"]
 transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0 )
-stream = ExtResource( 7 )
+stream = ExtResource( 8 )
 max_distance = 1.0
 
-[node name="Rocket" parent="Controller" instance=ExtResource( 8 )]
-transform = Transform( 0.75, 0, 0, 0, 0.69291, -0.287013, 0, 0.287013, 0.69291, 0, -13.2415, 0 )
+[node name="Rocket" parent="Controller" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0 )
+
+[node name="PYBB_Nozzle_Opt" parent="Controller/Rocket/RocketBody" index="0"]
+"blend_shapes/Key 1" = 0.0
 
 [node name="AnimationPlayer" parent="Controller/Rocket/RocketBody/PYBB_Nozzle_Opt" index="0"]
 anims/NozzleOpen = SubResource( 12 )
@@ -1372,16 +1413,17 @@ material/0 = SubResource( 13 )
 
 [node name="ThrustFanBlades_Opt" parent="Controller/Rocket/RocketBody" index="2"]
 transform = Transform( 0.295811, 0, 0.955246, 0, 1, 0, -0.955246, 0, 0.295811, 3.63588e-06, -1.8605, -2.38419e-07 )
+material_override = SubResource( 14 )
 
 [node name="AnimationPlayer" parent="Controller/Rocket/RocketBody/ThrustFanBlades_Opt" index="0"]
-anims/BladesRotate = SubResource( 14 )
+anims/BladesRotate = SubResource( 15 )
 
 [node name="VariableInlet" parent="Controller/Rocket/RocketBody" index="3"]
 "blend_shapes/Key 1" = 0.0
 
 [node name="AnimationPlayer" parent="Controller/Rocket/RocketBody/VariableInlet" index="0"]
-anims/InletClose = SubResource( 15 )
-anims/InletOpen = SubResource( 16 )
+anims/InletClose = SubResource( 16 )
+anims/InletOpen = SubResource( 17 )
 
 [node name="OmniLight" parent="Controller/Rocket" index="1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.612558, 0 )
@@ -1389,15 +1431,15 @@ visible = false
 omni_range = 0.5
 
 [node name="Particles" type="Particles" parent="Controller/Rocket"]
-transform = Transform( 1, 0, 4.37115e-08, 4.37114e-08, -1.19209e-07, -1, 7.10543e-15, 1, -1.19209e-07, 0, 0, 0 )
-material_override = SubResource( 17 )
+transform = Transform( 1, 0, 4.37115e-08, 4.37114e-08, -1.19209e-07, -1, 7.10543e-15, 1, -1.19209e-07, -3.62457e-08, 9.47755, 0.348624 )
+material_override = SubResource( 18 )
 cast_shadow = 0
 emitting = false
 lifetime = 0.2
 visibility_aabb = AABB( -4, -4, -4, 8, 8, 80.18 )
 local_coords = false
-process_material = SubResource( 22 )
-draw_pass_1 = ExtResource( 10 )
+process_material = SubResource( 23 )
+draw_pass_1 = ExtResource( 11 )
 [connection signal="pressed" from="Controller/Control/VBoxContainer/MainWindow/PreviousButton" to="Controller" method="PreviousStage"]
 [connection signal="pressed" from="Controller/Control/VBoxContainer/MainWindow/NextButton" to="Controller" method="NextStage"]
 

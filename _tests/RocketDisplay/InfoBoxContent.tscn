@@ -1,12 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://themes/MainMenu.tres" type="Theme" id=1]
+[ext_resource path="res://themes/Display.tres" type="Theme" id=1]
 [ext_resource path="res://_tests/RocketDisplay/InfoBoxContent.gd" type="Script" id=2]
-[ext_resource path="res://fonts/Exo2-Medium.otf" type="DynamicFontData" id=3]
-
-[sub_resource type="DynamicFont" id=1]
-size = 32
-font_data = ExtResource( 3 )
 
 [node name="InfoBoxContent" type="VBoxContainer"]
 margin_right = 800.0
@@ -16,14 +11,12 @@ alignment = 1
 script = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
-margin_top = 275.0
+margin_top = 280.0
 margin_right = 800.0
-margin_bottom = 325.0
+margin_bottom = 320.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
-custom_fonts/font = SubResource( 1 )
 text = "Example text"
 align = 1
-valign = 1
 autowrap = true
 [connection signal="gui_input" from="." to="." method="OnInput"]
