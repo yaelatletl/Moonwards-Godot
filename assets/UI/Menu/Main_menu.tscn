@@ -5,8 +5,8 @@
 [ext_resource path="res://ui/Instructions.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/UI/Menu/lobby.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/UI/Menu/Options.tscn" type="PackedScene" id=5]
-[ext_resource path="res://update/scenes/UpdateUI.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/UI/Menu/Update.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/UI/Menu/About.tscn" type="PackedScene" id=6]
+[ext_resource path="res://update/scenes/UpdateUI.tscn" type="PackedScene" id=7]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends VBoxContainer
@@ -68,9 +68,9 @@ custom_constants/separation = 10
 alignment = 1
 
 [node name="Return" type="Button" parent="UI/MainUI/ButtonsContainer"]
-margin_top = 8.0
+margin_top = 33.0
 margin_right = 175.0
-margin_bottom = 48.0
+margin_bottom = 73.0
 rect_min_size = Vector2( 0, 40 )
 text = "Main Menu"
 script = ExtResource( 2 )
@@ -78,9 +78,9 @@ ui_event = 5
 resource_path = "res://ui/MainMenu.tscn"
 
 [node name="Instructions" type="Button" parent="UI/MainUI/ButtonsContainer"]
-margin_top = 58.0
+margin_top = 83.0
 margin_right = 175.0
-margin_bottom = 98.0
+margin_bottom = 123.0
 rect_min_size = Vector2( 0, 40 )
 text = "Instructions"
 script = ExtResource( 2 )
@@ -88,18 +88,18 @@ ui_event = 1
 resource = ExtResource( 3 )
 
 [node name="Join" type="Button" parent="UI/MainUI/ButtonsContainer"]
-margin_top = 108.0
+margin_top = 133.0
 margin_right = 175.0
-margin_bottom = 148.0
+margin_bottom = 173.0
 rect_min_size = Vector2( 0, 40 )
 text = "Join Server"
 script = ExtResource( 2 )
 ui_event = 6
 
 [node name="RunNet" type="Button" parent="UI/MainUI/ButtonsContainer"]
-margin_top = 158.0
+margin_top = 183.0
 margin_right = 175.0
-margin_bottom = 198.0
+margin_bottom = 223.0
 rect_min_size = Vector2( 0, 40 )
 text = "Custom Game"
 script = ExtResource( 2 )
@@ -107,25 +107,36 @@ ui_event = 1
 resource = ExtResource( 4 )
 
 [node name="Options" type="Button" parent="UI/MainUI/ButtonsContainer"]
-margin_top = 208.0
+margin_top = 233.0
 margin_right = 175.0
-margin_bottom = 248.0
+margin_bottom = 273.0
 rect_min_size = Vector2( 0, 40 )
 text = "Options"
 script = ExtResource( 2 )
 ui_event = 1
 resource = ExtResource( 5 )
 
-[node name="Quit" type="Button" parent="UI/MainUI/ButtonsContainer"]
-margin_top = 258.0
+[node name="Update2" type="Button" parent="UI/MainUI/ButtonsContainer"]
+margin_top = 283.0
 margin_right = 175.0
-margin_bottom = 298.0
+margin_bottom = 323.0
+rect_min_size = Vector2( 0, 40 )
+text = "About"
+script = ExtResource( 2 )
+ui_event = 2
+resource = ExtResource( 6 )
+
+[node name="Quit" type="Button" parent="UI/MainUI/ButtonsContainer"]
+margin_top = 333.0
+margin_right = 175.0
+margin_bottom = 373.0
 rect_min_size = Vector2( 0, 40 )
 text = "Quit"
 script = ExtResource( 2 )
 ui_event = 8
 
 [node name="Update" type="Button" parent="UI/MainUI/ButtonsContainer"]
+visible = false
 margin_top = 308.0
 margin_right = 175.0
 margin_bottom = 348.0
@@ -133,25 +144,13 @@ rect_min_size = Vector2( 0, 40 )
 text = "Update"
 script = ExtResource( 2 )
 ui_event = 9
-resource = ExtResource( 6 )
-
-[node name="Update2" type="Button" parent="UI/MainUI/ButtonsContainer"]
-margin_top = 358.0
-margin_right = 175.0
-margin_bottom = 398.0
-rect_min_size = Vector2( 0, 40 )
-text = "Update Alternative"
-script = ExtResource( 2 )
-
-[node name="Version_About" parent="UI/MainUI/ButtonsContainer/Update2" instance=ExtResource( 7 )]
-visible = false
+resource = ExtResource( 7 )
 
 [node name="Display" type="Button" parent="UI/MainUI/ButtonsContainer"]
-margin_top = 408.0
+margin_top = 383.0
 margin_right = 175.0
-margin_bottom = 448.0
+margin_bottom = 423.0
 rect_min_size = Vector2( 0, 40 )
 disabled = true
 text = "Display"
 script = ExtResource( 2 )
-[connection signal="pressed" from="UI/MainUI/ButtonsContainer/Update2" to="UI/MainUI/ButtonsContainer/Update2/Version_About" method="_on_button_pressed"]

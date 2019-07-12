@@ -36,67 +36,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 tab_align = 0
 
-[node name="Change log" type="Tabs" parent="Panel/HBoxContainer/TabContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -8.0
-margin_right = -16.0
-margin_bottom = -36.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/HBoxContainer/TabContainer/Change log"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 17.0
-margin_top = 32.0
-margin_right = 12.0
-margin_bottom = 29.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="HSeparator" type="HSeparator" parent="Panel/HBoxContainer/TabContainer/Change log/VBoxContainer2"]
-margin_right = 227.0
-margin_bottom = 4.0
-
-[node name="Title" type="Label" parent="Panel/HBoxContainer/TabContainer/Change log/VBoxContainer2"]
-margin_top = 8.0
-margin_right = 227.0
-margin_bottom = 22.0
-text = "What's changed?"
-align = 1
-
-[node name="Panel" type="Panel" parent="Panel/HBoxContainer/TabContainer/Change log/VBoxContainer2"]
-margin_top = 26.0
-margin_right = 227.0
-margin_bottom = 287.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/HBoxContainer/TabContainer/Change log/VBoxContainer2/Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/HBoxContainer/TabContainer/Change log/VBoxContainer2/Panel/ScrollContainer"]
-margin_right = 227.0
-margin_bottom = 261.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "This is an example of a change log:
-* Removed ugly buttons
-* Added awesomeness
-* Added Moondust
-* Deleted Moondust"
-
-[node name="HSeparator2" type="HSeparator" parent="Panel/HBoxContainer/TabContainer/Change log/VBoxContainer2"]
-margin_top = 291.0
-margin_right = 227.0
-margin_bottom = 295.0
-
 [node name="Update log" type="Tabs" parent="Panel/HBoxContainer/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -120,8 +60,7 @@ margin_bottom = 4.0
 margin_top = 8.0
 margin_right = 227.0
 margin_bottom = 22.0
-text = "What's changed?"
-align = 1
+text = "Currently:"
 
 [node name="Panel" type="Panel" parent="Panel/HBoxContainer/TabContainer/Update log/VBoxContainer3"]
 margin_top = 26.0
@@ -213,8 +152,12 @@ margin_bottom = 167.0
 text = "Stand-by"
 align = 1
 
+[node name="HSeparator5" type="HSeparator" parent="Panel/HBoxContainer/VBoxContainer"]
+margin_top = 323.0
+margin_right = 177.0
+margin_bottom = 175.0
+
 [node name="VSeparator2" type="VSeparator" parent="Panel/HBoxContainer"]
 margin_left = 441.0
 margin_right = 445.0
 margin_bottom = 334.0
-

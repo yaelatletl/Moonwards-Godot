@@ -4,7 +4,8 @@
 [ext_resource path="res://scenes/AvatarPreview.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/UI/Menu/Visual_Selector.gd" type="Script" id=3]
 [ext_resource path="res://addons/HuePicker/HuePicker.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/UI/Menu/Update.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/UI/Menu/About.tscn" type="PackedScene" id=5]
+
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends HBoxContainer
