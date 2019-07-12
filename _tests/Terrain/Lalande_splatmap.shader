@@ -1,6 +1,7 @@
 shader_type spatial;
-render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,world_vertex_coords;
+render_mode blend_mix,depth_draw_opaque,cull_back,world_vertex_coords;
 uniform sampler2D splatmap;
+uniform sampler2D splatmap_2;
 uniform sampler2D global_normal;
 
 uniform sampler2D texture0;
@@ -15,6 +16,18 @@ uniform sampler2D texture2;
 uniform sampler2D normal_tex2;
 uniform float normal_depth2 : hint_range(-16,16);
 
+uniform sampler2D texture3;
+uniform sampler2D normal_tex3;
+uniform float normal_depth3 : hint_range(-16,16);
+
+uniform sampler2D texture4;
+uniform sampler2D normal_tex4;
+uniform float normal_depth4 : hint_range(-16,16);
+
+uniform sampler2D texture5;
+uniform sampler2D normal_tex5;
+uniform float normal_depth5 : hint_range(-16,16);
+
 uniform sampler2D albedo_tex;
 uniform sampler2D normal_tex;
 uniform float normal_depth : hint_range(-16,16);
@@ -22,12 +35,6 @@ uniform float normal_depth : hint_range(-16,16);
 uniform float specular;
 uniform float metallic;
 uniform float subsurface_scattering_strength : hint_range(0,1);
-
-uniform float tex0_scale = 1;
-uniform float tex1_scale = 1;
-uniform float tex2_scale = 1;
-
-
 
 varying vec3 uv1_triplanar_pos;
 varying vec3 uv2_triplanar_pos;
@@ -85,12 +92,22 @@ void fragment() {
 	vec3 normal1;
 	vec3 color2;
 	vec3 normal2;
+	vec3 color3;
+	vec3 normal3;
+	vec3 color4;
+	vec3 normal4;
+	vec3 color5;
+	vec3 normal5;
 	vec3 normal;
 	vec3 albedo;
 	vec4 splatmapcolor;
+	vec4 splatmapcolor2;
 	vec4 globalnormal;
 	globalnormal = texture(global_normal, UV);
-	splatmapcolor = texture(splatmap, UV);
+	
+	vec4 mixed_splatcolor = mix(texture(splatmap, UV), texture(splatmap_2, UV), texture(splatmap_2, UV).a);
+	splatmapcolor = max(vec4(0.0), mixed_splatcolor - texture(splatmap_2, UV));
+	splatmapcolor2 = max(vec4(0.0), mixed_splatcolor - texture(splatmap, UV));
 
 	color0 = triplanar_texture(texture0, uv1_power_normal, uv1_triplanar_pos).rgb * splatmapcolor.r;
 	normal0 = triplanar_texture(normal_tex0, uv1_power_normal, uv1_triplanar_pos).rgb * splatmapcolor.r;
@@ -98,29 +115,46 @@ void fragment() {
 	color1 = triplanar_texture(texture1,uv2_power_normal, uv2_triplanar_pos).rgb * splatmapcolor.g;
 	normal1 = triplanar_texture(normal_tex2, uv2_power_normal, uv2_triplanar_pos).rgb * splatmapcolor.g;
 
-
 	color2 = triplanar_texture(texture2, uv3_power_normal, uv3_triplanar_pos).rgb * splatmapcolor.b;
 	normal2 = triplanar_texture(normal_tex2, uv3_power_normal, uv3_triplanar_pos).rgb * splatmapcolor.b;
+	
+	color3 = triplanar_texture(texture3, uv3_power_normal, uv3_triplanar_pos).rgb * splatmapcolor2.r;
+	normal3 = triplanar_texture(normal_tex3, uv3_power_normal, uv3_triplanar_pos).rgb * splatmapcolor2.r;
+	
+	color4 = triplanar_texture(texture4, uv3_power_normal, uv3_triplanar_pos).rgb * splatmapcolor2.g;
+	normal4 = triplanar_texture(normal_tex4, uv3_power_normal, uv3_triplanar_pos).rgb * splatmapcolor2.g;
+	
+	color5 = triplanar_texture(texture5, uv3_power_normal, uv3_triplanar_pos).rgb * splatmapcolor2.b;
+	normal5 = triplanar_texture(normal_tex5, uv3_power_normal, uv3_triplanar_pos).rgb * splatmapcolor2.b;
 
-	albedo = triplanar_texture(albedo_tex, uv1_power_normal, uv1_triplanar_pos).rgb * (vec3(1.0) - (splatmapcolor.r));
+	albedo = texture(albedo_tex, UV).rgb * (vec3(1.0) - (splatmapcolor.r));
 	albedo = albedo * (vec3(1.0) - (splatmapcolor.g));
 	albedo = albedo * (vec3(1.0) - (splatmapcolor.b));
-	albedo = (albedo + color0 + color1 + color2);
+	
+	albedo = albedo * (vec3(1.0) - (splatmapcolor2.r));
+	albedo = albedo * (vec3(1.0) - (splatmapcolor2.g));
+	albedo = albedo * (vec3(1.0) - (splatmapcolor2.b));
+	
+	albedo = (albedo + color0 + color1 + color2 + color3 + color4 + color5);
 	ALBEDO = albedo;
+//	ALBEDO = (splatmapcolor + splatmapcolor2).rgb;
 
-	normal = triplanar_texture(normal_tex, uv1_power_normal, uv1_triplanar_pos).rgb * (vec3(1.0) - (splatmapcolor.r));
+	normal = texture(normal_tex, UV).rgb * (vec3(1.0) - (splatmapcolor.r));
 	normal = normal * (vec3(1.0) - (splatmapcolor.g));
 	normal = normal * (vec3(1.0) - (splatmapcolor.b));
 	
-	//albedo = mix(albedo,color1,splatmapcolor.r);
-	//albedo = mix(albedo,color2,splatmapcolor.g);
-	//albedo = mix(albedo,color0,splatmapcolor.b);
+	normal = normal * (vec3(1.0) - (splatmapcolor2.r));
+	normal = normal * (vec3(1.0) - (splatmapcolor2.g));
+	normal = normal * (vec3(1.0) - (splatmapcolor2.b));
+	
 	SPECULAR = specular;
 	METALLIC = metallic;
 	ROUGHNESS = 1.0;
-	NORMALMAP = normalize(normal_depth*normal + normal_depth0*normal0 + normal_depth1*normal1 + normal_depth2*normal2);
+	
+	NORMALMAP = normalize(normal_depth*normal + normal_depth0*normal0 + normal_depth1*normal1 + normal_depth2*normal2 + normal_depth3*normal3 + normal_depth4*normal4 + normal_depth5*normal5);
 	vec3 dif =(mod(NORMALMAP, NORMALMAP+globalnormal.rgb));
 	NORMALMAP = (NORMALMAP + globalnormal.rgb) - (dif*dot(NORMALMAP,globalnormal.rgb));
+	
 	//NORMALMAP = dif;
 	//NORMALMAP = globalnormal.rgb;
 	
