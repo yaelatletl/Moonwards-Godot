@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/UI/Menu/Update.gd" type="Script" id=1]
-[ext_resource path="res://assets/UI/Menu/Updating_UI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/UIElement.gd" type="Script" id=2]
+[ext_resource path="res://assets/UI/Menu/Updating_UI.tscn" type="PackedScene" id=3]
 
 [node name="About" type="Panel"]
 anchor_left = 0.5
@@ -136,16 +137,81 @@ margin_bottom = 179.0
 text = "There are no updates available,
 last checked: 12/07/2019, 17:44"
 
-[node name="Update_check" type="Button" parent="HBoxContainer2/VBoxContainer3"]
-margin_top = 300.0
+[node name="HSeparator5" type="HSeparator" parent="HBoxContainer2/VBoxContainer3"]
+margin_top = 183.0
+margin_right = 206.0
+margin_bottom = 187.0
+
+[node name="HSeparator6" type="HSeparator" parent="HBoxContainer2/VBoxContainer3"]
+margin_top = 191.0
+margin_right = 206.0
+margin_bottom = 195.0
+
+[node name="HSeparator7" type="HSeparator" parent="HBoxContainer2/VBoxContainer3"]
+margin_top = 199.0
 margin_right = 206.0
 margin_bottom = 203.0
+
+[node name="HSeparator8" type="HSeparator" parent="HBoxContainer2/VBoxContainer3"]
+margin_top = 207.0
+margin_right = 206.0
+margin_bottom = 211.0
+
+[node name="HSeparator9" type="HSeparator" parent="HBoxContainer2/VBoxContainer3"]
+margin_top = 215.0
+margin_right = 206.0
+margin_bottom = 219.0
+
+[node name="HSeparator10" type="HSeparator" parent="HBoxContainer2/VBoxContainer3"]
+margin_top = 223.0
+margin_right = 206.0
+margin_bottom = 227.0
+
+[node name="HSeparator11" type="HSeparator" parent="HBoxContainer2/VBoxContainer3"]
+margin_top = 231.0
+margin_right = 206.0
+margin_bottom = 235.0
+
+[node name="HSeparator12" type="HSeparator" parent="HBoxContainer2/VBoxContainer3"]
+margin_top = 239.0
+margin_right = 206.0
+margin_bottom = 243.0
+
+[node name="HSeparator13" type="HSeparator" parent="HBoxContainer2/VBoxContainer3"]
+margin_top = 247.0
+margin_right = 206.0
+margin_bottom = 251.0
+
+[node name="HSeparator14" type="HSeparator" parent="HBoxContainer2/VBoxContainer3"]
+margin_top = 255.0
+margin_right = 206.0
+margin_bottom = 259.0
+
+[node name="HSeparator15" type="HSeparator" parent="HBoxContainer2/VBoxContainer3"]
+margin_top = 263.0
+margin_right = 206.0
+margin_bottom = 267.0
+
+[node name="HSeparator16" type="HSeparator" parent="HBoxContainer2/VBoxContainer3"]
+margin_top = 271.0
+margin_right = 206.0
+margin_bottom = 275.0
+
+[node name="HSeparator17" type="HSeparator" parent="HBoxContainer2/VBoxContainer3"]
+margin_top = 279.0
+margin_right = 206.0
+margin_bottom = 283.0
+
+[node name="Update_check" type="Button" parent="HBoxContainer2/VBoxContainer3"]
+margin_top = 287.0
+margin_right = 206.0
+margin_bottom = 307.0
 text = "Check for updates"
 
 [node name="HSeparator4" type="HSeparator" parent="HBoxContainer2/VBoxContainer3"]
-margin_top = 346.0
+margin_top = 311.0
 margin_right = 206.0
-margin_bottom = 211.0
+margin_bottom = 315.0
 
 [node name="Change_log" type="Button" parent="HBoxContainer2/VBoxContainer3"]
 visible = false
@@ -153,6 +219,18 @@ margin_top = 207.0
 margin_right = 206.0
 margin_bottom = 227.0
 text = "Change log"
+
+[node name="Button" type="Button" parent="HBoxContainer2/VBoxContainer3"]
+margin_top = 319.0
+margin_right = 206.0
+margin_bottom = 339.0
+text = "Return"
+script = ExtResource( 2 )
+
+[node name="HSeparator18" type="HSeparator" parent="HBoxContainer2/VBoxContainer3"]
+margin_top = 343.0
+margin_right = 206.0
+margin_bottom = 347.0
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer2"]
 margin_left = 582.0
@@ -202,7 +280,7 @@ text = "This is an example of a change log:
 * Added Herobrine
 * Deleted Herobrine"
 
-[node name="UpdatingUI" parent="." instance=ExtResource( 2 )]
+[node name="UpdatingUI" parent="." instance=ExtResource( 3 )]
 visible = false
 [connection signal="pressed" from="HBoxContainer2/VBoxContainer3/Update_check" to="." method="_on_Update_check_pressed"]
 [connection signal="pressed" from="HBoxContainer2/VBoxContainer3/Change_log" to="." method="_on_Change_log_pressed"]

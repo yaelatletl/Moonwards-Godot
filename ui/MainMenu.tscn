@@ -23,4 +23,3 @@ stretch_mode = 7
 [node name="Options" type="Node" parent="."]
 
 [node name="NoCamera" type="Node" parent="Options"]
-

@@ -116,14 +116,14 @@ script = ExtResource( 2 )
 ui_event = 1
 resource = ExtResource( 5 )
 
-[node name="Update2" type="Button" parent="UI/MainUI/ButtonsContainer"]
+[node name="About" type="Button" parent="UI/MainUI/ButtonsContainer"]
 margin_top = 283.0
 margin_right = 175.0
 margin_bottom = 323.0
 rect_min_size = Vector2( 0, 40 )
 text = "About"
 script = ExtResource( 2 )
-ui_event = 2
+ui_event = 1
 resource = ExtResource( 6 )
 
 [node name="Quit" type="Button" parent="UI/MainUI/ButtonsContainer"]
