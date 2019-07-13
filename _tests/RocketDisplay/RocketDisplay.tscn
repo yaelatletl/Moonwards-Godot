@@ -228,6 +228,66 @@ tracks/15/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/16/type = "value"
+tracks/16/path = NodePath("Control/VBoxContainer/MainWindow/Control/Info1:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Control/VBoxContainer/MainWindow/Control/Info2:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Control/VBoxContainer/MainWindow/Control/Info3:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Control/VBoxContainer/MainWindow/Control/Info4:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Control/VBoxContainer/MainWindow/Control/Info5:visible")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=7]
 length = 2.0
@@ -245,31 +305,31 @@ tracks/0/keys = {
 "values": [ Vector3( 45, 0, 0 ), Vector3( 0, 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("InfoBox1:visible")
+tracks/1/path = NodePath("Rocket:translation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1.85 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Rocket:translation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, -26.4829, 0 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Rocket/Particles:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
 tracks/3/type = "value"
-tracks/3/path = NodePath("Rocket/Particles:translation")
+tracks/3/path = NodePath("CameraPivot:translation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -278,10 +338,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( 0, -12.2078, 0.245176 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("CameraPivot:translation")
+tracks/4/path = NodePath("CameraPivot:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -290,22 +350,22 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, -2.40378, 0.245176 ) ]
+"values": [ Vector3( -35, 40, 0 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("CameraPivot:rotation_degrees")
+tracks/5/path = NodePath("CameraPivot/CameraPosition/Camera:translation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( -35, 40, 0 ) ]
+"values": [ Vector3( 0, 0, 20 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("CameraPivot/CameraPosition/Camera:translation")
+tracks/6/path = NodePath("CameraPivot/CameraPosition/Camera:rotation_degrees")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -314,22 +374,22 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 20 ) ]
+"values": [ Vector3( 0, 0, 0 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("CameraPivot/CameraPosition/Camera:rotation_degrees")
+tracks/7/path = NodePath("CameraPivot/CameraPosition:translation")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
-tracks/7/enabled = false
+tracks/7/enabled = true
 tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( -3.72529e-06, 1.90735e-06, 30.1541 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("CameraPivot/CameraPosition:translation")
+tracks/8/path = NodePath("Rocket/Particles:emitting")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -337,20 +397,20 @@ tracks/8/enabled = true
 tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 20 ) ]
+"update": 1,
+"values": [ false ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("Rocket/Particles:emitting")
+tracks/9/path = NodePath("Control/VBoxContainer/MainWindow/Control/Info1:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ false, true ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -440,60 +500,36 @@ tracks/6/keys = {
 "values": [ 1, 0 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("InfoBox1:visible")
+tracks/7/path = NodePath("Rocket/Particles:process_material:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("InfoBox2:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 1.9 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("Rocket/Particles:process_material:scale")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
 "times": PoolRealArray( 1.9 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.1 ]
 }
-tracks/10/type = "value"
-tracks/10/path = NodePath("Rocket/Particles:translation")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
+tracks/8/type = "value"
+tracks/8/path = NodePath("Rocket/Particles:translation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
 "times": PoolRealArray( 2 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( -3.62457e-08, 9.47755, 0.348624 ) ]
 }
-tracks/11/type = "method"
-tracks/11/path = NodePath(".")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
+tracks/9/type = "method"
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
 "times": PoolRealArray( 2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -501,8 +537,32 @@ tracks/11/keys = {
 "method": "StartBladesAnimation"
 } ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath("CameraPivot:translation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 12.8123, 0.245176 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("CameraPivot/CameraPosition/Camera:translation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = false
+tracks/11/keys = {
+"times": PoolRealArray( 3.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
 tracks/12/type = "value"
-tracks/12/path = NodePath("CameraPivot:translation")
+tracks/12/path = NodePath("CameraPivot:rotation_degrees")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -511,10 +571,10 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 15.1654, 0.245176 ) ]
+"values": [ Vector3( -35, 25, 0 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("CameraPivot/CameraPosition/Camera:translation")
+tracks/13/path = NodePath("CameraPivot/CameraPosition/Camera:rotation_degrees")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -526,7 +586,7 @@ tracks/13/keys = {
 "values": [ Vector3( 0, 0, 0 ) ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("CameraPivot:rotation_degrees")
+tracks/14/path = NodePath("CameraPivot/CameraPosition:translation")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -535,22 +595,22 @@ tracks/14/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( -35, 25, 0 ) ]
+"values": [ Vector3( 3.57628e-07, 0, 6.78423 ) ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("CameraPivot/CameraPosition/Camera:rotation_degrees")
+tracks/15/path = NodePath("Rocket/RocketBody/ThrustFanBlades_Opt:material_override:flags_no_depth_test")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
-tracks/15/enabled = false
+tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 3.5 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ) ]
+"update": 1,
+"values": [ true ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("CameraPivot/CameraPosition:translation")
+tracks/16/path = NodePath("Control/VBoxContainer/MainWindow/Control/Info1:visible")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -558,20 +618,20 @@ tracks/16/enabled = true
 tracks/16/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 3.57628e-07, 0, 6.78423 ) ]
+"update": 1,
+"values": [ false ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("Rocket/RocketBody/ThrustFanBlades_Opt:material_override:flags_no_depth_test")
+tracks/17/path = NodePath("Control/VBoxContainer/MainWindow/Control/Info2:visible")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
 tracks/17/enabled = true
 tracks/17/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false, true ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -589,19 +649,19 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 45, 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("InfoBox2:visible")
+tracks/1/path = NodePath("Rocket/Particles:process_material:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
+"times": PoolRealArray( 1.5, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.1, 0.2 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Rocket/Particles:process_material:scale")
+tracks/2/path = NodePath("Rocket/Particles:process_material:linear_accel")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -610,58 +670,58 @@ tracks/2/keys = {
 "times": PoolRealArray( 1.5, 2.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.1, 0.2 ]
+"values": [ 5.0, 15.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Rocket/Particles:process_material:linear_accel")
+tracks/3/path = NodePath("CameraPivot/CameraPosition/Camera:translation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/keys = {
-"times": PoolRealArray( 1.5, 2.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 5.0, 15.0 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("InfoBox3:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("CameraPivot/CameraPosition/Camera:translation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = false
-tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 51.2362 ) ]
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("CameraPivot/CameraPosition/Camera:rotation_degrees")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = false
-tracks/6/keys = {
+tracks/4/type = "value"
+tracks/4/path = NodePath("CameraPivot/CameraPosition/Camera:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ) ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("Rocket/Particles:translation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1.5, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -3.62457e-08, 9.47755, 0.348624 ), Vector3( 2.03363e-07, 3.99594, 0.348624 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Rocket/RocketBody/VariableInlet:blend_shapes/Key 1")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 1.5, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.6 ]
+}
 tracks/7/type = "value"
-tracks/7/path = NodePath("Rocket/Particles:translation")
+tracks/7/path = NodePath("Rocket/RocketBody/VariableInlet:blend_shapes/Key 2")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -670,34 +730,34 @@ tracks/7/keys = {
 "times": PoolRealArray( 1.5, 2.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( -3.62457e-08, 9.47755, 0.348624 ), Vector3( 2.03363e-07, 3.99594, 0.348624 ) ]
+"values": [ 0.0, 0.0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Rocket/RocketBody/VariableInlet:blend_shapes/Key 1")
+tracks/8/path = NodePath("CameraPivot:translation")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 1.5, 2.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0, 0.6 ]
+"values": [ Vector3( 0, 10.7927, 0.245176 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("Rocket/RocketBody/VariableInlet:blend_shapes/Key 2")
+tracks/9/path = NodePath("CameraPivot:rotation_degrees")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 1.5, 2.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0, 0.0 ]
+"values": [ Vector3( -35, -60, 0 ) ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("CameraPivot:translation")
+tracks/10/path = NodePath("CameraPivot/CameraPosition:translation")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -706,10 +766,10 @@ tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 10.7927, 0.245176 ) ]
+"values": [ Vector3( -8.49366e-07, -1.90735e-06, 24.7887 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("CameraPivot:rotation_degrees")
+tracks/11/path = NodePath("Control/VBoxContainer/MainWindow/Control/Info2:visible")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -717,32 +777,20 @@ tracks/11/enabled = true
 tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( -35, -60, 0 ) ]
+"update": 1,
+"values": [ false ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("CameraPivot/CameraPosition:translation")
+tracks/12/path = NodePath("Control/VBoxContainer/MainWindow/Control/Info3:visible")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( -8.49366e-07, -1.90735e-06, 24.7887 ) ]
-}
-tracks/13/type = "value"
-tracks/13/path = NodePath("InfoBox4:visible")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/keys = {
-"times": PoolRealArray( 3 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ false, true ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -772,67 +820,67 @@ tracks/1/keys = {
 "values": [ 0.2, 0.3 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("InfoBox3:visible")
+tracks/2/path = NodePath("CameraPivot/CameraPosition/Camera:translation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("InfoBox4:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("CameraPivot/CameraPosition/Camera:translation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = false
-tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 8.07643e-06, -4.47035e-06, 38.0016 ) ]
 }
-tracks/5/type = "value"
-tracks/5/path = NodePath("CameraPivot/CameraPosition/Camera:rotation_degrees")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = false
-tracks/5/keys = {
+tracks/3/type = "value"
+tracks/3/path = NodePath("CameraPivot/CameraPosition/Camera:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ) ]
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("Rocket/Particles:process_material:linear_accel")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
+tracks/4/type = "value"
+tracks/4/path = NodePath("Rocket/Particles:process_material:linear_accel")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
 "times": PoolRealArray( 1, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 15.0, 0.0 ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("Rocket/Particles:translation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 2.03363e-07, 3.99594, 0.348624 ), Vector3( 1.07264e-06, -15.8908, 0.348622 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Rocket/RocketBody/VariableInlet:blend_shapes/Key 2")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 tracks/7/type = "value"
-tracks/7/path = NodePath("Rocket/Particles:translation")
+tracks/7/path = NodePath("Rocket/RocketBody/VariableInlet:blend_shapes/Key 1")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -841,46 +889,46 @@ tracks/7/keys = {
 "times": PoolRealArray( 1, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 2.03363e-07, 3.99594, 0.348624 ), Vector3( 1.07264e-06, -15.8908, 0.348622 ) ]
+"values": [ 0.6, 1.0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Rocket/RocketBody/VariableInlet:blend_shapes/Key 2")
+tracks/8/path = NodePath("Rocket/RocketBody/PYBB_Nozzle_Opt:blend_shapes/Key 1")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 1 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("Rocket/RocketBody/VariableInlet:blend_shapes/Key 1")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 1, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.6, 1.0 ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("Rocket/RocketBody/PYBB_Nozzle_Opt:blend_shapes/Key 1")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
 "times": PoolRealArray( 1, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 1.0, 0.0 ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("CameraPivot:translation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 9.93756, 0.245176 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("CameraPivot:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -25, 50, 0 ) ]
+}
 tracks/11/type = "value"
-tracks/11/path = NodePath("CameraPivot:translation")
+tracks/11/path = NodePath("CameraPivot/CameraPosition:translation")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -889,10 +937,10 @@ tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 9.93756, 0.245176 ) ]
+"values": [ Vector3( 9.68575e-07, -5.72205e-06, 21.3287 ) ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("CameraPivot:rotation_degrees")
+tracks/12/path = NodePath("Control/VBoxContainer/MainWindow/Control/Info3:visible")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -900,20 +948,20 @@ tracks/12/enabled = true
 tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( -25, 50, 0 ) ]
+"update": 1,
+"values": [ false ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("CameraPivot/CameraPosition:translation")
+tracks/13/path = NodePath("Control/VBoxContainer/MainWindow/Control/Info4:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 9.68575e-07, -5.72205e-06, 21.3287 ) ]
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -955,67 +1003,67 @@ tracks/2/keys = {
 "values": [ Vector3( 0, 0, 20 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("InfoBox4:visible")
+tracks/3/path = NodePath("Rocket/Particles:process_material:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("InfoBox5:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("Rocket/Particles:process_material:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
 "times": PoolRealArray( 1, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.3, 0.35 ]
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("Rocket/Particles:process_material:spread")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
+tracks/4/type = "value"
+tracks/4/path = NodePath("Rocket/Particles:process_material:spread")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
 "times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 1.0 ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("Rocket/Particles:emitting")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
+tracks/5/type = "value"
+tracks/5/path = NodePath("Rocket/Particles:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("Rocket/Particles:translation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 1, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.17924e-06, -17.4998, -3.21601e-06 ), Vector3( 1.50621e-06, -24.9801, -4.10773e-06 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Rocket/RocketBody/VariableInlet:blend_shapes/Key 1")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 1, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
 tracks/8/type = "value"
-tracks/8/path = NodePath("Rocket/Particles:translation")
+tracks/8/path = NodePath("Rocket/RocketBody/VariableInlet:blend_shapes/Key 2")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -1024,39 +1072,15 @@ tracks/8/keys = {
 "times": PoolRealArray( 1, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 1.17924e-06, -17.4998, -3.21601e-06 ), Vector3( 1.50621e-06, -24.9801, -4.10773e-06 ) ]
+"values": [ 0.0, 1.0 ]
 }
-tracks/9/type = "value"
-tracks/9/path = NodePath("Rocket/RocketBody/VariableInlet:blend_shapes/Key 1")
+tracks/9/type = "method"
+tracks/9/path = NodePath(".")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 1, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 1.0, 0.0 ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("Rocket/RocketBody/VariableInlet:blend_shapes/Key 2")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"times": PoolRealArray( 1, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 1.0 ]
-}
-tracks/11/type = "method"
-tracks/11/path = NodePath(".")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
 "times": PoolRealArray( 2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -1064,8 +1088,32 @@ tracks/11/keys = {
 "method": "StopBladesAnimation"
 } ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath("CameraPivot:translation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.295701, 9.34799, 1.64014 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("CameraPivot:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -10, -46.8665, 0 ) ]
+}
 tracks/12/type = "value"
-tracks/12/path = NodePath("CameraPivot:translation")
+tracks/12/path = NodePath("CameraPivot/CameraPosition:translation")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -1074,10 +1122,10 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0.295701, 9.34799, 1.64014 ) ]
+"values": [ Vector3( 1.78814e-06, 0, 21.3867 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("CameraPivot:rotation_degrees")
+tracks/13/path = NodePath("Control/VBoxContainer/MainWindow/Control/Info4:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -1085,20 +1133,20 @@ tracks/13/enabled = true
 tracks/13/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( -10, -46.8665, 0 ) ]
+"update": 1,
+"values": [ false ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("CameraPivot/CameraPosition:translation")
+tracks/14/path = NodePath("Control/VBoxContainer/MainWindow/Control/Info5:visible")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 1.78814e-06, 0, 21.3867 ) ]
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
 }
 
 [sub_resource type="Animation" id=12]
@@ -1225,6 +1273,7 @@ spread = 1.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 100.0
 angular_velocity = 1.0
+linear_accel = 15.0
 angle = 720.0
 scale = 0.1
 scale_curve = SubResource( 22 )
@@ -1319,12 +1368,54 @@ rect_min_size = Vector2( 100, 50 )
 size_flags_vertical = 4
 text = "Next"
 
-[node name="Control" type="Control" parent="Controller/Control/VBoxContainer/MainWindow"]
+[node name="Control" type="VBoxContainer" parent="Controller/Control/VBoxContainer/MainWindow"]
 margin_left = 104.0
 margin_right = 920.0
 margin_bottom = 700.0
 mouse_filter = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+
+[node name="Info1" type="Label" parent="Controller/Control/VBoxContainer/MainWindow/Control"]
+visible = false
+margin_top = 487.0
+margin_right = 816.0
+margin_bottom = 700.0
+text = "We've dreamed since the space age began of rockets that get the oxygen needed to burn their fuel from the air, instead of having to carry it as liquid oxygen (LOX). This design by John Bucknell takes a fresh approach to that. The whole base of the rocket scoops in and accelerates the air towards a single combustion chamber. In this version, a nuclear reactor heats liquid hydrogen, which blows into that chamber and ignites with that air. The combined thrust achieved allows the rocket to carry more than a third of its mass as payload."
+autowrap = true
+
+[node name="Info2" type="Label" parent="Controller/Control/VBoxContainer/MainWindow/Control"]
+visible = false
+margin_top = 571.0
+margin_right = 816.0
+margin_bottom = 700.0
+text = "These fan blades rotate at mean speeds of 1.5 Mach, compressing the air drawn through them. Hot hydrogen gas blows in here and ignites with the compressed air. As speed increases, the fan blades rotate to maintain the air intake at the right volume and the shock wave at the right place."
+autowrap = true
+
+[node name="Info3" type="Label" parent="Controller/Control/VBoxContainer/MainWindow/Control"]
+visible = false
+margin_top = 599.0
+margin_right = 816.0
+margin_bottom = 700.0
+text = "The air inlet is made of many overlapping slats, allowing it to open and close like a flower. As the atmosphere gets thinner with altitude, it dilates to maintain ideal air inflow."
+autowrap = true
+
+[node name="Info4" type="Label" parent="Controller/Control/VBoxContainer/MainWindow/Control"]
+visible = false
+margin_top = 599.0
+margin_right = 816.0
+margin_bottom = 700.0
+text = "The nozzle controlling outflow must also adjust to keep the right pressure in the combustion chamber. It dilates at high altitude and in vacuum  to maximize  expansion of the gasses backwards."
+autowrap = true
+
+[node name="Info5" type="Label" parent="Controller/Control/VBoxContainer/MainWindow/Control"]
+visible = false
+margin_top = 599.0
+margin_right = 816.0
+margin_bottom = 700.0
+text = "Once the rocket reaches space, the inlet closes, so that the hot hydrogen is force backwards instead of also expanding forwards and reducing forwards thrust. Now all thrust comes from the nuclear reactor heating that hydrogen."
+autowrap = true
 
 [node name="NextButton" type="Button" parent="Controller/Control/VBoxContainer/MainWindow"]
 margin_left = 924.0
@@ -1374,12 +1465,12 @@ info_box = NodePath("../../../../InfoBox4")
 stage = 4
 
 [node name="CameraPivot" type="Spatial" parent="Controller"]
-transform = Transform( 0.906307, -0.242404, 0.346188, 0, 0.819152, 0.573576, -0.422618, -0.519837, 0.742403, 0, 15.1654, 0.245176 )
+transform = Transform( 0.5, 0.496732, -0.709406, 0, 0.819152, 0.573576, 0.866025, -0.286788, 0.409575, 0, 10.7927, 0.245176 )
 script = ExtResource( 7 )
 camera_path = NodePath("CameraPosition/Camera")
 
 [node name="CameraPosition" type="Spatial" parent="Controller/CameraPivot"]
-transform = Transform( 1, -1.49012e-08, 1.19209e-07, 0, 1, -1.78814e-07, 1.78814e-07, -5.96046e-08, 1, 3.57628e-07, 0, 6.78423 )
+transform = Transform( 1, 5.96046e-08, 1.19209e-07, 8.9407e-08, 1, -1.49012e-07, 1.78814e-07, 5.96046e-08, 1, -8.49366e-07, -1.90735e-06, 24.7887 )
 
 [node name="Camera" type="Camera" parent="Controller/CameraPivot/CameraPosition"]
 transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0 )
@@ -1400,7 +1491,7 @@ stream = ExtResource( 8 )
 max_distance = 1.0
 
 [node name="Rocket" parent="Controller" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0 )
+transform = Transform( 0.75, 0, 0, 0, 0.53033, -0.53033, 0, 0.53033, 0.53033, 0, 0, 0 )
 
 [node name="PYBB_Nozzle_Opt" parent="Controller/Rocket/RocketBody" index="0"]
 "blend_shapes/Key 1" = 0.0
@@ -1431,7 +1522,7 @@ visible = false
 omni_range = 0.5
 
 [node name="Particles" type="Particles" parent="Controller/Rocket"]
-transform = Transform( 1, 0, 4.37115e-08, 4.37114e-08, -1.19209e-07, -1, 7.10543e-15, 1, -1.19209e-07, -3.62457e-08, 9.47755, 0.348624 )
+transform = Transform( 1, 0, 4.37115e-08, 4.37114e-08, -1.19209e-07, -1, 7.10543e-15, 1, -1.19209e-07, 2.03363e-07, 3.99594, 0.348624 )
 material_override = SubResource( 18 )
 cast_shadow = 0
 emitting = false
