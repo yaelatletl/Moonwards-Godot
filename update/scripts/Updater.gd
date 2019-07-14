@@ -1,7 +1,22 @@
 extends Control
 
-var updater_enabled = false
+var updater_enabled = true
 var upt_debug = false
+var root_tree setget set_root_tree #scene tree for set get network sockets
+
+func set_root_tree(value):
+	printd("set_root_tree: %s" % value)
+	if get_tree() == null:
+		if value != null:
+			#attach to tree for rpc calls
+			root_tree = value
+			root_tree.current_scene.add_child(self)
+			SetState("attach_tree", weakref(value))
+			printd("Updater attached to tree")
+		else:
+			printd("fail to attach Updater to tree, required for RPC calls")
+
+
 #var updater_enabled = true
 #var upt_debug = true
 var protocol_version = "0.1"
@@ -62,12 +77,17 @@ var client_wait_timeout = 10 #seconds to wait
 #download update in chunks, fails to load big updates in one chunks
 #keep track on current downloading process
 var update_status = {
+	"role" : null,
 	"state" : "tobegin",
 	"fh" : null,
 	"fhn" : "",
 	"target_size" : 0,
 	"current_size" : 0
 }
+# update_status["current_size"]
+# update_status["fh"]
+# update_status["fhn"]
+# update_status["target_size"]
 
 
 signal receive_update_message
@@ -76,16 +96,164 @@ signal update_progress(percent)
 signal update_ok
 signal update_fail
 
+func debug_unknown_status(stat, value):
+	printd("unknown_status: %s(%s)" % [stat, value])
+
+#====
+signal network_ok
+signal network_fail
+signal client_protocol(state)
+signal server_connected
+signal server_disconnected
+signal server_fail_connecting
+signal server_online
+signal server_offline
+signal update_no_update
+signal update_to_update
+# signal update_progress(percent)
+signal update_finished
+signal error(msg)
+
+func SetState(stat, value):
+	if stat == null:
+		return
+	match stat:
+		"role":
+			match value:
+				"client":
+					update_status["role"] = "client"
+					debug_id = "UpdaterClient"
+					if not directory.dir_exists(user_updates_path):
+						directory.make_dir(user_updates_path)
+				"server":
+					update_status["role"] = "server"
+					debug_id = "UpdaterServer"
+					if not directory.dir_exists(server_package_path):
+						directory.make_dir(server_package_path)
+		"server_ping":
+			if value:
+				emit_signal("server_online")
+			else:
+				emit_signal("server_offline")
+			update_status["server_online"] = value
+		"network":
+			match value:
+				"ok":
+					emit_signal("network_ok")
+					update_status["network"] = true
+				"fail":
+					emit_signal("network_fail")
+					update_status["network"] = false
+					emit_signal("error", "Failed to establish network conenction")
+				_:
+					debug_unknown_status(stat, value)
+		"server":
+			match value:
+				"fail":
+					emit_signal("server_fail_connecting")
+					update_status["server_online"] = false
+				"connected":
+					emit_signal("server_connected")
+				"disconnected":
+					emit_signal("server_disconnected")
+				"online":
+					emit_signal("server_online")
+					update_status["server_online"] = true
+		"protocol":
+			match value:
+				"match":
+					update_status["protocol_version"] = true
+					emit_signal("client_protocol", true)
+				"invalid":
+					update_status["protocol_version"] = false
+					emit_signal("client_protocol", false)
+		"server_tree_id":
+			update_status[stat] = value
+			printd("server_tree_id (c,s,comp) %s, %s, %s" % [tree_md5id, value, value == tree_md5id])
+			if value != null and tree_md5id != null:
+				if value != tree_md5id:
+					emit_signal("update_to_update")
+				else:
+					emit_signal("update_no_update")
+		_:
+			update_status[stat] = value
+
+func is_network_ok():
+	pass
+func is_server_online():
+	pass
+func is_protocol_ok():
+	pass
+func is_update_client():
+	pass
+func is_update_data():
+	pass
+
+func GetState(stat):
+	var res = null
+	if stat != null and update_status.has(stat):
+		res = update_status[stat]
+	return res
+
+func SetState_default():
+	update_status = {
+			"role" : null,
+			"state" : "tobegin",
+			"fh" : null,
+			"fhn" : "",
+			"target_size" : 0,
+			"current_size" : 0
+		}
+
+func ClientOpenConnection():
+	SetState("role", "client")
+	#Connect all the function so they can be handled by the client.
+	root_tree.connect("connected_to_server", self, "ClientConnectedOK")
+	root_tree.connect("connection_failed", self, "ClientConnectedFailed")
+	root_tree.connect("server_disconnected", self, "ClientDisconnectedByServer")
+	
+	peer = NetworkedMultiplayerENet.new()
+	var error = peer.create_client(SERVER_IP, SERVER_PORT)
+	if error != 0:
+		SetState("network", "fail")
+	else:
+		root_tree.set_network_peer(peer)
+		SetState("network", "ok")
+
+func ClientCheckForServer():
+	Log("Check server online")
+	toServer("ping")
+
+func ClientCheckProtocol():
+	Log("Check protocol version")
+	toServer("protocol_version", protocol_version)
+
+func ClientCheckForUpdate():
+	if tree_md5id == null:
+		UpdateTreeID()
+	toServer("current_tree_id")
+
+func ClientGetUpdateInfo():
+	pass
+func ClientStartUpdateProcess():
+	pass
+
+func ClientCloseConnection():
+	printd("ClientCloseConnection")
+	root_tree.set_network_peer(null)
+	SetState("server", "disconnected")
+
 func _process(delta):
 	pass
 
 func _ready():
-	yield(get_tree(), "idle_frame")
+	yield(root_tree, "idle_frame")
 	if not updater_enabled:
 		set_process(false)
 		return
 	Log("Updater enabled")
 	connect("update_ready", self, "thread_active_correction")
+	
 
 func toClient(client_id, command, data=null):
 	printd("toClient: %s" % command)
@@ -97,28 +265,25 @@ func toClient(client_id, command, data=null):
 
 func toServer(command, data=null):
 	printd("toServer: %s" % command)
-	rpc_id(1, "UpdateProtocolServer", get_tree().get_network_unique_id(), command, data)
+	rpc_id(1, "UpdateProtocolServer", root_tree.get_network_unique_id(), command, data)
 
 func RunUpdateServer():
-	debug_id = "UpdaterServer"
-
-	if not directory.dir_exists(server_package_path):
-		directory.make_dir(server_package_path)
+	SetState("role", "server")
 
 	LoadPackages(server_package_path, true)
 	#Connect all the function so they can be handled by the server.
-	get_tree().connect("network_peer_connected", self, "ServerPeerConnected")
-	get_tree().connect("network_peer_disconnected", self, "ServerPeerDisconnected")
+	root_tree.connect("network_peer_connected", self, "ServerPeerConnected")
+	root_tree.connect("network_peer_disconnected", self, "ServerPeerDisconnected")
 	
 	peer = NetworkedMultiplayerENet.new()
 	peer.set_bind_ip(IP.resolve_hostname("localhost", 1))
 	var error = peer.create_server(SERVER_PORT, MAX_PLAYERS)
-	get_tree().set_network_peer(peer)
+	root_tree.set_network_peer(peer)
 	
 	Log("Create server. " + "Error code : " + str(error))
 	Log("Getting MD5 List...")
-	yield(get_tree(), "idle_frame")
-	yield(get_tree(), "idle_frame")
+	yield(root_tree, "idle_frame")
+	yield(root_tree, "idle_frame")
 	UpdateTreeID()
 
 	#The server writes to a different directory so it doesn't conflict with the client update directory.
@@ -140,11 +305,8 @@ func ServerPeerDisconnected(var id):
 	client_ids.erase(id)
 
 func RunUpdateClient():
-	debug_id = "UpdaterClient"
+	SetState("role", "client")
 
-	if not directory.dir_exists(user_updates_path):
-		directory.make_dir(user_updates_path)
-	
 	#Load all previous packages so those won't have to be downloaded from the server.
 	LoadPackages()
 
@@ -155,34 +317,34 @@ func RunUpdateClient():
 	UpdateTreeID()
 	
 	#Connect all the function so they can be handled by the client.
-	get_tree().connect("connected_to_server", self, "ClientConnectedOK")
-	get_tree().connect("connection_failed", self, "ClientConnectedFailed")
-	get_tree().connect("server_disconnected", self, "ClientDisconnectedByServer")
+	root_tree.connect("connected_to_server", self, "ClientConnectedOK")
+	root_tree.connect("connection_failed", self, "ClientConnectedFailed")
+	root_tree.connect("server_disconnected", self, "ClientDisconnectedByServer")
 	
 	peer = NetworkedMultiplayerENet.new()
 	var error = peer.create_client(SERVER_IP, SERVER_PORT)
 		
-	get_tree().set_network_peer(peer)
+	root_tree.set_network_peer(peer)
 	
 	Log("Connect to server. " + "Error code : " + str(error))
 
 func ClientConnectedOK():
 	Log("Connected OK.")
-	ClientCheckProtocol()
+	SetState("server", "connected")
+# 	ClientCheckProtocol()
 
 func ClientConnectedFailed():
 	Log("Connected Failed.")
+# 	SetState("network", "fail")
+	SetState("server", "fail")
 
 func ClientDisconnectedByServer():
 	Log("The server disconnected.")
-
-func ClientCheckProtocol():
-	Log("Check protocol version")
-	toServer("protocol_version", protocol_version)
+	SetState("server", "disconnected")
 
 func ClientWaitForUpdate():
 	Log("wait for update")
-	yield(get_tree().create_timer(client_wait_timeout), "timeout")
+	yield(root_tree.create_timer(client_wait_timeout), "timeout")
 	toServer("tree_id", tree_md5id)
 
 func ClientUpdateInfo(info):
@@ -198,15 +360,18 @@ func ClientUpdateInfo(info):
 
 remote func UpdateProtocolClient(command, data=null):
 	match command:
-		"client_protocol_ok":
-			Log("Update protocol version match")
-			toServer("tree_id", tree_md5id)
+		"pong":
+			Log("Server online")
+			SetState("server", "online")
 		"list":
 			Log("Send md5 list to server")
 			toServer("tree_list", [tree_md5_list, tree_md5id])
 		"current":
 			Log("No update needed")
 			ClientUpdateEnd(true)
+		"current_tree_id":
+			Log("Server tree id is : %s" % data)
+			SetState("server_tree_id", data)
 		"wait":
 			Log("Server asks to wait")
 			ClientWaitForUpdate()
@@ -224,9 +389,14 @@ remote func UpdateProtocolClient(command, data=null):
 		"restart":
 			Log("Server says restart update process")
 			ClientUpdateEnd(false)
+		"client_protocol_ok":
+			Log("Update protocol correct")
+			SetState("protocol", "match")
+# 			toServer("tree_id", tree_md5id)
 		"client_protocol_mismatch":
 			#inform about necessity to update client
 			Log("new client needs to be downloaded")
+			SetState("protocol", "invalid")
 			ClientUpdateEnd(false)
 		"abort":
 			Log("Update failed, some server error, id %s" % tree_md5id)
@@ -237,8 +407,12 @@ remote func UpdateProtocolClient(command, data=null):
 
 remote func UpdateProtocolServer(client_id, command, data=null):
 	match command:
+		"ping":
+			toClient(client_id, "pong")
 		"protocol_version":
 			ServerUpdateProtocol(client_id, data)
+		"current_tree_id":
+			toClient(client_id, "current_tree_id", tree_md5id)
 		"tree_id" :
 			ServerReceiveMD5id(client_id, data)
 		"tree_list" :
@@ -273,7 +447,7 @@ func ClientUpdateEnd(sucess):
 		emit_signal("update_ok")
 	else:
 		emit_signal("update_fail")
-	get_tree().set_network_peer(null)
+	root_tree.set_network_peer(null)
 
 func upt_info_save(info):
 	var f = File.new()
@@ -503,6 +677,7 @@ func GetMD5id(dict):
 func UpdateTreeID():
 	tree_md5_list = GetMD5List()
 	tree_md5id = GetMD5id(tree_md5_list)
+	Log("Tree id is: %s" % tree_md5id)
 
 func upt_ClientUpdateName():
 	#This will name the package by number. i.e. 00005.pck
@@ -528,7 +703,7 @@ func ClientReceiveUpdate(var buffer):
 		Log("Error, no data to download, should not be there")
 		return
 	var size = buffer.size()
-	var tsize = update_status.target_size
+	var tsize = update_status["target_size"]
 	if not update_status.has("fh") or update_status["fh"] == null:
 		var package_name = upt_ClientUpdateName()
 		Log("Init update file %s " % package_name)
@@ -538,29 +713,29 @@ func ClientReceiveUpdate(var buffer):
 			return
 		var file = File.new()
 		file.open(package_name, File.WRITE)
-		update_status.fh = file
-		update_status.fhn = package_name
+		update_status["fh"] = file
+		update_status["fhn"] = package_name
 
-	var file = update_status.fh
+	var file = update_status["fh"]
 	file.store_buffer(buffer)
-	update_status.current_size += size
-	Log("ClientReceiveUpdate, chunk %s bytes %s/%s" % [size, update_status.current_size, tsize])
-	emit_signal("update_progress", round(update_status.current_size/tsize) * 100)
+	update_status["current_size"] += size
+	Log("ClientReceiveUpdate, chunk %s bytes %s/%s" % [size, update_status["current_size"], tsize])
+	emit_signal("update_progress", round(update_status["current_size"]/tsize) * 100)
 
-	if update_status.current_size == update_status.target_size:
+	if update_status["current_size"] == update_status["target_size"]:
 		file.close()
 		Log("Done writing new update package.")
-		LoadPackageFile(update_status.fhn)
+		LoadPackageFile(update_status["fhn"])
 		UpdateTreeID()
 		Log("current tree id %s" % tree_md5id)
 		ClientUpdateEnd(true)
-	if update_status.current_size > update_status.target_size:
-		var sname = update_status.fhn
+	if update_status["current_size"] > update_status["target_size"]:
+		var sname = update_status["fhn"]
 		var dname = "%s_" % sname
 		var result = directory.rename(sname, dname)
 		Log("Error update dowloading file, move file to %s, result %s" % [dname, result])
 		ClientUpdateEnd(false)
-	if update_status.current_size < update_status.target_size:
+	if update_status["current_size"] < update_status["target_size"]:
 		toServer("send_data", tree_md5id)
 
 func GetMD5List():

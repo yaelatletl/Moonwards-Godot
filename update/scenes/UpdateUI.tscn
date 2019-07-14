@@ -20,18 +20,18 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
-margin_right = 1024.0
+margin_right = 510.0
 margin_bottom = 700.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="State" type="Label" parent="VBoxContainer/VBoxContainer"]
-margin_right = 1024.0
+margin_right = 510.0
 margin_bottom = 14.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer"]
 margin_top = 18.0
-margin_right = 1024.0
+margin_right = 510.0
 margin_bottom = 628.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -40,21 +40,80 @@ scroll_following = true
 
 [node name="SwitchScene" type="Button" parent="VBoxContainer/VBoxContainer"]
 margin_top = 632.0
-margin_right = 1024.0
+margin_right = 510.0
 margin_bottom = 652.0
 text = "Switch Scene"
 
 [node name="RunServer" type="Button" parent="VBoxContainer/VBoxContainer"]
 margin_top = 656.0
-margin_right = 1024.0
+margin_right = 510.0
 margin_bottom = 676.0
 text = "Run Server"
 
 [node name="RunClient" type="Button" parent="VBoxContainer/VBoxContainer"]
 margin_top = 680.0
-margin_right = 1024.0
+margin_right = 510.0
 margin_bottom = 700.0
 text = "Run Client"
+
+[node name="ClientStatus" type="VBoxContainer" parent="VBoxContainer"]
+margin_left = 514.0
+margin_right = 1024.0
+margin_bottom = 700.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Network" type="Label" parent="VBoxContainer/ClientStatus"]
+margin_right = 510.0
+margin_bottom = 14.0
+text = "Network is : unknown"
+
+[node name="Server" type="Label" parent="VBoxContainer/ClientStatus"]
+margin_top = 18.0
+margin_right = 510.0
+margin_bottom = 32.0
+text = "Server connection : unknown"
+
+[node name="ServerStatus" type="Label" parent="VBoxContainer/ClientStatus"]
+margin_top = 36.0
+margin_right = 510.0
+margin_bottom = 50.0
+text = "Server status : unknown"
+
+[node name="Protocol" type="Label" parent="VBoxContainer/ClientStatus"]
+margin_top = 54.0
+margin_right = 510.0
+margin_bottom = 68.0
+text = "Protocol version ok: unknown"
+
+[node name="Update" type="Label" parent="VBoxContainer/ClientStatus"]
+margin_top = 72.0
+margin_right = 510.0
+margin_bottom = 86.0
+text = "Update required: unknown"
+
+[node name="StartUpdate" type="Button" parent="VBoxContainer/ClientStatus"]
+margin_top = 90.0
+margin_right = 510.0
+margin_bottom = 110.0
+disabled = true
+text = "Start Update Process"
+
+[node name="UpdateSize" type="Label" parent="VBoxContainer/ClientStatus"]
+margin_top = 114.0
+margin_right = 510.0
+margin_bottom = 128.0
+text = "Update size: unknown"
+
+[node name="Label7" type="Label" parent="VBoxContainer/ClientStatus"]
+margin_top = 132.0
+margin_right = 510.0
+margin_bottom = 146.0
+
+[node name="Label8" type="Label" parent="VBoxContainer/ClientStatus"]
+margin_top = 150.0
+margin_right = 510.0
+margin_bottom = 164.0
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/SwitchScene" to="." method="SwitchScene"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/RunServer" to="." method="RunUpdateServer"]

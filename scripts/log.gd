@@ -2,6 +2,7 @@ extends Node
 
 #verbose levels - -3:-1 errors, 0 - info, 1-3 - verbose info, 4-6 - debug
 var dd_verbosity = 4
+# var dd_verbosity = 9
 
 var dd_filter = {
 	"options.gd" : [
