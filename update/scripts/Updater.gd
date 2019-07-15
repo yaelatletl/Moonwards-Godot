@@ -95,6 +95,7 @@ signal update_ready
 signal update_progress(percent)
 signal update_ok
 signal update_fail
+signal server_update_done
 
 func debug_unknown_status(stat, value):
 	printd("unknown_status: %s(%s)" % [stat, value])
@@ -291,7 +292,7 @@ func RunUpdateServer():
 		Log("make directory to keep server updates")
 		directory.make_dir(server_updates_path)
 	## remove old updates here##
-
+	emit_signal("server_update_done")
 	Log("Done!")
 
 func ServerPeerConnected(var id):

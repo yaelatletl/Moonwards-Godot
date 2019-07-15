@@ -37,6 +37,8 @@ func RunUpdateClient():
 					"server_fail_connecting",
 					"server_online",
 					"server_offline",
+					"update_ok",
+					"update_fail",
 					"update_no_update",
 					"update_to_update",
 					"update_progress",

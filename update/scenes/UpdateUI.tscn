@@ -48,13 +48,13 @@ text = "Switch Scene"
 margin_top = 656.0
 margin_right = 510.0
 margin_bottom = 676.0
-text = "Run Server"
+text = "Run Server Update"
 
 [node name="RunClient" type="Button" parent="VBoxContainer/VBoxContainer"]
 margin_top = 680.0
 margin_right = 510.0
 margin_bottom = 700.0
-text = "Run Client"
+text = "Run Client Update"
 
 [node name="ClientStatus" type="VBoxContainer" parent="VBoxContainer"]
 margin_left = 514.0
@@ -114,7 +114,6 @@ margin_bottom = 146.0
 margin_top = 150.0
 margin_right = 510.0
 margin_bottom = 164.0
-
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/SwitchScene" to="." method="SwitchScene"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/RunServer" to="." method="RunUpdateServer"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/RunClient" to="." method="RunUpdateClient"]
