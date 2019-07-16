@@ -103,7 +103,11 @@ func fn_update_no_update():
 	set_label(l, "up to date")
 	Updater.ClientCloseConnection()
 
-
+func fn_update_to_update():
+	var l = $VBoxContainer/ClientStatus/Update
+	set_label(l, "update available")
+	$VBoxContainer/ClientStatus/StartUpdate.disabled = false
+	Updater.ClientCloseConnection()
 
 func fn_update_progress(percent):
 	pass
