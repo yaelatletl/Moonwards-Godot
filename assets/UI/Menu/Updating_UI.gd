@@ -14,14 +14,14 @@ func set_state(text):
 	AddLogMessage(text)
 
 func set_progress_state(text):
-	var label = $"HBoxContainer/TabContainer/Update log/VBoxContainer3/Panel/ScrollContainer/RichTextLabel"
+
+	var label = $HBoxContainer/VBoxContainer/State
 	label.text = text
 	
 
 
 func RunUpdateServer():
 	set_progress_state("Updating server")
-	$VBoxContainer/ClientStatus.visible = false
 	yield(get_tree(), "idle_frame")
 	yield(get_tree(), "idle_frame")
 	Updater.RunUpdateServer()
@@ -30,61 +30,63 @@ func RunUpdateClient():
 	set_progress_state("Updating client")
 	yield(get_tree(), "idle_frame")
 	Updater.ClientOpenConnection()
-# 	Updater.RunUpdateClient()
+	Updater.RunUpdateClient()
 
-
+func _on_update():
+	RunUpdateServer()
+	
 
 
 
 func fn_network_ok():
 
-	set_state("ok")
+	AddLogMessage("Initiating network: ok")
 
 func fn_network_fail():
 
-	set_state("fail")
+	AddLogMessage("Initiating network failed")
 
 func fn_server_connected():
 
-	set_state( "connected")
+	AddLogMessage( "Server connected")
 	Updater.ClientCheckForServer()
 
 func fn_server_disconnected():
 
-	set_state( "disconnected")
+	AddLogMessage( "Server disconnected")
 	
 func fn_server_fail_connecting():
 
-	set_state( "fail")
+	AddLogMessage( "Connection fail")
 
 func fn_server_online():
 
-	set_state( "online")
+	AddLogMessage( "Server online")
 	Updater.ClientCheckProtocol()
 	
 func fn_server_offline():
 
-	set_state( "offline")
+	AddLogMessage( "Server offline")
 	
 func fn_client_protocol(state):
 
 	if state:
-		set_state( "correct version")
+		AddLogMessage( "correct version")
 		yield(get_tree(), "idle_frame")
 		yield(get_tree(), "idle_frame")
 		Updater.ClientCheckForUpdate()
 	else:
-		set_state("client update is required")
+		AddLogMessage("client update is required")
 		Updater.ClientCloseConnection()
 
 func fn_update_no_update():
 
-	set_state( "up to date")
+	AddLogMessage( "up to date")
 	Updater.ClientCloseConnection()
 
 func fn_update_to_update():
 	
-	set_state( "update available")
+	AddLogMessage( "update available")
 	#$VBoxContainer/ClientStatus/StartUpdate.disabled = false
 	Updater.ClientCloseConnection()
 
@@ -92,11 +94,18 @@ func fn_update_progress(percent):
 	$HBoxContainer/VBoxContainer/ProgressBar.value = percent
 
 func fn_update_finished():
-	pass
+	set_progress_state("Update finished")
+
 func fn_error(msg):
 	AddLogMessage(msg)
+	set_progress_state("An error has occurred")
 	pass
 
+func fn_server_update_done():
+	set_progress_state("Server update finished")
+	RunUpdateClient()
+func fn_client_update_done():
+	set_progress_state("Client update finished")
 func _ready():
 	Updater = scripts.Updater.new()
 	Updater.connect("receive_update_message", self, "AddLogMessage")
@@ -115,6 +124,8 @@ func _ready():
 		"update_no_update",
 		"update_progress",
 		"update_finished",
+		"server_update_done",
+		"client_update_done",
 		"error"
 	]
 	for sg in signals:

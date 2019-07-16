@@ -96,6 +96,7 @@ signal update_progress(percent)
 signal update_ok
 signal update_fail
 signal server_update_done
+signal client_update_done
 
 func debug_unknown_status(stat, value):
 	printd("unknown_status: %s(%s)" % [stat, value])
@@ -326,8 +327,11 @@ func RunUpdateClient():
 	var error = peer.create_client(SERVER_IP, SERVER_PORT)
 		
 	root_tree.set_network_peer(peer)
+	if error==0:
+		emit_signal("client_update_done")
+	else:
+		Log("Connect to server. " + "Error code : " + str(error))
 	
-	Log("Connect to server. " + "Error code : " + str(error))
 
 func ClientConnectedOK():
 	Log("Connected OK.")

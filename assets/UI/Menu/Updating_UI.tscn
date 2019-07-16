@@ -82,15 +82,6 @@ margin_right = 222.0
 margin_bottom = 297.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "This is an example of an update log:
-checking for updates
-update found
-downloading from main server
-connection timed out
-retrying
-retry failed
-update failed: can't reach server
-"
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
 margin_left = 226.0
@@ -255,3 +246,4 @@ margin_right = 191.0
 margin_bottom = 367.0
 text = "Stand-by"
 align = 1
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_update"]
