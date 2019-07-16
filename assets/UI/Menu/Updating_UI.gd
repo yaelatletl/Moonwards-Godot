@@ -34,7 +34,7 @@ func RunUpdateClient():
 
 func _on_update():
 	RunUpdateServer()
-	
+	$HBoxContainer/VBoxContainer/HBoxContainer/Button2.text = "Return"
 
 
 
