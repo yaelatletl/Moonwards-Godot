@@ -3,6 +3,7 @@ render_mode blend_mix,depth_draw_opaque,cull_back,world_vertex_coords;
 uniform sampler2D splatmap;
 uniform sampler2D splatmap_2;
 uniform sampler2D global_normal;
+uniform bool show_splatmap;
 
 uniform sampler2D texture0;
 uniform sampler2D normal_tex0;
@@ -137,7 +138,6 @@ void fragment() {
 	
 	albedo = (albedo + color0 + color1 + color2 + color3 + color4 + color5);
 	ALBEDO = albedo;
-//	ALBEDO = (splatmapcolor + splatmapcolor2).rgb;
 
 	normal = texture(normal_tex, UV).rgb * (vec3(1.0) - (splatmapcolor.r));
 	normal = normal * (vec3(1.0) - (splatmapcolor.g));
@@ -157,6 +157,10 @@ void fragment() {
 	
 	//NORMALMAP = dif;
 	//NORMALMAP = globalnormal.rgb;
+	
+	if(show_splatmap){
+		ALBEDO = (splatmapcolor + splatmapcolor2).rgb;
+	}
 	
 	SSS_STRENGTH=subsurface_scattering_strength;
 	//FLAG!
