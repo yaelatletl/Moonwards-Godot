@@ -1493,9 +1493,6 @@ max_distance = 1.0
 [node name="Rocket" parent="Controller" instance=ExtResource( 9 )]
 transform = Transform( 0.75, 0, 0, 0, 0.53033, -0.53033, 0, 0.53033, 0.53033, 0, 0, 0 )
 
-[node name="PYBB_Nozzle_Opt" parent="Controller/Rocket/RocketBody" index="0"]
-"blend_shapes/Key 1" = 0.0
-
 [node name="AnimationPlayer" parent="Controller/Rocket/RocketBody/PYBB_Nozzle_Opt" index="0"]
 anims/NozzleOpen = SubResource( 12 )
 
@@ -1508,9 +1505,6 @@ material_override = SubResource( 14 )
 
 [node name="AnimationPlayer" parent="Controller/Rocket/RocketBody/ThrustFanBlades_Opt" index="0"]
 anims/BladesRotate = SubResource( 15 )
-
-[node name="VariableInlet" parent="Controller/Rocket/RocketBody" index="3"]
-"blend_shapes/Key 1" = 0.0
 
 [node name="AnimationPlayer" parent="Controller/Rocket/RocketBody/VariableInlet" index="0"]
 anims/InletClose = SubResource( 16 )
