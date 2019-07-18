@@ -30,8 +30,8 @@ uniform sampler2D texture5;
 uniform sampler2D normal_tex5;
 uniform float normal_depth5 : hint_range(-16,16);
 
-uniform sampler2D albedo_tex;
-uniform sampler2D normal_tex;
+uniform sampler2D detail_albedo_tex;
+uniform sampler2D detail_normal_tex;
 uniform float normal_depth : hint_range(-16,16);
 
 uniform float specular;
@@ -141,7 +141,7 @@ void fragment() {
 	ALBEDO = albedo;
 //	ALBEDO = (splatmapcolor + splatmapcolor2).rgb;
 
-	normal = (texture(global_normal,UV).rgb+0.3*(triplanar_texture(normal_tex, uv3_power_normal, uv3_triplanar_pos*10.0).rgb * (vec3(1.0) - (splatmapcolor.r))));
+	normal = (texture(global_normal,UV).rgb+0.3*(triplanar_texture(detail_normal_tex, uv3_power_normal, uv3_triplanar_pos*10.0).rgb * (vec3(1.0) - (splatmapcolor.r))));
 	normal = normal * (vec3(1.0) - (splatmapcolor.g));
 	normal = normal * (vec3(1.0) - (splatmapcolor.b));
 	
