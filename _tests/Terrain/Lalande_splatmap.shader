@@ -2,7 +2,9 @@ shader_type spatial;
 render_mode blend_mix,depth_draw_opaque,cull_back,world_vertex_coords;
 uniform sampler2D splatmap;
 uniform sampler2D splatmap_2;
+
 uniform sampler2D global_normal;
+uniform sampler2D global_albedo;
 
 uniform sampler2D texture0;
 uniform sampler2D normal_tex0;
@@ -127,7 +129,7 @@ void fragment() {
 	color5 = triplanar_texture(texture5, uv3_power_normal, uv3_triplanar_pos).rgb * splatmapcolor2.b;
 	normal5 = triplanar_texture(normal_tex5, uv3_power_normal, uv3_triplanar_pos).rgb * splatmapcolor2.b;
 
-	albedo = texture(albedo_tex, UV).rgb * (vec3(1.0) - (splatmapcolor.r));
+	albedo = texture(global_albedo,UV).rgb  * (vec3(1.0) - (splatmapcolor.r));
 	albedo = albedo * (vec3(1.0) - (splatmapcolor.g));
 	albedo = albedo * (vec3(1.0) - (splatmapcolor.b));
 	
@@ -139,7 +141,7 @@ void fragment() {
 	ALBEDO = albedo;
 //	ALBEDO = (splatmapcolor + splatmapcolor2).rgb;
 
-	normal = texture(normal_tex, UV).rgb * (vec3(1.0) - (splatmapcolor.r));
+	normal = (texture(global_normal,UV).rgb+0.3*(triplanar_texture(normal_tex, uv3_power_normal, uv3_triplanar_pos*10.0).rgb * (vec3(1.0) - (splatmapcolor.r))));
 	normal = normal * (vec3(1.0) - (splatmapcolor.g));
 	normal = normal * (vec3(1.0) - (splatmapcolor.b));
 	
@@ -153,7 +155,8 @@ void fragment() {
 	
 	NORMALMAP = normalize(normal_depth*normal + normal_depth0*normal0 + normal_depth1*normal1 + normal_depth2*normal2 + normal_depth3*normal3 + normal_depth4*normal4 + normal_depth5*normal5);
 	vec3 dif =(mod(NORMALMAP, NORMALMAP+globalnormal.rgb));
-	NORMALMAP = (NORMALMAP + globalnormal.rgb) - (dif*dot(NORMALMAP,globalnormal.rgb));
+	//dif = smoothstep(dFdx(dif), globalnormal.rgb+NORMALMAP, globalnormal.rgb );
+	NORMALMAP = (NORMALMAP + globalnormal.rgb)/length(NORMALMAP+globalnormal.rgb);// - (dif*dot(NORMALMAP,globalnormal.rgb));
 	
 	//NORMALMAP = dif;
 	//NORMALMAP = globalnormal.rgb;
