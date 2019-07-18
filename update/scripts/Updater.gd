@@ -116,67 +116,138 @@ signal update_to_update
 signal update_finished
 signal error(msg)
 
+signal state_events(signal_name, signal_data) # for ease of processing signals in one function
+
+var ck_update = {
+	state = null, 	#[null, gahtering, ready]
+	error = "", 			#[ok, message error]
+	server_online = null,	#[true, false, null]
+	update_client = null,	#[true, false]
+	update_data = null,		#[true, false]
+}
+func ui_ClientCheckUpdate(force = false):
+	if force and ck_update.state == "ready":
+		ck_update.state = null
+	if ck_update.state == "ready":
+		return ck_update
+	if GetState("ccu_progress") == null:
+		SetState("role", "client")
+		connect("state_events", self, "chain_ClientCheckUpdate")
+		chain_ClientCheckUpdate(null, null)
+	return ck_update
+
+func chain_ClientCheckUpdate(sname, sdata):
+	match sname:
+		null:
+			ck_update.state == "gathering"
+			SetState("ccu_progress", "connect")
+			ClientOpenConnection()
+		"network_ok":
+			SetState("ccu_progerss", "network_ok")
+		"network_fail":
+			ck_update.state = "ready"
+			ck_update.error = "no network"
+			SetState("ccu_progress", null)
+		"server_connected":
+			SetState("ccu_progress", "ping")
+			ClientCheckForServer()
+		["server_disconnected", "server_fail_connecting"]:
+			if ck_update.state == "gathering":
+				ck_update.state = "ready"
+				ck_update.server_online = false
+				ck_update.error = "ClientCheckUpdate, server disconnected/fail in middle of the road"
+				SetState("ccu_progress", null)
+		"server_online":
+			ck_update.server_online = true
+			SetState("ccu_progress", "protocol")
+			ClientCheckProtocol()
+		"client_protocol":
+			if sdata:
+				ck_update.update_client = false
+				SetState("ccu_progress", "check_for_update")
+				ClientCheckForUpdate()
+			else:
+				ck_update.state = "ready"
+				ck_update.update_client = true
+				ck_update.error = "ClientCheckUpdate, protocol mismatch, client update required"
+				SetState("ccu_progress", null)
+		"update_no_update":
+			ck_update.update_data = false
+			ClientCloseConnection()
+			SetState("ccu_progress", null)
+		"update_to_update":
+			ck_update.update_data = true
+			ClientCloseConnection()
+			SetState("ccu_progress", null)
+	if GetState("ccu_progress") == null:
+		disconnect("state_events", self, "chain_ClientCheckUpdate")
+
+func se_emit_signal(signal_name, signal_data=null):
+	if signal_name in ["error", "client_protocol"]:
+		emit_signal(signal_name, signal_data)
+		emit_signal("state_events", signal_name, signal_data)
+	else:
+		emit_signal(signal_name)
+		emit_signal("state_events", signal_name, "")
+
 func SetState(stat, value):
 	if stat == null:
 		return
+	printd("SetState, %s = %s" % [stat, value])
 	match stat:
 		"role":
 			match value:
 				"client":
 					update_status["role"] = "client"
 					debug_id = "UpdaterClient"
-					if not directory.dir_exists(user_updates_path):
-						directory.make_dir(user_updates_path)
 				"server":
 					update_status["role"] = "server"
 					debug_id = "UpdaterServer"
-					if not directory.dir_exists(server_package_path):
-						directory.make_dir(server_package_path)
 		"server_ping":
 			if value:
-				emit_signal("server_online")
+				se_emit_signal("server_online")
 			else:
-				emit_signal("server_offline")
+				se_emit_signal("server_offline")
 			update_status["server_online"] = value
 		"network":
 			match value:
 				"ok":
-					emit_signal("network_ok")
+					se_emit_signal("network_ok")
 					update_status["network"] = true
 				"fail":
-					emit_signal("network_fail")
+					se_emit_signal("network_fail")
 					update_status["network"] = false
-					emit_signal("error", "Failed to establish network conenction")
+					se_emit_signal("error", "Failed to establish network conenction")
 				_:
 					debug_unknown_status(stat, value)
 		"server":
 			match value:
 				"fail":
-					emit_signal("server_fail_connecting")
+					se_emit_signal("server_fail_connecting")
 					update_status["server_online"] = false
 				"connected":
-					emit_signal("server_connected")
+					se_emit_signal("server_connected")
 				"disconnected":
-					emit_signal("server_disconnected")
+					se_emit_signal("server_disconnected")
 				"online":
-					emit_signal("server_online")
+					se_emit_signal("server_online")
 					update_status["server_online"] = true
 		"protocol":
 			match value:
 				"match":
 					update_status["protocol_version"] = true
-					emit_signal("client_protocol", true)
+					se_emit_signal("client_protocol", true)
 				"invalid":
 					update_status["protocol_version"] = false
-					emit_signal("client_protocol", false)
+					se_emit_signal("client_protocol", false)
 		"server_tree_id":
 			update_status[stat] = value
 			printd("server_tree_id (c,s,comp) %s, %s, %s" % [tree_md5id, value, value == tree_md5id])
 			if value != null and tree_md5id != null:
 				if value != tree_md5id:
-					emit_signal("update_to_update")
+					se_emit_signal("update_to_update")
 				else:
-					emit_signal("update_no_update")
+					se_emit_signal("update_no_update")
 		_:
 			update_status[stat] = value
 
@@ -208,6 +279,8 @@ func SetState_default():
 		}
 
 func ClientOpenConnection():
+	if GetState("server") == "connected":
+		return
 	SetState("role", "client")
 	#Connect all the function so they can be handled by the client.
 	root_tree.connect("connected_to_server", self, "ClientConnectedOK")
@@ -255,6 +328,10 @@ func _ready():
 		return
 	Log("Updater enabled")
 	connect("update_ready", self, "thread_active_correction")
+	if not directory.dir_exists(user_updates_path):
+		directory.make_dir(user_updates_path)
+	if not directory.dir_exists(server_package_path):
+		directory.make_dir(server_package_path)
 	
 
 func toClient(client_id, command, data=null):
@@ -452,7 +529,7 @@ func ClientUpdateEnd(sucess):
 		emit_signal("update_ok")
 	else:
 		emit_signal("update_fail")
-	root_tree.set_network_peer(null)
+	ClientCloseConnection()
 
 func upt_info_save(info):
 	var f = File.new()
