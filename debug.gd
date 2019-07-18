@@ -39,7 +39,7 @@ func _ready():
 	#List Features
 	features_list()
 	#removes sticky and unreliable pressing release for key events, at slower FPS
-	Input.set_use_accumulated_input(false)
+	Input.set_use_accumulated_input(true)
 	
 func on_tree_change():
 	printd("debug treechange")
