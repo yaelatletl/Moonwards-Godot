@@ -133,14 +133,14 @@ void fragment() {
 	vec3 normal5;
 	vec3 normal;
 	vec3 albedo;
-	vec4 splatmapcolor;
-	vec4 splatmapcolor_2;
+	vec3 splatmapcolor;
+	vec3 splatmapcolor_2;
 	vec4 globalnormal;
 	globalnormal = texture(global_normal, UV);
 	
-	vec4 mixed_splatcolor = mix(texture(splatmap, UV), texture(splatmap_2, UV), (texture(splatmap_2, UV).r + texture(splatmap_2, UV).g + texture(splatmap_2, UV).b > 0.08));
-	splatmapcolor = max(vec4(0.0), mixed_splatcolor - texture(splatmap_2, UV));
-	splatmapcolor_2 = max(vec4(0.0), mixed_splatcolor - texture(splatmap, UV));
+	vec3 mixed_splatcolor = mix(texture(splatmap, UV).rgb, texture(splatmap_2, UV).rgb, (greaterThan(texture(splatmap_2, UV).rgb, vec3(0.08))));
+	splatmapcolor = max(vec3(0.0), mixed_splatcolor - texture(splatmap_2, UV).rgb);
+	splatmapcolor_2 = max(vec3(0.0), mixed_splatcolor - texture(splatmap, UV).rgb);
 
 	color0 = triplanar_texture(texture0, uv1_power_normal, uv1_triplanar_pos).rgb * splatmapcolor.r;
 	normal0 = triplanar_texture(normal_tex0, uv1_power_normal, uv1_triplanar_pos).rgb * splatmapcolor.r;
@@ -159,7 +159,7 @@ void fragment() {
 	
 	color5 = triplanar_texture(texture5, uv6_power_normal, uv6_triplanar_pos).rgb * splatmapcolor_2.b;
 	normal5 = triplanar_texture(normal_tex5, uv6_power_normal, uv6_triplanar_pos).rgb * splatmapcolor_2.b;
-
+	
 	albedo = texture(albedo_tex, UV).rgb * (vec3(1.0) - (splatmapcolor.r));
 	albedo = albedo * (vec3(1.0) - (splatmapcolor.g));
 	albedo = albedo * (vec3(1.0) - (splatmapcolor.b));
@@ -193,6 +193,7 @@ void fragment() {
 	if(show_splatmap){
 		ALBEDO = (splatmapcolor + splatmapcolor_2).rgb;
 	}
+	
 	
 	SSS_STRENGTH=subsurface_scattering_strength;
 	//FLAG!
