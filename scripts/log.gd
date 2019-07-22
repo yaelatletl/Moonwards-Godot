@@ -139,6 +139,7 @@ var dd_filter = {
 		{ vl = 3, enabled = true, key = "Update files filter list"},
 		{ vl = 0, enabled = true, key = "Get tree checksum"},
 		{ vl = 4, enabled = true, key = "ClientReceiveUpdate"},
+		{ vl = 4, enabled = true, key = "chain_"},
 		{ vl = 0, enabled = true, key = ""}
 	],
 	"Updater": [

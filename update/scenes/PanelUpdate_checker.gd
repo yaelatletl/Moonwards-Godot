@@ -9,7 +9,8 @@ func _ready():
 	printd("Panel update status, tree %s" % get_tree())
 	Updater = scripts.Updater.new()
 	Updater.root_tree = get_tree()
-	UpdateStatus()
+	#UpdateStatus()
+	UpdateStatus_ccu_signal()
 
 func set_label(label, text):
 	label.text = "%s: %s" % [label.text.split(":")[0], text]
@@ -35,7 +36,17 @@ func UpdateStatus():
 		set_label(l, "internal error, update timeout")
 		return
 	printd("end gathering: %s" % res)
-		
+
+func UpdateStatus_ccu_signal():
+	printd("UpdateStatus")
+	var res = Updater.ui_ClientCheckUpdate()
+	SetLabels(res)
+	if res["state"] == "gathering":
+		yield(Updater, "chain_end")
+		res = Updater.ui_ClientCheckUpdate()
+		SetLabels(res)
+	printd("end gathering: %s" % res)
+
 func SetLabels(res):
 	var l
 	l = $Panel/VBoxContainer/Error
@@ -45,7 +56,7 @@ func SetLabels(res):
 		set_label(l, res["error"])
 
 	l = $Panel/VBoxContainer/Status
-	set_label(l, "ready")
+	set_label(l, res["state"])
 	
 	var st
 	l = $Panel/VBoxContainer/Server
@@ -77,6 +88,9 @@ func SetLabels(res):
 		null:
 			st = "unknown"
 	set_label(l, st)
+
+	yield(get_tree(), "idle_frame")
+	yield(get_tree(), "idle_frame")
 
 var debug_id = "PanelUpdate"
 func printd(s):

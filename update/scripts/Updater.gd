@@ -13,6 +13,7 @@ func set_root_tree(value):
 		SetState("attach_tree", weakref(value))
 		set_name("UpdaterProcess")
 		printd("Updater attached to tree, %s" % root_tree.current_scene.get_path_to(self))
+		printd("Updater, test UpdateUI/UpdaterProcess: %s" % root_tree.current_scene.get_node("/UpdateUI/UpdaterProcess"))
 	else:
 		printd("fail to attach Updater to tree, required for RPC calls")
 
@@ -157,6 +158,7 @@ func chain_ClientCheckUpdate(sname, sdata):
 			ClientCheckForServer()
 		"server_disconnected", "server_fail_connecting":
 			printd("chain_ClientCheckUpdate: %s, %s" % ["server_disconnected", "server_fail_connecting"])
+			printd("chain_ClientCheckUpdate: %s" % ck_update)
 			if ck_update.state == "gathering":
 				ck_update.state = "ready"
 				ck_update.server_online = false
@@ -172,16 +174,18 @@ func chain_ClientCheckUpdate(sname, sdata):
 				SetState("ccu_progress", "check_for_update")
 				ClientCheckForUpdate()
 			else:
-				ck_update.state = "ready"
 				ck_update.update_client = true
+				ck_update.state = "ready"
 				ck_update.error = "ClientCheckUpdate, protocol mismatch, client update required"
 				SetState("ccu_progress", null)
 		"update_no_update":
 			ck_update.update_data = false
+			ck_update.state = "ready"
 			ClientCloseConnection()
 			SetState("ccu_progress", null)
 		"update_to_update":
 			ck_update.update_data = true
+			ck_update.state = "ready"
 			ClientCloseConnection()
 			SetState("ccu_progress", null)
 	if GetState("ccu_progress") == null:
