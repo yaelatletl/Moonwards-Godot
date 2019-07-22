@@ -23,6 +23,7 @@ func RunUpdateServer():
 	$VBoxContainer/ClientStatus.visible = false
 	yield(get_tree(), "idle_frame")
 	yield(get_tree(), "idle_frame")
+	Updater.root_tree = get_tree()
 	Updater.RunUpdateServer()
 
 func RunUpdateClient():

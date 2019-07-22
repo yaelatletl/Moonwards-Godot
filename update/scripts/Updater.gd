@@ -6,15 +6,15 @@ var root_tree setget set_root_tree #scene tree for set get network sockets
 
 func set_root_tree(value):
 	printd("set_root_tree: %s" % value)
-	if get_tree() == null:
-		if value != null:
-			#attach to tree for rpc calls
-			root_tree = value
-			root_tree.current_scene.add_child(self)
-			SetState("attach_tree", weakref(value))
-			printd("Updater attached to tree")
-		else:
-			printd("fail to attach Updater to tree, required for RPC calls")
+	if value != null:
+		#attach to tree for rpc calls
+		root_tree = value
+		root_tree.current_scene.add_child(self)
+		SetState("attach_tree", weakref(value))
+		set_name("UpdaterProcess")
+		printd("Updater attached to tree, %s" % root_tree.current_scene.get_path_to(self))
+	else:
+		printd("fail to attach Updater to tree, required for RPC calls")
 
 
 #var updater_enabled = true
@@ -116,6 +116,9 @@ signal update_to_update
 signal update_finished
 signal error(msg)
 
+# chain event
+signal chain_end
+
 signal state_events(signal_name, signal_data) # for ease of processing signals in one function
 
 var ck_update = {
@@ -126,6 +129,7 @@ var ck_update = {
 	update_data = null,		#[true, false]
 }
 func ui_ClientCheckUpdate(force = false):
+	printd("ui_ClientCheckUpdate")
 	if force and ck_update.state == "ready":
 		ck_update.state = null
 	if ck_update.state == "ready":
@@ -139,11 +143,11 @@ func ui_ClientCheckUpdate(force = false):
 func chain_ClientCheckUpdate(sname, sdata):
 	match sname:
 		null:
-			ck_update.state == "gathering"
+			ck_update.state = "gathering"
 			SetState("ccu_progress", "connect")
 			ClientOpenConnection()
 		"network_ok":
-			SetState("ccu_progerss", "network_ok")
+			SetState("ccu_progress", "network_ok")
 		"network_fail":
 			ck_update.state = "ready"
 			ck_update.error = "no network"
@@ -151,7 +155,8 @@ func chain_ClientCheckUpdate(sname, sdata):
 		"server_connected":
 			SetState("ccu_progress", "ping")
 			ClientCheckForServer()
-		["server_disconnected", "server_fail_connecting"]:
+		"server_disconnected", "server_fail_connecting":
+			printd("chain_ClientCheckUpdate: %s, %s" % ["server_disconnected", "server_fail_connecting"])
 			if ck_update.state == "gathering":
 				ck_update.state = "ready"
 				ck_update.server_online = false
@@ -183,6 +188,7 @@ func chain_ClientCheckUpdate(sname, sdata):
 		disconnect("state_events", self, "chain_ClientCheckUpdate")
 
 func se_emit_signal(signal_name, signal_data=null):
+	printd("Status emit signal: %s" % signal_name)
 	if signal_name in ["error", "client_protocol"]:
 		emit_signal(signal_name, signal_data)
 		emit_signal("state_events", signal_name, signal_data)
@@ -195,6 +201,11 @@ func SetState(stat, value):
 		return
 	printd("SetState, %s = %s" % [stat, value])
 	match stat:
+		"ccu_progress":
+			update_status[stat] = value
+			if value == null:
+				emit_signal("chain_end")
+				printd("update chain ended")
 		"role":
 			match value:
 				"client":
@@ -266,6 +277,7 @@ func GetState(stat):
 	var res = null
 	if stat != null and update_status.has(stat):
 		res = update_status[stat]
+	printd("GetState: %s = %s" % [stat, res])
 	return res
 
 func SetState_default():
@@ -354,10 +366,13 @@ func RunUpdateServer():
 	root_tree.connect("network_peer_connected", self, "ServerPeerConnected")
 	root_tree.connect("network_peer_disconnected", self, "ServerPeerDisconnected")
 	
+	printd("RunUpdateServer, multiplayer %s, network_peer %s" % [get_tree().multiplayer, get_tree().network_peer])
+	
 	peer = NetworkedMultiplayerENet.new()
 	peer.set_bind_ip(IP.resolve_hostname("localhost", 1))
 	var error = peer.create_server(SERVER_PORT, MAX_PLAYERS)
 	root_tree.set_network_peer(peer)
+	printd("RunUpdateServer 2, multiplayer %s, network_peer %s" % [get_tree().multiplayer, get_tree().network_peer])
 	
 	Log("Create server. " + "Error code : " + str(error))
 	Log("Getting MD5 List...")
@@ -488,6 +503,7 @@ remote func UpdateProtocolClient(command, data=null):
 			ClientUpdateEnd(false)
 
 remote func UpdateProtocolServer(client_id, command, data=null):
+	printd("UpdateProtocolServer: %s" % command)
 	match command:
 		"ping":
 			toClient(client_id, "pong")
