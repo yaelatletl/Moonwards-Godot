@@ -1,9 +1,11 @@
 shader_type spatial;
-render_mode blend_mix,depth_draw_opaque,cull_back,world_vertex_coords;
+render_mode blend_mix,depth_draw_opaque,world_vertex_coords;
 uniform sampler2D splatmap;
 uniform sampler2D splatmap_2;
 uniform sampler2D global_normal;
+uniform sampler2D global_albedo;
 uniform bool show_splatmap;
+uniform bool detail_enabled;
 
 uniform sampler2D texture0;
 uniform sampler2D normal_tex0;
@@ -29,8 +31,9 @@ uniform sampler2D texture5;
 uniform sampler2D normal_tex5;
 uniform float normal_depth5 : hint_range(-16,16);
 
-uniform sampler2D albedo_tex;
-uniform sampler2D normal_tex;
+
+uniform sampler2D detail_normal;
+uniform float detail_normal_depht : hint_range(-1,1);
 uniform float normal_depth : hint_range(-16,16);
 
 uniform float specular;
@@ -160,7 +163,7 @@ void fragment() {
 	color5 = triplanar_texture(texture5, uv6_power_normal, uv6_triplanar_pos).rgb * splatmapcolor_2.b;
 	normal5 = triplanar_texture(normal_tex5, uv6_power_normal, uv6_triplanar_pos).rgb * splatmapcolor_2.b;
 	
-	albedo = texture(albedo_tex, UV).rgb * (vec3(1.0) - (splatmapcolor.r));
+	albedo = texture(global_albedo,UV).rgb  * (vec3(1.0) - (splatmapcolor.r));
 	albedo = albedo * (vec3(1.0) - (splatmapcolor.g));
 	albedo = albedo * (vec3(1.0) - (splatmapcolor.b));
 	
@@ -171,7 +174,10 @@ void fragment() {
 	albedo = (albedo + color0 + color1 + color2 + color3 + color4 + color5);
 	ALBEDO = albedo;
 
-	normal = texture(normal_tex, UV).rgb * (vec3(1.0) - (splatmapcolor.r));
+	normal = texture(global_normal, UV).rgb * (vec3(1.0) - (splatmapcolor.r));
+	if (detail_enabled) {
+	normal = (texture(global_normal,UV).rgb+detail_normal_depht*(triplanar_texture(detail_normal, uv3_power_normal, uv3_triplanar_pos*10.0).rgb * (vec3(1.0) - (splatmapcolor.r))));
+	}
 	normal = normal * (vec3(1.0) - (splatmapcolor.g));
 	normal = normal * (vec3(1.0) - (splatmapcolor.b));
 	
@@ -184,11 +190,7 @@ void fragment() {
 	ROUGHNESS = 1.0;
 	
 	NORMALMAP = normalize(normal_depth*normal + normal_depth0*normal0 + normal_depth1*normal1 + normal_depth2*normal2 + normal_depth3*normal3 + normal_depth4*normal4 + normal_depth5*normal5);
-	vec3 dif =(mod(NORMALMAP, NORMALMAP+globalnormal.rgb));
-	NORMALMAP = (NORMALMAP + globalnormal.rgb) - (dif*dot(NORMALMAP,globalnormal.rgb));
-	
-	//NORMALMAP = dif;
-	//NORMALMAP = globalnormal.rgb;
+	NORMALMAP = (NORMALMAP + globalnormal.rgb)/length(NORMALMAP+globalnormal.rgb);
 	
 	if(show_splatmap){
 		ALBEDO = (splatmapcolor + splatmapcolor_2).rgb;
