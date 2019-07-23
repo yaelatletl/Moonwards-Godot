@@ -76,6 +76,8 @@ func _on_update_finished(result):
 
 func _on_continue_pressed():
 	if result == 1:
+		$VBoxContainer.show()
+		$PanelContainer.queue_free()
 		UIManager.NextUI(scenes.UpdateUI)
 	else:
 		$VBoxContainer.show()
