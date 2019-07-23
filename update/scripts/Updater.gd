@@ -118,7 +118,8 @@ signal update_finished
 signal error(msg)
 
 # chain event
-signal chain_end
+signal chain_ccu
+signal chain_cdu
 
 signal state_events(signal_name, signal_data) # for ease of processing signals in one function
 
@@ -140,6 +141,66 @@ func ui_ClientCheckUpdate(force = false):
 		connect("state_events", self, "chain_ClientCheckUpdate")
 		chain_ClientCheckUpdate(null, null)
 	return ck_update
+
+func ui_ClientUpdateData():
+	printd("ui_ClientUpdateData")
+	var res = ui_ClientCheckUpdate()
+	if res["state"] != "ready":
+		yield(self, "chain_ccu")
+		res = ui_ClientCheckUpdate()
+	if res["state"] != "ready":
+		var msg = "internal error, while attempt to update data"
+		printd("ui_ClientUpdateData error: %s" % msg)
+		emit_signal("error", msg)
+		return false
+	if res["server_online"] != true:
+		var msg = "server or network offline, while attempt to update data"
+		printd("ui_ClientUpdateData error: %s" % msg)
+		emit_signal("error", msg)
+		return false
+	if res["update_client"] == true:
+		var msg = "error, client needs an update"
+		printd("ui_ClientUpdateData error: %s" % msg)
+		emit_signal("error", msg)
+		return false
+	if res["update_data"] == false:
+		var msg = "no update is required"
+		printd("ui_ClientUpdateData error: %s" % msg)
+		emit_signal("error", msg)
+		return false
+	if GetState("cud_progress") != null:
+		var msg = "update data in progress"
+		printd("ui_ClientUpdateData error: %s" % msg)
+		emit_signal("error", msg)
+		return true
+		
+	SetState("cud_progress", "start")
+	connect("state_events", self, "chain_ClientDataUpdate")
+	chain_ClientDataUpdate(null, null)
+	return true
+
+func chain_ClientDataUpdate(sname, sdata):
+	match sname:
+		null:
+			SetState("cud_progress", "start")
+			ClientOpenConnection()
+		"server_disconnected":
+			if GetState("cud_progress") != null:
+				printd("update data failed, server disconnected")
+				SetState("cud_progress", null)
+		"server_connected":
+			SetState("cud_progress", "connected")
+			toServer("tree_id", tree_md5id)
+		"update_ok":
+			SetState("cud_progress", null)
+			
+		"update_fail":
+			SetState("cud_progress", null)
+		_:
+			printd("chain_ClientDataUpdate, signal %s = %s" % [sname, sdata])
+	if GetState("cud_progress") == null:
+		disconnect("state_events", self, "chain_ClientDataUpdate")
+
 
 func chain_ClientCheckUpdate(sname, sdata):
 	match sname:
@@ -208,8 +269,13 @@ func SetState(stat, value):
 		"ccu_progress":
 			update_status[stat] = value
 			if value == null:
-				emit_signal("chain_end")
-				printd("update chain ended")
+				emit_signal("chain_ccu")
+				printd("get update info chain ended")
+		"cud_progress":
+			update_status[stat] = value
+			if value == null:
+				emit_signal("chain_cdu")
+				printd("get update data chain ended")
 		"role":
 			match value:
 				"client":
@@ -263,6 +329,12 @@ func SetState(stat, value):
 					se_emit_signal("update_to_update")
 				else:
 					se_emit_signal("update_no_update")
+		"update_data":
+			if value:
+				se_emit_signal("update_ok")
+			else:
+				se_emit_signal("update_fail")
+		
 		_:
 			update_status[stat] = value
 
@@ -296,6 +368,7 @@ func SetState_default():
 
 func ClientOpenConnection():
 	if GetState("server") == "connected":
+		SetState("network", "ok")
 		return
 	SetState("role", "client")
 	#Connect all the function so they can be handled by the client.
@@ -323,11 +396,6 @@ func ClientCheckForUpdate():
 	if tree_md5id == null:
 		UpdateTreeID()
 	toServer("current_tree_id")
-
-func ClientGetUpdateInfo():
-	pass
-func ClientStartUpdateProcess():
-	pass
 
 func ClientCloseConnection():
 	printd("ClientCloseConnection")
@@ -545,10 +613,7 @@ func ClientUpdateFilter(info):
 	filter["ignore"] = filter["ignore"] + ignore_list
 
 func ClientUpdateEnd(sucess):
-	if sucess:
-		emit_signal("update_ok")
-	else:
-		emit_signal("update_fail")
+	SetState("update_data", sucess)
 	ClientCloseConnection()
 
 func upt_info_save(info):

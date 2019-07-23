@@ -42,7 +42,7 @@ func UpdateStatus_ccu_signal():
 	var res = Updater.ui_ClientCheckUpdate()
 	SetLabels(res)
 	if res["state"] == "gathering":
-		yield(Updater, "chain_end")
+		yield(Updater, "chain_ccu")
 		res = Updater.ui_ClientCheckUpdate()
 		SetLabels(res)
 	printd("end gathering: %s" % res)
@@ -92,6 +92,18 @@ func SetLabels(res):
 	yield(get_tree(), "idle_frame")
 	yield(get_tree(), "idle_frame")
 
+func UpdateData():
+	var l = $Panel/VBoxContainer/DowloadDataButton
+	var res = Updater.ui_ClientUpdateData()
+	if res:
+		pass
+
+func _on_DowloadDataButton_pressed():
+	UpdateData()
+
 var debug_id = "PanelUpdate"
 func printd(s):
 	logg.print_fd(debug_id, s)
+
+#checksum noise
+

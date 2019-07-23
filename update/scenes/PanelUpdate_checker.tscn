@@ -45,7 +45,14 @@ margin_top = 72.0
 margin_right = 240.0
 margin_bottom = 86.0
 
+[node name="DowloadDataButton" type="Button" parent="Panel/VBoxContainer"]
+margin_top = 90.0
+margin_right = 240.0
+margin_bottom = 110.0
+text = "Dowload data"
+
 [node name="Options" type="Node" parent="."]
 
 [node name="NoCamera" type="Node" parent="Options"]
 
+[connection signal="pressed" from="Panel/VBoxContainer/DowloadDataButton" to="." method="_on_DowloadDataButton_pressed"]
