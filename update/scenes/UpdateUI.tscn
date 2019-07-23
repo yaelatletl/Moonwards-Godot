@@ -122,3 +122,4 @@ margin_bottom = 164.0
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/SwitchScene" to="." method="SwitchScene"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/RunServer" to="." method="RunUpdateServer"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/RunClient" to="." method="RunUpdateClient"]
+[connection signal="pressed" from="VBoxContainer/ClientStatus/StartUpdate" to="." method="_on_StartUpdate_pressed"]

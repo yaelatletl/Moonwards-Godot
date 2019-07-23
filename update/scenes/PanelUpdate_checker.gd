@@ -7,6 +7,9 @@ var scripts = {
 var Updater
 func _ready():
 	printd("Panel update status, tree %s" % get_tree())
+	#Go()
+
+func Go():
 	Updater = scripts.Updater.new()
 	Updater.root_tree = get_tree()
 	#UpdateStatus()
@@ -101,9 +104,12 @@ func UpdateData():
 func _on_DowloadDataButton_pressed():
 	UpdateData()
 
+func _on_Button_pressed():
+	Go()
+
 var debug_id = "PanelUpdate"
 func printd(s):
 	logg.print_fd(debug_id, s)
 
-#checksum noise
 
+#checksum noise

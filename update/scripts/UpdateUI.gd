@@ -119,3 +119,11 @@ func fn_error(msg):
 	pass
 
 
+func UpdateData():
+	var l = $Panel/VBoxContainer/DowloadDataButton
+	var res = Updater.ui_ClientUpdateData()
+	if res:
+		pass
+
+func _on_StartUpdate_pressed():
+	UpdateData()
