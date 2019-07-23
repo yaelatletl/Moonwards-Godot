@@ -62,6 +62,5 @@ text = "Dowload data"
 [node name="Options" type="Node" parent="."]
 
 [node name="NoCamera" type="Node" parent="Options"]
-
 [connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/DowloadDataButton" to="." method="_on_DowloadDataButton_pressed"]

@@ -24,13 +24,13 @@ func _ready():
 	else:
 		UIManager.RegisterBaseUI(self)
 		UIManager.SetCurrentUI($VBoxContainer)
-	$PanelContainer.connect("continue_pressed",self,"_on_continue_pressed")
+	$UpdateUI.connect("continue_pressed",self,"_on_continue_pressed")
 	connect("Update_finished",self,"_on_update_finished")
 	check_for_update()
 var result 
 func check_for_update():
 
-	var Progress = $PanelContainer/VBoxContainer/ProgressBar
+	var Progress = $UpdateUI/VBoxContainer/ProgressBar
 	Updater = scripts.Updater.new()
 	Updater.root_tree = get_tree()
 	#UpdateStatus()
@@ -65,14 +65,14 @@ func check_for_update():
 	emit_signal("Update_finished", result)
 	
 func _on_update_finished(result):
-	var Status = $PanelContainer/VBoxContainer/Status
+	var Status = $UpdateUI/VBoxContainer/Status
 	if result == 1:
 		Status.text = "There's an update available"
 	if result == 0:
 		Status.text = "No update available"
 	if result == -1:
 		Status.text = "An error ocurred"
-	$PanelContainer/VBoxContainer/Button.disabled = false
+	$UpdateUI/VBoxContainer/Button.disabled = false
 
 func _on_continue_pressed():
 	if result == 1:
