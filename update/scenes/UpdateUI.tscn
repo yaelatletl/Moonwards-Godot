@@ -118,7 +118,6 @@ margin_bottom = 164.0
 [node name="Options" type="Node" parent="."]
 
 [node name="NoCamera" type="Node" parent="Options"]
-
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/SwitchScene" to="." method="SwitchScene"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/RunServer" to="." method="RunUpdateServer"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/RunClient" to="." method="RunUpdateClient"]

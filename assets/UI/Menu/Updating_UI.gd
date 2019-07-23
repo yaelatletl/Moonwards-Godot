@@ -4,6 +4,9 @@ var scripts = {
 	Updater = preload("res://update/scripts/Updater.gd")
 }
 var Updater
+
+signal update_finished(result)
+
 func AddLogMessage(var text):
 	if not self.visible:
 		self.visible = true
@@ -130,3 +133,8 @@ func _ready():
 	]
 	for sg in signals:
 		Updater.connect(sg, self, "fn_%s" % sg)
+
+var debug_id = "UI: Updater"
+func printd(s):
+	logg.print_fd(debug_id, s)
+	
