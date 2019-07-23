@@ -36,7 +36,7 @@ func RunUpdateClient():
 	Updater.RunUpdateClient()
 
 func _on_update():
-	RunUpdateServer()
+	UpdateData()
 	$HBoxContainer/VBoxContainer/HBoxContainer/Button2.text = "Return"
 
 
@@ -134,6 +134,11 @@ func _ready():
 	for sg in signals:
 		Updater.connect(sg, self, "fn_%s" % sg)
 
+func UpdateData():
+	var l = $Panel/VBoxContainer/DowloadDataButton
+	var res = Updater.ui_ClientUpdateData()
+	if res:
+		pass
 var debug_id = "UI: Updater"
 func printd(s):
 	logg.print_fd(debug_id, s)

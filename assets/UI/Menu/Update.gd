@@ -11,16 +11,16 @@ func _ready():
 	Updater = scripts.Updater.new()
 	Updater.root_tree = get_tree()
 	Updater.connect("update_to_update", self, "fn_update_to_update")
-	$HBoxContainer2/VBoxContainer3/Version3.text = "Gathering update information"
+	$HBoxContainer2/VBoxContainer3/Version3.text = "Last checked:"
 	yield(get_tree(),"idle_frame")
 	yield(get_tree(),"idle_frame")
 	connect("update_finished",self,"_on_update_finished")
-	check_for_update()
+
 
 var result 
 
 func check_for_update():
-
+	$HBoxContainer2/VBoxContainer3/Version3.text = "Gathering update information"
 	
 	
 	#UpdateStatus()
@@ -52,7 +52,7 @@ func check_for_update():
 				result = -1
 				has_update = false
 	printd("end gathering: %s" % res)
-	emit_signal("Update_finished", result)
+	emit_signal("update_finished", result)
 	
 func _on_update_finished(result):
 	var Status = $HBoxContainer2/VBoxContainer3/Version3
@@ -61,14 +61,14 @@ func _on_update_finished(result):
 	if result == 0:
 		Status.text = "There are no updates available"
 	if result == -1:
-		Status.text = "An error ocurred"
+		Status.text = "An error occurred"
 	Status.text += "\nLast checked: "
 	var Date = OS.get_datetime()
 	var Date_to_store = ""
-	Date_to_store += str(Date.get("day"))+"/"+str(Date.get("month"))+"/"+str(Date.get("year"))+" "
+	Date_to_store += str(Date.get("day"))+"/"+str(Date.get("month"))+"/"+str(Date.get("year"))+" at "
 	Date_to_store += str(Date.get("hour"))+":"+str(Date.get("minute"))+":"+str(Date.get("second"))
 	Status.text += Date_to_store
-	$PanelContainer/VBoxContainer/Button.disabled = false
+
 
 func _on_Change_log_pressed():
 	$Change_log.popup_centered()
