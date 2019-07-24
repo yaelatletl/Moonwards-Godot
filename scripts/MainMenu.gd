@@ -26,13 +26,14 @@ func _ready():
 		UIManager.RegisterBaseUI(self)
 		UIManager.SetCurrentUI($VBoxContainer)
 	$UpdateUI.connect("continue_pressed",self,"_on_continue_pressed")
+	var checker = options.get("Update info", "available", null)
 	connect("Update_finished",self,"_on_update_finished")
-	if options.get("Update info", "available") == true:
+	if checker == true:
 		$VBoxContainer/UI/MainUI/ButtonsContainer/About/UpdateAvailable.show()
 		$UpdateUI.queue_free()
-	elif options.get("Update info", "available") == null:
+	elif checker == null:
 		check_for_update()
-	elif options.get("Update info", "available") == false:
+	elif checker == false:
 		check_for_update()
 
 
