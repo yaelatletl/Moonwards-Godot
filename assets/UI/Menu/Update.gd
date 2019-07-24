@@ -19,7 +19,7 @@ func _ready():
 	Data_to_show += options.get("Update info", "year" )+" "
 	Data_to_show += options.get("Update info", "hour" )+":"
 	Data_to_show += options.get("Update info", "minute" )+":"
-	Data_to_show += options.get("Update info", "second" )+":"
+	Data_to_show += options.get("Update info", "second" )
 	$HBoxContainer2/VBoxContainer3/Version3.text += Data_to_show
 	yield(get_tree(),"idle_frame")
 	yield(get_tree(),"idle_frame")
