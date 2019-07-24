@@ -1,12 +1,13 @@
 [gd_scene load_steps=3 format=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.105882, 0.105882, 0.105882, 0.87451 )
+bg_color = Color( 0.105882, 0.105882, 0.105882, 0.368627 )
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
-border_color = Color( 0.0470588, 0.0470588, 0.0470588, 0.92549 )
+border_color = Color( 0.0470588, 0.0470588, 0.0470588, 0.337255 )
+border_blend = true
 
 [sub_resource type="GDScript" id=2]
 script/source = "extends PanelContainer

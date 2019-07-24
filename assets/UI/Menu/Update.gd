@@ -11,7 +11,16 @@ func _ready():
 	Updater = scripts.Updater.new()
 	Updater.root_tree = get_tree()
 	Updater.connect("update_to_update", self, "fn_update_to_update")
-	$HBoxContainer2/VBoxContainer3/Version3.text = "Last checked:"
+	$HBoxContainer2/VBoxContainer3/Version3.text = "Last checked: " 
+	var Date = OS.get_datetime()
+	var Data_to_show = " "
+	Data_to_show += options.get("Update info", "day")+"/"
+	Data_to_show += options.get("Update info", "month")+"/"
+	Data_to_show += options.get("Update info", "year" )+" "
+	Data_to_show += options.get("Update info", "hour" )+":"
+	Data_to_show += options.get("Update info", "minute" )+":"
+	Data_to_show += options.get("Update info", "second" )+":"
+	$HBoxContainer2/VBoxContainer3/Version3.text += Data_to_show
 	yield(get_tree(),"idle_frame")
 	yield(get_tree(),"idle_frame")
 	connect("update_finished",self,"_on_update_finished")
@@ -58,17 +67,25 @@ func _on_update_finished(result):
 	var Status = $HBoxContainer2/VBoxContainer3/Version3
 	if result == 1:
 		Status.text = "There's an update available"
+		options.set("Update info", true,"available")
 	if result == 0:
 		Status.text = "There are no updates available"
+		options.set("Update info", false,"available")
 	if result == -1:
 		Status.text = "An error occurred"
+		options.set("Update info", null,"available")
 	Status.text += "\nLast checked: "
 	var Date = OS.get_datetime()
 	var Date_to_store = ""
 	Date_to_store += str(Date.get("day"))+"/"+str(Date.get("month"))+"/"+str(Date.get("year"))+" at "
 	Date_to_store += str(Date.get("hour"))+":"+str(Date.get("minute"))+":"+str(Date.get("second"))
 	Status.text += Date_to_store
-
+	options.set("Update info",  str(Date.get("hour")), "hour")
+	options.set("Update info",  str(Date.get("minute")), "minute")
+	options.set("Update info",  str(Date.get("second")), "second")
+	options.set("Update info",  str(Date.get("year")), "year")
+	options.set("Update info",  str(Date.get("month")), "month")
+	options.set("Update info",  str(Date.get("day")), "day")
 
 func _on_Change_log_pressed():
 	$Change_log.popup_centered()
