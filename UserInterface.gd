@@ -16,6 +16,13 @@ func _input(event):
 			UIManager.ClearUI()
 			added_menu_ui = false
 		elif UIManager.RequestFocus():
+			UIManager.NextUI(SceneOptions)
+			added_menu_ui = true
+	if event.is_action_pressed("ui_cancel"):
+		if added_menu_ui:
+			UIManager.ClearUI()
+			added_menu_ui = false
+		elif UIManager.RequestFocus():
 			UIManager.NextUI(SceneMenu)
 			added_menu_ui = true
 	if event.is_action_pressed("show_diagram"):
