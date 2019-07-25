@@ -12,8 +12,7 @@ func set_root_tree(value):
 		root_tree.current_scene.add_child(self)
 		SetState("attach_tree", weakref(value))
 		set_name("UpdaterProcess")
-		printd("Updater attached to tree, %s" % root_tree.current_scene.get_path_to(self))
-		printd("Updater, test UpdateUI/UpdaterProcess: %s" % root_tree.current_scene.get_node("/UpdateUI/UpdaterProcess"))
+		printd("Updater attached to tree at %s/%s" % [root_tree.current_scene.name, root_tree.current_scene.get_path_to(self)])
 	else:
 		printd("fail to attach Updater to tree, required for RPC calls")
 
@@ -131,7 +130,7 @@ var ck_update = {
 	update_data = null,		#[true, false]
 }
 func ui_ClientCheckUpdate(force = false):
-	printd("ui_ClientCheckUpdate")
+	printd("ui_ClientCheckUpdate(%s): %s" % [force, ck_update])
 	if force and ck_update.state == "ready":
 		ck_update.state = null
 	if ck_update.state == "ready":
@@ -180,6 +179,7 @@ func ui_ClientUpdateData():
 	return true
 
 func chain_ClientDataUpdate(sname, sdata):
+	printd("=== %s %s" % [sname, sdata])
 	match sname:
 		null:
 			SetState("cud_progress", "start")
@@ -198,11 +198,10 @@ func chain_ClientDataUpdate(sname, sdata):
 			SetState("cud_progress", null)
 		_:
 			printd("chain_ClientDataUpdate, signal %s = %s" % [sname, sdata])
-	if GetState("cud_progress") == null:
-		disconnect("state_events", self, "chain_ClientDataUpdate")
 
 
 func chain_ClientCheckUpdate(sname, sdata):
+	printd("*** %s %s" % [sname, sdata])
 	match sname:
 		null:
 			ck_update.state = "gathering"
@@ -249,8 +248,6 @@ func chain_ClientCheckUpdate(sname, sdata):
 			ck_update.state = "ready"
 			ClientCloseConnection()
 			SetState("ccu_progress", null)
-	if GetState("ccu_progress") == null:
-		disconnect("state_events", self, "chain_ClientCheckUpdate")
 
 func se_emit_signal(signal_name, signal_data=null):
 	printd("Status emit signal: %s" % signal_name)
@@ -269,11 +266,13 @@ func SetState(stat, value):
 		"ccu_progress":
 			update_status[stat] = value
 			if value == null:
+				disconnect("state_events", self, "chain_ClientCheckUpdate")
 				emit_signal("chain_ccu")
 				printd("get update info chain ended")
 		"cud_progress":
 			update_status[stat] = value
 			if value == null:
+				disconnect("state_events", self, "chain_ClientDataUpdate")
 				emit_signal("chain_cdu")
 				printd("get update data chain ended")
 		"role":
@@ -310,9 +309,6 @@ func SetState(stat, value):
 					se_emit_signal("server_connected")
 				"disconnected":
 					se_emit_signal("server_disconnected")
-				"online":
-					se_emit_signal("server_online")
-					update_status["server_online"] = true
 		"protocol":
 			match value:
 				"match":
@@ -375,6 +371,7 @@ func ClientOpenConnection():
 	root_tree.connect("connected_to_server", self, "ClientConnectedOK")
 	root_tree.connect("connection_failed", self, "ClientConnectedFailed")
 	root_tree.connect("server_disconnected", self, "ClientDisconnectedByServer")
+	SetState("client network signals", "connected")
 	
 	peer = NetworkedMultiplayerENet.new()
 	var error = peer.create_client(SERVER_IP, SERVER_PORT)
@@ -401,6 +398,12 @@ func ClientCloseConnection():
 	printd("ClientCloseConnection")
 	root_tree.set_network_peer(null)
 	SetState("server", "disconnected")
+	if GetState("client network signals") == "connected":
+		root_tree.disconnect("connected_to_server", self, "ClientConnectedOK")
+		root_tree.disconnect("connection_failed", self, "ClientConnectedFailed")
+		root_tree.disconnect("server_disconnected", self, "ClientDisconnectedByServer")
+		SetState("client network signals", null)
+
 
 func _process(delta):
 	pass
@@ -531,7 +534,7 @@ remote func UpdateProtocolClient(command, data=null):
 	match command:
 		"pong":
 			Log("Server online")
-			SetState("server", "online")
+			SetState("server_ping", true)
 		"list":
 			Log("Send md5 list to server")
 			toServer("tree_list", [tree_md5_list, tree_md5id])
@@ -959,19 +962,7 @@ func GetMD5FromDirectory(var path, var dictionary):
 	else:
 		Log("GetMD5FromDirectory fail to open %s" % path)
 
-func LoadPackageFile(fname):
-# 	var prjcfg = "res://project.cfg"
-# 	printd("LoadPackageFile, application/run/main_scene %s" % ProjectSettings.get_setting("application/run/main_scene"))
-	var success = ProjectSettings.load_resource_pack(fname)
-	Log("Loading File: " + fname + " success" if success else " unsuccessful")
-# 	if file.file_exists(prjcfg):
-# 		printd("LoadPackageFile, config file %s present, override" % prjcfg )
-# 		ProjectSettings.set_setting("application/config/project_settings_override", prjcfg)
-
-	printd("LoadPackageFile, application/run/main_scene %s" % ProjectSettings.get_setting("application/run/main_scene"))
-	return success
-
-func LoadPackages(path=null, first=false):
+func ListPackages(path=null):
 	if path == null:
 		path = user_updates_path
 	var directory = Directory.new()
@@ -994,6 +985,22 @@ func LoadPackages(path=null, first=false):
 	else:
 		print("An error occurred when trying to access the path.")
 	package_list.sort()
+	return package_list
+
+func LoadPackageFile(fname):
+# 	var prjcfg = "res://project.cfg"
+# 	printd("LoadPackageFile, application/run/main_scene %s" % ProjectSettings.get_setting("application/run/main_scene"))
+	var success = ProjectSettings.load_resource_pack(fname)
+	Log("Loading File: " + fname + " success" if success else " unsuccessful")
+# 	if file.file_exists(prjcfg):
+# 		printd("LoadPackageFile, config file %s present, override" % prjcfg )
+# 		ProjectSettings.set_setting("application/config/project_settings_override", prjcfg)
+
+	printd("LoadPackageFile, application/run/main_scene %s" % ProjectSettings.get_setting("application/run/main_scene"))
+	return success
+
+func LoadPackages(path=null, first=false):
+	var package_list = ListPackages(path)
 	if first and package_list.size() > 0:
 		var fname = package_list.pop_back()
 		LoadPackageFile(fname)

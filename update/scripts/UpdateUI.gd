@@ -8,6 +8,7 @@ func _ready():
 	Updater = scripts.Updater.new()
 	Updater.connect("receive_update_message", self, "AddLogMessage")
 	Updater.root_tree = get_tree()
+	Updater.LoadPackages()
 # 	Updater.RunUpdateClient()
 
 func AddLogMessage(var text):
@@ -29,7 +30,15 @@ func RunUpdateServer():
 func RunUpdateClient():
 	$VBoxContainer/VBoxContainer/State.text = "Client"
 	yield(get_tree(), "idle_frame")
-	
+
+	ConnectSignals()
+	$VBoxContainer/ClientStatus.visible = true
+	yield(get_tree(), "idle_frame")
+
+	Updater.ClientOpenConnection()
+# 	Updater.RunUpdateClient()
+
+func ConnectSignals(con = true):
 	#connect signals
 	var signals = [ "network_ok",
 					"network_fail",
@@ -47,13 +56,12 @@ func RunUpdateClient():
 					"update_finished",
 					"error"]
 	for sg in signals:
-		Updater.connect(sg, self, "fn_%s" % sg)
-	$VBoxContainer/ClientStatus.visible = true
-	yield(get_tree(), "idle_frame")
-
-	Updater.ClientOpenConnection()
-# 	Updater.RunUpdateClient()
-
+		if con:
+			if not Updater.is_connected(sg, self, "fn_%s" % sg):
+				Updater.connect(sg, self, "fn_%s" % sg)
+		else:
+			if Updater.is_connected(sg, self, "fn_%s" % sg):
+				Updater.disconnect(sg, self, "fn_%s" % sg)
 
 
 func set_label(label, text):
@@ -66,6 +74,7 @@ func fn_network_ok():
 func fn_network_fail():
 	var l = $VBoxContainer/ClientStatus/Network
 	set_label(l, "fail")
+	ConnectSignals(false)
 
 func fn_server_connected():
 	var l = $VBoxContainer/ClientStatus/Server
@@ -75,10 +84,12 @@ func fn_server_connected():
 func fn_server_disconnected():
 	var l = $VBoxContainer/ClientStatus/Server
 	set_label(l, "disconnected")
+	ConnectSignals(false)
 	
 func fn_server_fail_connecting():
 	var l = $VBoxContainer/ClientStatus/Server
 	set_label(l, "fail")
+	ConnectSignals(false)
 
 func fn_server_online():
 	var l = $VBoxContainer/ClientStatus/ServerStatus
@@ -88,6 +99,7 @@ func fn_server_online():
 func fn_server_offline():
 	var l = $VBoxContainer/ClientStatus/ServerStatus
 	set_label(l, "offline")
+	ConnectSignals(false)
 	
 func fn_client_protocol(state):
 	var l = $VBoxContainer/ClientStatus/Protocol
@@ -99,17 +111,20 @@ func fn_client_protocol(state):
 	else:
 		set_label(l, "client update is required")
 		Updater.ClientCloseConnection()
+		ConnectSignals(false)
 
 func fn_update_no_update():
 	var l = $VBoxContainer/ClientStatus/Update
 	set_label(l, "up to date")
 	Updater.ClientCloseConnection()
+	ConnectSignals(false)
 
 func fn_update_to_update():
 	var l = $VBoxContainer/ClientStatus/Update
 	set_label(l, "update available")
 	$VBoxContainer/ClientStatus/StartUpdate.disabled = false
 	Updater.ClientCloseConnection()
+	ConnectSignals(false)
 
 func fn_update_progress(percent):
 	pass
@@ -120,7 +135,8 @@ func fn_error(msg):
 
 
 func UpdateData():
-	var l = $Panel/VBoxContainer/DowloadDataButton
+	var l = $VBoxContainer/ClientStatus/StartUpdate
+	set_label(l, "processing")
 	var res = Updater.ui_ClientUpdateData()
 	if res:
 		pass

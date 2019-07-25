@@ -140,9 +140,14 @@ var dd_filter = {
 		{ vl = 0, enabled = true, key = "Get tree checksum"},
 		{ vl = 4, enabled = true, key = "ClientReceiveUpdate"},
 		{ vl = 4, enabled = true, key = "chain_"},
+		{ vl = 5, enabled = true, key = "GetState:"},
 		{ vl = 0, enabled = true, key = ""}
 	],
 	"Updater": [
+		{ vl = 0, enabled = true, key = ""}
+	],
+	"Main Menu": [
+		{ vl = 4, enabled = true, key = "end gathering"},
 		{ vl = 0, enabled = true, key = ""}
 	]
 # 		{ vl = 9, enabled = true, key = ""},
