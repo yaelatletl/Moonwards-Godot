@@ -58,7 +58,7 @@ var server_package_path = "user://updates_server/"
 var update_filter = {
 	#basic glob pattern match
 	"exclude" : [
-		"res://_tests/*",
+# 		"res://_tests/*",
 		"res://_maintance/*",
 		"res://addons/CeransDev/*",
 		"res://_tests.ignore/*"
