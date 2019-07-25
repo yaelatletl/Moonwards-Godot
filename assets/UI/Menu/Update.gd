@@ -14,12 +14,15 @@ func _ready():
 	$HBoxContainer2/VBoxContainer3/Version3.text = "Last checked: " 
 	var Date = OS.get_datetime()
 	var Data_to_show = " "
-	Data_to_show += options.get("Update info", "day")+"/"
-	Data_to_show += options.get("Update info", "month")+"/"
-	Data_to_show += options.get("Update info", "year" )+" "
-	Data_to_show += options.get("Update info", "hour" )+":"
-	Data_to_show += options.get("Update info", "minute" )+":"
-	Data_to_show += options.get("Update info", "second" )
+	if options.get("Update info", "day") != null:
+		Data_to_show += options.get("Update info", "day")+"/"
+		Data_to_show += options.get("Update info", "month")+"/"
+		Data_to_show += options.get("Update info", "year" )+" "
+		Data_to_show += options.get("Update info", "hour" )+":"
+		Data_to_show += options.get("Update info", "minute" )+":"
+		Data_to_show += options.get("Update info", "second" )
+	else:
+		Data_to_show += "Not available"
 	$HBoxContainer2/VBoxContainer3/Version3.text += Data_to_show
 	yield(get_tree(),"idle_frame")
 	yield(get_tree(),"idle_frame")
