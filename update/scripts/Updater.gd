@@ -596,7 +596,9 @@ remote func UpdateProtocolServer(client_id, command, data=null):
 			Log("unknown command/response from client, (%s)" % command)
 			toClient(client_id, "abort")
 
-func ClientUpdateFilter(info):
+func ClientUpdateFilter(info=null):
+	if info == null:
+		info = upt_info_load()
 	if info == null:
 		Log("no update info to process")
 		return
@@ -864,7 +866,7 @@ func upt_ClientUpdateName():
 		package_name = str(nr_packages).pad_zeros(5)
 		package_name = "%s%s%s" % [user_updates_path, package_name, ".pck"]
 	else:
-		Log("Could not write to user directory.")
+		Log("Could not read user directory.")
 	return package_name
 
 func ClientReceiveUpdate(var buffer):
