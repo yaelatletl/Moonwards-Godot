@@ -22,9 +22,9 @@ func _ready_headless():
 func _ready():
 	if utils.feature_check_server():
 		_ready_headless()
-	else:
-		UIManager.RegisterBaseUI(self)
-		UIManager.SetCurrentUI($VBoxContainer)
+		return
+	UIManager.RegisterBaseUI(self)
+	UIManager.SetCurrentUI($VBoxContainer)
 	$UpdateUI.connect("continue_pressed",self,"_on_continue_pressed")
 	var checker = options.get("Update info", "available", null)
 	connect("Update_finished",self,"_on_update_finished")
