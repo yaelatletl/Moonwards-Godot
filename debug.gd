@@ -275,7 +275,10 @@ func features_list(enabled_only=true):
 		{ opt = "etc", hint = "Textures using ETC1 compression are supported" },
 		{ opt = "etc2", hint = "Textures using ETC2 compression are supported" },
 		{ opt = "s3tc", hint = "Textures using S3TC (DXT/BC) compression are supported" },
-		{ opt = "pvrtc", hint = "Textures using PVRTC compression are supported" }
+		{ opt = "pvrtc", hint = "Textures using PVRTC compression are supported" },
+		# custom features, Moonwards specific
+		{ opt = "updater", hint = "serve as data updater server for clients" }
+		
 	]
 
 	if enabled_only:

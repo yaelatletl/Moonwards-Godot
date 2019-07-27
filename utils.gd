@@ -144,6 +144,9 @@ func file_mtime(fname):
 func feature_check_server():
 	return OS.has_feature("Server")
 
+func feature_check_updater():
+	return OS.has_feature("updater")
+
 func get_node_file(node):
 	node = get_node_root(node)
 	var filename
