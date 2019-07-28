@@ -8,7 +8,6 @@ func _ready():
 	Updater = scripts.Updater.new()
 	Updater.connect("receive_update_message", self, "AddLogMessage")
 	Updater.root_tree = get_tree()
-	Updater.LoadPackages()
 # 	Updater.RunUpdateClient()
 
 func AddLogMessage(var text):
@@ -28,6 +27,8 @@ func RunUpdateServer():
 	Updater.RunUpdateServer()
 
 func RunUpdateClient():
+	Updater.LoadPackages()
+	Updater.ClientUpdateFilter()
 	$VBoxContainer/VBoxContainer/State.text = "Client"
 	yield(get_tree(), "idle_frame")
 

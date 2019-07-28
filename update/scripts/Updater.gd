@@ -42,7 +42,7 @@ var thread = Thread.new()
 var tree_md5_list
 var tree_md5id
 
-var SERVER_PORT = 8000
+var SERVER_PORT = 10568
 var MAX_PLAYERS = 32
 var SERVER_IP = "127.0.0.1"
 var peer
