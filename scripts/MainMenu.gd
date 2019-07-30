@@ -33,12 +33,12 @@ func _ready():
 		return
 	UIManager.RegisterBaseUI(self)
 	UIManager.SetCurrentUI($VBoxContainer)
-	$UpdateUI.connect("continue_pressed",self,"_on_continue_pressed")
+	$VBoxContainer/UpdateUI.connect("continue_pressed",self,"_on_continue_pressed")
 	var checker = options.get("Update info", "available", null)
 	connect("Update_finished",self,"_on_update_finished")
 	if checker == true:
 		$VBoxContainer/UI/MainUI/ButtonsContainer/About/UpdateAvailable.show()
-		$UpdateUI.queue_free()
+		$VBoxContainer/UpdateUI.queue_free()
 	elif checker == null:
 		check_for_update()
 	elif checker == false:
@@ -47,7 +47,7 @@ func _ready():
 
 func check_for_update():
 
-	var Progress = $UpdateUI/VBoxContainer/ProgressBar
+	var Progress = $VBoxContainer/UpdateUI/VBoxContainer/ProgressBar
 	Updater = scripts.Updater.new()
 	Updater.root_tree = get_tree()
 	#UpdateStatus()
@@ -83,7 +83,7 @@ func check_for_update():
 	
 	
 func _on_update_finished(result):
-	var Status = $UpdateUI/VBoxContainer/Status
+	var Status = $VBoxContainer/UpdateUI/VBoxContainer/Header
 	if result == 1:
 		Status.text = "There's an update available"
 		options.set("Update info", true,"available")
@@ -93,7 +93,7 @@ func _on_update_finished(result):
 	if result == -1:
 		Status.text = "An error occurred"
 		options.set("Update info", null,"available")
-	$UpdateUI/VBoxContainer/Button.disabled = false
+	$VBoxContainer/UpdateUI/VBoxContainer/Status.disabled = false
 	var Date = OS.get_datetime()
 	options.set("Update info",  str(Date.get("hour")), "hour")
 	options.set("Update info",  str(Date.get("minute")), "minute")
@@ -106,11 +106,11 @@ func _on_update_finished(result):
 func _on_continue_pressed():
 	if result == 1:
 		$VBoxContainer.show()
-		$UpdateUI.queue_free()
+		$VBoxContainer/UpdateUI.queue_free()
 		UIManager.NextUI(scenes.UpdateUI)
 	else:
 		$VBoxContainer.show()
-		$UpdateUI.queue_free()
+		$VBoxContainer/UpdateUI.queue_free()
 
 var debug_id = "Main Menu"
 func printd(s):
