@@ -6,7 +6,7 @@ var current_ui = null
 var on_queued_ui = false
 var base_ui = null
 var has_ui = false
-
+signal back_to_base_ui
 enum ui_events{
 	back,
 	create_ui,
@@ -70,6 +70,7 @@ func CanGoBack():
 
 func Back():
 	if not CanGoBack():
+		emit_signal("back_to_base_ui")
 		return
 	#Delete the current UI before going back.
 	if is_instance_valid(current_ui):

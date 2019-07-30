@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/UI/Menu/Controls_settings.gd" type="Script" id=1]
-[ext_resource path="res://assets/UI/Menu/control_option_component.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/UI/Options/Controls_settings.gd" type="Script" id=1]
+[ext_resource path="res://assets/UI/Options/control_option_component.tscn" type="PackedScene" id=2]
+
 
 [node name="Controls" type="Tabs"]
 anchor_right = 1.0
