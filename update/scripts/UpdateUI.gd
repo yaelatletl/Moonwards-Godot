@@ -36,6 +36,7 @@ func RunUpdateClient():
 	$VBoxContainer/ClientStatus.visible = true
 	yield(get_tree(), "idle_frame")
 
+	#Updater.SERVER_IP = "208.113.167.237"
 	Updater.ClientOpenConnection()
 # 	Updater.RunUpdateClient()
 
