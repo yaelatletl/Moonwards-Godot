@@ -1,6 +1,7 @@
 # blender temporary backup files #
 *.blend1
 *~
+*DS_Store
 
 # Godot-specific ignores
 .import/
