@@ -422,7 +422,11 @@ func _ready():
 	
 
 func toClient(client_id, command, data=null):
-	printd("toClient: %s" % command)
+	match command:
+		"current_tree_id":
+			printd("toClient: %s %s" % [command, data])
+		_:
+			printd("toClient: %s" % command)
 	rpc_id(client_id, "UpdateProtocolClient", command, data)
 	if command == "abort":
 		#close connnection with client, peer initialised in RunUpdateServer

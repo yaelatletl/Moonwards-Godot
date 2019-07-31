@@ -22,6 +22,7 @@ func _ready_headless():
 
 func _ready():
 	if utils.feature_check_updater():
+		UIManager.UIEvent("update", "res://update/scenes/UpdateUI.tscn")
 		printd("Set updater server")
 		Updater = scripts.Updater.new()
 		Updater.root_tree = get_tree()
@@ -34,14 +35,12 @@ func _ready():
 	UIManager.RegisterBaseUI(self)
 	UIManager.SetCurrentUI($VBoxContainer)
 	$VBoxContainer/UpdateUI.connect("continue_pressed",self,"_on_continue_pressed")
-	var checker = options.get("Update info", "available", null)
+	var checker = options.get("Update info", "available", false)
 	connect("Update_finished",self,"_on_update_finished")
 	if checker == true:
 		$VBoxContainer/UI/MainUI/ButtonsContainer/About/UpdateAvailable.show()
 		$VBoxContainer/UpdateUI.queue_free()
-	elif checker == null:
-		check_for_update()
-	elif checker == false:
+	else:
 		check_for_update()
 
 
@@ -50,6 +49,7 @@ func check_for_update():
 	var Progress = $VBoxContainer/UpdateUI/VBoxContainer/ProgressBar
 	Updater = scripts.Updater.new()
 	Updater.root_tree = get_tree()
+
 	#UpdateStatus()
 	var res = Updater.ui_ClientCheckUpdate()
 	
