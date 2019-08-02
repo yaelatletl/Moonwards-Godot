@@ -92,7 +92,7 @@ var update_status = {
 
 signal receive_update_message
 signal update_ready
-signal update_progress(percent)
+signal update_progress
 signal update_ok
 signal update_fail
 signal server_update_done
@@ -896,7 +896,8 @@ func ClientReceiveUpdate(var buffer):
 	file.store_buffer(buffer)
 	update_status["current_size"] += size
 	Log("ClientReceiveUpdate, chunk %s bytes %s/%s" % [size, update_status["current_size"], tsize])
-	emit_signal("update_progress", round(update_status["current_size"]*100/tsize))
+	var percentage = round(update_status["current_size"]*100/tsize)
+	emit_signal("update_progress", percentage)
 
 	if update_status["current_size"] == update_status["target_size"]:
 		file.close()

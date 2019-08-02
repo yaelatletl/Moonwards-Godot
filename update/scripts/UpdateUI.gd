@@ -129,7 +129,8 @@ func fn_update_to_update():
 	ConnectSignals(false)
 
 func fn_update_progress(percent):
-	pass
+	$VBoxContainer/ClientStatus/Progress.text = "Progress: " + str(percent)
+
 func fn_update_finished():
 	pass
 func fn_error(msg):
