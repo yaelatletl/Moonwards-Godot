@@ -896,7 +896,7 @@ func ClientReceiveUpdate(var buffer):
 	file.store_buffer(buffer)
 	update_status["current_size"] += size
 	Log("ClientReceiveUpdate, chunk %s bytes %s/%s" % [size, update_status["current_size"], tsize])
-	emit_signal("update_progress", round(update_status["current_size"]/tsize) * 100)
+	emit_signal("update_progress", round(update_status["current_size"]*100/tsize))
 
 	if update_status["current_size"] == update_status["target_size"]:
 		file.close()
