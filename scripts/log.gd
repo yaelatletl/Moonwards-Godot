@@ -149,7 +149,13 @@ var dd_filter = {
 	"Main Menu": [
 		{ vl = 4, enabled = true, key = "end gathering"},
 		{ vl = 0, enabled = true, key = ""}
+	],
+	"UpdaterUI": [
+		{ vl = 4, enabled = true, key = "disconnect"},
+		{ vl = 4, enabled = true, key = "connect"},
+		{ vl = 0, enabled = true, key = ""},
 	]
+	
 # 		{ vl = 9, enabled = true, key = ""},
 # 		{ vl = 9, enabled = true, key = ""},
 # 		{ vl = 9, enabled = true, key = ""},

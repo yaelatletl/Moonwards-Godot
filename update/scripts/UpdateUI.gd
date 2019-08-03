@@ -4,6 +4,7 @@ var scripts = {
 }
 
 var Updater
+
 func _ready():
 	Updater = scripts.Updater.new()
 	Updater.connect("receive_update_message", self, "AddLogMessage")
@@ -37,33 +38,38 @@ func RunUpdateClient():
 	yield(get_tree(), "idle_frame")
 
 	#Updater.SERVER_IP = "208.113.167.237"
-	Updater.ClientOpenConnection()
+# 	Updater.ClientOpenConnection()
 # 	Updater.RunUpdateClient()
+	Updater.ui_ClientCheckUpdate()
 
-func ConnectSignals(con = true):
+func ConnectSignals(con = true, prefix="fn_", signals=null):
 	#connect signals
-	var signals = [ "network_ok",
-					"network_fail",
-					"client_protocol",
-					"server_connected",
-					"server_disconnected",
-					"server_fail_connecting",
-					"server_online",
-					"server_offline",
-					"update_ok",
-					"update_fail",
-					"update_no_update",
-					"update_to_update",
-					"update_progress",
-					"update_finished",
-					"error"]
+	if signals == null:
+		signals = [ "network_ok",
+						"network_fail",
+						"client_protocol",
+						"server_connected",
+						"server_disconnected",
+						"server_fail_connecting",
+						"server_online",
+						"server_offline",
+						"update_ok",
+						"update_fail",
+						"update_no_update",
+						"update_to_update",
+						"update_progress",
+						"update_finished",
+						"error"]
 	for sg in signals:
+		var fname = "%s%s" % [prefix, sg]
 		if con:
-			if not Updater.is_connected(sg, self, "fn_%s" % sg):
-				Updater.connect(sg, self, "fn_%s" % sg)
+			if not Updater.is_connected(sg, self, fname):
+				printd("connect %s %s" % [fname, sg])
+				Updater.connect(sg, self, fname)
 		else:
-			if Updater.is_connected(sg, self, "fn_%s" % sg):
-				Updater.disconnect(sg, self, "fn_%s" % sg)
+			if Updater.is_connected(sg, self, fname):
+				printd("disconnect %s %s" % [fname, sg])
+				Updater.disconnect(sg, self, fname)
 
 
 func set_label(label, text):
@@ -81,7 +87,7 @@ func fn_network_fail():
 func fn_server_connected():
 	var l = $VBoxContainer/ClientStatus/Server
 	set_label(l, "connected")
-	Updater.ClientCheckForServer()
+# 	Updater.ClientCheckForServer()
 
 func fn_server_disconnected():
 	var l = $VBoxContainer/ClientStatus/Server
@@ -96,7 +102,7 @@ func fn_server_fail_connecting():
 func fn_server_online():
 	var l = $VBoxContainer/ClientStatus/ServerStatus
 	set_label(l, "online")
-	Updater.ClientCheckProtocol()
+# 	Updater.ClientCheckProtocol()
 	
 func fn_server_offline():
 	var l = $VBoxContainer/ClientStatus/ServerStatus
@@ -109,35 +115,38 @@ func fn_client_protocol(state):
 		set_label(l, "correct version")
 		yield(get_tree(), "idle_frame")
 		yield(get_tree(), "idle_frame")
-		Updater.ClientCheckForUpdate()
+# 		Updater.ClientCheckForUpdate()
 	else:
 		set_label(l, "client update is required")
-		Updater.ClientCloseConnection()
+# 		Updater.ClientCloseConnection()
 		ConnectSignals(false)
 
 func fn_update_no_update():
 	var l = $VBoxContainer/ClientStatus/Update
 	set_label(l, "up to date")
-	Updater.ClientCloseConnection()
+# 	Updater.ClientCloseConnection()
 	ConnectSignals(false)
 
 func fn_update_to_update():
 	var l = $VBoxContainer/ClientStatus/Update
 	set_label(l, "update available")
 	$VBoxContainer/ClientStatus/StartUpdate.disabled = false
-	Updater.ClientCloseConnection()
+# 	Updater.ClientCloseConnection()
 	ConnectSignals(false)
 
 func fn_update_progress(percent):
 	$VBoxContainer/ClientStatus/Progress.text = "Progress: " + str(percent)
+	printd("progress %s" % percent)
 
 func fn_update_finished():
-	pass
+	printd("update finished")
+
 func fn_error(msg):
 	pass
 
-
 func UpdateData():
+	ConnectSignals()
+	Updater.ClientOpenConnection()
 	var l = $VBoxContainer/ClientStatus/StartUpdate
 	set_label(l, "processing")
 	var res = Updater.ui_ClientUpdateData()
@@ -146,3 +155,7 @@ func UpdateData():
 
 func _on_StartUpdate_pressed():
 	UpdateData()
+
+var debug_id = "UpdaterUI"
+func printd(s):
+	logg.print_fd(debug_id, s)

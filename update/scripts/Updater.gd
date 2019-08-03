@@ -92,7 +92,7 @@ var update_status = {
 
 signal receive_update_message
 signal update_ready
-signal update_progress
+signal update_progress(percent)
 signal update_ok
 signal update_fail
 signal server_update_done
@@ -112,7 +112,6 @@ signal server_online
 signal server_offline
 signal update_no_update
 signal update_to_update
-# signal update_progress(percent)
 signal update_finished
 signal error(msg)
 
@@ -179,7 +178,7 @@ func ui_ClientUpdateData():
 	return true
 
 func chain_ClientDataUpdate(sname, sdata):
-	printd("=== %s %s" % [sname, sdata])
+	printd("cdu %s %s" % [sname, sdata])
 	match sname:
 		null:
 			SetState("cud_progress", "start")
@@ -201,7 +200,7 @@ func chain_ClientDataUpdate(sname, sdata):
 
 
 func chain_ClientCheckUpdate(sname, sdata):
-	printd("*** %s %s" % [sname, sdata])
+	printd("ccu %s %s" % [sname, sdata])
 	match sname:
 		null:
 			ck_update.state = "gathering"
@@ -368,9 +367,17 @@ func ClientOpenConnection():
 		return
 	SetState("role", "client")
 	#Connect all the function so they can be handled by the client.
-	root_tree.connect("connected_to_server", self, "ClientConnectedOK")
-	root_tree.connect("connection_failed", self, "ClientConnectedFailed")
-	root_tree.connect("server_disconnected", self, "ClientDisconnectedByServer")
+	var sf_pairs = [
+		["connected_to_server", "ClientConnectedOK"],
+		["connection_failed", "ClientConnectedFailed"],
+		["server_disconnected", "ClientDisconnectedByServer"],
+	]
+	for sf in sf_pairs:
+		var sname = sf[0]
+		var fname = sf[1]
+		if not root_tree.is_connected(sname, self, fname):
+			root_tree.connect(sname, self, fname)
+	
 	SetState("client network signals", "connected")
 	
 	peer = NetworkedMultiplayerENet.new()
