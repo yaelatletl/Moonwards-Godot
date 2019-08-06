@@ -86,9 +86,9 @@ func check_for_update():
 	
 	
 func _on_update_finished(result):
+	yield(get_node("/root/UIManager"), "back_to_base_ui")
+	yield(get_tree(),"idle_frame")
 	var Status = $VBoxContainer/UpdateUI/VBoxContainer/Header
-	if Status==null:
-		yield(get_node("/root/UIManager"), "back_to_base_ui")
 	if result == 1:
 		Status.text = "There's an update available"
 		options.set("Update info", true,"available")

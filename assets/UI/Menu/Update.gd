@@ -120,7 +120,7 @@ func fn_update_to_update():
 	lab.text= "There's an update available!"
 	print("Drop connection")
 	has_update = true
-	
+
 var  debug_id = "About panel"
 func printd(s):
 	logg.print_fd(debug_id, s)

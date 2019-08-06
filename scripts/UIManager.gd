@@ -66,15 +66,18 @@ func SceneChange():
 	has_ui = false
 
 func CanGoBack():
+	
 	return (ui_history_queue.size() > 0)
 
 func Back():
-	if not CanGoBack():
+	if ui_history_queue.size()==1:
 		emit_signal("back_to_base_ui")
+	if not CanGoBack():
 		return
 	#Delete the current UI before going back.
 	if is_instance_valid(current_ui):
 		current_ui.queue_free()
+		
 	AddPreviousUI()
 
 func AddPreviousUI():
@@ -113,6 +116,7 @@ func DismissUI():
 	else:
 		ClearUI()
 		on_queued_ui = false
+	
 
 func CreateUI(var resource):
 	if resource is String:
@@ -147,7 +151,7 @@ func SetCurrentUI(var new_ui):
 	current_ui = new_ui
 
 func _input(event):
-	if event.is_action_pressed("ui_menu_options"):
+	if event.is_action_pressed("ui_cancel"):
 		# When pressing escape the future UI queue is used before going back.
 		if not ui_future_queue.empty() and on_queued_ui:
 			DismissUI()
