@@ -107,5 +107,6 @@ func _ready():
 	randomize()
 
 func get_name():
+	randomize()
 	var index = randi() % list.size()
 	return list[index]
