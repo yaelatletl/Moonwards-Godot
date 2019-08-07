@@ -1,14 +1,13 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://themes/MainMenu.tres" type="Theme" id=1]
 [ext_resource path="res://assets/UI/Options/Options.gd" type="Script" id=2]
-[ext_resource path="res://assets/UI/Options/User_Settings.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/UI/control_elements/LabelSliderMix/LabelSliderMix.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/UI/control_elements/LabelOptionButton/LabelOptionButton.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/UI/Options/Controls_settings.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scripts/UIElement.gd" type="Script" id=7]
-
-
+[ext_resource path="res://assets/UI/Options/Settings.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/UI/Options/User_Settings.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/UI/control_elements/LabelSliderMix/LabelSliderMix.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/UI/control_elements/LabelOptionButton/LabelOptionButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/UI/Options/Controls_settings.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scripts/UIElement.gd" type="Script" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 0.0
@@ -51,10 +50,7 @@ margin_left = -1.0
 margin_right = -1.0
 tab_align = 0
 
-[node name="Settings" type="Tabs" parent="TabContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 38.0
+[node name="Settings" parent="TabContainer" instance=ExtResource( 3 )]
 
 [node name="Player" type="Tabs" parent="TabContainer"]
 visible = false
@@ -62,7 +58,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 38.0
 
-[node name="UserSettings" parent="TabContainer/Player" instance=ExtResource( 3 )]
+[node name="UserSettings" parent="TabContainer/Player" instance=ExtResource( 4 )]
 
 [node name="Dev" type="Tabs" parent="TabContainer"]
 visible = false
@@ -76,7 +72,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 38.0
 
-[node name="sPlayerSpeed" parent="TabContainer/Dev/VBoxContainer" instance=ExtResource( 4 )]
+[node name="sPlayerSpeed" parent="TabContainer/Dev/VBoxContainer" instance=ExtResource( 5 )]
 margin_right = 984.0
 margin_bottom = 28.0
 label = "Player Speed"
@@ -127,7 +123,7 @@ margin_bottom = 172.0
 custom_styles/hover = SubResource( 6 )
 text = "Decimate objects"
 
-[node name="sDecimatePercent" parent="TabContainer/Dev/VBoxContainer" instance=ExtResource( 4 )]
+[node name="sDecimatePercent" parent="TabContainer/Dev/VBoxContainer" instance=ExtResource( 5 )]
 margin_top = 176.0
 margin_right = 984.0
 margin_bottom = 204.0
@@ -140,7 +136,7 @@ margin_bottom = 240.0
 custom_styles/hover = SubResource( 6 )
 text = "Limit FPS"
 
-[node name="sFPSLim" parent="TabContainer/Dev/VBoxContainer" instance=ExtResource( 4 )]
+[node name="sFPSLim" parent="TabContainer/Dev/VBoxContainer" instance=ExtResource( 5 )]
 margin_top = 244.0
 margin_right = 984.0
 margin_bottom = 272.0
@@ -154,7 +150,7 @@ margin_bottom = 308.0
 custom_styles/hover = SubResource( 6 )
 text = "Enable Lod management"
 
-[node name="sHBoxAspect" parent="TabContainer/Dev/VBoxContainer" instance=ExtResource( 4 )]
+[node name="sHBoxAspect" parent="TabContainer/Dev/VBoxContainer" instance=ExtResource( 5 )]
 margin_top = 312.0
 margin_right = 984.0
 margin_bottom = 340.0
@@ -163,13 +159,13 @@ mi = 0
 ma = 500
 ticks = 50
 
-[node name="SelectFlyCamera" parent="TabContainer/Dev/VBoxContainer" instance=ExtResource( 5 )]
+[node name="SelectFlyCamera" parent="TabContainer/Dev/VBoxContainer" instance=ExtResource( 6 )]
 margin_top = 344.0
 margin_right = 984.0
 margin_bottom = 372.0
 label = "Select Fly Camera"
 
-[node name="Controls" parent="TabContainer" instance=ExtResource( 6 )]
+[node name="Controls" parent="TabContainer" instance=ExtResource( 7 )]
 visible = false
 margin_left = 0.0
 margin_top = 38.0
@@ -183,7 +179,7 @@ margin_left = -25.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 25, 25 )
 text = "X"
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 [connection signal="focus_entered" from="TabContainer/Dev/VBoxContainer" to="." method="_on_VBoxContainer_focus_entered"]
 [connection signal="pressed" from="TabContainer/Dev/VBoxContainer/tAreas" to="." method="_on_tAreas_pressed"]
 [connection signal="pressed" from="TabContainer/Dev/VBoxContainer/tCollisionShapes" to="." method="_on_tCollisionShapes_pressed"]
