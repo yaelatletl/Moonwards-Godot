@@ -8,8 +8,8 @@ var skin_mat
 var hair_mat
 var shoes_mat
 var selected 
-var selected_mat = load("res://assets/UI/Menu/selected.material")
-var unselected_mat = load("res://assets/UI/Menu/unselected.material")
+var selected_mat = load("res://assets/UI/Options/selected.material")
+var unselected_mat = load("res://assets/UI/Options/unselected.material")
 func _ready():
 	pants_mat = base_material.duplicate()
 	shirt_mat = base_material.duplicate()

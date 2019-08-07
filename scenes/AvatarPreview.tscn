@@ -4,7 +4,6 @@
 [ext_resource path="res://model_assets/Avatars/AvatarRig.dae.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/UI/Options/selected.material" type="Material" id=3]
 
-
 [sub_resource type="SpatialMaterial" id=1]
 
 [sub_resource type="ArrayMesh" id=2]
