@@ -34,13 +34,13 @@ func _ready():
 		_ready_headless()
 		return
 
-	if options.get("updater/client", "check_at_startup", false):
+	if options.get("updater/client", "check_at_startup", true):
 		$VBoxContainer/UpdateUI.visible = true
 		UIManager.SetCurrentUI($VBoxContainer)
 		$VBoxContainer/UpdateUI.connect("continue_pressed",self,"_on_continue_pressed")
 		var checker = options.get("Update info", "available", false)
 		connect("Update_finished",self,"_on_update_finished")
-		if checker == true:
+		if checker:
 			$VBoxContainer/UI/MainUI/ButtonsContainer/About/UpdateAvailable.show()
 			$VBoxContainer/UpdateUI.queue_free()
 		else:
