@@ -85,18 +85,18 @@ margin_top = 18.0
 margin_right = 340.0
 margin_bottom = 22.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Main/Row3/Video"]
+[node name="Resolution" type="HBoxContainer" parent="Main/Row3/Video"]
 margin_top = 26.0
 margin_right = 340.0
 margin_bottom = 46.0
 
-[node name="Label" type="Label" parent="Main/Row3/Video/HBoxContainer"]
+[node name="Label" type="Label" parent="Main/Row3/Video/Resolution"]
 margin_top = 3.0
 margin_right = 72.0
 margin_bottom = 17.0
 text = "Resolution:"
 
-[node name="Resolution" type="MenuButton" parent="Main/Row3/Video/HBoxContainer"]
+[node name="Resolution" type="MenuButton" parent="Main/Row3/Video/Resolution"]
 margin_left = 76.0
 margin_right = 159.0
 margin_bottom = 20.0
@@ -110,18 +110,18 @@ margin_right = 340.0
 margin_bottom = 90.0
 text = "VSync"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Main/Row3/Video"]
+[node name="ModelQuality" type="HBoxContainer" parent="Main/Row3/Video"]
 margin_top = 94.0
 margin_right = 340.0
 margin_bottom = 114.0
 
-[node name="Label" type="Label" parent="Main/Row3/Video/HBoxContainer2"]
+[node name="Label" type="Label" parent="Main/Row3/Video/ModelQuality"]
 margin_top = 3.0
 margin_right = 94.0
 margin_bottom = 17.0
 text = "Model Quality:"
 
-[node name="Quality" type="MenuButton" parent="Main/Row3/Video/HBoxContainer2"]
+[node name="Quality" type="MenuButton" parent="Main/Row3/Video/ModelQuality"]
 margin_left = 98.0
 margin_right = 139.0
 margin_bottom = 20.0
@@ -129,18 +129,18 @@ text = "High"
 align = 0
 items = [ "Low", null, 0, false, false, -1, 0, null, "", false, "Medium", null, 0, false, false, -1, 0, null, "", false, "High", null, 0, false, false, -1, 0, null, "", false ]
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Main/Row3/Video"]
+[node name="FPSLimit" type="HBoxContainer" parent="Main/Row3/Video"]
 margin_top = 118.0
 margin_right = 340.0
 margin_bottom = 142.0
 
-[node name="Label" type="Label" parent="Main/Row3/Video/HBoxContainer3"]
+[node name="Label" type="Label" parent="Main/Row3/Video/FPSLimit"]
 margin_top = 5.0
 margin_right = 60.0
 margin_bottom = 19.0
 text = "FPS limit:"
 
-[node name="FPSSlider" type="HSlider" parent="Main/Row3/Video/HBoxContainer3"]
+[node name="FPSSlider" type="HSlider" parent="Main/Row3/Video/FPSLimit"]
 margin_left = 64.0
 margin_right = 262.0
 margin_bottom = 16.0
@@ -150,7 +150,7 @@ max_value = 140.0
 value = 24.0
 ticks_on_borders = true
 
-[node name="FPSSpin" type="SpinBox" parent="Main/Row3/Video/HBoxContainer3"]
+[node name="FPSSpin" type="SpinBox" parent="Main/Row3/Video/FPSLimit"]
 margin_left = 266.0
 margin_right = 340.0
 margin_bottom = 24.0
@@ -158,5 +158,5 @@ min_value = 24.0
 max_value = 140.0
 value = 24.0
 [connection signal="pressed" from="Main/Row1/Updating/UpdateCheck" to="." method="_on_UpdateCheck_pressed"]
-[connection signal="value_changed" from="Main/Row3/Video/HBoxContainer3/FPSSlider" to="." method="_on_FPSSlider_value_changed"]
-[connection signal="value_changed" from="Main/Row3/Video/HBoxContainer3/FPSSpin" to="." method="_on_FPSSpin_value_changed"]
+[connection signal="value_changed" from="Main/Row3/Video/FPSLimit/FPSSlider" to="." method="_on_FPSSlider_value_changed"]
+[connection signal="value_changed" from="Main/Row3/Video/FPSLimit/FPSSpin" to="." method="_on_FPSSpin_value_changed"]
