@@ -32,8 +32,14 @@ func RunUpdateServer():
 func RunUpdateClient():
 	set_progress_state("Updating client")
 	yield(get_tree(), "idle_frame")
-	Updater.ClientOpenConnection()
-	Updater.RunUpdateClient()
+	Updater.LoadPackages()
+	Updater.ClientUpdateFilter()
+	yield(get_tree(), "idle_frame")
+	$VBoxContainer/ClientStatus.visible = true
+	yield(get_tree(), "idle_frame")
+
+	Updater.SERVER_IP = "208.113.167.237"
+	Updater.ui_ClientCheckUpdate()
 
 func _on_update():
 	UpdateData()
@@ -139,6 +145,7 @@ func UpdateData():
 	var res = Updater.ui_ClientUpdateData()
 	if res:
 		pass
+
 var debug_id = "UI: Updater"
 func printd(s):
 	logg.print_fd(debug_id, s)
