@@ -52,6 +52,7 @@ func check_for_update():
 	var Progress = $VBoxContainer/UpdateUI/VBoxContainer/ProgressBar
 	Updater = scripts.Updater.new()
 	Updater.root_tree = get_tree()
+	Updater.SERVER_IP = "208.113.167.237"
 
 	#UpdateStatus()
 	var res = Updater.ui_ClientCheckUpdate()

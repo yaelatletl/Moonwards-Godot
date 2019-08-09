@@ -73,7 +73,7 @@ var update_filter = {
 var filter = update_filter
 
 #upate client paramteres
-var client_wait_timeout = 10 #seconds to wait
+var client_wait_timeout = 2 #seconds to wait
 #download update in chunks, fails to load big updates in one chunks
 #keep track on current downloading process
 var update_status = {

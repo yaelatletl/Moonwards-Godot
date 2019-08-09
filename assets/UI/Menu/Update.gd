@@ -8,22 +8,28 @@ var scripts = {
 signal update_finished(result)
 var Updater
 func _ready():
+	if options.get("Update info", "available", null):
+		set_as_updater = true
+		$HBoxContainer2/VBoxContainer3/Update_check.text = "Update"
+		_on_update_finished(1)
 	Updater = scripts.Updater.new()
 	Updater.root_tree = get_tree()
+	Updater.SERVER_IP = "208.113.167.237"
 	Updater.connect("update_to_update", self, "fn_update_to_update")
-	$HBoxContainer2/VBoxContainer3/Version3.text = "Last checked: " 
-	var Date = OS.get_datetime()
-	var Data_to_show = " "
-	if options.get("Update info", "day") != null:
-		Data_to_show += options.get("Update info", "day")+"/"
-		Data_to_show += options.get("Update info", "month")+"/"
-		Data_to_show += options.get("Update info", "year" )+" "
-		Data_to_show += options.get("Update info", "hour" )+":"
-		Data_to_show += options.get("Update info", "minute" )+":"
-		Data_to_show += options.get("Update info", "second" )
-	else:
-		Data_to_show += "Not available"
-	$HBoxContainer2/VBoxContainer3/Version3.text += Data_to_show
+	if not options.get("Update info", "available", null):
+		$HBoxContainer2/VBoxContainer3/Version3.text = "Last checked: " 
+		var Date = OS.get_datetime()
+		var Data_to_show = " "
+		if options.get("Update info", "day") != null:
+			Data_to_show += options.get("Update info", "day")+"/"
+			Data_to_show += options.get("Update info", "month")+"/"
+			Data_to_show += options.get("Update info", "year" )+" "
+			Data_to_show += options.get("Update info", "hour" )+":"
+			Data_to_show += options.get("Update info", "minute" )+":"
+			Data_to_show += options.get("Update info", "second" )
+		else:
+			Data_to_show += "Not available"
+		$HBoxContainer2/VBoxContainer3/Version3.text += Data_to_show
 	yield(get_tree(),"idle_frame")
 	yield(get_tree(),"idle_frame")
 	connect("update_finished",self,"_on_update_finished")
@@ -50,11 +56,8 @@ func check_for_update():
 			true:
 				printd("Update available")
 				has_update = true
-				$VBoxContainer/UI/MainUI/ButtonsContainer/About/UpdateAvailable.show()
-				
 				result = 1
 			false:
-				$VBoxContainer/UI/MainUI/ButtonsContainer/About/UpdateAvailable.hide()
 				printd("No update available")
 				has_update = false
 				result = 0
@@ -69,8 +72,10 @@ func check_for_update():
 func _on_update_finished(result):
 	var Status = $HBoxContainer2/VBoxContainer3/Version3
 	if result == 1:
+		Status.add_color_override("font_color",Color("ffff00"))
 		Status.text = "There's an update available"
 		options.set("Update info", true,"available")
+		$HBoxContainer2/VBoxContainer3/Update_check.text = "Update"
 	if result == 0:
 		Status.text = "There are no updates available"
 		options.set("Update info", false,"available")
@@ -94,7 +99,8 @@ func _on_Change_log_pressed():
 	$Change_log.popup_centered()
 
 func _on_Update_check_pressed():
-	check_for_update()
+	if not has_update:
+		check_for_update()
 #	if has_update and set_as_updater:
 #		UIManager.NextUI(UpdatingUI)
 #		return
@@ -107,7 +113,7 @@ func _on_Update_check_pressed():
 	yield(get_tree(),"idle_frame")
 	if has_update:
 		set_as_updater = true
-		$HBoxContainer2/VBoxContainer3/Update_check.text = "Update"
+		
 		fn_update_to_update()
 
 
@@ -115,11 +121,7 @@ func _on_Change_log_confirmed():
 	$Change_log.hide()
 
 func fn_update_to_update():
-	var lab = $HBoxContainer2/VBoxContainer3/Version3
-	lab.add_color_override("font_color",Color("ffff00"))
-	lab.text= "There's an update available!"
-	print("Drop connection")
-	has_update = true
+	UIManager.NextUI(UpdatingUI)
 
 var  debug_id = "About panel"
 func printd(s):

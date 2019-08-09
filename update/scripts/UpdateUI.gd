@@ -7,6 +7,7 @@ var Updater
 
 func _ready():
 	Updater = scripts.Updater.new()
+	Updater.SERVER_IP = "208.113.167.237"
 	Updater.connect("receive_update_message", self, "AddLogMessage")
 	Updater.root_tree = get_tree()
 # 	Updater.RunUpdateClient()

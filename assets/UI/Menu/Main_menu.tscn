@@ -166,4 +166,3 @@ rect_min_size = Vector2( 0, 40 )
 disabled = true
 text = "Display"
 script = ExtResource( 2 )
-
