@@ -115,8 +115,10 @@ func fn_server_update_done():
 	RunUpdateClient()
 func fn_client_update_done():
 	set_progress_state("Client update finished")
+	
 func _ready():
 	Updater = scripts.Updater.new()
+	Updater.SERVER_IP = "208.113.167.237"
 	Updater.connect("receive_update_message", self, "AddLogMessage")
 	Updater.root_tree = get_tree()
 	var signals = [ 
@@ -141,6 +143,9 @@ func _ready():
 		Updater.connect(sg, self, "fn_%s" % sg)
 
 func UpdateData():
+	Updater.ClientOpenConnection()
+	Updater.LoadPackages()
+	Updater.ClientUpdateFilter()
 	var l = $Panel/VBoxContainer/DowloadDataButton
 	var res = Updater.ui_ClientUpdateData()
 	if res:

@@ -45,6 +45,9 @@ func _ready():
 			$VBoxContainer/UpdateUI.queue_free()
 		else:
 			check_for_update()
+	else:
+		if $VBoxContainer/UpdateUI:
+			$VBoxContainer/UpdateUI.queue_free()
 
 
 func check_for_update():

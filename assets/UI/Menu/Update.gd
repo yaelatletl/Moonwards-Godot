@@ -8,7 +8,8 @@ var scripts = {
 signal update_finished(result)
 var Updater
 func _ready():
-	if options.get("Update info", "available", null):
+	has_update = options.get("Update info", "available", null)
+	if has_update:
 		set_as_updater = true
 		$HBoxContainer2/VBoxContainer3/Update_check.text = "Update"
 		_on_update_finished(1)
