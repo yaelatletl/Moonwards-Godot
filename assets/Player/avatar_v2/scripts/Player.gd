@@ -2,7 +2,7 @@ extends Spatial
 
 var camera_control_path = "KinematicBody/PlayerCamera"
 var camera_control
-var stairs_class = preload("res://_tests/Stairs/Stairs.gd")
+var stairs_class = preload("res://assets/Stairs/Stairs.gd")
 
 var MOTION_INTERPOLATE_SPEED = 8
 var ROTATION_INTERPOLATE_SPEED = 10
