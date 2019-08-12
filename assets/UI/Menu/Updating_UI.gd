@@ -1,7 +1,7 @@
 extends PanelContainer
 
 var scripts = {
-	Updater = preload("res://update/scripts/Updater.gd")
+	Updater = preload("res://core/update/scripts/Updater.gd")
 }
 var Updater
 

@@ -21,7 +21,7 @@ func _ready():
 	UIManager.RegisterBaseUI(self)
 
 	if utils.feature_check_updater():
-		UIManager.UIEvent(UIManager.ui_events.update, "res://update/scenes/UpdateUI.tscn")
+		UIManager.UIEvent(UIManager.ui_events.update, "res://core/update/scenes/UpdateUI.tscn")
 		yield(get_tree(), "idle_frame")
 		printd("Set updater server")
 		options.Updater = UIManager.current_ui.RunUpdateServer()

@@ -1,6 +1,5 @@
 extends Control
 
-
 func _ready():
 	options.Updater.connect("receive_update_message", self, "AddLogMessage")
 	options.Updater.root_tree = get_tree()

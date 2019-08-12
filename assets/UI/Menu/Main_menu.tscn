@@ -155,7 +155,7 @@ rect_min_size = Vector2( 0, 40 )
 text = "Update_debug"
 script = ExtResource( 2 )
 ui_event = 9
-resource_path = "res://update/scenes/UpdateUI.tscn"
+resource_path = "res://core/update/scenes/UpdateUI.tscn"
 
 [node name="Display" type="Button" parent="UI/MainUI/ButtonsContainer"]
 visible = false
