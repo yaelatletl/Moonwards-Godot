@@ -23,28 +23,13 @@ func set_progress_state(text):
 	
 
 
-func RunUpdateServer():
-	set_progress_state("Updating server")
-	yield(get_tree(), "idle_frame")
-	yield(get_tree(), "idle_frame")
-	Updater.RunUpdateServer()
-	
-func RunUpdateClient():
-	set_progress_state("Updating client")
-	yield(get_tree(), "idle_frame")
-	Updater.LoadPackages()
-	Updater.ClientUpdateFilter()
-	yield(get_tree(), "idle_frame")
-	$VBoxContainer/ClientStatus.visible = true
-	yield(get_tree(), "idle_frame")
-
-	
-	Updater.ui_ClientCheckUpdate()
-
 func _on_update():
 	UpdateData()
+	$HBoxContainer/VBoxContainer/HBoxContainer/Button2.disabled = true
+	yield(Updater, "chain_cdu")
+	$HBoxContainer/VBoxContainer/HBoxContainer/Button2.disabled = false
 	$HBoxContainer/VBoxContainer/HBoxContainer/Button2.text = "Return"
-
+	Updater.ClientCloseConnection()
 
 
 func fn_network_ok():
@@ -97,7 +82,7 @@ func fn_update_to_update():
 	
 	AddLogMessage( "update available")
 	#$VBoxContainer/ClientStatus/StartUpdate.disabled = false
-	Updater.ClientCloseConnection()
+	
 
 func fn_update_progress(percent):
 	$HBoxContainer/VBoxContainer/ProgressBar.value = percent
@@ -112,7 +97,7 @@ func fn_error(msg):
 
 func fn_server_update_done():
 	set_progress_state("Server update finished")
-	RunUpdateClient()
+	
 func fn_client_update_done():
 	set_progress_state("Client update finished")
 	
@@ -144,11 +129,7 @@ func _ready():
 
 func UpdateData():
 	Updater.ClientOpenConnection()
-	Updater.LoadPackages()
-	Updater.ClientUpdateFilter()
-	var l = $Panel/VBoxContainer/DowloadDataButton
 	var res = Updater.ui_ClientUpdateData()
-	yield(Updater, "chain_ccu") 
 	if res:
 		pass
 

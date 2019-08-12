@@ -66,7 +66,8 @@ func check_for_update():
 		Progress.value = 50
 		res = Updater.ui_ClientCheckUpdate()
 		Progress.value = 100
-		
+		if $VBoxContainer/UI/MainUI/ButtonsContainer/About/UpdateAvailable == null:
+			yield(UIManager,"back_to_base_ui")
 		match res["update_data"]:
 			
 			true:
