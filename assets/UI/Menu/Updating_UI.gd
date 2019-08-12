@@ -38,7 +38,7 @@ func RunUpdateClient():
 	$VBoxContainer/ClientStatus.visible = true
 	yield(get_tree(), "idle_frame")
 
-	Updater.SERVER_IP = "208.113.167.237"
+	
 	Updater.ui_ClientCheckUpdate()
 
 func _on_update():
@@ -148,10 +148,12 @@ func UpdateData():
 	Updater.ClientUpdateFilter()
 	var l = $Panel/VBoxContainer/DowloadDataButton
 	var res = Updater.ui_ClientUpdateData()
+	yield(Updater, "chain_ccu") 
 	if res:
 		pass
 
 var debug_id = "UI: Updater"
+
 func printd(s):
 	logg.print_fd(debug_id, s)
 	
