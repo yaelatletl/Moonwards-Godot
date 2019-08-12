@@ -2,21 +2,19 @@ extends PanelContainer
 var has_update = false
 var set_as_updater = false
 var UpdatingUI = "res://assets/UI/Menu/Updating_UI.tscn"
-var scripts = {
-	Updater = preload("res://update/scripts/Updater.gd")
-}
+
 signal update_finished(result)
-var Updater
+
 func _ready():
 	has_update = options.get("Update info", "available", null)
 	if has_update:
 		set_as_updater = true
 		$HBoxContainer2/VBoxContainer3/Update_check.text = "Update"
 		_on_update_finished(1)
-	Updater = scripts.Updater.new()
-	Updater.root_tree = get_tree()
-	Updater.SERVER_IP = "208.113.167.237"
-	Updater.connect("update_to_update", self, "fn_update_to_update")
+
+	options.Updater.root_tree = get_tree()
+
+	options.Updater.connect("update_to_update", self, "fn_update_to_update")
 	if not options.get("Update info", "available", null):
 		$HBoxContainer2/VBoxContainer3/Version3.text = "Last checked: " 
 		var Date = OS.get_datetime()
@@ -43,13 +41,13 @@ func check_for_update():
 	
 	
 	#UpdateStatus()
-	var res = Updater.ui_ClientCheckUpdate()
+	var res = options.Updater.ui_ClientCheckUpdate()
 	
 	if res["state"] == "gathering":
 		
-		yield(Updater, "chain_ccu")
+		yield(options.Updater, "chain_ccu")
 		
-		res = Updater.ui_ClientCheckUpdate()
+		res = options.Updater.ui_ClientCheckUpdate()
 		
 		
 		match res["update_data"]:

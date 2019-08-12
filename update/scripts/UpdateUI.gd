@@ -1,15 +1,9 @@
 extends Control
-var scripts = {
-	Updater = preload("res://update/scripts/Updater.gd")
-}
 
-var Updater
 
 func _ready():
-	Updater = scripts.Updater.new()
-	Updater.SERVER_IP = "208.113.167.237"
-	Updater.connect("receive_update_message", self, "AddLogMessage")
-	Updater.root_tree = get_tree()
+	options.Updater.connect("receive_update_message", self, "AddLogMessage")
+	options.Updater.root_tree = get_tree()
 # 	Updater.RunUpdateClient()
 
 func AddLogMessage(var text):
@@ -25,12 +19,11 @@ func RunUpdateServer():
 	$VBoxContainer/ClientStatus.visible = false
 	yield(get_tree(), "idle_frame")
 	yield(get_tree(), "idle_frame")
-	Updater.root_tree = get_tree()
-	Updater.RunUpdateServer()
+	options.Updater.RunUpdateServer()
 
 func RunUpdateClient():
-	Updater.LoadPackages()
-	Updater.ClientUpdateFilter()
+	options.Updater.LoadPackages()
+	options.Updater.ClientUpdateFilter()
 	$VBoxContainer/VBoxContainer/State.text = "Client"
 	yield(get_tree(), "idle_frame")
 
@@ -41,7 +34,7 @@ func RunUpdateClient():
 	#Updater.SERVER_IP = "208.113.167.237"
 # 	Updater.ClientOpenConnection()
 # 	Updater.RunUpdateClient()
-	Updater.ui_ClientCheckUpdate()
+	options.Updater.ui_ClientCheckUpdate()
 
 func ConnectSignals(con = true, prefix="fn_", signals=null):
 	#connect signals
@@ -64,13 +57,13 @@ func ConnectSignals(con = true, prefix="fn_", signals=null):
 	for sg in signals:
 		var fname = "%s%s" % [prefix, sg]
 		if con:
-			if not Updater.is_connected(sg, self, fname):
+			if not options.Updater.is_connected(sg, self, fname):
 				printd("connect %s %s" % [fname, sg])
-				Updater.connect(sg, self, fname)
+				options.Updater.connect(sg, self, fname)
 		else:
-			if Updater.is_connected(sg, self, fname):
+			if options.Updater.is_connected(sg, self, fname):
 				printd("disconnect %s %s" % [fname, sg])
-				Updater.disconnect(sg, self, fname)
+				options.Updater.disconnect(sg, self, fname)
 
 
 func set_label(label, text):
@@ -147,10 +140,10 @@ func fn_error(msg):
 
 func UpdateData():
 	ConnectSignals()
-	Updater.ClientOpenConnection()
+	options.Updater.ClientOpenConnection()
 	var l = $VBoxContainer/ClientStatus/StartUpdate
 	set_label(l, "processing")
-	var res = Updater.ui_ClientUpdateData()
+	var res = options.Updater.ui_ClientUpdateData()
 	if res:
 		pass
 

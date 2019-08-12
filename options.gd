@@ -2,6 +2,10 @@ extends Node
 var id = "options.gd"
 var debug = true
 
+var Updater
+var scripts = {
+	Updater = preload("res://update/scripts/Updater.gd")
+}
 #############################
 # user avatar options
 signal user_settings_changed
@@ -170,6 +174,7 @@ var options = {
 }
 
 func _ready():
+	Updater = scripts.Updater.new()
 # 	print("debug set FPS to 3")
 # 	Engine.target_fps = 3
 	printd("load options and settings")

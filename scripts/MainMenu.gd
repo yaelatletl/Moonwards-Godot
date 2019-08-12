@@ -1,12 +1,9 @@
 extends Control
-var scripts = {
-	Updater = preload("res://update/scripts/Updater.gd")
-}
+
 var scenes = {
 	UpdateUI = preload("res://assets/UI/Menu/Updating_UI.tscn")
 	}
 
-var Updater
 var result 
 
 signal Update_finished(result)
@@ -27,7 +24,7 @@ func _ready():
 		UIManager.UIEvent(UIManager.ui_events.update, "res://update/scenes/UpdateUI.tscn")
 		yield(get_tree(), "idle_frame")
 		printd("Set updater server")
-		Updater = UIManager.current_ui.RunUpdateServer()
+		options.Updater = UIManager.current_ui.RunUpdateServer()
 		return
 
 	if utils.feature_check_server():
@@ -53,31 +50,27 @@ func _ready():
 func check_for_update():
 
 	var Progress = $VBoxContainer/UpdateUI/VBoxContainer/ProgressBar
-	Updater = scripts.Updater.new()
-	Updater.root_tree = get_tree()
-	Updater.SERVER_IP = "208.113.167.237"
 
-	#UpdateStatus()
-	var res = Updater.ui_ClientCheckUpdate()
-	
+	options.Updater.root_tree = get_tree()
+	var res = options.Updater.ui_ClientCheckUpdate()
+	var indicator = $VBoxContainer/UI/MainUI/ButtonsContainer/About/UpdateAvailable
 	if res["state"] == "gathering":
 		Progress.value = 25
-		yield(Updater, "chain_ccu")
+		yield(options.Updater, "chain_ccu")
 		Progress.value = 50
-		res = Updater.ui_ClientCheckUpdate()
+		res = options.Updater.ui_ClientCheckUpdate()
 		Progress.value = 100
 		if $VBoxContainer/UI/MainUI/ButtonsContainer/About/UpdateAvailable == null:
 			yield(UIManager,"back_to_base_ui")
 		match res["update_data"]:
-			
 			true:
 				printd("Update available")
 				
-				$VBoxContainer/UI/MainUI/ButtonsContainer/About/UpdateAvailable.show()
+				indicator.show()
 				
 				result = 1
 			false:
-				$VBoxContainer/UI/MainUI/ButtonsContainer/About/UpdateAvailable.hide()
+				indicator.hide()
 				printd("No update available")
 				
 				result = 0
