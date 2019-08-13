@@ -12,7 +12,6 @@ func _ready():
 		$HBoxContainer2/VBoxContainer3/Update_check.text = "Update"
 		_on_update_finished(1)
 
-	options.Updater.root_tree = get_tree()
 
 	options.Updater.connect("update_to_update", self, "fn_update_to_update")
 	if not options.get("Update info", "available", null):
@@ -38,16 +37,11 @@ var result
 
 func check_for_update():
 	$HBoxContainer2/VBoxContainer3/Version3.text = "Gathering update information"
-	
-	
-	#UpdateStatus()
 	var res = options.Updater.ui_ClientCheckUpdate()
 	
 	if res["state"] == "gathering":
 		
 		yield(options.Updater, "chain_ccu")
-		
-		res = options.Updater.ui_ClientCheckUpdate()
 		
 		
 		match res["update_data"]:
@@ -93,6 +87,7 @@ func _on_update_finished(result):
 	options.set("Update info",  str(Date.get("year")), "year")
 	options.set("Update info",  str(Date.get("month")), "month")
 	options.set("Update info",  str(Date.get("day")), "day")
+	options.save()
 
 func _on_Change_log_pressed():
 	$Change_log.popup_centered()
