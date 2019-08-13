@@ -33,14 +33,14 @@ boot_splash/main_loop_type=""
 
 [autoload]
 
-namelist="*res://namelist.gd"
-logg="*res://scripts/log.gd"
-options="*res://options.gd"
-gamestate="*res://gamestate.gd"
-utils="*res://utils.gd"
-debug="*res://debug.gd"
-UIManager="*res://scripts/UIManager.gd"
-Input_Map="*res://input_maping.gd"
+namelist="*res://core/autoload/namelist.gd"
+logg="*res://core/autoload/log.gd"
+options="*res://core/autoload/options.gd"
+gamestate="*res://core/autoload/gamestate.gd"
+utils="*res://core/autoload/utils.gd"
+debug="*res://core/autoload/debug.gd"
+UIManager="*res://core/autoload/UIManager.gd"
+Input_Map="*res://core/autoload/input_maping.gd"
 
 [compression]
 
