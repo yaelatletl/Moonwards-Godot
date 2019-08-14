@@ -4,7 +4,7 @@ var debug = true
 
 var Updater
 var scripts = {
-	Updater = preload("res://update/scripts/Updater.gd")
+	Updater = preload("res://core/update/scripts/Updater.gd")
 }
 #############################
 # user avatar options
