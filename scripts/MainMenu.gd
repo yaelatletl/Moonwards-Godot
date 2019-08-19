@@ -83,7 +83,11 @@ func check_for_update():
 	emit_signal("Update_finished", result)
 	
 	
+<<<<<<< refs/remotes/upstream/master
 func _on_update_finished(result : int):
+=======
+func _on_update_finished(result:int):
+>>>>>>> Options path fixed
 	var Status = $VBoxContainer/UpdateUI/VBoxContainer/Header
 	if not Status is Label:
 		yield(get_node("/root/UIManager"), "back_to_base_ui")

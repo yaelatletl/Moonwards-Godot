@@ -7,7 +7,11 @@ var Updater
 
 signal update_finished(result)
 
+<<<<<<< refs/remotes/upstream/master
 func AddLogMessage(var text : String):
+=======
+func AddLogMessage(var text:String):
+>>>>>>> Options path fixed
 	if not self.visible:
 		self.visible = true
 	$"HBoxContainer/TabContainer/Update log/VBoxContainer3/Panel/ScrollContainer/RichTextLabel".text += text + "\n"
