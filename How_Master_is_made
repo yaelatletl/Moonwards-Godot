@@ -1,4 +1,0 @@
-Instanced Objects that will be animated exist as a set of linked objects that have been copied as linked duplicates.
-
-Installations, which are in the scenes folder of the project, exist as Linked Collections. Within the collection that holds the bulk of their objects, there are other linked collections, for objects that are repeated many times. 
-	
