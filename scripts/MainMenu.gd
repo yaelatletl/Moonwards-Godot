@@ -84,10 +84,14 @@ func check_for_update():
 	
 	
 <<<<<<< refs/remotes/upstream/master
+<<<<<<< refs/remotes/upstream/master
 func _on_update_finished(result : int):
 =======
 func _on_update_finished(result:int):
 >>>>>>> Options path fixed
+=======
+func _on_update_finished(result : int):
+>>>>>>> Update MainMenu.gd
 	var Status = $VBoxContainer/UpdateUI/VBoxContainer/Header
 	if not Status is Label:
 		yield(get_node("/root/UIManager"), "back_to_base_ui")
