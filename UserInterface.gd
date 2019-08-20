@@ -1,6 +1,7 @@
 extends Control
 
 <<<<<<< refs/remotes/upstream/master
+<<<<<<< refs/remotes/upstream/master
 var SceneOptions : PackedScene = preload("res://assets/UI/Options/Options.tscn")
 var SceneMenu : PackedScene = preload("res://assets/UI/Menu/Main_menu.tscn")
 var SceneDiagram : PackedScene = preload("res://assets/UI/Diagram.tscn")
@@ -8,6 +9,11 @@ var SceneDiagram : PackedScene = preload("res://assets/UI/Diagram.tscn")
 var SceneOptions = preload("res://assets/UI/Options/Options.tscn")
 var SceneMenu = preload("res://assets/UI/Menu/Main_menu.tscn")
 var SceneDiagram = preload("res://assets/UI/Diagram.tscn")
+=======
+var SceneOptions : PackedScene = preload("res://assets/UI/Options/Options.tscn")
+var SceneMenu : PackedScene = preload("res://assets/UI/Menu/Main_menu.tscn")
+var SceneDiagram : PackedScene = preload("res://assets/UI/Diagram.tscn")
+>>>>>>> Update UserInterface.gd
 var Options = null
 >>>>>>> Options path fixed
 var added_menu_ui = false
