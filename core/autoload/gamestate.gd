@@ -11,7 +11,7 @@ var players = {}
 
 var network_id
 var local_id
-var chat_ui_resource = preload("res://chat/ChatUI.tscn")
+var chat_ui_resource = preload("res://assets/UI/chat/ChatUI.tscn")
 var chat_ui = null
 
 #
