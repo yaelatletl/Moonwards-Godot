@@ -2,24 +2,15 @@
 
 [ext_resource path="res://img/MoonwardsLogo2018-1200.png" type="Texture" id=1]
 [ext_resource path="res://scripts/UIElement.gd" type="Script" id=2]
-[ext_resource path="res://fonts/djv_mono.tres" type="DynamicFont" id=3]
-[ext_resource path="res://fonts/djv_bold_italic.tres" type="DynamicFont" id=4]
-[ext_resource path="res://fonts/djv_italic.tres" type="DynamicFont" id=5]
-[ext_resource path="res://fonts/djv_bold.tres" type="DynamicFont" id=6]
-[ext_resource path="res://fonts/djv_sans.tres" type="DynamicFont" id=7]
+[ext_resource path="res://assets/UI/Menu/Instructions/Resizing.gd" type="Script" id=3]
+[ext_resource path="res://fonts/djv_mono.tres" type="DynamicFont" id=4]
+[ext_resource path="res://fonts/djv_bold_italic.tres" type="DynamicFont" id=5]
+[ext_resource path="res://fonts/djv_italic.tres" type="DynamicFont" id=6]
+[ext_resource path="res://fonts/djv_bold.tres" type="DynamicFont" id=7]
+[ext_resource path="res://fonts/djv_sans.tres" type="DynamicFont" id=8]
 
 [sub_resource type="GDScript" id=1]
-script/source = "extends ScrollContainer
-func _ready():
-	get_tree().get_root().connect(\"size_changed\",self,\"on_resize\")
-func on_resize():
-	var oldsize = Vector2(1024, 700)
-	var newsize = get_tree().get_root().get_visible_rect().size
-	var scale = newsize.y/oldsize.y
-	self.rect_scale = Vector2(1,1)*scale
-"
-
-[sub_resource type="GDScript" id=6]
+resource_name = "Reader,variant1"
 script/source = "extends HBoxContainer
 
 func _ready():
@@ -34,6 +25,7 @@ func _ready():
 "
 
 [sub_resource type="GDScript" id=2]
+resource_name = "Reader,variant 2"
 script/source = "extends HBoxContainer
 
 func _ready():
@@ -97,7 +89,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 5
 size_flags_vertical = 5
-script = SubResource( 1 )
+script = ExtResource( 3 )
 
 [node name="CenterContainer" type="CenterContainer" parent="Background/ScrollContainer"]
 margin_right = 984.0
@@ -147,7 +139,7 @@ margin_top = 26.0
 margin_right = 328.0
 margin_bottom = 40.0
 alignment = 1
-script = SubResource( 6 )
+script = SubResource( 1 )
 
 [node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_forwards"]
 margin_right = 130.0
@@ -184,7 +176,7 @@ margin_top = 44.0
 margin_right = 328.0
 margin_bottom = 58.0
 alignment = 1
-script = SubResource( 6 )
+script = SubResource( 1 )
 
 [node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_backwards"]
 margin_right = 130.0
@@ -221,7 +213,7 @@ margin_top = 62.0
 margin_right = 328.0
 margin_bottom = 76.0
 alignment = 1
-script = SubResource( 6 )
+script = SubResource( 1 )
 
 [node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_left"]
 margin_right = 130.0
@@ -258,7 +250,7 @@ margin_top = 80.0
 margin_right = 328.0
 margin_bottom = 94.0
 alignment = 1
-script = SubResource( 6 )
+script = SubResource( 1 )
 
 [node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/move_right"]
 margin_right = 130.0
@@ -332,7 +324,7 @@ margin_top = 116.0
 margin_right = 328.0
 margin_bottom = 130.0
 alignment = 1
-script = SubResource( 6 )
+script = SubResource( 1 )
 
 [node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/jump"]
 margin_right = 130.0
@@ -405,7 +397,7 @@ margin_top = 152.0
 margin_right = 328.0
 margin_bottom = 200.0
 alignment = 1
-script = SubResource( 6 )
+script = SubResource( 1 )
 
 [node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/use"]
 margin_top = 17.0
@@ -462,7 +454,7 @@ margin_top = 238.0
 margin_right = 328.0
 margin_bottom = 252.0
 alignment = 1
-script = SubResource( 6 )
+script = SubResource( 1 )
 
 [node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/player_back_in_time"]
 margin_right = 130.0
@@ -525,7 +517,7 @@ text = "Same as the previous section, plus:"
 margin_top = 44.0
 margin_right = 329.0
 margin_bottom = 58.0
-script = SubResource( 6 )
+script = SubResource( 1 )
 
 [node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/debug_force_camera"]
 margin_right = 130.0
@@ -559,7 +551,7 @@ align = 1
 margin_top = 62.0
 margin_right = 329.0
 margin_bottom = 76.0
-script = SubResource( 6 )
+script = SubResource( 1 )
 
 [node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_page_up"]
 margin_right = 130.0
@@ -594,7 +586,7 @@ margin_top = 80.0
 margin_right = 329.0
 margin_bottom = 94.0
 alignment = 1
-script = SubResource( 6 )
+script = SubResource( 1 )
 
 [node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_page_down"]
 margin_right = 130.0
@@ -713,7 +705,7 @@ margin_top = 168.0
 margin_right = 329.0
 margin_bottom = 199.0
 alignment = 1
-script = SubResource( 6 )
+script = SubResource( 1 )
 
 [node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/toggle_chat"]
 margin_right = 130.0
@@ -752,7 +744,7 @@ margin_top = 203.0
 margin_right = 329.0
 margin_bottom = 234.0
 alignment = 1
-script = SubResource( 6 )
+script = SubResource( 1 )
 
 [node name="control" type="Label" parent="Background/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ui_menu_options"]
 margin_right = 130.0
@@ -799,11 +791,11 @@ margin_right = 956.0
 margin_bottom = 397.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/mono_font = ExtResource( 3 )
-custom_fonts/bold_italics_font = ExtResource( 4 )
-custom_fonts/italics_font = ExtResource( 5 )
-custom_fonts/bold_font = ExtResource( 6 )
-custom_fonts/normal_font = ExtResource( 7 )
+custom_fonts/mono_font = ExtResource( 4 )
+custom_fonts/bold_italics_font = ExtResource( 5 )
+custom_fonts/italics_font = ExtResource( 6 )
+custom_fonts/bold_font = ExtResource( 7 )
+custom_fonts/normal_font = ExtResource( 8 )
 bbcode_enabled = true
 bbcode_text = "Move your player with keyboard and mouse
         [b]W[/b] or [i]Up arrow[/i] - Forward
@@ -851,11 +843,11 @@ margin_right = 984.0
 margin_bottom = 353.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/mono_font = ExtResource( 3 )
-custom_fonts/bold_italics_font = ExtResource( 4 )
-custom_fonts/italics_font = ExtResource( 5 )
-custom_fonts/bold_font = ExtResource( 6 )
-custom_fonts/normal_font = ExtResource( 7 )
+custom_fonts/mono_font = ExtResource( 4 )
+custom_fonts/bold_italics_font = ExtResource( 5 )
+custom_fonts/italics_font = ExtResource( 6 )
+custom_fonts/bold_font = ExtResource( 7 )
+custom_fonts/normal_font = ExtResource( 8 )
 bbcode_enabled = true
 bbcode_text = "[b]Enter[/b]  - call up chat, and also enter text there.
 
@@ -874,4 +866,3 @@ Esc  -  bring up in-game menu
 margin_top = 264.0
 margin_right = 685.0
 margin_bottom = 268.0
-

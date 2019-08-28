@@ -2,10 +2,10 @@ extends PanelContainer
 var has_update = false
 var set_as_updater = false
 var UpdatingUI = "res://assets/UI/Menu/Updating_UI.tscn"
-
+var result 
 signal update_finished(result)
 
-func _ready():
+func _ready() -> void:
 	has_update = options.get("Update info", "available", null)
 	if has_update:
 		set_as_updater = true
@@ -33,9 +33,9 @@ func _ready():
 	connect("update_finished",self,"_on_update_finished")
 
 
-var result 
 
-func check_for_update():
+
+func check_for_update() -> void:
 	$HBoxContainer2/VBoxContainer3/Version3.text = "Gathering update information"
 	var res = options.Updater.ui_ClientCheckUpdate()
 	
@@ -62,7 +62,7 @@ func check_for_update():
 	printd("end gathering: %s" % res)
 	emit_signal("update_finished", result)
 	
-func _on_update_finished(result):
+func _on_update_finished(result : int) -> void:
 	var Status = $HBoxContainer2/VBoxContainer3/Version3
 	if result == 1:
 		Status.add_color_override("font_color",Color("ffff00"))
@@ -89,10 +89,10 @@ func _on_update_finished(result):
 	options.set("Update info",  str(Date.get("day")), "day")
 	options.save()
 
-func _on_Change_log_pressed():
+func _on_Change_log_pressed() -> void:
 	$Change_log.popup_centered()
 
-func _on_Update_check_pressed():
+func _on_Update_check_pressed() -> void:
 	if not has_update:
 		check_for_update()
 #	if has_update and set_as_updater:
@@ -111,12 +111,12 @@ func _on_Update_check_pressed():
 		fn_update_to_update()
 
 
-func _on_Change_log_confirmed():
+func _on_Change_log_confirmed() -> void:
 	$Change_log.hide()
 
-func fn_update_to_update():
+func fn_update_to_update() -> void:
 	UIManager.NextUI(UpdatingUI)
 
 var  debug_id = "About panel"
-func printd(s):
+func printd(s) -> void:
 	logg.print_fd(debug_id, s)

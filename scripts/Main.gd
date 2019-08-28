@@ -1,7 +1,7 @@
 extends Control
 export(String) var SceneToLoad = "res://World.tscn"
 export(String) var SceneOptions = "res://assets/UI/Menu/Options.tscn"
-const MultiplayerToLoad = "res://lobby.tscn"
+const MultiplayerToLoad = "res://assets/UI/Menu/lobby.tscn"
 var current_ui = null
 
 # Called when the node enters the scene tree for the first time.

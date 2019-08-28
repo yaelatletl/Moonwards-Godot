@@ -85,7 +85,7 @@ func camera_ready(force=false):
 		camera_ready_oldcamera = null
 		camera_ready_path = null
 		yield(get_tree(), "idle_frame")
-		UIManager.ClearUI()
+		UIManager.clear_ui()
 		return
 	
 	var active = false

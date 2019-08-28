@@ -3,21 +3,14 @@ extends PanelContainer
 var scripts = {
 	Updater = preload("res://core/update/scripts/Updater.gd")
 }
-var Updater
+var Updater : Node
 
 signal update_finished(result)
 
-<<<<<<< refs/remotes/upstream/master
-<<<<<<< refs/remotes/upstream/master
 func AddLogMessage(var text : String):
-=======
-func AddLogMessage(var text:String):
->>>>>>> Options path fixed
-=======
-func AddLogMessage(var text : String):
->>>>>>> Update Updating_UI.gd
-	if not self.visible:
-		self.visible = true
+
+	if not visible:
+		visible = true
 	$"HBoxContainer/TabContainer/Update log/VBoxContainer3/Panel/ScrollContainer/RichTextLabel".text += text + "\n"
 	
 func set_state(text):

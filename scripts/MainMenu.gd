@@ -1,14 +1,14 @@
 extends Control
 
 var scenes : Dictionary = {
-	UpdateUI = preload("res://assets/UI/Menu/Updating_UI.tscn")
+	UpdateUI = preload("res://assets/UI/Update/Updating_UI.tscn")
 	}
 
 var result : int
 
 signal Update_finished(result)
 
-func _ready_headless():
+func _ready_headless() -> void:
 	printd("Setup headless mode")
 	
 	var player_data = options.player_opt("server_bot")
@@ -17,7 +17,7 @@ func _ready_headless():
 	var worldscene = options.scenes.default_multiplayer_headless_scene
 	gamestate.change_scene(worldscene)
 
-func _ready():
+func _ready() -> void:
 	UIManager.register_base_ui(self)
 
 	if utils.feature_check_updater():
@@ -47,7 +47,7 @@ func _ready():
 			$VBoxContainer/UpdateUI.queue_free()
 
 
-func check_for_update():
+func check_for_update() -> void:
 	
 	var Progress = $VBoxContainer/UpdateUI/VBoxContainer/ProgressBar
 
@@ -83,15 +83,8 @@ func check_for_update():
 	emit_signal("Update_finished", result)
 	
 	
-<<<<<<< refs/remotes/upstream/master
-<<<<<<< refs/remotes/upstream/master
-func _on_update_finished(result : int):
-=======
-func _on_update_finished(result:int):
->>>>>>> Options path fixed
-=======
-func _on_update_finished(result : int):
->>>>>>> Update MainMenu.gd
+
+func _on_update_finished(result : int) -> void:
 	var Status = $VBoxContainer/UpdateUI/VBoxContainer/Header
 	if not Status is Label:
 		yield(get_node("/root/UIManager"), "back_to_base_ui")
@@ -119,7 +112,7 @@ func _on_update_finished(result : int):
 	options.set("Update info",  str(Date.get("day")), "day")
 	options.save()
 
-func _on_continue_pressed():
+func _on_continue_pressed() -> void:
 	if result == 1:
 		$VBoxContainer.show()
 		$VBoxContainer/UpdateUI.queue_free()

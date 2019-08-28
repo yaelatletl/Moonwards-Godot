@@ -5,20 +5,15 @@
 [ext_resource path="res://assets/UI/Menu/Instructions/Instructions.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/UI/Menu/lobby.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/UI/Options/Options.tscn" type="PackedScene" id=5]
-<<<<<<< refs/remotes/upstream/master
-[ext_resource path="res://assets/UI/Menu/About.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/UI/Menu/Attention_icon.png" type="Texture" id=7]
-[ext_resource path="res://core/update/scenes/UpdateUI.tscn" type="PackedScene" id=8]
-=======
 [ext_resource path="res://assets/UI/Menu/About/About.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/UI/Menu/Resources/Attention_icon.png" type="Texture" id=7]
+[ext_resource path="res://core/update/scenes/UpdateUI.tscn" type="PackedScene" id=8]
 
 
 
 
 
 
->>>>>>> Clean up UI structure
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends VBoxContainer

@@ -1,9 +1,9 @@
 extends Node
-var id = "options.gd"
-var debug = true
+var id : String = "options.gd"
+var debug : bool = true
 
-var Updater
-var scripts = {
+var Updater : Node 
+var scripts : Dictionary = {
 	Updater = preload("res://core/update/scripts/Updater.gd")
 }
 #############################
@@ -23,13 +23,13 @@ enum genders{
 	male
 }
 
-var username = namelist.get_name()
-var gender = genders.female
-var pants_color = Color(6.209207/256,17.062728/256,135.632141/256,1)
-var shirt_color = Color(0,233.62642/256,255/256,1)
-var skin_color = Color(186.98631/256,126.435381/256,47.515679/256,1)
-var hair_color = Color(0,0,0,1)
-var shoes_color = Color(0,0,0,1)
+var username : String = namelist.get_name()
+var gender : int = genders.female
+var pants_color : Color = Color(6.209207/256,17.062728/256,135.632141/256,1)
+var shirt_color : Color = Color(0,233.62642/256,255/256,1)
+var skin_color : Color = Color(186.98631/256,126.435381/256,47.515679/256,1)
+var hair_color : Color = Color(0,0,0,1)
+var shoes_color : Color = Color(0,0,0,1)
 var savefile_json
 
 var OptionsFile = "user://gameoptions.save"
@@ -289,7 +289,7 @@ func LoadUserSettings():
 	hair_color = SafeGetColor("hair", Color8(0,0,0,255))
 	shoes_color = SafeGetColor("shoes", Color8(78,158,187,255))
 
-func SafeGetColor(var color_name, var default_color):
+func SafeGetColor(var color_name, var default_color) -> Color:
 	if not savefile_json.has(color_name + "R") or not savefile_json.has(color_name + "G") or not savefile_json.has(color_name + "B"):
 		return default_color
 	else:
