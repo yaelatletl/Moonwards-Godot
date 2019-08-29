@@ -1,22 +1,22 @@
 extends Node
 
-var path = ""
-var error = OK
-var loader = null
+var path : String = ""
+var error : int = OK
+var loader : ResourceInteractiveLoader = null
 var thread : Thread = Thread.new()
-var new_scene = null
+var new_scene : Resource = null
 var progress : float = 0.0
-var loading_screen_resource :PackedScene= preload("res://assets/UI/Menu/Resources/LoadingScreen.tscn")
-var loading_screen = null
+var loading_screen_resource : PackedScene= preload("res://assets/UI/Menu/Resources/LoadingScreen.tscn")
+var loading_screen : Node = null
 
-func reset():
-	var path = ""
+func reset() -> void:
+	path = ""
 	error = OK
 	loader = null
 	new_scene = null
 	progress = 0.0
 
-func start_loading(var path):
+func start_loading(var path : String) -> void:
 	reset()
 	#Switch to the LoadingScreen before starting the Thread that loads the new level.
 	loading_screen = loading_screen_resource.instance()
@@ -28,7 +28,7 @@ func start_loading(var path):
 	var already = thread.is_active()
 	thread.start(self, "threat_start_loading", path)
 
-func threat_start_loading(var path):
+func thread_start_loading(var path ) -> int:
 	if path is PackedScene:
 		loader = ResourceLoader.load_interactive(path.get_path())
 	else:
@@ -38,11 +38,12 @@ func threat_start_loading(var path):
 		return ERR_CANT_ACQUIRE_RESOURCE
 	return thread_loading()
 	
-func thread_loading():
+func thread_loading() -> int:
 	while true:
 		if check_loading():
 			call_deferred('background_loading_done')
 			return error
+	return 1
 
 func background_loading_done():
 	var result = thread.wait_to_finish()

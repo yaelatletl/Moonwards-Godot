@@ -6,7 +6,7 @@ var camera_ready_oldcamera
 var camera 
 var camera_path 
 var camera_used
-var pf_path
+var pf_path : String 
 var hidden_nodes = []
 var hidden_nodes_prob
 var debug_id : String = "debug.gd"
@@ -196,9 +196,9 @@ func hide_nodes_random(probability : int = -1) -> void:
 
 func show_performance_monitor(enable : bool) -> void:
 	if enable and not pf_path:
-		var packedscene = ResourceLoader.load("res://scripts/PerformanceMonitor.tscn")
-		var root = get_tree().current_scene
-		var pf = packedscene.instance()
+		var packedscene : PackedScene = ResourceLoader.load("res://scripts/PerformanceMonitor.tscn")
+		var root : Node = get_tree().current_scene
+		var pf : Node = packedscene.instance()
 		root.add_child(pf)
 		pf_path = root.get_path_to(pf)
 		options.set("_state_", true, "perf_mon")
@@ -207,7 +207,7 @@ func show_performance_monitor(enable : bool) -> void:
 		var pf = root.get_node(pf_path)
 		if pf:
 			pf.queue_free()
-		pf_path = null
+		pf_path = ""
 		options.set("_state_", false, "perf_mon")
 
 func set_lod_manager(enable : bool) -> void:

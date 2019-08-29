@@ -5,7 +5,7 @@ var scenes : Dictionary = {
 	}
 
 var result : int
-
+var debug_id : String = "Main Menu"
 signal Update_finished(result)
 
 func _ready_headless() -> void:
@@ -121,7 +121,7 @@ func _on_continue_pressed() -> void:
 		$VBoxContainer.show()
 		$VBoxContainer/UpdateUI.queue_free()
 
-var debug_id = "Main Menu"
+
 func printd(s):
 	logg.print_fd(debug_id, s)
 	
