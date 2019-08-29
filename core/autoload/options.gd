@@ -6,25 +6,28 @@ var Updater : Node
 var scripts : Dictionary = {
 	Updater = preload("res://core/update/scripts/Updater.gd")
 }
-#scene for players, node name wich serves an indicator
+# scene for players, node name wich serves an indicator
 var scene_id : String= "scene_id_30160"
 
-#scene we instance for each player
+# scene we instance for each player
 var player_scene : PackedScene = preload("res://assets/Player/avatar_v2/player.tscn")
 
-#Join server host
-#var join_server_host = "127.0.0.1"
-#var join_server_host = "moonwards.hopto.org"
+# Join server host
+# var join_server_host = "127.0.0.1"
+# 
+# var join_server_host = "moonwards.hopto.org"
 var join_server_host : String = "mainhabs.moonwards.com"
 
+
 ############################
+#       Other options      #
 ############################
-#Other options
 var options : Dictionary = {
 }
 
 #############################
-# user avatar options
+#    user avatar options    #
+#############################
 signal user_settings_changed
 
 enum slots{
@@ -90,7 +93,8 @@ var fly_cameras : Array = [
 ]
 
 #############################
-#player instancing options
+# player instancing options #
+#############################
 var player_opt : Dictionary = {
 	player_group = "player",
 	opt_allow_unknown = true,
@@ -206,8 +210,8 @@ func save() -> void:
 	savefile.close()
 	printd("options saved to %s" % OptionsFile)
 
-func get(category : String, prop = null, default=null):
-	var res : Array
+func get(category : String, prop = null, default=null) -> bool:
+	var res : bool
 	if options.has(category):
 		if prop and options[category].has(prop):
 			res = options[category][prop]
