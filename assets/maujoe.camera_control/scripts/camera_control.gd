@@ -64,7 +64,7 @@ func _ready() -> void:
 		_gui = _gui.new(self, gui_action)
 		add_child(_gui)
 
-func _input(event) -> void:
+func _input(event : InputEvent) -> void:
 	if event.is_action_pressed(ui_mlook):
 		mouselook = not mouselook
 		if mouselook:
@@ -112,7 +112,7 @@ func _input(event) -> void:
 		elif not Input.is_action_pressed(up_action) and not Input.is_action_pressed(down_action):
 			_direction.y = 0
 
-func _process(delta) -> void:
+func _process(delta : float) -> void:
 	if privot!=null:
 		_update_distance()
 	if mouselook:
@@ -136,7 +136,7 @@ func _process(delta) -> void:
 		if not obstacle.empty():
 			set_translation(obstacle.position)
 
-func _update_movement(delta) -> void:
+func _update_movement(delta : float) -> void:
 	var offset = max_speed * acceleration * _direction
 
 	_speed.x = clamp(_speed.x + offset.x, -max_speed.x, max_speed.x)
@@ -206,7 +206,7 @@ func _check_actions(actions=[]) -> void:
 			if not InputMap.has_action(action):
 				print('WARNING: No action "' + action + '"')
 
-func set_privot(value) -> void:
+func set_privot(value : Node) -> void:
 	privot = value
 	# TODO: fix parenting.
 #	if privot:
@@ -215,11 +215,11 @@ func set_privot(value) -> void:
 #		privot.add_child(self)
 	_update_process_func()
 
-func set_collisions(value) -> void:
+func set_collisions(value : bool) -> void:
 	collisions = value
 	_update_process_func()
 
-func set_enabled(value) -> void:
+func set_enabled(value : bool) -> void:
 	enabled = value
 	if enabled:
 		Input.set_mouse_mode(mouse_mode)
@@ -230,8 +230,8 @@ func set_enabled(value) -> void:
 		set_process_input(false)
 		set_physics_process(false)
 
-func set_smoothness(value) -> void:
+func set_smoothness(value : float) -> void:
 	smoothness = clamp(value, 0.001, 0.999)
 
-func set_distance(value) -> void:
+func set_distance(value : float) -> void:
 	distance = max(0, value)
