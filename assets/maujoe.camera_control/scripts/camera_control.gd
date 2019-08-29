@@ -5,37 +5,37 @@ extends Camera
 
 # User settings:
 # General settings
-export var enabled = true setget set_enabled
-export(int, "Visible", "Hidden", "Caputered, Confined") var mouse_mode = 2
+export var enabled : bool = true setget set_enabled
+export(int, "Visible", "Hidden", "Caputered, Confined") var mouse_mode : int = 2
 
 # Mouslook settings
-export var mouselook = true
-export (float, 0.0, 1.0) var sensitivity = 0.5
-export (float, 0.0, 0.999, 0.001) var smoothness = 0.5 setget set_smoothness
-export(NodePath) var privot setget set_privot
+export var mouselook : bool = true
+export (float, 0.0, 1.0) var sensitivity : float = 0.5
+export (float, 0.0, 0.999, 0.001) var smoothness : float = 0.5 setget set_smoothness
+export(NodePath) var privot  setget set_privot
 export var distance = 5.0 setget set_distance
-export var rotate_privot = false
-export var collisions = true setget set_collisions
-export (int, 0, 360) var yaw_limit = 360
-export (int, 0, 360) var pitch_limit = 360
+export var rotate_privot : bool = false
+export var collisions : bool = true setget set_collisions
+export (int, 0, 360) var yaw_limit : int = 360
+export (int, 0, 360) var pitch_limit : int= 360
 
 # Movement settings
 export var movement = true
-export (float, 0.0, 1.0) var acceleration = 0.1
-export (float, 0.0, 1.0) var deceleration = 0.5
-export var max_speed = Vector3(1.0, 1.0, 1.0)
-export var local = true
-export var forward_action = "move_forwards"
-export var backward_action = "move_backwards"
-export var left_action = "move_left"
-export var right_action = "move_right"
-export var up_action = "ui_page_up"
-export var down_action = "ui_page_down"
-export var ui_mlook = "ui_mlook"
+export (float, 0.0, 1.0) var acceleration : float = 0.1
+export (float, 0.0, 1.0) var deceleration : float = 0.5
+export var max_speed : Vector3 = Vector3(1.0, 1.0, 1.0)
+export var local : bool = true
+export var forward_action : String = "move_forwards"
+export var backward_action : String = "move_backwards"
+export var left_action : String = "move_left"
+export var right_action : String = "move_right"
+export var up_action : String = "ui_page_up"
+export var down_action : String = "ui_page_down"
+export var ui_mlook : String = "ui_mlook"
 
 # Gui settings
-export var use_gui = true
-export var gui_action = "ui_cancel"
+export var use_gui : bool = true
+export var gui_action : String = "ui_cancel"
 
 # Intern variables.
 var _mouse_position = Vector2(0.0, 0.0)
