@@ -154,7 +154,7 @@ func set_defaults() -> void:
 	get("LOD", "lod_aspect_ratio", 150)
 	# get("dev", "lod_manager_path", "res://scripts/TreeManager.tscn")
 
-func player_opt(type, opt : Array = []) -> Dictionary:
+func player_opt(type, opt : Dictionary = {}) -> Dictionary:
 	var res : Dictionary= {}
 	var filter : Dictionary = player_opt.opt_filter
 	var filter_id : int = "opt_filter_%s" % type
@@ -162,7 +162,7 @@ func player_opt(type, opt : Array = []) -> Dictionary:
 		filter = player_opt[filter_id]
 
 	var allow_unknown : bool = player_opt.opt_allow_unknown
-	if opt != []:
+	if opt != {}:
 		for k in opt:
 			if filter.has(k) and filter[k] or allow_unknown:
 				res[k] = opt[k]
