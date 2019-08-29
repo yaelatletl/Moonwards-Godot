@@ -1,7 +1,7 @@
 extends Node
 
 #name list from: http://listofrandomnames.com/index.cfm
-var list = [
+var list : Array = [
 	"Kenny Cristobal",
 	"Van Escovedo",
 	"Gaylord Faler",
@@ -103,10 +103,10 @@ var list = [
 	"Sirena Galicia",
 	"Kizzy Ungar"
 ]
-func _ready():
+func _ready() -> void:
 	randomize()
 
-func get_name():
+func get_name() -> String:
 	randomize()
 	var index = randi() % list.size()
 	return list[index]

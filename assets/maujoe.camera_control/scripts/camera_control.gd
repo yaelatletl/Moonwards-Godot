@@ -121,7 +121,7 @@ func _process(delta):
 		_update_movement(delta)
 
 	if not UIManager.has_ui:
-		UIManager.RequestFocus()
+		UIManager.request_focus()
 
 	# Called when collision are enabled
 	_update_distance()
@@ -192,8 +192,7 @@ func _update_distance():
 		set_translation(t)
 
 func _update_process_func():
-	# Use physics process if collision are enabled
-	# Why?
+	# Use physics process if collision are enabled to ensure it works properly
 	if collisions and privot:
 		set_physics_process(true)
 		set_process(false)

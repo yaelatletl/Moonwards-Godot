@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-func _ready():
+func _ready() -> void:
 	var text_to_place = ""
 	var actions = InputMap.get_action_list(self.name)
 	for id in range(0,actions.size()):

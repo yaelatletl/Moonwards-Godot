@@ -7,9 +7,9 @@ export(String) var _resource_string: String = ""
 func _ready() -> void:
 	var node = self
 	if node is Button:
-		self.connect("pressed", self, "button_pressed")
+		connect("pressed", self, "button_pressed")
 	elif node is CheckBox:
-		self.connect("toggled", self, "check_box_toggled")
+		connect("toggled", self, "check_box_toggled")
 
 func button_pressed() -> void:
 	ui_event()

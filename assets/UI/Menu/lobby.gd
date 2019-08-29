@@ -8,8 +8,8 @@ enum STATE {
 }
 var state = STATE.init setget set_state
 
-func set_name(name = null):
-	if name == null:
+func set_name(name : String = "") -> void:
+	if name == "":
 		name = namelist.get_name()
 	$connect/name.text = name
 
@@ -22,7 +22,7 @@ func _ready():
 # 	gamestate.connect("game_ended", self, "_on_game_ended")
 # 	gamestate.connect("game_error", self, "_on_game_error")
 
-func state_hide():
+func state_hide() -> void:
 	match state:
 		STATE.init:
 			$connect.hide()
@@ -31,7 +31,7 @@ func state_hide():
 		STATE.client_connect:
 			$WaitServer.hide()
 
-func state_show():
+func state_show() -> void:
 	match state:
 		STATE.init:
 			$connect.show()
@@ -69,7 +69,7 @@ func sg_network_error(msg):
 func sg_server_connected():
 	sg_server_up()
 
-func _on_host_pressed():
+func _on_host_pressed() -> void:
 	if not (gamestate.RoleServer or gamestate.RoleClient):
 		if ($connect/name.text == ""):
 			$connect/error_label.text="Invalid name!"
@@ -89,7 +89,7 @@ func _on_host_pressed():
 	else:
 		emit_signal("network_error", "Already in server or client mode")
 
-func _on_join_pressed():
+func _on_join_pressed() -> void:
 	if not (gamestate.RoleServer or gamestate.RoleClient):
 		if ($connect/name.text == ""):
 			$connect/error_label.text="Invalid name!"
@@ -111,27 +111,27 @@ func _on_join_pressed():
 	else: 
 		emit_signal("network_error", "Already in server or client mode")
 
-func _on_connection_success():
+func _on_connection_success() -> void:
 	$connect.hide()
 	$PlayersList.show()
 
-func _on_connection_failed():
+func _on_connection_failed() -> void:
 	$connect/host.disabled = false
 	$connect/join.disabled = false
 	$connect/error_label.set_text("Connection failed.")
 
-func _on_game_ended():
+func _on_game_ended() -> void:
 	show()
 	$connect.show()
 	$PlayersList.hide()
 	$connect/host.disabled=false
 	$connect/join.disabled
 
-func _on_game_error(errtxt):
+func _on_game_error(errtxt) -> void:
 	$error.dialog_text = errtxt
 	$error.popup_centered_minsize()
 
-func refresh_lobby():
+func refresh_lobby() -> void:
 	var players = gamestate.get_player_list()
 	players.sort()
 	$PlayersList/list.clear()
@@ -141,12 +141,12 @@ func refresh_lobby():
 
 	$PlayersList/start.disabled=not get_tree().is_network_server()
 
-func _on_start_pressed():
+func _on_start_pressed() -> void:
 	gamestate.begin_game()
 	hide()
 
 
-func _on_Sinlgeplayer_pressed():
+func _on_Sinlgeplayer_pressed() -> void:
 	var worldscene = options.scenes.default_singleplayer_scene
 	if (get_node("connect/name").text == ""):
 		get_node("connect/error_label").text="Invalid name!"
@@ -162,13 +162,13 @@ func _on_Sinlgeplayer_pressed():
 	state_hide()
 	gamestate.change_scene(worldscene)
 
-func _on_Button2_pressed():
+func _on_Button2_pressed() -> void:
 	set_name()
 	yield(get_tree().create_timer(0.1), "timeout")
 
 #################
 # utils
-var binddef = { src = null, dest = null }
+var binddef : Dictionary = { src = null, dest = null }
 func bindsg(_signal, _sub = null):
 	var obj = binddef.src
 	var obj2 = binddef.dest

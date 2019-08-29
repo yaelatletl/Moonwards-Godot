@@ -3,10 +3,11 @@ extends Control
 var SceneOptions : PackedScene = preload("res://assets/UI/Options/Options.tscn")
 var SceneMenu : PackedScene = preload("res://assets/UI/Menu/Main_menu.tscn")
 var SceneDiagram : PackedScene = preload("res://assets/UI/Diagram.tscn")
-var added_menu_ui = false
-var diagram_visible = false
 
-func _ready():
+var added_menu_ui : bool = false
+var diagram_visible : bool = false
+
+func _ready() -> void:
 	UIManager.register_base_ui(self)
 
 func _input(event):

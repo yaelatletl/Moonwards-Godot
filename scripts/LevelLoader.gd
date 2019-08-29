@@ -3,10 +3,10 @@ extends Node
 var path = ""
 var error = OK
 var loader = null
-var thread = Thread.new()
+var thread : Thread = Thread.new()
 var new_scene = null
-var progress = 0.0
-var loading_screen_resource = preload("res://ui/LoadingScreen.tscn")
+var progress : float = 0.0
+var loading_screen_resource :PackedScene= preload("res://assets/UI/Menu/Resources/LoadingScreen.tscn")
 var loading_screen = null
 
 func reset():
