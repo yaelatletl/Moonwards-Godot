@@ -65,9 +65,9 @@ func OnUIEvent(var event : String) -> void:
 		current_ui = null
 
 func _on_CfgPlayer_pressed() -> void:
-	SwitchUI($ui/PlayerSettings)
+	switch_ui($ui/PlayerSettings)
 
-func SwitchUI(var new_ui : Node) -> void:
+func switch_ui(var new_ui : Node) -> void:
 	$ui/MainUI.hide()
 	current_ui = new_ui
 	current_ui.show()
