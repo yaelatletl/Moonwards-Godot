@@ -1,6 +1,8 @@
 extends Control
+
 export(String) var SceneToLoad : String = "res://World.tscn"
 export(String) var SceneOptions : String = "res://assets/UI/Menu/Options.tscn"
+
 const MultiplayerToLoad = "res://assets/UI/Menu/lobby.tscn"
 var current_ui = null
 

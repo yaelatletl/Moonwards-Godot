@@ -1,8 +1,10 @@
 extends PanelContainer
+
 var has_update : bool = false
 var set_as_updater : bool = false
 var UpdatingUI : String  = "res://assets/UI/Menu/Updating_UI.tscn"
 var result : int
+
 signal update_finished(result)
 
 func _ready() -> void:
@@ -11,6 +13,7 @@ func _ready() -> void:
 		set_as_updater = true
 		$HBoxContainer2/VBoxContainer3/Update_check.text = "Update"
 		_on_update_finished(1)
+
 	options.Updater.connect("update_to_update", self, "fn_update_to_update")
 	if not options.get("Update info", "available", null):
 		$HBoxContainer2/VBoxContainer3/Version3.text = "Last checked: " 
@@ -23,6 +26,7 @@ func _ready() -> void:
 			Data_to_show += str(options.get("Update info", "hour" ))+":"
 			Data_to_show += str(options.get("Update info", "minute"))+":"
 			Data_to_show += str(options.get("Update info", "second"))
+
 		else:
 			Data_to_show += "Not available"
 		$HBoxContainer2/VBoxContainer3/Version3.text += Data_to_show
@@ -30,9 +34,13 @@ func _ready() -> void:
 	yield(get_tree(),"idle_frame")
 	connect("update_finished",self,"_on_update_finished")
 
+
 func check_for_update() -> void:
 	$HBoxContainer2/VBoxContainer3/Version3.text = "Gathering update information"
 	var res : Dictionary = options.Updater.ui_ClientCheckUpdate()
+
+
+
 	
 	if res["state"] == "gathering":
 		
@@ -104,7 +112,7 @@ func _on_Update_check_pressed() -> void:
 		set_as_updater = true
 		
 		fn_update_to_update()
-
+    
 func _on_Change_log_confirmed() -> void:
 	$Change_log.hide()
 
