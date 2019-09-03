@@ -2,11 +2,16 @@
 # Copyright (c) 2018 Jaccomo Lorenz (Maujoe)
 
 extends Camera
-
+enum Mouse {
+	Visible,
+	Hidden, 
+	Caputered, 
+	Confined
+	}
 # User settings:
 # General settings
 export var enabled : bool = true setget set_enabled
-export(int, "Visible", "Hidden", "Caputered, Confined") var mouse_mode : int = 2
+export(Mouse) var mouse_mode : int = 2
 
 # Mouslook settings
 export var mouselook : bool = true
@@ -47,6 +52,7 @@ var _total_pitch : float = 0.0
 var _direction : Vector3 = Vector3(0.0, 0.0, 0.0)
 var _speed : Vector3 = Vector3(0.0, 0.0, 0.0)
 var _gui
+
 
 func _ready() -> void:
 
