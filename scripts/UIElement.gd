@@ -22,6 +22,6 @@ func drop_down_choice(var value) -> void:
 
 func ui_event() -> void:
 	if _resource != null:
-		UIManager.ui_event(_ui_event, _resource)
+		UIManager.ui_event(_ui_event, _resource.resource_path)
 	else:
 		UIManager.ui_event(_ui_event, _resource_string)

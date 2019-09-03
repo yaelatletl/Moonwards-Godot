@@ -1,14 +1,15 @@
 extends Node
 var id : int
 
-var camera_ready_path 
-var camera_ready_oldcamera 
-var camera 
-var camera_path 
-var camera_used
+var camera_ready_path : String
+var camera_ready_oldcamera : Camera
+var camera : Camera
+var camera_path : String
+var camera_used : int
+var active : bool = false
 var pf_path : String 
-var hidden_nodes = []
-var hidden_nodes_prob
+var hidden_nodes : Array = []
+var hidden_nodes_prob : float
 var debug_id : String = "debug.gd"
 
 func printd(s) -> void:
@@ -87,12 +88,12 @@ func camera_ready(force : bool = false) -> void:
 		if camera_ready_oldcamera:
 			camera_ready_oldcamera.current = true
 		camera_ready_oldcamera = null
-		camera_ready_path = null
+		camera_ready_path = ''
 		yield(get_tree(), "idle_frame")
 		UIManager.clear_ui()
 		return
 	
-	var active = false
+	
 	camera_ready_oldcamera = get_tree().root.get_viewport().get_camera()
 	if camera_ready_oldcamera:
 		active = true
@@ -131,7 +132,7 @@ func set_active_camera() -> void:
 remote func test_remote_call() -> void:
 	print("test_remote_call (%s)" % id)
 
-func set_3fps(enable, value = 3) -> void:
+func set_3fps(enable : bool, value : int = 3) -> void:
 	if enable:
 		printd("debug set FPS to %s" % round(value))
 		Engine.target_fps = round(value)
@@ -176,10 +177,10 @@ func hide_nodes_random(probability : int = -1) -> void:
 		for p in hidden_nodes:
 			root.get_node(p).visible = true
 		hidden_nodes = []
-		hidden_nodes_prob = null
+		hidden_nodes_prob = 0
 		return
 	
-	var nodes = utils.get_nodes_type(root, "MeshInstance", true)
+	var nodes : Array = utils.get_nodes_type(root, "MeshInstance", true)
 	print("hide nodes, total(%s) already hidden(%s) probability(%s)" % [nodes.size(), hidden_nodes.size(), probability])
 	if nodes.size() < 1 :
 		return
