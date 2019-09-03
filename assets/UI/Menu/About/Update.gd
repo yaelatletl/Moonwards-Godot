@@ -21,11 +21,11 @@ func _ready() -> void:
 		var Date : Dictionary = OS.get_datetime()
 		var Data_to_show : String = " "
 		if options.get("Update info", "day") != null:
-			Data_to_show += str(options.get("Update info", "day"))+"/"
-			Data_to_show += str(options.get("Update info", "month"))+"/"
-			Data_to_show += str(options.get("Update info", "year" ))+" "
-			Data_to_show += str(options.get("Update info", "hour" ))+":"
-			Data_to_show += str(options.get("Update info", "minute"))+":"
+			Data_to_show += str(options.get("Update info", "day"),"/")
+			Data_to_show += str(options.get("Update info", "month"),"/")
+			Data_to_show += str(options.get("Update info", "year" )," ")
+			Data_to_show += str(options.get("Update info", "hour" ),":")
+			Data_to_show += str(options.get("Update info", "minute"),":")
 			Data_to_show += str(options.get("Update info", "second"))
 
 		else:

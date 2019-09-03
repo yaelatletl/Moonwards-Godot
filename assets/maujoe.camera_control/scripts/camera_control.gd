@@ -51,7 +51,7 @@ var _total_pitch : float = 0.0
 
 var _direction : Vector3 = Vector3(0.0, 0.0, 0.0)
 var _speed : Vector3 = Vector3(0.0, 0.0, 0.0)
-var _gui
+var _gui 
 
 
 func _ready() -> void:
@@ -208,7 +208,7 @@ func _update_process_func() -> void:
 		set_physics_process(false)
 		set_process(true)
 
-func _check_actions(actions=[]) -> void:
+func _check_actions(actions : Array = []) -> void:
 	if OS.is_debug_build():
 		for action in actions:
 			if not InputMap.has_action(action):
