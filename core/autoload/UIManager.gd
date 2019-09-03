@@ -38,7 +38,7 @@ func _ready() -> void:
 	gamestate.connect("scene_change", self, "_change_scene")
 
 
-func ui_event(ui_event : int, resource = null) -> void:
+func ui_event(ui_event : int, resource : String = '') -> void:
 	assert(UI_EVENTS.values().has(ui_event)) # Replace with error
 	
 	match ui_event:
