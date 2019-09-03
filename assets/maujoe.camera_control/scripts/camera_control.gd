@@ -191,7 +191,9 @@ func _update_distance() -> void:
 		t.z -= distance
 		set_translation(t)
 
+
 func _update_process_func() -> void:
+
 	# Use physics process if collision are enabled to ensure it works properly
 	if collisions and privot:
 		set_physics_process(true)
