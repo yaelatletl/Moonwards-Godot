@@ -3,7 +3,7 @@ extends HBoxContainer
 func _ready() -> void:
 
 	var text_to_place : String = ""
-	var actions : Array = InputMap.get_action_list(self.name)
+	var actions : Array = InputMap.get_action_list(name)
 
 	for id in range(0,actions.size()):
 		if actions[id] is InputEventKey:
