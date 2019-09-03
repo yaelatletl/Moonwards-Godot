@@ -30,21 +30,21 @@ var options : Dictionary = {
 #############################
 signal user_settings_changed
 
-enum slots{
-	pants,
-	shirt,
-	skin,
-	hair,
-	shoes
+enum SLOTS{
+	PANTS,
+	SHIRT,
+	SKIN,
+	HAIR,
+	SHOES
 }
 
-enum genders{
-	female,
-	male
+enum GENDERS{
+	FEMALE,
+	MALE
 }
 
 var username : String = namelist.get_name()
-var gender : int = genders.female
+var gender : int = GENDERS.FEMALE
 var pants_color : Color = Color(6.209207/256,17.062728/256,135.632141/256,1)
 var shirt_color : Color = Color(0,233.62642/256,255/256,1)
 var skin_color : Color = Color(186.98631/256,126.435381/256,47.515679/256,1)
@@ -56,7 +56,8 @@ var OptionsFile : String = "user://gameoptions.save"
 var User_file : String = "user://settings.save"
 
 #############################
-# debug function
+#       debug function      #
+#############################
 func printd(s):
 	logg.print_fd(id, s)
 
@@ -286,7 +287,7 @@ func LoadUserSettings():
 	print(savefile.get_as_text())
 	savefile_json = parse_json(savefile.get_as_text())
 	savefile.close()
-	gender = SafeGetSetting("gender", genders.female)
+	gender = SafeGetSetting("gender", GENDERS.FEMALE)
 	username = SafeGetSetting("username", "Player Name")
 
 	pants_color = SafeGetColor("pants", Color8(49,4,5,255))
