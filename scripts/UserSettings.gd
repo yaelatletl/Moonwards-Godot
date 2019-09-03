@@ -1,7 +1,5 @@
 extends Control
 
-var current_slot = slots.pants
-
 enum slots{
 	pants,
 	shirt,
@@ -10,15 +8,26 @@ enum slots{
 	shoes
 }
 
-func _ready():
-	$VBoxContainer/UsernameContainer/UsernameTextEdit.text = options.username
-	$VBoxContainer2/UsernameTextEdit2.text = options.username
+var current_slot : int = slots.pants
+
+
+onready var text_edit1 : Node = $VBoxContainer/UsernameContainer/UsernameTextEdit
+onready var text_edit2 : Node = $VBoxContainer2/UsernameTextEdit2
+onready var gender_edit : Node = $VBoxContainer/Gender
+onready var avatar_preview : Node = $VBoxContainer2/ViewportContainer/Viewport/AvatarPreview
+onready var hue_picker : Node = $VBoxContainer/HuePicker
+onready var button_containter : Node = $VBoxContainer2/ViewportContainer
+
+
+func _ready() -> void:
+	text_edit1.text = options.username
+	text_edit2.text = options.username
 	SwitchSlot()
 	_on_Gender_item_selected(options.gender)
-	$VBoxContainer/Gender.selected = int(options.gender)
-	$VBoxContainer2/ViewportContainer/Viewport.size = $VBoxContainer2/ViewportContainer.rect_size
+	gender_edit.selected = int(options.gender)
+	button_containter.get_node("Viewport").size = button_containter.rect_size
 
-func _on_HuePicker_Hue_Selected(color):
+func _on_HuePicker_Hue_Selected(color : Color) -> void:
 	if current_slot == slots.pants:
 		options.pants_color = color
 	elif current_slot == slots.shirt:
@@ -29,47 +38,49 @@ func _on_HuePicker_Hue_Selected(color):
 		options.hair_color = color
 	elif current_slot == slots.shoes:
 		options.shoes_color = color
-	$VBoxContainer2/ViewportContainer/Viewport/AvatarPreview.SetColors(options.pants_color, options.shirt_color, options.skin_color, options.hair_color, options.shoes_color)
+	avatar_preview.SetColors(options.pants_color, options.shirt_color, options.skin_color, options.hair_color, options.shoes_color)
 
-func _on_CfgPlayer_pressed():
+func _on_CfgPlayer_pressed() -> void:
 	$WindowDialog.popup_centered()
 
-func _on_SaveButton_pressed():
+func _on_SaveButton_pressed() -> void:
 	options.SaveUserSettings()
 	UIManager.Back()
 
-func _on_SlotOption_item_selected(ID):
-	$VBoxContainer2/ViewportContainer/Viewport/AvatarPreview.clean_selected()
-	$VBoxContainer2/ViewportContainer/Viewport/AvatarPreview.set_selected(ID)
+func _on_SlotOption_item_selected(ID : int) -> void:
+	avatar_preview.clean_selected()
+	avatar_preview.set_selected(ID)
 	current_slot = ID
 	SwitchSlot()
 
-func SwitchSlot():
+func SwitchSlot() -> void:
 	if current_slot == slots.pants:
-		$VBoxContainer/HuePicker.color = options.pants_color
+		hue_picker.color = options.pants_color
 	elif current_slot == slots.shirt:
-		$VBoxContainer/HuePicker.color = options.shirt_color
+		hue_picker.color = options.shirt_color
 	elif current_slot == slots.skin:
-		$VBoxContainer/HuePicker.color = options.skin_color
+		hue_picker.color = options.skin_color
 	elif current_slot == slots.hair:
-		$VBoxContainer/HuePicker.color = options.hair_color
+		hue_picker.color = options.hair_color
 	elif current_slot == slots.shoes:
-		$VBoxContainer/HuePicker.color = options.shoes_color
-	$VBoxContainer2/ViewportContainer/Viewport/AvatarPreview.SetColors(options.pants_color, options.shirt_color, options.skin_color, options.hair_color, options.shoes_color)
+		hue_picker.color = options.shoes_color
+	avatar_preview.SetColors(options.pants_color, options.shirt_color, options.skin_color, options.hair_color, options.shoes_color)
 
-func _on_Gender_item_selected(ID):
+func _on_Gender_item_selected(ID : int) -> void:
 	options.gender = ID
-	$VBoxContainer2/ViewportContainer/Viewport/AvatarPreview.SetGender(options.gender)
+	avatar_preview.SetGender(options.gender)
 	if ID == 0:
-		$VBoxContainer2/ViewportContainer/Female.show()
-		$VBoxContainer2/ViewportContainer/Male.hide()
+		button_containter.get_node("Female").show()
+		button_containter.get_node("Male").hide()
 	else:
-		$VBoxContainer2/ViewportContainer/Female.hide()
-		$VBoxContainer2/ViewportContainer/Male.show()
-func _on_UsernameTextEdit_text_changed(new_text):
+		button_containter.get_node("Female").hide()
+		button_containter.get_node("Male").show()
+
+func _on_UsernameTextEdit_text_changed(new_text : String) -> void:
 	options.username = new_text
-	$VBoxContainer2/UsernameTextEdit2.text = new_text
-func _on_UsernameTextEdit2_text_changed(new_text):
+	text_edit2.text = new_text
+
+func _on_UsernameTextEdit2_text_changed(new_text : String) -> void:
 	options.username = new_text
-	$VBoxContainer/UsernameContainer/UsernameTextEdit.text = new_text
+	text_edit1.text = new_text
 

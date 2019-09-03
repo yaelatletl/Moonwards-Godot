@@ -3,6 +3,8 @@ var has_update : bool = false
 var set_as_updater : bool = false
 var UpdatingUI : String  = "res://assets/UI/Menu/Updating_UI.tscn"
 var result : int
+var debug_id : String = "About panel"
+
 signal update_finished(result)
 
 func _ready() -> void:
@@ -111,6 +113,5 @@ func _on_Change_log_confirmed() -> void:
 func fn_update_to_update() -> void:
 	UIManager.NextUI(UpdatingUI)
 
-var  debug_id = "About panel"
 func printd(s) -> void:
 	logg.print_fd(debug_id, s)

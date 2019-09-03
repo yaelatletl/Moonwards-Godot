@@ -1,11 +1,11 @@
 extends Node
 
-var _ui_history_queue = []
-var _ui_future_queue = []
-var _current_ui = null
-var _on_queued_ui = false
-var _base_ui = null
-var has_ui = false
+var _ui_history_queue : Array = []
+var _ui_future_queue : Array = []
+var _current_ui : Node = null
+var _on_queued_ui : bool = false
+var _base_ui : Node = null
+var has_ui : bool = false
 
 signal back_to_base_ui
 
@@ -26,7 +26,7 @@ const UI_EVENT_TO_TEXT = ["back", "create_ui", "queue_ui", "set_setting", "dismi
 		"load_level", "join_server", "run_locally", "exit", "update" ]
 
 func ui_event_to_text(ui_event: int) -> String:
-	var text = "none"
+	var text : String = "none"
 	if UI_EVENT_TO_TEXT.size() - 1  > ui_event:
 		text = "unknown ui_event(%s)" % ui_event
 	else:
@@ -218,7 +218,7 @@ func run_local(scene: String) -> void:
 	if scene == null or scene == "":
 		scene = options.scenes.default_run_scene
 
-	var player_data = {
+	var player_data : Dictionary = {
 		username = options.username
 	}
 	
