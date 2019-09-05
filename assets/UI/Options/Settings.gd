@@ -7,9 +7,11 @@ var resolutions : Array = [
 	Vector2(1920,1080)
 	]
 
-onready var Quality : Node = $Main/Row3/Video/ModelQuality/Quality
-onready var Resolution : Node = $Main/Row3/Video/Resolution/Resolution
-onready var UpdateCheck : Node = $Main/Row1/Updating/UpdateCheck
+onready var Quality : MenuButton = $Main/Row3/Video/ModelQuality/Quality
+onready var Resolution : MenuButton = $Main/Row3/Video/Resolution/Resolution
+onready var UpdateCheck : CheckBox = $Main/Row1/Updating/UpdateCheck
+onready var FPSSlider : HSlider = $Main/Row3/Video/FPSLimit/FPSSlider
+onready var FPSSpin : SpinBox = $Main/Row3/Video/FPSLimit/FPSSpin
 
 func _ready() -> void:
 	Resolution.get_popup().connect("id_pressed", self, "_on_Resolution_change")
@@ -31,8 +33,8 @@ func _on_UpdateCheck_pressed() -> void:
 
 
 func _on_FPSSpin_value_changed(value):
-	pass # Replace with function body.
+	FPSSlider.value = value
 
 
 func _on_FPSSlider_value_changed(value):
-	pass # Replace with function body.
+	FPSSpin.value = value

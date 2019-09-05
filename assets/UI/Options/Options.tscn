@@ -9,9 +9,6 @@
 [ext_resource path="res://assets/UI/Options/Controls_settings.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/UIElement.gd" type="Script" id=8]
 
-
-
-
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 0.0
 bg_color = Color( 0.287646, 0.275574, 0.335938, 1 )

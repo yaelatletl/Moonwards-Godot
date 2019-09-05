@@ -182,6 +182,7 @@ func player_opt(type, opt : Dictionary = {}) -> Dictionary:
 
 func _ready() -> void:
 	Updater = scripts.Updater.new()
+	Updater.set_root_tree(get_tree())
 # 	print("debug set FPS to 3")
 # 	Engine.target_fps = 3
 	printd("load options and settings")
@@ -212,7 +213,7 @@ func save() -> void:
 	printd("options saved to %s" % OptionsFile)
 
 func get(category : String, prop = null, default=null) -> bool:
-	var res : bool
+	var res 
 	if options.has(category):
 		if prop and options[category].has(prop):
 			res = options[category][prop]

@@ -1,0 +1,34 @@
+{
+"LOD": {
+"lod_aspect_ratio": 150
+},
+"TreeManagerCache": {
+
+},
+"Update info": {
+"available": false,
+"day": "5",
+"hour": "12",
+"minute": "34",
+"month": "9",
+"second": "48",
+"year": "2019"
+},
+"_state_": {
+"game_state_id": "local_3616402253_4035614548",
+"set_lod_manager": NodePath("TreeManager")
+},
+"dev": {
+"3FPSlimit": true,
+"3FPSlimit_value": 30,
+"TreeManager": true,
+"decimate_percent": 90,
+"enable_areas_lod": true,
+"enable_collision_shapes": true,
+"hide_meshes_random": false,
+"lod_manager_path": "res://scripts/TreeManager.tscn"
+},
+"updater/client": {
+"check_at_startup": true
+}
+}

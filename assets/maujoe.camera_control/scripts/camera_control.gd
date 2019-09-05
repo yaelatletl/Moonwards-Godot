@@ -2,16 +2,16 @@
 # Copyright (c) 2018 Jaccomo Lorenz (Maujoe)
 
 extends Camera
-enum Mouse {
-	Visible,
-	Hidden, 
-	Caputered, 
-	Confined
+enum MOUSE {
+	VISIBLE,
+	HIDDEN, 
+	CAPUTERED, 
+	CONFINED
 	}
 # User settings:
 # General settings
 export var enabled : bool = true setget set_enabled
-export(Mouse) var mouse_mode : int = 2
+export(MOUSE) var mouse_mode : int = 2
 
 # Mouslook settings
 export var mouselook : bool = true

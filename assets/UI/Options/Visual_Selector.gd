@@ -1,6 +1,6 @@
 extends Control
-export(NodePath) var SlotOptionPath : String = "../../../VBoxContainer/SlotOption"
-onready var opt : Node = get_node(SlotOptionPath)
+export(NodePath) var slot_option_path : NodePath = "../../../VBoxContainer/SlotOption"
+onready var opt : OptionButton = get_node(slot_option_path)
 
 func _ready() -> void:
 	opt.emit_signal("item_selected",0)

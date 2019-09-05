@@ -21,7 +21,7 @@ func _ready() -> void:
 	UIManager.register_base_ui(self)
 
 	if utils.feature_check_updater():
-		UIManager.UIEvent(UIManager.UI_EVENTS.QUEUE_UI, "res://core/update/scenes/UpdateUI.tscn")
+		UIManager.ui_event(UIManager.UI_EVENTS.QUEUE_UI, "res://core/update/scenes/UpdateUI.tscn")
 		yield(get_tree(), "idle_frame")
 		printd("Set updater server")
 		options.Updater = UIManager._current_ui.RunUpdateServer()
@@ -116,7 +116,7 @@ func _on_continue_pressed() -> void:
 	if result == 1:
 		$VBoxContainer.show()
 		$VBoxContainer/UpdateUI.queue_free()
-		UIManager.NextUI(scenes.UpdateUI)
+		UIManager.next_ui(scenes.UpdateUI)
 	else:
 		$VBoxContainer.show()
 		$VBoxContainer/UpdateUI.queue_free()
