@@ -1,113 +1,21 @@
 extends PanelContainer
-
-var scripts = {
-	Updater = preload("res://core/update/scripts/Updater.gd")
-}
-var Updater : Node
-
 signal update_finished(result)
 
-func AddLogMessage(var text : String):
-
-	if not visible:
-		visible = true
-	$"HBoxContainer/TabContainer/Update log/VBoxContainer3/Panel/ScrollContainer/RichTextLabel".text += text + "\n"
-	
-func set_state(text):
-	
-	AddLogMessage(str(text))
-
-func set_progress_state(text):
-
-	var label = $HBoxContainer/VBoxContainer/State
-	label.text = text
-	
+var debug_id = "UI: Updater"
+var scripts = {
+	updater = preload("res://core/update/scripts/Updater.gd")
+}
+var updater : Node
+onready var Log : RichTextLabel = $"HBoxContainer/TabContainer/Update log/VBoxContainer3/Panel/ScrollContainer/RichTextLabel"
+onready var buttons : Button = $HBoxContainer/VBoxContainer/HBoxContainer/Button2
 
 
-func _on_update():
-	UpdateData()
-	$HBoxContainer/VBoxContainer/HBoxContainer/Button2.disabled = true
-	yield(Updater, "chain_cdu")
-	$HBoxContainer/VBoxContainer/HBoxContainer/Button2.disabled = false
-	$HBoxContainer/VBoxContainer/HBoxContainer/Button2.text = "Return"
-	Updater.ClientCloseConnection()
-
-
-func fn_network_ok():
-
-	AddLogMessage("Initiating network: ok")
-
-func fn_network_fail():
-
-	AddLogMessage("Initiating network failed")
-
-func fn_server_connected():
-
-	AddLogMessage( "Server connected")
-	Updater.ClientCheckForServer()
-
-func fn_server_disconnected():
-
-	AddLogMessage( "Server disconnected")
-	
-func fn_server_fail_connecting():
-
-	AddLogMessage( "Connection fail")
-
-func fn_server_online():
-
-	AddLogMessage( "Server online")
-	Updater.ClientCheckProtocol()
-	
-func fn_server_offline():
-
-	AddLogMessage( "Server offline")
-	
-func fn_client_protocol(state):
-
-	if state:
-		AddLogMessage( "correct version")
-		yield(get_tree(), "idle_frame")
-		yield(get_tree(), "idle_frame")
-		Updater.ClientCheckForUpdate()
-	else:
-		AddLogMessage("client update is required")
-		Updater.ClientCloseConnection()
-
-func fn_update_no_update():
-
-	AddLogMessage( "up to date")
-	Updater.ClientCloseConnection()
-
-func fn_update_to_update():
-	
-	AddLogMessage( "update available")
-	#$VBoxContainer/ClientStatus/StartUpdate.disabled = false
-	
-
-func fn_update_progress(percent):
-	$HBoxContainer/VBoxContainer/ProgressBar.value = percent
-
-func fn_update_finished():
-	set_progress_state("Update finished")
-
-func fn_error(msg):
-	AddLogMessage(msg)
-	set_progress_state("An error has occurred")
-	pass
-
-func fn_server_update_done():
-	set_progress_state("Server update finished")
-	
-func fn_client_update_done():
-	set_progress_state("Client update finished")
-	
-func _ready():
-	Updater = scripts.Updater.new()
-	Updater.SERVER_IP = "208.113.167.237"
-	Updater.connect("receive_update_message", self, "AddLogMessage")
-	Updater.root_tree = get_tree()
-	var signals = [ 
+func _ready() -> void:
+	updater = scripts.updater.new()
+	updater.SERVER_IP = "208.113.167.237"
+	updater.connect("receive_update_message", self, "AddLogMessage")
+	updater.root_tree = get_tree()
+	var signals : Array = [ 
 		"network_ok",
 		"network_fail",
 		"client_protocol",
@@ -125,17 +33,112 @@ func _ready():
 		"client_update_done",
 		"error"
 	]
-	for sg in signals:
-		Updater.connect(sg, self, "fn_%s" % sg)
+	for _signal in signals:
+		updater.connect(_signal, self, str("_on_", _signal))
 
-func UpdateData():
-	Updater.ClientOpenConnection()
-	var res = Updater.ui_ClientUpdateData()
+func add_log_message(var text : String) -> void:
+
+	if not visible:
+		visible = true
+	Log.text += text + "\n"
+	
+func set_state(text) -> void:
+	
+	add_log_message(str(text))
+
+func set_progress_state(text) -> void:
+
+	var label = $HBoxContainer/VBoxContainer/State
+	label.text = text
+	
+
+
+func _on_update() -> void:
+	update_data()
+	buttons.disabled = true
+	yield(updater, "chain_cdu")
+	buttons.disabled = false
+	buttons.text = "Return"
+	updater.ClientCloseConnection()
+
+
+func _on_network_ok() -> void:
+
+	add_log_message("Initiating network: ok")
+
+func _on_network_fail() -> void:
+
+	add_log_message("Initiating network failed")
+
+func _on_server_connected() -> void:
+
+	add_log_message( "Server connected")
+	updater.ClientCheckForServer()
+
+func _on_server_disconnected() -> void:
+
+	add_log_message( "Server disconnected")
+	
+func _on_server_fail_connecting() -> void:
+
+	add_log_message( "Connection fail")
+
+func _on_server_online() -> void:
+
+	add_log_message( "Server online")
+	updater.ClientCheckProtocol()
+	
+func _on_server_offline() -> void:
+
+	add_log_message( "Server offline")
+	
+func _on_client_protocol(state) -> void:
+
+	if state:
+		add_log_message( "correct version")
+		yield(get_tree(), "idle_frame")
+		yield(get_tree(), "idle_frame")
+		updater.ClientCheckForUpdate()
+	else:
+		add_log_message("client update is required")
+		updater.ClientCloseConnection()
+
+func _on_update_no_update() -> void:
+
+	add_log_message( "up to date")
+	updater.ClientCloseConnection()
+
+func _on_update_to_update() -> void:
+	
+	add_log_message( "update available")
+	#$VBoxContainer/ClientStatus/StartUpdate.disabled = false
+	
+
+func _on_update_progress(percent) -> void:
+	$HBoxContainer/VBoxContainer/ProgressBar.value = percent
+
+func _on_update_finished() -> void:
+	set_progress_state("Update finished")
+
+func _on_error(msg) -> void:
+	add_log_message(msg)
+	set_progress_state("An error has occurred")
+	pass
+
+func _on_server_update_done() -> void:
+	set_progress_state("Server update finished")
+	
+func _on_client_update_done() -> void:
+	set_progress_state("Client update finished")
+	
+
+func update_data() -> void:
+	updater.ClientOpenConnection()
+	var res = updater.ui_ClientUpdateData()
 	if res:
 		pass
 
-var debug_id = "UI: Updater"
 
-func printd(s):
+func printd(s) -> void:
 	logg.print_fd(debug_id, s)
 	

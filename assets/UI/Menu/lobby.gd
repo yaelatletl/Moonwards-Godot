@@ -1,12 +1,12 @@
 extends Control
 
 enum STATE {
-	init,
-	server_select, # waiting for sucess on server_select
-	client_connect, #waiting for client connection
-	last_record
+	INIT,
+	SERVER_SELECT, # WAITING FOR SUCESS ON SERVER_SELECT
+	CLIENT_CONNECT, #WAITING FOR CLIENT CONNECTION
+	LAST_RECORD
 }
-var state = STATE.init setget set_state
+var state = STATE.INIT setget set_state
 
 func set_name(name : String = "") -> void:
 	if name == "":
@@ -24,21 +24,21 @@ func _ready():
 
 func state_hide() -> void:
 	match state:
-		STATE.init:
+		STATE.INIT:
 			$connect.hide()
-		STATE.server_select:
+		STATE.SERVER_SELECT:
 			$WaitServer.hide()
-		STATE.client_connect:
+		STATE.CLIENT_CONNECT:
 			$WaitServer.hide()
 
 func state_show() -> void:
 	match state:
-		STATE.init:
+		STATE.INIT:
 			$connect.show()
-		STATE.server_select:
+		STATE.SERVER_SELECT:
 			$WaitServer/Label.text = "Setting the server up:\n"
 			$WaitServer.show()
-		STATE.client_connect:
+		STATE.CLIENT_CONNECT:
 			$WaitServer/Label.text = "Connecting to server:\n"
 			$WaitServer.show()
 
@@ -59,11 +59,11 @@ func sg_server_up():
 
 func sg_network_error(msg):
 	var oldstate = state
-	set_state(STATE.init)
+	set_state(STATE.INIT)
 	match oldstate:
-		STATE.server_select:
+		STATE.SERVER_SELECT:
 			$connect/error_label.text = "Error setting server : %s" % msg
-		STATE.client_connect:
+		STATE.CLIENT_CONNECT:
 			$connect/error_label.text = msg
 
 func sg_server_connected():
@@ -80,7 +80,7 @@ func _on_host_pressed() -> void:
 			colors = {"pants" : options.pants_color, "shirt" : options.shirt_color, "skin" : options.skin_color, "hair" : options.hair_color, "shoes" : options.shoes_color}
 		}
 		gamestate.player_register(player_data, true) #local player
-		self.state = STATE.server_select
+		self.state = STATE.SERVER_SELECT
 		binddef = {src = gamestate, dest = self }
 		bindsg("network_log")
 		bindsg("server_up")

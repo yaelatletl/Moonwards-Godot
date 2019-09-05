@@ -7,25 +7,25 @@ var resolutions : Array = [
 	Vector2(1920,1080)
 	]
 
+onready var Quality : MenuButton = $Main/Row3/Video/ModelQuality/Quality
+onready var Resolution : MenuButton = $Main/Row3/Video/Resolution/Resolution
+onready var UpdateCheck : CheckBox = $Main/Row1/Updating/UpdateCheck
+onready var FPSSlider : HSlider = $Main/Row3/Video/FPSLimit/FPSSlider
+onready var FPSSpin : SpinBox = $Main/Row3/Video/FPSLimit/FPSSpin
+
 func _ready() -> void:
-	var ResolutionPopup = $Main/Row3/Video/Resolution/Resolution.get_popup()
-	ResolutionPopup.connect("id_pressed", self, "_on_Resolution_change")
-	var DetailPopup = $Main/Row3/Video/ModelQuality/Quality.get_popup()
-	DetailPopup.connect("id_pressed", self, "_on_Detail_change")
-	$Main/Row1/Updating/UpdateCheck.pressed = options.get("updater/client", "check_at_startup", true)
+	Resolution.get_popup().connect("id_pressed", self, "_on_Resolution_change")
+	Quality.get_popup().connect("id_pressed", self, "_on_Detail_change")
+	UpdateCheck.pressed = options.get("updater/client", "check_at_startup", true)
 
-func _on_Detail_change(id) -> void:
-	var DetailPopup = $Main/Row3/Video/ModelQuality/Quality.get_popup()
-	var Det = DetailPopup.get_item_text(id)
-	$Main/Row3/Video/ModelQuality/Quality.text = Det
+func _on_Detail_change(id : int) -> void:
+	Quality.text = Quality.get_popup().get_item_text(id)
 
-func _on_Resolution_change(id) -> void:
-	var ResolutionPopup = $Main/Row3/Video/Resolution/Resolution.get_popup()
-	var Res = ResolutionPopup.get_item_text(id)
-	$Main/Row3/Video/Resolution/Resolution.text = Res
+func _on_Resolution_change(id : int) -> void:
+	Resolution.text = Resolution.get_popup().get_item_text(id)
 	
 func _on_UpdateCheck_pressed() -> void:
-	if $Main/Row1/Updating/UpdateCheck.pressed:
+	if UpdateCheck.pressed:
 		options.set("updater/client", true, "check_at_startup")
 	else:
 		options.set("updater/client", false, "check_at_startup")
@@ -33,8 +33,8 @@ func _on_UpdateCheck_pressed() -> void:
 
 
 func _on_FPSSpin_value_changed(value):
-	pass # Replace with function body.
+	FPSSlider.value = value
 
 
 func _on_FPSSlider_value_changed(value):
-	pass # Replace with function body.
+	FPSSpin.value = value

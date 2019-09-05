@@ -1,9 +1,12 @@
 extends PanelContainer
-var has_update = false
-var set_as_updater = false
-var UpdatingUI = "res://assets/UI/Menu/Updating_UI.tscn"
-var result 
+
 signal update_finished(result)
+
+var has_update : bool = false
+var set_as_updater : bool = false
+var UpdatingUI : String  = "res://assets/UI/Menu/Updating_UI.tscn"
+var result : int
+var debug_id : String = "About panel"
 
 func _ready() -> void:
 	has_update = options.get("Update info", "available", null)
@@ -12,32 +15,32 @@ func _ready() -> void:
 		$HBoxContainer2/VBoxContainer3/Update_check.text = "Update"
 		_on_update_finished(1)
 
-
-	options.Updater.connect("update_to_update", self, "fn_update_to_update")
+	options.Updater.connect("update_to_update", self, "_on_update_to_update")
 	if not options.get("Update info", "available", null):
 		$HBoxContainer2/VBoxContainer3/Version3.text = "Last checked: " 
-		var Date = OS.get_datetime()
-		var Data_to_show = " "
+		var Date : Dictionary = OS.get_datetime()
+		var Data_to_show : String = " "
 		if options.get("Update info", "day") != null:
-			Data_to_show += options.get("Update info", "day")+"/"
-			Data_to_show += options.get("Update info", "month")+"/"
-			Data_to_show += options.get("Update info", "year" )+" "
-			Data_to_show += options.get("Update info", "hour" )+":"
-			Data_to_show += options.get("Update info", "minute" )+":"
-			Data_to_show += options.get("Update info", "second" )
+			Data_to_show += str(options.get("Update info", "day"),"/")
+			Data_to_show += str(options.get("Update info", "month"),"/")
+			Data_to_show += str(options.get("Update info", "year" )," ")
+			Data_to_show += str(options.get("Update info", "hour" ),":")
+			Data_to_show += str(options.get("Update info", "minute"),":")
+			Data_to_show += str(options.get("Update info", "second"))
+
 		else:
 			Data_to_show += "Not available"
 		$HBoxContainer2/VBoxContainer3/Version3.text += Data_to_show
 	yield(get_tree(),"idle_frame")
 	yield(get_tree(),"idle_frame")
 	connect("update_finished",self,"_on_update_finished")
-
-
-
+	
+func printd(s) -> void:
+	logg.print_fd(debug_id, s)
 
 func check_for_update() -> void:
 	$HBoxContainer2/VBoxContainer3/Version3.text = "Gathering update information"
-	var res = options.Updater.ui_ClientCheckUpdate()
+	var res : Dictionary = options.Updater.ui_ClientCheckUpdate()
 	
 	if res["state"] == "gathering":
 		
@@ -61,6 +64,9 @@ func check_for_update() -> void:
 				has_update = false
 	printd("end gathering: %s" % res)
 	emit_signal("update_finished", result)
+
+func _on_update_to_update() -> void:
+	UIManager.NextUI(UpdatingUI)
 	
 func _on_update_finished(result : int) -> void:
 	var Status = $HBoxContainer2/VBoxContainer3/Version3
@@ -107,16 +113,8 @@ func _on_Update_check_pressed() -> void:
 	yield(get_tree(),"idle_frame")
 	if has_update:
 		set_as_updater = true
-		
-		fn_update_to_update()
-
-
+		_on_update_to_update()
+    
 func _on_Change_log_confirmed() -> void:
 	$Change_log.hide()
-
-func fn_update_to_update() -> void:
-	UIManager.NextUI(UpdatingUI)
-
-var  debug_id = "About panel"
-func printd(s) -> void:
-	logg.print_fd(debug_id, s)
+	

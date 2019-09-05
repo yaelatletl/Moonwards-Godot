@@ -1,29 +1,5 @@
 extends Node
 
-# Default game port
-const DEFAULT_PORT = 10567
-
-# Max number of players
-const MAX_PEERS = 12
-
-# remote players in id:player_data format
-var players = {}
-
-var network_id
-var local_id
-var chat_ui_resource = preload("res://assets/UI/chat/ChatUI.tscn")
-var chat_ui = null
-
-#
-# hold last error message
-var error_msg = "Ok"
-# indicate server role, mutial to client role
-var RoleServer = false
-#indicate client role, mutual to server role
-var RoleClient = false
-
-var RoleNoNetwork = false
-
 #global signals
 signal gslog(msg)
 # network user related
@@ -57,8 +33,69 @@ signal connection_succeeded
 signal game_ended
 signal game_error(what)
 
+# Default game port
+const DEFAULT_PORT : int = 10567
+
+# Max number of players
+const MAX_PEERS : int = 12
+
+# remote players in id:player_data format
+var players : Dictionary = {}
+var network_id : int 
+var local_id : String
+var chat_ui_resource : PackedScene = preload("res://assets/UI/chat/ChatUI.tscn")
+var chat_ui = null
+
+#
+# hold last error message
+var error_msg : String = "Ok"
+# indicate server role, mutial to client role
+var RoleServer : bool = false
+#indicate client role, mutual to server role
+var RoleClient : bool = false
+var RoleNoNetwork : bool = false
+
+var _queue_attach : Dictionary = {}
+var _queue_attach_on_tree_change_lock : bool= false #emits tree_change events on adding node, prevent stack overflow
+var _queue_attach_on_tree_change_prev_scene : String
+
+var server : Dictionary = {
+	host = "localhost",
+	ip = "127.0.0.1",
+	connection = null,
+	up = false
+}
+var client : Dictionary = {
+	host = "localhost",
+	ip = "127.0.0.1",
+	port = DEFAULT_PORT,
+	connection = null,
+	up = false
+}
+
+var NetworkUP : bool = false
+var PlayerSceneUP : bool = false
+#signal player(node_path) #emit when local player instanced to scene
 #################
 # util functions
+
+var level_loader : Object = preload("res://scripts/LevelLoader.gd").new()
+var world : Node = null
+var debug_id : String = "gamestate"
+func _ready():
+	#get_tree().connect("network_peer_connected", self, "_player_connected")
+
+	local_id = "local_%s_%s" % [randi(), randi()]
+
+	bindgg("network_log")
+	bindgg("gslog")
+	bindgg("player_scene")
+	bindgg("player_id")
+	queue_tree_signal(options.scene_id, "player_scene", true)
+	log_all_signals()
+	
+	connect("player_scene", self, "player_scene")
+	net_tree_connect()
 
 func bindsig(_signal, _sub, obj, obj2, d = 0):
 	if _sub == null:
@@ -104,7 +141,7 @@ func bindgg(_signal, _sub = null):
 #################
 #Track scene changes and add nodes or emit signals functions
 
-var _queue_attach = {}
+
 func queue_attach(path, node, permanent = false):
 	emit_signal("gslog", "attach queue(permanent %s): %s(%s)" % [permanent, path, node])
 	var packedscene
@@ -137,8 +174,7 @@ func queue_tree_signal(path, sig, permanent = false):
 		get_tree().connect("tree_changed", self, "queue_attach_on_tree_change")
 	
 
-var _queue_attach_on_tree_change_lock = false #emits tree_change events on adding node, prevent stack overflow
-var _queue_attach_on_tree_change_prev_scene
+
 func queue_attach_on_tree_change():
 	if _queue_attach_on_tree_change_lock:
 		return
@@ -265,12 +301,7 @@ func net_server_up():
 
 #################
 #Server functions
-var server = {
-	host = "localhost",
-	ip = "127.0.0.1",
-	connection = null,
-	up = false
-}
+
 
 func server_set_mode(host="localhost"):
 	if RoleClient :
@@ -341,13 +372,7 @@ func server_tree_user_disconnected(id):
 
 ################
 #Client functions
-var client = {
-	host = "localhost",
-	ip = "127.0.0.1",
-	port = DEFAULT_PORT,
-	connection = null,
-	up = false
-}
+
 
 func sg_connection_failed():
 	emit_signal("gslog", "client connection failed to %s(%s):%s" % [player_get("host"), player_get("ip"), player_get("port")])
@@ -631,25 +656,10 @@ func end_game():
 	players.clear()
 	get_tree().set_network_peer(null) # End networking
 
-func _ready():
-	#get_tree().connect("network_peer_connected", self, "_player_connected")
-
-	local_id = "local_%s_%s" % [randi(), randi()]
-
-	bindgg("network_log")
-	bindgg("gslog")
-	bindgg("player_scene")
-	bindgg("player_id")
-	queue_tree_signal(options.scene_id, "player_scene", true)
-	log_all_signals()
-	
-	connect("player_scene", self, "player_scene")
-	net_tree_connect()
-
 #################
 # debug functions
 
-var debug_id = "gamestate"
+
 func printd(s):
 	logg.print_fd(debug_id, s)
 
@@ -676,8 +686,6 @@ func log_all_signals_print_3(a1, a2, sg):
 #################
 # New UI functions
 
-var level_loader = preload("res://scripts/LevelLoader.gd").new()
-var world = null
 
 
 func loading_done(var error):
@@ -713,9 +721,7 @@ func load_level(var resource):
 # avatar network/scene functions
 
 #network and player scene state
-var NetworkUP = false
-var PlayerSceneUP = false
-#signal player(node_path) #emit when local player instanced to scene
+
 
 func net_up():
 	if PlayerSceneUP:

@@ -6,25 +6,45 @@ var Updater : Node
 var scripts : Dictionary = {
 	Updater = preload("res://core/update/scripts/Updater.gd")
 }
-#############################
-# user avatar options
-signal user_settings_changed
+# scene for players, node name wich serves an indicator
+var scene_id : String= "scene_id_30160"
 
-enum slots{
-	pants,
-	shirt,
-	skin,
-	hair,
-	shoes
+# scene we instance for each player
+var player_scene : PackedScene = preload("res://assets/Player/avatar_v2/player.tscn")
+
+# Join server host
+# var join_server_host = "127.0.0.1"
+# 
+# var join_server_host = "moonwards.hopto.org"
+var join_server_host : String = "mainhabs.moonwards.com"
+
+
+############################
+#       Other options      #
+############################
+var options : Dictionary = {
 }
 
-enum genders{
-	female,
-	male
+#############################
+#    user avatar options    #
+#############################
+signal user_settings_changed
+
+enum SLOTS{
+	PANTS,
+	SHIRT,
+	SKIN,
+	HAIR,
+	SHOES
+}
+
+enum GENDERS{
+	FEMALE,
+	MALE
 }
 
 var username : String = namelist.get_name()
-var gender : int = genders.female
+var gender : int = GENDERS.FEMALE
 var pants_color : Color = Color(6.209207/256,17.062728/256,135.632141/256,1)
 var shirt_color : Color = Color(0,233.62642/256,255/256,1)
 var skin_color : Color = Color(186.98631/256,126.435381/256,47.515679/256,1)
@@ -32,17 +52,18 @@ var hair_color : Color = Color(0,0,0,1)
 var shoes_color : Color = Color(0,0,0,1)
 var savefile_json
 
-var OptionsFile = "user://gameoptions.save"
-var User_file = "user://settings.save"
+var OptionsFile : String = "user://gameoptions.save"
+var User_file : String = "user://settings.save"
 
 #############################
-# debug function
+#       debug function      #
+#############################
 func printd(s):
 	logg.print_fd(id, s)
 
 #############################
 # load scene options
-var scenes = {
+var scenes : Dictionary = {
 	loaded = null,
 	default = "WorldTest",
 #	default_run_scene = "WorldTest2",
@@ -67,14 +88,15 @@ var scenes = {
 	}
 }
 
-var fly_cameras = [
+var fly_cameras : Array = [
 	{ "label" : "Fly Camera", 	"path" : "res://assets/Player/flycamera/player.tscn"},
 	{ "label" : "Media Camera", "path" : "res://assets/Player/flycamera_ac/player.tscn" }
 ]
 
 #############################
-#player instancing options
-var player_opt = {
+# player instancing options #
+#############################
+var player_opt : Dictionary = {
 	player_group = "player",
 	opt_allow_unknown = true,
 	PlayerGroup = "PlayerGroup", #local player group
@@ -121,7 +143,7 @@ var player_opt = {
 
 #############################
 # functions and variable to sort
-func set_defaults():
+func set_defaults() -> void:
 	# set some default values, probably improve that
 	get("dev", "enable_areas_lod", true)
 	get("dev", "enable_collision_shapes", true)
@@ -133,15 +155,15 @@ func set_defaults():
 	get("LOD", "lod_aspect_ratio", 150)
 	# get("dev", "lod_manager_path", "res://scripts/TreeManager.tscn")
 
-func player_opt(type, opt = null):
-	var res = {}
-	var filter = player_opt.opt_filter
-	var filter_id = "opt_filter_%s" % type
+func player_opt(type, opt : Dictionary = {}) -> Dictionary:
+	var res : Dictionary= {}
+	var filter : Dictionary = player_opt.opt_filter
+	var filter_id : int = "opt_filter_%s" % type
 	if player_opt.has(filter_id):
 		filter = player_opt[filter_id]
 
-	var allow_unknown = player_opt.opt_allow_unknown
-	if opt != null:
+	var allow_unknown : bool = player_opt.opt_allow_unknown
+	if opt != {}:
 		for k in opt:
 			if filter.has(k) and filter[k] or allow_unknown:
 				res[k] = opt[k]
@@ -151,30 +173,16 @@ func player_opt(type, opt = null):
 	if not player_opt.has(type):
 		printd("player_filter_opt, unknown player opt type %s" % type)
 	else:
-		var def_opt = player_opt[type]
+		var def_opt : Array = player_opt[type]
 		for k in def_opt:
 			res[k] = def_opt[k]
 	return res
 
-#scene for players, node name wich serves an indicator
-var scene_id = "scene_id_30160"
 
-#scene we instance for each player
-var player_scene = preload("res://assets/Player/avatar_v2/player.tscn")
 
-#Join server host
-#var join_server_host = "127.0.0.1"
-#var join_server_host = "moonwards.hopto.org"
-var join_server_host = "mainhabs.moonwards.com"
-
-############################
-############################
-#Other options
-var options = {
-}
-
-func _ready():
+func _ready() -> void:
 	Updater = scripts.Updater.new()
+	Updater.set_root_tree(get_tree())
 # 	print("debug set FPS to 3")
 # 	Engine.target_fps = 3
 	printd("load options and settings")
@@ -182,8 +190,8 @@ func _ready():
 	set_defaults()
 	LoadUserSettings()
 
-func load():
-	var savefile = File.new()
+func load()->void:
+	var savefile : File = File.new()
 	if not savefile.file_exists(OptionsFile):
 		printd("Nothing was saved before")
 	else:
@@ -196,16 +204,16 @@ func load():
 			options = content
 		printd("options loaded from %s" % OptionsFile)
 
-func save():
-	var savefile = File.new()
+func save() -> void:
+	var savefile : File = File.new()
 	savefile.open(OptionsFile, File.WRITE)
 	set("_state_", gamestate.local_id, "game_state_id")
 	savefile.store_line(var2str(options))
 	savefile.close()
 	printd("options saved to %s" % OptionsFile)
 
-func get(category, prop = null, default=null):
-	var res
+func get(category : String, prop = null, default=null) -> bool:
+	var res 
 	if options.has(category):
 		if prop and options[category].has(prop):
 			res = options[category][prop]
@@ -280,7 +288,7 @@ func LoadUserSettings():
 	print(savefile.get_as_text())
 	savefile_json = parse_json(savefile.get_as_text())
 	savefile.close()
-	gender = SafeGetSetting("gender", genders.female)
+	gender = SafeGetSetting("gender", GENDERS.FEMALE)
 	username = SafeGetSetting("username", "Player Name")
 
 	pants_color = SafeGetColor("pants", Color8(49,4,5,255))

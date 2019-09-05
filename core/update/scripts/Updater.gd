@@ -1,27 +1,43 @@
 extends Control
 
-var updater_enabled = true
-var upt_debug = false
-var root_tree setget set_root_tree #scene tree for set get network sockets
+signal receive_update_message
+signal update_ready
+signal update_progress(percent)
+signal update_ok
+signal update_fail
+signal server_update_done
+signal client_update_done
+#====
+signal network_ok
+signal network_fail
+signal client_protocol(state)
+signal server_connected
+signal server_disconnected
+signal server_fail_connecting
+signal server_online
+signal server_offline
+signal update_no_update
+signal update_to_update
+signal update_finished
+signal error(msg)
+# chain event
+signal chain_ccu
+signal chain_cdu
+signal state_events(signal_name, signal_data) # for ease of processing signals in one function
 
-func set_root_tree(value):
-	printd("set_root_tree: %s" % value)
-	if value != null:
-		#attach to tree for rpc calls
-		root_tree = value
-		root_tree.current_scene.add_child(self)
-		SetState("attach_tree", weakref(value))
-		set_name("UpdaterProcess")
-		printd("Updater attached to tree at %s/%s" % [root_tree.current_scene.name, root_tree.current_scene.get_path_to(self)])
-	else:
-		printd("fail to attach Updater to tree, required for RPC calls")
+const UPDATE_CHUNK_SIZE : int = 1000000
 
-
+var debug_id : String = "Updater"
+var updater_enabled : bool = true
+var upt_debug : bool = false
+var root_tree : SceneTree setget set_root_tree #scene tree for set get network sockets
 #var updater_enabled = true
 #var upt_debug = true
-var protocol_version = "0.1"
+var protocol_version : String = "0.1"
 
-const UPDATE_CHUNK_SIZE = 1000000
+var upt_info_cache : Dictionary = {}
+var upt_info_cache_max : int = 100
+
 
 #client send protocol version
 #server checks it and continue or update client message
@@ -34,28 +50,28 @@ const UPDATE_CHUNK_SIZE = 1000000
 #recalculate tree id
 #update finished
 
-var file = File.new()
-var directory = Directory.new()
+var file : File = File.new()
+var directory : Directory = Directory.new()
 #one packing thread
-var thread = Thread.new()
+var thread : Thread = Thread.new()
 
 var tree_md5_list
 var tree_md5id
 
-var SERVER_PORT = 10568
-var MAX_PLAYERS = 32
-var SERVER_IP = "127.0.0.1"
-var peer
-var client_ids = {}
+var SERVER_PORT : int = 10568
+var MAX_PLAYERS : int = 32
+var SERVER_IP : String = "127.0.0.1"
+var peer 
+var client_ids : Dictionary = {}
 
-var user_updates_path = "user://updates/"
-var user_updates_filter = "user://updates/ignore.lst"
-var server_updates_path = "user://update_cache" #no slash at the end
-var server_package_path = "user://updates_server/"
+var user_updates_path : String = "user://updates/"
+var user_updates_filter : String = "user://updates/ignore.lst"
+var server_updates_path : String = "user://update_cache" #no slash at the end
+var server_package_path : String = "user://updates_server/"
 
 #############################
 # update variables
-var update_filter = {
+var update_filter : Dictionary = {
 	#basic glob pattern match
 	"exclude" : [
 # 		"res://_tests/*",
@@ -70,13 +86,13 @@ var update_filter = {
 	]
 }
 
-var filter = update_filter
+var filter : Dictionary = update_filter
 
 #upate client paramteres
-var client_wait_timeout = 2 #seconds to wait
+var client_wait_timeout : int = 2 #seconds to wait
 #download update in chunks, fails to load big updates in one chunks
 #keep track on current downloading process
-var update_status = {
+var update_status : Dictionary = {
 	"role" : null,
 	"state" : "tobegin",
 	"fh" : null,
@@ -89,46 +105,43 @@ var update_status = {
 # update_status["fhn"]
 # update_status["target_size"]
 
+func _ready() -> void:
+	yield(root_tree, "idle_frame")
+	if not updater_enabled:
+		set_process(false)
+		return
+	Log("Updater enabled")
+	connect("update_ready", self, "thread_active_correction")
+	if not directory.dir_exists(user_updates_path):
+		directory.make_dir(user_updates_path)
+	if not directory.dir_exists(server_package_path):
+		directory.make_dir(server_package_path)
 
-signal receive_update_message
-signal update_ready
-signal update_progress(percent)
-signal update_ok
-signal update_fail
-signal server_update_done
-signal client_update_done
+func set_root_tree(value : SceneTree):
+	printd("set_root_tree: %s" % value)
+	if value != null:
+		#attach to tree for rpc calls
+		root_tree = value
+		root_tree.current_scene.add_child(self)
+		SetState("attach_tree", weakref(value))
+		set_name("UpdaterProcess")
+		printd("Updater attached to tree at %s/%s" % [root_tree.current_scene.name, root_tree.current_scene.get_path_to(self)])
+	else:
+		printd("fail to attach Updater to tree, required for RPC calls")
+
 
 func debug_unknown_status(stat, value):
 	printd("unknown_status: %s(%s)" % [stat, value])
 
-#====
-signal network_ok
-signal network_fail
-signal client_protocol(state)
-signal server_connected
-signal server_disconnected
-signal server_fail_connecting
-signal server_online
-signal server_offline
-signal update_no_update
-signal update_to_update
-signal update_finished
-signal error(msg)
 
-# chain event
-signal chain_ccu
-signal chain_cdu
-
-signal state_events(signal_name, signal_data) # for ease of processing signals in one function
-
-var ck_update = {
+var ck_update : Dictionary = {
 	state = null, 	#[null, gahtering, ready]
 	error = "", 			#[ok, message error]
 	server_online = null,	#[true, false, null]
 	update_client = null,	#[true, false]
 	update_data = null,		#[true, false]
 }
-func ui_ClientCheckUpdate(force = false):
+func ui_ClientCheckUpdate(force : bool = false):
 	printd("ui_ClientCheckUpdate(%s): %s" % [force, ck_update])
 	if force and ck_update.state == "ready":
 		ck_update.state = null
@@ -333,25 +346,25 @@ func SetState(stat, value):
 		_:
 			update_status[stat] = value
 
-func is_network_ok():
+func is_network_ok() -> void:
 	pass
-func is_server_online():
+func is_server_online() -> void:
 	pass
-func is_protocol_ok():
+func is_protocol_ok() -> void:
 	pass
-func is_update_client():
+func is_update_client() -> void:
 	pass
-func is_update_data():
+func is_update_data() -> void:
 	pass
 
-func GetState(stat):
+func GetState(stat) -> String:
 	var res = null
 	if stat != null and update_status.has(stat):
 		res = update_status[stat]
 	printd("GetState: %s = %s" % [stat, res])
 	return res
 
-func SetState_default():
+func SetState_default() -> void:
 	update_status = {
 			"role" : null,
 			"state" : "tobegin",
@@ -361,7 +374,7 @@ func SetState_default():
 			"current_size" : 0
 		}
 
-func ClientOpenConnection():
+func ClientOpenConnection() -> void:
 	if GetState("server") == "connected":
 		SetState("network", "ok")
 		return
@@ -388,20 +401,20 @@ func ClientOpenConnection():
 		root_tree.set_network_peer(peer)
 		SetState("network", "ok")
 
-func ClientCheckForServer():
+func ClientCheckForServer() -> void:
 	Log("Check server online")
 	toServer("ping")
 
-func ClientCheckProtocol():
+func ClientCheckProtocol() -> void:
 	Log("Check protocol version")
 	toServer("protocol_version", protocol_version)
 
-func ClientCheckForUpdate():
+func ClientCheckForUpdate() -> void:
 	if tree_md5id == null:
 		UpdateTreeID()
 	toServer("current_tree_id")
 
-func ClientCloseConnection():
+func ClientCloseConnection() -> void:
 	printd("ClientCloseConnection")
 	root_tree.set_network_peer(null)
 	SetState("server", "disconnected")
@@ -409,26 +422,9 @@ func ClientCloseConnection():
 		root_tree.disconnect("connected_to_server", self, "ClientConnectedOK")
 		root_tree.disconnect("connection_failed", self, "ClientConnectedFailed")
 		root_tree.disconnect("server_disconnected", self, "ClientDisconnectedByServer")
-		SetState("client network signals", null)
+		SetState("client network signals", null)	
 
-
-func _process(delta):
-	pass
-
-func _ready():
-	yield(root_tree, "idle_frame")
-	if not updater_enabled:
-		set_process(false)
-		return
-	Log("Updater enabled")
-	connect("update_ready", self, "thread_active_correction")
-	if not directory.dir_exists(user_updates_path):
-		directory.make_dir(user_updates_path)
-	if not directory.dir_exists(server_package_path):
-		directory.make_dir(server_package_path)
-	
-
-func toClient(client_id, command, data=null):
+func toClient(client_id : int, command : String, data=null) -> void:
 	match command:
 		"current_tree_id":
 			printd("toClient: %s %s" % [command, data])
@@ -440,11 +436,11 @@ func toClient(client_id, command, data=null):
 		if peer != null:
 			peer.disconnect_peer(client_id)
 
-func toServer(command, data=null):
+func toServer(command : String, data=null) -> void:
 	printd("toServer: %s" % command)
 	rpc_id(1, "UpdateProtocolServer", root_tree.get_network_unique_id(), command, data)
 
-func RunUpdateServer():
+func RunUpdateServer() -> void:
 	SetState("role", "server")
 
 	LoadPackages(server_package_path, true)
@@ -474,17 +470,17 @@ func RunUpdateServer():
 	emit_signal("server_update_done")
 	Log("Done!")
 
-func ServerPeerConnected(var id):
+func ServerPeerConnected(var id : int) -> void:
 	Log("Peer connected %s" % id)
 	client_ids[id] = {
 		"id" : id
 		}
 
-func ServerPeerDisconnected(var id):
+func ServerPeerDisconnected(var id : int) -> void:
 	Log("Peer disconnected %s" % id)
 	client_ids.erase(id)
 
-func RunUpdateClient():
+func RunUpdateClient() -> void:
 	SetState("role", "client")
 
 	#Load all previous packages so those won't have to be downloaded from the server.
@@ -502,7 +498,7 @@ func RunUpdateClient():
 	root_tree.connect("server_disconnected", self, "ClientDisconnectedByServer")
 	
 	peer = NetworkedMultiplayerENet.new()
-	var error = peer.create_client(SERVER_IP, SERVER_PORT)
+	var error : int = peer.create_client(SERVER_IP, SERVER_PORT)
 		
 	root_tree.set_network_peer(peer)
 	if error==0:
@@ -511,26 +507,26 @@ func RunUpdateClient():
 		Log("Connect to server. " + "Error code : " + str(error))
 	
 
-func ClientConnectedOK():
+func ClientConnectedOK() -> void:
 	Log("Connected OK.")
 	SetState("server", "connected")
 # 	ClientCheckProtocol()
 
-func ClientConnectedFailed():
+func ClientConnectedFailed() -> void:
 	Log("Connected Failed.")
 # 	SetState("network", "fail")
 	SetState("server", "fail")
 
-func ClientDisconnectedByServer():
+func ClientDisconnectedByServer() -> void:
 	Log("The server disconnected.")
 	SetState("server", "disconnected")
 
-func ClientWaitForUpdate():
+func ClientWaitForUpdate() -> void:
 	Log("wait for update")
 	yield(root_tree.create_timer(client_wait_timeout), "timeout")
 	toServer("tree_id", tree_md5id)
 
-func ClientUpdateInfo(info):
+func ClientUpdateInfo(info : Dictionary) -> int:
 	var size = -1
 	if info.has("size"):
 		size = info["size"]
@@ -541,7 +537,7 @@ func ClientUpdateInfo(info):
 	update_status["current_size"] = 0
 	return size
 
-remote func UpdateProtocolClient(command, data=null):
+remote func UpdateProtocolClient(command : String, data=null):
 	match command:
 		"pong":
 			Log("Server online")
@@ -588,7 +584,7 @@ remote func UpdateProtocolClient(command, data=null):
 			Log("unknown command/response from server, (%s)" % command)
 			ClientUpdateEnd(false)
 
-remote func UpdateProtocolServer(client_id, command, data=null):
+remote func UpdateProtocolServer(client_id : int, command : String, data = null) -> void:
 	printd("UpdateProtocolServer: %s" % command)
 	match command:
 		"ping":
@@ -607,7 +603,7 @@ remote func UpdateProtocolServer(client_id, command, data=null):
 			Log("unknown command/response from client, (%s)" % command)
 			toClient(client_id, "abort")
 
-func ClientUpdateFilter(info=null):
+func ClientUpdateFilter(info = null) -> void:
 	if info == null:
 		info = upt_info_load()
 	if info == null:
@@ -628,21 +624,21 @@ func ClientUpdateFilter(info=null):
 	
 	filter["ignore"] = filter["ignore"] + ignore_list
 
-func ClientUpdateEnd(sucess):
+func ClientUpdateEnd(sucess : bool) -> void:
 	SetState("update_data", sucess)
 	ClientCloseConnection()
 
-func upt_info_save(info):
-	var f = File.new()
+func upt_info_save(info) -> void:
+	var f : File = File.new()
 	Log("Save new filter list to file %s" % user_updates_filter)
 	f.open(user_updates_filter, File.WRITE)
 	f.store_var(info)
 	f.close()
 
 func upt_info_load():
-	var info
+	var info 
 	if file.file_exists(user_updates_filter):
-		var f = File.new()
+		var f : File = File.new()
 		Log("Load filter list from file %s" % user_updates_filter)
 		f.open(user_updates_filter, File.READ)
 		info = f.get_var()
@@ -691,8 +687,6 @@ func upt_compare_lists(src_list, dest_list):
 			result["update"].append(name)
 	return result
 
-var upt_info_cache = {}
-var upt_info_cache_max = 100
 func upt_info_cache_put(info, md5id):
 	upt_info_cache[md5id] = info
 	if upt_info_cache.size() > upt_info_cache_max:
@@ -1034,6 +1028,5 @@ func Log(var text):
 		emit_signal("receive_update_message", text)
 	printd(text)
 
-var debug_id = "Updater"
 func printd(s):
 	logg.print_fd(debug_id, s)

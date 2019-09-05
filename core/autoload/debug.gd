@@ -1,11 +1,21 @@
 extends Node
-var id
+var id : int
 
-var debug_id = "debug.gd"
-func printd(s):
+var camera_ready_path : String
+var camera_ready_oldcamera : Camera
+var camera : Camera
+var camera_path : String
+var camera_used : int
+var active : bool = false
+var pf_path : String 
+var hidden_nodes : Array = []
+var hidden_nodes_prob : float
+var debug_id : String = "debug.gd"
+
+func printd(s) -> void:
 	logg.print_fd(debug_id, s)
 
-func _input(event):
+func _input(event : InputEvent) -> void:
 	#print("debug event: %s" % event)
 	if event.is_action_pressed("debug_active_cameras"):
 		print_active_cameras()
@@ -24,7 +34,7 @@ func _input(event):
 	if event.is_action_pressed("mouse_toggle"):
 		mouse_toggle()
 
-func _ready():
+func _ready() -> void:
 	randomize()
 	id = randi()
 	gamestate.connect("scene_change", self, "on_scene_change")
@@ -41,7 +51,7 @@ func _ready():
 	#removes sticky and unreliable pressing release for key events, at slower FPS
 	Input.set_use_accumulated_input(false)
 	
-func on_tree_change():
+func on_tree_change() -> void:
 	printd("debug treechange")
 func on_node_added(node):
 	printd("added node %s" % node.get_path())
@@ -50,7 +60,7 @@ func on_node_removed(node):
 func tree_idle_frame():
 	printd("tree idle frame")
 
-func debug_apply_options():
+func debug_apply_options() -> void:
 	yield(get_tree(), "idle_frame")
 	printd("Apply options to new player scene")
 	e_collision_shapes(options.get("dev", "enable_collision_shapes"))
@@ -65,12 +75,7 @@ func debug_apply_options():
 	if not options.get_tree_opt("NoCamera"):
 		camera_ready()
 
-var camera_ready_path
-var camera_ready_oldcamera
-var camera
-var camera_path
-var camera_used
-func camera_ready(force=false):
+func camera_ready(force : bool = false) -> void:
 	#The debug camera can not be spawned when the chat or other UI is active.
 	if UIManager.has_ui and not camera_ready_path:
 		return
@@ -83,12 +88,12 @@ func camera_ready(force=false):
 		if camera_ready_oldcamera:
 			camera_ready_oldcamera.current = true
 		camera_ready_oldcamera = null
-		camera_ready_path = null
+		camera_ready_path = ''
 		yield(get_tree(), "idle_frame")
 		UIManager.clear_ui()
 		return
 	
-	var active = false
+	
 	camera_ready_oldcamera = get_tree().root.get_viewport().get_camera()
 	if camera_ready_oldcamera:
 		active = true
@@ -104,30 +109,30 @@ func camera_ready(force=false):
 			camera.camera.global_transform = camera_ready_oldcamera.global_transform
 		printd("added fly camera to scene, index %s" % camera_used)
 
-func on_scene_change():
+func on_scene_change() -> void:
 	printd("on_scene_change")
 	options.del_state("set_lod_manager")
 	debug_apply_options()
 
-func user_scene_changed():
+func user_scene_changed() -> void:
 	#reset scene specific things
 	pass
 
 
-func print_active_cameras():
+func print_active_cameras() -> void:
 	var root = get_tree().current_scene
 	var cameras = utils.get_nodes_type(root, "Camera", true)
 	for p in cameras:
 		printd("%s(%s)" % [p, root.get_node(p).current])
 
-func set_active_camera():
+func set_active_camera() -> void:
 	printd("set camera to local player: %s" % gamestate.local_id)
 	gamestate.player_local_camera()
 
-remote func test_remote_call():
+remote func test_remote_call() -> void:
 	print("test_remote_call (%s)" % id)
 
-func set_3fps(enable, value = 3):
+func set_3fps(enable : bool, value : int = 3) -> void:
 	if enable:
 		printd("debug set FPS to %s" % round(value))
 		Engine.target_fps = round(value)
@@ -135,10 +140,10 @@ func set_3fps(enable, value = 3):
 		printd("debug set FPS to 0")
 		Engine.target_fps = 0
 
-func e_area_lod(enable=true):
+func e_area_lod(enable : bool = true) -> void:
 	pass
 
-func e_collision_shapes(enable=true):
+func e_collision_shapes(enable : bool = true):
 	var root = utils.scene
 	var cs_objects = utils.get_cs_list_cs(root)
 	printd("e_collision_shape(enable=%s), found : %s" % [enable, cs_objects.size()])
@@ -146,7 +151,7 @@ func e_collision_shapes(enable=true):
 		var obj = root.get_node(p)
 		obj.disabled = !enable
 
-func hide_obj_check(root, path):
+func hide_obj_check(root : Node, path : NodePath) -> bool:
 	var obj = root.get_node(path)
 	var hide = true
 	if utils.obj_has_groups(obj, utils.cs_options.hide_protect):
@@ -161,11 +166,10 @@ func hide_obj_check(root, path):
 
 
 #Hide MeshInstance nodes with a chance defined by probability
-var hidden_nodes = []
-var hidden_nodes_prob
-func hide_nodes_random(probability=null):
+
+func hide_nodes_random(probability : int = -1) -> void:
 	var root = get_tree().current_scene
-	if probability == null:
+	if probability == -1:
 		probability = options.get("decimate", "probability", 80)
 	if probability == 0:
 		#unhide all nodes
@@ -173,10 +177,10 @@ func hide_nodes_random(probability=null):
 		for p in hidden_nodes:
 			root.get_node(p).visible = true
 		hidden_nodes = []
-		hidden_nodes_prob = null
+		hidden_nodes_prob = 0
 		return
 	
-	var nodes = utils.get_nodes_type(root, "MeshInstance", true)
+	var nodes : Array = utils.get_nodes_type(root, "MeshInstance", true)
 	print("hide nodes, total(%s) already hidden(%s) probability(%s)" % [nodes.size(), hidden_nodes.size(), probability])
 	if nodes.size() < 1 :
 		return
@@ -190,12 +194,12 @@ func hide_nodes_random(probability=null):
 				hidden_nodes.append(p)
 	print("hide nodes, total(%s) already hidden(%s) probability(%s)" % [nodes.size(), hidden_nodes.size(), probability])
 
-var pf_path
-func show_performance_monitor(enable):
+
+func show_performance_monitor(enable : bool) -> void:
 	if enable and not pf_path:
-		var packedscene = ResourceLoader.load("res://scripts/PerformanceMonitor.tscn")
-		var root = get_tree().current_scene
-		var pf = packedscene.instance()
+		var packedscene : PackedScene = ResourceLoader.load("res://scripts/PerformanceMonitor.tscn")
+		var root : Node = get_tree().current_scene
+		var pf : Node = packedscene.instance()
 		root.add_child(pf)
 		pf_path = root.get_path_to(pf)
 		options.set("_state_", true, "perf_mon")
@@ -204,10 +208,10 @@ func show_performance_monitor(enable):
 		var pf = root.get_node(pf_path)
 		if pf:
 			pf.queue_free()
-		pf_path = null
+		pf_path = ""
 		options.set("_state_", false, "perf_mon")
 
-func set_lod_manager(enable):
+func set_lod_manager(enable : bool) -> void:
 	var slm = options.get("_state_", "set_lod_manager")
 	var root = get_tree().current_scene
 	if slm == null:
@@ -248,7 +252,7 @@ func set_lod_manager(enable):
 		tm.lod_aspect_ratio = options.get("LOD", "lod_aspect_ratio")
 	tm.enabled = enable
 
-func features_list(enabled_only=true):
+func features_list(enabled_only : bool = true) -> void:
 	var features = [
 		{ opt = "Android", hint = "Running on Android" },
 		{ opt = "HTML5", hint = "Running on HTML5" },
@@ -292,14 +296,14 @@ func features_list(enabled_only=true):
 			printd("OS::%s has %s" % [f.opt, OS.has_feature(f.opt)])
 	
 
-func print_current_players():
+func print_current_players() -> void:
 	printd("gamestate players")
 	print(gamestate.players)
 	for p in gamestate.players.keys():
 		printd("player %s" % gamestate.players[p])
 		printd("obj at %s" % gamestate.players[p].obj.get_path())
 
-func print_groups():
+func print_groups() -> void:
 	#get_nodes_in_group("LODElement)
 	printd("List of nodes in LODElement group")
 	for obj in get_tree().get_nodes_in_group("LODElement"):
@@ -313,7 +317,7 @@ func print_groups():
 # 	for p in get_tree().call_group("wall", "get_path"):
 # 		printd(p)
 
-func dir_contents(path="res://"):
+func dir_contents(path : String = "res://") -> void:
 	var dir = Directory.new()
 
 	if dir.open(path) == OK:
@@ -331,7 +335,7 @@ func dir_contents(path="res://"):
 	else:
 		print("An error occurred when trying to access the path.")
 
-func mouse_toggle():
+func mouse_toggle() -> void:
 	match Input.get_mouse_mode():
 		Input.MOUSE_MODE_VISIBLE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
