@@ -5,16 +5,16 @@ signal save
 var signal_close = false
 
 const id = "Options.gd"
-func printd(s):
+func printd(s) -> void:
 	logg.print_fd(id, s)
 
-func get_tab_index():
+func get_tab_index() -> int:
 	return $TabContainer.current_tab
 
-func set_tab_index(index):
+func set_tab_index(index) -> void:
 	$TabContainer.current_tab = index
 
-func close():
+func close() -> void:
 	options.set("state", $TabContainer.current_tab, "menu_options_tab")
 	emit_signal("save")
 	if not signal_close:
@@ -22,7 +22,7 @@ func close():
 	else:
 		emit_signal("close")
 
-func _ready():
+func _ready() -> void:
 	print("option control ready")
 	var button
 	button = $TabContainer/Dev/VBoxContainer/tAreas
@@ -58,7 +58,7 @@ func _ready():
 	button.button.selected = options.get("dev", "flycamera", 0)
 	button.connect("changed", self, "set_fly_camera")
 
-func _get_player():
+func _get_player() -> Node:
 	var res
 	var tree = get_tree()
 	var pg = options.player_opt.player_group
@@ -68,7 +68,7 @@ func _get_player():
 			res = player
 	return res
 
-func init_playerspeed_control(button):
+func init_playerspeed_control(button) -> void:
 	var player = _get_player()
 	if player:
 		button.enabled = true
@@ -79,36 +79,36 @@ func init_playerspeed_control(button):
 		button.enabled = false
 		button.value = 0
 
-func set_player_speed(value):
+func set_player_speed(value) -> void:
 	var player = _get_player()
 	if player:
 		player.set("SPEED_SCALE", value)
 		printd("set_player_speed to value %s" % value)
 
-func _on_GameState_tab_clicked(tab):
+func _on_GameState_tab_clicked(tab) -> void:
 	print("_on_GameState_tab_clicked(tab): ", tab)
 
-func _on_GameState_tab_changed(tab):
+func _on_GameState_tab_changed(tab) -> void:
 	print("_on_GameState_tab_changed(tab): ", tab)
 
-func _on_GameState_tab_hover(tab):
+func _on_GameState_tab_hover(tab) -> void:
 	print("_on_GameState_tab_hover(tab): ", tab)
 
-func _on_VBoxContainer_focus_entered():
+func _on_VBoxContainer_focus_entered() -> void:
 	print("func _on_VBoxContainer_focus_entered()")
 	pass # replace with function body
 
-func _on_tAreas_pressed():
+func _on_tAreas_pressed() -> void:
 	var button = $TabContainer/Dev/VBoxContainer/tAreas
 	debug.e_area_lod(button.pressed)
 	options.set("dev", button.pressed, "enable_areas_lod")
 
-func _on_tCollisionShapes_pressed():
+func _on_tCollisionShapes_pressed() -> void:
 	var button = $TabContainer/Dev/VBoxContainer/tCollisionShapes
 	debug.e_collision_shapes(button.pressed)
 	options.set("dev", button.pressed, "enable_collision_shapes")
 
-func _on_tFPSLim_pressed():
+func _on_tFPSLim_pressed() -> void:
 	var button = $TabContainer/Dev/VBoxContainer/tFPSLim
 	var button2 = $TabContainer/Dev/VBoxContainer/sFPSLim
 	debug.set_3fps(button.pressed, button2.value)

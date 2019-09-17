@@ -7,13 +7,9 @@ enum STATE {
 	LAST_RECORD
 }
 var state = STATE.INIT setget set_state
+var binddef : Dictionary = { src = null, dest = null }
 
-func set_name(name : String = "") -> void:
-	if name == "":
-		name = namelist.get_name()
-	$connect/name.text = name
-
-func _ready():
+func _ready() -> void:
 	set_name(options.username)
 	# Called every time the node is added to the scene.
 # 	gamestate.connect("connection_failed", self, "_on_connection_failed")
@@ -21,6 +17,12 @@ func _ready():
 # 	gamestate.connect("player_list_changed", self, "refresh_lobby")
 # 	gamestate.connect("game_ended", self, "_on_game_ended")
 # 	gamestate.connect("game_error", self, "_on_game_error")
+
+func set_name(name : String = "") -> void:
+	if name == "":
+		name = namelist.get_name()
+	$connect/name.text = name
+
 
 func state_hide() -> void:
 	match state:
@@ -42,22 +44,31 @@ func state_show() -> void:
 			$WaitServer/Label.text = "Connecting to server:\n"
 			$WaitServer.show()
 
-func set_state(nstate):
+func set_state(nstate) -> void:
 	state_hide()
 	state = nstate
 	state_show()
+	
+func refresh_lobby() -> void:
+	var players = gamestate.get_player_list()
+	players.sort()
+	$PlayersList/list.clear()
+	$PlayersList/list.add_item(gamestate.get_player_name() + " (You)")
+	for p in players:
+		$PlayersList/list.add_item(p)
+	$PlayersList/start.disabled=not get_tree().is_network_server()
 
-func sg_network_log(msg):
+func sg_network_log(msg) -> void:
 	$WaitServer/Label.text = "%s%s\n" % [$WaitServer/Label.text, msg]
 
-func sg_server_up():
+func sg_server_up() -> void:
 	var worldscene = options.scenes.default_multiplayer_scene
 	sg_network_log("change scene to %s" % worldscene)
 	yield(get_tree().create_timer(2), "timeout")
 	state_hide()
 	gamestate.change_scene(worldscene)
 
-func sg_network_error(msg):
+func sg_network_error(msg) -> void:
 	var oldstate = state
 	set_state(STATE.INIT)
 	match oldstate:
@@ -66,8 +77,34 @@ func sg_network_error(msg):
 		STATE.CLIENT_CONNECT:
 			$connect/error_label.text = msg
 
-func sg_server_connected():
+func sg_server_connected() -> void:
 	sg_server_up()
+	
+func _bindsg(_signal, _sub = null):
+	var obj = binddef.src
+	var obj2 = binddef.dest
+	#tree signal to self
+	if obj == null:
+		obj = get_tree()
+	if obj2 == null:
+		obj2 = self
+	if _sub == null:
+		_sub = "sg_%s" % _signal
+	if not obj.is_connected(_signal, obj2, _sub):
+		obj.connect(_signal, obj2, _sub)
+
+func _bindgs(_signal, _sub = null):
+	var obj = binddef.src
+	var obj2 = binddef.dest
+	#tree signal to self
+	if obj == null:
+		obj = get_tree()
+	if obj2 == null:
+		obj2 = self
+	if _sub == null:
+		_sub = "sg_%s" % _signal
+	if obj.is_connected(_signal, obj2, _sub):
+		obj.disconnect(_signal, obj2, _sub)
 
 func _on_host_pressed() -> void:
 	if not (gamestate.RoleServer or gamestate.RoleClient):
@@ -82,9 +119,9 @@ func _on_host_pressed() -> void:
 		gamestate.player_register(player_data, true) #local player
 		self.state = STATE.SERVER_SELECT
 		binddef = {src = gamestate, dest = self }
-		bindsg("network_log")
-		bindsg("server_up")
-		bindsg("network_error")
+		_bindsg("network_log")
+		_bindsg("server_up")
+		_bindsg("network_error")
 		gamestate.server_set_mode()
 	else:
 		emit_signal("network_error", "Already in server or client mode")
@@ -103,9 +140,9 @@ func _on_join_pressed() -> void:
 		}
 		gamestate.player_register(player_data, true) #local player
 		binddef = {src = gamestate, dest = self }
-		bindsg("network_log")
-		bindsg("server_connected")
-		bindsg("network_error")
+		_bindsg("network_log")
+		_bindsg("server_connected")
+		_bindsg("network_error")
 		gamestate.client_server_connect($connect/ipcontainer/ip.text)
 		return
 	else: 
@@ -131,20 +168,9 @@ func _on_game_error(errtxt) -> void:
 	$error.dialog_text = errtxt
 	$error.popup_centered_minsize()
 
-func refresh_lobby() -> void:
-	var players = gamestate.get_player_list()
-	players.sort()
-	$PlayersList/list.clear()
-	$PlayersList/list.add_item(gamestate.get_player_name() + " (You)")
-	for p in players:
-		$PlayersList/list.add_item(p)
-
-	$PlayersList/start.disabled=not get_tree().is_network_server()
-
 func _on_start_pressed() -> void:
 	gamestate.begin_game()
 	hide()
-
 
 func _on_Sinlgeplayer_pressed() -> void:
 	var worldscene = options.scenes.default_singleplayer_scene
@@ -165,34 +191,3 @@ func _on_Sinlgeplayer_pressed() -> void:
 func _on_Button2_pressed() -> void:
 	set_name()
 	yield(get_tree().create_timer(0.1), "timeout")
-
-#################
-# utils
-var binddef : Dictionary = { src = null, dest = null }
-func bindsg(_signal, _sub = null):
-	var obj = binddef.src
-	var obj2 = binddef.dest
-	#tree signal to self
-	if obj == null:
-		obj = get_tree()
-	if obj2 == null:
-		obj2 = self
-	if _sub == null:
-		_sub = "sg_%s" % _signal
-	if not obj.is_connected(_signal, obj2, _sub):
-		obj.connect(_signal, obj2, _sub)
-
-func bindgs(_signal, _sub = null):
-	var obj = binddef.src
-	var obj2 = binddef.dest
-	#tree signal to self
-	if obj == null:
-		obj = get_tree()
-	if obj2 == null:
-		obj2 = self
-	if _sub == null:
-		_sub = "sg_%s" % _signal
-	if obj.is_connected(_signal, obj2, _sub):
-		obj.disconnect(_signal, obj2, _sub)
-
-
