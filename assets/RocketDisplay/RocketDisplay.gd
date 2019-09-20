@@ -1,112 +1,111 @@
 extends Spatial
 
-var slide_buttons = []
-var info_boxes = []
-var current_stage = 1
-var max_stages = 5
-var transition_duration = 1.0
-var transition_timer = transition_duration
-var transition_transform_from
-var transition_transform_to_object
-var return_camera
+export(NodePath) var camera_path : NodePath
 
-export(NodePath) var camera_path
-onready var camera = get_node(camera_path)
+const MAX_STAGES : int = 5
+const TRANSITION_DURATION : float = 1.0
 
-func _ready():
-	$Control.visible = false
-	$AnimationPlayer.connect("animation_finished", self, "AnimationFinished")
+onready var camera : Node = get_node(camera_path)
+onready var main_ui : Node = $Control
+onready var display_animation_player : Node = $AnimationPlayer
+onready var rocket_animation_player : Node = $Rocket/RocketBody/ThrustFanBlades_Opt/AnimationPlayer
+onready var previous_button : Node = $Control/VBoxContainer/MainWindow/PreviousButton
+onready var next_button : Node = $Control/VBoxContainer/MainWindow/NextButton
+onready var billboard : Node = $CollisionShape/Display
+onready var camera_pivot : Node = $CameraPivot
+onready var camera_position : Node = $CameraPivot/CameraPosition
+
+var _current_stage : int = 1
+var _transition_timer : float = TRANSITION_DURATION
+var _transition_transform_from : Transform
+var _transition_transform_to_object : Node
+var _return_camera : Node
+
+func _ready() -> void:
+	main_ui.visible = false
+	display_animation_player.connect("animation_finished", self, "animation_finished")
 #	yield(get_tree(), "idle_frame")
-#	Activate()
+#	activate()
 
-func RegisterInfoBox(var node):
-	info_boxes.append(node)
+func _process(delta : float) -> void:
+	if _transition_timer < TRANSITION_DURATION:
+		_transition_timer += delta
+		camera.global_transform = _transition_transform_from.interpolate_with(_transition_transform_to_object.global_transform, _ease_in_out_quad(_transition_timer / TRANSITION_DURATION))
+		if _transition_timer > TRANSITION_DURATION:
+			if _current_stage == 0 or _current_stage == MAX_STAGES + 1:
+				deactivate()
 
-func _process(delta):
-	if transition_timer < transition_duration:
-		transition_timer += delta
-		$CameraPivot/CameraPosition/Camera.global_transform = transition_transform_from.interpolate_with(transition_transform_to_object.global_transform, EaseInOutQuad(transition_timer / transition_duration))
-		if transition_timer > transition_duration:
-			if current_stage == 0 or current_stage == max_stages + 1:
-				DeActivate()
-
-func EaseInOutQuad(t):
+func _ease_in_out_quad(t : float) -> float:
 	return 2*t*t if t<.5 else -1+(4-2*t)*t
 
-func AnimationFinished(var animation_name):
-	$CameraPivot.SetEnabled(true)
+func animation_finished(animation_name : String) -> void:
+	camera_pivot.set_enabled(true)
 
-func Activate():
-	$CollisionShape/Display.visible = false
-	return_camera = get_tree().root.get_camera()
-	camera.global_transform = return_camera.global_transform
-	
+func activate() -> void:
+	billboard.visible = false
+	_return_camera = get_tree().root.get_camera()
+	camera.global_transform = _return_camera.global_transform
+
 	camera.current = true
-	
+
 	UIManager.request_focus()
 	UIManager.free_mouse()
-	current_stage = 1
-	GoToCurrentStage()
-	$Control.visible = true
+	_current_stage = 1
+	_go_to__current_stage()
+	main_ui.visible = true
 
-func DeActivate():
-	$CollisionShape/Display.visible = true
+func deactivate() -> void:
+	billboard.visible = true
 	camera.current = false
-	current_stage = 0
-	$Control.visible = false
+	_current_stage = 0
+	main_ui.visible = false
 	UIManager.release_focus()
 	UIManager.lock_mouse()
 
-func StartBladesAnimation():
-	$Rocket/RocketBody/ThrustFanBlades_Opt/AnimationPlayer.play("BladesRotate")
+func start_blades_animation() -> void:
+	rocket_animation_player.play("BladesRotate")
 
-func StopBladesAnimation():
-	$Rocket/RocketBody/ThrustFanBlades_Opt/AnimationPlayer.stop()
+func stop_blades_animation() -> void:
+	rocket_animation_player.stop()
 
-func RegisterSlideButton(var button):
-	slide_buttons.append(button)
-
-func NextStage():
-	if $AnimationPlayer.is_playing():
+func next_stage() -> void:
+	if display_animation_player.is_playing():
 		return
-	current_stage += 1
-	GoToCurrentStage()
+	_current_stage += 1
+	_go_to__current_stage()
 
-func PreviousStage():
-	if $AnimationPlayer.is_playing():
+func previous_stage() -> void:
+	if display_animation_player.is_playing():
 		return
-	current_stage -= 1
-	GoToCurrentStage()
+	_current_stage -= 1
+	_go_to__current_stage()
 
-func GoToCurrentStage():
-	if current_stage > 0 and current_stage < max_stages + 1:
-		if current_stage == 1:
-			$Control/VBoxContainer/MainWindow/PreviousButton.text = "Quit"
+func _go_to__current_stage() -> void:
+	if range(1, MAX_STAGES + 1).has(_current_stage):
+		if _current_stage == 1:
+			previous_button.text = "Quit"
 		else:
-			$Control/VBoxContainer/MainWindow/PreviousButton.text = "Previous"
-		
-		if current_stage == max_stages:
-			$Control/VBoxContainer/MainWindow/NextButton.text = "Quit"
-		else:
-			$Control/VBoxContainer/MainWindow/NextButton.text = "Next"
-		
-		$AnimationPlayer.play("Stage" + str(current_stage))
-	else:
-		$AnimationPlayer.play("Stage0")
-	
-	for info_box in info_boxes:
-		info_box.visible = false
-	
-	GoToCameraStage()
+			previous_button.text = "Previous"
 
-func GoToCameraStage():
-	transition_transform_from = camera.global_transform
-	
-	if current_stage > 0 and current_stage < max_stages + 1:
-		transition_transform_to_object = $CameraPivot/CameraPosition
+		if _current_stage == MAX_STAGES:
+			next_button.text = "Quit"
+		else:
+			next_button.text = "Next"
+
+		display_animation_player.play("Stage" + str(_current_stage))
 	else:
-		transition_transform_to_object = return_camera
-	
-	transition_timer = 0.0
-	
-	$CameraPivot.SetEnabled(false)
+		display_animation_player.play("Stage0")
+
+	_go_to_camera_stage()
+
+func _go_to_camera_stage() -> void:
+	_transition_transform_from = camera.global_transform
+
+	if range(1, MAX_STAGES + 1).has(_current_stage):
+		_transition_transform_to_object = camera_position
+	else:
+		_transition_transform_to_object = _return_camera
+
+	_transition_timer = 0.0
+
+	camera_pivot.set_enabled(false)
