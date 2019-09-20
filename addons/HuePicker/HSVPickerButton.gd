@@ -1,13 +1,13 @@
 tool
 extends Button
 
-export(Color) var color setget set_color, get_color
+export(Color) var color setget set_Color, get_Color
 signal color_changed(color)
 export(bool) var enabled = true
 
 var isReady = false
 
-func set_color(value):
+func set_Color(value):
 	color = value
 	emit_signal('color_changed', value)
 
@@ -21,7 +21,7 @@ func set_color(value):
 		$ColorRect.self_modulate.a = color.a
 		
 
-func get_color():
+func get_Color():
 	return color
 
 func get_color_from_popup(color):  #Receiving the color from the hue picker
@@ -87,7 +87,7 @@ func _on_PopupPanel_about_to_show():
 	$PopupPanel/HuePicker.connect('color_changed',self,"get_color_from_popup")
 
 	#Bodge to correct the picker if the color was set here externally.
-	$"PopupPanel/HuePicker/Hue Circle"._sethue(color.h,self)
+	$PopupPanel/HuePicker/HueCircle._sethue(color.h)
 	$PopupPanel/HuePicker._on_HuePicker_color_changed(color)
 		
 func _on_PopupPanel_popup_hide():

@@ -8,8 +8,8 @@ func _on_ColorPicker_focus_entered():
 	Focused = true 
 func _on_ColorPicker_focus_exited():
 	Focused = false
-func _Focused():
-	Print ("WARNING:  Attempting to set read-only var ColorPicker.Focused") 
+func _Focused(ins):
+	print ("WARNING:  Attempting to set read-only var ColorPicker.Focused") 
 
 
 func _ready():
