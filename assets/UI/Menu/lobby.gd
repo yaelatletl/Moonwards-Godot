@@ -8,6 +8,7 @@ enum STATE {
 }
 var state = STATE.INIT setget set_state
 var binddef : Dictionary = { src = null, dest = null }
+onready var ServerWait = $WaitServer/Label.text
 
 func _ready() -> void:
 	set_name(options.username)
@@ -22,6 +23,15 @@ func set_name(name : String = "") -> void:
 	if name == "":
 		name = namelist.get_name()
 	$connect/name.text = name
+	
+func refresh_lobby() -> void:
+	var players = gamestate.get_player_list()
+	players.sort()
+	$PlayersList/list.clear()
+	$PlayersList/list.add_item(gamestate.get_player_name() + " (You)")
+	for p in players:
+		$PlayersList/list.add_item(p)
+	$PlayersList/start.disabled=not get_tree().is_network_server()
 
 
 func state_hide() -> void:
@@ -44,7 +54,7 @@ func state_show() -> void:
 			$WaitServer/Label.text = "Connecting to server:\n"
 			$WaitServer.show()
 
-func set_state(nstate) -> void:
+func set_state(nstate : int)-> void:
 	state_hide()
 	state = nstate
 	state_show()
@@ -58,8 +68,8 @@ func refresh_lobby() -> void:
 		$PlayersList/list.add_item(p)
 	$PlayersList/start.disabled=not get_tree().is_network_server()
 
-func sg_network_log(msg) -> void:
-	$WaitServer/Label.text = "%s%s\n" % [$WaitServer/Label.text, msg]
+func sg_network_log(msg : String) -> void:
+	ServerWait = "%s%s\n" % [$WaitServer/Label.text, msg]
 
 func sg_server_up() -> void:
 	var worldscene = options.scenes.default_multiplayer_scene
@@ -68,7 +78,7 @@ func sg_server_up() -> void:
 	state_hide()
 	gamestate.change_scene(worldscene)
 
-func sg_network_error(msg) -> void:
+func sg_network_error(msg : String) -> void:
 	var oldstate = state
 	set_state(STATE.INIT)
 	match oldstate:
@@ -194,7 +204,7 @@ func _on_Button2_pressed() -> void:
 
 #################
 # utils
-var binddef : Dictionary = { src = null, dest = null }
+
 func bindsg(_signal, _sub = null):
 	var obj = binddef.src
 	var obj2 = binddef.dest
