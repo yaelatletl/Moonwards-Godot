@@ -191,3 +191,33 @@ func _on_Sinlgeplayer_pressed() -> void:
 func _on_Button2_pressed() -> void:
 	set_name()
 	yield(get_tree().create_timer(0.1), "timeout")
+
+#################
+# utils
+var binddef : Dictionary = { src = null, dest = null }
+func bindsg(_signal, _sub = null):
+	var obj = binddef.src
+	var obj2 = binddef.dest
+	#tree signal to self
+	if obj == null:
+		obj = get_tree()
+	if obj2 == null:
+		obj2 = self
+	if _sub == null:
+		_sub = "sg_%s" % _signal
+	if not obj.is_connected(_signal, obj2, _sub):
+		obj.connect(_signal, obj2, _sub)
+
+func bindgs(_signal, _sub = null):
+	var obj = binddef.src
+	var obj2 = binddef.dest
+	#tree signal to self
+	if obj == null:
+		obj = get_tree()
+	if obj2 == null:
+		obj2 = self
+	if _sub == null:
+		_sub = "sg_%s" % _signal
+	if obj.is_connected(_signal, obj2, _sub):
+		obj.disconnect(_signal, obj2, _sub)
+
