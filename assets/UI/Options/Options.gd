@@ -5,8 +5,6 @@ signal save
 var signal_close = false
 
 const id = "Options.gd"
-func printd(s):
-	logg.print_fd(id, s)
 
 func _ready() -> void:
 	print("option control ready")
@@ -44,8 +42,6 @@ func _ready() -> void:
 	button.button.selected = options.get("dev", "flycamera", 0)
 	button.connect("changed", self, "set_fly_camera")
 
-func printd(s) -> void:
-	logg.print_fd(id, s)
 
 func get_tab_index() -> int:
 	return $TabContainer.current_tab
@@ -79,7 +75,7 @@ func init_playerspeed_control(button : Button) -> void:
 		button.enabled = true
 		button.value = player.get("SPEED_SCALE")
 		button.connect("changed", self, "set_player_speed")
-		printd("found player %s at %s, enable speed changes" % [player, player.get_path()])
+		print("found player", player, "at", player.get_path(), ", enable speed changes")
 	else:
 		button.enabled = false
 		button.value = 0
@@ -88,20 +84,7 @@ func set_player_speed(value: float) -> void:
 	var player = _get_player()
 	if player:
 		player.set("SPEED_SCALE", value)
-		printd("set_player_speed to value %s" % value)
-
-func _on_GameState_tab_clicked(tab : int) -> void:
-	printd("_on_GameState_tab_clicked(tab): " + str(tab))
-
-func _on_GameState_tab_changed(tab : int) -> void:
-	printd("_on_GameState_tab_changed(tab): " + str(tab))
-
-func _on_GameState_tab_hover(tab : int) -> void:
-	printd("_on_GameState_tab_hover(tab): " + str(tab))
-
-func _on_VBoxContainer_focus_entered() -> void:
-	printd("func _on_VBoxContainer_focus_entered()")
-	
+		print("set_player_speed to value : ", value)
 
 func _on_tAreas_pressed() -> void:
 	var button = $TabContainer/Dev/VBoxContainer/tAreas
