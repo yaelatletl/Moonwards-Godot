@@ -2,9 +2,13 @@
 tool
 extends Control
 
+signal color_changed(color)
 
 export(Color) var color : Color setget color_changed
-signal color_changed(color)
+
+onready var picker = $Hider/Viewport/ColorPicker
+onready var Hider = $Hider/Viewport
+onready var viewport = $Hider/Viewport
 
 var isReady = false
 
@@ -12,8 +16,8 @@ func _ready() -> void:
 	if color == null:	color = ColorN('white')
 	isReady = true
 
-	$Hider.rect_size = rect_size
-	$Hider/Viewport.size = rect_size
+	Hider.rect_size = rect_size
+	viewport.size = rect_size
 
 	connect("resized", self, "_on_ClassicControls_resized")
 
@@ -27,9 +31,9 @@ func color_changed(value : Color) -> void:
 	#is set from within the Godot editor. Will cause problems for downstream
 	#Plugins, so try to figure out a way to determine that we're SPECIFICALLY
 	#editing this property from the Inspector, somehow.  Hack!!!
-	if $Hider/Viewport/ColorPicker != null: 
-		$Hider/Viewport/ColorPicker.color = value
-		$Hider/Viewport/ColorPicker.update_shaders()
+	if picker != null: 
+		picker.color = value
+		picker.update_shaders()
 	emit_signal('color_changed', value)
 
 
@@ -39,17 +43,17 @@ func _gui_input(event : InputEvent):
 	
 	#Stop ignoring input if the mouse position is within the acceptable capture zone.
 	if get_local_mouse_position().y >=0:
-		$Hider/Viewport.gui_disable_input = false
+		viewport.gui_disable_input = false
 
 
 
 
 func _on_ClassicControls_resized() -> void:
-	$Hider/Viewport/PanelContainer/TransBG.region_rect.size.x = max(260,rect_size.x)
+	viewport.get_node("PanelContainer/TransBG").region_rect.size.x = max(260,rect_size.x)
 
 
 
 func update_shaders() -> void:
-	if $Hider/Viewport/ColorPicker != null: 
-		$Hider/Viewport/ColorPicker.update_shaders()
+	if picker != null: 
+		picker.update_shaders()
 	

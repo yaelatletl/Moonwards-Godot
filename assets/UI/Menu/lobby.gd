@@ -6,9 +6,11 @@ enum STATE {
 	CLIENT_CONNECT, #WAITING FOR CLIENT CONNECTION
 	LAST_RECORD
 }
+
+onready var ServerWait = $WaitServer/Label.text
+
 var state = STATE.INIT setget set_state
 var binddef : Dictionary = { src = null, dest = null }
-onready var ServerWait = $WaitServer/Label.text
 
 func _ready() -> void:
 	set_name(options.username)
@@ -24,7 +26,6 @@ func set_name(name : String = "") -> void:
 		name = namelist.get_name()
 	$connect/name.text = name
 	
-
 func state_hide() -> void:
 	match state:
 		STATE.INIT:

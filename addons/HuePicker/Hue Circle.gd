@@ -1,11 +1,14 @@
 tool
 extends Control
+
+const SQ22 : float = 0.70710678118654752440084436210485  #Sqrt(2)/2
+
 enum DRAGTYPE {
 			NONE,
 			HUE,
 			XY
 			}
-const SQ22 : float = 0.70710678118654752440084436210485  #Sqrt(2)/2
+
 var UsefulFunctions : Reference = preload("res://addons/HuePicker/UsefulFunctions.gd").new()
 
 
