@@ -16,7 +16,7 @@ var midR : float = short_edge * 0.4375
 var Dragging : int
 
 #We need to save the hue in case value is zeroed out and resets it
-var saved_h : float = 0 setget _sethue, _gethue
+var saved_h : float = 0 setget set_hue, get_hue
 
 
 #
@@ -69,9 +69,9 @@ func _draw() -> void:
 	indicator.rect_position.x = rect_size.x/2 - short_edge/2
 	indicator.rect_position.y = rect_size.y/2 + short_edge/2 - indicator.rect_size.y
 	
-func _sethue(value : float) -> void:
+func set_hue(value : float) -> void:
 	saved_h = value
-func _gethue() -> float:
+func get_hue() -> float:
 	return saved_h
 
 func reposition_hue_indicator() -> void:
