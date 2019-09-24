@@ -1,6 +1,6 @@
 extends PanelContainer
 
-func _gui_input(event):
+func _gui_input(event : InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed == true and event.button_index == BUTTON_LEFT:  #MouseDown
 			$Pop/ColorPicker.color = $'../..'.color

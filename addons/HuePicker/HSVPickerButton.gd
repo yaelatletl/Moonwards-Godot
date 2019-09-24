@@ -1,13 +1,26 @@
 tool
 extends Button
 
-export(Color) var color setget set_Color, get_Color
+export(Color) var color setget hue_set_color
 signal color_changed(color)
 export(bool) var enabled = true
 
 var isReady = false
 
-func set_Color(value):
+func _ready() -> void:
+	if color == null:  
+		print ("HSVPickerButton:  No color defined?")
+		color = ColorN('white')	
+	$ColorRect.color = color
+	isReady = true 
+
+#	yield(get_tree(), "idle_frame")
+	$PopupPanel/HuePicker.color = color
+
+	set_meta("_editor_icon", preload("res://addons/HuePicker/icon_button_smol.png"))
+
+
+func hue_set_color(value : Color) -> void:
 	color = value
 	emit_signal('color_changed', value)
 
@@ -21,10 +34,7 @@ func set_Color(value):
 		$ColorRect.self_modulate.a = color.a
 		
 
-func get_Color():
-	return color
-
-func get_color_from_popup(color):  #Receiving the color from the hue picker
+func get_color_from_popup(color : Color) -> void:  #Receiving the color from the hue picker
 	self.color = color
 	$ColorRect.color = color 
 	$ColorRect.self_modulate.a = color.a
@@ -32,30 +42,13 @@ func get_color_from_popup(color):  #Receiving the color from the hue picker
 
 	emit_signal('color_changed', color)
 
-
-#################################
-func _ready():
-	if color == null:  
-		print ("HSVPickerButton:  No color defined?")
-		color = ColorN('white')	
-	$ColorRect.color = color
-	isReady = true 
-
-#	yield(get_tree(), "idle_frame")
-	$PopupPanel/HuePicker.color = color
-
-	set_meta("_editor_icon", preload("res://addons/HuePicker/icon_button_smol.png"))
-
-#################################
-
-
 func _on_HSVPickerButton_pressed():
 	if not enabled == true:  return
 	#Get quadrant I reside in so we can adjust the position of the popup.
-	var quadrant = (get_viewport().size - rect_global_position)  / get_viewport().size
+	var quadrant : Vector2 = (get_viewport().size - rect_global_position)  / get_viewport().size
 	quadrant.x = 1-round(quadrant.x); quadrant.y = 1-round(quadrant.y)
 
-	var adjustment = Vector2(0,0)
+	var adjustment : Vector2 = Vector2(0,0)
 	match quadrant:
 		Vector2(0,0):  #Upper-left
 #			print ("UL")
@@ -80,7 +73,6 @@ func _on_HSVPickerButton_pressed():
 	$PopupPanel.rect_position = rect_global_position + adjustment 
 	$PopupPanel.popup()
 	
-
 
 func _on_PopupPanel_about_to_show():
 	#Connect to the hue picker so we can succ its color

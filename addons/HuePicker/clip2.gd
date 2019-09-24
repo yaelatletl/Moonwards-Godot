@@ -3,12 +3,12 @@ tool
 extends Control
 
 
-export(Color) var color setget color_changed
+export(Color) var color : Color setget color_changed
 signal color_changed(color)
 
 var isReady = false
 
-func _ready():
+func _ready() -> void:
 	if color == null:	color = ColorN('white')
 	isReady = true
 
@@ -20,7 +20,7 @@ func _ready():
 	set_meta("_editor_icon", preload("res://addons/HuePicker/icon_classic_controls.svg"))
 
 
-func color_changed(value):
+func color_changed(value : Color) -> void:
 	color = value
 	
 	#TODO: This line is so we know to update the built-in picker if a property
@@ -35,7 +35,7 @@ func color_changed(value):
 
 
 #Handles capture
-func _gui_input(event):
+func _gui_input(event : InputEvent):
 	
 	#Stop ignoring input if the mouse position is within the acceptable capture zone.
 	if get_local_mouse_position().y >=0:
@@ -44,12 +44,12 @@ func _gui_input(event):
 
 
 
-func _on_ClassicControls_resized():
+func _on_ClassicControls_resized() -> void:
 	$Hider/Viewport/PanelContainer/TransBG.region_rect.size.x = max(260,rect_size.x)
 
 
 
-func update_shaders():
+func update_shaders() -> void:
 	if $Hider/Viewport/ColorPicker != null: 
 		$Hider/Viewport/ColorPicker.update_shaders()
 	

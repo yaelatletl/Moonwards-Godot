@@ -1,15 +1,14 @@
 tool
 extends Panel
-
-export(Color) var color setget color_changed 
 signal color_changed(color)
 
-export(bool) var flat setget flat_changed
+export(Color) var color : Color setget color_changed 
+export(bool) var flat : bool  setget flat_changed
 
-var isReady = false
+var isReady : bool = false
 
 
-func _ready():
+func _ready() -> void:
 	if color == null:
 		print ("PP:  reset color")
 		color = ColorN('white')
@@ -26,11 +25,11 @@ func _ready():
 #	sliders.color = color
 	color_changed(color)
 
-	$HuePicker.connect("color_changed", self, "huePickChange")
-	sliders.connect("color_changed", 	self, "sliderChange")
+	$HuePicker.connect("color_changed", self, "_on_huePickChange")
+	sliders.connect("color_changed", 	self, "_on_sliderChange")
 
 
-func color_changed(value, suppressSignal=false):
+func color_changed(value : Color, suppressSignal : bool = false) -> void:
 #	if not isReady or value == null:
 #		print("PickerPanel: Warning, attempting to change color before control is ready")		
 #		print(color)
@@ -44,14 +43,26 @@ func color_changed(value, suppressSignal=false):
 	if suppressSignal:  return
 	
 	if sliders !=null and $HuePicker != null:
-		sliderChange(value)
-		huePickChange(value)
+		_on_sliderChange(value)
+		_on_huePickChange(value)
 		sliders.update_shaders()
 	
 	emit_signal('color_changed', value)
 
+func flat_changed(value : bool) -> void:
+	if has_stylebox_override("panel"):
+		if not get("custom_styles/panel") is StyleBoxEmpty:
+			print ("StyleBox 'panel' is overridden. Can't set flat.")
+			return
+	
+	if value == true:
+		add_stylebox_override("panel", StyleBoxEmpty.new())
+	else:
+		set("custom_styles/panel", null)
 
-func huePickChange(color):
+	flat = value
+
+func _on_huePickChange(color : Color) -> void:
 #	print ("hpc", color)
 	if not isReady or color == null:	return
 	var sliders = $ClassicControls/Hider/Viewport/ColorPicker
@@ -60,7 +71,7 @@ func huePickChange(color):
 
 	color_changed(color,true)
 
-func sliderChange(color):
+func _on_sliderChange(color : Color) -> void:
 #	print("slc", color)
 	if not isReady or color == null:	return
 #	$HuePicker._on_HuePicker_color_changed(color)
@@ -75,15 +86,4 @@ func sliderChange(color):
 	color_changed(color, true)
 	
 	
-func flat_changed(value):
-	if has_stylebox_override("panel"):
-		if not get("custom_styles/panel") is StyleBoxEmpty:
-			print ("StyleBox 'panel' is overridden. Can't set flat.")
-			return
-	
-	if value == true:
-		add_stylebox_override("panel", StyleBoxEmpty.new())
-	else:
-		set("custom_styles/panel", null)
 
-	flat = value

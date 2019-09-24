@@ -1,13 +1,13 @@
 tool
 extends Control
 
-export(Color) var color setget color_changed
+export(Color) var color : Color setget color_changed
 signal color_changed(color)
 signal Hue_Selected(color)
-var isReady = false
+var isReady : bool = false
 
 
-func _ready():
+func _ready() -> void:
 #	print ("Setting up HuePicker.. %s" % color)
 	if color == null:
 		color = ColorN('white')
@@ -22,7 +22,7 @@ func _ready():
 
 	set_meta("_editor_icon", preload("res://addons/HuePicker/icon.png"))
 
-func color_changed(value):
+func color_changed(value : Color) -> void:
 	color = value
 	
 	#TODO: This line is so we know to update the hue spinner if a property
@@ -33,21 +33,8 @@ func color_changed(value):
 		$HueCircle._sethue(value.h)
 	
 	emit_signal('color_changed', value)
-
-func _on_HuePicker_resized():
-	var short_edge = min(rect_size.x, rect_size.y)
-	var chunk = Vector2(short_edge,short_edge)
-	var indicator = $HueCircle/indicator_rgba
-	indicator.rect_size = chunk / 8
-	$HueCircle/indicator_rgba/bg.position = chunk / 16
-	$HueCircle/indicator_rgba/bg.scale = chunk / 256
-	indicator.rect_position.x = rect_size.x/2 - short_edge/2
-	indicator.rect_position.y = rect_size.y/2 + short_edge/2 - indicator.rect_size.y
 	
-	
-	reposition_hue_indicator()
-	
-func reposition_hue_indicator():
+func reposition_hue_indicator() -> void:
 	var hc   = $HueCircle
 	var i    = $HueCircle/indicator_h
 	var midR = min(hc.rect_size.x, hc.rect_size.y) * 0.45
@@ -59,11 +46,24 @@ func reposition_hue_indicator():
 	$HueCircle/indicator_h.set_rotation($HueCircle.saved_h * 2*PI + PI/2)
 	i.rect_position = Vector2(ihx,ihy)
 
+func _on_HuePicker_resized() -> void:
+	var short_edge = min(rect_size.x, rect_size.y)
+	var chunk = Vector2(short_edge,short_edge)
+	var indicator = $HueCircle/indicator_rgba
+	indicator.rect_size = chunk / 8
+	$HueCircle/indicator_rgba/bg.position = chunk / 16
+	$HueCircle/indicator_rgba/bg.scale = chunk / 256
+	indicator.rect_position.x = rect_size.x/2 - short_edge/2
+	indicator.rect_position.y = rect_size.y/2 + short_edge/2 - indicator.rect_size.y
+	
+	
+	reposition_hue_indicator()
+
 #Color change handler.
-func _on_HuePicker_color_changed(color):
+func _on_HuePicker_color_changed(color : Color) -> int:
 	if isReady == false or color == null:  
 		print("HuePicker:  Warning, attempting to change color before control is ready")
-		return  0
+		return  -1
 
 	$HueCircle/indicator_rgba/ColorRect.color = color
 	$HueCircle/ColorRect/SatVal.material.set_shader_param("hue", $HueCircle.saved_h)
@@ -71,9 +71,10 @@ func _on_HuePicker_color_changed(color):
 	#Reposition SatVal indicator
 	$HueCircle/ColorRect/indicator_sv.position = Vector2(color.s, 1-color.v) * $"HueCircle/ColorRect".rect_size
 	emit_signal("Hue_Selected", color)
+	return 0
 
 #For the Popup color picker.
-func _on_ColorPicker_color_changed(color):
+func _on_ColorPicker_color_changed(color : Color) -> void:
 	#	#Prevent from accidentally resetting the internal hue if color's out of range
 	var c = Color(color.r, color.g, color.b, 1)
 	if c != ColorN('black', 1) and c != ColorN('white', 1) and c.s !=0:
