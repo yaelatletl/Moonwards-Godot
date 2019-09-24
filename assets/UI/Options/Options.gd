@@ -5,42 +5,41 @@ signal save
 var signal_close = false
 
 const id = "Options.gd"
-
+onready var t_Areas = $TabContainer/Dev/VBoxContainer/tAreas
+onready var t_CollisionShapes = $TabContainer/Dev/VBoxContainer/tCollisionShapes
+onready var t_FPSLimit = $TabContainer/Dev/VBoxContainer/tFPSLim
+onready var s_FPSLimit =  $TabContainer/Dev/VBoxContainer/sFPSLim
+onready var t_decimate = $TabContainer/Dev/VBoxContainer/tDecimate
+onready var t_decimate_percent = $TabContainer/Dev/VBoxContainer/sDecimatePercent
+onready var t_Lod_Manager = $TabContainer/Dev/VBoxContainer/tLodManager
+onready var s_HBoxAspect = $TabContainer/Dev/VBoxContainer/sHBoxAspect
+onready var t_PMonitor = $TabContainer/Dev/VBoxContainer/tPMonitor
+onready var s_PlayerSpeed = $TabContainer/Dev/VBoxContainer/sPlayerSpeed
+onready var t_flycam = $TabContainer/Dev/VBoxContainer/SelectFlyCamera
 func _ready() -> void:
 	print("option control ready")
-	var button
-	button = $TabContainer/Dev/VBoxContainer/tAreas
-	button.pressed = options.get("dev", "enable_areas_lod")
-	button = $TabContainer/Dev/VBoxContainer/tCollisionShapes
-	button.pressed = options.get("dev", "enable_collision_shapes")
-	button = $TabContainer/Dev/VBoxContainer/tFPSLim
-	button.pressed = options.get("dev", "3FPSlimit")
-	button = $TabContainer/Dev/VBoxContainer/sFPSLim
-	button.value = options.get("dev", "3FPSlimit_value")
-	button.connect("changed", self, "set_fps_limit")
-	button = $TabContainer/Dev/VBoxContainer/tDecimate
-	button.pressed = options.get("dev", "hide_meshes_random")
-	button = $TabContainer/Dev/VBoxContainer/sDecimatePercent
-	button.value = options.get("dev", "decimate_percent")
-	button.connect("changed", self, "set_decimate_percent")
+	t_Areas.pressed = options.get("dev", "enable_areas_lod")
+	t_CollisionShapes.pressed = options.get("dev", "enable_collision_shapes")
+	t_FPSLimit.pressed = options.get("dev", "3FPSlimit")
+	s_FPSLimit.value = options.get("dev", "3FPSlimit_value")
+	s_FPSLimit.connect("changed", self, "set_fps_limit")
+	t_decimate.pressed = options.get("dev", "hide_meshes_random")
+	t_decimate_percent.value = options.get("dev", "decimate_percent")
+	t_decimate_percent.connect("changed", self, "set_decimate_percent")
 	
-	button = $TabContainer/Dev/VBoxContainer/tLodManager
-	button.pressed = options.get("dev", "TreeManager")
-	button = $TabContainer/Dev/VBoxContainer/sHBoxAspect
-	button.value = options.get("LOD", "lod_aspect_ratio")
-	button.connect("changed", self, "set_lod_aspect_ratio")
+	t_Lod_Manager.pressed = options.get("dev", "TreeManager")
+	s_HBoxAspect.value = options.get("LOD", "lod_aspect_ratio")
+	s_HBoxAspect.connect("changed", self, "set_lod_aspect_ratio")
+ 
+	t_PMonitor.pressed = options.get("_state_", "perf_mon", false)
 	
-	button = $TabContainer/Dev/VBoxContainer/tPMonitor
-	button.pressed = options.get("_state_", "perf_mon", false)
 	
-	button = $TabContainer/Dev/VBoxContainer/sPlayerSpeed
-	init_playerspeed_control(button)
+	init_playerspeed_control(s_PlayerSpeed)
 	
-	button = $TabContainer/Dev/VBoxContainer/SelectFlyCamera
 	for i in range(options.fly_cameras.size()):
-		button.add_item(options.fly_cameras[i].label, i)
-	button.button.selected = options.get("dev", "flycamera", 0)
-	button.connect("changed", self, "set_fly_camera")
+		t_flycam.add_item(options.fly_cameras[i].label, i)
+	t_flycam.button.selected = options.get("dev", "flycamera", 0)
+	t_flycam.connect("changed", self, "set_fly_camera")
 
 
 func get_tab_index() -> int:
@@ -59,7 +58,7 @@ func close() -> void:
 
 
 
-func _get_player() -> Spatial:
+func get_player() -> Spatial:
 	var res
 	var tree = get_tree()
 	var pg = options.player_opt.player_group
@@ -70,7 +69,7 @@ func _get_player() -> Spatial:
 	return res
 
 func init_playerspeed_control(button : Button) -> void:
-	var player = _get_player()
+	var player = get_player()
 	if player:
 		button.enabled = true
 		button.value = player.get("SPEED_SCALE")
@@ -81,7 +80,7 @@ func init_playerspeed_control(button : Button) -> void:
 		button.value = 0
 
 func set_player_speed(value: float) -> void:
-	var player = _get_player()
+	var player = get_player()
 	if player:
 		player.set("SPEED_SCALE", value)
 		print("set_player_speed to value : ", value)
