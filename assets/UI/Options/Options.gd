@@ -16,6 +16,8 @@ onready var s_HBoxAspect = $TabContainer/Dev/VBoxContainer/sHBoxAspect
 onready var t_PMonitor = $TabContainer/Dev/VBoxContainer/tPMonitor
 onready var s_PlayerSpeed = $TabContainer/Dev/VBoxContainer/sPlayerSpeed
 onready var t_flycam = $TabContainer/Dev/VBoxContainer/SelectFlyCamera
+
+
 func _ready() -> void:
 	print("option control ready")
 	t_Areas.pressed = options.get("dev", "enable_areas_lod")
@@ -68,7 +70,7 @@ func get_player() -> Spatial:
 			res = player
 	return res
 
-func init_playerspeed_control(button : Button) -> void:
+func init_playerspeed_control(button : Control) -> void:
 	var player = get_player()
 	if player:
 		button.enabled = true
@@ -79,6 +81,26 @@ func init_playerspeed_control(button : Button) -> void:
 		button.enabled = false
 		button.value = 0
 
+func set_fps_limit(value : int) -> void:
+	options.set("dev", value, "3FPSlimit_value")
+	debug.set_3fps(t_FPSLimit.pressed, value)
+	
+func set_decimate_percent(value : int) -> void:
+	options.set("dev", value, "decimate_percent")
+	if options.get("dev", "hide_meshes_random", false):
+		debug.hide_nodes_random(0)
+		debug.hide_nodes_random(value)
+
+func set_lod_aspect_ratio(value : int) -> void:
+	options.set("LOD", value, "lod_aspect_ratio")
+	var lmp = options.get("_state_", "set_lod_manager")
+	if lmp:
+		var root = get_tree().current_scene
+		root.get_node(lmp).lod_aspect_ratio = value
+
+func set_fly_camera(value : int) -> void:
+	options.set("dev", value, "flycamera")
+
 func set_player_speed(value: float) -> void:
 	var player = get_player()
 	if player:
@@ -86,60 +108,35 @@ func set_player_speed(value: float) -> void:
 		print("set_player_speed to value : ", value)
 
 func _on_tAreas_pressed() -> void:
-	var button = $TabContainer/Dev/VBoxContainer/tAreas
-	debug.e_area_lod(button.pressed)
-	options.set("dev", button.pressed, "enable_areas_lod")
+	debug.e_area_lod(t_Areas.pressed)
+	options.set("dev", t_Areas.pressed, "enable_areas_lod")
 
 func _on_tCollisionShapes_pressed() -> void:
-	var button = $TabContainer/Dev/VBoxContainer/tCollisionShapes
-	debug.e_collision_shapes(button.pressed)
-	options.set("dev", button.pressed, "enable_collision_shapes")
+	debug.e_collision_shapes(t_CollisionShapes.pressed)
+	options.set("dev", t_CollisionShapes.pressed, "enable_collision_shapes")
 
 func _on_tFPSLim_pressed() -> void:
-	var button = $TabContainer/Dev/VBoxContainer/tFPSLim
-	var button2 = $TabContainer/Dev/VBoxContainer/sFPSLim
-	debug.set_3fps(button.pressed, button2.value)
-	options.set("dev", button.pressed, "3FPSlimit")
+	debug.set_3fps(t_FPSLimit.pressed, s_FPSLimit.value)
+	options.set("dev", t_FPSLimit.pressed, "3FPSlimit")
 
-func set_fps_limit(value : int) -> void:
-	options.set("dev", value, "3FPSlimit_value")
-	var button = $TabContainer/Dev/VBoxContainer/tFPSLim
-	debug.set_3fps(button.pressed, value)
 
 func _on_tDecimate_pressed() -> void:
 	var dp = options.get("dev", "decimate_percent", 90)
-	var button = $TabContainer/Dev/VBoxContainer/tDecimate
-	if button.pressed:
+	if t_decimate.pressed:
 		debug.hide_nodes_random(dp)
 	else:
 		debug.hide_nodes_random(0)
-	options.set("dev", button.pressed, "hide_meshes_random")
+	options.set("dev", t_decimate.pressed, "hide_meshes_random")
 
 func _on_Exit_pressed() -> void:
 	UIManager.Back()
 
 func _on_tPMonitor_pressed() -> void:
-	var button = $TabContainer/Dev/VBoxContainer/tPMonitor
-	options.set("dev", button.pressed, "show_performance_monitor")
-	debug.show_performance_monitor(button.pressed)
-
-func set_decimate_percent(value : int) -> void:
-	options.set("dev", value, "decimate_percent")
-	if options.get("dev", "hide_meshes_random", false):
-		debug.hide_nodes_random(0)
-		debug.hide_nodes_random(value)
-
-func set_lod_aspect_ratio(value) -> void:
-	options.set("LOD", value, "lod_aspect_ratio")
-	var lmp = options.get("_state_", "set_lod_manager")
-	if lmp:
-		var root = get_tree().current_scene
-		root.get_node(lmp).lod_aspect_ratio = value
+	options.set("dev", t_PMonitor.pressed, "show_performance_monitor")
+	debug.show_performance_monitor(t_PMonitor.pressed)
 
 func _on_tLodManager_pressed() -> void:
-	var button = $TabContainer/Dev/VBoxContainer/tLodManager
-	options.set("dev", button.pressed, "TreeManager")
-	debug.set_lod_manager(button.pressed)
+	options.set("dev", t_Lod_Manager.pressed, "TreeManager")
+	debug.set_lod_manager(t_Lod_Manager.pressed)
 
-func set_fly_camera(value : int) -> void:
-	options.set("dev", value, "flycamera")
+
