@@ -24,15 +24,6 @@ func set_name(name : String = "") -> void:
 		name = namelist.get_name()
 	$connect/name.text = name
 	
-func refresh_lobby() -> void:
-	var players = gamestate.get_player_list()
-	players.sort()
-	$PlayersList/list.clear()
-	$PlayersList/list.add_item(gamestate.get_player_name() + " (You)")
-	for p in players:
-		$PlayersList/list.add_item(p)
-	$PlayersList/start.disabled=not get_tree().is_network_server()
-
 
 func state_hide() -> void:
 	match state:
