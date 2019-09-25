@@ -8,7 +8,13 @@ enum DRAGTYPE {
 			HUE,
 			XY
 			}
-
+			
+onready var indicator_h = $indicator_h
+onready var indicator = $"indicator_rgba"
+onready var color_rect = $ColorRect
+onready var sat_val = $ColorRect/SatVal
+onready var parent = get_parent()
+onready var indicator_bg = $"indicator_rgba/bg"
 var UsefulFunctions : Reference = preload("res://addons/HuePicker/UsefulFunctions.gd").new()
 
 
@@ -60,15 +66,15 @@ func _draw() -> void:
 	
 	
 	#Reposition stuff
-	$ColorRect.rect_size = Vector2(sqw, sqw)
-	$ColorRect.rect_position = Vector2(rect_size.x/2 - sqw/2+1,  rect_size.y/2 - sqw/2+1)
+	color_rect.rect_size = Vector2(sqw, sqw)
+	color_rect.rect_position = Vector2(rect_size.x/2 - sqw/2+1,  rect_size.y/2 - sqw/2+1)
 	
 	reposition_hue_indicator()
 	var chunk = Vector2(short_edge,short_edge)
-	var indicator = $"indicator_rgba"
+	
 	indicator.rect_size = chunk / 8
-	$"indicator_rgba/bg".position = chunk / 16
-	$"indicator_rgba/bg".scale = chunk / 256
+	indicator_bg.position = chunk / 16
+	indicator_bg.scale = chunk / 256
 	indicator.rect_position.x = rect_size.x/2 - short_edge/2
 	indicator.rect_position.y = rect_size.y/2 + short_edge/2 - indicator.rect_size.y
 	
@@ -78,19 +84,19 @@ func get_hue() -> float:
 	return saved_h
 
 func reposition_hue_indicator() -> void:
-	$indicator_h.rect_pivot_offset = Vector2($indicator_h.rect_size.x / 2,
-											 $indicator_h.rect_size.y / 2)
-	$indicator_h.rect_size.y = outR - inR * 0.95
-	$indicator_h.rect_size.x = short_edge / 25
+	indicator_h.rect_pivot_offset = Vector2(indicator_h.rect_size.x / 2,
+											 indicator_h.rect_size.y / 2)
+	indicator_h.rect_size.y = outR - inR * 0.95
+	indicator_h.rect_size.x = short_edge / 25
 
 	var ctr = short_edge * 0.45 #Center ring
 	var ihx  = ctr*cos(saved_h * 2*PI) + rect_size.x/2 - $indicator_h.rect_size.x/2 
 	var ihy  = ctr*sin(saved_h * 2*PI) + rect_size.y/2 - $indicator_h.rect_size.y/2 
-	$indicator_h.rect_position = Vector2(ihx,ihy)
+	indicator_h.rect_position = Vector2(ihx,ihy)
 
 	#Reposition SatVal indicator
-	$"ColorRect/indicator_sv".position = Vector2($'..'.color.s,
-											 1-$'..'.color.v) * $"ColorRect".rect_size
+	color_rect.get_node("indicator_sv").position = Vector2(parent.color.s,
+											 1-parent.color.v) * color_rect.rect_size
 	
 	
 #func _input(event):  #maybe _input instead if updating doesn't work?
@@ -109,9 +115,8 @@ func _gui_input(ev : InputEvent) -> void:
 
 	if ev is InputEventMouseButton:
 		if ev.pressed == true and ev.button_index == BUTTON_LEFT:  #MouseDown
-			if $ColorRect.get_rect().has_point(mpos):
+			if color_rect.get_rect().has_point(mpos):
 				Dragging = DRAGTYPE.XY
-#				saved_h = $'..'.color.h
 			else:
 				Dragging = DRAGTYPE.HUE
 
@@ -120,26 +125,26 @@ func _gui_input(ev : InputEvent) -> void:
 		var angle = (rad2deg(mpos.angle_to_point(rect_size/2)+2*PI) ) / 360
 
 		#A workaround for a bug in Godot 3.0.2 where setting HSV properties resets alpha.
-		var alpha = $'..'.color.a
+		var alpha = parent.color.a
 
-		$'..'.color.h = angle
+		parent.color.h = angle
 		saved_h = angle
 
-		$'..'.color.a = alpha  #Put alpha component back
+		parent.color.a = alpha  #Put alpha component back
 		
 	elif Input.is_mouse_button_pressed(BUTTON_LEFT) and Dragging == DRAGTYPE.XY:
-		var pos = $'ColorRect/SatVal'.get_local_mouse_position()
-		var s = pos.x /  $'ColorRect/SatVal'.rect_size.x
-		var v = pos.y /  $'ColorRect/SatVal'.rect_size.y
+		var pos = sat_val.get_local_mouse_position()
+		var s = pos.x /  sat_val.rect_size.x
+		var v = pos.y /  sat_val.rect_size.y
 
 		#A workaround for a bug in Godot 3.0.2 where setting HSV properties resets alpha.
-		var alpha = $'..'.color.a
+		var alpha = parent.color.a
 			
-		$'..'.color.h = saved_h  #fixy?
-		$'..'.color.s = clamp(s, 0.0, 1.0)
-		$'..'.color.v = clamp(1-v, 0.0, 1.0)
+		parent.color.h = saved_h  #fixy?
+		parent.color.s = clamp(s, 0.0, 1.0)
+		parent.color.v = clamp(1-v, 0.0, 1.0)
 
-		$'..'.color.a = alpha  #Put alpha component back
+		parent.color.a = alpha  #Put alpha component back
 	
 	if ev is InputEventMouseButton:		
 		if ev.button_index == BUTTON_LEFT and ev.pressed == false:  #MouseUp
