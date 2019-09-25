@@ -15,7 +15,7 @@ onready var color_rect = $ColorRect
 onready var sat_val = $ColorRect/SatVal
 onready var parent = get_parent()
 onready var indicator_bg = $"indicator_rgba/bg"
-var UsefulFunctions : Reference = preload("res://addons/HuePicker/UsefulFunctions.gd").new()
+var UsefulFunctions : Reference = preload("res://addons/HuePicker/HuePickerUtils.gd").new()
 
 
 var short_edge : float = min(rect_size.x, rect_size.y)

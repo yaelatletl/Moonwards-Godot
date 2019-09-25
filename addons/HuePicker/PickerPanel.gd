@@ -2,9 +2,10 @@ tool
 extends Panel
 signal color_changed(color)
 
-export(Color) var color : Color setget color_changed 
-export(bool) var flat : bool  setget flat_changed
+export(Color) var color : Color setget set_color
+export(bool) var flat : bool  setget set_flat
 
+onready var sliders = $ClassicControls/Hider/Viewport/ColorPicker
 var isReady : bool = false
 
 
@@ -13,7 +14,6 @@ func _ready() -> void:
 		print ("PP:  reset color")
 		color = ColorN('white')
 	isReady = true
-#	print ("Readying up PickerPanel.....")
 
 	yield(get_tree(),'idle_frame')
 	yield(get_tree(),'idle_frame')
@@ -21,23 +21,16 @@ func _ready() -> void:
 
 	set_meta("_editor_icon", preload("res://addons/HuePicker/icon_picker_panel.svg"))
 
-#	$HuePicker.color = color
-#	sliders.color = color
-	color_changed(color)
+	set_color(color)
 
 	$HuePicker.connect("color_changed", self, "_on_huePickChange")
-	sliders.connect("color_changed", 	self, "_on_sliderChange")
+	sliders.connect("color_changed", self, "_on_sliderChange")
 
 
-func color_changed(value : Color, suppressSignal : bool = false) -> void:
-#	if not isReady or value == null:
-#		print("PickerPanel: Warning, attempting to change color before control is ready")		
-#		print(color)
-#		return
-
+func set_color(value : Color, suppressSignal : bool = false) -> void:
 	if value != null:  isReady = true
 
-	var sliders = $ClassicControls/Hider/Viewport/ColorPicker
+	
 	color = value
 	
 	if suppressSignal:  return
@@ -49,7 +42,7 @@ func color_changed(value : Color, suppressSignal : bool = false) -> void:
 	
 	emit_signal('color_changed', value)
 
-func flat_changed(value : bool) -> void:
+func set_flat(value : bool) -> void:
 	if has_stylebox_override("panel"):
 		if not get("custom_styles/panel") is StyleBoxEmpty:
 			print ("StyleBox 'panel' is overridden. Can't set flat.")
@@ -63,18 +56,15 @@ func flat_changed(value : bool) -> void:
 	flat = value
 
 func _on_huePickChange(color : Color) -> void:
-#	print ("hpc", color)
 	if not isReady or color == null:	return
 	var sliders = $ClassicControls/Hider/Viewport/ColorPicker
 	sliders.color = color
 	sliders.update_shaders()
 
-	color_changed(color,true)
+	set_color(color,true)
 
 func _on_sliderChange(color : Color) -> void:
-#	print("slc", color)
 	if not isReady or color == null:	return
-#	$HuePicker._on_HuePicker_color_changed(color)
 	$HuePicker.color = color
 
 	#Prevent from accidentally resetting the internal hue if color's out of range
@@ -83,7 +73,5 @@ func _on_sliderChange(color : Color) -> void:
 		$HuePicker/"Hue Circle"._sethue(color.h, self)
 		$HuePicker._on_HuePicker_color_changed(color)
 		
-	color_changed(color, true)
+	set_color(color, true)
 	
-	
-

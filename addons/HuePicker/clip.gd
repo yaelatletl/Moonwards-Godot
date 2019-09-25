@@ -1,16 +1,14 @@
 tool
 extends ColorPicker
 
-signal _NeedManualClick(ev) #Tell parent the event was consumed, needs to pass a click
+signal _needed_manual_click(ev) #Tell parent the event was consumed, needs to pass a click
 
-var Focused : bool  setget _Focused
+var Focused : bool  setget _set_focused
 
 func _ready() -> void:
-#	connect("resized",self,"_resized")
 	reposition()
 	
 func _draw() -> void:
-#	VisualServer.canvas_item_set_clip(get_canvas_item(),true)
 	reposition()
 
 func _gui_input(event : InputEvent) -> void:
@@ -22,7 +20,7 @@ func _gui_input(event : InputEvent) -> void:
 		else:
 			$'..'.gui_disable_input = false
 			
-func _Focused(ins) -> void:
+func _set_focused(_focused : bool) -> void:
 	print ("WARNING:  Attempting to set read-only var ColorPicker.Focused") 
 
 func reposition() -> void:
@@ -45,19 +43,7 @@ func _on_ColorPicker_focus_entered() -> void:
 func _on_ColorPicker_focus_exited() -> void:
 	Focused = false
 
-func _resized() -> void:
-	print(rect_position.y)
-
 ##  UPDATE THE HUE CIRCLE BASE COLOR ETC.
 func _on_ColorPicker_color_changed(color : Color) -> void:
-#	#Prevent from accidentally resetting the internal hue if color's out of range
-#	var c = Color(color.r, color.g, color.b, 1)
-#	if c != ColorN('black', 1) and c != ColorN('white', 1) and c.s !=0:
-#		$'../../../Hue Circle'._sethue(self.color.h, self)
-#		$'../../..'.color = color 
-##		$'../../..'._on_HuePicker_color_changed(color)
-#		$'../../..'.emit_signal('color_changed', color)
-#	$'../../..'.color.a = color.a
-	#update the classic controls.
 	update_shaders()
 	
