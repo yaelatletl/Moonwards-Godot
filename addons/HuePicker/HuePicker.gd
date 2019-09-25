@@ -50,7 +50,7 @@ func reposition_hue_indicator() -> void:
 
 	hue_circle.reposition_hue_indicator()
 
-	hue_circle.get_node("indicator_h").set_rotation(hue_circle.saved_h * 2*PI + PI/2)
+	indicator_h.set_rotation(hue_circle.saved_h * 2*PI + PI/2)
 	indicator_h.rect_position = Vector2(ihx,ihy)
 
 func _on_HuePicker_resized() -> void:
