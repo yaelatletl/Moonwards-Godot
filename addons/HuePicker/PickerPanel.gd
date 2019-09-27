@@ -6,6 +6,8 @@ export(Color) var color : Color setget set_color
 export(bool) var flat : bool  setget set_flat
 
 onready var sliders = $ClassicControls/Hider/Viewport/ColorPicker
+onready var HuePicker = $HuePicker
+
 var isReady : bool = false
 
 
@@ -17,13 +19,12 @@ func _ready() -> void:
 
 	yield(get_tree(),'idle_frame')
 	yield(get_tree(),'idle_frame')
-	var sliders = $ClassicControls/Hider/Viewport/ColorPicker
 
 	set_meta("_editor_icon", preload("res://addons/HuePicker/icon_picker_panel.svg"))
 
 	set_color(color)
 
-	$HuePicker.connect("color_changed", self, "_on_huePickChange")
+	HuePicker.connect("color_changed", self, "_on_huePickChange")
 	sliders.connect("color_changed", self, "_on_sliderChange")
 
 
@@ -65,13 +66,13 @@ func _on_huePickChange(color : Color) -> void:
 
 func _on_sliderChange(color : Color) -> void:
 	if not isReady or color == null:	return
-	$HuePicker.color = color
+	HuePicker.color = color
 
 	#Prevent from accidentally resetting the internal hue if color's out of range
 	var c = Color(color.r, color.g, color.b, 1)
 	if c != ColorN('black', 1) and c != ColorN('white', 1) and c.s !=0:
-		$HuePicker/"Hue Circle"._sethue(color.h, self)
-		$HuePicker._on_HuePicker_color_changed(color)
+		HuePicker.get_node("Hue Circle")._sethue(color.h, self)
+		HuePicker._on_HuePicker_color_changed(color)
 		
 	set_color(color, true)
 	

@@ -7,10 +7,10 @@ signal color_changed(color)
 export(Color) var color : Color setget color_changed
 
 onready var picker = $Hider/Viewport/ColorPicker
-onready var Hider = $Hider/Viewport
-onready var viewport = $Hider/Viewport
+onready var Hider = $Hider
+onready var viewport : Viewport = $Hider/Viewport
 
-var isReady = false
+var isReady : bool = false
 
 func _ready() -> void:
 	if color == null:	color = ColorN('white')
@@ -39,7 +39,7 @@ func color_changed(value : Color) -> void:
 
 
 #Handles capture
-func _gui_input(event : InputEvent):
+func _gui_input(event : InputEvent) -> void:
 	
 	#Stop ignoring input if the mouse position is within the acceptable capture zone.
 	if get_local_mouse_position().y >=0:

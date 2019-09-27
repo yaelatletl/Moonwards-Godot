@@ -46,7 +46,7 @@ func get_color_from_popup(color : Color) -> void:  #Receiving the color from the
 
 	emit_signal('color_changed', color)
 
-func _on_HSVPickerButton_pressed():
+func _on_HSVPickerButton_pressed() -> void:
 	if not enabled == true:  return
 	#Get quadrant I reside in so we can adjust the position of the popup.
 	var quadrant : Vector2 = (get_viewport().size - rect_global_position)  / get_viewport().size
@@ -78,7 +78,7 @@ func _on_HSVPickerButton_pressed():
 	popup.popup()
 	
 
-func _on_PopupPanel_about_to_show():
+func _on_PopupPanel_about_to_show() -> void:
 	#Connect to the hue picker so we can succ its color
 	picker.connect('color_changed',self,"get_color_from_popup")
 
@@ -86,6 +86,6 @@ func _on_PopupPanel_about_to_show():
 	picker.get_node("HueCircle")._sethue(color.h)
 	picker._on_HuePicker_color_changed(color)
 		
-func _on_PopupPanel_popup_hide():
+func _on_PopupPanel_popup_hide() -> void:
 	#Disconnect from the hue picker
 	picker.disconnect('color_changed', self, "get_color_from_popup")
