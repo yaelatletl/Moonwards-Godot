@@ -1,3 +1,4 @@
+# TODO: Use class_name so this can be called without instancing
 func HSVtoRGB (hue : float, saturation : float, luminance: float) -> Color:
 	var r : float = float(luminance)
 	var g : float = float(luminance)
