@@ -1,12 +1,8 @@
 tool
 extends EditorPlugin
 
-func _enter_tree():
-	# Initialization of the plugin goes here
-	# Add the new type with a name, a parent type, a script and an icon
+func _enter_tree() -> void:
 	add_custom_type("HSVPickerButton", "Button", preload("HSVPickerButton.gd"), preload("icon_button_smol.png"))
 
-func _exit_tree():
-	# Clean-up of the plugin goes here
-	# Always remember to remove it from the engine when deactivated
+func _exit_tree() -> void:
 	remove_custom_type("HuePicker")

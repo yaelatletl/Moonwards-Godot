@@ -1024,8 +1024,8 @@ func thread_active_correction(client_id):
 # 	printd("finish wait for thread %s, thread status active(%s)" % [client_id, thread.is_active()])
 
 func Log(var text):
-	if logg.test_fd(debug_id, text) > 0:
-		emit_signal("receive_update_message", text)
+#	if logg.test_fd(debug_id, text) > 0:
+	#	emit_signal("receive_update_message", text)
 	printd(text)
 
 func printd(s):

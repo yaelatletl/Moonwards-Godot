@@ -128,10 +128,10 @@ func SetPuppetColors(var colors):
 	shoes_mat.albedo_color = colors.shoes
 
 func SetPuppetGender(var gender):
-	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.visible = (gender == options.genders.female)
-	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.visible = (gender == options.genders.male)
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.visible = (gender == options.GENDERS.FEMALE)
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.visible = (gender == options.GENDERS.MALE)
 	
-	if options.gender == options.genders.male:
+	if options.gender == options.GENDERS.MALE:
 		$KinematicBody/Model/FemaleRig/Skeleton.scale = Vector3(1.1, 1.1, 1.1)
 	else:
 		$KinematicBody/Model/FemaleRig/Skeleton.scale = Vector3(1.0, 1.0, 1.0)
@@ -143,10 +143,10 @@ func ApplyUserSettings():
 	hair_mat.albedo_color = options.hair_color
 	shoes_mat.albedo_color = options.shoes_color
 	
-	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.visible = (options.gender == options.genders.female)
-	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.visible = (options.gender == options.genders.male)
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.visible = (options.gender == options.GENDERS.FEMALE)
+	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.visible = (options.gender == options.GENDERS.MALE)
 	
-	if options.gender == options.genders.male:
+	if options.gender == options.GENDERS.MALE:
 		$KinematicBody/Model/FemaleRig/Skeleton.scale = Vector3(1.1, 1.1, 1.1)
 	else:
 		$KinematicBody/Model/FemaleRig/Skeleton.scale = Vector3(1.0, 1.0, 1.0)

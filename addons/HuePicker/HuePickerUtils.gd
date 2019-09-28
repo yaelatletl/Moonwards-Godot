@@ -1,9 +1,10 @@
-func HSVtoRGB (hue, saturation, luminance):
-	var r = float(luminance)
-	var g = float(luminance)
-	var b = float(luminance)
+# TODO: Use class_name so this can be called without instancing
+func HSVtoRGB (hue : float, saturation : float, luminance: float) -> Color:
+	var r : float = float(luminance)
+	var g : float = float(luminance)
+	var b : float = float(luminance)
 	
-	var v = 0.0
+	var v : float = 0.0
 
 	if luminance <= 0.5:
 		v = luminance * (1.0 + saturation)

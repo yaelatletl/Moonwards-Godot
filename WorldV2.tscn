@@ -43,6 +43,153 @@ directional_shadow_depth_range = 1
 
 [node name="Terrain" parent="." instance=ExtResource( 3 )]
 
+[node name="Navigation" type="Spatial" parent="."]
+transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.997314, -55.4482, -1929.8, -14.3414 )
+
+[node name="Position3D" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.152401, 0.0196533, -2.07525 )
+
+[node name="Position3D2" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39943, 0.0196533, -2.3587 )
+
+[node name="Position3D3" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.47644, 0.0196533, -2.51122 )
+
+[node name="Position3D4" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.00816, 0.0196533, -3.00821 )
+
+[node name="Position3D5" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.92213, 0.0196533, -3.73958 )
+
+[node name="Position3D6" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.59862, 0.0196533, -4.55398 )
+
+[node name="Position3D7" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5404, 0.0196533, -5.34678 )
+
+[node name="Position3D8" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.03601, 0.0196533, -5.49437 )
+
+[node name="Position3D9" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.37326, 0.0196533, -5.89099 )
+
+[node name="Position3D10" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.29039, 0.0196533, -7.01944 )
+
+[node name="Position3D11" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.82662, 0.0196533, -8.13518 )
+
+[node name="Position3D12" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5933, 0.0196533, -8.26492 )
+
+[node name="Position3D13" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9186, 0.0196533, -7.86195 )
+
+[node name="Position3D14" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1432, 0.0196533, -7.43917 )
+
+[node name="Position3D15" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7891, 0.0196533, -7.70226 )
+
+[node name="Position3D16" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.201, 0.0196533, -7.80594 )
+
+[node name="Cross17-20" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0097, 0.0196533, -7.47025 )
+
+[node name="Cross17-21" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0149, -1.24634, -7.8284 )
+
+[node name="Position3D22" type="Position3D" parent="Navigation"]
+transform = Transform( 0.986213, 0, 0.165479, 0, 1, 0, -0.165479, 0, 0.986213, 17.7145, -1.24634, -6.82499 )
+
+[node name="Position3D23" type="Position3D" parent="Navigation"]
+transform = Transform( 0.986212, 0, 0.165479, 0, 1, 0, -0.165479, 0, 0.986212, 15.8426, -1.24634, -7.52056 )
+
+[node name="Position3D24" type="Position3D" parent="Navigation"]
+transform = Transform( 0.986212, 0, 0.165479, 0, 1, 0, -0.165479, 0, 0.986212, 14.4572, -1.24634, -7.65496 )
+
+[node name="Position3D25" type="Position3D" parent="Navigation"]
+transform = Transform( 0.986212, 0, 0.165479, 0, 1, 0, -0.165479, 0, 0.986212, 11.8909, -1.24634, -7.70983 )
+
+[node name="Position3D26" type="Position3D" parent="Navigation"]
+transform = Transform( 0.986212, 0, 0.165479, 0, 1, 0, -0.165479, 0, 0.986212, 9.88506, -1.24634, -8.26759 )
+
+[node name="Position3D27" type="Position3D" parent="Navigation"]
+transform = Transform( 0.986212, 0, 0.165479, 0, 1, 0, -0.165479, 0, 0.986212, 6.1589, -1.24634, -7.99395 )
+
+[node name="Position3D28" type="Position3D" parent="Navigation"]
+transform = Transform( 0.986212, 0, 0.165479, 0, 1, 0, -0.165479, 0, 0.986212, 6.24283, -1.24634, -6.85107 )
+
+[node name="Cross17-22" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.698, -1.24634, -5.83016 )
+
+[node name="Cross17-23" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8459, -2.45117, -5.48234 )
+
+[node name="Position3D29" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0964, -2.45117, -5.42729 )
+
+[node name="Position3D30" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2936, -2.45117, -5.15714 )
+
+[node name="Position3D31" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.295, -2.45117, -5.01036 )
+
+[node name="Position3D32" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9139, -2.45117, -5.2463 )
+
+[node name="Position3D40" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.71535, -2.45117, -5.52022 )
+
+[node name="Position3D41" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.54065, -2.45117, -5.871 )
+
+[node name="Position3D42" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.56899, -2.45117, -7.05136 )
+
+[node name="Position3D43" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.37108, -2.45117, -8.19209 )
+
+[node name="Position3D44" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.48259, -2.45117, -8.49877 )
+
+[node name="Position3D45" type="Position3D" parent="Navigation"]
+transform = Transform( 0.919941, 0, 0.392056, 0, 1, 0, -0.392056, 0, 0.919941, 9.88325, -2.45117, -8.52819 )
+
+[node name="Position3D46" type="Position3D" parent="Navigation"]
+transform = Transform( 0.919941, 0, 0.392056, 0, 1, 0, -0.392056, 0, 0.919941, 11.322, -2.45117, -7.9319 )
+
+[node name="Position3D47" type="Position3D" parent="Navigation"]
+transform = Transform( 0.919941, 0, 0.392056, 0, 1, 0, -0.392056, 0, 0.919941, 11.322, -2.45117, -7.9319 )
+
+[node name="Position3D33" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8938, -2.45117, -6.46574 )
+
+[node name="Position3D34" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1999, -2.45117, -7.56823 )
+
+[node name="Position3D35" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6927, -2.45117, -7.7513 )
+
+[node name="Position3D36" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.915, -2.45117, -7.9145 )
+
+[node name="Position3D37" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9733, -2.45117, -7.7077 )
+
+[node name="Position3D38" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0216, -2.45117, -7.05059 )
+
+[node name="Position3D39" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0857, -2.45117, -6.17729 )
+
+[node name="Position3D18" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0529, 0.0196533, -6.88228 )
+
+[node name="Position3D19" type="Position3D" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8818, 0.0196533, -6.43607 )
+
 [node name="spawn_points" type="Spatial" parent="."]
 
 [node name="0" type="Position3D" parent="spawn_points"]

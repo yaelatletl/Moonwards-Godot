@@ -1,8 +1,24 @@
 extends Node
-var id : String = "options.gd"
+
+enum SLOTS{
+	PANTS,
+	SHIRT,
+	SKIN,
+	HAIR,
+	SHOES
+}
+
+enum GENDERS{
+	FEMALE,
+	MALE
+}
+const id : String = "options.gd"
+
 var debug : bool = true
 
 var Updater : Node 
+
+
 var scripts : Dictionary = {
 	Updater = preload("res://core/update/scripts/Updater.gd")
 }
@@ -30,18 +46,6 @@ var options : Dictionary = {
 #############################
 signal user_settings_changed
 
-enum SLOTS{
-	PANTS,
-	SHIRT,
-	SKIN,
-	HAIR,
-	SHOES
-}
-
-enum GENDERS{
-	FEMALE,
-	MALE
-}
 
 var username : String = namelist.get_name()
 var gender : int = GENDERS.FEMALE
