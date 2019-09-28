@@ -53,7 +53,6 @@ var _direction : Vector3 = Vector3(0.0, 0.0, 0.0)
 var _speed : Vector3 = Vector3(0.0, 0.0, 0.0)
 var _gui 
 
-
 func _ready() -> void:
 
 	_check_actions([forward_action, backward_action, left_action, right_action, gui_action, up_action, down_action, ui_mlook])
