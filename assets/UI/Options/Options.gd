@@ -5,6 +5,7 @@ signal save
 var signal_close = false
 
 const id = "Options.gd"
+
 onready var t_Areas = $TabContainer/Dev/VBoxContainer/tAreas
 onready var t_CollisionShapes = $TabContainer/Dev/VBoxContainer/tCollisionShapes
 onready var t_FPSLimit = $TabContainer/Dev/VBoxContainer/tFPSLim
@@ -16,7 +17,7 @@ onready var s_HBoxAspect = $TabContainer/Dev/VBoxContainer/sHBoxAspect
 onready var t_PMonitor = $TabContainer/Dev/VBoxContainer/tPMonitor
 onready var s_PlayerSpeed = $TabContainer/Dev/VBoxContainer/sPlayerSpeed
 onready var t_flycam = $TabContainer/Dev/VBoxContainer/SelectFlyCamera
-
+onready var tabs = $TabContainer
 
 func _ready() -> void:
 	print("option control ready")
@@ -44,11 +45,12 @@ func _ready() -> void:
 	t_flycam.connect("changed", self, "set_fly_camera")
 
 
+
 func get_tab_index() -> int:
-	return $TabContainer.current_tab
+	return tabs.current_tab
 
 func set_tab_index(index : int) -> void:
-	$TabContainer.current_tab = index
+	tabs.current_tab = index
 
 func close() -> void:
 	options.set("state", $TabContainer.current_tab, "menu_options_tab")

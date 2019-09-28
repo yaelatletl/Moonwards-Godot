@@ -18,6 +18,7 @@ var debug : bool = true
 
 var Updater : Node 
 
+
 var scripts : Dictionary = {
 	Updater = preload("res://core/update/scripts/Updater.gd")
 }
@@ -44,7 +45,6 @@ var options : Dictionary = {
 #    user avatar options    #
 #############################
 signal user_settings_changed
-
 
 
 var username : String = namelist.get_name()
