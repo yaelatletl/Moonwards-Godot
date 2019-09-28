@@ -40,6 +40,7 @@ func _ready() -> void:
 		current_resolution = resolutions.size() - 1
 	
 	Resolution.text = Resolution.get_popup().get_item_text(current_resolution)
+	get_tree().get_root().size = resolutions[current_resolution]
 
 func _on_Detail_change(id : int) -> void:
 	Quality.text = Quality.get_popup().get_item_text(id)
