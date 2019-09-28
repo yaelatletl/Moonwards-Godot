@@ -39,8 +39,9 @@ formats/gzip/compression_level=5
 [display]
 
 window/size/height=700
+window/size/resizable=false
 window/stretch/mode="2d"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep_height"
 
 [editor]
 
@@ -249,6 +250,7 @@ common/physics_fps=30
 [rendering]
 
 quality/shadows/filter_mode=2
+quality/filters/use_nearest_mipmap_filter=true
 limits/rendering/max_renderable_elements=60000
 environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

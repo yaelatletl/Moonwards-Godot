@@ -194,6 +194,7 @@ func _ready() -> void:
 	self.load()
 	set_defaults()
 	LoadUserSettings()
+	load_graphics_settings()
 
 func load()->void:
 	var savefile : File = File.new()
@@ -217,7 +218,7 @@ func save() -> void:
 	savefile.close()
 	printd("options saved to %s" % OptionsFile)
 
-func get(category : String, prop = null, default=null) -> bool:
+func get(category : String, prop = null, default=null):
 	var res 
 	if options.has(category):
 		if prop and options[category].has(prop):
@@ -347,3 +348,27 @@ func SaveUserSettings():
 	savefile.store_line(to_json(save_dict))
 	savefile.close()
 	emit_signal("user_settings_changed")
+
+func load_graphics_settings():
+	var resolutions : Vector2 = Vector2()
+	var mode : String = get("resolution", "mode", "Windowed")
+	
+	resolutions.x = get("resolution", "width", 1024)
+	resolutions.y = get("resolution", "height", 700)
+	
+	match mode:
+		"Windowed":
+			OS.window_borderless = false
+			OS.window_fullscreen = false
+			if OS.get_window_safe_area().size.x >= resolutions.x or OS.get_window_safe_area().size.y >= resolutions.y:
+				OS.window_size = resolutions
+			else:
+				OS.window_size = OS.get_window_safe_area().size
+		"Borderless":
+			OS.window_borderless = true
+			OS.window_fullscreen = false
+		"Fullscreen":
+			OS.window_borderless = false
+			OS.window_fullscreen = true
+			
+	get_tree().get_root().size = resolutions

@@ -15,79 +15,79 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Row1" type="VBoxContainer" parent="Main"]
-margin_right = 338.0
-margin_bottom = 662.0
+margin_right = 452.0
+margin_bottom = 730.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Updating" type="VBoxContainer" parent="Main/Row1"]
-margin_right = 338.0
+margin_right = 452.0
 margin_bottom = 50.0
 
 [node name="Label" type="Label" parent="Main/Row1/Updating"]
-margin_right = 338.0
+margin_right = 452.0
 margin_bottom = 14.0
 text = "Updating"
 align = 1
 
 [node name="HSeparator" type="HSeparator" parent="Main/Row1/Updating"]
 margin_top = 18.0
-margin_right = 338.0
+margin_right = 452.0
 margin_bottom = 22.0
 
 [node name="UpdateCheck" type="CheckBox" parent="Main/Row1/Updating"]
 margin_top = 26.0
-margin_right = 338.0
+margin_right = 452.0
 margin_bottom = 50.0
 text = "Check for updates on start"
 
 [node name="Row2" type="VBoxContainer" parent="Main"]
-margin_left = 342.0
-margin_right = 680.0
-margin_bottom = 662.0
+margin_left = 456.0
+margin_right = 908.0
+margin_bottom = 730.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Options" type="VBoxContainer" parent="Main/Row2"]
-margin_right = 338.0
+margin_right = 452.0
 margin_bottom = 22.0
 
 [node name="Label" type="Label" parent="Main/Row2/Options"]
-margin_right = 338.0
+margin_right = 452.0
 margin_bottom = 14.0
 text = "Misc"
 align = 1
 
 [node name="HSeparator" type="HSeparator" parent="Main/Row2/Options"]
 margin_top = 18.0
-margin_right = 338.0
+margin_right = 452.0
 margin_bottom = 22.0
 
 [node name="Row3" type="VBoxContainer" parent="Main"]
-margin_left = 684.0
-margin_right = 1024.0
-margin_bottom = 662.0
+margin_left = 912.0
+margin_right = 1366.0
+margin_bottom = 730.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Video" type="VBoxContainer" parent="Main/Row3"]
-margin_right = 340.0
+margin_right = 454.0
 margin_bottom = 142.0
 
 [node name="Label" type="Label" parent="Main/Row3/Video"]
-margin_right = 340.0
+margin_right = 454.0
 margin_bottom = 14.0
 text = "Video"
 align = 1
 
 [node name="HSeparator" type="HSeparator" parent="Main/Row3/Video"]
 margin_top = 18.0
-margin_right = 340.0
+margin_right = 454.0
 margin_bottom = 22.0
 
 [node name="Resolution" type="HBoxContainer" parent="Main/Row3/Video"]
 margin_top = 26.0
-margin_right = 340.0
+margin_right = 454.0
 margin_bottom = 46.0
 
 [node name="Label" type="Label" parent="Main/Row3/Video/Resolution"]
@@ -98,21 +98,29 @@ text = "Resolution:"
 
 [node name="Resolution" type="MenuButton" parent="Main/Row3/Video/Resolution"]
 margin_left = 76.0
-margin_right = 340.0
+margin_right = 263.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 text = "1366 x 768"
 align = 0
 
+[node name="ScreenMode" type="MenuButton" parent="Main/Row3/Video/Resolution"]
+margin_left = 267.0
+margin_right = 454.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Windowed"
+items = [ "Windowed", null, 0, false, false, 0, 0, null, "", false, "Borderless", null, 0, false, false, 1, 0, null, "", false, "Fullscreen", null, 0, false, false, 2, 0, null, "", false ]
+
 [node name="VSync" type="CheckButton" parent="Main/Row3/Video"]
 margin_top = 50.0
-margin_right = 340.0
+margin_right = 454.0
 margin_bottom = 90.0
 text = "VSync"
 
 [node name="ModelQuality" type="HBoxContainer" parent="Main/Row3/Video"]
 margin_top = 94.0
-margin_right = 340.0
+margin_right = 454.0
 margin_bottom = 114.0
 
 [node name="Label" type="Label" parent="Main/Row3/Video/ModelQuality"]
@@ -131,7 +139,7 @@ items = [ "Low", null, 0, false, false, -1, 0, null, "", false, "Medium", null, 
 
 [node name="FPSLimit" type="HBoxContainer" parent="Main/Row3/Video"]
 margin_top = 118.0
-margin_right = 340.0
+margin_right = 454.0
 margin_bottom = 142.0
 
 [node name="Label" type="Label" parent="Main/Row3/Video/FPSLimit"]
@@ -142,7 +150,7 @@ text = "FPS limit:"
 
 [node name="FPSSlider" type="HSlider" parent="Main/Row3/Video/FPSLimit"]
 margin_left = 64.0
-margin_right = 262.0
+margin_right = 376.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
 min_value = 24.0
@@ -151,8 +159,8 @@ value = 24.0
 ticks_on_borders = true
 
 [node name="FPSSpin" type="SpinBox" parent="Main/Row3/Video/FPSLimit"]
-margin_left = 266.0
-margin_right = 340.0
+margin_left = 380.0
+margin_right = 454.0
 margin_bottom = 24.0
 min_value = 24.0
 max_value = 140.0
