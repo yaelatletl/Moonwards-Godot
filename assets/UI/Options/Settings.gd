@@ -50,7 +50,7 @@ func _ready() -> void:
 	
 	if current_resolution == -1:
 		Resolution.get_popup().add_item(str(OS.window_size.x, " x ", OS.window_size.y))
-		resolutions.append(Vector2(OS.window_size.x, OS.window_size.y))
+		resolutions.append(OS.window_size)
 		current_resolution = resolutions.size() - 1
 	
 	ScreenMode.text = mode
