@@ -213,7 +213,7 @@ func server_set_mode(host : String = "localhost"):
 		RoleServer = false
 		return
 	emit_signal("network_log", "prepare to listen on %s:%s" % [server.ip,DEFAULT_PORT])
-	server.connection = net_getsocket()
+	server.connection = NetworkedMultiplayerENet.new()
 	server.connection.set_bind_ip(server.ip)
 	var error : int = server.connection.create_server(DEFAULT_PORT, MAX_PEERS)
 	if error == 0:
@@ -270,7 +270,7 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 	
 	bind_signal("connection_failed", '', get_tree(), self, MODE.CONNECT)
 	bind_signal("connected_to_server", "", get_tree(), self, MODE.CONNECT)
-	client.connection = net_getsocket()
+	client.connection = NetworkedMultiplayerENet.new()
 	client.connection.create_client(player_get("ip"), player_get("port"))
 	emit_signal("gamestate_log", "network id %s" % client.connection.get_unique_id())
 	network_id = client.connection.get_unique_id()
