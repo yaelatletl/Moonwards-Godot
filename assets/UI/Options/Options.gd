@@ -21,17 +21,17 @@ onready var tabs = $TabContainer
 
 func _ready() -> void:
 	print("option control ready")
-	t_Areas.pressed = options.get("dev", "enable_areas_lod")
-	t_CollisionShapes.pressed = options.get("dev", "enable_collision_shapes")
-	t_FPSLimit.pressed = options.get("dev", "3FPSlimit")
-	s_FPSLimit.value = options.get("dev", "3FPSlimit_value")
+	t_Areas.pressed = options.get("dev", "enable_areas_lod", true)
+	t_CollisionShapes.pressed = options.get("dev", "enable_collision_shapes", true)
+	t_FPSLimit.pressed = options.get("dev", "3FPSlimit", true)
+	s_FPSLimit.value = options.get("dev", "3FPSlimit_value", 30)
 	s_FPSLimit.connect("changed", self, "set_fps_limit")
-	t_decimate.pressed = options.get("dev", "hide_meshes_random")
-	t_decimate_percent.value = options.get("dev", "decimate_percent")
+	t_decimate.pressed = options.get("dev", "hide_meshes_random", false)
+	t_decimate_percent.value = options.get("dev", "decimate_percent", 0)
 	t_decimate_percent.connect("changed", self, "set_decimate_percent")
 	
-	t_Lod_Manager.pressed = options.get("dev", "TreeManager")
-	s_HBoxAspect.value = options.get("LOD", "lod_aspect_ratio")
+	t_Lod_Manager.pressed = options.get("dev", "TreeManager", true)
+	s_HBoxAspect.value = options.get("LOD", "lod_aspect_ratio", 2)
 	s_HBoxAspect.connect("changed", self, "set_lod_aspect_ratio")
  
 	t_PMonitor.pressed = options.get("_state_", "perf_mon", false)
