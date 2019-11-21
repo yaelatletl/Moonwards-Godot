@@ -52,13 +52,6 @@ var savefile_json
 
 const Config_File : String = "user://settings.cfg"
 var config : ConfigFile = ConfigFile.new()
-
-#############################
-#       debug function      #
-#############################
-#func printd(s):
-#	logg.print_filtered_message(id, s)
-
 #############################
 # load scene options
 var scenes : Dictionary = {
@@ -139,6 +132,23 @@ var player_opt : Dictionary = {
 }
 
 
+
+func _ready() -> void:
+# 	print("debug set FPS to 3")
+# 	Engine.target_fps = 3
+	printd("load options and settings")
+	self.load()
+	set_defaults()
+	load_graphics_settings()
+
+#############################
+#       debug function      #
+#############################
+func printd(s):
+	logg.print_filtered_message(id, s)
+
+
+
 #############################
 # functions and variable to sort
 func set_defaults() -> void:
@@ -178,13 +188,7 @@ func player_opt(type, opt : Dictionary = {}) -> Dictionary:
 
 
 
-func _ready() -> void:
-# 	print("debug set FPS to 3")
-# 	Engine.target_fps = 3
-#	printd("load options and settings")
-	self.load()
-	set_defaults()
-	load_graphics_settings()
+
 
 func load()->void:
 	var savefile : File = File.new()
@@ -193,13 +197,13 @@ func load()->void:
 		config = ConfigFile.new()
 	else:
 		config.load(Config_File)
-		LoadUserSettings()
+		load_user_settings()
 		printd("options loaded from %s" % Config_File)
 		
 
 func save() -> void:
 	set("_state_", gamestate.local_id, "game_state_id")
-	SaveUserSettings()
+	save_user_settings()
 	config.save(Config_File)
 	printd("options saved to %s" % Config_File)
 
@@ -217,7 +221,7 @@ func del_state(prop):
 		if options["_state_"].has(prop):
 			options["_state_"].erase(prop)
 
-func has(category, prop = null):
+func has(category, prop = null) -> bool:
 	var exists = false
 	if config.has_section(category):
 		exists = true
@@ -249,24 +253,24 @@ func get_tree_opt(opt):
 			res = true
 	return res
 
-func LoadUserSettings():
+func load_user_settings() -> void:
 	gender = get('player', "gender", GENDERS.FEMALE)
 	username = get('player', "username", "Player Name")
 
-	pants_color = SafeGetColor("pants", Color8(49,4,5,255))
-	shirt_color = SafeGetColor("shirt", Color8(87,235,192,255))
-	skin_color = SafeGetColor("skin", Color8(150,112,86,255))
-	hair_color = SafeGetColor("hair", Color8(0,0,0,255))
-	shoes_color = SafeGetColor("shoes", Color8(78,158,187,255))
+	pants_color = safe_get_color("pants", Color8(49,4,5,255))
+	shirt_color = safe_get_color("shirt", Color8(87,235,192,255))
+	skin_color = safe_get_color("skin", Color8(150,112,86,255))
+	hair_color = safe_get_color("hair", Color8(0,0,0,255))
+	shoes_color = safe_get_color("shoes", Color8(78,158,187,255))
 
-func SafeGetColor(var color_name : String, var default_color : Color) -> Color:
+func safe_get_color(var color_name : String, var default_color : Color) -> Color:
 	if not config.has_section_key('Pcolor', color_name + "R") or not config.has_section_key('Pcolor', color_name + "G") or not config.has_section_key('Pcolor', color_name + "B"):
 		return default_color
 	else:
 		return Color8(config.get_value('Pcolor', color_name + "R"),config.get_value('Pcolor', color_name + "G"), config.get_value('Pcolor', color_name + "B"),255)
 
 
-func SaveUserSettings():
+func save_user_settings() -> void:
 	set('player', username, "username")
 	set('player', gender, "gender")
 	
@@ -292,7 +296,7 @@ func SaveUserSettings():
 
 	emit_signal("user_settings_changed")
 
-func load_graphics_settings():
+func load_graphics_settings() -> void:
 	var resolutions : Vector2 = Vector2()
 	var mode : String = get("resolution", "mode", "Windowed")
 	
