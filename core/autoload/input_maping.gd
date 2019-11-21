@@ -1,12 +1,11 @@
 extends Node
 
-const CONFIG_FILE = "user://inputmap.cfg"
-var INPUT_ACTIONS = []
+var INPUT_ACTIONS : Array = []
 
-func _ready():
+func _ready() -> void:
 	load_config()
 
-func load_config():
+func load_config() -> void:
 	for actions in InputMap.get_actions():
 		if actions is InputEventKey:
 			INPUT_ACTIONS.append(actions)
@@ -30,12 +29,12 @@ func load_config():
 					InputMap.action_erase_event(action_name, old_event)
 			InputMap.action_add_event(action_name, event)
 
-func save_to_config(section, key, value):
+func save_to_config(section: String, key : String, value) -> void:
 	"""Helper function to redefine a parameter in the settings file"""
 	options.set(section, value, key)
 	options.save()
 
-func save_all():
+func save_all() -> void:
 	for action in InputMap.get_actions():
 		for member in range(0,InputMap.get_action_list(action).size()):
 			if InputMap.get_action_list(action)[member] is InputEventKey:
