@@ -50,7 +50,7 @@ var hair_color : Color = Color(0,0,0,1)
 var shoes_color : Color = Color(0,0,0,1)
 var savefile_json
 
-const Config_File : String = "user://inputmap.cfg"
+const Config_File : String = "user://settings.cfg"
 var config : ConfigFile = ConfigFile.new()
 
 #############################
