@@ -52,12 +52,16 @@ func _ready() -> void:
 	Input.set_use_accumulated_input(false)
 	
 func on_tree_change() -> void:
+	pass
 	#printd("debug treechange")
 func on_node_added(node):
+	pass
 	#printd("added node %s" % node.get_path())
 func on_node_removed(node):
+	pass
 	#printd("node removed: %s" % node)
 func tree_idle_frame():
+	pass
 	#printd("tree idle frame")
 
 func debug_apply_options() -> void:
@@ -122,7 +126,7 @@ func user_scene_changed() -> void:
 func print_active_cameras() -> void:
 	var root = get_tree().current_scene
 	var cameras = utils.get_nodes_type(root, "Camera", true)
-	for p in cameras:
+#	for p in cameras:
 		#printd("%s(%s)" % [p, root.get_node(p).current])
 
 func set_active_camera() -> void:
@@ -233,7 +237,7 @@ func set_lod_manager(enable : bool) -> void:
 		if slm:
 			var tm = root.get_node(slm)
 			tm.enabled = false
-		else:
+#		else:
 			#printd("set_lod_manager, attempt to disable notexisting tree manager")
 		return #nothing to do here
 		
@@ -283,22 +287,22 @@ func features_list(enabled_only : bool = true) -> void:
 		# custom features, Moonwards specific
 		
 	]
-
-	if enabled_only:
+	
+#	if enabled_only:
 		#printd("OS:: print only enabled features")
 	
-	for f in features:
-		if enabled_only:
-			if OS.has_feature(f.opt):
+#	for f in features:
+#		if enabled_only:
+#			if OS.has_feature(f.opt):
 				#printd("OS::%s has %s" % [f.opt, OS.has_feature(f.opt)])
-		else:
+#		else:
 			#printd("OS::%s has %s" % [f.opt, OS.has_feature(f.opt)])
 	
 
 func print_current_players() -> void:
 	#printd("gamestate players")
 	print(gamestate.players)
-	for p in gamestate.players.keys():
+#	for p in gamestate.players.keys():
 		#printd("player %s" % gamestate.players[p])
 		#printd("obj at %s" % gamestate.players[p].obj.get_path())
 

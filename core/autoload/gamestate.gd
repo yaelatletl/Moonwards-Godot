@@ -502,11 +502,14 @@ func log_all_signals() -> void:
 	#printd("log_all_signals: %s" % sg_added)
 		
 func log_all_signals_print_1(signal_name : String):
+	pass
 	#printd(str("==========signal0 ", signal_name," ================"))
 func log_all_signals_print_2(a1, signal_name : String):
+	pass
 	#printd(str("==========signal1 ", signal_name," ================"))
 	#printd(str(a1))
 func log_all_signals_print_3(a1, a2, signal_name : String):
+	pass
 	#printd(str("==========signal2 ", signal_name," ================"))
 	#printd(str(a1, a2))
 
@@ -551,22 +554,25 @@ func load_level(var resource) -> void: #Resource is variant
 
 
 func net_up() -> void: 
-	if PlayerSceneUP:
-		#printd("------net_up---enable networking in instanced players--------")
-	else:
-		#printd("------net_up---do nothing--------")
+	pass
+#	if PlayerSceneUP:
+#		printd("------net_up---enable networking in instanced players--------")
+#	else:
+#		printd("------net_up---do nothing--------")
 
 func net_down() -> void:
-	if PlayerSceneUP:
-		#printd("------net_down---players disable netwokring--------")
-	else:
-		#printd("------net_down---players do nothing--------")
+	pass
+#	if PlayerSceneUP:
+#		printd("------net_down---players disable netwokring--------")
+#	else:
+#		printd("------net_down---players do nothing--------")
 
 func net_client(id : int, connected : bool) -> void:
-	if connected:
-		#printd("------net_client(%s)---make stub for %s---------" % [connected, id])
-	else:
-		#printd("------net_client(%s)---disconnect client %s-----" % [connected, id])
+	pass
+#	if connected:
+#		#printd("------net_client(%s)---make stub for %s---------" % [connected, id])
+#	else:
+#		#printd("------net_client(%s)---disconnect client %s-----" % [connected, id])
 
 func player_scene() -> void:
 	#printd("------instance avatars with networking(%s) - players count %s" % [NetworkUP, players.size()])
@@ -722,14 +728,17 @@ func _on_connected_to_server() -> void:
 	emit_signal("server_connected")
 
 func _on_network_log(msg) -> void:
+	pass
 	#printd("Server log: %s" % msg)
 
 func _on_gamestate_log(msg) -> void:
-	#printd("gamestate log: %s" % msg)
+	pass
+#	printd("gamestate log: %s" % msg)
 
 func _on_scene_change_log() -> void:
-	#printd("===gs on_scene_change")
-	#printd("get_tree: %s" % get_tree())
-	if get_tree():
-		if get_tree().current_scene :
-			#printd("current scene: %s" % get_tree().current_scene)
+	pass
+#	printd("===gs on_scene_change")
+#	printd("get_tree: %s" % get_tree())
+#	if get_tree():
+#		if get_tree().current_scene :
+#			#printd("current scene: %s" % get_tree().current_scene)

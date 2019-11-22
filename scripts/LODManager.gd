@@ -68,7 +68,7 @@ func init_scene():
 	
 	if camera:
 		UpdateLOD(true)
-	else:
+#	else:
 		#printd("init_scene, no camera found")
 
 func set_scene_path(path):
@@ -165,5 +165,5 @@ func UpdateLOD(force=false):
 			visible += 1
 		else:
 			hidden += 1
-	if changes > 0:
+#	if changes > 0:
 		#printd("LM %s/%s/%s/%s changes/visible/hidden/total" % [changes, visible, hidden, mesh_collection.size()])

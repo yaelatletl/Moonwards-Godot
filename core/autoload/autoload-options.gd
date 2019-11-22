@@ -166,12 +166,12 @@ func player_opt(type, opt : Dictionary = {}) -> Dictionary:
 		for k in opt:
 			if filter.has(k) and filter[k] or allow_unknown:
 				res[k] = opt[k]
-				if not k in filter:
-					#printd("player_filter_opt, default allow unknown option %s %s" % [k, opt[k]])
+#				if not k in filter:
+#					printd("player_filter_opt, default allow unknown option %s %s" % [k, opt[k]])
 
-	if not player_opt.has(type):
-		#printd("player_filter_opt, unknown player opt type %s" % type)
-	else:
+#	if not player_opt.has(type):
+#		printd("player_filter_opt, unknown player opt type %s" % type)
+	if player_opt.has(type):
 		var def_opt : Array = player_opt[type]
 		for k in def_opt:
 			res[k] = def_opt[k]
@@ -182,7 +182,7 @@ func player_opt(type, opt : Dictionary = {}) -> Dictionary:
 func _ready() -> void:
 # 	print("debug set FPS to 3")
 # 	Engine.target_fps = 3
-	#printd("load options and settings")
+#	printd("load options and settings")
 	self.load()
 	set_defaults()
 	LoadUserSettings()
@@ -190,9 +190,9 @@ func _ready() -> void:
 
 func load()->void:
 	var savefile : File = File.new()
-	if not savefile.file_exists(OptionsFile):
-		#printd("Nothing was saved before")
-	else:
+#	if not :
+#		printd("Nothing was saved before")
+	if savefile.file_exists(OptionsFile):
 		savefile.open(OptionsFile, File.READ)
 		var content = str2var(savefile.get_as_text())
 		savefile.close()

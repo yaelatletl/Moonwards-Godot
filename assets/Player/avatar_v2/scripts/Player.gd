@@ -513,8 +513,8 @@ func UpdateNetworking():
 		rset_unreliable("puppet_motion", motion)
 		rset_unreliable("puppet_jump", jumping)
 		rset_unreliable("puppet_animation_speed", animation_speed)
-	else:
-		#printd("UpdateNetworking: not a remote player(%s) and not a network_master and network(%s)" % [get_path(), network])
+#	else:
+#		printd("UpdateNetworking: not a remote player(%s) and not a network_master and network(%s)" % [get_path(), network])
 
 func SetNetwork(var enabled):
 	network = enabled

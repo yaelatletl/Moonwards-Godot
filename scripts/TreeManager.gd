@@ -93,7 +93,7 @@ func track_changes(enable):
 		else:
 			root.disconnect("node_added", self, "track_node_added")
 			root.disconnect("node_removed", self, "track_node_removed")
-	else:
+#	else:
 		#printd("fail to setup tracking changes, enable(%s), but get_tree is null" % enable)
 
 func hboxsetlod_check(node):
@@ -179,7 +179,7 @@ func lodelement_fixchilds(node):
 			#printd("fix child lod max %s %s, %s" % [obj.lod_max_distance, node.lod_max_distance, obj.get_path()])
 			obj.lod_max_distance = node.lod_max_distance
 		if obj.lod_min_distance < node.lod_min_distance:
-			if node.lod_min_distance > obj.lod_max_distance:
+#			if node.lod_min_distance > obj.lod_max_distance:
 				#printd("won't be shown, too small %s" % obj.get_path())
 			#printd("fix child lod min %s %s, %s" % [obj.lod_max_distance, node.lod_max_distance, obj.get_path()])
 			obj.lod_min_distance = node.lod_min_distance
@@ -210,9 +210,9 @@ func lodelement_set(root):
 	for e in loe:
 		#printd("loe %s" % [e.get_path()])
 		var whom = e.get(substitute)
-		if whom:
+#		if whom:
 			#printd("whom %s" % [whom])
-		else:
+		if not whom:
 			var nroot = utils.get_node_root(e)
 			var fname = nroot.filename
 			var path = nroot.get_path_to(e)
@@ -238,7 +238,7 @@ func lodelement_set(root):
 			#no point in increasing max lod, so 
 			e.lod_max_distance = e.get_sub_node().lod_max_distance * proportion
 			e.get_sub_node().lod_min_distance = e.lod_max_distance
-		else:
+#		else:
 			#printd("proportion is strange %s, do nothing" % proportion)
 		lodelement_fixchilds(e)
 		lodelement_fixchilds(e.get_sub_node())

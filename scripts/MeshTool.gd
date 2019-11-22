@@ -48,7 +48,7 @@ func set_mesh(obj):
 	if obj == null:
 		#printd("set_mesh, obj == null")
 		return
-	if root == null:
+#	if root == null:
 		#printd("scene tree is not defined")
 	
 	cache_vars()
