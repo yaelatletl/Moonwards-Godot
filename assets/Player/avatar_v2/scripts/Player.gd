@@ -161,10 +161,10 @@ func set_player_group(enable=true): # for local only
 		return
 	var pg = options.player_opt.PlayerGroup
 	if puppet == false and not is_in_group(pg):
-		printd("add avatar(%s), puppet(%s) to %s group" % [get_path(), puppet, pg])
+		#printd("add avatar(%s), puppet(%s) to %s group" % [get_path(), puppet, pg])
 		add_to_group(pg, true)
 	if puppet == true and is_in_group(pg):
-		printd("remove avatar(%s), puppet(%s) from %s group" % [get_path(), puppet, pg])
+		#printd("remove avatar(%s), puppet(%s) from %s group" % [get_path(), puppet, pg])
 		remove_from_group(pg)
 
 func SetID(var _id):
@@ -327,7 +327,7 @@ func HandleControls(var delta):
 	#Only control the character when it is on the floor.
 	if not in_air:
 		motion = motion.linear_interpolate(motion_target, MOTION_INTERPOLATE_SPEED * delta)
-# 		printd("%s = motion.linear_interpolate(%s, %s * %s)" % [motion, motion_target, MOTION_INTERPOLATE_SPEED, delta])
+# 		#printd("%s = motion.linear_interpolate(%s, %s * %s)" % [motion, motion_target, MOTION_INTERPOLATE_SPEED, delta])
 	else:
 		pass
 	
@@ -350,7 +350,7 @@ func HandleControls(var delta):
 		var slide_direction = velocity_direction.slide(ground_normal)
 		h_velocity = slide_direction * h_velocity.length()
 		
-# 		printd("h_velocity(%s) = (orientation.origin(%s) / delta(%s))" % [h_velocity, orientation.origin, delta])
+# 		#printd("h_velocity(%s) = (orientation.origin(%s) / delta(%s))" % [h_velocity, orientation.origin, delta])
 		velocity.x = h_velocity.x
 		velocity.y = h_velocity.y
 		
@@ -514,12 +514,12 @@ func UpdateNetworking():
 		rset_unreliable("puppet_jump", jumping)
 		rset_unreliable("puppet_animation_speed", animation_speed)
 	else:
-		printd("UpdateNetworking: not a remote player(%s) and not a network_master and network(%s)" % [get_path(), network])
+		#printd("UpdateNetworking: not a remote player(%s) and not a network_master and network(%s)" % [get_path(), network])
 
 func SetNetwork(var enabled):
 	network = enabled
 	nonetwork = ! enabled
-	printd("Player %s enable/disable networking, nonetwork(%s)" % [get_path(), nonetwork])
+	#printd("Player %s enable/disable networking, nonetwork(%s)" % [get_path(), nonetwork])
 
 	if network:
 		rset_config("puppet_translation", MultiplayerAPI.RPC_MODE_PUPPET)
@@ -562,7 +562,7 @@ var rp_points = []
 
 func PopRPoint():
 	if rp_points.size() > 0:
-			printd("-----%s %s %s" % [rp_points.size(), get_path(), rp_points[0]])
+			#printd("-----%s %s %s" % [rp_points.size(), get_path(), rp_points[0]])
 			$KinematicBody.global_transform = rp_points.pop_front()
 			rp_time = 0
 
@@ -579,8 +579,8 @@ func SaveRPoints(delta):
 					if rp_points[0].origin.distance_to(kbo) > rp_delta_o:
 							rp_time = 0
 							rp_points.push_front($KinematicBody.global_transform)
-							printd("+++++%s %s %s" % [rp_points.size(), get_path(), rp_points[0]])
+							#printd("+++++%s %s %s" % [rp_points.size(), get_path(), rp_points[0]])
 
-var debug_id = "Player2.gd"
-func printd(s):
-	logg.print_filtered_message(debug_id, s)
+#var debug_id = "Player2.gd"
+#func printd(s):
+#	logg.print_filtered_message(debug_id, s)
