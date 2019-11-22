@@ -1,5 +1,5 @@
 extends Spatial
-var id = "CameraControl"
+#var id = "CameraControl"
 
 export (NodePath) var kinematic_body_path
 export (NodePath) var kinematic_body_camera
@@ -19,10 +19,10 @@ var excluded_bodies = []
 func _ready():
 	if camera == null:
 		enabled = false
-		printd("camera not defined, disabled")
+		#printd("camera not defined, disabled")
 	else:
 		var camera_far = 50000
-		printd("camera found, enabled, set far %s" % camera_far)
+		#printd("camera found, enabled, set far %s" % camera_far)
 		camera.far = camera_far
 		camera.global_transform.origin = camera_target.global_transform.origin
 		current_look_position = look_target.global_transform.origin
@@ -79,5 +79,5 @@ func DrawLine(var from, var to):
 	
 	im.end()
 
-func printd(s):
-	logg.print_filtered_message(id, s)
+#func printd(s):
+#	logg.print_filtered_message(id, s)
