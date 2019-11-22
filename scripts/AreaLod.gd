@@ -65,9 +65,11 @@ func init_all():
 	area_exit("on ready")
 	
 func _on_body_enter(body):
+	pass
 	#printd("body_enter %s" % body)
 
 func _on_body_exit(body):
+	pass
 	#printd("body_exit %s" % body)
 
 func _on_Area_area_entered(area):
@@ -80,7 +82,7 @@ func _on_Area_area_entered(area):
 		obj.visible = false
 
 func area_exit(s=""):
-	if s != "on ready":
+#	if s != "on ready":
 		#printd("Area exit: %s" % id_path)
 	for obj in nodes_sh:
 		obj.visible = false

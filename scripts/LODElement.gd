@@ -18,7 +18,7 @@ func _ready():
 func set_state():
 	if state == null:
 		save_state()
-	if state == null:
+#	if state == null:
 		#printd("fail to substitute %s %s %s" % [utils.get_node_file(self), get_path(), substitute])
 	var node = get_node(substitute)
 	if node.visible:
