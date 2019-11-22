@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/heightmap.png-b570a8544d1c38064819addb94fdb983.stex"
+path="res://.import/regolith_texture.jpg-56b89d61e708241d08398dc8e294ab12.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_tests/Terrain/heightmap.png"
-dest_files=[ "res://.import/heightmap.png-b570a8544d1c38064819addb94fdb983.stex" ]
+source_file="res://image_textures/regolith_texture.jpg"
+dest_files=[ "res://.import/regolith_texture.jpg-56b89d61e708241d08398dc8e294ab12.stex" ]
 
 [params]
 

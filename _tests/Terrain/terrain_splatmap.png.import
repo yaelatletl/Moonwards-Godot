@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/heightmap.png-b570a8544d1c38064819addb94fdb983.stex"
+path="res://.import/terrain_splatmap.png-ba0518730defd41b762a0f1a7f460c61.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_tests/Terrain/heightmap.png"
-dest_files=[ "res://.import/heightmap.png-b570a8544d1c38064819addb94fdb983.stex" ]
+source_file="res://_tests/Terrain/terrain_splatmap.png"
+dest_files=[ "res://.import/terrain_splatmap.png-ba0518730defd41b762a0f1a7f460c61.stex" ]
 
 [params]
 
