@@ -2,6 +2,10 @@ extends Node
 """
 	Logger Singleton Class Script
 	Provides functions for logging of various levels of message to disk.
+	
+	Usage example:
+	
+	hint(self, "function_name", "thing went wrong")
 """
 signal hint_logged(message)
 signal warning_logged(message)
