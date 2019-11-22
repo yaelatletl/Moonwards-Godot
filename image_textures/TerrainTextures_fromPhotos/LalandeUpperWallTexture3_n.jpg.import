@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/heightmap.png-b570a8544d1c38064819addb94fdb983.stex"
+path="res://.import/LalandeUpperWallTexture3_n.jpg-aa5f87a2cc7d665f10f384a0f5f290b0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_tests/Terrain/heightmap.png"
-dest_files=[ "res://.import/heightmap.png-b570a8544d1c38064819addb94fdb983.stex" ]
+source_file="res://image_textures/TerrainTextures_fromPhotos/LalandeUpperWallTexture3_n.jpg"
+dest_files=[ "res://.import/LalandeUpperWallTexture3_n.jpg-aa5f87a2cc7d665f10f384a0f5f290b0.stex" ]
 
 [params]
 

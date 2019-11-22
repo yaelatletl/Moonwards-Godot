@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/heightmap.png-b570a8544d1c38064819addb94fdb983.stex"
+path="res://.import/UpperWall1_Normal_Medium_Tiled.jpg-e9653774c9fca5b39cd5f4f534d36293.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_tests/Terrain/heightmap.png"
-dest_files=[ "res://.import/heightmap.png-b570a8544d1c38064819addb94fdb983.stex" ]
+source_file="res://image_textures/Procedural_UpperWall/UpperWall1_Normal_Medium_Tiled.jpg"
+dest_files=[ "res://.import/UpperWall1_Normal_Medium_Tiled.jpg-e9653774c9fca5b39cd5f4f534d36293.stex" ]
 
 [params]
 
