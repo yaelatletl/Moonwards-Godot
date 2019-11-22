@@ -1,5 +1,5 @@
 extends Spatial
-var id = "CameraControl"
+#var id = "CameraControl"
 
 export (NodePath) var kinematic_body_path
 export (NodePath) var kinematic_body_camera
