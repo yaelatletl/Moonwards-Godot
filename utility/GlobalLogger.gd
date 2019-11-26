@@ -82,9 +82,9 @@ func _make_log_folder() -> void:
 		_can_log_to_disk = false
 		return
 	
-	var make_err: int = _d.make_dir("Logs")
+	var make_err: int = _d.make_dir(LOG_DIR)
 	
-	if not open_err == OK:
+	if not make_err == OK:
 		print("_ERROR: Logger: _make_log_folder, can't make LOG_DIR. Error %s. File logging suspended." % make_err)
 		_can_log_to_disk = false
 		return
