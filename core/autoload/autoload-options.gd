@@ -50,16 +50,8 @@ var hair_color : Color = Color(0,0,0,1)
 var shoes_color : Color = Color(0,0,0,1)
 var savefile_json
 
-#FIXME Writing and reading should be done with a ConfigFile instead of writing a dictionary using File.
-var OptionsFile : String = "user://gameoptions.save"
-var User_file : String = "user://settings.save"
-
-#############################
-#       debug function      #
-#############################
-#func printd(s):
-#	logg.print_filtered_message(id, s)
-
+const Config_File : String = "user://settings.cfg"
+var config : ConfigFile = ConfigFile.new()
 #############################
 # load scene options
 var scenes : Dictionary = {
@@ -140,6 +132,23 @@ var player_opt : Dictionary = {
 }
 
 
+
+func _ready() -> void:
+# 	print("debug set FPS to 3")
+# 	Engine.target_fps = 3
+	printd("_ready","load options and settings")
+	self.load()
+	set_defaults()
+	load_graphics_settings()
+
+#############################
+#       debug function      #
+#############################
+func printd(function_name, s):
+	Log.hint(self, function_name, s)
+
+
+
 #############################
 # functions and variable to sort
 func set_defaults() -> void:
@@ -179,65 +188,32 @@ func player_opt(type, opt : Dictionary = {}) -> Dictionary:
 
 
 
-func _ready() -> void:
-# 	print("debug set FPS to 3")
-# 	Engine.target_fps = 3
-#	printd("load options and settings")
-	self.load()
-	set_defaults()
-	LoadUserSettings()
-	load_graphics_settings()
+
 
 func load()->void:
 	var savefile : File = File.new()
-#	if not :
-#		printd("Nothing was saved before")
-	if savefile.file_exists(OptionsFile):
-		savefile.open(OptionsFile, File.READ)
-		var content = str2var(savefile.get_as_text())
-		savefile.close()
-		if content:
-			if content.has("_state_"):
-				content.erase("_state_")
-			options = content
-		#printd("options loaded from %s" % OptionsFile)
+	if not savefile.file_exists(Config_File):
+		printd("load", "Nothing was saved before")
+		config = ConfigFile.new()
+	else:
+		config.load(Config_File)
+		load_user_settings()
+		printd("load", "options loaded from %s" % Config_File)
+		
 
 func save() -> void:
-	var savefile : File = File.new()
-	savefile.open(OptionsFile, File.WRITE)
 	set("_state_", gamestate.local_id, "game_state_id")
-	savefile.store_line(var2str(options))
-	savefile.close()
-	#printd("options saved to %s" % OptionsFile)
+	save_user_settings()
+	config.save(Config_File)
+	printd("save","options saved to %s" % Config_File)
 
-func get(category : String, prop = null, default=null):
-	var res 
-	if options.has(category):
-		if prop and options[category].has(prop):
-			res = options[category][prop]
-		elif prop:
-			pass
-		else:
-			res = options[category]
-	if res == null and default != null:
-		if prop:
-			if not options.has(category):
-				options[category] = {}
-			options[category][prop] = default
-		else:
-			options[category] = default
-		res = default
-	#printd("get: %s::%s==%s" % [category, prop, res])
+func get(category : String, prop : String = '', default=null):
+	var res = config.get_value(category, prop, default)
 	return res
 
-func set(category, value, prop = null):
-	#printd("options set %s::%s %s" % [category, prop, value])
-	if prop == null:
-		options[category] = value
-	else:
-		if not options.has(category):
-			options[category] = {}
-		options[category][prop] = value
+func set(category : String, value, prop : String = '') -> void:
+	config.set_value(category, prop, value)
+
 
 func del_state(prop):
 	#printd("options del_stat ::%s" % prop)
@@ -245,12 +221,12 @@ func del_state(prop):
 		if options["_state_"].has(prop):
 			options["_state_"].erase(prop)
 
-func has(category, prop = null):
+func has(category, prop = null) -> bool:
 	var exists = false
-	if options.has(category):
+	if config.has_section(category):
 		exists = true
 	if exists and prop != null:
-		exists = options[category].has(prop)
+		exists = config.has_section_key(category, prop)
 	return exists
 
 func get_tree_options(tree):
@@ -277,71 +253,50 @@ func get_tree_opt(opt):
 			res = true
 	return res
 
-func LoadUserSettings():
-	var savefile = File.new()
-	if not savefile.file_exists(User_file):
-		SaveUserSettings()
+func load_user_settings() -> void:
+	gender = get('player', "gender", GENDERS.FEMALE)
+	username = get('player', "username", "Player Name")
 
-	savefile.open(User_file, File.READ)
-	print(savefile.get_as_text())
-	savefile_json = parse_json(savefile.get_as_text())
-	savefile.close()
-	gender = SafeGetSetting("gender", GENDERS.FEMALE)
-	username = SafeGetSetting("username", "Player Name")
+	pants_color = safe_get_color("pants", Color8(49,4,5,255))
+	shirt_color = safe_get_color("shirt", Color8(87,235,192,255))
+	skin_color = safe_get_color("skin", Color8(150,112,86,255))
+	hair_color = safe_get_color("hair", Color8(0,0,0,255))
+	shoes_color = safe_get_color("shoes", Color8(78,158,187,255))
 
-	pants_color = SafeGetColor("pants", Color8(49,4,5,255))
-	shirt_color = SafeGetColor("shirt", Color8(87,235,192,255))
-	skin_color = SafeGetColor("skin", Color8(150,112,86,255))
-	hair_color = SafeGetColor("hair", Color8(0,0,0,255))
-	shoes_color = SafeGetColor("shoes", Color8(78,158,187,255))
-
-func SafeGetColor(var color_name, var default_color) -> Color:
-	if not savefile_json.has(color_name + "R") or not savefile_json.has(color_name + "G") or not savefile_json.has(color_name + "B"):
+func safe_get_color(var color_name : String, var default_color : Color) -> Color:
+	if not config.has_section_key('Pcolor', color_name + "R") or not config.has_section_key('Pcolor', color_name + "G") or not config.has_section_key('Pcolor', color_name + "B"):
 		return default_color
 	else:
-		return Color8(savefile_json[color_name + "R"],savefile_json[color_name + "G"],savefile_json[color_name + "B"],255)
+		return Color8(config.get_value('Pcolor', color_name + "R"),config.get_value('Pcolor', color_name + "G"), config.get_value('Pcolor', color_name + "B"),255)
 
-func SafeGetSetting(var setting_name, var default_value):
 
-	if not savefile_json.has(setting_name):
-		return default_value
-	else:
-		return savefile_json[setting_name]
+func save_user_settings() -> void:
+	set('player', username, "username")
+	set('player', gender, "gender")
+	
+	set('Pcolor', pants_color.r*255, "pantsR")
+	set('Pcolor', pants_color.g*255, "pantsG")
+	set('Pcolor', pants_color.b*255, "pantsB")
 
-func SaveUserSettings():
-	var savefile = File.new()
-	savefile.open(User_file, File.WRITE)
-	var save_dict = {
+	set('Pcolor', shirt_color.r*255, "shirtR")
+	set('Pcolor', shirt_color.g*255, "shirtG")
+	set('Pcolor', shirt_color.b*255, "shirtB")
 
-		"username" : username,
-		"gender" : gender,
+	set('Pcolor', skin_color.r*255, "skinR")
+	set('Pcolor', skin_color.g*255, "skinG")
+	set('Pcolor', skin_color.b*255, "skinB")
 
-		"pantsR" : pants_color.r*255, # Vector3 is not supported by JSON
-		"pantsG" : pants_color.g*255,
-		"pantsB" : pants_color.b*255,
+	set('Pcolor', hair_color.r*255, "hairR")
+	set('Pcolor', hair_color.g*255, "hairG")
+	set('Pcolor', hair_color.b*255, "hairB")
 
-		"shirtR" : shirt_color.r*255,
-		"shirtG" : shirt_color.g*255,
-		"shirtB" : shirt_color.b*255,
+	set('Pcolor', shoes_color.r*255, "shoesR")
+	set('Pcolor', shoes_color.g*255, "shoesG")
+	set('Pcolor', shoes_color.b*255, "shoesB")
 
-		"skinR" : skin_color.r*255,
-		"skinG" : skin_color.g*255,
-		"skinB" : skin_color.b*255,
-
-		"hairR" : hair_color.r*255,
-		"hairG" : hair_color.g*255,
-		"hairB" : hair_color.b*255,
-
-		"shoesR" : shoes_color.r*255,
-		"shoesG" : shoes_color.g*255,
-		"shoesB" : shoes_color.b*255,
-
-		}
-	savefile.store_line(to_json(save_dict))
-	savefile.close()
 	emit_signal("user_settings_changed")
 
-func load_graphics_settings():
+func load_graphics_settings() -> void:
 	var resolutions : Vector2 = Vector2()
 	var mode : String = get("resolution", "mode", "Windowed")
 	

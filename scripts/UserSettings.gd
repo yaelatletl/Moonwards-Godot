@@ -58,7 +58,7 @@ func _on_CfgPlayer_pressed() -> void:
 	$WindowDialog.popup_centered()
 
 func _on_SaveButton_pressed() -> void:
-	options.SaveUserSettings()
+	options.save()
 	UIManager.back()
 
 func _on_SlotOption_item_selected(ID : int) -> void:

@@ -71,9 +71,9 @@ func debug_apply_options() -> void:
 	hidden_nodes = []
 	if options.get("dev", "hide_meshes_random"):
 		hide_nodes_random(options.get("dev", "decimate_percent"))
-	set_3fps(options.get("dev", "3FPSlimit"), options.get("dev", "3FPSlimit_value"))
-	e_area_lod(options.get("dev", "enable_areas_lod"))
-	set_lod_manager(options.get("dev", "TreeManager"))
+	set_3fps(options.get("dev", "3FPSlimit", false), options.get("dev", "3FPSlimit_value", 30))
+	e_area_lod(options.get("dev", "enable_areas_lod", true))
+	set_lod_manager(options.get("dev", "TreeManager", false))
 	
 	#insert some camera
 	if not options.get_tree_opt("NoCamera"):
@@ -236,6 +236,8 @@ func set_lod_manager(enable : bool) -> void:
 	if not enable:
 		if slm:
 			var tm = root.get_node(slm)
+			if tm == null:
+				return
 			tm.enabled = false
 #		else:
 			#printd("set_lod_manager, attempt to disable notexisting tree manager")
