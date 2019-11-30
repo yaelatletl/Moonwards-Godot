@@ -20,7 +20,7 @@ onready var t_flycam = $TabContainer/Dev/VBoxContainer/SelectFlyCamera
 onready var tabs = $TabContainer
 
 func _ready() -> void:
-	print("option control ready")
+	Log.hint(self, "_ready", "option control ready")
 	t_Areas.pressed = options.get("dev", "enable_areas_lod", true)
 	t_CollisionShapes.pressed = options.get("dev", "enable_collision_shapes", true)
 	t_FPSLimit.pressed = options.get("dev", "3FPSlimit", true)
@@ -78,7 +78,7 @@ func init_playerspeed_control(button : Control) -> void:
 		button.enabled = true
 		button.value = player.get("SPEED_SCALE")
 		button.connect("changed", self, "set_player_speed")
-		print("found player", player, "at", player.get_path(), ", enable speed changes")
+		Log.hint(self, "init_playerspeed_control", str("found player", player, "at", player.get_path(), ", enable speed changes"))
 	else:
 		button.enabled = false
 		button.value = 0
@@ -107,7 +107,7 @@ func set_player_speed(value: float) -> void:
 	var player = get_player()
 	if player:
 		player.set("SPEED_SCALE", value)
-		print("set_player_speed to value : ", value)
+		Log.hint(self, "set_player_speed",str("set_player_speed to value : ", value))
 
 func _on_tAreas_pressed() -> void:
 	debug.e_area_lod(t_Areas.pressed)

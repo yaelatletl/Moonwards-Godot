@@ -136,7 +136,7 @@ var player_opt : Dictionary = {
 func _ready() -> void:
 # 	print("debug set FPS to 3")
 # 	Engine.target_fps = 3
-	printd("load options and settings")
+	printd("_ready","load options and settings")
 	self.load()
 	set_defaults()
 	load_graphics_settings()
@@ -144,8 +144,8 @@ func _ready() -> void:
 #############################
 #       debug function      #
 #############################
-func printd(s):
-	logg.print_filtered_message(id, s)
+func printd(function_name, s):
+	Log.hint(self, function_name, s)
 
 
 
@@ -193,19 +193,19 @@ func player_opt(type, opt : Dictionary = {}) -> Dictionary:
 func load()->void:
 	var savefile : File = File.new()
 	if not savefile.file_exists(Config_File):
-		printd("Nothing was saved before")
+		printd("load", "Nothing was saved before")
 		config = ConfigFile.new()
 	else:
 		config.load(Config_File)
 		load_user_settings()
-		printd("options loaded from %s" % Config_File)
+		printd("load", "options loaded from %s" % Config_File)
 		
 
 func save() -> void:
 	set("_state_", gamestate.local_id, "game_state_id")
 	save_user_settings()
 	config.save(Config_File)
-	printd("options saved to %s" % Config_File)
+	printd("save","options saved to %s" % Config_File)
 
 func get(category : String, prop : String = '', default=null):
 	var res = config.get_value(category, prop, default)
