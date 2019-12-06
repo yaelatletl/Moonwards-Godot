@@ -43,5 +43,4 @@ export.cfg
 
 # Project-specific ignores #
 ############################
-_exports/
 !_exports/.gitignore
