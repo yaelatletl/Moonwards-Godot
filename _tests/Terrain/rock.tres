@@ -1,7 +1,7 @@
 [gd_resource type="SpatialMaterial" load_steps=3 format=2]
 
-[ext_resource path="res://image_textures/TerrainTextures_fromPhotos/LalandeUpperWallTexture4.jpg" type="Texture" id=1]
-[ext_resource path="res://image_textures/TerrainTextures_fromPhotos/LalandeUpperWallTexture4_Normal.jpg" type="Texture" id=2]
+[ext_resource path="res://image_textures/TerrainTextures_fromPhotos/LalandeUpperWallTexture4.png" type="Texture" id=1]
+[ext_resource path="res://image_textures/TerrainTextures_fromPhotos/LalandeUpperWallTexture4_Normal.png" type="Texture" id=2]
 
 [resource]
 albedo_texture = ExtResource( 1 )
