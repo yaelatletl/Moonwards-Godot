@@ -43,6 +43,4 @@ export.cfg
 
 # Project-specific ignores #
 ############################
-_EXPORTS/
 _exports/
-!*/.keep
