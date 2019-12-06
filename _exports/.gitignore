@@ -1,2 +1,6 @@
-*
-!*/.dir_keeper
+# Ignore everything
+*/*
+# Except .gitignore
+!.gitignore
+# And files ending in .keep
+!*/*.keep
