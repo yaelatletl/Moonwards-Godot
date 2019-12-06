@@ -36,8 +36,12 @@
 ehthumbs.db
 Thumbs.db
 
-# Godot-specific ignores#
-#########################
+# Godot-specific ignores #
+##########################
 .import/
-*.import
 export.cfg
+
+# Project-specific ignores #
+############################
+_EXPORTS/
+_exports/
