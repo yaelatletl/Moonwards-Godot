@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Rim3_Normal_Medium_Tiled.jpg-9d051c4ca3baf554bdf5f9a1d2ff46a8.stex"
+path="res://.import/Rim3_Normal_Medium_Tiled.png-9b3e909b7883b81a85d56fe6e3928342.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image_textures/Procedural_Rim/Rim3_Normal_Medium_Tiled.jpg"
-dest_files=[ "res://.import/Rim3_Normal_Medium_Tiled.jpg-9d051c4ca3baf554bdf5f9a1d2ff46a8.stex" ]
+source_file="res://image_textures/Procedural_Rim/Rim3_Normal_Medium_Tiled.png"
+dest_files=[ "res://.import/Rim3_Normal_Medium_Tiled.png-9b3e909b7883b81a85d56fe6e3928342.stex" ]
 
 [params]
 

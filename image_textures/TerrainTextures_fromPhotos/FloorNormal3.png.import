@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/FloorNormal3.jpg-b147888b050e7a3c28cd49c7df64a8cf.stex"
+path="res://.import/FloorNormal3.png-45ee6d73bcd370c1afc80891e43a9ec5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image_textures/TerrainTextures_fromPhotos/FloorNormal3.jpg"
-dest_files=[ "res://.import/FloorNormal3.jpg-b147888b050e7a3c28cd49c7df64a8cf.stex" ]
+source_file="res://image_textures/TerrainTextures_fromPhotos/FloorNormal3.png"
+dest_files=[ "res://.import/FloorNormal3.png-45ee6d73bcd370c1afc80891e43a9ec5.stex" ]
 
 [params]
 
@@ -18,7 +18,7 @@ compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
-compress/normal_map=0
+compress/normal_map=1
 flags/repeat=0
 flags/filter=true
 flags/mipmaps=true

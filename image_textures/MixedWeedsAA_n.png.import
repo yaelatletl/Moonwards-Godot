@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MixedWeedsAA_n.jpg-2b0c75b72ed8ac525141b9fe4fdef3e6.stex"
+path="res://.import/MixedWeedsAA_n.png-cb478d320b25c4997e1fcc422fc891d1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image_textures/MixedWeedsAA_n.jpg"
-dest_files=[ "res://.import/MixedWeedsAA_n.jpg-2b0c75b72ed8ac525141b9fe4fdef3e6.stex" ]
+source_file="res://image_textures/MixedWeedsAA_n.png"
+dest_files=[ "res://.import/MixedWeedsAA_n.png-cb478d320b25c4997e1fcc422fc891d1.stex" ]
 
 [params]
 

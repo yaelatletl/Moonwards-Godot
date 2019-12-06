@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MixedWeeds.jpg-93f52a6ba59e68a94199228e25629707.stex"
+path="res://.import/MixedWeeds.png-7f1dd12f3c861d8b7e5e400de9eea277.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image_textures/MixedWeeds.jpg"
-dest_files=[ "res://.import/MixedWeeds.jpg-93f52a6ba59e68a94199228e25629707.stex" ]
+source_file="res://image_textures/MixedWeeds.png"
+dest_files=[ "res://.import/MixedWeeds.png-7f1dd12f3c861d8b7e5e400de9eea277.stex" ]
 
 [params]
 
@@ -23,7 +23,7 @@ flags/repeat=0
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

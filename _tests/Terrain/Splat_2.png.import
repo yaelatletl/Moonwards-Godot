@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Splat_2.jpg-1a77e7b5bfefef6487c679a9290bdf4c.stex"
+path="res://.import/Splat_2.png-85f826fd95f2b7ddad3c095df8970147.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_tests/Terrain/Splat_2.jpg"
-dest_files=[ "res://.import/Splat_2.jpg-1a77e7b5bfefef6487c679a9290bdf4c.stex" ]
+source_file="res://_tests/Terrain/Splat_2.png"
+dest_files=[ "res://.import/Splat_2.png-85f826fd95f2b7ddad3c095df8970147.stex" ]
 
 [params]
 

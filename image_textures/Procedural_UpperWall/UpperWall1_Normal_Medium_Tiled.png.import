@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/UpperWall1_Normal_Medium_Tiled.jpg-e9653774c9fca5b39cd5f4f534d36293.stex"
+path="res://.import/UpperWall1_Normal_Medium_Tiled.png-14766fed7b508a64fd38b937b9c6075e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image_textures/Procedural_UpperWall/UpperWall1_Normal_Medium_Tiled.jpg"
-dest_files=[ "res://.import/UpperWall1_Normal_Medium_Tiled.jpg-e9653774c9fca5b39cd5f4f534d36293.stex" ]
+source_file="res://image_textures/Procedural_UpperWall/UpperWall1_Normal_Medium_Tiled.png"
+dest_files=[ "res://.import/UpperWall1_Normal_Medium_Tiled.png-14766fed7b508a64fd38b937b9c6075e.stex" ]
 
 [params]
 

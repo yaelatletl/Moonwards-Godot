@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Moss1.jpg-75ca2c17315008a80687dad9ad168d39.stex"
+path="res://.import/Moss1.png-46df57e392dc89d22f9fdefcd582a849.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image_textures/Moss1.jpg"
-dest_files=[ "res://.import/Moss1.jpg-75ca2c17315008a80687dad9ad168d39.stex" ]
+source_file="res://image_textures/Moss1.png"
+dest_files=[ "res://.import/Moss1.png-46df57e392dc89d22f9fdefcd582a849.stex" ]
 
 [params]
 
@@ -23,7 +23,7 @@ flags/repeat=0
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

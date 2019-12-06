@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Rim_3.jpg-ab97ed3b1307eff168852fccfb584620.stex"
+path="res://.import/Rim_3.png-a56ad2bffab7ad1b8e3cacc526d82123.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image_textures/TerrainTextures_Painted/Rim_3.jpg"
-dest_files=[ "res://.import/Rim_3.jpg-ab97ed3b1307eff168852fccfb584620.stex" ]
+source_file="res://image_textures/TerrainTextures_Painted/Rim_3.png"
+dest_files=[ "res://.import/Rim_3.png-a56ad2bffab7ad1b8e3cacc526d82123.stex" ]
 
 [params]
 

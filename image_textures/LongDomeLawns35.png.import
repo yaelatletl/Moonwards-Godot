@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LongDomeLawns35.jpg-19f959685f4e19d64ff013b8bda8dbf1.stex"
+path="res://.import/LongDomeLawns35.png-4bf80d249b5568b3e23cfb4b6c71cd6f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image_textures/LongDomeLawns35.jpg"
-dest_files=[ "res://.import/LongDomeLawns35.jpg-19f959685f4e19d64ff013b8bda8dbf1.stex" ]
+source_file="res://image_textures/LongDomeLawns35.png"
+dest_files=[ "res://.import/LongDomeLawns35.png-4bf80d249b5568b3e23cfb4b6c71cd6f.stex" ]
 
 [params]
 
@@ -23,7 +23,7 @@ flags/repeat=0
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

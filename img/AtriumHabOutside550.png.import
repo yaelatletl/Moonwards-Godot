@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/AtriumHabOutside550.jpg-dffd650dbd5da3705c957847fc072a8f.stex"
+path="res://.import/AtriumHabOutside550.png-a6e1a9d7961f6def633cd77f4e85e611.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/AtriumHabOutside550.jpg"
-dest_files=[ "res://.import/AtriumHabOutside550.jpg-dffd650dbd5da3705c957847fc072a8f.stex" ]
+source_file="res://img/AtriumHabOutside550.png"
+dest_files=[ "res://.import/AtriumHabOutside550.png-a6e1a9d7961f6def633cd77f4e85e611.stex" ]
 
 [params]
 

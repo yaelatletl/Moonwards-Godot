@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LalandeUpperWallTexture3_n.jpg-aa5f87a2cc7d665f10f384a0f5f290b0.stex"
+path="res://.import/LalandeUpperWallTexture3_n.png-1d1404cfec0a86b2ed4ed3e36ee537ab.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image_textures/TerrainTextures_fromPhotos/LalandeUpperWallTexture3_n.jpg"
-dest_files=[ "res://.import/LalandeUpperWallTexture3_n.jpg-aa5f87a2cc7d665f10f384a0f5f290b0.stex" ]
+source_file="res://image_textures/TerrainTextures_fromPhotos/LalandeUpperWallTexture3_n.png"
+dest_files=[ "res://.import/LalandeUpperWallTexture3_n.png-1d1404cfec0a86b2ed4ed3e36ee537ab.stex" ]
 
 [params]
 
@@ -18,7 +18,7 @@ compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
-compress/normal_map=0
+compress/normal_map=1
 flags/repeat=0
 flags/filter=true
 flags/mipmaps=true

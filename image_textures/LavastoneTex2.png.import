@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LavastoneTex2.jpg-b20c4e9863dff76bd741e8dfa6bd2b50.stex"
+path="res://.import/LavastoneTex2.png-dc808af1a83cc5d1514fcd9e2faf6840.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image_textures/LavastoneTex2.jpg"
-dest_files=[ "res://.import/LavastoneTex2.jpg-b20c4e9863dff76bd741e8dfa6bd2b50.stex" ]
+source_file="res://image_textures/LavastoneTex2.png"
+dest_files=[ "res://.import/LavastoneTex2.png-dc808af1a83cc5d1514fcd9e2faf6840.stex" ]
 
 [params]
 
@@ -23,7 +23,7 @@ flags/repeat=0
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

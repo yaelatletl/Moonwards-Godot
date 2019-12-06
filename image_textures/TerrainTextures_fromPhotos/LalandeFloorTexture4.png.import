@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LalandeFloorTexture4.jpg-3bd2f7425c8a466fc1b519a13f136c73.stex"
+path="res://.import/LalandeFloorTexture4.png-65c52a79f98b5576ebfbf688c1bc81b1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image_textures/TerrainTextures_fromPhotos/LalandeFloorTexture4.jpg"
-dest_files=[ "res://.import/LalandeFloorTexture4.jpg-3bd2f7425c8a466fc1b519a13f136c73.stex" ]
+source_file="res://image_textures/TerrainTextures_fromPhotos/LalandeFloorTexture4.png"
+dest_files=[ "res://.import/LalandeFloorTexture4.png-65c52a79f98b5576ebfbf688c1bc81b1.stex" ]
 
 [params]
 

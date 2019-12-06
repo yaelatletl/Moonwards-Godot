@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/NASA-Goddard-SVS-starmap-8k-WithSun.jpg-230df5c2ef5507913670c4c6a4230301.stex"
+path="res://.import/NASA-Goddard-SVS-starmap-8k-WithSun.png-9404d528e0b18a77c569339a4b913278.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world_environments/NASA-Goddard-SVS-starmap-8k-WithSun.jpg"
-dest_files=[ "res://.import/NASA-Goddard-SVS-starmap-8k-WithSun.jpg-230df5c2ef5507913670c4c6a4230301.stex" ]
+source_file="res://world_environments/NASA-Goddard-SVS-starmap-8k-WithSun.png"
+dest_files=[ "res://.import/NASA-Goddard-SVS-starmap-8k-WithSun.png-9404d528e0b18a77c569339a4b913278.stex" ]
 
 [params]
 

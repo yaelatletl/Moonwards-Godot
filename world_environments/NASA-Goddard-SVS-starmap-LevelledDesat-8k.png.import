@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/NASA-Goddard-SVS-starmap-LevelledDesat-8k.jpg-1ba0c7c308a46f1fca02df58f65b29a7.stex"
+path="res://.import/NASA-Goddard-SVS-starmap-LevelledDesat-8k.png-95c58c28ab64b75dd8ee0945d6c169d6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world_environments/NASA-Goddard-SVS-starmap-LevelledDesat-8k.jpg"
-dest_files=[ "res://.import/NASA-Goddard-SVS-starmap-LevelledDesat-8k.jpg-1ba0c7c308a46f1fca02df58f65b29a7.stex" ]
+source_file="res://world_environments/NASA-Goddard-SVS-starmap-LevelledDesat-8k.png"
+dest_files=[ "res://.import/NASA-Goddard-SVS-starmap-LevelledDesat-8k.png-95c58c28ab64b75dd8ee0945d6c169d6.stex" ]
 
 [params]
 
