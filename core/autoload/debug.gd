@@ -67,7 +67,7 @@ func tree_idle_frame():
 func debug_apply_options() -> void:
 	yield(get_tree(), "idle_frame")
 	#printd("Apply options to new player scene")
-	e_collision_shapes(options.get("dev", "enable_collision_shapes"))
+	e_collision_shapes(options.get("dev", "enable_collision_shapes", false))
 	hidden_nodes = []
 	if options.get("dev", "hide_meshes_random"):
 		hide_nodes_random(options.get("dev", "decimate_percent"))
