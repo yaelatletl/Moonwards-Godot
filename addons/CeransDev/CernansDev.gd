@@ -162,7 +162,7 @@ func cs_save(dock):
 		print(path, " at ", obj.shape.resource_path)
 		if res_path_is_local(obj.shape.resource_path):
 			var fname = "%s/%s/%s__%s.shape" % [scene_file.get_base_dir(), options["cs_dir"], scene_file.get_file().get_basename(), String(path).replace("/", "_")]
-			obj.shape = res_save(fname, obj.shape) 
+			obj.shape = res_save(fname, obj.shape)
 			save = true
 	if save :
 		get_editor_interface().save_scene()
@@ -173,7 +173,7 @@ var lightscale = {}
 
 func lg_scale(dock):
 	var down = true
-	var scene 
+	var scene
 	var nodes
 	if lightscale.has("scene"):
 		down = false
@@ -438,7 +438,7 @@ func get_cs_list(root):
 func get_cs_list_cs(root):
 	# get collision nodes of meshes marked by us for collision, exclude areas and all that stuff
 	# important for saving of those meshes
-	
+
 	var meshes = get_cs_list(root)
 	var paths = []
 	array_add(paths, meshes.convex)

@@ -11,7 +11,7 @@ func _ready() -> void:
 	if OS.has_feature("Server"):
 		_ready_headless()
 		return
-	
+
 	_on_size_changed()
 	get_viewport().connect("size_changed",self,"_on_size_changed")
 
@@ -19,12 +19,12 @@ func _ready_headless() -> void:
 	print("Setup headless mode")
 	var player_data = {
 		name = "Server Bot",
-		options = options.player_opt("server_bot")
+		options = Options.player_opt("server_bot")
 	}
-	gamestate.player_register(player_data, true) #local player
-	gamestate.server_set_mode()
-	var worldscene = options.scenes.default_multiplayer_headless_scene
-	gamestate.change_scene(worldscene)
+	GameState.player_register(player_data, true) #local player
+	GameState.server_set_mode()
+	var worldscene = Options.scenes.default_multiplayer_headless_scene
+	GameState.change_scene(worldscene)
 
 func _on_size_changed() -> void:
 	var Newsize = get_viewport().get_visible_rect().size
@@ -36,8 +36,8 @@ func _on_Run_pressed() -> void:
 	$load_timer.start()
 
 func _on_Timer_timeout() -> void:
-	var worldscene = options.scenes.default_run_scene
-	gamestate.change_scene(worldscene)
+	var worldscene = Options.scenes.default_run_scene
+	GameState.change_scene(worldscene)
 
 func _on_Help_pressed() -> void:
 	$ui/MainUI/InstructionsContainer.visible = !$ui/MainUI/InstructionsContainer.visible
@@ -55,10 +55,10 @@ func _on_Options_pressed() -> void:
 	if get_tree().get_root().has_node("Options"):
 		get_tree().get_root().get_node("Options").show()
 	else:
-		var Options = ResourceLoader.load(SceneOptions)
-		Options = Options.instance()
-		Options.name = "Options"
-		get_tree().get_root().add_child(Options)
+		var options = ResourceLoader.load(SceneOptions)
+		options = Options.instance()
+		options.name = "Options"
+		get_tree().get_root().add_child(options)
 
 func OnUIEvent(var event : String) -> void:
 	if event == "Back":

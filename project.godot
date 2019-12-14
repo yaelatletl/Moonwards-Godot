@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Reference",
+"class": "Utilities",
+"language": "GDScript",
+"path": "res://utility/Utils.gd"
+} ]
 _global_script_class_icons={
-
+"Utilities": ""
 }
 
 [application]
@@ -23,13 +28,12 @@ boot_splash/main_loop_type=""
 [autoload]
 
 Log="*res://utility/GlobalLogger.gd"
-namelist="*res://core/autoload/namelist.gd"
-options="*res://core/autoload/autoload-options.gd"
-gamestate="*res://core/autoload/gamestate.gd"
-utils="*res://core/autoload/utils.gd"
-debug="*res://core/autoload/debug.gd"
+NodeUtilities="*res://core/autoload/Utilities.gd"
+Options="*res://core/autoload/Options.gd"
+GameState="*res://core/autoload/GameState.gd"
+Debugger="*res://core/autoload/Debugger.gd"
 UIManager="*res://core/autoload/UIManager.gd"
-Input_Map="*res://core/autoload/input_maping.gd"
+InputMapping="*res://core/autoload/InputMapping.gd"
 
 [compression]
 

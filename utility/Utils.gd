@@ -1,31 +1,12 @@
-extends Node
+class_name Utilities
 
-var scene setget , get_scene
 
-func _input(var event):
-	if event.is_action_pressed("screenshot_key"):
-		CreateScreenshot()
-
-func CreateScreenshot():
-	get_viewport().set_clear_mode(Viewport.CLEAR_MODE_ONLY_NEXT_FRAME)
-	# Let two frames pass to make sure the screen was captured
-	yield(get_tree(), "idle_frame")
-	yield(get_tree(), "idle_frame")
-	
-	# Retrieve the captured image
-	var image = get_viewport().get_texture().get_data()
-	
-	# Flip it on the y-axis (because it's flipped)
-	image.flip_y()
-	var date_time = OS.get_datetime()
-	image.save_png("user://screenshot_" + str(date_time.year) + str(date_time.month) + str(date_time.day) + str(date_time.hour) + str(date_time.minute) + str(date_time.second) + ".png")
-
-func array_add(a, b):
+static func array_add(a : Array, b : Array) -> Array:
 	for i in b:
 		a.append(i)
 	return a
 
-func obj_has_groups(obj, groups):
+static func obj_has_groups(obj : Object, groups : Array):
 	var has = false
 	for grp in groups:
 		if obj.get_groups().has(grp):
@@ -33,7 +14,7 @@ func obj_has_groups(obj, groups):
 			break
 	return has
 
-func obj_has_property(obj, pstr):
+static func obj_has_property(obj : Object, pstr : String):
 	var has = false
 	if obj == null:
 		return has
@@ -46,7 +27,7 @@ func obj_has_property(obj, pstr):
 	has = pnames.has(pstr)
 	return has
 
-func get_nodes(root, recurent=false):
+static func get_nodes(root : Node , recurent : bool = false):
 	var nodes = []
 	var objects = root.get_children()
 	while objects.size():
@@ -59,7 +40,7 @@ func get_nodes(root, recurent=false):
 		nodes.append(root.get_path_to(obj))
 	return nodes
 
-func get_nodes_type(root, type, recurent=false):
+static func get_nodes_type(root : Node, type : String, recurent : bool = false):
 	var nodes = get_nodes(root, recurent)
 	var result = []
 	for path in nodes:
@@ -67,16 +48,8 @@ func get_nodes_type(root, type, recurent=false):
 			result.append(path)
 	return result
 
-
-func get_scene():
-	return get_tree().current_scene
-
-######################################
-#based on CernansDev.gd
-#	get collision shapes created by plugin
-#
-
-var cs_options = {
+static func get_cs_list(root : Node):
+	var cs_options = {
 	cs_skip_branch = ["cs_none" ],
 	cs_skip = [ "cs_manual" ],
 	cs_groups = [ "cs", "cs_convex", "floor", "wall"],
@@ -90,7 +63,6 @@ var cs_options = {
 	hide_protect = ["floor", "wall"]
 }
 
-func get_cs_list(root):
 	var meshes = {
 			convex = [],
 			trimesh = []
@@ -110,7 +82,7 @@ func get_cs_list(root):
 			meshes.trimesh.append(root.get_path_to(obj))
 	return meshes
 
-func get_cs_list_cs(root):
+static func get_cs_list_cs(root : Node):
 	# get collision nodes of meshes marked by us for collision, exclude areas and all that stuff
 	# important for saving of those meshes
 	
@@ -127,8 +99,9 @@ func get_cs_list_cs(root):
 			nodes.append(root.get_path_to(o))
 	return nodes
 
-var cache_flist = {}
-func file_mtime(fname):
+
+static func file_mtime(fname):
+	var cache_flist = {}
 	# by default handle path's like that 
 	# res://_tests/scene_mp/multiplayer_test_scene.tscn::7
 	var path = fname.rsplit("::")[0]
@@ -140,29 +113,125 @@ func file_mtime(fname):
 			#printd("attempt to get mtime of non existing file '%s'" % path)
 			cache_flist[path] = { mtime = "nofile" }
 	return cache_flist[path].mtime
-
-func get_node_file(node):
-	node = get_node_root(node)
+	
+static func get_node_file(node):
+	node = NodeUtilities.get_node_root(node)
 	var filename
 	if node:
 		filename = node.filename
 	return filename
 
-func get_node_root(node):
-	if node is String:
-		node = get_tree().get_node(node)
-	while node != null and (node.filename == null or node.filename == ""):
-		node = node.get_parent()
-	return node
-
-#########################
-#var debug_id = "utils.gd"
-#func printd(s):
-#	logg.print_filtered_message(debug_id, s)
+static func get_name() -> String:
+	var list : Array = [
+	"Kenny Cristobal",
+	"Van Escovedo",
+	"Gaylord Faler",
+	"Keith Tannehill",
+	"Carlo Most",
+	"Greg Reno",
+	"Tuan Scalia",
+	"Eduardo Vasko",
+	"Todd Eckel",
+	"Rocky Bevilacqua",
+	"Marty Webre",
+	"Tommie Desantis",
+	"Hong Lundquist",
+	"Joan Prowell",
+	"Brian Morman",
+	"Wally Buskey",
+	"Agustin Shires",
+	"Desmond Mouser",
+	"Trenton Harpole",
+	"Barney Narron",
+	"Gary Mossman",
+	"Boyd Dragon",
+	"Benjamin Brunner",
+	"Hung Deckard",
+	"Jack Crutcher",
+	"Son Icenhour",
+	"Columbus Mcgirt",
+	"Scot Burley",
+	"Damian Sanabria",
+	"Hilario Molyneux",
+	"Reinaldo Hursh",
+	"Genaro Debnam",
+	"Ryan Winfree",
+	"Hershel Panos",
+	"Lyman Gadberry",
+	"Erick Emmanuel",
+	"Thomas Sayegh",
+	"Faustino Truss",
+	"Tristan Campanella",
+	"Cletus Mastrangelo",
+	"Theodore Dunford",
+	"Toney Shafer",
+	"Rudolf Costas",
+	"Seth Rideout",
+	"Mikel Oman",
+	"Evan Escoto",
+	"Jake Farber",
+	"Josef Owusu",
+	"Bobbie Pappan",
+	"Harry Kravetz",
+	"Reba Nord",
+	"Glenna Philippe",
+	"Glennis Mahmood",
+	"Charlotte Sliger",
+	"Daine Barrette",
+	"Jeanne Cupps",
+	"Carmel Nair",
+	"Thao Bartow",
+	"Nora Godina",
+	"Tiffiny Charleston",
+	"Kati Crupi",
+	"Alison Lockhart",
+	"Vinnie Privett",
+	"Jerica Fennessey",
+	"Jeanene Weakley",
+	"Dorotha Borgmeyer",
+	"Treena Thomason",
+	"Michelle Swain",
+	"Mahalia Brocato",
+	"Debroah Kazmierczak",
+	"Verlene Gant",
+	"Luann Steinhauer",
+	"Dung Veselka",
+	"Nisha Strawser",
+	"Nicki Casado",
+	"Dianna Holden",
+	"Jennefer Delozier",
+	"Adrianna Pellegren",
+	"Carley Stander",
+	"Velma Clardy",
+	"Kelsi Heitkamp",
+	"Krysta Mauney",
+	"Erinn Holdman",
+	"Nannie Reese",
+	"Deetta Burghardt",
+	"Kathey Stutzman",
+	"Arianna Vogelsang",
+	"Katherine Kriner",
+	"Sarah Mcmurry",
+	"Susanna Furby",
+	"Bonnie Diblasi",
+	"Holley Carrara",
+	"Sade Paul",
+	"Dani Cobian",
+	"Bridgette Ziemer",
+	"Elayne Baldon",
+	"Hilda Carboni",
+	"Crysta Emmer",
+	"Sirena Galicia",
+	"Kizzy Ungar"
+]
+	randomize()
+	var index = randi() % list.size()
+	return list[index]
 	
-	
-func get_safe_bool(obj, propetry):
+static func get_safe_bool(obj, propetry):
 	if obj_has_property(obj, propetry):
 		return obj.get(propetry)
 	else:
 		return false
+
+#########################
