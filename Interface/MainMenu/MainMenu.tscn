@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Interface/MainMenu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Interface/MainMenu/MainBG.png" type="Texture" id=2]
 [ext_resource path="res://assets/UI/Options/Options.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Interface/MainMenu/About/About.tscn" type="PackedScene" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=1]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource( 1 )
@@ -65,15 +67,12 @@ margin_right = 1792.0
 margin_bottom = 952.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
 tabs_visible = false
 
 [node name="Empty" type="Control" parent="H/T"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 8.0
-margin_right = -4.0
-margin_bottom = -4.0
 
 [node name="Options" parent="H/T" instance=ExtResource( 3 )]
 visible = false

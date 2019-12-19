@@ -82,7 +82,7 @@ margin_right = 1866.0
 margin_bottom = 988.0
 
 [node name="sPlayerSpeed" parent="TabContainer/Dev/VBoxContainer" instance=ExtResource( 5 )]
-margin_right = 984.0
+margin_right = 1866.0
 margin_bottom = 28.0
 label = "Player Speed"
 ma = 50
@@ -90,21 +90,21 @@ ticks = 5
 
 [node name="tAreas" type="CheckButton" parent="TabContainer/Dev/VBoxContainer"]
 margin_top = 32.0
-margin_right = 984.0
+margin_right = 1866.0
 margin_bottom = 64.0
 custom_styles/hover = SubResource( 1 )
 text = "Enable Area hide/show"
 
 [node name="tCollisionShapes" type="CheckButton" parent="TabContainer/Dev/VBoxContainer"]
 margin_top = 68.0
-margin_right = 984.0
+margin_right = 1866.0
 margin_bottom = 100.0
 custom_styles/hover = SubResource( 2 )
 text = "Enable Collision shapes"
 
 [node name="tPMonitor" type="CheckButton" parent="TabContainer/Dev/VBoxContainer"]
 margin_top = 104.0
-margin_right = 984.0
+margin_right = 1866.0
 margin_bottom = 136.0
 custom_styles/hover = SubResource( 3 )
 text = "Show Performance Monitor"
@@ -127,41 +127,41 @@ text = "Enable Teleport"
 
 [node name="tDecimate" type="CheckButton" parent="TabContainer/Dev/VBoxContainer"]
 margin_top = 140.0
-margin_right = 984.0
+margin_right = 1866.0
 margin_bottom = 172.0
 custom_styles/hover = SubResource( 6 )
 text = "Decimate objects"
 
 [node name="sDecimatePercent" parent="TabContainer/Dev/VBoxContainer" instance=ExtResource( 5 )]
 margin_top = 176.0
-margin_right = 984.0
+margin_right = 1866.0
 margin_bottom = 204.0
 label = "Decimate percent"
 
 [node name="tFPSLim" type="CheckButton" parent="TabContainer/Dev/VBoxContainer"]
 margin_top = 208.0
-margin_right = 984.0
+margin_right = 1866.0
 margin_bottom = 240.0
 custom_styles/hover = SubResource( 6 )
 text = "Limit FPS"
 
 [node name="sFPSLim" parent="TabContainer/Dev/VBoxContainer" instance=ExtResource( 5 )]
 margin_top = 244.0
-margin_right = 984.0
+margin_right = 1866.0
 margin_bottom = 272.0
 label = "Limit FPS value"
 mi = 0
 
 [node name="tLodManager" type="CheckButton" parent="TabContainer/Dev/VBoxContainer"]
 margin_top = 276.0
-margin_right = 984.0
+margin_right = 1866.0
 margin_bottom = 308.0
 custom_styles/hover = SubResource( 6 )
 text = "Enable Lod management"
 
 [node name="sHBoxAspect" parent="TabContainer/Dev/VBoxContainer" instance=ExtResource( 5 )]
 margin_top = 312.0
-margin_right = 984.0
+margin_right = 1866.0
 margin_bottom = 340.0
 label = "LodFar distance"
 mi = 0
@@ -170,8 +170,8 @@ ticks = 50
 
 [node name="SelectFlyCamera" parent="TabContainer/Dev/VBoxContainer" instance=ExtResource( 6 )]
 margin_top = 344.0
-margin_right = 984.0
-margin_bottom = 372.0
+margin_right = 1866.0
+margin_bottom = 366.0
 label = "Select Fly Camera"
 
 [node name="Controls" parent="TabContainer" instance=ExtResource( 7 )]
