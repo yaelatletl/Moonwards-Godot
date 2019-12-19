@@ -139,6 +139,7 @@ func show_performance_monitor(enable : bool) -> void:
 		Options.set("_state_", false, "perf_mon")
 
 func set_lod_manager(enable : bool) -> void:
+	# performs some sort of insane deep tree search for a lod manager object
 	var slm = Options.get("_state_", "set_lod_manager")
 	var root = get_tree().current_scene
 	if slm == null:

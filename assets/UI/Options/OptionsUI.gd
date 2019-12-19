@@ -132,10 +132,10 @@ func _on_Exit_pressed() -> void:
 
 func _on_tPMonitor_pressed() -> void:
 	Options.set("dev", t_PMonitor.pressed, "show_performance_monitor")
-	Debugger.show_performance_monitor(t_PMonitor.pressed)
+	# original toggled performance monitor visibility
 
 func _on_tLodManager_pressed() -> void:
 	Options.set("dev", t_Lod_Manager.pressed, "TreeManager")
-	Debugger.set_lod_manager(t_Lod_Manager.pressed)
+	# originally performed some sort of deep tree search for a lod manager object
 
 
