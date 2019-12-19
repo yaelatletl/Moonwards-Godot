@@ -133,35 +133,6 @@ func hide_obj_check(root : Node, path : NodePath) -> bool:
 	return hide
 
 
-#Hide MeshInstance nodes with a chance defined by probability
-
-func hide_nodes_random(probability : int = -1) -> void:
-	var root = get_tree().current_scene
-	if probability == -1:
-		probability = Options.get("decimate", "probability", 80)
-	if probability == 0:
-		#unhide all nodes
-		Log.hint(self, "hide_nodes_random", str("unhide nodes (", hidden_nodes.size(), ")" ))
-		for p in hidden_nodes:
-			root.get_node(p).visible = true
-		hidden_nodes = []
-		hidden_nodes_prob = 0
-		return
-
-	var nodes : Array = NodeUtilities.get_nodes_type(root, "MeshInstance", true)
-	Log.hint(self, "hide_nodes_random", str("hide nodes, total(", nodes.size(), ") already hidden(", hidden_nodes.size(), ") probability(", probability, ")" ))
-	if nodes.size() < 1 :
-		return
-	nodes.shuffle()
-	for p in nodes:
-		if not hidden_nodes.has(p):
-			var hide = (randi() % 100 <= probability)
-			if hide and hide_obj_check(root, p):
-				root.get_node(p).visible = false
-				hidden_nodes.append(p)
-	Log.hint(self, "hide_nodes_random", str("hide nodes, total(", nodes.size(), ") already hidden(", hidden_nodes.size(), ") probability(", probability, ")" ))
-
-
 func show_performance_monitor(enable : bool) -> void:
 	if enable and not pf_path:
 		var packedscene : PackedScene = ResourceLoader.load("res://scripts/PerformanceMonitor.tscn")

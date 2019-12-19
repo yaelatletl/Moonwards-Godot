@@ -83,15 +83,16 @@ func init_playerspeed_control(button : Control) -> void:
 		button.enabled = false
 		button.value = 0
 
+
 func set_fps_limit(value : int) -> void:
 	Options.set("dev", value, "3FPSlimit_value")
 	# originally set limit to value, or 3 if limit was disabled.
-	
+
+
 func set_decimate_percent(value : int) -> void:
 	Options.set("dev", value, "decimate_percent")
-	if Options.get("dev", "hide_meshes_random", false):
-		Debugger.hide_nodes_random(0)
-		Debugger.hide_nodes_random(value)
+	# originally _randomly_ hid mesh instances
+
 
 func set_lod_aspect_ratio(value : int) -> void:
 	Options.set("LOD", value, "lod_aspect_ratio")
