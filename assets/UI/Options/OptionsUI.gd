@@ -111,7 +111,7 @@ func set_player_speed(value: float) -> void:
 		Log.hint(self, "set_player_speed",str("set_player_speed to value : ", value))
 
 func _on_tAreas_pressed() -> void:
-	Debugger.e_area_lod(t_Areas.pressed)
+	# originally did nothing
 	Options.set("dev", t_Areas.pressed, "enable_areas_lod")
 
 func _on_tCollisionShapes_pressed() -> void:
