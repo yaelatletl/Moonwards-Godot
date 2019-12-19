@@ -1,10 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://world_environments/StarrySky.tres" type="Environment" id=1]
 [ext_resource path="res://world_environments/NASA-Goddard-SVS-starmap-LevelledDesat-8k.png" type="Texture" id=2]
 [ext_resource path="res://scenes/TerrainWithMarkers.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/themes/MainMenu.tres" type="Theme" id=4]
-[ext_resource path="res://UserInterface.gd" type="Script" id=5]
 
 [sub_resource type="SphereMesh" id=1]
 flip_faces = true
@@ -228,10 +226,3 @@ transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.99731
 [node name="players" type="Spatial" parent="."]
 
 [node name="scene_id_30160" type="Spatial" parent="."]
-
-[node name="UI_in_game" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-theme = ExtResource( 4 )
-script = ExtResource( 5 )

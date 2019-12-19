@@ -87,7 +87,6 @@ var gender setget SetPuppetGender
 #################################
 # Init functions
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	orientation = model.global_transform
 	orientation.origin = Vector3()
 	if not puppet:
@@ -185,8 +184,11 @@ func SetPScale(scale):
 #################################
 # _process functions
 func _input(event):
-	if UIManager.has_ui:
+	# FIXME: This should be dealt with elsewhere
+	
+	if PauseMenu.is_open():
 		return
+	
 	if (event is InputEventMouseMotion):
 		look_direction.x -= event.relative.x * mouse_sensitivity
 		look_direction.y -= event.relative.y * mouse_sensitivity
@@ -240,10 +242,10 @@ func _input(event):
 		animation_speed -= 0.25
 
 func ShowMouseCursor():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+	pass
 
 func HideMouseCursor():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	pass
 
 func Jump(var timer):
 	var new_jump_vel = max(MIN_JUMP_SPEED, min(JUMP_SPEED, timer * JUMP_SPEED / MAX_JUMP_TIMER))
@@ -281,8 +283,9 @@ func HandleMovement():
 func HandleControls(var delta):
 	if puppet:
 		return
-
-	if UIManager.has_ui:
+	
+	# FIXME: controls need to be dealt with elsewhere
+	if PauseMenu.is_open():
 		motion_target = Vector2()
 		input_direction = 0.0
 		jump = false

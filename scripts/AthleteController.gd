@@ -22,7 +22,6 @@ var _movement_direction : Vector3 = Vector3(0,0,0)
 var _model_quat : Quat = Quat()
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	_movement_direction = global_transform.basis.z
 
 func _physics_process(delta : float) -> void:

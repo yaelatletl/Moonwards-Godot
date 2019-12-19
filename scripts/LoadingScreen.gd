@@ -3,8 +3,8 @@ extends Control
 func _ready() -> void:
 	GameState.connect("loading_progress", self, "_set_progress_bar")
 	GameState.connect("loading_error", self, "_loading_error")
-	UIManager.register_base_ui(self)
-	UIManager._set_current_ui($Control)
+	#UIManager.register_base_ui(self)
+	#UIManager._set_current_ui($Control)
 
 func _set_progress_bar(var progress: float) -> void:
 	$Control/ProgressBar.value = progress

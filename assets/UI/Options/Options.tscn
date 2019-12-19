@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/themes/MainMenu.tres" type="Theme" id=1]
 [ext_resource path="res://assets/UI/Options/OptionsUI.gd" type="Script" id=2]
@@ -7,8 +7,6 @@
 [ext_resource path="res://utils/control_elements/LabelSliderMix/LabelSliderMix.tscn" type="PackedScene" id=5]
 [ext_resource path="res://utils/control_elements/LabelOptionButton/LabelOptionButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/UI/Options/Controls_settings.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scripts/UIElement.gd" type="Script" id=8]
-
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 0.0
@@ -34,7 +32,7 @@ bg_color = Color( 0.287646, 0.275574, 0.335938, 1 )
 content_margin_left = 0.0
 bg_color = Color( 0.287646, 0.275574, 0.335938, 1 )
 
-[node name="Control" type="Control"]
+[node name="Options" type="PanelContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
@@ -45,36 +43,46 @@ theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="TabContainer" type="TabContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -1.0
-margin_right = -1.0
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1873.0
+margin_bottom = 1033.0
 tab_align = 0
 
 [node name="Settings" parent="TabContainer" instance=ExtResource( 3 )]
 
-[node name="Player" type="Tabs" parent="TabContainer"]
+[node name="Player" type="MarginContainer" parent="TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 38.0
+custom_constants/margin_right = 0
+custom_constants/margin_top = 0
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 0
 
 [node name="UserSettings" parent="TabContainer/Player" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1866.0
+margin_bottom = 988.0
 
-[node name="Dev" type="Tabs" parent="TabContainer"]
+[node name="Dev" type="MarginContainer" parent="TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 38.0
-tab_align = 0
+custom_constants/margin_right = 0
+custom_constants/margin_top = 0
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Dev"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 38.0
+margin_right = 1866.0
+margin_bottom = 988.0
 
 [node name="sPlayerSpeed" parent="TabContainer/Dev/VBoxContainer" instance=ExtResource( 5 )]
-margin_right = 984.0
+margin_right = 1866.0
 margin_bottom = 28.0
 label = "Player Speed"
 ma = 50
@@ -82,21 +90,21 @@ ticks = 5
 
 [node name="tAreas" type="CheckButton" parent="TabContainer/Dev/VBoxContainer"]
 margin_top = 32.0
-margin_right = 984.0
+margin_right = 1866.0
 margin_bottom = 64.0
 custom_styles/hover = SubResource( 1 )
 text = "Enable Area hide/show"
 
 [node name="tCollisionShapes" type="CheckButton" parent="TabContainer/Dev/VBoxContainer"]
 margin_top = 68.0
-margin_right = 984.0
+margin_right = 1866.0
 margin_bottom = 100.0
 custom_styles/hover = SubResource( 2 )
 text = "Enable Collision shapes"
 
 [node name="tPMonitor" type="CheckButton" parent="TabContainer/Dev/VBoxContainer"]
 margin_top = 104.0
-margin_right = 984.0
+margin_right = 1866.0
 margin_bottom = 136.0
 custom_styles/hover = SubResource( 3 )
 text = "Show Performance Monitor"
@@ -119,41 +127,41 @@ text = "Enable Teleport"
 
 [node name="tDecimate" type="CheckButton" parent="TabContainer/Dev/VBoxContainer"]
 margin_top = 140.0
-margin_right = 984.0
+margin_right = 1866.0
 margin_bottom = 172.0
 custom_styles/hover = SubResource( 6 )
 text = "Decimate objects"
 
 [node name="sDecimatePercent" parent="TabContainer/Dev/VBoxContainer" instance=ExtResource( 5 )]
 margin_top = 176.0
-margin_right = 984.0
+margin_right = 1866.0
 margin_bottom = 204.0
 label = "Decimate percent"
 
 [node name="tFPSLim" type="CheckButton" parent="TabContainer/Dev/VBoxContainer"]
 margin_top = 208.0
-margin_right = 984.0
+margin_right = 1866.0
 margin_bottom = 240.0
 custom_styles/hover = SubResource( 6 )
 text = "Limit FPS"
 
 [node name="sFPSLim" parent="TabContainer/Dev/VBoxContainer" instance=ExtResource( 5 )]
 margin_top = 244.0
-margin_right = 984.0
+margin_right = 1866.0
 margin_bottom = 272.0
 label = "Limit FPS value"
 mi = 0
 
 [node name="tLodManager" type="CheckButton" parent="TabContainer/Dev/VBoxContainer"]
 margin_top = 276.0
-margin_right = 984.0
+margin_right = 1866.0
 margin_bottom = 308.0
 custom_styles/hover = SubResource( 6 )
 text = "Enable Lod management"
 
 [node name="sHBoxAspect" parent="TabContainer/Dev/VBoxContainer" instance=ExtResource( 5 )]
 margin_top = 312.0
-margin_right = 984.0
+margin_right = 1866.0
 margin_bottom = 340.0
 label = "LodFar distance"
 mi = 0
@@ -162,8 +170,8 @@ ticks = 50
 
 [node name="SelectFlyCamera" parent="TabContainer/Dev/VBoxContainer" instance=ExtResource( 6 )]
 margin_top = 344.0
-margin_right = 984.0
-margin_bottom = 372.0
+margin_right = 1866.0
+margin_bottom = 366.0
 label = "Select Fly Camera"
 
 [node name="Controls" parent="TabContainer" instance=ExtResource( 7 )]
@@ -172,16 +180,6 @@ margin_left = 0.0
 margin_top = 38.0
 margin_right = 0.0
 margin_bottom = 0.0
-
-[node name="Exit" type="Button" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -25.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 25, 25 )
-text = "X"
-script = ExtResource( 8 )
-[connection signal="focus_entered" from="TabContainer/Dev/VBoxContainer" to="." method="_on_VBoxContainer_focus_entered"]
 [connection signal="pressed" from="TabContainer/Dev/VBoxContainer/tAreas" to="." method="_on_tAreas_pressed"]
 [connection signal="pressed" from="TabContainer/Dev/VBoxContainer/tCollisionShapes" to="." method="_on_tCollisionShapes_pressed"]
 [connection signal="pressed" from="TabContainer/Dev/VBoxContainer/tPMonitor" to="." method="_on_tPMonitor_pressed"]

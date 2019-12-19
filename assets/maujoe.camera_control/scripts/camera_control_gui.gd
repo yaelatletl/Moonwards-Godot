@@ -216,7 +216,6 @@ func _input(event):
 	if event.is_action_pressed(shortcut):
 		if camera.enabled:
 			camera.enabled = false
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			self.show()
 		else:
 			camera.enabled = true

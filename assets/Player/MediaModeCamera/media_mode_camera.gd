@@ -12,8 +12,8 @@ var mouse_down : bool = false
 var movement_acceleration : float = 0.2
 
 func _process(delta : float) -> void:
-	if not UIManager.has_ui:
-		UIManager.request_focus()
+#	if not UIManager.has_ui:
+#		UIManager.request_focus()
 	
 	var forward_direction = global_transform.basis.z
 	var right_direction = global_transform.basis.x

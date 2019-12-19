@@ -48,8 +48,9 @@ func activate() -> void:
 
 	camera.current = true
 
-	UIManager.request_focus()
-	UIManager.free_mouse()
+	# TODO: Replace mouse management
+#	UIManager.request_focus()
+#	UIManager.free_mouse()
 	_current_stage = 1
 	_go_to__current_stage()
 	main_ui.visible = true
@@ -59,8 +60,9 @@ func deactivate() -> void:
 	camera.current = false
 	_current_stage = 0
 	main_ui.visible = false
-	UIManager.release_focus()
-	UIManager.lock_mouse()
+	# TODO: Replace mouse management
+#	UIManager.release_focus()
+#	UIManager.lock_mouse()
 
 func start_blades_animation() -> void:
 	rocket_animation_player.play("BladesRotate")

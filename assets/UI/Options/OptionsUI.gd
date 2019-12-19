@@ -127,8 +127,8 @@ func _on_tDecimate_pressed() -> void:
 	# originally set mesh nodes to be hidden at random
 	Options.set("dev", t_decimate.pressed, "hide_meshes_random")
 
-func _on_Exit_pressed() -> void:
-	UIManager.Back()
+#func _on_Exit_pressed() -> void:
+#	UIManager.Back()
 
 func _on_tPMonitor_pressed() -> void:
 	Options.set("dev", t_PMonitor.pressed, "show_performance_monitor")

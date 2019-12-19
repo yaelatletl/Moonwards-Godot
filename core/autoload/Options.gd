@@ -1,5 +1,7 @@
 extends Node
 
+#TODO: refactor
+
 enum SLOTS{
 	PANTS,
 	SHIRT,

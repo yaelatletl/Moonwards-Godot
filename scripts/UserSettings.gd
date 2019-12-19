@@ -59,7 +59,7 @@ func _on_CfgPlayer_pressed() -> void:
 
 func _on_SaveButton_pressed() -> void:
 	Options.save()
-	UIManager.back()
+#	UIManager.back()
 
 func _on_SlotOption_item_selected(ID : int) -> void:
 	get_node(avatar_preview).clean_selected()
