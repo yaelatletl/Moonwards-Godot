@@ -17,7 +17,8 @@ func exit():
 	$Timer.start()
 
 func _on_Timer_timeout():
-	UIManager.ReleaseFocus()
+	# TODO:
+#	UIManager.ReleaseFocus()
 	get_parent().diagram_visible = false
 	queue_free()"
 

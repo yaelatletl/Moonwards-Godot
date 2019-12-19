@@ -40,6 +40,10 @@ MainMenu="*res://Interface/MainMenu/MainMenu.tscn"
 formats/zlib/compression_level=5
 formats/gzip/compression_level=5
 
+[debug]
+
+gdscript/warnings/enable=false
+
 [display]
 
 window/size/width=1920

@@ -125,8 +125,8 @@ func _process(delta : float) -> void:
 	if movement:
 		_update_movement(delta)
 
-	if not UIManager.has_ui:
-		UIManager.request_focus()
+#	if not UIManager.has_ui:
+#		UIManager.request_focus()
 
 	# Called when collision are enabled
 	_update_distance()

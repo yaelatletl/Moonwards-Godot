@@ -23,9 +23,21 @@ func hide() -> void:
 
 
 func _on_bJoinServer_pressed() -> void:
-	# TODO: Replace UIManager
-	UIManager.ui_event(UIManager.UI_EVENTS.JOIN_SERVER)
-
+	pass
+	# TODO: Reimplement calls to join server
+#	UIManager.ui_event(UIManager.UI_EVENTS.JOIN_SERVER)
+# FROM UIMANAGER.gd
+#func join_server(scene: String) -> void:
+#	if scene == null or scene == "":
+#		scene = Options.scenes.default_multiplayer_join_server
+#
+#	var player_data = {
+#		username = Options.username
+#	}
+#
+#	GameState.player_register(player_data, true, "avatar") #local player
+#	GameState.load_level(scene)
+#	GameState.client_server_connect(Options.join_server_host)
 
 func _on_bLocalGame_pressed() -> void:
 	tabs.current_tab = 3

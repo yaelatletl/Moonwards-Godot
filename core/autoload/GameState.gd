@@ -43,8 +43,6 @@ const MAX_PEERS : int = 12
 var players : Dictionary = {}
 var network_id : int 
 var local_id : int = 0
-var chat_ui_resource : PackedScene = preload("res://assets/UI/chat/ChatUI.tscn")
-var chat_ui = null
 
 #
 # hold last error message
@@ -548,11 +546,7 @@ func player_scene() -> void:
 	#printd("------instance avatars with networking(%s) - players count %s" % [NetworkUP, players.size()])
 	PlayerSceneUP = true
 
-func add_chat_ui() -> void:
-	if not is_instance_valid(chat_ui):
-		chat_ui = chat_ui_resource.instance()
-		get_tree().root.add_child(chat_ui)
-		
+
 func _on_queue_attach_on_tree_change() -> void:
 	if _queue_attach_on_tree_change_lock:
 		return
@@ -656,10 +650,6 @@ func _on_player_scene() -> void:
 			emit_signal("gamestate_log", "player %s" % players[p])
 	for p in players:
 		create_player(p)
-	
-	#The ChatUI should only be added when there is networking going on.
-	if RoleClient or RoleServer:
-		add_chat_ui()
 	
 	if RoleClient:
 		#report client to server
