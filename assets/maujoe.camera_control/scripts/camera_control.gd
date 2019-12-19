@@ -229,7 +229,6 @@ func set_collisions(value : bool) -> void:
 func set_enabled(value : bool) -> void:
 	enabled = value
 	if enabled:
-		Input.set_mouse_mode(mouse_mode)
 		set_process_input(true)
 		_update_process_func()
 	else:

@@ -26,4 +26,5 @@ size_flags_vertical = 3
 margin_top = 160.0
 margin_right = 389.0
 margin_bottom = 184.0
+placeholder_text = "Press 'Enter' to type."
 [connection signal="text_entered" from="V/LineEdit" to="." method="_on_LineEdit_text_entered"]

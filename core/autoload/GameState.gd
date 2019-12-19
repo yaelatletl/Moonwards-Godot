@@ -428,6 +428,12 @@ func create_player(id : int) -> void:
 	players[id]["world"] = "%s" % world
 	players[id]["path"] = world.get_path_to(player)
 	emit_signal("user_name_connected", player_get("name", id))
+	
+	# HACK: Does not belong here
+	# TODO: Once joining a server, loading the world, etc is done, hide mainmenu
+	MainMenu.hide()
+	PauseMenu.hide()
+	Hud.show()
 
 #set current camera to local player
 func player_local_camera(activate : bool = true) -> void:

@@ -132,10 +132,10 @@ func exit() -> void:
 	get_tree().quit()
 
 func free_mouse() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	pass
 
 func lock_mouse() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	pass
 
 func queue_ui(var resource) -> void:
 	if _ui_future_queue.empty() and not _on_queued_ui:

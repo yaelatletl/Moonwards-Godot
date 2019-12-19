@@ -11,15 +11,15 @@ var _open: bool = false
 
 
 func _ready() -> void:
-	_hide()
+	hide(false)
 
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("mainmenu_toggle"):
 		if _open:
-			_hide()
+			hide()
 		else:
-			_show()
+			show()
 
 
 func set_openable(state: bool) -> void:
@@ -30,22 +30,27 @@ func is_open() -> bool:
 	return _open
 
 
-func _show() -> void:
+func show() -> void:
 	_open = true
 	for i in get_children():
 		if i is Control:
 			i.visible = true
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
-func _hide() -> void:
+func hide(change_mouse_mode: bool = true) -> void:
 	_open = false
 	for i in get_children():
 		if i is Control:
 			i.visible = false
+	
+	if change_mouse_mode:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 func _on_bContinue_pressed() -> void:
-	_hide()
+	hide()
 
 
 func _on_bOptions_pressed() -> void:
