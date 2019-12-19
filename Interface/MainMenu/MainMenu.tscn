@@ -8,7 +8,8 @@
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
-[node name="MainMenu" type="Node"]
+[node name="MainMenu" type="CanvasLayer"]
+layer = 10
 script = ExtResource( 1 )
 
 [node name="Background" type="TextureRect" parent="."]

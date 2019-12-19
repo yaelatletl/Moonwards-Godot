@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Interface/Hud/Chat/Chat.gd" type="Script" id=1]
+
+[node name="Chat" type="PanelContainer"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -198.0
+margin_right = 403.0
+grow_vertical = 0
+script = ExtResource( 1 )
+
+[node name="V" type="VBoxContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 396.0
+margin_bottom = 191.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="V"]
+margin_right = 389.0
+margin_bottom = 156.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LineEdit" type="LineEdit" parent="V"]
+margin_top = 160.0
+margin_right = 389.0
+margin_bottom = 184.0
+[connection signal="text_entered" from="V/LineEdit" to="." method="_on_LineEdit_text_entered"]

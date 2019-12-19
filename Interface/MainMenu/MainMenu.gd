@@ -1,7 +1,25 @@
-extends Node
-
+extends CanvasLayer
+"""
+	MainMenu Singleton Scene Script
+"""
 
 onready var tabs: TabContainer = $"H/T"
+
+
+func show() -> void:
+	for i in get_children():
+		if i is Control:
+			i.visible = true
+	
+	PauseMenu.set_openable(false)
+
+
+func hide() -> void:
+	for i in get_children():
+		if i is Control:
+			i.visible = false
+	
+	PauseMenu.set_openable(true)
 
 
 func _on_bJoinServer_pressed() -> void:
