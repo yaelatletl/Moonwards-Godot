@@ -5,8 +5,10 @@
 [ext_resource path="res://assets/UI/Menu/Instructions/Instructions.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/UI/Menu/lobby.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/UI/Options/Options.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/UI/Menu/About/About.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Interface/MainMenu/About/About.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/UI/Menu/Resources/Attention_icon.png" type="Texture" id=7]
+
+
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends VBoxContainer

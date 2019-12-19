@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/themes/MainMenu.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/MainMenu.gd" type="Script" id=2]
-[ext_resource path="res://img/MainBG.png" type="Texture" id=3]
+[ext_resource path="res://Interface/MainMenu/MainBG.png" type="Texture" id=3]
 [ext_resource path="res://assets/UI/Menu/Main_menu.tscn" type="PackedScene" id=4]
 
 [node name="MainMenu" type="Control"]
