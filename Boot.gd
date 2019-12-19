@@ -1,13 +1,14 @@
 extends Node
 """
-	Boot Singleton
-	Last singleton in the list
-	Contains startup script
+	Boot Scene Script
+	Initializes headless server if required
 """
 
 func _ready() -> void:
 	if OS.has_feature("Server"):
 		_ready_headless()
+	else:
+		MainMenu.show()
 	# originally registered ui in uimanager
 
 
