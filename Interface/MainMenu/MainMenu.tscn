@@ -94,11 +94,11 @@ margin_right = 0.0
 margin_bottom = 0.0
 
 [node name="Lobby" parent="H/T" instance=ExtResource( 5 )]
+visible = false
 margin_left = 0.0
 margin_top = 0.0
 margin_right = 0.0
 margin_bottom = 0.0
-theme = null
 [connection signal="pressed" from="H/V/bJoinServer" to="." method="_on_bJoinServer_pressed"]
 [connection signal="pressed" from="H/V/bLocalGame" to="." method="_on_bLocalGame_pressed"]
 [connection signal="pressed" from="H/V/bOptions" to="." method="_on_bOptions_pressed"]
