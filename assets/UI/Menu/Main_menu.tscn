@@ -3,10 +3,11 @@
 [ext_resource path="res://img/MoonwardsLogo2018-1200.png" type="Texture" id=1]
 [ext_resource path="res://scripts/UIElement.gd" type="Script" id=2]
 [ext_resource path="res://assets/UI/Menu/Instructions/Instructions.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Interface/MainMenu/Lobby/lobby.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Interface/MainMenu/Lobby/Lobby.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/UI/Options/Options.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Interface/MainMenu/About/About.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/UI/Menu/Resources/Attention_icon.png" type="Texture" id=7]
+
 
 
 

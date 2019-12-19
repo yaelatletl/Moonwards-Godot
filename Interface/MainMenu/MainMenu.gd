@@ -5,11 +5,12 @@ onready var tabs: TabContainer = $"H/T"
 
 
 func _on_bJoinServer_pressed() -> void:
-	pass # Replace with function body.
+	# TODO: Replace UIManager
+	UIManager.ui_event(UIManager.UI_EVENTS.JOIN_SERVER)
 
 
 func _on_bLocalGame_pressed() -> void:
-	pass # Replace with function body.
+	tabs.current_tab = 3
 
 
 func _on_bOptions_pressed() -> void:
