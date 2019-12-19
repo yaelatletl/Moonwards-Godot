@@ -3,24 +3,26 @@
 [ext_resource path="res://assets/UI/Options/Controls_settings.gd" type="Script" id=1]
 [ext_resource path="res://assets/UI/Options/control_option_component.tscn" type="PackedScene" id=2]
 
-[node name="Controls" type="Tabs"]
+[node name="Controls" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
 margin_top = 42.0
 margin_right = -980.0
 margin_bottom = -637.0
+custom_constants/margin_right = 0
+custom_constants/margin_top = 0
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 0
 script = ExtResource( 1 )
 
 [node name="Main" type="HSplitContainer" parent="."]
-margin_left = 87.4512
-margin_top = 42.4006
-margin_right = 353.451
-margin_bottom = 318.401
+margin_right = 936.0
+margin_bottom = 401.0
 
 [node name="Sub1" type="VBoxContainer" parent="Main"]
 margin_right = 272.0
-margin_bottom = 276.0
+margin_bottom = 401.0
 
 [node name="move_forwards" parent="Main/Sub1" instance=ExtResource( 2 )]
 margin_top = 0.0
@@ -107,52 +109,50 @@ Label_text = "Get unstuck"
 
 [node name="Sub2" type="VBoxContainer" parent="Main"]
 margin_left = 284.0
-margin_right = 556.0
-margin_bottom = 276.0
+margin_right = 936.0
+margin_bottom = 401.0
 
 [node name="debug_force_camera" parent="Main/Sub2" instance=ExtResource( 2 )]
 margin_top = 0.0
-margin_right = 272.0
+margin_right = 652.0
 margin_bottom = 20.0
 Label_text = "Enable Fly Camera"
 
 [node name="HSeparator12" type="HSeparator" parent="Main/Sub2"]
 margin_top = 24.0
-margin_right = 272.0
+margin_right = 652.0
 margin_bottom = 28.0
 
 [node name="toggle_chat" parent="Main/Sub2" instance=ExtResource( 2 )]
 margin_top = 32.0
-margin_right = 272.0
+margin_right = 652.0
 margin_bottom = 52.0
 Label_text = "Use chat / send message"
 
 [node name="HSeparator14" type="HSeparator" parent="Main/Sub2"]
 margin_top = 56.0
-margin_right = 272.0
+margin_right = 652.0
 margin_bottom = 60.0
 
 [node name="alt" parent="Main/Sub2" instance=ExtResource( 2 )]
 margin_top = 64.0
-margin_right = 272.0
+margin_right = 652.0
 margin_bottom = 84.0
 Label_text = "Change facial expression"
 
 [node name="HSeparator15" type="HSeparator" parent="Main/Sub2"]
 margin_top = 88.0
-margin_right = 272.0
+margin_right = 652.0
 margin_bottom = 92.0
 
 [node name="shift" parent="Main/Sub2" instance=ExtResource( 2 )]
 margin_top = 96.0
-margin_right = 272.0
+margin_right = 652.0
 margin_bottom = 116.0
 Label_text = "Change player speed"
 
 [node name="Button" type="Button" parent="."]
-margin_left = 836.888
-margin_top = 600.747
-margin_right = 932.888
-margin_bottom = 620.747
+margin_right = 936.0
+margin_bottom = 401.0
 text = "Save settings"
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

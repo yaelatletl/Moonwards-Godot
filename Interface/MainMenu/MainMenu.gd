@@ -1,7 +1,7 @@
 extends Node
 
 
-onready var tabs: TabContainer = $"Menu/H/T"
+onready var tabs: TabContainer = $"H/T"
 
 
 func _on_bJoinServer_pressed() -> void:
@@ -13,11 +13,11 @@ func _on_bLocalGame_pressed() -> void:
 
 
 func _on_bOptions_pressed() -> void:
-	pass # Replace with function body.
+	tabs.current_tab = 1
 
 
 func _on_bAbout_pressed() -> void:
-	pass # Replace with function body.
+	tabs.current_tab = 2
 
 
 func _on_bQuit_pressed() -> void:

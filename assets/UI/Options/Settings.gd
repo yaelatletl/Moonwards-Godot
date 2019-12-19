@@ -1,4 +1,4 @@
-extends Tabs
+extends MarginContainer
 
 const modes : Array = [
 	"Windowed",
