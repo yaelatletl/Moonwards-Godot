@@ -83,15 +83,16 @@ func init_playerspeed_control(button : Control) -> void:
 		button.enabled = false
 		button.value = 0
 
+
 func set_fps_limit(value : int) -> void:
 	Options.set("dev", value, "3FPSlimit_value")
-	Debugger.set_3fps(t_FPSLimit.pressed, value)
-	
+	# originally set limit to value, or 3 if limit was disabled.
+
+
 func set_decimate_percent(value : int) -> void:
 	Options.set("dev", value, "decimate_percent")
-	if Options.get("dev", "hide_meshes_random", false):
-		Debugger.hide_nodes_random(0)
-		Debugger.hide_nodes_random(value)
+	# originally _randomly_ hid mesh instances
+
 
 func set_lod_aspect_ratio(value : int) -> void:
 	Options.set("LOD", value, "lod_aspect_ratio")
@@ -110,24 +111,20 @@ func set_player_speed(value: float) -> void:
 		Log.hint(self, "set_player_speed",str("set_player_speed to value : ", value))
 
 func _on_tAreas_pressed() -> void:
-	Debugger.e_area_lod(t_Areas.pressed)
+	# originally did nothing
 	Options.set("dev", t_Areas.pressed, "enable_areas_lod")
 
 func _on_tCollisionShapes_pressed() -> void:
-	Debugger.e_collision_shapes(t_CollisionShapes.pressed)
+	# Originally toggled the enabled property of all collision shapes
 	Options.set("dev", t_CollisionShapes.pressed, "enable_collision_shapes")
 
 func _on_tFPSLim_pressed() -> void:
-	Debugger.set_3fps(t_FPSLimit.pressed, s_FPSLimit.value)
+	# originally enabled/disabled fps limit
 	Options.set("dev", t_FPSLimit.pressed, "3FPSlimit")
 
 
 func _on_tDecimate_pressed() -> void:
-	var dp = Options.get("dev", "decimate_percent", 90)
-	if t_decimate.pressed:
-		Debugger.hide_nodes_random(dp)
-	else:
-		Debugger.hide_nodes_random(0)
+	# originally set mesh nodes to be hidden at random
 	Options.set("dev", t_decimate.pressed, "hide_meshes_random")
 
 func _on_Exit_pressed() -> void:
@@ -135,10 +132,10 @@ func _on_Exit_pressed() -> void:
 
 func _on_tPMonitor_pressed() -> void:
 	Options.set("dev", t_PMonitor.pressed, "show_performance_monitor")
-	Debugger.show_performance_monitor(t_PMonitor.pressed)
+	# original toggled performance monitor visibility
 
 func _on_tLodManager_pressed() -> void:
 	Options.set("dev", t_Lod_Manager.pressed, "TreeManager")
-	Debugger.set_lod_manager(t_Lod_Manager.pressed)
+	# originally performed some sort of deep tree search for a lod manager object
 
 
