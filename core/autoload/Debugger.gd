@@ -107,10 +107,6 @@ func set_active_camera() -> void:
 	Log.hint(self, "set_active_camera",str("set camera to local player: ", GameState.local_id))
 	GameState.player_local_camera()
 
-
-func e_area_lod(enable : bool = true) -> void:
-	pass
-
 func e_collision_shapes(enable : bool = true):
 	var root = NodeUtilities.scene
 	var cs_objects = Utilities.get_cs_list_cs(root)
