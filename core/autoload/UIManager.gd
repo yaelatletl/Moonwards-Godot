@@ -37,12 +37,15 @@ func _ready() -> void:
 	GameState.connect("scene_change", self, "_change_scene")
 	
 func _input(event) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		# When pressing escape the future UI queue is used before going back.
-		if not _ui_future_queue.empty() and _on_queued_ui:
-			dismiss_ui()
-		else:
-			back()
+	pass
+	# TODO: Refactor UiManager
+	# This currently prevents the menu from being opened while in a game.
+#	if event.is_action_pressed("ui_cancel"):
+#		# When pressing escape the future UI queue is used before going back.
+#		if not _ui_future_queue.empty() and _on_queued_ui:
+#			dismiss_ui()
+#		else:
+#			back()
 
 func ui_event(ui_event : int, resource : String = '') -> void:
 	assert(UI_EVENTS.values().has(ui_event)) # Replace with error

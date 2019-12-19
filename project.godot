@@ -21,9 +21,8 @@ _global_script_class_icons={
 [application]
 
 config/name="CernansPromise"
-run/main_scene="res://assets/UI/Menu/MainMenu.tscn"
+run/main_scene="res://Boot.tscn"
 config/icon="res://icon.png"
-boot_splash/main_loop_type=""
 
 [autoload]
 
@@ -33,7 +32,6 @@ Options="*res://core/autoload/Options.gd"
 GameState="*res://core/autoload/GameState.gd"
 UIManager="*res://core/autoload/UIManager.gd"
 InputMapping="*res://core/autoload/InputMapping.gd"
-Boot="*res://Boot.gd"
 
 [compression]
 
