@@ -115,20 +115,16 @@ func _on_tAreas_pressed() -> void:
 	Options.set("dev", t_Areas.pressed, "enable_areas_lod")
 
 func _on_tCollisionShapes_pressed() -> void:
-	Debugger.e_collision_shapes(t_CollisionShapes.pressed)
+	# Originally toggled the enabled property of all collision shapes
 	Options.set("dev", t_CollisionShapes.pressed, "enable_collision_shapes")
 
 func _on_tFPSLim_pressed() -> void:
-	Debugger.set_3fps(t_FPSLimit.pressed, s_FPSLimit.value)
+	# originally enabled/disabled fps limit
 	Options.set("dev", t_FPSLimit.pressed, "3FPSlimit")
 
 
 func _on_tDecimate_pressed() -> void:
-	var dp = Options.get("dev", "decimate_percent", 90)
-	if t_decimate.pressed:
-		Debugger.hide_nodes_random(dp)
-	else:
-		Debugger.hide_nodes_random(0)
+	# originally set mesh nodes to be hidden at random
 	Options.set("dev", t_decimate.pressed, "hide_meshes_random")
 
 func _on_Exit_pressed() -> void:

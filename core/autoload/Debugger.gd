@@ -107,13 +107,6 @@ func set_active_camera() -> void:
 	Log.hint(self, "set_active_camera",str("set camera to local player: ", GameState.local_id))
 	GameState.player_local_camera()
 
-func e_collision_shapes(enable : bool = true):
-	var root = NodeUtilities.scene
-	var cs_objects = Utilities.get_cs_list_cs(root)
-	Log.hint(self, "e_collision_shapes", str("e_collision_shape(enable=", enable, "), found : ", cs_objects.size()))
-	for p in cs_objects:
-		var obj = root.get_node(p)
-		obj.disabled = !enable
 
 func hide_obj_check(root : Node, path : NodePath) -> bool:
 	var obj = root.get_node(path)
