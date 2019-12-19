@@ -33,6 +33,7 @@ Options="*res://core/autoload/Options.gd"
 GameState="*res://core/autoload/GameState.gd"
 UIManager="*res://core/autoload/UIManager.gd"
 InputMapping="*res://core/autoload/InputMapping.gd"
+Boot="*res://Boot.gd"
 
 [compression]
 

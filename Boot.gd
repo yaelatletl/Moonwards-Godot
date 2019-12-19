@@ -1,16 +1,19 @@
-extends Control
-
-onready var main_ui : Node = $VBoxContainer
+extends Node
+"""
+	Boot Singleton
+	Last singleton in the list
+	Contains startup script
+"""
 
 func _ready() -> void:
 	if OS.has_feature("Server"):
 		_ready_headless()
-	else:
-		UIManager.register_base_ui(self)
-		UIManager._set_current_ui(main_ui)
+	# originally registered ui in uimanager
+
 
 func _ready_headless() -> void:
-	print("Setup headless mode")
+	Log.hint(self, "_ready_headless", "Initializing Headless Server")
+	
 	var player_data : Dictionary = {
 		name = "Server Bot",
 		options = Options.player_opt("server_bot")
