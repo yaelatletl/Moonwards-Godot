@@ -85,7 +85,7 @@ func init_playerspeed_control(button : Control) -> void:
 
 func set_fps_limit(value : int) -> void:
 	Options.set("dev", value, "3FPSlimit_value")
-	Debugger.set_3fps(t_FPSLimit.pressed, value)
+	# originally set limit to value, or 3 if limit was disabled.
 	
 func set_decimate_percent(value : int) -> void:
 	Options.set("dev", value, "decimate_percent")

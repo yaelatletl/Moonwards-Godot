@@ -108,14 +108,6 @@ func set_active_camera() -> void:
 	GameState.player_local_camera()
 
 
-func set_3fps(enable : bool, value : int = 3) -> void:
-	if enable:
-		Log.hint(self, "set_3fps", str("Debugger set FPS to ", round(value)))
-		Engine.target_fps = round(value)
-	else:
-		Log.hint(self, "set_3fps", "Debugger set FPS to 3")
-		Engine.target_fps = 3
-
 func e_area_lod(enable : bool = true) -> void:
 	pass
 
