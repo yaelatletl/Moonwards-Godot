@@ -176,7 +176,7 @@ func server_set_mode(host : String = "localhost"):
 		var msg = "fail to resolve host(%s) to ip adress" % host
 		emit_signal("network_log", msg)
 		emit_signal("network_error", msg)
-		RoleServer = false
+		NetworkState = MODE.DISCONNECTED
 		return
 	emit_signal("network_log", "prepare to listen on %s:%s" % [ip,DEFAULT_PORT])
 	connection = NetworkedMultiplayerENet.new()
@@ -202,7 +202,7 @@ func server_set_mode(host : String = "localhost"):
 	else:
 		emit_signal("network_log", "server error %s" % error)
 		emit_signal("network_error", "failed to bring server up, error %s" % error)
-		RoleServer = false
+		NetworkState = MODE.ERROR
 
 ################
 #Client functions
@@ -211,17 +211,18 @@ func server_set_mode(host : String = "localhost"):
 
 
 func client_server_connect(host : String, port : int = DEFAULT_PORT):
-	if RoleClient :
-		emit_signal("network_error", "Already in client mode")
-		return
-	if RoleServer :
-		emit_signal("network_error", "Currently in server mode")
-		return
-	if RoleNoNetwork :
-		emit_signal("network_error", "No network mode enabled")
-		return
+	match NetworkState:
+		MODE.CLIENT:
+			emit_signal("network_error", "Already in client mode")
+			return
+		MODE.SERVER:
+			emit_signal("network_error", "Currently in server mode")
+			return
+		MODE.DISCONNECTED:
+			emit_signal("network_error", "No network mode enabled")
+			return
 	
-	RoleClient = true
+	NetworkState = MODE.CLIENT 
 	
 	host = host
 	ip = IP.resolve_hostname(host, 1) #TYPE_IPV4 - ipv4 adresses only
@@ -229,9 +230,9 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 		var msg = "fail to resolve host(%s) to ip adress" % host
 		emit_signal("network_log", msg)
 		emit_signal("network_error", msg)
-		RoleClient = false
+		NetworkState = MODE.DISCONNECTED
 		return
-	port = port
+	self.port = port
 	emit_signal("network_log", "connect to server %s(%s):%s" % [player_get("host"), player_get("ip"), player_get("port")])
 	
 	NodeUtilities.bind_signal("connection_failed", '', get_tree(), self, NodeUtilities.MODE.CONNECT)
@@ -585,8 +586,8 @@ func _on_net_server_connected() -> void:
 
 func _on_net_server_disconnected() -> void:
 	Log.hint(self, "on_net_server_disconnected", "Server disconnected")
-	if NetworkUP:
-		NetworkUP = false
+	if NetworkState == MODE.SERVER:
+		NetworkState = MODE.DISCONNECTED
 		net_down()
 
 func _on_net_server_up() -> void:
