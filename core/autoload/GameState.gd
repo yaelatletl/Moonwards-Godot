@@ -52,10 +52,7 @@ var local_id : int = 0
 #
 # hold last error message
 var error_msg : String = "Ok"
-# indicate server role, mutial to client role
-var RoleServer : bool = false
-#indicate client role, mutual to server role
-var RoleClient : bool = false
+
 var RoleNoNetwork : bool = false
 
 var _queue_attach : Dictionary = {}
@@ -158,17 +155,18 @@ func net_tree_connect(bind : bool = true) -> void:
 
 
 func server_set_mode(host : String = "localhost"):
-	if RoleClient :
-		emit_signal("network_error", "Currently in client mode")
-		return
-	if RoleServer :
-		emit_signal("network_error", "Already in server mode")
-		return
-	if RoleNoNetwork :
-		emit_signal("network_error", "No network mode enabled")
-		return
+	match NetworkState:
+		MODE.CLIENT:
+			emit_signal("network_error", "Currently in client mode")
+			return
+		MODE.SERVER:
+			emit_signal("network_error", "Already in server mode")
+			return
+		MODE.ERROR:
+			emit_signal("network_error", "No network mode enabled")
+			return
 	
-	RoleServer = true
+	NetworkState = MODE.SERVER
 	
 	self.host = host
 	ip = IP.resolve_hostname(host, 1) #TYPE_IPV4 - ipv4 adresses only
@@ -336,7 +334,7 @@ remote func register_client(id : int, pdata : Dictionary) -> void:
 		pdata["Options"] = Options.player_opt("puppet")
 
 	player_register(pdata)
-	if RoleServer:
+	if NetworkState == MODE.SERVER:
 		#sync existing players
 		rpc("register_client", id, pdata)
 		for p in players:
@@ -352,7 +350,7 @@ remote func unregister_client(id : int) -> void:
 		if players[id].obj:
 			players[id].obj.queue_free()
 		players.erase(id)
-	if RoleServer:
+	if NetworkState == MODE.SERVER:
 		#sync existing players
 		for p in players:
 			print("**** %s" % players[p])
@@ -568,7 +566,7 @@ func _on_queue_attach_on_tree_change() -> void:
 
 func _on_net_connection_fail() -> void:
 	Log.hint(self, "on_net_connection_fail", "connection failed")
-	NetworkUP = false
+	NetworkState = MODE.DISCONNECTED
 
 func _on_net_client_connected(id : int) -> void:
 	Log.hint(self, "on_net_client_connected", str("Client: ", id, " connected"))
@@ -580,8 +578,8 @@ func _on_net_client_disconnected(id : int) -> void:
 
 func _on_net_server_connected() -> void:
 	Log.hint(self, "on_net_server_connected", "Server connected")
-	if not NetworkUP:
-		NetworkUP = true
+	if not NetworkState == MODE.SERVER:
+		NetworkState = MODE.SERVER
 		net_up()
 
 func _on_net_server_disconnected() -> void:
@@ -592,8 +590,8 @@ func _on_net_server_disconnected() -> void:
 
 func _on_net_server_up() -> void:
 	Log.hint(self, "on_net_server_up", "Server up")
-	if not NetworkUP:
-		NetworkUP = true
+	if not NetworkState == MODE.SERVER:
+		NetworkState = MODE.SERVER
 		net_up()
 
 func _on_server_tree_changed() -> void:
@@ -626,7 +624,7 @@ func _on_player_scene() -> void:
 	for p in players:
 		create_player(p)
 	
-	if RoleClient:
+	if NetworkState == MODE.CLIENT:
 		#report client to server
 		rpc_id(1, "register_client", network_id, players[local_id].data)
 
@@ -652,14 +650,14 @@ func _on_connection_failed() -> void:
 	emit_signal("gamestate_log", "client connection failed to %s(%s):%s" % [player_get("host"), player_get("ip"), player_get("port")])
 	NodeUtilities.bind_signal("connection_failed", '', get_tree(), self, NodeUtilities.MODE.DISCONNECT)
 	NodeUtilities.bind_signal("connected_to_server", '', get_tree(), self, NodeUtilities.MODE.DISCONNECT)
-	RoleClient = false
+	NetworkState = MODE.DISCONNECTED
 	emit_signal("network_error", "Error connecting to server %s(%s):%s" % [player_get("host"), player_get("ip"), player_get("port")])
 
 func _on_connected_to_server() -> void:
 	emit_signal("gamestate_log", "client connected to %s(%s):%s" % [player_get("host"), player_get("ip"), player_get("port")])
 	NodeUtilities.bind_signal("connection_failed", '', get_tree(), self, NodeUtilities.MODE.DISCONNECT)
 	NodeUtilities.bind_signal("connected_to_server", '', get_tree(), self, NodeUtilities.MODE.DISCONNECT)
-	RoleClient = true
+	NetworkState = MODE.CLIENT
 	emit_signal("server_connected")
 
 func _on_network_log(msg) -> void:
