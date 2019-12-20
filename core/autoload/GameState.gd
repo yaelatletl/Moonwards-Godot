@@ -1,5 +1,10 @@
 extends Node
-
+enum MODE {
+	DISCONNECTED = 0,
+	CLIENT = 1,
+	SERVER = 2,
+	ERROR = -1
+	}
 #global signals
 signal gamestate_log(msg)
 # network user related
@@ -57,19 +62,14 @@ var _queue_attach : Dictionary = {}
 var _queue_attach_on_tree_change_lock : bool = false #emits tree_change events on adding node, prevent stack overflow
 var _queue_attach_on_tree_change_prev_scene : String
 
-var server : Dictionary = {
-	host = "localhost",
-	ip = "127.0.0.1",
-	connection = null,
-	up = false
-}
-var client : Dictionary = {
-	host = "localhost",
-	ip = "127.0.0.1",
-	port = DEFAULT_PORT,
-	connection = null,
-	up = false
-}
+var host : String = "localhost"
+var ip : String = "127.0.0.1"
+var connection = null
+var port : int = DEFAULT_PORT
+
+
+var NetworkState : int = 0 # 0 disconnected. 1 Connected as client. 2 Connected as server -1 Error
+
 
 var NetworkUP : bool = false
 var PlayerSceneUP : bool = false
@@ -79,21 +79,19 @@ var PlayerSceneUP : bool = false
 
 var level_loader : Object = preload("res://scripts/LevelLoader.gd").new()
 var world : Node = null
-var debug_id : String = "GameState"
+
 func _ready():
-	get_tree().connect("network_peer_connected", self, "_player_connected")
-
+	
 	local_id = 0
-
+	NodeUtilities.bind_signal("network_peer_connected","_player_connected",get_tree(), self,  NodeUtilities.MODE.CONNECT)
 	NodeUtilities.bind_signal("network_log", "", self, self, NodeUtilities.MODE.TOGGLE)
 	NodeUtilities.bind_signal("gamestate_log", "", self, self, NodeUtilities.MODE.TOGGLE)
 	NodeUtilities.bind_signal("player_scene", "", self, self, NodeUtilities.MODE.TOGGLE)
 	NodeUtilities.bind_signal("player_id", "", self, self, NodeUtilities.MODE.TOGGLE)
 	
 	queue_tree_signal(Options.scene_id, "player_scene", true)
-	log_all_signals()
 	
-	connect("player_scene", self, "player_scene")
+	NodeUtilities.bind_signal("player_scene", "",  self, self, NodeUtilities.MODE.CONNECT)
 	net_tree_connect()
 
 
@@ -172,39 +170,39 @@ func server_set_mode(host : String = "localhost"):
 	
 	RoleServer = true
 	
-	server.host = host
-	server.ip = IP.resolve_hostname(host, 1) #TYPE_IPV4 - ipv4 adresses only
-	if not server.ip.is_valid_ip_address():
-		var msg = "fail to resolve host(%s) to ip adress" % server.host
+	self.host = host
+	ip = IP.resolve_hostname(host, 1) #TYPE_IPV4 - ipv4 adresses only
+	if not ip.is_valid_ip_address():
+		var msg = "fail to resolve host(%s) to ip adress" % host
 		emit_signal("network_log", msg)
 		emit_signal("network_error", msg)
 		RoleServer = false
 		return
-	emit_signal("network_log", "prepare to listen on %s:%s" % [server.ip,DEFAULT_PORT])
-	server.connection = NetworkedMultiplayerENet.new()
-	server.connection.set_bind_ip(server.ip)
-	var error : int = server.connection.create_server(DEFAULT_PORT, MAX_PEERS)
+	emit_signal("network_log", "prepare to listen on %s:%s" % [ip,DEFAULT_PORT])
+	connection = NetworkedMultiplayerENet.new()
+	connection.set_bind_ip(ip)
+	var error : int = connection.create_server(DEFAULT_PORT, MAX_PEERS)
 	if error == 0:
-		get_tree().set_network_peer(server.connection)
-		emit_signal("network_log", "server up on %s:%s" % [server.ip,DEFAULT_PORT])
-		server.up = true
+		get_tree().set_network_peer(connection)
+		emit_signal("network_log", "server up on %s:%s" % [ip,DEFAULT_PORT])
+		NetworkState = MODE.SERVER
 		NodeUtilities.bind_signal("tree_changed", "_on_server_tree_changed", get_tree(), self, NodeUtilities.MODE.CONNECT)
 		emit_signal("server_up")
 		
-		NodeUtilities.bind_signal("peer_disconnected", "_on_server_user_disconnected", server.connection, self, NodeUtilities.MODE.CONNECT) 
-		NodeUtilities.bind_signal("peer_connected", "_on_server_user_connected", server.connection, self, NodeUtilities.MODE.CONNECT) 
+		NodeUtilities.bind_signal("peer_disconnected", "_on_server_user_disconnected", connection, self, NodeUtilities.MODE.CONNECT) 
+		NodeUtilities.bind_signal("peer_connected", "_on_server_user_connected", connection, self, NodeUtilities.MODE.CONNECT) 
 		
 		NodeUtilities.bind_signal("network_peer_connected", "_on_server_tree_user_connected", get_tree(), self, NodeUtilities.MODE.CONNECT)
 		NodeUtilities.bind_signal("network_peer_disconnected", "_on_server_tree_user_disconnected", get_tree(), self, NodeUtilities.MODE.CONNECT)
-
-		emit_signal("gamestate_log", "network server id %s" % server.connection.get_unique_id())
-		network_id = server.connection.get_unique_id()
+		
+		network_id = connection.get_unique_id()
+		emit_signal("gamestate_log", "network server id %s" % network_id)
+		
 		emit_signal("player_id", network_id)
 	else:
 		emit_signal("network_log", "server error %s" % error)
 		emit_signal("network_error", "failed to bring server up, error %s" % error)
 		RoleServer = false
-# 		emit_signal("connection_failed")
 
 ################
 #Client functions
@@ -225,25 +223,25 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 	
 	RoleClient = true
 	
-	client.host = host
-	client.ip = IP.resolve_hostname(host, 1) #TYPE_IPV4 - ipv4 adresses only
-	if not client.ip.is_valid_ip_address():
-		var msg = "fail to resolve host(%s) to ip adress" % server.host
+	host = host
+	ip = IP.resolve_hostname(host, 1) #TYPE_IPV4 - ipv4 adresses only
+	if not ip.is_valid_ip_address():
+		var msg = "fail to resolve host(%s) to ip adress" % host
 		emit_signal("network_log", msg)
 		emit_signal("network_error", msg)
 		RoleClient = false
 		return
-	client.port = port
+	port = port
 	emit_signal("network_log", "connect to server %s(%s):%s" % [player_get("host"), player_get("ip"), player_get("port")])
 	
 	NodeUtilities.bind_signal("connection_failed", '', get_tree(), self, NodeUtilities.MODE.CONNECT)
 	NodeUtilities.bind_signal("connected_to_server", "", get_tree(), self, NodeUtilities.MODE.CONNECT)
-	client.connection = NetworkedMultiplayerENet.new()
-	client.connection.create_client(player_get("ip"), player_get("port"))
-	emit_signal("gamestate_log", "network id %s" % client.connection.get_unique_id())
-	network_id = client.connection.get_unique_id()
+	connection = NetworkedMultiplayerENet.new()
+	connection.create_client(player_get("ip"), player_get("port"))
+	emit_signal("gamestate_log", "network id %s" % connection.get_unique_id())
+	network_id = connection.get_unique_id()
 	emit_signal("player_id", network_id)
-	get_tree().set_network_peer(client.connection)
+	get_tree().set_network_peer(connection)
 
 
 ################
@@ -373,8 +371,7 @@ func player_get(prop, id : int = -1): #prop and result are variants
 		result = players[id].data[prop]
 	elif players[id].has(prop):
 		result = players[id][prop]
-	elif client.has(prop):
-		result = client[prop]
+
 	else:
 		match prop:
 			"name" :
@@ -457,38 +454,9 @@ func end_game() -> void:
 	players.clear()
 	get_tree().set_network_peer(null) # End networking
 
-#################
-# Debugger functions
 
 
-#func printd(s : String) -> void:
-#	logg.print_filtered_message(debug_id, s)
 
-func log_all_signals() -> void:
-	var sg_ignore = ["_on_gamestate_log"]
-	var sg_added = ""
-	for sg in get_signal_list():
-		if sg.name in sg_ignore:
-			continue
-		##printd("log all signals connect %s" % sg)
-		sg_added = "%s(%s) %s" % [sg.name, sg.args.size(), sg_added]
-		connect(sg.name, self, "log_all_signals_print_%s" % (sg.args.size()+1), ["%s" % sg.name])
-	#printd("log_all_signals: %s" % sg_added)
-		
-func log_all_signals_print_1(signal_name : String):
-	pass
-	#printd(str("==========signal0 ", signal_name," ================"))
-func log_all_signals_print_2(a1, signal_name : String):
-	pass
-	#printd(str("==========signal1 ", signal_name," ================"))
-	#printd(str(a1))
-func log_all_signals_print_3(a1, a2, signal_name : String):
-	pass
-	#printd(str("==========signal2 ", signal_name," ================"))
-	#printd(str(a1, a2))
-
-#################
-# New UI functions
 
 
 
@@ -628,11 +596,11 @@ func _on_net_server_up() -> void:
 		net_up()
 
 func _on_server_tree_changed() -> void:
-	if not RoleServer or not server.up:
+	if not NetworkState == MODE.SERVER:
 		return
 	var root = get_tree()
 	if root != null and root.get_network_unique_id() == 0:
-		root.set_network_peer(server.connection)
+		root.set_network_peer(connection)
 		emit_signal("network_log", "reconnect server to tree")
 
 func _on_server_user_connected(id : int) -> void:
