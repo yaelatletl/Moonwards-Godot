@@ -79,7 +79,7 @@ func _on_server_connected() -> void:
 	_on_server_up()
 
 func _on_host_pressed() -> void:
-	if not (GameState.RoleServer or GameState.RoleClient):
+	if GameState.NetworkState == GameState.MODE.DISCONNECTED:
 		if ($connect/name.text == ""):
 			$connect/error_label.text="Invalid name!"
 			return
@@ -101,7 +101,7 @@ func _on_host_pressed() -> void:
 		emit_signal("network_error", "Already in server or client mode")
 
 func _on_join_pressed() -> void:
-	if not (GameState.RoleServer or GameState.RoleClient):
+	if GameState.NetworkState == GameState.MODE.DISCONNECTED:
 		if ($connect/name.text == ""):
 			$connect/error_label.text="Invalid name!"
 			return
@@ -156,7 +156,7 @@ func _on_Sinlgeplayer_pressed() -> void:
 		username = $connect/name.text,
 		network = false
 	}
-	GameState.RoleNoNetwork = true
+	GameState.NetworkState = GameState.MODE.ERROR
 	GameState.player_register(player_data, true) #local player
 	Log.hint(self, "_on_Singleplayer_pressed", str("change scene to" , worldscene))
 	yield(get_tree().create_timer(2), "timeout")

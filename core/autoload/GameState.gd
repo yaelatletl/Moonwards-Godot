@@ -216,7 +216,7 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 		MODE.SERVER:
 			emit_signal("network_error", "Currently in server mode")
 			return
-		MODE.DISCONNECTED:
+		MODE.ERROR:
 			emit_signal("network_error", "No network mode enabled")
 			return
 	
