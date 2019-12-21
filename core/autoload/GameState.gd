@@ -157,13 +157,13 @@ func net_tree_connect(bind : bool = true) -> void:
 func server_set_mode(host : String = "localhost"):
 	match NetworkState:
 		MODE.CLIENT:
-			emit_signal("network_error", "Currently in client mode")
+			Log.hint(self, "server_set_mode", "Currently in client mode")
 			return
 		MODE.SERVER:
-			emit_signal("network_error", "Already in server mode")
+			Log.hint(self, "server_set_mode", "Already in server mode")
 			return
 		MODE.ERROR:
-			emit_signal("network_error", "No network mode enabled")
+			Log.hint(self, "server_set_mode", "No-network-mode enabled")
 			return
 	
 	NetworkState = MODE.SERVER
@@ -171,18 +171,16 @@ func server_set_mode(host : String = "localhost"):
 	self.host = host
 	ip = IP.resolve_hostname(host, 1) #TYPE_IPV4 - ipv4 adresses only
 	if not ip.is_valid_ip_address():
-		var msg = "fail to resolve host(%s) to ip adress" % host
-		emit_signal("network_log", msg)
-		emit_signal("network_error", msg)
+		Log.hint(self, "server_set_mode",  str("fail to resolve host(",host,") to ip adress"))
 		NetworkState = MODE.DISCONNECTED
 		return
-	emit_signal("network_log", "prepare to listen on %s:%s" % [ip,DEFAULT_PORT])
+	Log.hint(self, "server_set_mode", str("prepare to listen on ", ip, ":", DEFAULT_PORT))
 	connection = NetworkedMultiplayerENet.new()
 	connection.set_bind_ip(ip)
 	var error : int = connection.create_server(DEFAULT_PORT, MAX_PEERS)
-	if error == 0:
+	if error == OK:
 		get_tree().set_network_peer(connection)
-		emit_signal("network_log", "server up on %s:%s" % [ip,DEFAULT_PORT])
+		Log.hint(self, "server_set_mode", str("server up on ", ip, ":", DEFAULT_PORT))
 		NetworkState = MODE.SERVER
 		NodeUtilities.bind_signal("tree_changed", "_on_server_tree_changed", get_tree(), self, NodeUtilities.MODE.CONNECT)
 		emit_signal("server_up")
@@ -194,11 +192,11 @@ func server_set_mode(host : String = "localhost"):
 		NodeUtilities.bind_signal("network_peer_disconnected", "_on_server_tree_user_disconnected", get_tree(), self, NodeUtilities.MODE.CONNECT)
 		
 		network_id = connection.get_unique_id()
-		emit_signal("gamestate_log", "network server id %s" % network_id)
+		Log.hint(self, "server_set_mode", str("network server id ", network_id))
 		
 		emit_signal("player_id", network_id)
 	else:
-		emit_signal("network_log", "server error %s" % error)
+		Log.hint(self, "server_set_mode", "server error %s" % error)
 		emit_signal("network_error", "failed to bring server up, error %s" % error)
 		NetworkState = MODE.ERROR
 
@@ -217,7 +215,7 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 			emit_signal("network_error", "Currently in server mode")
 			return
 		MODE.ERROR:
-			emit_signal("network_error", "No network mode enabled")
+			emit_signal("network_error", "No-network-mode enabled")
 			return
 	
 	NetworkState = MODE.CLIENT 

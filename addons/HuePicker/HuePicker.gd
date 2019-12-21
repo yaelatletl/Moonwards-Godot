@@ -16,7 +16,6 @@ var isReady : bool = false
 
 
 func _ready() -> void:
-#	print ("Setting up HuePicker.. %s" % color)
 	if color == null:
 		color = ColorN('white')
 	isReady = true
