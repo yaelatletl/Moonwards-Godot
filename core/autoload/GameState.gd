@@ -371,7 +371,7 @@ func player_get(prop, id : int = -1): #prop and result are variants
 			_:
 				error = true
 	if error:
-		Log.hint(self, "player_get", "error: player data, no property(%s)" % prop)
+		Log.error(self, "player_get", "error: player data, no property(%s)" % prop)
 	return result
 
 #remap local user for its network id, when he gets it
