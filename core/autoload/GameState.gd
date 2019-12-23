@@ -6,7 +6,6 @@ enum MODE {
 	ERROR = -1
 	}
 #global signals
-signal gamestate_log(msg)
 # network user related
 signal user_join #emit when user is fully registered
 signal user_leave #emit on leave of registered user
@@ -20,8 +19,7 @@ signal server_up
 signal server_connected
 #network general
 signal server_select # show dialog to connect to a server or create a server
-signal network_error(message)
-signal network_log(message) #emmit on change in server status, client status - conenction, establishing connection etc
+
 
 #scenes
 signal scene_change
@@ -81,8 +79,6 @@ func _ready():
 	
 	local_id = 0
 	NodeUtilities.bind_signal("network_peer_connected","_player_connected",get_tree(), self,  NodeUtilities.MODE.CONNECT)
-	NodeUtilities.bind_signal("network_log", "", self, self, NodeUtilities.MODE.TOGGLE)
-	NodeUtilities.bind_signal("gamestate_log", "", self, self, NodeUtilities.MODE.TOGGLE)
 	NodeUtilities.bind_signal("player_scene", "", self, self, NodeUtilities.MODE.TOGGLE)
 	NodeUtilities.bind_signal("player_id", "", self, self, NodeUtilities.MODE.TOGGLE)
 	
@@ -98,13 +94,13 @@ func _ready():
 
 
 func queue_attach(path : String, node, permanent : bool = false) -> void: #node is variant
-	emit_signal("gamestate_log", str("attach queue(permanent: ", str(permanent),"): ", path, "(", node, ")")) 
+	Log.hint(self, "queue_attach", str("attach queue(permanent: ", str(permanent),"): ", path, "(", node, ")")) 
 	var packedscene
 	if node is String:
 		packedscene = ResourceLoader.load(node)
-		emit_signal("gamestate_log", str("loading resource in queue_attach(", path, ", ", node, ", ", permanent,")"))
+		Log.hint(self, "queue_attach", str("loading resource in queue_attach(", path, ", ", node, ", ", permanent,")"))
 		if not packedscene:
-			emit_signal("gamestate_log", str("error loading resource in queue_attach(", path, ", ", node, ", ", permanent,")"))
+			Log.error(self, "queue_attach", str("error loading resource in queue_attach(", path, ", ", node, ", ", permanent,")"))
 			return
 	if not packedscene:
 		packedscene = node
@@ -114,11 +110,11 @@ func queue_attach(path : String, node, permanent : bool = false) -> void: #node 
 			node = node,
 			packedscene = packedscene
 		}
-	print("+++", _queue_attach[path].packedscene)
+	Log.hint(self, "queue_attach", str("+++", _queue_attach[path].packedscene))
 	NodeUtilities.bind_signal("tree_changed","_on_queue_attach_on_tree_change", get_tree(), self, NodeUtilities.MODE.CONNECT) 
 
 func queue_tree_signal(path : String, signal_name : String, permanent : bool = false) -> void:
-	emit_signal("gamestate_log", "signal queue(permanent %s): %s(%s)" % [permanent, path, signal_name])
+	Log.hint(self, "queue_tree_signal", "signal queue(permanent %s): %s(%s)" % [permanent, path, signal_name])
 	_queue_attach[path] = {
 			path = path,
 			permanent = permanent,
@@ -142,7 +138,7 @@ func net_tree_connect(bind : bool = true) -> void:
 		["server_up", "_on_net_server_up", self]
 	]
 	for sg in signals:
-		#printd(str("net_tree_connect", sg[0], " -> " , sg[1]))
+		Log.hint(self, "queue_attach", str("net_tree_connect", sg[0], " -> " , sg[1]))
 		if bind:
 			NodeUtilities.bind_signal(sg[0], sg[1], sg[2], self, NodeUtilities.MODE.CONNECT)
 		else:
@@ -157,13 +153,13 @@ func net_tree_connect(bind : bool = true) -> void:
 func server_set_mode(host : String = "localhost"):
 	match NetworkState:
 		MODE.CLIENT:
-			Log.hint(self, "server_set_mode", "Currently in client mode")
+			Log.error(self, "client_server_connect", "Currently in client mode")
 			return
 		MODE.SERVER:
-			Log.hint(self, "server_set_mode", "Already in server mode")
+			Log.error(self, "client_server_connect", "Already in server mode")
 			return
 		MODE.ERROR:
-			Log.hint(self, "server_set_mode", "No-network-mode enabled")
+			Log.error(self, "client_server_connect", "No-network-mode enabled")
 			return
 	
 	NetworkState = MODE.SERVER
@@ -196,9 +192,9 @@ func server_set_mode(host : String = "localhost"):
 		
 		emit_signal("player_id", network_id)
 	else:
-		Log.hint(self, "server_set_mode", "server error %s" % error)
-		emit_signal("network_error", "failed to bring server up, error %s" % error)
-		NetworkState = MODE.ERROR
+		Log.hint(self, "server_set_mode", "server error %s" % Log.error_to_string(error))
+		Log.hint(self, "server_set_mode", "failed to bring server up, error %s" % Log.error_to_string(error))
+		NetworkState = MODE.DISCONNECTED
 
 ################
 #Client functions
@@ -209,13 +205,13 @@ func server_set_mode(host : String = "localhost"):
 func client_server_connect(host : String, port : int = DEFAULT_PORT):
 	match NetworkState:
 		MODE.CLIENT:
-			emit_signal("network_error", "Already in client mode")
+			Log.error(self, "client_server_connect", "Already in client mode")
 			return
 		MODE.SERVER:
-			emit_signal("network_error", "Currently in server mode")
+			Log.error(self, "client_server_connect", "Currently in server mode")
 			return
 		MODE.ERROR:
-			emit_signal("network_error", "No-network-mode enabled")
+			Log.error(self, "client_server_connect", "No-network-mode enabled")
 			return
 	
 	NetworkState = MODE.CLIENT 
@@ -223,19 +219,18 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 	host = host
 	ip = IP.resolve_hostname(host, 1) #TYPE_IPV4 - ipv4 adresses only
 	if not ip.is_valid_ip_address():
-		var msg = "fail to resolve host(%s) to ip adress" % host
-		emit_signal("network_log", msg)
-		emit_signal("network_error", msg)
+		var msg = str("fail to resolve host(", host, ") to ip adress")
+		Log.error(self, "client_server_connect", msg)
 		NetworkState = MODE.DISCONNECTED
 		return
 	self.port = port
-	emit_signal("network_log", "connect to server %s(%s):%s" % [player_get("host"), player_get("ip"), player_get("port")])
+	Log.hint(self, "client_server_connect", "connect to server %s(%s):%s" % [player_get("host"), player_get("ip"), player_get("port")])
 	
 	NodeUtilities.bind_signal("connection_failed", '', get_tree(), self, NodeUtilities.MODE.CONNECT)
 	NodeUtilities.bind_signal("connected_to_server", "", get_tree(), self, NodeUtilities.MODE.CONNECT)
 	connection = NetworkedMultiplayerENet.new()
-	connection.create_client(player_get("ip"), player_get("port"))
-	emit_signal("gamestate_log", "network id %s" % connection.get_unique_id())
+	connection.create_client(ip, port)
+	Log.hint(self, "client_server_connect", str("network id ", connection.get_unique_id()))
 	network_id = connection.get_unique_id()
 	emit_signal("player_id", network_id)
 	get_tree().set_network_peer(connection)
@@ -247,18 +242,18 @@ func change_scene(scene : String) -> void:
 	var scenes = Options.scenes
 	if not scene in scenes:
 		emit_signal("scene_change_error", "No such scene %s" % scene)
-		emit_signal("gamestate_log", "No such scene %s" % scene)
+		Log.hint(self, "change_scene", "No such scene %s" % scene)
 		return
 	
-	emit_signal("gamestate_log", "change_scene to %s" % scene)
+	Log.hint(self, "change_scene", "change_scene to %s" % scene)
 	var error = get_tree().change_scene(scenes[scene].path)
 	if error == 0 :
-		emit_signal("gamestate_log", "changing scene okay(%s)" % error)
+		Log.hint(self, "change_scene", "changing scene okay(%s)" % Log.error_to_string(error))
 		scenes.loaded = scene
 		emit_signal("scene_change")
 		emit_signal("scene_change_name", scene)
 	else:
-		emit_signal("gamestate_log", "error changing scene %s" % error)
+		Log.hint(self, "change_scene", "error changing scene %s" % Log.error_to_string(error))
 
 
 
@@ -294,10 +289,10 @@ func player_register(pdata : Dictionary, localplayer : bool = false, opt_id : St
 	elif pdata.has("id"):
 		id = pdata.id
 	else:
-		emit_signal("gamestate_log", "player data should have id or be a local")
+		Log.hint(self, "player_register", "player data should have id or be a local")
 		return
 	
-	emit_signal("gamestate_log", "registered player(%s): %s" % [id, pdata])
+	Log.hint(self, "player_register", "registered player(%s): %s" % [id, pdata])
 	var player = {}
 	player["data"] = pdata
 	player["obj"] = Options.player_scene.instance()
@@ -342,7 +337,7 @@ remote func register_client(id : int, pdata : Dictionary) -> void:
 				rpc_id(id, "register_client", pid, players[p].data)
 
 remote func unregister_client(id : int) -> void:
-	emit_signal("gamestate_log", "unregister client (%s)" % id)
+	Log.hint(self, "unregister client", str("(",id,")"))
 	if players.has(id):
 		emit_signal("user_name_disconnected", "%s" % player_get("name", id))
 		if players[id].obj:
@@ -376,7 +371,7 @@ func player_get(prop, id : int = -1): #prop and result are variants
 			_:
 				error = true
 	if error:
-		emit_signal("gamestate_log", "error: player data, no property(%s)" % prop)
+		Log.hint(self, "player_get", "error: player data, no property(%s)" % prop)
 	return result
 
 #remap local user for its network id, when he gets it
@@ -386,23 +381,23 @@ func player_remap_id(old_id : int, new_id : int) -> void:
 		players.erase(old_id)
 		players[new_id] = player
 		player["id"] = new_id
-		emit_signal("gamestate_log", "remap player old_id(%s), new_id(%s)" % [old_id, new_id])
+		Log.hint(self, "player_remap", "remap player old_id(%s), new_id(%s)" % [old_id, new_id])
 		if player.has("path"):
 			var node = player.obj
 			node.name = "%s" % new_id
 			var world = get_tree().current_scene
-			emit_signal("gamestate_log", "remap player, old path %s to %s" % [player.path, world.get_path_to(node)])
+			Log.hint(self, "player_remap", "remap player, old path %s to %s" % [player.path, world.get_path_to(node)])
 			player["path"] = world.get_path_to(node)
 			node.set_network_master(new_id)
 
 func create_player(id : int) -> void:
 	var world = get_tree().current_scene
 	if players[id].has("world") and players[id]["world"] == str(world):
-		emit_signal("gamestate_log", "player(%s) already added, %s" % [id, players[id]])
+		Log.hint(self, "create_player", "player(%s) already added, %s" % [id, players[id]])
 		return
 	var spawn_pcount =  world.get_node("spawn_points").get_child_count()
 	var spawn_pos = randi() % spawn_pcount
-	emit_signal("gamestate_log", "select spawn point(%s/%s)" % [spawn_pos, spawn_pcount])
+	Log.hint(self, "create_player", "select spawn point(%s/%s)" % [spawn_pos, spawn_pcount])
 	spawn_pos = world.get_node("spawn_points").get_child(spawn_pos).translation
 	var player = players[id].obj
 #	player.flies = true # MUST CHANGE WHEN COLLISIONS ARE DONE
@@ -412,12 +407,12 @@ func create_player(id : int) -> void:
 	if players[id].data.has("network"):
 		player.nonetwork = !players[id].data.network
 	
-	#printd("cp set_network will set(%s) %s %s" % [players[id].has("id") and not player.nonetwork, players[id].has("id"), not player.nonetwork])
+	Log.hint(self, "create_player", "cp set_network will set(%s) %s %s" % [players[id].has("id") and not player.nonetwork, players[id].has("id"), not player.nonetwork])
 	if players[id].has("id") and not player.nonetwork:
-		#printd("create player set_network_master player id(%s) network id(%s)" % [id, players[id].id])
+		Log.hint(self, "create_player", "create player set_network_master player id(%s) network id(%s)" % [id, players[id].id])
 		player.set_network_master(players[id].id) #set unique id as master
 	
-	emit_signal("gamestate_log", "==create player(%s) %s; name(%s)" % [id, players[id], players[id].data.username])
+	Log.hint(self, "create_player", "==create player(%s) %s; name(%s)" % [id, players[id], players[id].data.username])
 	world.get_node("players").add_child(player)
 	players[id]["world"] = "%s" % world
 	players[id]["path"] = world.get_path_to(player)
@@ -459,11 +454,11 @@ func end_game() -> void:
 
 func loading_done(var error : int) -> void:
 	if error == OK or error == ERR_FILE_EOF:
-		emit_signal("gamestate_log", "changing scene okay(%s)" % level_loader.error)
+		Log.hint(self, "loading_done", "changing scene okay(%s)" % level_loader.error)
 		emit_signal("loading_done")
 	else:
-		emit_signal("gamestate_log", "error changing scene %s" % level_loader.error)
-		emit_signal("loading_error", "Error! " + str(error))
+		Log.hint(self, "loading_done", "error changing scene %s" % level_loader.error)
+		Log.hint(self, "loading_done", "Error! " + Log.error_to_string(error))
 
 func load_level(var resource) -> void: #Resource is variant
 	# Check if the resource is valid before switching to loading screen.
@@ -524,12 +519,12 @@ func _on_queue_attach_on_tree_change() -> void:
 	if get_tree():
 		if _queue_attach_on_tree_change_prev_scene != str(get_tree().current_scene):
 			_queue_attach_on_tree_change_prev_scene = str(get_tree().current_scene)
-			emit_signal("gamestate_log", "qatc: Scene changed %s" % _queue_attach_on_tree_change_prev_scene)
+			Log.hint(self, "_on_queue_attach_on_tree_change", "qatc: Scene changed %s" % _queue_attach_on_tree_change_prev_scene)
 			for p in _queue_attach:
 				if _queue_attach[p].has("node"):
-					emit_signal("gamestate_log", "qatc: node %s(%s) permanent %s" % [p, _queue_attach[p].node, _queue_attach[p].permanent])
+					Log.hint(self, "_on_queue_attach_on_tree_change", "qatc: node %s(%s) permanent %s" % [p, _queue_attach[p].node, _queue_attach[p].permanent])
 				if _queue_attach[p].has("signal"):
-					emit_signal("gamestate_log", "qatc: signal %s(%s) permanent %s" % [p, _queue_attach[p].signal, _queue_attach[p].permanent])
+					Log.hint(self, "_on_queue_attach_on_tree_change", "qatc: signal %s(%s) permanent %s" % [p, _queue_attach[p].signal, _queue_attach[p].permanent])
 		else:
 			return #if scene is the same skip notifications
 		if get_tree().current_scene:
@@ -543,7 +538,7 @@ func _on_queue_attach_on_tree_change() -> void:
 					if _queue_attach[p].has("signal"):
 						var sig = _queue_attach[p].signal
 						if not _queue_attach[p].permanent:
-							emit_signal("gamestate_log", "qatc, emit and remove: %s(%s) permanent %s" % [p, _queue_attach[p].signal, _queue_attach[p].permanent])
+							Log.hint(self, "_on_queue_attach_on_tree_change","qatc, emit and remove: %s(%s) permanent %s" % [p, _queue_attach[p].signal, _queue_attach[p].permanent])
 							_queue_attach.erase(p)
 							emit_signal(sig)
 						else:
@@ -556,7 +551,7 @@ func _on_queue_attach_on_tree_change() -> void:
 					obj.add_child(obj2.instance())
 					_queue_attach_on_tree_change_lock = false
 					if not _queue_attach[p].permanent:
-						emit_signal("gamestate_log", "qatc, attached and removed: %s(%s) permanent %s" % [p, _queue_attach[p].node, _queue_attach[p].permanent])
+						Log.hint(self, "_on_queue_attach_on_tree_change", "qatc, attached and removed: %s(%s) permanent %s" % [p, _queue_attach[p].node, _queue_attach[p].permanent])
 						_queue_attach.erase(p)
 						scene.print_tree_pretty()
 					else:
@@ -598,27 +593,27 @@ func _on_server_tree_changed() -> void:
 	var root = get_tree()
 	if root != null and root.get_network_unique_id() == 0:
 		root.set_network_peer(connection)
-		emit_signal("network_log", "reconnect server to tree")
+		Log.hint(self, "_on_server_tree_changed", "reconnect server to tree")
 
 func _on_server_user_connected(id : int) -> void:
-	emit_signal("gamestate_log", "user connected %s" % id)
+	Log.hint(self, "_on_server_user_connected", "user connected %s" % id)
 
 func _on_server_user_disconnected(id : int) -> void:
-	emit_signal("gamestate_log", "user disconnected %s" % id)
+	Log.hint(self, "_on_server_user_disconnected","user disconnected %s" % id)
 
 func _on_server_tree_user_connected(id : int) -> void:
-	emit_signal("gamestate_log", "tree user connected %s" % id)
+	Log.hint(self, "_on_server_tree_user_connected", "tree user connected %s" % id)
 
 func _on_server_tree_user_disconnected(id : int) -> void:
-	emit_signal("gamestate_log", "tree user disconnected %s" % id)
+	Log.hint(self, "_on_server_tree_user_disconnected", "tree user disconnected %s" % id)
 	unregister_client(id)
 
 
 func _on_player_scene() -> void:
-	emit_signal("gamestate_log", "scene is player ready, checking players(%s)" % players.size())
+	Log.hint(self, "_on_player_scene", "scene is player ready, checking players(%s)" % players.size())
 	if Options.Debugger:
 		for p in players:
-			emit_signal("gamestate_log", "player %s" % players[p])
+			Log.hint(self, "_on_player_scene",  "player %s" % players[p])
 	for p in players:
 		create_player(p)
 	
@@ -649,7 +644,7 @@ func _on_connection_failed() -> void:
 	NodeUtilities.bind_signal("connection_failed", '', get_tree(), self, NodeUtilities.MODE.DISCONNECT)
 	NodeUtilities.bind_signal("connected_to_server", '', get_tree(), self, NodeUtilities.MODE.DISCONNECT)
 	NetworkState = MODE.DISCONNECTED
-	emit_signal("network_error", "Error connecting to server %s(%s):%s" % [player_get("host"), player_get("ip"), player_get("port")])
+	Log.error(self, "_on_connection_failed", "Error connecting to server %s(%s):%s" % [player_get("host"), player_get("ip"), player_get("port")])
 
 func _on_connected_to_server() -> void:
 	emit_signal("gamestate_log", "client connected to %s(%s):%s" % [player_get("host"), player_get("ip"), player_get("port")])
