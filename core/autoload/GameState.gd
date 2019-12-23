@@ -653,12 +653,7 @@ func _on_connected_to_server() -> void:
 	NetworkState = MODE.CLIENT
 	emit_signal("server_connected")
 
-func _on_network_log(msg) -> void:
-	Log.hint(self, "on_network_log", str("Server log:",  msg))
-	
 
-func _on_gamestate_log(msg) -> void:
-	Log.hint(self, "on_gamestate_log", msg)
 
 func _on_scene_change_log() -> void:
 	Log.hint(self, "on_scene_change", "started change process")
