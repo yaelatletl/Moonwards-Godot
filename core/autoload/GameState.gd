@@ -224,7 +224,7 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 		NetworkState = MODE.DISCONNECTED
 		return
 	self.port = port
-	Log.hint(self, "client_server_connect", "connect to server %s(%s):%s" % [player_get("host"), player_get("ip"), player_get("port")])
+	Log.hint(self, "client_server_connect", "connect to server %s(%s):%s" % [host, ip, port])
 	
 	NodeUtilities.bind_signal("connection_failed", '', get_tree(), self, NodeUtilities.MODE.CONNECT)
 	NodeUtilities.bind_signal("connected_to_server", "", get_tree(), self, NodeUtilities.MODE.CONNECT)
@@ -640,14 +640,14 @@ func _connected_fail() -> void:
 	emit_signal("connection_failed")
 
 func _on_connection_failed() -> void:
-	emit_signal("gamestate_log", "client connection failed to %s(%s):%s" % [player_get("host"), player_get("ip"), player_get("port")])
+	Log.error(self, "_on_connection_failed", "client connection failed to %s(%s):%s" % [host, ip, port])
 	NodeUtilities.bind_signal("connection_failed", '', get_tree(), self, NodeUtilities.MODE.DISCONNECT)
 	NodeUtilities.bind_signal("connected_to_server", '', get_tree(), self, NodeUtilities.MODE.DISCONNECT)
 	NetworkState = MODE.DISCONNECTED
-	Log.error(self, "_on_connection_failed", "Error connecting to server %s(%s):%s" % [player_get("host"), player_get("ip"), player_get("port")])
+	Log.error(self, "_on_connection_failed", "Error connecting to server %s(%s):%s" % [host, ip, port])
 
 func _on_connected_to_server() -> void:
-	emit_signal("gamestate_log", "client connected to %s(%s):%s" % [player_get("host"), player_get("ip"), player_get("port")])
+	Log.hint(self, "_on_connected_to_server",  "client connected to %s(%s):%s" % [host, ip, port])
 	NodeUtilities.bind_signal("connection_failed", '', get_tree(), self, NodeUtilities.MODE.DISCONNECT)
 	NodeUtilities.bind_signal("connected_to_server", '', get_tree(), self, NodeUtilities.MODE.DISCONNECT)
 	NetworkState = MODE.CLIENT
