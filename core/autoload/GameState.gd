@@ -7,32 +7,33 @@ enum MODE {
 	}
 #global signals
 # network user related
-signal user_join #emit when user is fully registered
-signal user_leave #emit on leave of registered user
+# warning-ignore:return_value_discarded
+
 signal user_name_disconnected(name) #emit when user is joined, for chat
 signal user_name_connected(name) #emit when user is disconnected, for chat
-signal user_msg(id, msg) #emit message of id user
+
 signal player_id(id) #emit id of player after establishing a connection
+signal player_scene
 #network server
 signal server_up
 #network client
 signal server_connected
 #network general
-signal server_select # show dialog to connect to a server or create a server
+
 
 
 #scenes
 signal scene_change
 signal scene_change_name(name)
 signal scene_change_error(msg)
-signal loading_progress(percentage)
+
 signal loading_done
 signal loading_error(msg)
-signal player_scene #emit when a scene for players is detected
+
 
 # Signals to let lobby GUI know what's going on
 signal connection_failed
-signal connection_succeeded
+
 signal game_ended
 signal game_error(what)
 
@@ -49,9 +50,8 @@ var local_id : int = 0
 
 #
 # hold last error message
-var error_msg : String = "Ok"
 
-var RoleNoNetwork : bool = false
+
 
 var _queue_attach : Dictionary = {}
 var _queue_attach_on_tree_change_lock : bool = false #emits tree_change events on adding node, prevent stack overflow
@@ -66,7 +66,7 @@ var port : int = DEFAULT_PORT
 var NetworkState : int = 0 # 0 disconnected. 1 Connected as client. 2 Connected as server -1 Error
 
 
-var NetworkUP : bool = false
+
 var PlayerSceneUP : bool = false
 #signal player(node_path) #emit when local player instanced to scene
 #################
@@ -161,6 +161,8 @@ func server_set_mode(host : String = "localhost"):
 		MODE.ERROR:
 			Log.error(self, "client_server_connect", "No-network-mode enabled")
 			return
+		MODE.DISCONNECTED:
+			continue
 	
 	NetworkState = MODE.SERVER
 	
@@ -213,6 +215,8 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 		MODE.ERROR:
 			Log.error(self, "client_server_connect", "No-network-mode enabled")
 			return
+		MODE.DISCONNECTED:
+			continue
 	
 	NetworkState = MODE.CLIENT 
 	
@@ -266,7 +270,7 @@ func is_player_scene() -> bool:
 
 ################
 # Player functions
-func player_apply_opt(pdata : Dictionary, player : Spatial, id : int):
+func player_apply_opt(pdata : Dictionary, player : Spatial):
 	#apply Options, given in register dictionary under ::Options
 	if pdata.has("Options"):
 		#printd("player_apply_opt to %s with %s" % [id, pdata])
@@ -296,7 +300,7 @@ func player_register(pdata : Dictionary, localplayer : bool = false, opt_id : St
 	var player = {}
 	player["data"] = pdata
 	player["obj"] = Options.player_scene.instance()
-	player_apply_opt(player["data"], player["obj"], id)
+	player_apply_opt(player["data"], player["obj"])
 # 	player["localplayer"] = localplayer
 	if localplayer:
 		if network_id :
@@ -342,11 +346,12 @@ remote func unregister_client(id : int) -> void:
 		emit_signal("user_name_disconnected", "%s" % player_get("name", id))
 		if players[id].obj:
 			players[id].obj.queue_free()
+# warning-ignore:return_value_discarded
 		players.erase(id)
 	if NetworkState == MODE.SERVER:
 		#sync existing players
 		for p in players:
-			print("**** %s" % players[p])
+			Log.hint(self, "unregister_client", "**** %s" % players[p])
 			var pid = players[p].id
 			if pid != local_id:
 				rpc_id(pid, "unregister_client", id)
@@ -378,6 +383,7 @@ func player_get(prop, id : int = -1): #prop and result are variants
 func player_remap_id(old_id : int, new_id : int) -> void:
 	if players.has(old_id):
 		var player = players[old_id]
+# warning-ignore:return_value_discarded
 		players.erase(old_id)
 		players[new_id] = player
 		player["id"] = new_id
@@ -487,26 +493,6 @@ func load_level(var resource) -> void: #Resource is variant
 #network and player scene state
 
 
-func net_up() -> void: 
-	pass
-#	if PlayerSceneUP:
-#		printd("------net_up---enable networking in instanced players--------")
-#	else:
-#		printd("------net_up---do nothing--------")
-
-func net_down() -> void:
-	pass
-#	if PlayerSceneUP:
-#		printd("------net_down---players disable netwokring--------")
-#	else:
-#		printd("------net_down---players do nothing--------")
-
-func net_client(id : int, connected : bool) -> void:
-	pass
-#	if connected:
-#		#printd("------net_client(%s)---make stub for %s---------" % [connected, id])
-#	else:
-#		#printd("------net_client(%s)---disconnect client %s-----" % [connected, id])
 
 func player_scene() -> void:
 	#printd("------instance avatars with networking(%s) - players count %s" % [NetworkUP, players.size()])
@@ -552,6 +538,7 @@ func _on_queue_attach_on_tree_change() -> void:
 					_queue_attach_on_tree_change_lock = false
 					if not _queue_attach[p].permanent:
 						Log.hint(self, "_on_queue_attach_on_tree_change", "qatc, attached and removed: %s(%s) permanent %s" % [p, _queue_attach[p].node, _queue_attach[p].permanent])
+# warning-ignore:return_value_discarded
 						_queue_attach.erase(p)
 						scene.print_tree_pretty()
 					else:
@@ -563,29 +550,26 @@ func _on_net_connection_fail() -> void:
 
 func _on_net_client_connected(id : int) -> void:
 	Log.hint(self, "on_net_client_connected", str("Client: ", id, " connected"))
-	net_client(id, true)
+
 
 func _on_net_client_disconnected(id : int) -> void:
 	Log.hint(self, "on_net_client_disconnected", str("Client: ", id, " disconnected"))
-	net_client(id, false)
+
 
 func _on_net_server_connected() -> void:
 	Log.hint(self, "on_net_server_connected", "Server connected")
 	if not NetworkState == MODE.SERVER:
 		NetworkState = MODE.SERVER
-		net_up()
 
 func _on_net_server_disconnected() -> void:
 	Log.hint(self, "on_net_server_disconnected", "Server disconnected")
 	if NetworkState == MODE.SERVER:
 		NetworkState = MODE.DISCONNECTED
-		net_down()
-
+		
 func _on_net_server_up() -> void:
 	Log.hint(self, "on_net_server_up", "Server up")
 	if not NetworkState == MODE.SERVER:
 		NetworkState = MODE.SERVER
-		net_up()
 
 func _on_server_tree_changed() -> void:
 	if not NetworkState == MODE.SERVER:
