@@ -55,25 +55,13 @@ func refresh_lobby() -> void:
 		$PlayersList/list.add_item(p)
 	$PlayersList/start.disabled=not get_tree().is_network_server()
 
-func _on_network_log(msg : String) -> void:
-	ServerWait = "%s%s\n" % [$WaitServer/Label.text, msg]
-	Log.hint(self, "_on_network_log", msg)
 
 func _on_server_up() -> void:
 	var worldscene = Options.scenes.default_multiplayer_scene
-	_on_network_log("change scene to %s" % worldscene)
 	yield(get_tree().create_timer(2), "timeout")
 	state_hide()
 	GameState.change_scene(worldscene)
 
-func _on_network_error(msg : String) -> void:
-	var oldstate = state
-	set_state(STATE.INIT)
-	match oldstate:
-		STATE.SERVER_SELECT:
-			$connect/error_label.text = "Error setting server : %s" % msg
-		STATE.CLIENT_CONNECT:
-			$connect/error_label.text = msg
 
 func _on_server_connected() -> void:
 	_on_server_up()
@@ -91,14 +79,11 @@ func _on_host_pressed() -> void:
 		GameState.player_register(player_data, true) #local player
 		self.state = STATE.SERVER_SELECT
 
-		NodeUtilities.bind_signal("network_log", "", GameState, self, NodeUtilities.MODE.CONNECT)
 		NodeUtilities.bind_signal("server_up", "", GameState, self, NodeUtilities.MODE.CONNECT)
-		NodeUtilities.bind_signal("network_error", "", GameState, self, NodeUtilities.MODE.CONNECT)
 
 
 		GameState.server_set_mode()
-	else:
-		emit_signal("network_error", "Already in server or client mode")
+
 
 func _on_join_pressed() -> void:
 	if GameState.NetworkState == GameState.MODE.DISCONNECTED:
@@ -114,14 +99,12 @@ func _on_join_pressed() -> void:
 		}
 		GameState.player_register(player_data, true) #local player
 
-		NodeUtilities.bind_signal("network_log", "", GameState, self, NodeUtilities.MODE.CONNECT)
 		NodeUtilities.bind_signal("server_up", "", GameState, self, NodeUtilities.MODE.CONNECT)
-		NodeUtilities.bind_signal("network_error", "", GameState, self, NodeUtilities.MODE.CONNECT)
+
 
 		GameState.client_server_connect($connect/ipcontainer/ip.text)
 		return
-	else:
-		emit_signal("network_error", "Already in server or client mode")
+
 
 func _on_connection_success() -> void:
 	$connect.hide()

@@ -78,14 +78,14 @@ var world : Node = null
 func _ready():
 	
 	local_id = 0
-	NodeUtilities.bind_signal("network_peer_connected","_player_connected",get_tree(), self,  NodeUtilities.MODE.CONNECT)
+	NodeUtilities.bind_signal("network_peer_connected","",get_tree(), self,  NodeUtilities.MODE.CONNECT)
 	NodeUtilities.bind_signal("player_scene", "", self, self, NodeUtilities.MODE.TOGGLE)
 	NodeUtilities.bind_signal("player_id", "", self, self, NodeUtilities.MODE.TOGGLE)
 	
 	queue_tree_signal(Options.scene_id, "player_scene", true)
 	
 	NodeUtilities.bind_signal("player_scene", "",  self, self, NodeUtilities.MODE.CONNECT)
-	net_tree_connect()
+	_net_tree_connect_signals()
 
 
 
@@ -126,7 +126,7 @@ func queue_tree_signal(path : String, signal_name : String, permanent : bool = f
 #################
 # general network functions
 
-func net_tree_connect(bind : bool = true) -> void:
+func _net_tree_connect_signals(connect : bool = true) -> void:
 	var tree = get_tree()
 	
 	var signals = [
@@ -139,7 +139,7 @@ func net_tree_connect(bind : bool = true) -> void:
 	]
 	for sg in signals:
 		Log.hint(self, "queue_attach", str("net_tree_connect", sg[0], " -> " , sg[1]))
-		if bind:
+		if connect:
 			NodeUtilities.bind_signal(sg[0], sg[1], sg[2], self, NodeUtilities.MODE.CONNECT)
 		else:
 			NodeUtilities.bind_signal(sg[0], sg[1], sg[2], self, NodeUtilities.MODE.DISCONNECT)
@@ -637,6 +637,8 @@ func _on_connected_to_server() -> void:
 	NetworkState = MODE.CLIENT
 	emit_signal("server_connected")
 
+func _on_network_peer_connected() -> void:
+	pass
 
 
 func _on_scene_change_log() -> void:
