@@ -19,7 +19,7 @@ signal server_up
 #network client
 signal server_connected
 #network general
-
+signal client_connected
 
 
 #scenes
@@ -63,7 +63,7 @@ var connection = null
 var port : int = DEFAULT_PORT
 
 
-var NetworkState : int = 0 # 0 disconnected. 1 Connected as client. 2 Connected as server -1 Error
+var NetworkState : int = MODE.DISCONNECTED # 0 disconnected. 1 Connected as client. 2 Connected as server -1 Error
 
 
 
@@ -75,16 +75,16 @@ var PlayerSceneUP : bool = false
 var level_loader : Object = preload("res://scripts/LevelLoader.gd").new()
 var world : Node = null
 
+
 func _ready():
 	
 	local_id = 0
-	NodeUtilities.bind_signal("network_peer_connected","",get_tree(), self,  NodeUtilities.MODE.CONNECT)
 	NodeUtilities.bind_signal("player_scene", "", self, self, NodeUtilities.MODE.TOGGLE)
 	NodeUtilities.bind_signal("player_id", "", self, self, NodeUtilities.MODE.TOGGLE)
 	
 	queue_tree_signal(Options.scene_id, "player_scene", true)
 	
-	NodeUtilities.bind_signal("player_scene", "",  self, self, NodeUtilities.MODE.CONNECT)
+
 	_net_tree_connect_signals()
 
 
@@ -133,8 +133,8 @@ func _net_tree_connect_signals(connect : bool = true) -> void:
 		["connected_to_server", "_on_net_server_connected", tree],
 		["server_disconnected", "_on_net_server_disconnected", tree],
 		["connection_failed", "_on_net_connection_fail", tree],
-		["network_peer_connected", "_on_net_client_connected", tree],
-		["network_peer_disconnected", "_on_net_client_disconnected", tree],
+		["network_peer_connected", "", tree],
+		["network_peer_disconnected", "", tree],
 		["server_up", "_on_net_server_up", self]
 	]
 	for sg in signals:
@@ -548,12 +548,13 @@ func _on_net_connection_fail() -> void:
 	Log.hint(self, "on_net_connection_fail", "connection failed")
 	NetworkState = MODE.DISCONNECTED
 
-func _on_net_client_connected(id : int) -> void:
-	Log.hint(self, "on_net_client_connected", str("Client: ", id, " connected"))
+func _on_network_peer_connected(id : int) -> void:
+	Log.hint(self, "on_network_peer_connected", str("Player: ", id, " connected"))
+	emit_signal("client_connected")
 
 
-func _on_net_client_disconnected(id : int) -> void:
-	Log.hint(self, "on_net_client_disconnected", str("Client: ", id, " disconnected"))
+func _on_network_peer_disconnected(id : int) -> void:
+	Log.hint(self, "on_network_peer_disconnected", str("Player: ", id, " disconnected"))
 
 
 func _on_net_server_connected() -> void:
@@ -635,10 +636,8 @@ func _on_connected_to_server() -> void:
 	NodeUtilities.bind_signal("connection_failed", '', get_tree(), self, NodeUtilities.MODE.DISCONNECT)
 	NodeUtilities.bind_signal("connected_to_server", '', get_tree(), self, NodeUtilities.MODE.DISCONNECT)
 	NetworkState = MODE.CLIENT
-	emit_signal("server_connected")
+	emit_signal("client_connected")
 
-func _on_network_peer_connected() -> void:
-	pass
 
 
 func _on_scene_change_log() -> void:

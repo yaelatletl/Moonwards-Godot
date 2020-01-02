@@ -56,7 +56,7 @@ func refresh_lobby() -> void:
 	$PlayersList/start.disabled=not get_tree().is_network_server()
 
 
-func _on_server_up() -> void:
+func _on_client_connected() -> void:
 	var worldscene = Options.scenes.default_multiplayer_scene
 	yield(get_tree().create_timer(2), "timeout")
 	state_hide()
@@ -64,7 +64,7 @@ func _on_server_up() -> void:
 
 
 func _on_server_connected() -> void:
-	_on_server_up()
+	_on_client_connected()
 
 func _on_host_pressed() -> void:
 	if GameState.NetworkState == GameState.MODE.DISCONNECTED:
@@ -79,7 +79,7 @@ func _on_host_pressed() -> void:
 		GameState.player_register(player_data, true) #local player
 		self.state = STATE.SERVER_SELECT
 
-		NodeUtilities.bind_signal("server_up", "", GameState, self, NodeUtilities.MODE.CONNECT)
+		NodeUtilities.bind_signal("server_up", "_on_client_connected", GameState, self, NodeUtilities.MODE.CONNECT)
 
 
 		GameState.server_set_mode()
@@ -99,7 +99,7 @@ func _on_join_pressed() -> void:
 		}
 		GameState.player_register(player_data, true) #local player
 
-		NodeUtilities.bind_signal("server_up", "", GameState, self, NodeUtilities.MODE.CONNECT)
+		NodeUtilities.bind_signal("client_connected", "", GameState, self, NodeUtilities.MODE.CONNECT)
 
 
 		GameState.client_server_connect($connect/ipcontainer/ip.text)
