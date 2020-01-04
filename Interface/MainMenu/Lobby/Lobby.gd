@@ -71,14 +71,10 @@ func _on_host_pressed() -> void:
 		if ($connect/name.text == ""):
 			$connect/error_label.text="Invalid name!"
 			return
-		var player_data = {
-			username = $connect/name.text,
-			gender = Options.gender,
-			colors = {"pants" : Options.pants_color, "shirt" : Options.shirt_color, "skin" : Options.skin_color, "hair" : Options.hair_color, "shoes" : Options.shoes_color}
-		}
-		GameState.player_register(player_data, true) #local player
+		
+		GameState.player_register(Options.player_data, true) #local player
 		self.state = STATE.SERVER_SELECT
-
+		print(Options.player_data)
 		NodeUtilities.bind_signal("server_up", "_on_client_connected", GameState, self, NodeUtilities.MODE.CONNECT)
 
 
@@ -97,6 +93,7 @@ func _on_join_pressed() -> void:
 			gender = Options.gender,
 			colors = {"pants" : Options.pants_color, "shirt" : Options.shirt_color, "skin" : Options.skin_color, "hair" : Options.hair_color, "shoes" : Options.shoes_color}
 		}
+		print(player_data)
 		GameState.player_register(player_data, true) #local player
 
 		NodeUtilities.bind_signal("client_connected", "", GameState, self, NodeUtilities.MODE.CONNECT)

@@ -271,44 +271,46 @@ func is_player_scene() -> bool:
 ################
 # Player functions
 func player_apply_opt(pdata : Dictionary, player : Spatial):
+	pdata["instance"] = player
+	"""
 	#apply Options, given in register dictionary under ::Options
-	if pdata.has("Options"):
+	if pdata.has("options"):
 		#printd("player_apply_opt to %s with %s" % [id, pdata])
-		var opt = pdata.Options
+		var opt = pdata.options
 		#printd("create_player Apply Options to id %s : %s" % [id, opt])
 		for k in opt:
 			player.set(k, opt[k])
 		if opt.has("input_processing") and opt["input_processing"] == false:
 			#printd("disable input for player avatar %s" % id)
 			player.set_process_input(false)
+	else:
+		pdata["options"] = player
+		"""
 
-func player_register(pdata : Dictionary, localplayer : bool = false, opt_id : String = "avatar") -> void:
+func player_register(player_data : Dictionary, localplayer : bool = false, opt_id : String = "avatar") -> void:
 	var id : int = 0
-	if localplayer:
-		pdata["Options"] = Options.player_opt(opt_id, pdata) #merge name with rest of Options for Avatar
-		if network_id:
-			id = network_id
-		else:
-			id = local_id
-	elif pdata.has("id"):
-		id = pdata.id
+	if localplayer and network_id:
+#		player_data["Options"] = Options.player_opt(opt_id, player_data) #merge name with rest of Options for Avatar
+		id = network_id
+	elif localplayer:
+		id = local_id
+	elif player_data.has("id"):
+		id = player_data.id
 	else:
 		Log.hint(self, "player_register", "player data should have id or be a local")
 		return
 	
-	Log.hint(self, "player_register", "registered player(%s): %s" % [id, pdata])
-	var player = {}
-	player["data"] = pdata
-	player["obj"] = Options.player_scene.instance()
-	player_apply_opt(player["data"], player["obj"])
+	Log.hint(self, "player_register", "registered player(%s): %s" % [id, player_data])
+	
+	player_apply_opt(player_data, Options.player_scene.instance())
 # 	player["localplayer"] = localplayer
 	if localplayer:
 		if network_id :
-			player["id"] = id
-		players[id] = player
+			player_data["id"] = id
+		players[id] = player_data
 	else:
-		player["id"] = id
-		players[id] = player
+		player_data["id"] = id
+		players[id] = player_data
 	
 	if is_player_scene():
 		create_player(id)
@@ -364,15 +366,12 @@ func player_get(prop, id : int = -1): #prop and result are variants
 	var result = null
 	if not players.has(id):
 		return result
-	if players[id].data.has(prop):
-		result = players[id].data[prop]
-	elif players[id].has(prop):
+	if players[id].has(prop):
 		result = players[id][prop]
-
 	else:
 		match prop:
 			"name" :
-				result = players[id].obj.username
+				result = players[id].username
 			_:
 				error = true
 	if error:
@@ -405,20 +404,21 @@ func create_player(id : int) -> void:
 	var spawn_pos = randi() % spawn_pcount
 	Log.hint(self, "create_player", "select spawn point(%s/%s)" % [spawn_pos, spawn_pcount])
 	spawn_pos = world.get_node("spawn_points").get_child(spawn_pos).translation
-	var player = players[id].obj
+	var player = players[id].instance
 #	player.flies = true # MUST CHANGE WHEN COLLISIONS ARE DONE
-	player.set_name(str(id)) # Use unique ID as node name
-	player.translation=spawn_pos
+	if is_instance_valid(player):
+		player.set_name(str(id)) # Use unique ID as node name
+		player.translation=spawn_pos
 	
-	if players[id].data.has("network"):
-		player.nonetwork = !players[id].data.network
+	if players[id].has("network"):
+		player.nonetwork = !players[id].network
 	
 	Log.hint(self, "create_player", "cp set_network will set(%s) %s %s" % [players[id].has("id") and not player.nonetwork, players[id].has("id"), not player.nonetwork])
 	if players[id].has("id") and not player.nonetwork:
 		Log.hint(self, "create_player", "create player set_network_master player id(%s) network id(%s)" % [id, players[id].id])
 		player.set_network_master(players[id].id) #set unique id as master
 	
-	Log.hint(self, "create_player", "==create player(%s) %s; name(%s)" % [id, players[id], players[id].data.username])
+	Log.hint(self, "create_player", "==create player(%s) %s; name(%s)" % [id, players[id], players[id].username])
 	world.get_node("players").add_child(player)
 	players[id]["world"] = "%s" % world
 	players[id]["path"] = world.get_path_to(player)

@@ -89,6 +89,23 @@ var fly_cameras : Array = [
 #############################
 # player instancing Options #
 #############################
+onready var player_data : Dictionary = {
+	instance = null,
+	username = self.username,
+	gender = self.gender,
+	colors = {"pants" : pants_color, "shirt" : shirt_color, "skin" : skin_color, "hair" : hair_color, "shoes" : shoes_color},
+	id = 0,
+	avatar = {
+		Debugger = Debugger,
+		nocamera = false,
+		input_processing = true,
+		network = true,
+		puppet = false,
+		physics_scale = 0.1,
+		IN_AIR_DELTA = 0.4
+	}
+	}
+	
 var player_opt : Dictionary = {
 	player_group = "player",
 	opt_allow_unknown = true,
@@ -142,6 +159,7 @@ func _ready() -> void:
 	self.load()
 	set_defaults()
 	load_graphics_settings()
+	
 
 #############################
 #       Debugger function      #
@@ -188,6 +206,10 @@ func player_opt(type, opt : Dictionary = {}) -> Dictionary:
 			res[k] = def_opt[k]
 	return res
 
+func update_player_data():
+	player_data["username"] = username
+	player_data["gender"] = gender
+	player_data["colors"] = {"pants" : pants_color, "shirt" : shirt_color, "skin" : skin_color, "hair" : hair_color, "shoes" : shoes_color}
 
 
 
@@ -201,6 +223,7 @@ func load()->void:
 		config.load(Config_File)
 		load_user_settings()
 		printd("load", "Options loaded from %s" % Config_File)
+	update_player_data()
 		
 
 func save() -> void:
@@ -208,6 +231,7 @@ func save() -> void:
 	save_user_settings()
 	config.save(Config_File)
 	printd("save","Options saved to %s" % Config_File)
+	update_player_data()
 
 func get(category : String, prop : String = '', default=""):
 	var res = config.get_value(category, prop, default)
