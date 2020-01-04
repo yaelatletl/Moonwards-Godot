@@ -272,11 +272,11 @@ func is_player_scene() -> bool:
 # Player functions
 func player_apply_opt(pdata : Dictionary, player : Spatial):
 	pdata["instance"] = player
-	"""
-	#apply Options, given in register dictionary under ::Options
-	if pdata.has("options"):
+	
+	#apply Options given in register dictionary under ::Options
+	if pdata.has("avatar"):
 		#printd("player_apply_opt to %s with %s" % [id, pdata])
-		var opt = pdata.options
+		var opt = pdata.avatar
 		#printd("create_player Apply Options to id %s : %s" % [id, opt])
 		for k in opt:
 			player.set(k, opt[k])
@@ -284,8 +284,8 @@ func player_apply_opt(pdata : Dictionary, player : Spatial):
 			#printd("disable input for player avatar %s" % id)
 			player.set_process_input(false)
 	else:
-		pdata["options"] = player
-		"""
+		Log.error(self, "player_apply_opt", "invalid player_data dictionary")
+		
 
 func player_register(player_data : Dictionary, localplayer : bool = false, opt_id : String = "avatar") -> void:
 	var id : int = 0
