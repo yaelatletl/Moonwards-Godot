@@ -340,14 +340,14 @@ remote func register_client(id : int, pdata : Dictionary) -> void:
 			#printd("**** %s" % players[p])
 			var pid = players[p].id
 			if pid != id:
-				rpc_id(id, "register_client", pid, players[p].data)
+				rpc_id(id, "register_client", pid, players[p])
 
 remote func unregister_client(id : int) -> void:
 	Log.hint(self, "unregister client", str("(",id,")"))
 	if players.has(id):
 		emit_signal("user_name_disconnected", "%s" % player_get("name", id))
-		if players[id].obj:
-			players[id].obj.queue_free()
+		if players[id].instance:
+			players[id].instance.queue_free()
 # warning-ignore:return_value_discarded
 		players.erase(id)
 	if NetworkState == MODE.SERVER:
@@ -413,8 +413,8 @@ func create_player(id : int) -> void:
 	if players[id].has("network"):
 		player.nonetwork = !players[id].network
 	
-	Log.hint(self, "create_player", "cp set_network will set(%s) %s %s" % [players[id].has("id") and not player.nonetwork, players[id].has("id"), not player.nonetwork])
-	if players[id].has("id") and not player.nonetwork:
+	Log.hint(self, "create_player", "set_network will set(%s)" % [players[id].has("id")])
+	if players[id].has("id"):
 		Log.hint(self, "create_player", "create player set_network_master player id(%s) network id(%s)" % [id, players[id].id])
 		player.set_network_master(players[id].id) #set unique id as master
 	
@@ -433,11 +433,11 @@ func create_player(id : int) -> void:
 #set current camera to local player
 func player_local_camera(activate : bool = true) -> void:
 	if players.has(local_id):
-		players[local_id].obj.nocamera = !activate
+		players[local_id].instance.nocamera = !activate
 
 func player_noinput(enable : bool = false) -> void:
 	if players.has(local_id):
-		players[local_id].obj.input_processing = enable
+		players[local_id].instance.input_processing = enable
 
 # Callback from SceneTree, only for clients (not server)
 
@@ -604,7 +604,7 @@ func _on_player_scene() -> void:
 	
 	if NetworkState == MODE.CLIENT:
 		#report client to server
-		rpc_id(1, "register_client", network_id, players[local_id].data)
+		rpc_id(1, "register_client", network_id, players[local_id])
 
 
 func _on_player_id(id : int) -> void:
