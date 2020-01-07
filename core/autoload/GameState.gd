@@ -272,22 +272,18 @@ func is_player_scene() -> bool:
 # Player functions
 func player_apply_opt(pdata : Dictionary, player : Spatial):
 	pdata["instance"] = player
-	
-	#apply Options given in register dictionary under ::Options
+	#apply options given in register dictionary under avatar
 	if pdata.has("avatar"):
-		#printd("player_apply_opt to %s with %s" % [id, pdata])
-		var opt = pdata.avatar
-		#printd("create_player Apply Options to id %s : %s" % [id, opt])
-		for k in opt:
-			player.set(k, opt[k])
-		if opt.has("input_processing") and opt["input_processing"] == false:
-			#printd("disable input for player avatar %s" % id)
-			player.set_process_input(false)
+		Log.hint(self, "player_apply_opt", "Applying options for avatar")
+		for k in pdata.avatar:
+			player.set(k, pdata.avatar[k])
+		if pdata.avatar.has("input_processing"):
+			 player.set_process_input(pdata.avatar["input_processing"])
 	else:
 		Log.error(self, "player_apply_opt", "invalid player_data dictionary")
 		
 
-func player_register(player_data : Dictionary, localplayer : bool = false, opt_id : String = "avatar") -> void:
+func player_register(player_data : Dictionary, localplayer : bool = false) -> void:
 	var id : int = 0
 	if localplayer and network_id:
 #		player_data["Options"] = Options.player_opt(opt_id, player_data) #merge name with rest of Options for Avatar
@@ -337,7 +333,7 @@ remote func register_client(id : int, pdata : Dictionary) -> void:
 		#sync existing players
 		rpc("register_client", id, pdata)
 		for p in players:
-			#printd("**** %s" % players[p])
+			print("**** %s" % players[p])
 			var pid = players[p].id
 			if pid != id:
 				rpc_id(id, "register_client", pid, players[p])
@@ -387,15 +383,19 @@ func player_remap_id(old_id : int, new_id : int) -> void:
 		players[new_id] = player
 		player["id"] = new_id
 		Log.hint(self, "player_remap", "remap player old_id(%s), new_id(%s)" % [old_id, new_id])
-		if player.has("path"):
-			var node = player.obj
-			node.name = "%s" % new_id
-			var world = get_tree().current_scene
-			Log.hint(self, "player_remap", "remap player, old path %s to %s" % [player.path, world.get_path_to(node)])
-			player["path"] = world.get_path_to(node)
-			node.set_network_master(new_id)
+		
+	
+		
+		var node = player.instance
+		node.name = "%s" % new_id
+		var world = get_tree().current_scene
+		player["path"] = world.get_path_to(node)
+		Log.hint(self, "player_remap", "remap player, old path %s to %s" % [player.path, world.get_path_to(node)])
+		
+		node.set_network_master(new_id)
 
-func create_player(id : int) -> void:
+remote func create_player(id : int) -> void:
+	print(players[id].instance)
 	var world = get_tree().current_scene
 	if players[id].has("world") and players[id]["world"] == str(world):
 		Log.hint(self, "create_player", "player(%s) already added, %s" % [id, players[id]])
@@ -404,11 +404,16 @@ func create_player(id : int) -> void:
 	var spawn_pos = randi() % spawn_pcount
 	Log.hint(self, "create_player", "select spawn point(%s/%s)" % [spawn_pos, spawn_pcount])
 	spawn_pos = world.get_node("spawn_points").get_child(spawn_pos).translation
+	print(players[id].instance)
 	var player = players[id].instance
+	print(players[id].instance)
 #	player.flies = true # MUST CHANGE WHEN COLLISIONS ARE DONE
-	if is_instance_valid(player):
-		player.set_name(str(id)) # Use unique ID as node name
-		player.translation=spawn_pos
+	if not is_instance_valid(player):
+		players[id].instance = Options.player_scene.instance()
+		player = players[id].instance
+		
+	player.set_name(str(id)) # Use unique ID as node name
+	player.translation=spawn_pos
 	
 	if players[id].has("network"):
 		player.nonetwork = !players[id].network
@@ -598,12 +603,15 @@ func _on_player_scene() -> void:
 	Log.hint(self, "_on_player_scene", "scene is player ready, checking players(%s)" % players.size())
 	if Options.Debugger:
 		for p in players:
+			print(players[p].instance)
 			Log.hint(self, "_on_player_scene",  "player %s" % players[p])
 	for p in players:
+		print(players[p].instance)
 		create_player(p)
 	
 	if NetworkState == MODE.CLIENT:
 		#report client to server
+		print(players[local_id].instance, " Mode is client")
 		rpc_id(1, "register_client", network_id, players[local_id])
 
 
