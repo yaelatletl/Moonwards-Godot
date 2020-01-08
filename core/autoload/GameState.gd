@@ -394,7 +394,7 @@ func player_remap_id(old_id : int, new_id : int) -> void:
 		
 		node.set_network_master(new_id)
 
-remote func create_player(id : int) -> void:
+func create_player(id : int) -> void:
 	print(players[id].instance)
 	var world = get_tree().current_scene
 	if players[id].has("world") and players[id]["world"] == str(world):
@@ -411,9 +411,14 @@ remote func create_player(id : int) -> void:
 	if not is_instance_valid(player):
 		players[id].instance = Options.player_scene.instance()
 		player = players[id].instance
-		
+	if id == local_id:
+		player.SetRemotePlayer(false)
+	else: 
+		player.SetRemotePlayer(true)
+	
 	player.set_name(str(id)) # Use unique ID as node name
-	player.translation=spawn_pos
+	player.translation = spawn_pos
+	player.SetNetwork(true)
 	
 	if players[id].has("network"):
 		player.nonetwork = !players[id].network
@@ -421,6 +426,7 @@ remote func create_player(id : int) -> void:
 	Log.hint(self, "create_player", "set_network will set(%s)" % [players[id].has("id")])
 	if players[id].has("id"):
 		Log.hint(self, "create_player", "create player set_network_master player id(%s) network id(%s)" % [id, players[id].id])
+		print("Setting player ", player, " to be controlled by peer id: ", players[id].id," with function id:  ", id, " local id is: ", local_id)
 		player.set_network_master(players[id].id) #set unique id as master
 	
 	Log.hint(self, "create_player", "==create player(%s) %s; name(%s)" % [id, players[id], players[id].username])
