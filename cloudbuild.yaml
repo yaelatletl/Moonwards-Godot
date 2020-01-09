@@ -1,0 +1,5 @@
+steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['compute', 'ssh', 'stable-0-x', '--zone=us-central1-a', '--command="./build.sh"']
+  timeout: 60s
+
