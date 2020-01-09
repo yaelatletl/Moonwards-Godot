@@ -12,6 +12,7 @@ func show() -> void:
 			i.visible = true
 	
 	PauseMenu.set_openable(false)
+	Hud.set_active(false)
 
 
 func hide() -> void:
@@ -20,6 +21,7 @@ func hide() -> void:
 			i.visible = false
 	
 	PauseMenu.set_openable(true)
+	Hud.set_active(true)
 
 
 func _on_bJoinServer_pressed() -> void:
