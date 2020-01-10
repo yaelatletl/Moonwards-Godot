@@ -244,6 +244,7 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 	emit_signal("player_id", network_id)
 	
 	
+	change_scene(Options.scenes.default_multiplayer_scene) #Load the world!
 	
 #	yield(self, "scene_change") #Stop your horses, the world hasn't loaded in yet!
 	get_tree().set_network_peer(connection)

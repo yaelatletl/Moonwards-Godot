@@ -57,10 +57,9 @@ func refresh_lobby() -> void:
 
 
 func _on_client_connected() -> void:
-	var worldscene = Options.scenes.default_multiplayer_scene
 	yield(get_tree().create_timer(2), "timeout")
 	state_hide()
-	GameState.change_scene(worldscene)
+	GameState.change_scene(Options.scenes.default_multiplayer_scene)
 
 
 func _on_server_connected() -> void:
