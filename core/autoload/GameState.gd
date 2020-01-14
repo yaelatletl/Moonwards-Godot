@@ -14,7 +14,7 @@ enum MODE {
 
 signal user_name_disconnected(name) #emit when user is joined, for chat
 signal user_name_connected(name) #emit when user is disconnected, for chat
-
+signal server_up
 
 ### Signals to be used inside this script ###
 
@@ -23,7 +23,7 @@ signal loading_error(msg)
 signal player_id(id) #emit id of player after establishing a connection
 signal player_scene
 #network server
-signal server_up
+
 #network client
 signal server_connected
 #network general
@@ -244,7 +244,7 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 	emit_signal("player_id", network_id)
 	
 	
-	change_scene(Options.scenes.default_multiplayer_scene) #Load the world!
+	
 	
 #	yield(self, "scene_change") #Stop your horses, the world hasn't loaded in yet!
 	get_tree().set_network_peer(connection)
@@ -253,15 +253,19 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 ################
 # Scene functions
 func change_scene(scene : String) -> void:
-	var scenes = Options.scenes
-	if not scene in scenes:
+	var error
+	if not scene in Options.scenes:
 		Log.hint(self, "change_scene", "No such scene registered in options : %s" % scene)
-		#TODO: Make this function try to load the string as a scene path, if it can't then it is not a level
+		error = get_tree().change_scene(scene)
+		if error == 0 :
+			return
+		else:
+			Log.error(self, "change_scene", "error changing scene, provided string is not an actual scene")
 	Log.hint(self, "change_scene", "change_scene to %s" % scene)
-	var error = get_tree().change_scene(scenes[scene].path)
+	error = get_tree().change_scene(Options.scenes[scene].path)
 	if error == 0 :
 		Log.hint(self, "change_scene", "changing scene okay(%s)" % Log.error_to_string(error))
-		scenes.loaded = scene
+		Options.scenes.loaded = scene
 		emit_signal("scene_change", scene)
 
 	else:
@@ -475,6 +479,7 @@ func end_game() -> void:
 	if (has_node("/root/world")): # Game is in progress
 		# End it
 		get_node("/root/world").queue_free()
+		change_scene("Boot")
 	NetworkState = MODE.DISCONNECTED
 	emit_signal("game_ended")
 	players.clear()
@@ -576,7 +581,10 @@ func _on_connection_failed() -> void:
 	NodeUtilities.bind_signal("connected_to_server", "", get_tree(), self, NodeUtilities.MODE.DISCONNECT)
 	NetworkState = MODE.DISCONNECTED
 
-func _on_network_peer_connected(id : int) -> void:	
+func _on_network_peer_connected(id : int) -> void:
+	if NetworkState == MODE.CLIENT:
+		change_scene(Options.scenes.default_multiplayer_scene) #Load the world!
+		print("Loading the world, here? _on_network_peer_connected()")
 	Log.hint(self, "on_network_peer_connected", str("Player: ", id, " connected"))
 	emit_signal("client_connected")
 

@@ -58,26 +58,13 @@ var config : ConfigFile = ConfigFile.new()
 # load scene Options
 var scenes : Dictionary = {
 	loaded = null,
-	default = "WorldTest",
-#	default_run_scene = "WorldTest2",
-# 	default_run_scene = "WorldTest",
-	default_run_scene = "WorldV2",
-	default_singleplayer_scene = "WorldV2",
-	default_multiplayer_scene = "WorldV2",
-	default_multiplayer_headless_scene = "WorldServer",
-	default_multiplayer_join_server = "WorldV2",
-#	default_multiplayer_join_server = "WorldTest",
+	default = "WorldV2",
+	default_headless = "WorldServer",
 	WorldV2 = {
 		path = "res://WorldV2.tscn"
 	},
-	WorldTest = {
-		path = "res://_tests/scene_mp/multiplayer_test_scene.tscn"
-	},
-	WorldTest2 = {
-		path = "res://_tests/scene_mp/multiplayer_test_scene2.tscn"
-	},
-	WorldServer = {
-		path = "res://WorldServer.tscn"
+	Boot = {
+		path = "res://Boot.tscn"
 	}
 }
 
