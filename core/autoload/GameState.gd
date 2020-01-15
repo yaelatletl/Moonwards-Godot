@@ -57,7 +57,7 @@ var _queue_attach_on_tree_change_prev_scene : String
 ### Network specific variables ###
 # remote players in id:player_data format
 var players : Dictionary = {}
-var network_id : int 
+var network_id : int
 var local_id : int = 0
 
 var host : String = "localhost"
@@ -77,9 +77,9 @@ var world : Node = null
 
 func _ready():
 	local_id = 0
-	
+
 	queue_tree_signal(Options.scene_id, "player_scene", true)
-	
+
 	_connect_signals()
 
 
@@ -89,7 +89,7 @@ func _ready():
 
 
 func queue_attach(path : String, node, permanent : bool = false) -> void: #node is variant
-	Log.hint(self, "queue_attach", str("attach queue(permanent: ", str(permanent),"): ", path, "(", node, ")")) 
+	Log.hint(self, "queue_attach", str("attach queue(permanent: ", str(permanent),"): ", path, "(", node, ")"))
 	var packedscene
 	if node is String:
 		packedscene = ResourceLoader.load(node)
@@ -106,7 +106,7 @@ func queue_attach(path : String, node, permanent : bool = false) -> void: #node 
 			packedscene = packedscene
 		}
 	Log.hint(self, "queue_attach", str("+++", _queue_attach[path].packedscene))
-	NodeUtilities.bind_signal("tree_changed","_on_queue_attach_on_tree_change", get_tree(), self, NodeUtilities.MODE.CONNECT) 
+	NodeUtilities.bind_signal("tree_changed","_on_queue_attach_on_tree_change", get_tree(), self, NodeUtilities.MODE.CONNECT)
 
 func queue_tree_signal(path : String, signal_name : String, permanent : bool = false) -> void:
 	Log.hint(self, "queue_tree_signal", "signal queue(permanent %s): %s(%s)" % [permanent, path, signal_name])
@@ -126,7 +126,7 @@ func queue_tree_signal(path : String, signal_name : String, permanent : bool = f
 
 func _connect_signals(connect : bool = true) -> void:
 	var tree = get_tree()
-	
+
 	var signals = [
 		["connected_to_server", "", tree],
 		["server_disconnected", "", tree],
@@ -164,9 +164,9 @@ func server_set_mode(host : String = "localhost"):
 			return
 		MODE.DISCONNECTED:
 			continue
-	
+
 	NetworkState = MODE.SERVER
-	
+
 	self.host = host
 	ip = IP.resolve_hostname(host, 1) #TYPE_IPV4 - ipv4 adresses only
 	if not ip.is_valid_ip_address():
@@ -178,21 +178,24 @@ func server_set_mode(host : String = "localhost"):
 	connection.set_bind_ip(ip)
 	var error : int = connection.create_server(DEFAULT_PORT, MAX_PEERS)
 	if error == OK:
+		emit_signal("server_up")
+		
+		yield(self, "scene_change")
 		get_tree().set_network_peer(connection)
 		Log.hint(self, "server_set_mode", str("server up on ", ip, ":", DEFAULT_PORT))
 		NetworkState = MODE.SERVER
 		NodeUtilities.bind_signal("tree_changed", "_on_server_tree_changed", get_tree(), self, NodeUtilities.MODE.CONNECT)
-		emit_signal("server_up")
 		
-		NodeUtilities.bind_signal("peer_disconnected", "_on_server_user_disconnected", connection, self, NodeUtilities.MODE.CONNECT) 
-		NodeUtilities.bind_signal("peer_connected", "_on_server_user_connected", connection, self, NodeUtilities.MODE.CONNECT) 
-		
+
+		NodeUtilities.bind_signal("peer_disconnected", "_on_server_user_disconnected", connection, self, NodeUtilities.MODE.CONNECT)
+		NodeUtilities.bind_signal("peer_connected", "_on_server_user_connected", connection, self, NodeUtilities.MODE.CONNECT)
+
 		NodeUtilities.bind_signal("network_peer_connected", "_on_server_tree_user_connected", get_tree(), self, NodeUtilities.MODE.CONNECT)
 		NodeUtilities.bind_signal("network_peer_disconnected", "_on_server_tree_user_disconnected", get_tree(), self, NodeUtilities.MODE.CONNECT)
-		
+
 		network_id = connection.get_unique_id()
 		Log.hint(self, "server_set_mode", str("network server id ", network_id))
-		
+
 		emit_signal("player_id", network_id)
 	else:
 		Log.hint(self, "server_set_mode", "server error %s" % Log.error_to_string(error))
@@ -218,9 +221,9 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 			return
 		MODE.DISCONNECTED:
 			continue
-	
-	NetworkState = MODE.CLIENT 
-	
+
+	NetworkState = MODE.CLIENT
+
 	host = host
 	ip = IP.resolve_hostname(host, 1) #TYPE_IPV4 - ipv4 adresses only
 	if not ip.is_valid_ip_address():
@@ -230,19 +233,21 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 		return
 	self.port = port
 	Log.hint(self, "client_server_connect", "connect to server %s(%s):%s" % [host, ip, port])
-	
+
 #	NodeUtilities.bind_signal("connection_failed", "", get_tree(), self, NodeUtilities.MODE.CONNECT)
 #	NodeUtilities.bind_signal("connected_to_server", "", get_tree(), self, NodeUtilities.MODE.CONNECT)
 	connection = NetworkedMultiplayerENet.new()
 	connection.create_client(ip, port)
+	emit_signal("server_up")
 	Log.hint(self, "client_server_connect", str("network id ", connection.get_unique_id()))
 	network_id = connection.get_unique_id()
 	emit_signal("player_id", network_id)
-	
-	
-	
-	
+
+
+
+
 #	yield(self, "scene_change") #Stop your horses, the world hasn't loaded in yet!
+	yield(self, "scene_change")
 	get_tree().set_network_peer(connection)
 
 
@@ -251,21 +256,23 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 func change_scene(scene : String) -> void:
 	var error
 	if not scene in Options.scenes:
-		Log.hint(self, "change_scene", "No such scene registered in options : %s" % scene)
+		Log.hint(self, "change_scene", "No such scene registered in options, attempting to load : %s" % scene)
 		error = get_tree().change_scene(scene)
-		if error == 0 :
+		if error == OK:
+			emit_signal("scene_change", scene)
 			return
 		else:
-			Log.error(self, "change_scene", "error changing scene, provided string is not an actual scene")
-	Log.hint(self, "change_scene", "change_scene to %s" % scene)
-	error = get_tree().change_scene(Options.scenes[scene].path)
-	if error == 0 :
-		Log.hint(self, "change_scene", "changing scene okay(%s)" % Log.error_to_string(error))
-		Options.scenes.loaded = scene
-		emit_signal("scene_change", scene)
-
+			Log.error(self, "change_scene", "error changing scene, provided string is not a resource nor a scene")
+			return
 	else:
-		Log.hint(self, "change_scene", "error changing scene %s" % Log.error_to_string(error))
+		Log.hint(self, "change_scene", "change_scene to %s" % scene)
+		error = get_tree().change_scene(Options.scenes[scene].path)
+		if error == 0 :
+			Log.hint(self, "change_scene", "changing scene okay(%s)" % Log.error_to_string(error))
+			Options.scenes.loaded = scene
+			emit_signal("scene_change", scene)
+			return
+	Log.hint(self, "change_scene", "error changing scene %s" % Log.error_to_string(error))
 
 
 
@@ -291,7 +298,7 @@ func player_apply_opt(pdata : Dictionary, player : Spatial):
 		Log.error(self, "player_apply_opt", "invalid player_data dictionary")
 		pdata.avatar = Options.player_data.avatar
 		player_apply_opt(pdata, player)
-		
+
 
 func player_register(player_data : Dictionary, localplayer : bool = false) -> void:
 	var id : int = 0
@@ -305,9 +312,9 @@ func player_register(player_data : Dictionary, localplayer : bool = false) -> vo
 	else:
 		Log.hint(self, "player_register", "player data should have id or be a local")
 		return
-	
+
 	Log.hint(self, "player_register", "registered player(%s): %s" % [id, player_data])
-	
+
 	player_apply_opt(player_data, Options.player_scene.instance())
 # 	player["localplayer"] = localplayer
 	if localplayer:
@@ -317,7 +324,7 @@ func player_register(player_data : Dictionary, localplayer : bool = false) -> vo
 	else:
 		player_data["id"] = id
 		players[id] = player_data
-	
+
 	if has_player_scene():
 		create_player(id)
 
@@ -391,18 +398,18 @@ func _player_remap_id(old_id : int, new_id : int) -> void:
 # warning-ignore:return_value_discarded
 		if not players.erase(old_id):
 			print("Error erasing!")
-		players[new_id] = player 
+		players[new_id] = player
 		player["id"] = new_id
 		Log.hint(self, "player_remap", "remap player old_id(%s), new_id(%s)" % [old_id, new_id])
-		
-	
-		
+
+
+
 		var node = player.instance
 		node.name = "%s" % new_id
 		var world = get_tree().current_scene
 		player["path"] = world.get_path_to(node)
 		Log.hint(self, "player_remap", "remap player, old path %s to %s" % [player.path, world.get_path_to(node)])
-		
+
 		node.set_network_master(new_id)
 
 func create_player(id : int) -> void:
@@ -425,33 +432,33 @@ func create_player(id : int) -> void:
 		player_apply_opt(players[id], player)
 	if id == local_id:
 		player.SetRemotePlayer(false)
-	else: 
+	else:
 		player.SetRemotePlayer(true)
-	
+
 	player.SetPuppetColors(players[id].colors)
 	player.SetPuppetGender(players[id].gender)
 	player.SetUsername(players[id].username)
-	
+
 	player.set_name(str(id)) # Use unique ID as node name
 	player.translation = spawn_pos
 	player.SetNetwork(true)
 
-	
+
 	if players[id].has("network"):
 		player.nonetwork = !players[id].network
-	
+
 	Log.hint(self, "create_player", "set_network will set(%s)" % [players[id].has("id")])
 	if players[id].has("id"):
 		Log.hint(self, "create_player", "create player set_network_master player id(%s) network id(%s)" % [id, players[id].id])
 		print("Setting player ", player, " to be controlled by peer id: ", players[id].id," with function id:  ", id, " local id is: ", local_id)
 		player.set_network_master(players[id].id) #set unique id as master
-	
+
 	Log.hint(self, "create_player", "==create player(%s) %s; name(%s)" % [id, players[id], players[id].username])
 	world.get_node("players").add_child(player)
 	players[id]["world"] = "%s" % world
 	players[id]["path"] = world.get_path_to(player)
 	emit_signal("user_name_connected", player_get("name", id))
-	
+
 	# HACK: Does not belong here
 	# TODO: Once joining a server, loading the world, etc is done, hide mainmenu
 	MainMenu.hide()
@@ -479,7 +486,7 @@ func end_game() -> void:
 	NetworkState = MODE.DISCONNECTED
 	emit_signal("game_ended")
 	players.clear()
-	get_tree().set_network_peer(null) 
+	get_tree().set_network_peer(null)
 	# End networking
 
 
@@ -508,10 +515,10 @@ func load_level(var resource) -> void: #Resource is variant
 		if not resource.can_instance():
 			emit_signal("loading_error", "Can not instance resource.")
 			return
-	
+
 	level_loader.start_loading(resource)
 	yield(self, "loading_done")
-	
+
 	world = level_loader.new_scene.instance()
 	get_tree().get_root().add_child(world)
 	get_tree().current_scene = world
@@ -578,9 +585,6 @@ func _on_connection_failed() -> void:
 	NetworkState = MODE.DISCONNECTED
 
 func _on_network_peer_connected(id : int) -> void:
-	#if NetworkState == MODE.CLIENT:
-	#	change_scene(Options.scenes.default) #Load the world!
-	#	print("Loading the world, here? _on_network_peer_connected()")
 	Log.hint(self, "on_network_peer_connected", str("Player: ", id, " connected"))
 	emit_signal("client_connected")
 
@@ -597,7 +601,7 @@ func _on_server_connected() -> void:
 func _on_server_disconnected() -> void:
 	Log.hint(self, "on_server_disconnected", "Server disconnected")
 	end_game()
-		
+
 func _on_server_up() -> void:
 	Log.hint(self, "on_server_up", "Server up")
 	if not NetworkState == MODE.SERVER:
@@ -634,7 +638,7 @@ func _on_player_scene() -> void:
 	for p in players:
 		print(players[p].instance)
 		create_player(p)
-	
+
 	if NetworkState == MODE.CLIENT:
 		#report client to server
 		print(players[local_id].instance, " Mode is client")

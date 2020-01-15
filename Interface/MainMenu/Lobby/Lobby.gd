@@ -71,13 +71,20 @@ func _on_host_pressed() -> void:
 			$connect/error_label.text="Invalid name!"
 			return
 		
-		GameState.player_register(Options.player_data, true) #local player
-		self.state = STATE.SERVER_SELECT
-		print(Options.player_data)
 		NodeUtilities.bind_signal("server_up", "_on_client_connected", GameState, self, NodeUtilities.MODE.CONNECT)
-
-
+		
 		GameState.server_set_mode()
+		
+		
+		GameState.player_register(Options.player_data, true) #local player
+		
+		self.state = STATE.SERVER_SELECT
+		
+		print(Options.player_data)
+		
+
+
+		
 
 
 func _on_join_pressed() -> void:
@@ -93,12 +100,14 @@ func _on_join_pressed() -> void:
 			colors = {"pants" : Options.pants_color, "shirt" : Options.shirt_color, "skin" : Options.skin_color, "hair" : Options.hair_color, "shoes" : Options.shoes_color}
 		}
 		print(player_data)
-		GameState.player_register(player_data, true) #local player
+		
 
-		NodeUtilities.bind_signal("client_connected", "", GameState, self, NodeUtilities.MODE.CONNECT)
-
+		#NodeUtilities.bind_signal("client_connected", "", GameState, self, NodeUtilities.MODE.CONNECT)
+		NodeUtilities.bind_signal("server_up", "_on_client_connected", GameState, self, NodeUtilities.MODE.CONNECT)
 
 		GameState.client_server_connect($connect/ipcontainer/ip.text)
+		yield(GameState, "scene_change") #Wait Until the world loads
+		GameState.player_register(player_data, true) #local player
 		return
 
 
@@ -122,12 +131,8 @@ func _on_game_error(errtxt) -> void:
 	$error.dialog_text = errtxt
 	$error.popup_centered_minsize()
 
-func _on_start_pressed() -> void:
-	GameState.begin_game()
-	hide()
-
 func _on_Sinlgeplayer_pressed() -> void:
-	var worldscene = Options.scenes.default_singleplayer_scene
+	var worldscene = Options.scenes.default
 	if (get_node("connect/name").text == ""):
 		get_node("connect/error_label").text="Invalid name!"
 		return
