@@ -393,6 +393,7 @@ func player_get(prop, id : int = -1): #prop and result are variants
 
 #remap local user for its network id, when he gets it
 func _player_remap_id(old_id : int, new_id : int) -> void:
+	print("Attempting to remap an ID")
 	if players.has(old_id):
 		var player = players[old_id].duplicate(true)
 # warning-ignore:return_value_discarded
@@ -630,6 +631,7 @@ func _on_server_tree_user_disconnected(id : int) -> void:
 
 
 func _on_player_scene() -> void:
+	print("Entered _on_player_scene")
 	Log.hint(self, "_on_player_scene", "scene is player ready, checking players(%s)" % players.size())
 	if Options.Debugger:
 		for p in players:
@@ -646,27 +648,17 @@ func _on_player_scene() -> void:
 
 
 func _on_player_id(id : int) -> void:
+	print("Enter: _on_player_id, with id: ", id)
 	if not players.has(local_id):
-		return
+		print("Local Id wasn't in the player dictionary :/, attempting to remap any ways")
 	_player_remap_id(local_id, id)
 	local_id = id
 	#scene is not active yet, payers are redistered after scene is changes sucessefully
 
-
-
-
 func _on_connected_to_server() -> void:
+	print("connected to server was emitted, now called _on_signal")
 	Log.hint(self, "_on_connected_to_server",  "client connected to %s(%s):%s" % [host, ip, port])
 	NodeUtilities.bind_signal("connection_failed", '', get_tree(), self, NodeUtilities.MODE.DISCONNECT)
 	NodeUtilities.bind_signal("connected_to_server", '', get_tree(), self, NodeUtilities.MODE.DISCONNECT)
 	NetworkState = MODE.CLIENT
 	emit_signal("client_connected")
-
-
-
-func _on_scene_change_log() -> void:
-	Log.hint(self, "on_scene_change", "started change process")
-	Log.hint(self, "on_scene_change", str("get_tree:", get_tree()))
-	if get_tree():
-		if get_tree().current_scene :
-			Log.hint(self, "on_scene_change", str("current scene: ", get_tree().current_scene))
