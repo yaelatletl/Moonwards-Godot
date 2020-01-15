@@ -50,19 +50,15 @@ const DEFAULT_PORT : int = 10567
 # Max number of players
 const MAX_PEERS : int = 12
 
+var _queue_attach : Dictionary = {}
+var _queue_attach_on_tree_change_lock : bool = false #emits tree_change events on adding node, prevent stack overflow
+var _queue_attach_on_tree_change_prev_scene : String
+
+### Network specific variables ###
 # remote players in id:player_data format
 var players : Dictionary = {}
 var network_id : int 
 var local_id : int = 0
-
-#
-# hold last error message
-
-
-
-var _queue_attach : Dictionary = {}
-var _queue_attach_on_tree_change_lock : bool = false #emits tree_change events on adding node, prevent stack overflow
-var _queue_attach_on_tree_change_prev_scene : String
 
 var host : String = "localhost"
 var ip : String = "127.0.0.1"
@@ -273,7 +269,7 @@ func change_scene(scene : String) -> void:
 
 
 
-func is_player_scene() -> bool:
+func has_player_scene() -> bool:
 	var result : bool = false
 	if get_tree() and get_tree().current_scene:
 		if get_tree().current_scene.has_node(Options.scene_id):
@@ -322,7 +318,7 @@ func player_register(player_data : Dictionary, localplayer : bool = false) -> vo
 		player_data["id"] = id
 		players[id] = player_data
 	
-	if is_player_scene():
+	if has_player_scene():
 		create_player(id)
 
 #local player recieved network id
@@ -582,9 +578,9 @@ func _on_connection_failed() -> void:
 	NetworkState = MODE.DISCONNECTED
 
 func _on_network_peer_connected(id : int) -> void:
-	if NetworkState == MODE.CLIENT:
-		change_scene(Options.scenes.default_multiplayer_scene) #Load the world!
-		print("Loading the world, here? _on_network_peer_connected()")
+	#if NetworkState == MODE.CLIENT:
+	#	change_scene(Options.scenes.default) #Load the world!
+	#	print("Loading the world, here? _on_network_peer_connected()")
 	Log.hint(self, "on_network_peer_connected", str("Player: ", id, " connected"))
 	emit_signal("client_connected")
 
