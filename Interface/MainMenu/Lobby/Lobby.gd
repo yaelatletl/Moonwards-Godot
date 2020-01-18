@@ -75,7 +75,7 @@ func _on_host_pressed() -> void:
 		
 		GameState.server_set_mode()
 		
-		
+		yield(GameState, "scene_change") #Wait Until the world loads
 		GameState.player_register(Options.player_data, true) #local player
 		
 		self.state = STATE.SERVER_SELECT
