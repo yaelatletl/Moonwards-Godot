@@ -7,7 +7,7 @@ enum MODE {
 	}
 #global signals
 # network user related
-# warning-ignore:return_value_discarded
+# warning-ignore-all:return_value_discarded
 
 
 ### Singals to interface with (not to be used inside this script ###
@@ -50,6 +50,8 @@ const DEFAULT_PORT : int = 10567
 # Max number of players
 const MAX_PEERS : int = 12
 
+var global_delta : float
+
 var _queue_attach : Dictionary = {}
 var _queue_attach_on_tree_change_lock : bool = false #emits tree_change events on adding node, prevent stack overflow
 var _queue_attach_on_tree_change_prev_scene : String
@@ -87,6 +89,31 @@ func _ready():
 #################
 #Track scene changes and add nodes or emit signals functions
 
+func unreliable_call(delta : float, function : String, args : Dictionary = {}, id : int = -1):
+	if get_tree().get_network_peer():
+		if delta < 0.1:
+			global_delta += delta
+		if global_delta > 0.1:
+			if id!=-1:
+				rpc_unreliable_id(id, function, args)
+			else:
+				rpc_unreliable(function, args)
+			global_delta = 0
+	else: 
+		print("Tried to send an unreliable rcp wtihout a network peer")
+		
+func reliable_call(delta : float, function : String, args : Dictionary = {}, id : int = -1):
+	if get_tree().get_network_peer():
+		if delta < 0.1:
+			global_delta += delta
+		if global_delta > 0.1:
+			if id!=-1:
+				rpc_id(id, function, args)
+			else:
+				rpc(function, args)
+			global_delta = 0
+	else:
+		print("Tried to send an RCP without a networ peer")
 
 func queue_attach(path : String, node, permanent : bool = false) -> void: #node is variant
 	Log.hint(self, "queue_attach", str("attach queue(permanent: ", str(permanent),"): ", path, "(", node, ")"))
@@ -123,27 +150,6 @@ func queue_tree_signal(path : String, signal_name : String, permanent : bool = f
 
 
 
-
-func _connect_signals(connect : bool = true) -> void:
-	var tree = get_tree()
-
-	var signals = [
-		["connected_to_server", "", tree],
-		["server_disconnected", "", tree],
-		["connection_failed", "", tree],
-		["network_peer_connected", "", tree],
-		["network_peer_disconnected", "", tree],
-		["player_scene", "", self],
-		["loading_done", "", self],
-		["player_id", "", self],
-		["server_up", "", self]
-	]
-	for sg in signals:
-		Log.hint(self, "_net_tree_connect_signals", str("net_tree_connect", sg[0], " -> " , sg[1]))
-		if connect:
-			NodeUtilities.bind_signal(sg[0], sg[1], sg[2], self, NodeUtilities.MODE.CONNECT)
-		else:
-			NodeUtilities.bind_signal(sg[0], sg[1], sg[2], self, NodeUtilities.MODE.DISCONNECT)
 
 
 
@@ -330,15 +336,15 @@ func player_register(player_data : Dictionary, localplayer : bool = false) -> vo
 
 #local player recieved network id
 
-remote func register_client(id : int, pdata : Dictionary) -> void:
-	print("remote register_client, local_id(%s): %s %s" % [local_id, id, pdata])
+remote func register_client(id : int, pdata : Dictionary = Options.player_data) -> void:
+	print("remote register_client, local_id is %s, recieved id is %s" % [local_id, id])
 	if id == local_id:
-		print("Local player, skipp")
+		print("Local player, skip")
 		return
 	if players.has(id):
 		print("register client(%s): already exists(%s)" % [local_id, id])
 		return
-	print("register_client: id(%s), data: %s" % [id, pdata])
+#	print("register_client: id(%s), data: %s" % [id, pdata])
 	pdata["id"] = id
 	if pdata.has("Options"):
 		pdata["Options"] = Options.player_opt("puppet", pdata["Options"])
@@ -350,7 +356,7 @@ remote func register_client(id : int, pdata : Dictionary) -> void:
 		#sync existing players
 		rpc("register_client", id, pdata)
 		for p in players:
-			print("**** %s" % players[p])
+#			print("**** %s" % players[p])
 			var pid = players[p].id
 			if pid != id:
 				rpc_id(id, "register_client", pid, players[p])
@@ -361,7 +367,6 @@ remote func unregister_client(id : int) -> void:
 		emit_signal("user_name_disconnected", "%s" % player_get("name", id))
 		if players[id].instance:
 			players[id].instance.queue_free()
-# warning-ignore:return_value_discarded
 		players.erase(id)
 	if NetworkState == MODE.SERVER:
 		#sync existing players
@@ -392,40 +397,21 @@ func player_get(prop, id : int = -1): #prop and result are variants
 	return result
 
 #remap local user for its network id, when he gets it
-func _player_remap_id(old_id : int, new_id : int) -> void:
-	print("Attempting to remap an ID")
-	if players.has(old_id):
-		var player = players[old_id].duplicate(true)
-# warning-ignore:return_value_discarded
-		if not players.erase(old_id):
-			print("Error erasing!")
-		players[new_id] = player
-		player["id"] = new_id
-		Log.hint(self, "player_remap", "remap player old_id(%s), new_id(%s)" % [old_id, new_id])
 
-
-
-		var node = player.instance
-		node.name = "%s" % new_id
-		var world = get_tree().current_scene
-		player["path"] = world.get_path_to(node)
-		Log.hint(self, "player_remap", "remap player, old path %s to %s" % [player.path, world.get_path_to(node)])
-
-		node.set_network_master(new_id)
 
 func create_player(id : int) -> void:
 	print(players[id].instance)
 	var world = get_tree().current_scene
-	if players[id].has("world") and players[id]["world"] == str(world):
+	if world.has_node(str("world/players/",id)):
 		Log.hint(self, "create_player", "player(%s) already added, %s" % [id, players[id]])
+		print("Server says there's already a guy named", id, "what's going on?")
 		return
 	var spawn_pcount =  world.get_node("spawn_points").get_child_count()
 	var spawn_pos = randi() % spawn_pcount
 	Log.hint(self, "create_player", "select spawn point(%s/%s)" % [spawn_pos, spawn_pcount])
 	spawn_pos = world.get_node("spawn_points").get_child(spawn_pos).translation
-	print(players[id].instance)
+	
 	var player = players[id].instance
-	print(players[id].instance)
 #	player.flies = true # MUST CHANGE WHEN COLLISIONS ARE DONE
 	if not is_instance_valid(player):
 		players[id].instance = Options.player_scene.instance()
@@ -487,7 +473,7 @@ func end_game() -> void:
 	NetworkState = MODE.DISCONNECTED
 	emit_signal("game_ended")
 	players.clear()
-	get_tree().set_network_peer(null)
+	
 	# End networking
 
 
@@ -529,9 +515,48 @@ func load_level(var resource) -> void: #Resource is variant
 # avatar network/scene functions
 
 #network and player scene state
+func _connect_signals(connect : bool = true) -> void:
+	var tree = get_tree()
+
+	var signals = [
+		["connected_to_server", "", tree],
+		["server_disconnected", "", tree],
+		["connection_failed", "", tree],
+		["network_peer_connected", "", tree],
+		["network_peer_disconnected", "", tree],
+		["player_scene", "", self],
+		["loading_done", "", self],
+		["player_id", "", self],
+		["server_up", "", self]
+	]
+	for sg in signals:
+		Log.hint(self, "_net_tree_connect_signals", str("net_tree_connect", sg[0], " -> " , sg[1]))
+		if connect:
+			NodeUtilities.bind_signal(sg[0], sg[1], sg[2], self, NodeUtilities.MODE.CONNECT)
+		else:
+			NodeUtilities.bind_signal(sg[0], sg[1], sg[2], self, NodeUtilities.MODE.DISCONNECT)
 
 
 
+func _player_remap_id(old_id : int, new_id : int) -> void:
+	print("Attempting to remap an ID, from %s to %s" % [old_id, new_id])
+	if players.has(old_id):
+		var player = players[old_id].duplicate(true)
+		if not players.erase(old_id):
+			print("Error erasing!")
+		players[new_id] = player
+		player["id"] = new_id
+		Log.hint(self, "player_remap", "remap player old_id(%s), new_id(%s)" % [old_id, new_id])
+
+
+
+		var node = player.instance
+		node.name = "%s" % new_id
+		var world = get_tree().current_scene
+		player["path"] = world.get_path_to(node)
+		Log.hint(self, "player_remap", "remap player, old path %s to %s" % [player.path, world.get_path_to(node)])
+
+		node.set_network_master(new_id)
 
 
 func _on_queue_attach_on_tree_change() -> void:
@@ -573,7 +598,6 @@ func _on_queue_attach_on_tree_change() -> void:
 					_queue_attach_on_tree_change_lock = false
 					if not _queue_attach[p].permanent:
 						Log.hint(self, "_on_queue_attach_on_tree_change", "qatc, attached and removed: %s(%s) permanent %s" % [p, _queue_attach[p].node, _queue_attach[p].permanent])
-# warning-ignore:return_value_discarded
 						_queue_attach.erase(p)
 						scene.print_tree_pretty()
 					else:
@@ -586,6 +610,8 @@ func _on_connection_failed() -> void:
 	NetworkState = MODE.DISCONNECTED
 
 func _on_network_peer_connected(id : int) -> void:
+	if not players.has(id):
+		register_client(id)
 	Log.hint(self, "on_network_peer_connected", str("Player: ", id, " connected"))
 	emit_signal("client_connected")
 
@@ -601,6 +627,8 @@ func _on_server_connected() -> void:
 
 func _on_server_disconnected() -> void:
 	Log.hint(self, "on_server_disconnected", "Server disconnected")
+	get_tree().set_network_peer(null)
+	#FIXME Let the player try to re-connect
 	end_game()
 
 func _on_server_up() -> void:
@@ -635,10 +663,8 @@ func _on_player_scene() -> void:
 	Log.hint(self, "_on_player_scene", "scene is player ready, checking players(%s)" % players.size())
 	if Options.Debugger:
 		for p in players:
-			print(players[p].instance)
 			Log.hint(self, "_on_player_scene",  "player %s" % players[p])
 	for p in players:
-		print(players[p].instance)
 		create_player(p)
 
 	if NetworkState == MODE.CLIENT:
