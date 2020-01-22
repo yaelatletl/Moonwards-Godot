@@ -32,11 +32,7 @@ signal client_connected
 
 #scenes
 signal scene_change(name)
-
 signal scene_change_error(msg)
-
-
-
 
 # Signals to let lobby GUI know what's going on
 signal connection_failed
@@ -191,28 +187,19 @@ func server_set_mode(host : String = "localhost"):
 		Log.hint(self, "server_set_mode", str("server up on ", ip, ":", DEFAULT_PORT))
 		NetworkState = MODE.SERVER
 		NodeUtilities.bind_signal("tree_changed", "_on_server_tree_changed", get_tree(), self, NodeUtilities.MODE.CONNECT)
-		
-
 		NodeUtilities.bind_signal("peer_disconnected", "_on_server_user_disconnected", connection, self, NodeUtilities.MODE.CONNECT)
 		NodeUtilities.bind_signal("peer_connected", "_on_server_user_connected", connection, self, NodeUtilities.MODE.CONNECT)
-
 		NodeUtilities.bind_signal("network_peer_connected", "_on_server_tree_user_connected", get_tree(), self, NodeUtilities.MODE.CONNECT)
 		NodeUtilities.bind_signal("network_peer_disconnected", "_on_server_tree_user_disconnected", get_tree(), self, NodeUtilities.MODE.CONNECT)
-
 		network_id = connection.get_unique_id()
 		Log.hint(self, "server_set_mode", str("network server id ", network_id))
-
 		emit_signal("player_id", network_id)
 	else:
 		Log.hint(self, "server_set_mode", "server error %s" % Log.error_to_string(error))
 		Log.hint(self, "server_set_mode", "failed to bring server up, error %s" % Log.error_to_string(error))
 		NetworkState = MODE.DISCONNECTED
 
-################
-#Client functions
-
-
-
+################ #Client functions
 
 func client_server_connect(host : String, port : int = DEFAULT_PORT):
 	match NetworkState:
@@ -249,11 +236,7 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 	network_id = connection.get_unique_id()
 	emit_signal("player_id", network_id)
 
-
-
-
-#	yield(self, "scene_change") #Stop your horses, the world hasn't loaded in yet!
-	yield(self, "scene_change")
+	yield(self, "scene_change") #Stop your horses, the world hasn't loaded in yet!
 	get_tree().set_network_peer(connection)
 
 
@@ -400,7 +383,7 @@ func player_get(prop, id : int = -1): #prop and result are variants
 
 
 func create_player(id : int) -> void:
-	print(players[id].instance)
+	print("Creating a player, with id ", id)
 	var world = get_tree().current_scene
 	if world.has_node(str("world/players/",id)):
 		Log.hint(self, "create_player", "player(%s) already added, %s" % [id, players[id]])
