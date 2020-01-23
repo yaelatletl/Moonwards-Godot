@@ -1,6 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://fonts/djv_bold.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Themes/Fonts/djv_bold.tres" type="DynamicFont" id=1]
+
+
 
 [node name="Control" type="Control"]
 margin_right = 40.0

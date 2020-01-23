@@ -1,14 +1,18 @@
 [gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://assets/RocketDisplay/RocketDisplay.gd" type="Script" id=1]
-[ext_resource path="res://assets/themes/MainMenu.tres" type="Theme" id=2]
-[ext_resource path="res://fonts/Exo2-Medium.otf" type="DynamicFontData" id=3]
-[ext_resource path="res://assets/themes/Display.tres" type="Theme" id=4]
+[ext_resource path="res://Themes/MainMenu.tres" type="Theme" id=2]
+[ext_resource path="res://Themes/Fonts/Exo2-Medium.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://Themes/Display.tres" type="Theme" id=4]
 [ext_resource path="res://assets/RocketDisplay/CameraControl.gd" type="Script" id=5]
 [ext_resource path="res://sounds/RocketEngines.wav" type="AudioStream" id=6]
 [ext_resource path="res://model_assets/Contributions/SCTR_Bucknell_Opt.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/RocketDisplay/fire_particle.png" type="Texture" id=8]
 [ext_resource path="res://assets/RocketDisplay/FireParticleMesh.obj" type="ArrayMesh" id=9]
+
+
+
+
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 10, 5, 10 )

@@ -1,8 +1,10 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://fonts/MainMenuFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Themes/Fonts/MainMenuFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scripts/LoadingScreen.gd" type="Script" id=2]
 [ext_resource path="res://Interface/MainMenu/MainBG.png" type="Texture" id=3]
+
+
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
