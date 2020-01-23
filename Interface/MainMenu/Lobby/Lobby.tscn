@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Interface/MainMenu/Lobby/Lobby.gd" type="Script" id=1]
 [ext_resource path="res://img/MoonwardsLogo2018-1200.png" type="Texture" id=2]
-[ext_resource path="res://scripts/UIElement.gd" type="Script" id=3]
 
 [node name="Lobby" type="VBoxContainer"]
 anchor_right = 1.0
@@ -25,9 +24,9 @@ stretch_mode = 6
 
 [node name="connect" type="VBoxContainer" parent="."]
 margin_left = 840.0
-margin_top = 562.0
+margin_top = 577.0
 margin_right = 1040.0
-margin_bottom = 681.0
+margin_bottom = 667.0
 rect_min_size = Vector2( 200, 0 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -110,15 +109,6 @@ margin_bottom = 148.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Another Name"
-
-[node name="Back" type="Button" parent="connect"]
-margin_top = 94.0
-margin_right = 200.0
-margin_bottom = 119.0
-rect_min_size = Vector2( 200, 25 )
-size_flags_horizontal = 0
-text = "Back"
-script = ExtResource( 3 )
 
 [node name="error" type="AcceptDialog" parent="."]
 margin_left = 417.0
