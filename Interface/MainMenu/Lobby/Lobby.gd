@@ -55,53 +55,40 @@ func refresh_lobby() -> void:
 		$PlayersList/list.add_item(p)
 	$PlayersList/start.disabled=not get_tree().is_network_server()
 
-func _on_network_log(msg : String) -> void:
-	ServerWait = "%s%s\n" % [$WaitServer/Label.text, msg]
-	Log.hint(self, "_on_network_log", msg)
 
-func _on_server_up() -> void:
-	var worldscene = Options.scenes.default_multiplayer_scene
-	_on_network_log("change scene to %s" % worldscene)
+func _on_client_connected() -> void:
 	yield(get_tree().create_timer(2), "timeout")
 	state_hide()
-	GameState.change_scene(worldscene)
+	GameState.change_scene(Options.scenes.default)
 
-func _on_network_error(msg : String) -> void:
-	var oldstate = state
-	set_state(STATE.INIT)
-	match oldstate:
-		STATE.SERVER_SELECT:
-			$connect/error_label.text = "Error setting server : %s" % msg
-		STATE.CLIENT_CONNECT:
-			$connect/error_label.text = msg
 
 func _on_server_connected() -> void:
-	_on_server_up()
+	_on_client_connected()
 
 func _on_host_pressed() -> void:
-	if not (GameState.RoleServer or GameState.RoleClient):
+	if GameState.NetworkState == GameState.MODE.DISCONNECTED:
 		if ($connect/name.text == ""):
 			$connect/error_label.text="Invalid name!"
 			return
-		var player_data = {
-			username = $connect/name.text,
-			gender = Options.gender,
-			colors = {"pants" : Options.pants_color, "shirt" : Options.shirt_color, "skin" : Options.skin_color, "hair" : Options.hair_color, "shoes" : Options.shoes_color}
-		}
-		GameState.player_register(player_data, true) #local player
-		self.state = STATE.SERVER_SELECT
-
-		NodeUtilities.bind_signal("network_log", "", GameState, self, NodeUtilities.MODE.CONNECT)
-		NodeUtilities.bind_signal("server_up", "", GameState, self, NodeUtilities.MODE.CONNECT)
-		NodeUtilities.bind_signal("network_error", "", GameState, self, NodeUtilities.MODE.CONNECT)
-
-
+		
+		NodeUtilities.bind_signal("server_up", "_on_client_connected", GameState, self, NodeUtilities.MODE.CONNECT)
+		
 		GameState.server_set_mode()
-	else:
-		emit_signal("network_error", "Already in server or client mode")
+		
+		yield(GameState, "scene_change") #Wait Until the world loads
+		GameState.player_register(Options.player_data, true) #local player
+		
+		self.state = STATE.SERVER_SELECT
+		
+		print(Options.player_data)
+		
+
+
+		
+
 
 func _on_join_pressed() -> void:
-	if not (GameState.RoleServer or GameState.RoleClient):
+	if GameState.NetworkState == GameState.MODE.DISCONNECTED:
 		if ($connect/name.text == ""):
 			$connect/error_label.text="Invalid name!"
 			return
@@ -112,16 +99,17 @@ func _on_join_pressed() -> void:
 			gender = Options.gender,
 			colors = {"pants" : Options.pants_color, "shirt" : Options.shirt_color, "skin" : Options.skin_color, "hair" : Options.hair_color, "shoes" : Options.shoes_color}
 		}
-		GameState.player_register(player_data, true) #local player
+		print(player_data)
+		
 
-		NodeUtilities.bind_signal("network_log", "", GameState, self, NodeUtilities.MODE.CONNECT)
-		NodeUtilities.bind_signal("server_up", "", GameState, self, NodeUtilities.MODE.CONNECT)
-		NodeUtilities.bind_signal("network_error", "", GameState, self, NodeUtilities.MODE.CONNECT)
+		#NodeUtilities.bind_signal("client_connected", "", GameState, self, NodeUtilities.MODE.CONNECT)
+		NodeUtilities.bind_signal("server_up", "_on_client_connected", GameState, self, NodeUtilities.MODE.CONNECT)
 
 		GameState.client_server_connect($connect/ipcontainer/ip.text)
+		yield(GameState, "scene_change") #Wait Until the world loads
+		GameState.player_register(player_data, true) #local player
 		return
-	else:
-		emit_signal("network_error", "Already in server or client mode")
+
 
 func _on_connection_success() -> void:
 	$connect.hide()
@@ -143,12 +131,8 @@ func _on_game_error(errtxt) -> void:
 	$error.dialog_text = errtxt
 	$error.popup_centered_minsize()
 
-func _on_start_pressed() -> void:
-	GameState.begin_game()
-	hide()
-
 func _on_Sinlgeplayer_pressed() -> void:
-	var worldscene = Options.scenes.default_singleplayer_scene
+	var worldscene = Options.scenes.default
 	if (get_node("connect/name").text == ""):
 		get_node("connect/error_label").text="Invalid name!"
 		return
@@ -156,7 +140,7 @@ func _on_Sinlgeplayer_pressed() -> void:
 		username = $connect/name.text,
 		network = false
 	}
-	GameState.RoleNoNetwork = true
+	GameState.NetworkState = GameState.MODE.ERROR
 	GameState.player_register(player_data, true) #local player
 	Log.hint(self, "_on_Singleplayer_pressed", str("change scene to" , worldscene))
 	yield(get_tree().create_timer(2), "timeout")

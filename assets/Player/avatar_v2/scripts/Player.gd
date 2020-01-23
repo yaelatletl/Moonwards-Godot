@@ -519,7 +519,7 @@ func UpdateNetworking():
 #	else:
 #		printd("UpdateNetworking: not a remote player(%s) and not a network_master and network(%s)" % [get_path(), network])
 
-func SetNetwork(var enabled):
+func SetNetwork(var enabled : bool) -> void:
 	network = enabled
 	nonetwork = ! enabled
 	#printd("Player %s enable/disable networking, nonetwork(%s)" % [get_path(), nonetwork])
