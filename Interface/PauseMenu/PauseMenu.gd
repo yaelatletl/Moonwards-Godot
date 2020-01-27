@@ -16,6 +16,10 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("mainmenu_toggle"):
+		#Do nothing if we are not allowed to open.
+		if _can_open == false :
+			return
+		
 		if _open:
 			hide()
 		else:
