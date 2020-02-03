@@ -1,12 +1,8 @@
-[gd_scene load_steps=19 format=2]
+[gd_resource type="Theme" load_steps=15 format=2]
 
 [ext_resource path="res://Themes/Fonts/MainMenuFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Themes/MainMenuFocusStyle.tres" type="StyleBox" id=2]
-[ext_resource path="res://Themes/ChatLineEdit.tres" type="StyleBox" id=3]
-[ext_resource path="res://Themes/ChatDisabledLineEdit.tres" type="StyleBox" id=4]
-[ext_resource path="res://Themes/ChatPanelRichTextLabel.tres" type="StyleBox" id=5]
-[ext_resource path="res://Themes/ChatMainBGPanel.tres" type="StyleBox" id=6]
-[ext_resource path="res://Interface/Hud/Chat/Chat.gd" type="Script" id=7]
+[ext_resource path="res://Themes/MainMenuPanelStyle.tres" type="StyleBox" id=3]
 
 [sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -21,17 +17,29 @@ content_margin_top = 2.0
 content_margin_bottom = 2.0
 bg_color = Color( 0, 0, 0, 0 )
 
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 1, 1, 1, 1 )
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id=5]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color( 0.0705882, 0.0705882, 0.0705882, 0.729412 )
+
 [sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 
 [sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.101961, 0.101961, 0.101961, 0.901961 )
 
-[sub_resource type="StyleBoxFlat" id=16]
-bg_color = Color( 0, 0, 0, 0.392157 )
-
-[sub_resource type="StyleBoxFlat" id=17]
-bg_color = Color( 0, 0, 0, 0.607843 )
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="StyleBoxFlat" id=12]
 content_margin_left = 10.0
@@ -47,7 +55,7 @@ content_margin_left = 10.0
 content_margin_right = 10.0
 bg_color = Color( 0, 0, 0, 0.588235 )
 
-[sub_resource type="Theme" id=15]
+[resource]
 default_font = ExtResource( 1 )
 Button/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
@@ -78,12 +86,12 @@ LineEdit/colors/selection_color = Color( 0.490196, 0.490196, 0.490196, 1 )
 LineEdit/constants/minimum_spaces = 12
 LineEdit/fonts/font = null
 LineEdit/icons/clear = null
-LineEdit/styles/focus = ExtResource( 3 )
-LineEdit/styles/normal = ExtResource( 3 )
-LineEdit/styles/read_only = ExtResource( 4 )
-Panel/styles/panel = ExtResource( 5 )
-Panel/styles/panelf = ExtResource( 5 )
-Panel/styles/panelnc = ExtResource( 5 )
+LineEdit/styles/focus = SubResource( 4 )
+LineEdit/styles/normal = SubResource( 5 )
+LineEdit/styles/read_only = null
+Panel/styles/panel = ExtResource( 3 )
+Panel/styles/panelf = ExtResource( 3 )
+Panel/styles/panelnc = ExtResource( 3 )
 PopupMenu/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
 PopupMenu/colors/font_color_accel = Color( 0.7, 0.7, 0.7, 0.8 )
 PopupMenu/colors/font_color_disabled = Color( 0.4, 0.4, 0.4, 0.8 )
@@ -123,7 +131,7 @@ RichTextLabel/fonts/italics_font = null
 RichTextLabel/fonts/mono_font = null
 RichTextLabel/fonts/normal_font = null
 RichTextLabel/styles/focus = null
-RichTextLabel/styles/normal = SubResource( 16 )
+RichTextLabel/styles/normal = SubResource( 11 )
 TabContainer/colors/font_color_bg = Color( 0.690196, 0.690196, 0.690196, 1 )
 TabContainer/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
 TabContainer/colors/font_color_fg = Color( 0.941176, 0.941176, 0.941176, 1 )
@@ -139,43 +147,7 @@ TabContainer/icons/increment = null
 TabContainer/icons/increment_highlight = null
 TabContainer/icons/menu = null
 TabContainer/icons/menu_highlight = null
-TabContainer/styles/panel = SubResource( 17 )
+TabContainer/styles/panel = ExtResource( 3 )
 TabContainer/styles/tab_bg = SubResource( 12 )
 TabContainer/styles/tab_disabled = SubResource( 13 )
 TabContainer/styles/tab_fg = SubResource( 14 )
-
-[node name="Chat" type="PanelContainer"]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_top = -198.0
-margin_right = 403.0
-grow_vertical = 0
-focus_mode = 1
-mouse_filter = 2
-theme = SubResource( 15 )
-custom_styles/panel = ExtResource( 6 )
-script = ExtResource( 7 )
-
-[node name="V" type="VBoxContainer" parent="."]
-margin_left = 2.0
-margin_top = 2.0
-margin_right = 401.0
-margin_bottom = 198.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="V"]
-margin_right = 399.0
-margin_bottom = 169.0
-mouse_filter = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-bbcode_enabled = true
-scroll_following = true
-
-[node name="LineEdit" type="LineEdit" parent="V"]
-margin_top = 173.0
-margin_right = 399.0
-margin_bottom = 196.0
-mouse_filter = 2
-editable = false
-placeholder_text = "Press 'Enter' to type."
-[connection signal="text_entered" from="V/LineEdit" to="." method="_on_LineEdit_text_entered"]
