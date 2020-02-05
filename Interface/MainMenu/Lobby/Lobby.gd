@@ -59,7 +59,7 @@ func refresh_lobby() -> void:
 func _on_client_connected() -> void:
 	yield(get_tree().create_timer(2), "timeout")
 	state_hide()
-	GameState.change_scene(Options.scenes.default)
+	WorldManager.change_scene(Options.scenes.default)
 
 
 func _on_server_connected() -> void:
@@ -75,7 +75,7 @@ func _on_host_pressed() -> void:
 		
 		GameState.server_set_mode()
 		
-		yield(GameState, "scene_change") #Wait Until the world loads
+		yield(WorldManager, "scene_change") #Wait Until the world loads
 		GameState.player_register(Options.player_data, true) #local player
 		
 		self.state = STATE.SERVER_SELECT
