@@ -1,8 +1,8 @@
 extends Control
 
 func _ready() -> void:
-	GameState.connect("loading_progress", self, "_set_progress_bar")
-	GameState.connect("loading_error", self, "_loading_error")
+	Lobby.connect("loading_progress", self, "_set_progress_bar")
+	Lobby.connect("loading_error", self, "_loading_error")
 	#UIManager.register_base_ui(self)
 	#UIManager._set_current_ui($Control)
 

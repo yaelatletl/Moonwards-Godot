@@ -37,9 +37,9 @@ func _on_bJoinServer_pressed() -> void:
 #		username = Options.username
 #	}
 #
-#	GameState.player_register(player_data, true, "avatar") #local player
-#	GameState.load_level(scene)
-#	GameState.client_server_connect(Options.join_server_host)
+#	Lobby.player_register(player_data, true, "avatar") #local player
+#	Lobby.load_level(scene)
+#	Lobby.client_server_connect(Options.join_server_host)
 
 func _on_bLocalGame_pressed() -> void:
 	tabs.current_tab = 3

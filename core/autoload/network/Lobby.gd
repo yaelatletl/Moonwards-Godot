@@ -246,19 +246,7 @@ func has_player_scene() -> bool:
 
 ################
 # Player functions
-func player_apply_opt(pdata : Dictionary, player : Spatial):
-	pdata["instance"] = player
-	#apply options given in register dictionary under avatar
-	if pdata.has("avatar"):
-		Log.hint(self, "player_apply_opt", "Applying options for avatar")
-		for k in pdata.avatar:
-			player.set(k, pdata.avatar[k])
-		if pdata.avatar.has("input_processing"):
-			 player.set_process_input(pdata.avatar["input_processing"])
-	else:
-		Log.error(self, "player_apply_opt", "invalid player_data dictionary")
-		pdata.avatar = Options.player_data.avatar
-		player_apply_opt(pdata, player)
+
 
 
 func player_register(player_data : Dictionary, localplayer : bool = false) -> void:
@@ -276,7 +264,7 @@ func player_register(player_data : Dictionary, localplayer : bool = false) -> vo
 
 	Log.hint(self, "player_register", "registered player(%s): %s" % [id, player_data])
 
-	player_apply_opt(player_data, Options.player_scene.instance())
+	WorldManager.player_apply_opt(player_data, Options.player_scene.instance())
 # 	player["localplayer"] = localplayer
 	if localplayer:
 		if network_id :
@@ -287,7 +275,7 @@ func player_register(player_data : Dictionary, localplayer : bool = false) -> vo
 		players[id] = player_data
 
 	if has_player_scene():
-		create_player(id)
+		WorldManager.create_player(players[id])
 
 #local player recieved network id
 
@@ -347,59 +335,6 @@ func player_get_property(prop : String, id : int = -1): #Result is variant, retu
 
 #remap local user for its network id, when he gets it
 
-
-func create_player(id : int) -> void:
-	print("Creating a player, with id ", id)
-	var world = get_tree().current_scene
-	if world.has_node(str("world/players/",id)):
-		Log.hint(self, "create_player", "player(%s) already added, %s" % [id, players[id]])
-		print("Server says there's already a guy named", id, "what's going on?")
-		return
-	var spawn_pcount =  world.get_node("spawn_points").get_child_count()
-	var spawn_pos = randi() % spawn_pcount
-	Log.hint(self, "create_player", "select spawn point(%s/%s)" % [spawn_pos, spawn_pcount])
-	spawn_pos = world.get_node("spawn_points").get_child(spawn_pos).translation
-	
-	var player = players[id].instance
-#	player.flies = true # MUST CHANGE WHEN COLLISIONS ARE DONE
-	if not is_instance_valid(player):
-		players[id].instance = Options.player_scene.instance()
-		player = players[id].instance
-		player_apply_opt(players[id], player)
-	if id == local_id:
-		player.SetRemotePlayer(false)
-	else:
-		player.SetRemotePlayer(true)
-
-	player.SetPuppetColors(players[id].colors)
-	player.SetPuppetGender(players[id].gender)
-	player.SetUsername(players[id].username)
-
-	player.set_name(str(id)) # Use unique ID as node name
-	player.translation = spawn_pos
-	player.SetNetwork(true)
-
-
-	if players[id].has("network"):
-		player.nonetwork = !players[id].network
-
-	Log.hint(self, "create_player", "set_network will set(%s)" % [players[id].has("id")])
-	if players[id].has("id"):
-		Log.hint(self, "create_player", "create player set_network_master player id(%s) network id(%s)" % [id, players[id].id])
-		print("Setting player ", player, " to be controlled by peer id: ", players[id].id," with function id:  ", id, " local id is: ", local_id)
-		player.set_network_master(players[id].id) #set unique id as master
-
-	Log.hint(self, "create_player", "==create player(%s) %s; name(%s)" % [id, players[id], players[id].username])
-	world.get_node("players").add_child(player)
-	players[id]["world"] = "%s" % world
-	players[id]["path"] = world.get_path_to(player)
-	emit_signal("user_name_connected", player_get_property("name", id))
-
-	# HACK: Does not belong here
-	# TODO: Once joining a server, loading the world, etc is done, hide mainmenu
-	MainMenu.hide()
-	PauseMenu.hide()
-	Hud.show()
 
 #set current camera to local player
 func player_local_camera(activate : bool = true) -> void:
@@ -569,7 +504,7 @@ func _on_player_scene() -> void:
 		for p in players:
 			Log.hint(self, "_on_player_scene",  "player %s" % players[p])
 	for p in players:
-		create_player(p)
+		WorldManager.create_player(players[p])
 
 	if NetworkState == MODE.CLIENT:
 		#report client to server
