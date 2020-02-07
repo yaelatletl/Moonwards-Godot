@@ -47,10 +47,10 @@ func set_state(nstate : int)-> void:
 	state_show()
 
 func refresh_lobby() -> void:
-	var players = GameState.get_player_list()
+	var players = Lobby.get_player_list()
 	players.sort()
 	$PlayersList/list.clear()
-	$PlayersList/list.add_item(GameState.get_player_name() + " (You)")
+	$PlayersList/list.add_item(Lobby.get_player_name() + " (You)")
 	for p in players:
 		$PlayersList/list.add_item(p)
 	$PlayersList/start.disabled=not get_tree().is_network_server()
@@ -59,24 +59,24 @@ func refresh_lobby() -> void:
 func _on_client_connected() -> void:
 	yield(get_tree().create_timer(2), "timeout")
 	state_hide()
-	GameState.change_scene(Options.scenes.default)
+	WorldManager.change_scene(Options.scenes.default)
 
 
 func _on_server_connected() -> void:
 	_on_client_connected()
 
 func _on_host_pressed() -> void:
-	if GameState.NetworkState == GameState.MODE.DISCONNECTED:
+	if Lobby.NetworkState == Lobby.MODE.DISCONNECTED:
 		if ($connect/name.text == ""):
 			$connect/error_label.text="Invalid name!"
 			return
 		
-		NodeUtilities.bind_signal("server_up", "_on_client_connected", GameState, self, NodeUtilities.MODE.CONNECT)
+		NodeUtilities.bind_signal("server_up", "_on_client_connected", Lobby, self, NodeUtilities.MODE.CONNECT)
 		
-		GameState.server_set_mode()
+		Lobby.server_set_mode()
 		
-		yield(GameState, "scene_change") #Wait Until the world loads
-		GameState.player_register(Options.player_data, true) #local player
+		yield(WorldManager, "scene_change") #Wait Until the world loads
+		Lobby.player_register(Options.player_data, true) #local player
 		
 		self.state = STATE.SERVER_SELECT
 		
@@ -88,7 +88,7 @@ func _on_host_pressed() -> void:
 
 
 func _on_join_pressed() -> void:
-	if GameState.NetworkState == GameState.MODE.DISCONNECTED:
+	if Lobby.NetworkState == Lobby.MODE.DISCONNECTED:
 		if ($connect/name.text == ""):
 			$connect/error_label.text="Invalid name!"
 			return
@@ -102,12 +102,12 @@ func _on_join_pressed() -> void:
 		print(player_data)
 		
 
-		#NodeUtilities.bind_signal("client_connected", "", GameState, self, NodeUtilities.MODE.CONNECT)
-		NodeUtilities.bind_signal("server_up", "_on_client_connected", GameState, self, NodeUtilities.MODE.CONNECT)
+		#NodeUtilities.bind_signal("client_connected", "", Lobby, self, NodeUtilities.MODE.CONNECT)
+		NodeUtilities.bind_signal("server_up", "_on_client_connected", Lobby, self, NodeUtilities.MODE.CONNECT)
 
-		GameState.client_server_connect($connect/ipcontainer/ip.text)
-		yield(GameState, "scene_change") #Wait Until the world loads
-		GameState.player_register(player_data, true) #local player
+		Lobby.client_server_connect($connect/ipcontainer/ip.text)
+		yield(Lobby, "scene_change") #Wait Until the world loads
+		Lobby.player_register(player_data, true) #local player
 		return
 
 
@@ -140,12 +140,12 @@ func _on_Sinlgeplayer_pressed() -> void:
 		username = $connect/name.text,
 		network = false
 	}
-	GameState.NetworkState = GameState.MODE.ERROR
-	GameState.player_register(player_data, true) #local player
+	Lobby.NetworkState = Lobby.MODE.ERROR
+	Lobby.player_register(player_data, true) #local player
 	Log.hint(self, "_on_Singleplayer_pressed", str("change scene to" , worldscene))
 	yield(get_tree().create_timer(2), "timeout")
 	state_hide()
-	GameState.change_scene(worldscene)
+	Lobby.change_scene(worldscene)
 
 func _on_Button2_pressed() -> void:
 	set_name()

@@ -21,10 +21,10 @@ func _ready_headless() -> void:
 		name = "Server Bot",
 		options = Options.player_opt("server_bot")
 	}
-	GameState.player_register(player_data, true) #local player
-	GameState.server_set_mode()
+	Lobby.player_register(player_data, true) #local player
+	Lobby.server_set_mode()
 	var worldscene = Options.scenes.default_multiplayer_headless_scene
-	GameState.change_scene(worldscene)
+	Lobby.change_scene(worldscene)
 
 func _on_size_changed() -> void:
 	var Newsize = get_viewport().get_visible_rect().size
@@ -37,7 +37,7 @@ func _on_Run_pressed() -> void:
 
 func _on_Timer_timeout() -> void:
 	var worldscene = Options.scenes.default_run_scene
-	GameState.change_scene(worldscene)
+	Lobby.change_scene(worldscene)
 
 func _on_Help_pressed() -> void:
 	$ui/MainUI/InstructionsContainer.visible = !$ui/MainUI/InstructionsContainer.visible

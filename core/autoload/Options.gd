@@ -26,7 +26,7 @@ var player_scene : PackedScene = preload("res://assets/Player/avatar_v2/player.t
 
 # Join server host
 # var join_server_host = "127.0.0.1"
-# 
+#
 # var join_server_host = "moonwards.hopto.org"
 var join_server_host : String = "mainhabs.moonwards.com"
 
@@ -92,7 +92,7 @@ onready var player_data : Dictionary = {
 		IN_AIR_DELTA = 0.4
 	}
 	}
-	
+
 var player_opt : Dictionary = {
 	player_group = "player",
 	opt_allow_unknown = true,
@@ -146,7 +146,7 @@ func _ready() -> void:
 	self.load()
 	set_defaults()
 	load_graphics_settings()
-	
+
 
 #############################
 #       Debugger function      #
@@ -211,10 +211,10 @@ func load()->void:
 		load_user_settings()
 		printd("load", "Options loaded from %s" % Config_File)
 	update_player_data()
-		
+
 
 func save() -> void:
-	set("_state_", GameState.local_id, "game_state_id")
+	set("_state_", Lobby.local_id, "game_state_id")
 	save_user_settings()
 	config.save(Config_File)
 	printd("save","Options saved to %s" % Config_File)
@@ -286,7 +286,7 @@ func safe_get_color(var color_name : String, var default_color : Color) -> Color
 func save_user_settings() -> void:
 	set('player', username, "username")
 	set('player', gender, "gender")
-	
+
 	set('Pcolor', pants_color.r*255, "pantsR")
 	set('Pcolor', pants_color.g*255, "pantsG")
 	set('Pcolor', pants_color.b*255, "pantsB")
@@ -312,10 +312,10 @@ func save_user_settings() -> void:
 func load_graphics_settings() -> void:
 	var resolutions : Vector2 = Vector2()
 	var mode : String = get("resolution", "mode", "Windowed")
-	
+
 	resolutions.x = get("resolution", "width", 1024)
 	resolutions.y = get("resolution", "height", 700)
-	
+
 	match mode:
 		"Windowed":
 			OS.window_borderless = false
@@ -330,5 +330,5 @@ func load_graphics_settings() -> void:
 		"Fullscreen":
 			OS.window_borderless = false
 			OS.window_fullscreen = true
-			
+
 	get_tree().get_root().size = resolutions

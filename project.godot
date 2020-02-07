@@ -29,11 +29,12 @@ config/icon="res://icon.png"
 Log="*res://utility/GlobalLogger.gd"
 NodeUtilities="*res://core/autoload/Utilities.gd"
 Options="*res://core/autoload/Options.gd"
-GameState="*res://core/autoload/GameState.gd"
+Lobby="*res://core/autoload/network/Lobby.gd"
 InputMapping="*res://core/autoload/InputMapping.gd"
 Hud="*res://Interface/Hud/Hud.tscn"
 PauseMenu="*res://Interface/PauseMenu/PauseMenu.tscn"
 MainMenu="*res://Interface/MainMenu/MainMenu.tscn"
+WorldManager="*res://core/autoload/World.gd"
 
 [compression]
 

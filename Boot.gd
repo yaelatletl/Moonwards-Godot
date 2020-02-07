@@ -19,7 +19,7 @@ func _ready_headless() -> void:
 		name = "Server Bot",
 		options = Options.player_opt("server_bot")
 	}
-	GameState.player_register(player_data, true) #local player
-	GameState.server_set_mode()
+	Lobby.player_register(player_data, true) #local player
+	Lobby.server_set_mode()
 	var worldscene : String = Options.scenes.default_multiplayer_join_server
-	GameState.change_scene(worldscene)
+	Lobby.change_scene(worldscene)
