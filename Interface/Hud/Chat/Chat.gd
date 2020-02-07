@@ -6,8 +6,15 @@ extends PanelContainer
 onready var _chat_display_node: RichTextLabel = $"V/RichTextLabel"
 onready var _chat_input_node: LineEdit = $"V/LineEdit"
 
-var _active: bool = false
+#Where the chat box is when fully open.
+const CHAT_RAISED_MARGIN_TOP = -198
+const CHAT_LOWER_MARGIN_TOP = -60
 
+var _active: bool = false
+var chat_is_raised : bool = false
+"""
+	Put in the text field that you can press v to toggle chat raised.
+"""
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not visible:
@@ -19,6 +26,12 @@ func _unhandled_input(event: InputEvent) -> void:
 				_chat_input_node.grab_focus()
 				_chat_input_node.editable = true
 				_active = true
+		
+		elif event.scancode == KEY_V and event.pressed and _active == false :
+			if chat_is_raised : #Lower the chat.
+				lower_chat()
+			else :
+				raise_chat()
 
 
 func _on_LineEdit_text_entered(new_text: String) -> void:
@@ -41,3 +54,15 @@ remotesync func _append_text_to_chat(new_text: String) -> void:
 
 	#warning-ignore:return_value_discarded
 	_chat_display_node.append_bbcode(new_text)
+
+
+func lower_chat() -> void :
+	#Make the chat as small as possible.
+	margin_top = CHAT_LOWER_MARGIN_TOP
+	chat_is_raised = false
+
+
+func raise_chat() -> void :
+	#Bring the chat up to the maximum height.
+	margin_top = CHAT_RAISED_MARGIN_TOP
+	chat_is_raised = true
