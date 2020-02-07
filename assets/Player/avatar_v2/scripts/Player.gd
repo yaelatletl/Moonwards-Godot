@@ -14,6 +14,15 @@ var MIN_JUMP_SPEED = 0.2
 var MAX_JUMP_TIMER = 0.5
 var SPEED_SCALE = 15 #use as 0.1*SPEED_SCALE for time being because of slider for speed setting is int, in OptionsUI.gd
 
+#### Globals for Bot movement ####
+var current_point : Vector3 = Vector3() #This is the direction a bot would follow, given a set of instructions. 
+var AI_PATH
+var has_destination : bool = false
+var point_number : int 
+var bot : bool = false
+#############NPCS END#############
+
+
 const SpeedFeed = {
 # 	MOTION_INTERPOLATE_SPEED = 10,
 # 	ROTATION_INTERPOLATE_SPEED = 10,
@@ -253,16 +262,57 @@ func Jump(var timer):
 	jump_timeout = 1.0
 
 func _physics_process(delta):
-	if puppet:
-		HandleOnGround(delta)
-		UpdateNetworking()
-		HandleMovement()
-	else:
-		HandleOnGround(delta)
-		HandleControls(delta)
-		UpdateNetworking()
-		HandleMovement()
+	UpdateNetworking()
+	HandleOnGround(delta)
+	HandleMovement()
+	if bot:
+		bot_movement(delta)
+	if not puppet:
 		SaveRPoints(delta)
+	if puppet and not bot:
+		return
+	HandleControls(delta)
+
+func pick_random():
+	var random_pos : Vector3 = Vector3()
+	randomize()
+	random_pos.x = translation.x + rand_range(-5.0,5.0)
+	randomize()
+	random_pos.y = translation.y + rand_range(-5.0,5.0)
+	randomize()
+	random_pos.z = translation.z + rand_range(-5.0,5.0)
+	bot_update_path(random_pos)
+	
+func bot_update_path(to : Vector3) -> void:
+	has_destination = false
+	AI_PATH = WorldManager.find_shortest_path(translation, to)
+	current_point = AI_PATH[0]
+	point_number = 0
+	
+	has_destination = true
+	
+func bot_movement(delta : float) -> void:
+	if has_destination:
+		velocity = (current_point-translation).normalized()*2
+		
+		if (current_point-translation).length() > 1:
+#			velocity += GRAVITY*delta
+			var vertical_velocity = GRAVITY.dot(velocity.normalized())
+			#velocity = (current_point-translation)*0.1*SPEED_SCALE
+			
+			if $KinematicBody.is_on_floor() or $KinematicBody.is_on_ceiling():
+				
+				velocity.y = 0
+			else:
+				velocity -= GRAVITY*vertical_velocity 
+			print($KinematicBody.translation)
+			velocity = $KinematicBody.move_and_slide(velocity, Vector3(0,1,0), motion_target == Vector2())
+		else: 
+			if point_number < AI_PATH.size()-1:
+				point_number += 1
+				current_point = AI_PATH[point_number]
+	else: 
+		velocity = Vector3()
 
 func HandleOnGround(delta):
 	if $KinematicBody/OnGround.is_colliding() and in_air:
@@ -281,7 +331,7 @@ func HandleMovement():
 	$KinematicBody/AnimationTree["parameters/MovementSpeed/scale"] = animation_speed
 
 func HandleControls(var delta):
-	if puppet:
+	if puppet and not bot:
 		return
 	
 	# FIXME: controls need to be dealt with elsewhere
@@ -337,7 +387,11 @@ func HandleControls(var delta):
 	ground_normal = $KinematicBody/OnGround.get_collision_normal()
 
 	#Update the model rotation based on the camera look direction.
-	var target_direction = -camera_control.camera.global_transform.basis.z
+	var target_direction 
+	if puppet and bot:
+		target_direction = current_point
+	else:
+		target_direction = -camera_control.camera.global_transform.basis.z
 	target_direction.y = 0.0
 	if model.global_transform.origin != model.global_transform.origin - target_direction and not in_air:
 		var target_transform = model.global_transform.looking_at(model.global_transform.origin - target_direction, Vector3(0, 1, 0))
