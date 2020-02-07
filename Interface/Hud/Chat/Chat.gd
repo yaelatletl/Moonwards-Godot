@@ -15,29 +15,31 @@ var _chat_is_raised : bool = false
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if not visible:
+	if not visible or _active :
 		return
 	
 	if event is InputEventKey:
-		if event.scancode == KEY_ENTER and event.pressed:
-			if not _active:
-				_chat_input_node.grab_focus()
-				_chat_input_node.editable = true
-				_active = true
+		if event.pressed == false :
+			return
 		
-		elif event.scancode == KEY_V and event.pressed and _active == false :
+		if event.scancode == KEY_ENTER:
+			_chat_input_node.grab_focus()
+			_chat_input_node.editable = true
+			_active = true
+		
+		elif event.scancode == KEY_V :
 			if _chat_is_raised : #Lower the chat.
 				lower_chat()
 			else :
 				raise_chat()
 		
 		#Now determine if the player is trying to scroll the chat window.
-		elif event.scancode == KEY_T and event.pressed and _active == false :
+		elif event.scancode == KEY_T :
 			#Scroll upwards.
 			var _v_scroll_bar : VScrollBar = _chat_display_node.get_v_scroll()
 			_v_scroll_bar.value = _v_scroll_bar.value - _v_scroll_bar.page
 		
-		elif event.scancode == KEY_G and event.pressed and _active == false :
+		elif event.scancode == KEY_G :
 			#Scroll upwards.
 			var _v_scroll_bar : VScrollBar = _chat_display_node.get_v_scroll()
 			_v_scroll_bar.value = _v_scroll_bar.value + _v_scroll_bar.page
