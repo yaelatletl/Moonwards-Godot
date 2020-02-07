@@ -11,7 +11,7 @@ const CHAT_RAISED_MARGIN_TOP = -198
 const CHAT_LOWER_MARGIN_TOP = -60
 
 var _active: bool = false
-var chat_is_raised : bool = false
+var _chat_is_raised : bool = false
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -26,7 +26,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				_active = true
 		
 		elif event.scancode == KEY_V and event.pressed and _active == false :
-			if chat_is_raised : #Lower the chat.
+			if _chat_is_raised : #Lower the chat.
 				lower_chat()
 			else :
 				raise_chat()
@@ -68,10 +68,10 @@ remotesync func _append_text_to_chat(new_text: String) -> void:
 func lower_chat() -> void :
 	#Make the chat as small as possible.
 	margin_top = CHAT_LOWER_MARGIN_TOP
-	chat_is_raised = false
+	_chat_is_raised = false
 
 
 func raise_chat() -> void :
 	#Bring the chat up to the maximum height.
 	margin_top = CHAT_RAISED_MARGIN_TOP
-	chat_is_raised = true
+	_chat_is_raised = true
