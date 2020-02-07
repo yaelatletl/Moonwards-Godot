@@ -12,9 +12,7 @@ const CHAT_LOWER_MARGIN_TOP = -60
 
 var _active: bool = false
 var chat_is_raised : bool = false
-"""
-	Put in the text field that you can press v to toggle chat raised.
-"""
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not visible:
@@ -32,6 +30,17 @@ func _unhandled_input(event: InputEvent) -> void:
 				lower_chat()
 			else :
 				raise_chat()
+		
+		#Now determine if the player is trying to scroll the chat window.
+		elif event.scancode == KEY_T and event.pressed and _active == false :
+			#Scroll upwards.
+			var _v_scroll_bar : VScrollBar = _chat_display_node.get_v_scroll()
+			_v_scroll_bar.value = _v_scroll_bar.value - _v_scroll_bar.page
+		
+		elif event.scancode == KEY_G and event.pressed and _active == false :
+			#Scroll upwards.
+			var _v_scroll_bar : VScrollBar = _chat_display_node.get_v_scroll()
+			_v_scroll_bar.value = _v_scroll_bar.value + _v_scroll_bar.page
 
 
 func _on_LineEdit_text_entered(new_text: String) -> void:
