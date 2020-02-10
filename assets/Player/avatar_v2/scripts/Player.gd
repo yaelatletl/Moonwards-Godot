@@ -20,6 +20,7 @@ var AI_PATH
 var has_destination : bool = false
 var point_number : int 
 var bot : bool = false
+var global_character_position : Vector3 = Vector3()
 #############NPCS END#############
 
 
@@ -266,7 +267,9 @@ func _physics_process(delta):
 	HandleOnGround(delta)
 	HandleMovement()
 	if bot:
+		global_character_position = $KinematicBody.to_global($KinematicBody.translation)
 		bot_movement(delta)
+		
 	if not puppet:
 		SaveRPoints(delta)
 	if puppet and not bot:
@@ -276,11 +279,11 @@ func _physics_process(delta):
 func pick_random():
 	var random_pos : Vector3 = Vector3()
 	randomize()
-	random_pos.x = translation.x + rand_range(-5.0,5.0)
+	random_pos.x = global_character_position.x + rand_range(-5.0,5.0)
 	randomize()
-	random_pos.y = translation.y + rand_range(-5.0,5.0)
+	random_pos.y = global_character_position.y + rand_range(-5.0,5.0)
 	randomize()
-	random_pos.z = translation.z + rand_range(-5.0,5.0)
+	random_pos.z = global_character_position.z + rand_range(-5.0,5.0)
 	bot_update_path(random_pos)
 	
 func bot_update_path(to : Vector3) -> void:
