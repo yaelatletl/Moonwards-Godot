@@ -63,7 +63,7 @@ func _ready():
 	
 	#calculate_astar()
 	#set_process_input(true)
-
+	WorldManager.set_current_world(self)
 	m.flags_unshaded = true
 	m.flags_use_point_size = true
 	m.albedo_color = Color(1.0, 1.0, 1.0, 1.0)

@@ -267,6 +267,13 @@ transform = Transform( -0.997314, 0, 0.0732408, 0, 1, 0, -0.0732408, 0, -0.99731
 
 [node name="LocalPlayer" parent="players" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -62.6059, -1928.62, -8.17185 )
+bot = true
+physics_scale = 0.5
+
+[node name="LocalPlayer2" parent="players" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -63.0123, -1928.62, -8.17185 )
+bot = true
+physics_scale = 0.5
 
 [node name="scene_id_30160" type="Spatial" parent="."]
 

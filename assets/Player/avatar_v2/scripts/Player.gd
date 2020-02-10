@@ -33,7 +33,7 @@ const SpeedFeed = {
 }
 export(float) var physics_scale = 1 setget SetPScale
 
-var motion = Vector2()
+var motion : Vector2 = Vector2()
 
 #################################
 # Current state of player avatar
@@ -99,6 +99,10 @@ var gender setget SetPuppetGender
 func _ready():
 	orientation = model.global_transform
 	orientation.origin = Vector3()
+	if is_network_master():
+		puppet == false
+	else:
+		puppet == true
 	if not puppet:
 		camera_control = get_node(camera_control_path)
 		Options.connect("user_settings_changed", self, "ApplyUserSettings")
@@ -196,10 +200,9 @@ func SetPScale(scale):
 func _input(event):
 	# FIXME: This should be dealt with elsewhere
 	if bot:
-		motion_target = $KinematicBody.to_local(current_point)-$KinematicBody.translation
-		camera_control.look_at(current_point, Vector3(0,1,0))
-		camera_control.get_global_transform().basis[2][1] = 12
-		motion_target = camera_control.get_global_transform().basis
+		if event.is_action_pressed("jump"):
+			pick_random()
+		return
 	if PauseMenu.is_open():
 		return
 	
@@ -267,11 +270,20 @@ func Jump(var timer):
 	jump_timeout = 1.0
 
 func _physics_process(delta):
+	if bot:
+#		motion.x = ($KinematicBody.to_local(current_point)-$KinematicBody.translation).x
+#		motion.y = ($KinematicBody.to_local(current_point)-$KinematicBody.translation).z
+		motion_target = Vector2(.5,.5)
+		camera_control.look_at(current_point, Vector3(0,1,0))
+#		camera_control.get_global_transform().basis[2][0] += motion_target.x 
+#		camera_control.get_global_transform().basis[2][2] += motion_target.y
+#		motion_target.x = camera_control.get_global_transform().basis[2].x
+#		motion_target.y = camera_control.get_global_transform().basis[2].z
 	UpdateNetworking()
 	HandleOnGround(delta)
 	HandleMovement()
 	if bot:
-		global_character_position = $KinematicBody.to_global($KinematicBody.translation)
+		global_character_position = to_global($KinematicBody.translation)
 		bot_movement(delta)
 		
 	if not puppet:
@@ -283,25 +295,31 @@ func _physics_process(delta):
 func pick_random():
 	var random_pos : Vector3 = Vector3()
 	randomize()
-	random_pos.x = global_character_position.x + rand_range(-5.0,5.0)
-	randomize()
-	random_pos.y = global_character_position.y + rand_range(-5.0,5.0)
-	randomize()
-	random_pos.z = global_character_position.z + rand_range(-5.0,5.0)
-	bot_update_path(random_pos)
+	var localized_pos = to_local(global_character_position)
+	random_pos.x = localized_pos.x + rand_range(-3.0,3.0)
+	random_pos.y = localized_pos.y + rand_range(-3.0,3.0)
+	random_pos.z = localized_pos.z + rand_range(-3.0,3.0)
+	bot_update_path(to_global(random_pos))
 	
 func bot_update_path(to : Vector3) -> void:
 	has_destination = false
-	AI_PATH = WorldManager.get_navmesh_path(translation, to)
-	current_point = AI_PATH[0]
+	AI_PATH = Array(WorldManager.current_world.get_navmesh_path($KinematicBody.to_global($KinematicBody.translation), to))
+	if AI_PATH.size()>1:
+		current_point = AI_PATH[0]
+	else:
+		current_point = Vector3()
+	$Target.translation = to_local(current_point)
+	print(AI_PATH)
+		
 	point_number = 0
 	has_destination = true
 	
 func bot_movement(delta : float) -> void:
 	if has_destination:
-		if (current_point-translation).length() < 0.1:
+		if (current_point-global_character_position).length() < 0.1:
 			if point_number < AI_PATH.size()-1:
 				point_number += 1
+				$Target.translation = to_local(current_point)
 				current_point = AI_PATH[point_number]
 
 
@@ -332,8 +350,9 @@ func HandleControls(var delta):
 		jump = false
 	elif not bot:
 		jump = Input.is_action_pressed("jump")
-		input_direction = (Input.get_action_strength("move_forwards") - Input.get_action_strength("move_backwards"))
-
+	input_direction = (Input.get_action_strength("move_forwards") - Input.get_action_strength("move_backwards"))
+	if bot:
+		input_direction = to_local(current_point) - $KinematicBody.translation
 	if jump_timeout > 0.0:
 		jump_timeout -= delta
 		if jump_timeout <= 0.0:
@@ -378,11 +397,7 @@ func HandleControls(var delta):
 	ground_normal = $KinematicBody/OnGround.get_collision_normal()
 
 	#Update the model rotation based on the camera look direction.
-	var target_direction 
-	if puppet and bot:
-		target_direction = current_point
-	else:
-		target_direction = -camera_control.camera.global_transform.basis.z
+	var target_direction = -camera_control.camera.global_transform.basis.z
 	target_direction.y = 0.0
 	if model.global_transform.origin != model.global_transform.origin - target_direction and not in_air:
 		var target_transform = model.global_transform.looking_at(model.global_transform.origin - target_direction, Vector3(0, 1, 0))
@@ -395,7 +410,12 @@ func HandleControls(var delta):
 
 		var h_velocity = (orientation.origin / delta) * 0.1 * SPEED_SCALE
 		var velocity_direction = h_velocity.normalized()
-		var slide_direction = velocity_direction.slide(ground_normal)
+		var slide_direction  = velocity_direction.slide(ground_normal)
+		if bot:
+			h_velocity.x = (current_point-global_character_position).normalized().x 
+			h_velocity.z = (current_point-global_character_position).normalized().z
+			
+		
 		h_velocity = slide_direction * h_velocity.length()
 
 # 		#printd("h_velocity(%s) = (orientation.origin(%s) / delta(%s))" % [h_velocity, orientation.origin, delta])
@@ -412,7 +432,12 @@ func HandleControls(var delta):
 	else:
 		#When in the air or jumping apply the normal gravity to the character.
 		velocity += GRAVITY * delta
-
+	if bot:
+		print("Current path ", AI_PATH)
+		print("Velocity ", velocity)
+		print("Global pos ", global_character_position)
+		print("current point (local) ", to_local(current_point))
+		print("current point ", current_point)
 	velocity = $KinematicBody.move_and_slide(velocity, Vector3(0,1,0), motion_target == Vector2())
 
 	orientation.origin = Vector3()
