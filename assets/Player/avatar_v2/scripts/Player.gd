@@ -271,6 +271,7 @@ func Jump(var timer):
 
 func _physics_process(delta):
 	if bot:	
+		$Target.translation = to_local(current_point)
 		motion_target = Vector2(.25,.25)
 		camera_control.look_at(current_point, Vector3(0,1,0))
 	UpdateNetworking()
@@ -302,7 +303,7 @@ func bot_update_path(to : Vector3) -> void:
 		current_point = AI_PATH[0]
 	else:
 		current_point = Vector3()
-	$Target.translation = to_local(current_point)
+	
 	print(AI_PATH)
 		
 	point_number = 0
@@ -310,7 +311,7 @@ func bot_update_path(to : Vector3) -> void:
 	
 func bot_movement(delta : float) -> void:
 	if has_destination:
-		if (current_point-global_character_position).length() < 1:
+		if (to_local(current_point)-$KinematicBody.translation).length() < 0.4:
 			if point_number < AI_PATH.size()-1:
 				point_number += 1
 				$Target.translation = to_local(current_point)
