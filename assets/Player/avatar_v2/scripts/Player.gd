@@ -272,7 +272,7 @@ func Jump(var timer):
 func _physics_process(delta):
 	if bot:	
 		$Target.translation = to_local(current_point)
-		motion_target = Vector2(.25,.25)
+		motion_target = Vector2(0,1)
 		camera_control.look_at(current_point, Vector3(0,1,0))
 	UpdateNetworking()
 	HandleOnGround(delta)
@@ -407,8 +407,8 @@ func HandleControls(var delta):
 		var velocity_direction = h_velocity.normalized()
 		var slide_direction  = velocity_direction.slide(ground_normal)
 		if bot:
-			h_velocity.x = (current_point-global_character_position).normalized().x 
-			h_velocity.z = (current_point-global_character_position).normalized().z
+			h_velocity.x *= (current_point-global_character_position).normalized().x 
+			h_velocity.z *= (current_point-global_character_position).normalized().z
 			
 		
 		h_velocity = slide_direction * h_velocity.length()
