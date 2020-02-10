@@ -270,15 +270,9 @@ func Jump(var timer):
 	jump_timeout = 1.0
 
 func _physics_process(delta):
-	if bot:
-#		motion.x = ($KinematicBody.to_local(current_point)-$KinematicBody.translation).x
-#		motion.y = ($KinematicBody.to_local(current_point)-$KinematicBody.translation).z
-		motion_target = Vector2(.5,.5)
+	if bot:	
+		motion_target = Vector2(.25,.25)
 		camera_control.look_at(current_point, Vector3(0,1,0))
-#		camera_control.get_global_transform().basis[2][0] += motion_target.x 
-#		camera_control.get_global_transform().basis[2][2] += motion_target.y
-#		motion_target.x = camera_control.get_global_transform().basis[2].x
-#		motion_target.y = camera_control.get_global_transform().basis[2].z
 	UpdateNetworking()
 	HandleOnGround(delta)
 	HandleMovement()
@@ -296,14 +290,14 @@ func pick_random():
 	var random_pos : Vector3 = Vector3()
 	randomize()
 	var localized_pos = to_local(global_character_position)
-	random_pos.x = localized_pos.x + rand_range(-3.0,3.0)
-	random_pos.y = localized_pos.y + rand_range(-3.0,3.0)
-	random_pos.z = localized_pos.z + rand_range(-3.0,3.0)
-	bot_update_path(to_global(random_pos))
+	random_pos.x = global_character_position.x + rand_range(-3.0,3.0)
+	random_pos.y = global_character_position.y + rand_range(-3.0,3.0)
+	random_pos.z = global_character_position.z + rand_range(-3.0,3.0)
+	bot_update_path(WorldManager.current_world.to_local(random_pos))
 	
 func bot_update_path(to : Vector3) -> void:
 	has_destination = false
-	AI_PATH = Array(WorldManager.current_world.get_navmesh_path($KinematicBody.to_global($KinematicBody.translation), to))
+	AI_PATH = Array(WorldManager.current_world.get_navmesh_path(WorldManager.current_world.to_local(global_character_position), to))
 	if AI_PATH.size()>1:
 		current_point = AI_PATH[0]
 	else:
@@ -316,7 +310,7 @@ func bot_update_path(to : Vector3) -> void:
 	
 func bot_movement(delta : float) -> void:
 	if has_destination:
-		if (current_point-global_character_position).length() < 0.1:
+		if (current_point-global_character_position).length() < 1:
 			if point_number < AI_PATH.size()-1:
 				point_number += 1
 				$Target.translation = to_local(current_point)
