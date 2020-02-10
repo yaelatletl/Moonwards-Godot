@@ -19,7 +19,7 @@ var current_point : Vector3 = Vector3() #This is the direction a bot would follo
 var AI_PATH
 var has_destination : bool = false
 var point_number : int 
-var bot : bool = false
+export(bool) var bot : bool = false
 var global_character_position : Vector3 = Vector3()
 #############NPCS END#############
 
@@ -195,7 +195,11 @@ func SetPScale(scale):
 # _process functions
 func _input(event):
 	# FIXME: This should be dealt with elsewhere
-	
+	if bot:
+		motion_target = $KinematicBody.to_local(current_point)-$KinematicBody.translation
+		camera_control.look_at(current_point, Vector3(0,1,0))
+		camera_control.get_global_transform().basis[2][1] = 12
+		motion_target = camera_control.get_global_transform().basis
 	if PauseMenu.is_open():
 		return
 	
@@ -288,34 +292,18 @@ func pick_random():
 	
 func bot_update_path(to : Vector3) -> void:
 	has_destination = false
-	AI_PATH = WorldManager.find_shortest_path(translation, to)
+	AI_PATH = WorldManager.get_navmesh_path(translation, to)
 	current_point = AI_PATH[0]
 	point_number = 0
-	
 	has_destination = true
 	
 func bot_movement(delta : float) -> void:
 	if has_destination:
-		velocity = (current_point-translation).normalized()*2
-		
-		if (current_point-translation).length() > 1:
-#			velocity += GRAVITY*delta
-			var vertical_velocity = GRAVITY.dot(velocity.normalized())
-			#velocity = (current_point-translation)*0.1*SPEED_SCALE
-			
-			if $KinematicBody.is_on_floor() or $KinematicBody.is_on_ceiling():
-				
-				velocity.y = 0
-			else:
-				velocity -= GRAVITY*vertical_velocity 
-			print($KinematicBody.translation)
-			velocity = $KinematicBody.move_and_slide(velocity, Vector3(0,1,0), motion_target == Vector2())
-		else: 
+		if (current_point-translation).length() < 0.1:
 			if point_number < AI_PATH.size()-1:
 				point_number += 1
 				current_point = AI_PATH[point_number]
-	else: 
-		velocity = Vector3()
+
 
 func HandleOnGround(delta):
 	if $KinematicBody/OnGround.is_colliding() and in_air:
@@ -342,7 +330,7 @@ func HandleControls(var delta):
 		motion_target = Vector2()
 		input_direction = 0.0
 		jump = false
-	else:
+	elif not bot:
 		jump = Input.is_action_pressed("jump")
 		input_direction = (Input.get_action_strength("move_forwards") - Input.get_action_strength("move_backwards"))
 
