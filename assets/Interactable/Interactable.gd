@@ -9,7 +9,16 @@ extends Area
 
 """
 
+#This is what is displayed when an interactor can interact with me.
+export var display_info : String = "Interactable"
+
+
 signal interacted_with( interactor_ray_cast )
+
+
+func get_info() -> String :
+	#Show what the display info should be for interacting with me.
+	return display_info
 
 
 func interact_with( interactor : Node ) -> void :
