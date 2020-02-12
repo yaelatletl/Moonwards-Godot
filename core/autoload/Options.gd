@@ -173,7 +173,7 @@ func set_defaults() -> void:
 func player_opt(type, opt : Dictionary = {}) -> Dictionary:
 	var res : Dictionary= {}
 	var filter : Dictionary = player_opt.opt_filter
-	var filter_id : int = "opt_filter_%s" % type
+	var filter_id : String = "opt_filter_%s" % type
 	if player_opt.has(filter_id):
 		filter = player_opt[filter_id]
 
@@ -188,7 +188,7 @@ func player_opt(type, opt : Dictionary = {}) -> Dictionary:
 #	if not player_opt.has(type):
 #		printd("player_filter_opt, unknown player opt type %s" % type)
 	if player_opt.has(type):
-		var def_opt : Array = player_opt[type]
+		var def_opt : Dictionary = player_opt[type]
 		for k in def_opt:
 			res[k] = def_opt[k]
 	return res

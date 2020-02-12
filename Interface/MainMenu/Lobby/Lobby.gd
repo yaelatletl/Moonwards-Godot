@@ -106,7 +106,7 @@ func _on_join_pressed() -> void:
 		NodeUtilities.bind_signal("server_up", "_on_client_connected", Lobby, self, NodeUtilities.MODE.CONNECT)
 
 		Lobby.client_server_connect($connect/ipcontainer/ip.text)
-		yield(Lobby, "scene_change") #Wait Until the world loads
+		yield(WorldManager, "scene_change") #Wait Until the world loads
 		Lobby.player_register(player_data, true) #local player
 		return
 

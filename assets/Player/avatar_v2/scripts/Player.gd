@@ -97,25 +97,32 @@ var gender setget SetPuppetGender
 
 #################################
 # Init functions
+func _enter_tree():
+	set_player_group()
+	if Lobby.local_id!=1 and bot:
+		puppet = true
 func _ready():
 	orientation = model.global_transform
 	orientation.origin = Vector3()
-	if is_network_master():
-		puppet == false
-	else:
-		puppet == true
-	if not puppet:
-		camera_control = get_node(camera_control_path)
+	print("The local id is ", Lobby.local_id)
+	camera_control = get_node(camera_control_path)
+	if not puppet and not bot:
 		Options.connect("user_settings_changed", self, "ApplyUserSettings")
 		SetupMaterials()
 		ApplyUserSettings()
 	else:
 		set_process_input(false)
 	SetRemotePlayer(puppet)
-	if bot:
+	if bot and puppet:
+		set_network_master(1)
+		SetNetwork(true)
+	if bot and not puppet:
+		SetNetwork(true)
+		#
 		randomize()
 		yield(get_tree().create_timer(1.0), "timeout")
 		pick_random()
+	print("My name is ", name, "I was set as puppet?: ", puppet, "I was set as bot?: ", bot, "My master is ", get_network_master())
 func SetupMaterials():
 	shirt_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(0).duplicate()
 	pants_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(1).duplicate()
@@ -170,8 +177,8 @@ func ApplyUserSettings():
 
 	SetUsername(Options.username)
 
-func _enter_tree():
-	set_player_group()
+
+	
 
 func set_player_group(enable=true): # for local only
 	if not  is_inside_tree():
@@ -270,24 +277,22 @@ func Jump(var timer):
 	jump_timeout = 1.0
 
 func _physics_process(delta):
-	if bot:
+	UpdateNetworking()
+	if puppet and not bot:
+		return
+	if not puppet:
+		SaveRPoints(delta)
+	if bot and not puppet:
 		$Target.translation = to_local(current_point)
 		if current_point.length()<0.01:
 			motion_target = Vector2(0,0)
 		else:
 			motion_target = Vector2(0,1)
 		camera_control.look_at((current_point), Vector3(0,1,0))
-	UpdateNetworking()
-	HandleOnGround(delta)
-	HandleMovement()
-	if bot:
 		global_character_position = to_global($KinematicBody.translation)
 		bot_movement(delta)
-		
-	if not puppet:
-		SaveRPoints(delta)
-	if puppet and not bot:
-		return
+	HandleOnGround(delta)
+	HandleMovement()
 	HandleControls(delta)
 
 func pick_random():
@@ -574,7 +579,7 @@ func DoInteractiveObjectCheck():
 #################################
 # networking functions
 func UpdateNetworking():
-	if nonetwork:
+	if nonetwork and not bot:
 		return
 	if puppet:
 		if puppet_translation != null:
@@ -587,7 +592,7 @@ func UpdateNetworking():
 			motion = puppet_motion
 		if puppet_animation_speed != null:
 			animation_speed = puppet_animation_speed
-	elif is_network_master():
+	elif is_network_master() or (bot and not puppet):
 		rset_unreliable("puppet_translation", $KinematicBody.global_transform.origin)
 		rset_unreliable("puppet_rotation", model.global_transform.basis)
 		rset_unreliable("puppet_motion", motion)
@@ -621,9 +626,9 @@ func SetRemotePlayer(enable):
 		$KinematicBody/Nametag.visible = false
 		$Camera.current = true
 	else:
-		$KinematicBody/Nametag.visible = true
 		$Camera.current = false
-
+	if puppet or bot:
+		$KinematicBody/Nametag.visible = true
 #################################
 # Debugger functions
 func CreateDebugLine(var from, var to):
