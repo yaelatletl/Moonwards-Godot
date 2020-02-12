@@ -278,7 +278,7 @@ func _physics_process(delta):
 			motion_target = Vector2(0,0)
 		else:
 			motion_target = Vector2(0,1)
-		camera_control.look_at(to_local(current_point), Vector3(0,1,0))
+		camera_control.look_at((current_point), Vector3(0,1,0))
 	UpdateNetworking()
 	HandleOnGround(delta)
 	HandleMovement()
@@ -318,7 +318,7 @@ func bot_update_path(to : Vector3) -> void:
 	
 func bot_movement(delta : float) -> void:
 	if has_destination:
-		if (to_local(current_point)-$KinematicBody.translation).length() < 0.5:
+		if (to_local(current_point)-$KinematicBody.translation).length() < 0.3:
 			if point_number < AI_PATH.size()-1:
 				point_number += 1
 				$Target.translation = to_local(current_point)
@@ -414,8 +414,8 @@ func HandleControls(var delta):
 		var h_velocity = (orientation.origin / delta) * 0.1 * SPEED_SCALE
 		if bot:
 			print("h_velocity is ", h_velocity)
-			h_velocity.x *= ($Target.translation-$KinematicBody.translation).normalized().x 
-			h_velocity.z *= ($Target.translation-$KinematicBody.translation).normalized().z
+			h_velocity.x *= abs(($Target.translation-$KinematicBody.translation).normalized().x )
+			h_velocity.z *=abs(($Target.translation-$KinematicBody.translation).normalized().z)
 			
 		
 		var velocity_direction = h_velocity.normalized()
