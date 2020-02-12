@@ -111,7 +111,9 @@ func _ready():
 	else:
 		set_process_input(false)
 	SetRemotePlayer(puppet)
-
+	if bot:
+		yield(get_tree().create_timer(1.0), "timeout")
+		pick_random()
 func SetupMaterials():
 	shirt_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(0).duplicate()
 	pants_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(1).duplicate()
@@ -200,7 +202,7 @@ func SetPScale(scale):
 func _input(event):
 	# FIXME: This should be dealt with elsewhere
 	if bot:
-		if event.is_action_pressed("jump"):
+		if event.is_action_pressed("use"):
 			pick_random()
 		return
 	if PauseMenu.is_open():
@@ -270,10 +272,13 @@ func Jump(var timer):
 	jump_timeout = 1.0
 
 func _physics_process(delta):
-	if bot:	
+	if bot:
 		$Target.translation = to_local(current_point)
-		motion_target = Vector2(0,1)
-		camera_control.look_at(current_point, Vector3(0,1,0))
+		if current_point.length()<0.01:
+			motion_target = Vector2(0,0)
+		else:
+			motion_target = Vector2(0,1)
+		camera_control.look_at(to_local(current_point), Vector3(0,1,0))
 	UpdateNetworking()
 	HandleOnGround(delta)
 	HandleMovement()
@@ -296,6 +301,8 @@ func pick_random():
 	random_pos.z = global_character_position.z + rand_range(-3.0,3.0)
 	bot_update_path(WorldManager.current_world.to_local(random_pos))
 	
+	
+	
 func bot_update_path(to : Vector3) -> void:
 	has_destination = false
 	AI_PATH = Array(WorldManager.current_world.get_navmesh_path(WorldManager.current_world.to_local(global_character_position), to))
@@ -311,12 +318,13 @@ func bot_update_path(to : Vector3) -> void:
 	
 func bot_movement(delta : float) -> void:
 	if has_destination:
-		if (to_local(current_point)-$KinematicBody.translation).length() < 0.4:
+		if (to_local(current_point)-$KinematicBody.translation).length() < 0.5:
 			if point_number < AI_PATH.size()-1:
 				point_number += 1
 				$Target.translation = to_local(current_point)
 				current_point = AI_PATH[point_number]
-
+			else:
+				pick_random()
 
 func HandleOnGround(delta):
 	if $KinematicBody/OnGround.is_colliding() and in_air:
@@ -345,9 +353,9 @@ func HandleControls(var delta):
 		jump = false
 	elif not bot:
 		jump = Input.is_action_pressed("jump")
-	input_direction = (Input.get_action_strength("move_forwards") - Input.get_action_strength("move_backwards"))
+		input_direction = (Input.get_action_strength("move_forwards") - Input.get_action_strength("move_backwards"))
 	if bot:
-		input_direction = to_local(current_point) - $KinematicBody.translation
+		input_direction = 1# to_local(current_point) - $KinematicBody.translation
 	if jump_timeout > 0.0:
 		jump_timeout -= delta
 		if jump_timeout <= 0.0:
@@ -404,13 +412,15 @@ func HandleControls(var delta):
 		orientation *= root_motion
 
 		var h_velocity = (orientation.origin / delta) * 0.1 * SPEED_SCALE
-		var velocity_direction = h_velocity.normalized()
-		var slide_direction  = velocity_direction.slide(ground_normal)
 		if bot:
-			h_velocity.x *= (current_point-global_character_position).normalized().x 
-			h_velocity.z *= (current_point-global_character_position).normalized().z
+			print("h_velocity is ", h_velocity)
+			h_velocity.x *= ($Target.translation-$KinematicBody.translation).normalized().x 
+			h_velocity.z *= ($Target.translation-$KinematicBody.translation).normalized().z
 			
 		
+		var velocity_direction = h_velocity.normalized()
+		var slide_direction  = velocity_direction.slide(ground_normal)
+
 		h_velocity = slide_direction * h_velocity.length()
 
 # 		#printd("h_velocity(%s) = (orientation.origin(%s) / delta(%s))" % [h_velocity, orientation.origin, delta])
@@ -427,10 +437,12 @@ func HandleControls(var delta):
 	else:
 		#When in the air or jumping apply the normal gravity to the character.
 		velocity += GRAVITY * delta
+	print("Velocity ", velocity)
 	if bot:
 		print("Current path ", AI_PATH)
-		print("Velocity ", velocity)
+		
 		print("Global pos ", global_character_position)
+		print("Current movement vector ", ($KinematicBody.translation-to_local(current_point)).normalized())
 		print("current point (local) ", to_local(current_point))
 		print("current point ", current_point)
 	velocity = $KinematicBody.move_and_slide(velocity, Vector3(0,1,0), motion_target == Vector2())
