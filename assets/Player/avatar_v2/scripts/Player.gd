@@ -16,11 +16,12 @@ var SPEED_SCALE = 15 #use as 0.1*SPEED_SCALE for time being because of slider fo
 
 #### Globals for Bot movement ####
 var current_point : Vector3 = Vector3() #This is the direction a bot would follow, given a set of instructions. 
-var AI_PATH
+var AI_PATH : Array = []
 var has_destination : bool = false
-var point_number : int 
+var point_number : int = 0
 export(bool) var bot : bool = false
 var global_character_position : Vector3 = Vector3()
+var cumulative_delta : float = 0.0
 #############NPCS END#############
 
 
@@ -112,6 +113,7 @@ func _ready():
 		set_process_input(false)
 	SetRemotePlayer(puppet)
 	if bot:
+		randomize()
 		yield(get_tree().create_timer(1.0), "timeout")
 		pick_random()
 func SetupMaterials():
@@ -201,11 +203,7 @@ func SetPScale(scale):
 # _process functions
 func _input(event):
 	# FIXME: This should be dealt with elsewhere
-	if bot:
-		if event.is_action_pressed("use"):
-			pick_random()
-		return
-	if PauseMenu.is_open():
+	if PauseMenu.is_open() or bot:
 		return
 	
 	if (event is InputEventMouseMotion):
@@ -294,12 +292,13 @@ func _physics_process(delta):
 
 func pick_random():
 	var random_pos : Vector3 = Vector3()
-	randomize()
 	var localized_pos = to_local(global_character_position)
 	random_pos.x = global_character_position.x + rand_range(-3.0,3.0)
 	random_pos.y = global_character_position.y + rand_range(-3.0,3.0)
 	random_pos.z = global_character_position.z + rand_range(-3.0,3.0)
 	bot_update_path(WorldManager.current_world.to_local(random_pos))
+	if AI_PATH.size()<1:
+		pick_random()
 	
 	
 	
@@ -311,20 +310,29 @@ func bot_update_path(to : Vector3) -> void:
 	else:
 		current_point = Vector3()
 	
-	print(AI_PATH)
+
 		
 	point_number = 0
 	has_destination = true
 	
 func bot_movement(delta : float) -> void:
+	cumulative_delta = cumulative_delta+delta
 	if has_destination:
-		if (to_local(current_point)-$KinematicBody.translation).length() < 0.3:
+		if (to_local(current_point)-$KinematicBody.translation).length() < 0.5:
+			cumulative_delta = 0
 			if point_number < AI_PATH.size()-1:
 				point_number += 1
 				$Target.translation = to_local(current_point)
 				current_point = AI_PATH[point_number]
 			else:
 				pick_random()
+	if cumulative_delta>10:
+		cumulative_delta = 0
+		if point_number < AI_PATH.size()-1:
+			point_number += 1
+			current_point = AI_PATH[point_number]
+		else:
+			pick_random()
 
 func HandleOnGround(delta):
 	if $KinematicBody/OnGround.is_colliding() and in_air:
@@ -413,7 +421,6 @@ func HandleControls(var delta):
 
 		var h_velocity = (orientation.origin / delta) * 0.1 * SPEED_SCALE
 		if bot:
-			print("h_velocity is ", h_velocity)
 			h_velocity.x *= abs(($Target.translation-$KinematicBody.translation).normalized().x )
 			h_velocity.z *=abs(($Target.translation-$KinematicBody.translation).normalized().z)
 			
@@ -437,14 +444,7 @@ func HandleControls(var delta):
 	else:
 		#When in the air or jumping apply the normal gravity to the character.
 		velocity += GRAVITY * delta
-	print("Velocity ", velocity)
-	if bot:
-		print("Current path ", AI_PATH)
-		
-		print("Global pos ", global_character_position)
-		print("Current movement vector ", ($KinematicBody.translation-to_local(current_point)).normalized())
-		print("current point (local) ", to_local(current_point))
-		print("current point ", current_point)
+
 	velocity = $KinematicBody.move_and_slide(velocity, Vector3(0,1,0), motion_target == Vector2())
 
 	orientation.origin = Vector3()
