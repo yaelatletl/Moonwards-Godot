@@ -227,7 +227,7 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 	network_id = connection.get_unique_id()
 	emit_signal("player_id", network_id)
 
-	yield(self, "scene_change") #Stop your horses, the world hasn't loaded in yet!
+	yield(WorldManager, "scene_change") #Stop your horses, the world hasn't loaded in yet!
 	get_tree().set_network_peer(connection)
 
 

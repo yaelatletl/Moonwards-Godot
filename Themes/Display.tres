@@ -3,8 +3,6 @@
 [ext_resource path="res://Themes/Fonts/MainMenuFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Themes/Fonts/Exo2-Medium.otf" type="DynamicFontData" id=2]
 
-
-
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 

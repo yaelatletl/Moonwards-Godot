@@ -3,8 +3,9 @@ extends Node
 signal scene_change(name)
 
 var level_loader : Object = preload("res://scripts/LevelLoader.gd").new()
-var world : Node = null
-
+var current_world : Node = null
+func set_current_world(new_world : Node) -> void:
+	current_world = new_world
 func change_scene(scene : String) -> void:
 	var error
 	if not scene in Options.scenes:

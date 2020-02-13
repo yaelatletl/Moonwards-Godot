@@ -14,6 +14,17 @@ var MIN_JUMP_SPEED = 0.2
 var MAX_JUMP_TIMER = 0.5
 var SPEED_SCALE = 15 #use as 0.1*SPEED_SCALE for time being because of slider for speed setting is int, in OptionsUI.gd
 
+#### Globals for Bot movement ####
+var current_point : Vector3 = Vector3() #This is the direction a bot would follow, given a set of instructions. 
+var AI_PATH : Array = []
+var has_destination : bool = false
+var point_number : int = 0
+export(bool) var bot : bool = false
+var global_character_position : Vector3 = Vector3()
+var cumulative_delta : float = 0.0
+#############NPCS END#############
+
+
 const SpeedFeed = {
 # 	MOTION_INTERPOLATE_SPEED = 10,
 # 	ROTATION_INTERPOLATE_SPEED = 10,
@@ -23,7 +34,7 @@ const SpeedFeed = {
 }
 export(float) var physics_scale = 1 setget SetPScale
 
-var motion = Vector2()
+var motion : Vector2 = Vector2()
 
 #################################
 # Current state of player avatar
@@ -69,8 +80,13 @@ export(bool) var puppet = false setget SetRemotePlayer
 puppet var puppet_translation
 puppet var puppet_rotation
 puppet var puppet_jump
+puppet var puppet_jump_blend
 puppet var puppet_animation_speed
 puppet var puppet_motion
+puppet var puppet_anim_state
+puppet var puppet_climb_dir
+puppet var puppet_climb_progress_up
+puppet var puppet_climb_progress_down 
 
 var network = false setget SetNetwork
 var nonetwork = ! network
@@ -86,18 +102,32 @@ var gender setget SetPuppetGender
 
 #################################
 # Init functions
+func _enter_tree():
+	set_player_group()
+	if Lobby.local_id!=1 and bot:
+		puppet = true
 func _ready():
 	orientation = model.global_transform
 	orientation.origin = Vector3()
-	if not puppet:
-		camera_control = get_node(camera_control_path)
+	print("The local id is ", Lobby.local_id)
+	camera_control = get_node(camera_control_path)
+	if not puppet and not bot:
 		Options.connect("user_settings_changed", self, "ApplyUserSettings")
 		SetupMaterials()
 		ApplyUserSettings()
 	else:
 		set_process_input(false)
 	SetRemotePlayer(puppet)
-
+	if bot and puppet:
+		set_network_master(1)
+		SetNetwork(true)
+	if bot and not puppet:
+		SetNetwork(true)
+		#
+		randomize()
+		yield(get_tree().create_timer(1.0), "timeout")
+		pick_random()
+	print("My name is ", name, "I was set as puppet?: ", puppet, "I was set as bot?: ", bot, "My master is ", get_network_master())
 func SetupMaterials():
 	shirt_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(0).duplicate()
 	pants_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(1).duplicate()
@@ -152,8 +182,8 @@ func ApplyUserSettings():
 
 	SetUsername(Options.username)
 
-func _enter_tree():
-	set_player_group()
+
+	
 
 func set_player_group(enable=true): # for local only
 	if not  is_inside_tree():
@@ -185,8 +215,7 @@ func SetPScale(scale):
 # _process functions
 func _input(event):
 	# FIXME: This should be dealt with elsewhere
-	
-	if PauseMenu.is_open():
+	if PauseMenu.is_open() or bot:
 		return
 	
 	if (event is InputEventMouseMotion):
@@ -253,16 +282,65 @@ func Jump(var timer):
 	jump_timeout = 1.0
 
 func _physics_process(delta):
-	if puppet:
-		HandleOnGround(delta)
-		UpdateNetworking()
-		HandleMovement()
-	else:
-		HandleOnGround(delta)
-		HandleControls(delta)
-		UpdateNetworking()
-		HandleMovement()
+	UpdateNetworking()
+#	if puppet and not bot:
+#		return
+	if not puppet:
 		SaveRPoints(delta)
+	if bot and not puppet:
+		if current_point.length()<0.01:
+			motion_target = Vector2(0,0)
+		else:
+			motion_target = Vector2(0,1)
+		camera_control.look_at((current_point), Vector3(0,1,0))
+		global_character_position = to_global($KinematicBody.translation)
+		bot_movement(delta)
+	HandleOnGround(delta)
+	HandleMovement()
+	HandleControls(delta)
+
+func pick_random():
+	var random_pos : Vector3 = Vector3()
+	var localized_pos = to_local(global_character_position)
+	random_pos.x = global_character_position.x + rand_range(-3.0,3.0)
+	random_pos.y = global_character_position.y + rand_range(-3.0,3.0)
+	random_pos.z = global_character_position.z + rand_range(-3.0,3.0)
+	bot_update_path(WorldManager.current_world.to_local(random_pos))
+	if AI_PATH.size()<1:
+		pick_random()
+	
+	
+	
+func bot_update_path(to : Vector3) -> void:
+	has_destination = false
+	AI_PATH = Array(WorldManager.current_world.get_navmesh_path(WorldManager.current_world.to_local(global_character_position), to))
+	if AI_PATH.size()>1:
+		current_point = AI_PATH[0]
+	else:
+		current_point = Vector3()
+	
+
+		
+	point_number = 0
+	has_destination = true
+	
+func bot_movement(delta : float) -> void:
+	cumulative_delta = cumulative_delta+delta
+	if has_destination:
+		if (to_local(current_point)-$KinematicBody.translation).length() < 0.5:
+			cumulative_delta = 0
+			if point_number < AI_PATH.size()-1:
+				point_number += 1
+				current_point = AI_PATH[point_number]
+			else:
+				pick_random()
+	if cumulative_delta>10:
+		cumulative_delta = 0
+		if point_number < AI_PATH.size()-1:
+			point_number += 1
+			current_point = AI_PATH[point_number]
+		else:
+			pick_random()
 
 func HandleOnGround(delta):
 	if $KinematicBody/OnGround.is_colliding() and in_air:
@@ -281,7 +359,7 @@ func HandleMovement():
 	$KinematicBody/AnimationTree["parameters/MovementSpeed/scale"] = animation_speed
 
 func HandleControls(var delta):
-	if puppet:
+	if puppet:# and not bot:
 		return
 	
 	# FIXME: controls need to be dealt with elsewhere
@@ -289,10 +367,11 @@ func HandleControls(var delta):
 		motion_target = Vector2()
 		input_direction = 0.0
 		jump = false
-	else:
+	elif not bot:
 		jump = Input.is_action_pressed("jump")
 		input_direction = (Input.get_action_strength("move_forwards") - Input.get_action_strength("move_backwards"))
-
+	if bot:
+		input_direction = 1# to_local(current_point) - $KinematicBody.translation
 	if jump_timeout > 0.0:
 		jump_timeout -= delta
 		if jump_timeout <= 0.0:
@@ -349,8 +428,14 @@ func HandleControls(var delta):
 		orientation *= root_motion
 
 		var h_velocity = (orientation.origin / delta) * 0.1 * SPEED_SCALE
+		if bot:
+			h_velocity.x *= abs((to_local(current_point)-$KinematicBody.translation).normalized().x )
+			h_velocity.z *=abs((to_local(current_point)-$KinematicBody.translation).normalized().z)
+			
+		
 		var velocity_direction = h_velocity.normalized()
-		var slide_direction = velocity_direction.slide(ground_normal)
+		var slide_direction  = velocity_direction.slide(ground_normal)
+
 		h_velocity = slide_direction * h_velocity.length()
 
 # 		#printd("h_velocity(%s) = (orientation.origin(%s) / delta(%s))" % [h_velocity, orientation.origin, delta])
@@ -497,7 +582,7 @@ func DoInteractiveObjectCheck():
 #################################
 # networking functions
 func UpdateNetworking():
-	if nonetwork:
+	if nonetwork and not bot:
 		return
 	if puppet:
 		if puppet_translation != null:
@@ -510,11 +595,26 @@ func UpdateNetworking():
 			motion = puppet_motion
 		if puppet_animation_speed != null:
 			animation_speed = puppet_animation_speed
-	elif is_network_master():
+		if puppet_jump_blend != null:
+			$KinematicBody/AnimationTree["parameters/JumpAmount/blend_amount"] = puppet_jump_blend
+		if puppet_anim_state != null:
+			$KinematicBody/AnimationTree["parameters/MovementState/current"] = puppet_anim_state
+		if puppet_climb_dir != null:
+			$KinematicBody/AnimationTree["parameters/ClimbDirection/current"] = puppet_climb_dir
+		if puppet_climb_progress_up != null:
+			$KinematicBody/AnimationTree["parameters/ClimbProgressUp/seek_position"] = puppet_climb_progress_up
+		if puppet_climb_progress_down != null:
+			$KinematicBody/AnimationTree["parameters/ClimbProgressDown/seek_position"] = puppet_climb_progress_down
+	elif is_network_master() or (bot and not puppet):
+		rset_unreliable("puppet_climb_progress_down", $KinematicBody/AnimationTree["parameters/ClimbProgressDown/seek_position"])
+		rset_unreliable("puppet_climb_progress_up", $KinematicBody/AnimationTree["parameters/ClimbProgressUp/seek_position"] )
+		rset_unreliable("puppet_climb_dir", $KinematicBody/AnimationTree["parameters/ClimbDirection/current"])
+		rset_unreliable("puppet_anim_state", $KinematicBody/AnimationTree["parameters/MovementState/current"])
+		rset_unreliable("puppet_jump_blend", $KinematicBody/AnimationTree["parameters/JumpAmount/blend_amount"])
 		rset_unreliable("puppet_translation", $KinematicBody.global_transform.origin)
 		rset_unreliable("puppet_rotation", model.global_transform.basis)
 		rset_unreliable("puppet_motion", motion)
-		rset_unreliable("puppet_jump", jumping)
+		rset_unreliable("puppet_jump", jump)
 		rset_unreliable("puppet_animation_speed", animation_speed)
 #	else:
 #		printd("UpdateNetworking: not a remote player(%s) and not a network_master and network(%s)" % [get_path(), network])
@@ -529,13 +629,23 @@ func SetNetwork(var enabled : bool) -> void:
 		rset_config("puppet_rotation",  MultiplayerAPI.RPC_MODE_PUPPET)
 		rset_config("puppet_motion",  MultiplayerAPI.RPC_MODE_PUPPET)
 		rset_config("puppet_jump",  MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_jump_blend",  MultiplayerAPI.RPC_MODE_PUPPET)
 		rset_config("puppet_run",  MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_climb_progress_down",  MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_climb_progress_up",  MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_climb_dir",  MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_anim_state",  MultiplayerAPI.RPC_MODE_PUPPET)
 	else:
 		rset_config("puppet_translation", MultiplayerAPI.RPC_MODE_DISABLED)
 		rset_config("puppet_rotation",  MultiplayerAPI.RPC_MODE_DISABLED)
 		rset_config("puppet_motion",  MultiplayerAPI.RPC_MODE_DISABLED)
 		rset_config("puppet_jump", MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_jump_blend", MultiplayerAPI.RPC_MODE_DISABLED)
 		rset_config("puppet_run", MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_climb_progress_down",  MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_climb_progress_up",  MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_climb_dir",  MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_anim_state",  MultiplayerAPI.RPC_MODE_DISABLED)
 
 func SetRemotePlayer(enable):
 	puppet = enable
@@ -544,9 +654,9 @@ func SetRemotePlayer(enable):
 		$KinematicBody/Nametag.visible = false
 		$Camera.current = true
 	else:
-		$KinematicBody/Nametag.visible = true
 		$Camera.current = false
-
+	if puppet or bot:
+		$KinematicBody/Nametag.visible = true
 #################################
 # Debugger functions
 func CreateDebugLine(var from, var to):

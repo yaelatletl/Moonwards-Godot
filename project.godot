@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Utilities",
 "language": "GDScript",
 "path": "res://utility/Utils.gd"
+}, {
+"base": "Navigation",
+"class": "World_Navigator",
+"language": "GDScript",
+"path": "res://core/autoload/WorldNavigation.gd"
 } ]
 _global_script_class_icons={
-"Utilities": ""
+"Utilities": "",
+"World_Navigator": ""
 }
 
 [application]
@@ -26,6 +32,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+WorldManager="*res://core/autoload/World.gd"
 Log="*res://utility/GlobalLogger.gd"
 NodeUtilities="*res://core/autoload/Utilities.gd"
 Options="*res://core/autoload/Options.gd"
@@ -34,7 +41,6 @@ InputMapping="*res://core/autoload/InputMapping.gd"
 Hud="*res://Interface/Hud/Hud.tscn"
 PauseMenu="*res://Interface/PauseMenu/PauseMenu.tscn"
 MainMenu="*res://Interface/MainMenu/MainMenu.tscn"
-WorldManager="*res://core/autoload/World.gd"
 
 [compression]
 
