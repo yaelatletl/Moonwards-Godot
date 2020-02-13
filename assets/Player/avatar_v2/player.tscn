@@ -130,7 +130,7 @@ nodes/MovementState/position = Vector2( 740, 80 )
 nodes/Walk/node = SubResource( 22 )
 nodes/Walk/position = Vector2( 260, 80 )
 nodes/output/position = Vector2( 1380, 100 )
-node_connections = [ "output", 0, "Land", "Land", 0, "JumpAmount", "Land", 1, "Animation 2", "ClimbProgressDown", 0, "Animation 4", "MovementSpeed", 0, "Walk", "JumpAmount", 0, "MovementState", "JumpAmount", 1, "Animation", "MovementState", 0, "MovementSpeed", "MovementState", 1, "Animation 3", "MovementState", 2, "ClimbDirection", "ClimbDirection", 0, "ClimbProgressUp", "ClimbDirection", 1, "ClimbProgressDown", "ClimbProgressUp", 0, "Animation 5" ]
+node_connections = [ "output", 0, "Land", "Land", 0, "JumpAmount", "Land", 1, "Animation 2", "ClimbProgressUp", 0, "Animation 5", "ClimbProgressDown", 0, "Animation 4", "MovementState", 0, "MovementSpeed", "MovementState", 1, "Animation 3", "MovementState", 2, "ClimbDirection", "MovementSpeed", 0, "Walk", "ClimbDirection", 0, "ClimbProgressUp", "ClimbDirection", 1, "ClimbProgressDown", "JumpAmount", 0, "MovementState", "JumpAmount", 1, "Animation" ]
 
 [sub_resource type="SpatialMaterial" id=24]
 emission_enabled = true

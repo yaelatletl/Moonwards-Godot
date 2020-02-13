@@ -80,8 +80,13 @@ export(bool) var puppet = false setget SetRemotePlayer
 puppet var puppet_translation
 puppet var puppet_rotation
 puppet var puppet_jump
+puppet var puppet_jump_blend
 puppet var puppet_animation_speed
 puppet var puppet_motion
+puppet var puppet_anim_state
+puppet var puppet_climb_dir
+puppet var puppet_climb_progress_up
+puppet var puppet_climb_progress_down 
 
 var network = false setget SetNetwork
 var nonetwork = ! network
@@ -278,8 +283,8 @@ func Jump(var timer):
 
 func _physics_process(delta):
 	UpdateNetworking()
-	if puppet and not bot:
-		return
+#	if puppet and not bot:
+#		return
 	if not puppet:
 		SaveRPoints(delta)
 	if bot and not puppet:
@@ -356,7 +361,7 @@ func HandleMovement():
 	$KinematicBody/AnimationTree["parameters/MovementSpeed/scale"] = animation_speed
 
 func HandleControls(var delta):
-	if puppet and not bot:
+	if puppet:# and not bot:
 		return
 	
 	# FIXME: controls need to be dealt with elsewhere
@@ -592,11 +597,26 @@ func UpdateNetworking():
 			motion = puppet_motion
 		if puppet_animation_speed != null:
 			animation_speed = puppet_animation_speed
+		if puppet_jump_blend != null:
+			$KinematicBody/AnimationTree["parameters/JumpAmount/blend_amount"] = puppet_jump_blend
+		if puppet_anim_state != null:
+			$KinematicBody/AnimationTree["parameters/MovementState/current"] = puppet_anim_state
+		if puppet_climb_dir != null:
+			$KinematicBody/AnimationTree["parameters/ClimbDirection/current"] = puppet_climb_dir
+		if puppet_climb_progress_up != null:
+			$KinematicBody/AnimationTree["parameters/ClimbProgressUp/seek_position"] = puppet_climb_progress_up
+		if puppet_climb_progress_down != null:
+			$KinematicBody/AnimationTree["parameters/ClimbProgressDown/seek_position"] = puppet_climb_progress_down
 	elif is_network_master() or (bot and not puppet):
+		rset_unreliable("puppet_climb_progress_down", $KinematicBody/AnimationTree["parameters/ClimbProgressDown/seek_position"])
+		rset_unreliable("puppet_climb_progress_up", $KinematicBody/AnimationTree["parameters/ClimbProgressUp/seek_position"] )
+		rset_unreliable("puppet_climb_dir", $KinematicBody/AnimationTree["parameters/ClimbDirection/current"])
+		rset_unreliable("puppet_anim_state", $KinematicBody/AnimationTree["parameters/MovementState/current"])
+		rset_unreliable("puppet_jump_blend", $KinematicBody/AnimationTree["parameters/JumpAmount/blend_amount"])
 		rset_unreliable("puppet_translation", $KinematicBody.global_transform.origin)
 		rset_unreliable("puppet_rotation", model.global_transform.basis)
 		rset_unreliable("puppet_motion", motion)
-		rset_unreliable("puppet_jump", jumping)
+		rset_unreliable("puppet_jump", jump)
 		rset_unreliable("puppet_animation_speed", animation_speed)
 #	else:
 #		printd("UpdateNetworking: not a remote player(%s) and not a network_master and network(%s)" % [get_path(), network])
@@ -611,13 +631,23 @@ func SetNetwork(var enabled : bool) -> void:
 		rset_config("puppet_rotation",  MultiplayerAPI.RPC_MODE_PUPPET)
 		rset_config("puppet_motion",  MultiplayerAPI.RPC_MODE_PUPPET)
 		rset_config("puppet_jump",  MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_jump_blend",  MultiplayerAPI.RPC_MODE_PUPPET)
 		rset_config("puppet_run",  MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_climb_progress_down",  MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_climb_progress_up",  MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_climb_dir",  MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_anim_state",  MultiplayerAPI.RPC_MODE_PUPPET)
 	else:
 		rset_config("puppet_translation", MultiplayerAPI.RPC_MODE_DISABLED)
 		rset_config("puppet_rotation",  MultiplayerAPI.RPC_MODE_DISABLED)
 		rset_config("puppet_motion",  MultiplayerAPI.RPC_MODE_DISABLED)
 		rset_config("puppet_jump", MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_jump_blend", MultiplayerAPI.RPC_MODE_DISABLED)
 		rset_config("puppet_run", MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_climb_progress_down",  MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_climb_progress_up",  MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_climb_dir",  MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_anim_state",  MultiplayerAPI.RPC_MODE_DISABLED)
 
 func SetRemotePlayer(enable):
 	puppet = enable
