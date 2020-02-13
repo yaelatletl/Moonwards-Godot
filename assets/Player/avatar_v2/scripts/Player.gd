@@ -288,7 +288,6 @@ func _physics_process(delta):
 	if not puppet:
 		SaveRPoints(delta)
 	if bot and not puppet:
-		$Target.translation = to_local(current_point)
 		if current_point.length()<0.01:
 			motion_target = Vector2(0,0)
 		else:
@@ -332,7 +331,6 @@ func bot_movement(delta : float) -> void:
 			cumulative_delta = 0
 			if point_number < AI_PATH.size()-1:
 				point_number += 1
-				$Target.translation = to_local(current_point)
 				current_point = AI_PATH[point_number]
 			else:
 				pick_random()
@@ -431,8 +429,8 @@ func HandleControls(var delta):
 
 		var h_velocity = (orientation.origin / delta) * 0.1 * SPEED_SCALE
 		if bot:
-			h_velocity.x *= abs(($Target.translation-$KinematicBody.translation).normalized().x )
-			h_velocity.z *=abs(($Target.translation-$KinematicBody.translation).normalized().z)
+			h_velocity.x *= abs((to_local(current_point)-$KinematicBody.translation).normalized().x )
+			h_velocity.z *=abs((to_local(current_point)-$KinematicBody.translation).normalized().z)
 			
 		
 		var velocity_direction = h_velocity.normalized()
