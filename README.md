@@ -2,7 +2,7 @@
 Everything to build the Moonwards space colonies in Godot and Blender.
 
 You must install [Git LFS](https://git-lfs.github.com/) to before cloning this repository, in addition to Git itself.
-After downloading, in a terminal you can set it up across your system by running
+Once installed, in a terminal you can set it up in a directory with the command
     `git lfs install`
     
 After that you can clone the repository normally.
