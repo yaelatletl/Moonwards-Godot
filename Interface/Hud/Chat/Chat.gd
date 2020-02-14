@@ -4,7 +4,7 @@ extends PanelContainer
 """
 
 onready var _chat_display_node: RichTextLabel = $"V/RichTextLabel"
-onready var _chat_input_node: LineEdit = $"V/LineEdit"
+onready var _chat_input_node: LineEdit = $"V/ChatInput"
 
 #Where the chat box is when fully open.
 const CHAT_RAISED_MARGIN_TOP = -198

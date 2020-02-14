@@ -116,7 +116,7 @@ func _ready():
 		SetupMaterials()
 		ApplyUserSettings()
 	else:
-		set_process_input(false)
+		set_process_unhandled_input(false)
 	SetRemotePlayer(puppet)
 	if bot and puppet:
 		set_network_master(1)
@@ -213,7 +213,7 @@ func SetPScale(scale):
 
 #################################
 # _process functions
-func _input(event):
+func _unhandled_input(event):
 	# FIXME: This should be dealt with elsewhere
 	if PauseMenu.is_open() or bot:
 		return
