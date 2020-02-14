@@ -10,8 +10,6 @@ extends RayCast
 #This is what I pass as the interactor.
 export var user : NodePath = get_path()
 
-onready var main_camera : Camera = get_tree().get_root().get_camera()
-
 signal interact_possible( string_describing_potential_interact )
 
 #This is show I will not spam a signal when I have potential interacts.
@@ -29,7 +27,8 @@ func _process( delta : float ) -> void :
 	#Make the interactor point at the center of the screen.
 	#This assumes that the interactor is a child of the player KinematicBody.
 	#TODO: Decouple this from needing to be in the player and make it capable of being a part of anything.
-	rotation = main_camera.rotation
+	#The game camera gets loaded at a random time.
+	rotation = get_tree().get_root().get_camera().rotation
 
 #warning-ignore:unused_argument
 func _physics_process(delta : float ) -> void:
