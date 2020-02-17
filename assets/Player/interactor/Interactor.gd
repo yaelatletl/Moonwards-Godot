@@ -16,11 +16,14 @@ export var user : NodePath = get_path()
 signal interact_possible( string_describing_potential_interact )
 
 #This is show I will not spam a signal when I have potential interacts.
+var collider : Area = null
 var previous_collider : Area = null
 
 #This is the camera that is currently in use.
 #TEMPCAMERA
 var main_camera : Camera
+
+var test : int = 0
 
 
 func _ready():
@@ -48,17 +51,24 @@ func _process( delta : float ) -> void :
 func _physics_process(delta : float ) -> void:
 	#Determine when I have touched an interactable.
 
+	#Get the interactable I am colliding with.
+	if is_colliding() :
+		collider = get_collider()
+		
+		#Show to the player what the potential interact is.
+		get_tree().call_group( "InteractDisplay", "show_interact_info", collider.get_info())
+
 	#Exit if I am not touching anything. Reset previous collider.
-	if not is_colliding() :
+	else :
 		previous_collider = null
+		hide_display()
 		return
 	
-	#Get the interactable I am colliding with.
-	var collider : Area = get_collider()
 	
 	#Return the interactable's name and notify listener's of it.
 	if previous_collider != collider :
-		emit_signal( "interact_possible", collider.get_info() )
+		var interact_info : String = collider.get_info()
+		emit_signal( "interact_possible", interact_info )
 		previous_collider = collider
 	
 	#Interact with the interactable if I am told to.
@@ -66,6 +76,13 @@ func _physics_process(delta : float ) -> void:
 	if Input.is_action_just_pressed( "use" ) :
 		#Player wants to interact with the collider.
 		collider.interact_with( get_node( user ) )
+		hide_display()
+
+
+func hide_display() -> void :
+	#Hide the interact display.
+	get_tree().call_group( "InteractDisplay", "hide" )
+
 
 #TEMPCAMERA
 func set_camera() -> void :

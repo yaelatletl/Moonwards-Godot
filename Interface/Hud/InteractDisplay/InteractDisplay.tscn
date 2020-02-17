@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Interface/Hud/InteractDisplay/InteractDisplay.gd" type="Script" id=1]
+
+[node name="InteractDisplay" type="Label" groups=[
+"InteractDisplay",
+]]
+visible = false
+margin_top = 100.0
+margin_right = 1918.0
+margin_bottom = 179.0
+align = 1
+valign = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
