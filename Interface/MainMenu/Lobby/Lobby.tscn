@@ -118,6 +118,7 @@ margin_bottom = 660.0
 rect_min_size = Vector2( 150, 100 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
+window_title = "¡Alerta!"
 dialog_text = "Error
 "
 
