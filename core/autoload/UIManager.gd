@@ -1,5 +1,5 @@
 extends Node
-
+"""
 signal back_to_base_ui
 
 var _ui_history_queue : Array = []
@@ -113,7 +113,7 @@ func join_server(scene: String) -> void:
 		username = Options.username
 	}
 	
-	Lobby.player_register(player_data, true, "avatar") #local player
+#	Lobby.player_register(player_data, true, "avatar") #local player
 	Lobby.load_level(scene)
 	Lobby.client_server_connect(Options.join_server_host)
 
@@ -125,7 +125,7 @@ func run_local(scene: String) -> void:
 		username = Options.username
 	}
 	
-	Lobby.player_register(player_data, true, "avatar_local") #local player
+#	Lobby.player_register(player_data, true, "avatar_local") #local player
 	Lobby.load_level(scene)
 
 func exit() -> void:
@@ -205,3 +205,4 @@ func _queue_current_ui() -> void:
 	if is_instance_valid(_current_ui):
 		_current_ui.get_parent().remove_child(_current_ui)
 		_ui_history_queue.append(_current_ui)
+"""
