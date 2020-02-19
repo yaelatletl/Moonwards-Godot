@@ -12,8 +12,8 @@ enum MODE {
 
 ### Singals to interface with (not to be used inside this script ###
 
-signal user_name_disconnected(name) #emit when user is joined, for chat
-signal user_name_connected(name) #emit when user is disconnected, for chat
+signal user_disconnected(name) #emit when user is joined, for chat
+signal user_connected(name) #emit when user is disconnected, for chat
 signal server_up
 
 ### Signals to be used inside this script ###
@@ -240,7 +240,13 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 
 	yield(WorldManager, "scene_change") #Stop your horses, the world hasn't loaded in yet!
 	get_tree().set_network_peer(connection)
-
+	yield(get_tree().create_timer(25), "timeout") #25 is the connection timeout maximum value
+	var error = connection.get_connection_status()
+	print(error)
+	if error != 2: #if it times-out you get booted to the main menu
+		Input.MOUSE_MODE_VISIBLE
+		yield(get_tree().create_timer(5), "timeout")
+		end_game()
 
 ################
 # Scene functions
@@ -318,7 +324,7 @@ remote func register_client(id : int, pdata : Dictionary = Options.player_data) 
 remote func unregister_client(id : int) -> void:
 	Log.hint(self, "unregister client", str("(",id,")"))
 	if players.has(id):
-		emit_signal("user_name_disconnected", "%s" % player_get_property("name", id))
+		emit_signal("user_disconnected", "%s" % player_get_property("username", id))
 		if players[id].instance:
 			players[id].instance.queue_free()
 		players.erase(id)

@@ -70,7 +70,7 @@ func create_player(player : Dictionary) -> void:
 
 	Log.hint(self, "create_player", "==create player(%s) %s; name(%s)" % [player.id, player, player.username])
 	world.get_node("players").add_child(player_scene)
-	emit_signal("user_name_connected", player.username, player.id)
+	Lobby.emit_signal("user_connected", player.username, player.id)
 
 	# HACK: Does not belong here
 	# TODO: Once joining a server, loading the world, etc is done, hide mainmenu
