@@ -56,7 +56,15 @@ func refresh_lobby() -> void:
 	$PlayersList/start.disabled=not get_tree().is_network_server()
 
 func _on_host_pressed() -> void:
-	Lobby.connect_to_server(Options.player_data, true, "localhost")
+	if ($connect/name.text == ""):
+		$connect/error_label.text="Invalid name!"
+		return
+	var player_data = {
+		username = $connect/name.text,
+		gender = Options.gender,
+		colors = {"pants" : Options.pants_color, "shirt" : Options.shirt_color, "skin" : Options.skin_color, "hair" : Options.hair_color, "shoes" : Options.shoes_color}
+	}
+	Lobby.connect_to_server(player_data, true, "localhost")
 	state_hide()
 
 
@@ -69,7 +77,7 @@ func _on_join_pressed() -> void:
 		gender = Options.gender,
 		colors = {"pants" : Options.pants_color, "shirt" : Options.shirt_color, "skin" : Options.skin_color, "hair" : Options.hair_color, "shoes" : Options.shoes_color}
 	}
-	Lobby.connect_to_server(player_data, false, "localhost")
+	Lobby.connect_to_server(player_data, false, $connect/ipcontainer/ip.text)
 	state_hide()
 
 func _on_connection_success() -> void:
