@@ -1,9 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scripts/UserSettings.gd" type="Script" id=1]
+[ext_resource path="res://assets/UI/Options/UserSettings.gd" type="Script" id=1]
 [ext_resource path="res://scenes/AvatarPreview.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/UI/Options/Visual_Selector.gd" type="Script" id=3]
 [ext_resource path="res://addons/HuePicker/HuePicker.tscn" type="PackedScene" id=4]
+
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends HBoxContainer
