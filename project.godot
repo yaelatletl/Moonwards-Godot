@@ -33,7 +33,7 @@ config/icon="res://icon.png"
 [autoload]
 
 WorldManager="*res://Core/World/World.gd"
-Log="*res://utility/GlobalLogger.gd"
+Log="*res://utility/Logger.gd"
 NodeUtilities="*res://Core/Utilities.gd"
 Options="*res://Core/Options.gd"
 Lobby="*res://Core/Network/Lobby.gd"
