@@ -7,7 +7,7 @@ extends RayCast
 	interact with the object.
 	
 	Please note: Anything marked with the comment TEMPCAMERA is meant to 
-	be replaced in the future when player agnostic controls is set.
+	be replaced in the future when I am made to work outside of the player. 
 """
 
 #This is what I pass as the interactor.
@@ -22,8 +22,6 @@ var previous_collider : Area = null
 #This is the camera that is currently in use.
 #TEMPCAMERA
 var main_camera : Camera
-
-var test : int = 0
 
 
 func _ready():
