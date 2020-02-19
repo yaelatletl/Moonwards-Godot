@@ -43,7 +43,7 @@ var Options : Dictionary = {
 signal user_settings_changed
 
 
-var username : String = Utilities.get_name()
+var username : String = NameGenerator.get_name()
 var gender : int = GENDERS.FEMALE
 var pants_color : Color = Color(6.209207/256,17.062728/256,135.632141/256,1)
 var shirt_color : Color = Color(0,233.62642/256,255/256,1)
@@ -251,6 +251,27 @@ func get_tree_options(tree):
 			Options = obj
 			break
 	return Options
+
+static func get_nodes_type(root : Node, type : String, recurent : bool = false):
+	var nodes = get_nodes(root, recurent)
+	var result = []
+	for path in nodes:
+		if root.get_node(path).get_class() == type :
+			result.append(path)
+	return result
+
+static func get_nodes(root : Node , recurent : bool = false):
+	var nodes = []
+	var objects = root.get_children()
+	while objects.size():
+		var obj = objects.pop_front()
+		if obj.filename:
+			if recurent:
+				objects + obj.get_children()
+		else:
+			objects + obj.get_children()
+		nodes.append(root.get_path_to(obj))
+	return nodes
 
 func get_tree_opt(opt):
 	var res = false

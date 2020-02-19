@@ -10,9 +10,9 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Reference",
-"class": "Utilities",
+"class": "NameGenerator",
 "language": "GDScript",
-"path": "res://utility/Utils.gd"
+"path": "res://utility/NameGenerator.gd"
 }, {
 "base": "Navigation",
 "class": "World_Navigator",
@@ -20,7 +20,7 @@ _global_script_classes=[ {
 "path": "res://Core/WorldNavigation.gd"
 } ]
 _global_script_class_icons={
-"Utilities": "",
+"NameGenerator": "",
 "World_Navigator": ""
 }
 
