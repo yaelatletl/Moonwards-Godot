@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MoonwardsLogo2018-1200.png-6c1d9d2b9ea6e3da5f3f7e2071f8f552.stex"
+path="res://.import/Instructions.png-70ce4d4f9ee41ef5e2aca8f424d55d35.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/MoonwardsLogo2018-1200.png"
-dest_files=[ "res://.import/MoonwardsLogo2018-1200.png-6c1d9d2b9ea6e3da5f3f7e2071f8f552.stex" ]
+source_file="res://assets/UI/Instructions.png"
+dest_files=[ "res://.import/Instructions.png-70ce4d4f9ee41ef5e2aca8f424d55d35.stex" ]
 
 [params]
 
