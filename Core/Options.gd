@@ -243,7 +243,7 @@ func has(category, prop = null) -> bool:
 	return exists
 
 func get_tree_options(tree):
-	var arr = Utilities.get_nodes_type(tree, "Node")
+	var arr = get_nodes_type(tree, "Node")
 	var Options
 	for p in arr:
 		var obj = tree.get_node(p)

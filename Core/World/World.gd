@@ -2,7 +2,7 @@ extends Node
 
 signal scene_change(name)
 
-var level_loader : Object = preload("res://scripts/LevelLoader.gd").new()
+var level_loader : Object = preload("res://Core/World/LevelLoader.gd").new()
 var current_world : Node = null
 func set_current_world(new_world : Node) -> void:
 	current_world = new_world
