@@ -1,6 +1,7 @@
 [gd_resource type="SpatialMaterial" load_steps=2 format=2]
 
-[ext_resource path="res://image_textures/LavastoneTexDark1.png" type="Texture" id=1]
+[ext_resource path="res://SharedAssets/Textures/Miscellaneous/LavastoneTexDark1.png" type="Texture" id=1]
+
 
 [resource]
 resource_name = "LavastoneDark1"
