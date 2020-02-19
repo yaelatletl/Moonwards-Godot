@@ -1,9 +1,11 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://materials/Black.tres" type="Material" id=1]
-[ext_resource path="res://materials/MidnightBlue.tres" type="Material" id=2]
-[ext_resource path="res://materials/Eggplant.tres" type="Material" id=3]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/Black.tres" type="Material" id=1]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/MidnightBlue.tres" type="Material" id=2]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/Eggplant.tres" type="Material" id=3]
 [ext_resource path="res://model_assets/Avatars/CinnamonSkin.material" type="Material" id=4]
+
+
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Spatial

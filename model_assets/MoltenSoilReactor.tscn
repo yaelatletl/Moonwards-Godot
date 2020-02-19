@@ -1,18 +1,20 @@
 [gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://materials/BlueGray_NoCull.tres" type="Material" id=1]
-[ext_resource path="res://materials/ButterYellow.tres" type="Material" id=2]
-[ext_resource path="res://materials/ClayGray.tres" type="Material" id=3]
-[ext_resource path="res://materials/MirrorInsulation.tres" type="Material" id=4]
-[ext_resource path="res://materials/Mint.tres" type="Material" id=5]
-[ext_resource path="res://materials/Caramel.tres" type="Material" id=6]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/BlueGray_NoCull.tres" type="Material" id=1]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/ButterYellow.tres" type="Material" id=2]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/ClayGray.tres" type="Material" id=3]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/MirrorInsulation.tres" type="Material" id=4]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/Mint.tres" type="Material" id=5]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/Caramel.tres" type="Material" id=6]
 [ext_resource path="res://Utilities/LODElement.gd" type="Script" id=7]
 [ext_resource path="res://model_assets/SolarThermalMirrorSet_SideCircuit.tscn" type="PackedScene" id=8]
 [ext_resource path="res://model_assets/TowerRadiator.tscn" type="PackedScene" id=9]
-[ext_resource path="res://materials/Metal-MixedAlloy.tres" type="Material" id=10]
-[ext_resource path="res://materials/Blue.tres" type="Material" id=11]
-[ext_resource path="res://materials/Metal-Steel.tres" type="Material" id=12]
-[ext_resource path="res://materials/Metal-Aluminum.tres" type="Material" id=13]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/Metal-MixedAlloy.tres" type="Material" id=10]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/Blue.tres" type="Material" id=11]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/Metal-Steel.tres" type="Material" id=12]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/Metal-Aluminum.tres" type="Material" id=13]
+
+
 
 
 [sub_resource type="ArrayMesh" id=1]

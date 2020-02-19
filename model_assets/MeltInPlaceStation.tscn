@@ -1,10 +1,12 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://materials/Metal-Galvanized.tres" type="Material" id=1]
-[ext_resource path="res://materials/Caramel.tres" type="Material" id=2]
-[ext_resource path="res://materials/SteelBlue.tres" type="Material" id=3]
-[ext_resource path="res://materials/Glass.tres" type="Material" id=4]
-[ext_resource path="res://materials/Sage.tres" type="Material" id=5]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/Metal-Galvanized.tres" type="Material" id=1]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/Caramel.tres" type="Material" id=2]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/SteelBlue.tres" type="Material" id=3]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/Glass.tres" type="Material" id=4]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/Sage.tres" type="Material" id=5]
+
+
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "RegolithLoose"

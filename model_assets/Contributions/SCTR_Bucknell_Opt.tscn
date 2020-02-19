@@ -1,8 +1,9 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://materials/Metal-Aluminum.tres" type="Material" id=1]
-[ext_resource path="res://materials/Metal-Steel_NoCull.tres" type="Material" id=2]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/Metal-Aluminum.tres" type="Material" id=1]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/Metal-Steel_NoCull.tres" type="Material" id=2]
 [ext_resource path="res://model_assets/Contributions/RocketBlack.tres" type="Material" id=3]
+
 
 [sub_resource type="Shader" id=1]
 resource_name = "Shader Nodetree"

@@ -48,7 +48,7 @@
 [ext_resource path="res://scenes/cshapes/AtriumHab__Interior_WasteWaterPurification_WasteWaterPurification_col_CollisionShape.shape" type="Shape" id=46]
 [ext_resource path="res://scenes/meshes/AtriumHab__Interior_PlumbingAndWaste_WasteWaterFirstTanks.mesh" type="ArrayMesh" id=47]
 [ext_resource path="res://scenes/meshes/AtriumHab__Interior_Atrium_Objects_AirCirculationDuctN.mesh" type="ArrayMesh" id=48]
-[ext_resource path="res://materials/MossGreen_NoCull.tres" type="Material" id=49]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/MossGreen_NoCull.tres" type="Material" id=49]
 [ext_resource path="res://scenes/meshes/AtriumHab__Interior_Atrium_Objects_AlgaeTubes_Opt.mesh" type="ArrayMesh" id=50]
 [ext_resource path="res://scenes/meshes/AtriumHab__Interior_Atrium_Objects_AnchorBeamAtrium000.mesh" type="ArrayMesh" id=51]
 [ext_resource path="res://scenes/meshes/AtriumHab__Interior_Atrium_Objects_AtriumElevator.mesh" type="ArrayMesh" id=52]
@@ -106,6 +106,7 @@
 [ext_resource path="res://scenes/meshes/AtriumHab__Interior_ShimmyStairs_ShimmyStairs6.mesh" type="ArrayMesh" id=104]
 [ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ShimmyStair-Step1011_ShimmyStair-Step1011_col_CollisionShape.shape" type="Shape" id=105]
 [ext_resource path="res://Utilities/AreaLod.gd" type="Script" id=106]
+
 
 
 

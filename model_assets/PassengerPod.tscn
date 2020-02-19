@@ -1,9 +1,11 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://materials/White.tres" type="Material" id=1]
-[ext_resource path="res://materials/Pumpkin.tres" type="Material" id=2]
-[ext_resource path="res://materials/BlueGray.tres" type="Material" id=3]
-[ext_resource path="res://materials/Mint.tres" type="Material" id=4]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/White.tres" type="Material" id=1]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/Pumpkin.tres" type="Material" id=2]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/BlueGray.tres" type="Material" id=3]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/Mint.tres" type="Material" id=4]
+
+
 
 [sub_resource type="Shader" id=1]
 resource_name = "Shader Nodetree"

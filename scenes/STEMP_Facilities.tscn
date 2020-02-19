@@ -13,7 +13,7 @@
 [ext_resource path="res://scenes/meshes/STEMP_Facilities__STEMP_Facility_Grounds_RadioAntenna-LongRange.mesh" type="ArrayMesh" id=11]
 [ext_resource path="res://scenes/meshes/STEMP_Facilities__STEMP_Facility_Grounds_STEMP-SolarThermalUnit-Base.mesh" type="ArrayMesh" id=12]
 [ext_resource path="res://scenes/cshapes/STEMP_Facilities__STEMP_Facility_Grounds_STEMP-SolarThermalUnit-Base_STEMP-SolarThermalUnit-Base_col_CollisionShape.shape" type="Shape" id=13]
-[ext_resource path="res://materials/RegolithFused.tres" type="Material" id=14]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/RegolithFused.tres" type="Material" id=14]
 [ext_resource path="res://scenes/meshes/STEMP_Facilities__STEMP_Facility_Grounds_StirlingCoolingTank.mesh" type="ArrayMesh" id=15]
 [ext_resource path="res://scenes/meshes/STEMP_Facilities__STEMP_Facility_Grounds_StirlingCoolingTank001.mesh" type="ArrayMesh" id=16]
 [ext_resource path="res://scenes/meshes/STEMP_Facilities__STEMP_Facility_Grounds_StirlingCoolingTank002.mesh" type="ArrayMesh" id=17]
@@ -51,6 +51,7 @@
 [ext_resource path="res://scenes/meshes/STEMP_Facilities__STEMP_Facility_Grounds_GangwayPlatform004.mesh" type="ArrayMesh" id=49]
 [ext_resource path="res://scenes/meshes/STEMP_Facilities__STEMP_Facility_Grounds_GangwayPlatform005.mesh" type="ArrayMesh" id=50]
 [ext_resource path="res://Utilities/AreaLod.gd" type="Script" id=51]
+
 
 
 [sub_resource type="ConcavePolygonShape" id=1]

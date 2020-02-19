@@ -4,12 +4,14 @@
 [ext_resource path="res://assets/Player/avatar_v2/Nametag3D.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/Player/avatar_v2/PlayerCamera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://model_assets/Avatars/AvatarRig.dae.tscn" type="PackedScene" id=4]
-[ext_resource path="res://materials/BrightTeal.tres" type="Material" id=5]
-[ext_resource path="res://materials/Chestnut.tres" type="Material" id=6]
-[ext_resource path="res://materials/SmokySkin.tres" type="Material" id=7]
-[ext_resource path="res://materials/Eggplant.tres" type="Material" id=8]
-[ext_resource path="res://materials/Black.tres" type="Material" id=9]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/BrightTeal.tres" type="Material" id=5]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/Chestnut.tres" type="Material" id=6]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/SmokySkin.tres" type="Material" id=7]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/Eggplant.tres" type="Material" id=8]
+[ext_resource path="res://SharedAssets/Materials/Miscellaneous/Black.tres" type="Material" id=9]
 [ext_resource path="res://assets/Player/interactor/Interactor.tscn" type="PackedScene" id=10]
+
+
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
