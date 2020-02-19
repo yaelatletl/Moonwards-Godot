@@ -55,61 +55,30 @@ func refresh_lobby() -> void:
 		$PlayersList/list.add_item(p)
 	$PlayersList/start.disabled=not get_tree().is_network_server()
 
-
-func _on_client_connected() -> void:
-	yield(get_tree().create_timer(2), "timeout")
-	state_hide()
-	WorldManager.change_scene(Options.scenes.default)
-
-
-func _on_server_connected() -> void:
-	_on_client_connected()
-
 func _on_host_pressed() -> void:
-	if Lobby.NetworkState == Lobby.MODE.DISCONNECTED:
-		if ($connect/name.text == ""):
-			$connect/error_label.text="Invalid name!"
-			return
-		
-		NodeUtilities.bind_signal("server_up", "_on_client_connected", Lobby, self, NodeUtilities.MODE.CONNECT)
-		
-		Lobby.server_set_mode()
-		
-		yield(WorldManager, "scene_change") #Wait Until the world loads
-		Lobby.player_register(Options.player_data, true) #local player
-		
-		self.state = STATE.SERVER_SELECT
-		
-		print(Options.player_data)
-		
-
-
-		
+	if ($connect/name.text == ""):
+		$connect/error_label.text="Invalid name!"
+		return
+	var player_data = {
+		username = $connect/name.text,
+		gender = Options.gender,
+		colors = {"pants" : Options.pants_color, "shirt" : Options.shirt_color, "skin" : Options.skin_color, "hair" : Options.hair_color, "shoes" : Options.shoes_color}
+	}
+	Lobby.connect_to_server(player_data, true, "localhost")
+	state_hide()
 
 
 func _on_join_pressed() -> void:
-	if Lobby.NetworkState == Lobby.MODE.DISCONNECTED:
-		if ($connect/name.text == ""):
-			$connect/error_label.text="Invalid name!"
-			return
-
-		set_state(STATE.CLIENT_CONNECT)
-		var player_data = {
-			username = $connect/name.text,
-			gender = Options.gender,
-			colors = {"pants" : Options.pants_color, "shirt" : Options.shirt_color, "skin" : Options.skin_color, "hair" : Options.hair_color, "shoes" : Options.shoes_color}
-		}
-		print(player_data)
-		
-
-		#NodeUtilities.bind_signal("client_connected", "", Lobby, self, NodeUtilities.MODE.CONNECT)
-		NodeUtilities.bind_signal("server_up", "_on_client_connected", Lobby, self, NodeUtilities.MODE.CONNECT)
-
-		Lobby.client_server_connect($connect/ipcontainer/ip.text)
-		yield(WorldManager, "scene_change") #Wait Until the world loads
-		Lobby.player_register(player_data, true) #local player
+	if ($connect/name.text == ""):
+		$connect/error_label.text="Invalid name!"
 		return
-
+	var player_data = {
+		username = $connect/name.text,
+		gender = Options.gender,
+		colors = {"pants" : Options.pants_color, "shirt" : Options.shirt_color, "skin" : Options.skin_color, "hair" : Options.hair_color, "shoes" : Options.shoes_color}
+	}
+	Lobby.connect_to_server(player_data, false, $connect/ipcontainer/ip.text)
+	state_hide()
 
 func _on_connection_success() -> void:
 	$connect.hide()

@@ -11,7 +11,7 @@ var m = SpatialMaterial.new()
 
 
 func get_astar_from_paths(parent : Node) -> void:
-	var vertices : PoolVector3Array = PoolVector3Array()
+	var vertices : Array = Array()
 	var astar_array : Array = []
 	var use_array : bool = false
 	if parent.get_child_count() > 1:
