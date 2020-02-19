@@ -6,13 +6,14 @@
 [ext_resource path="res://materials/MirrorInsulation.tres" type="Material" id=4]
 [ext_resource path="res://materials/Mint.tres" type="Material" id=5]
 [ext_resource path="res://materials/Caramel.tres" type="Material" id=6]
-[ext_resource path="res://scripts/LODElement.gd" type="Script" id=7]
+[ext_resource path="res://Utilities/LODElement.gd" type="Script" id=7]
 [ext_resource path="res://model_assets/SolarThermalMirrorSet_SideCircuit.tscn" type="PackedScene" id=8]
 [ext_resource path="res://model_assets/TowerRadiator.tscn" type="PackedScene" id=9]
 [ext_resource path="res://materials/Metal-MixedAlloy.tres" type="Material" id=10]
 [ext_resource path="res://materials/Blue.tres" type="Material" id=11]
 [ext_resource path="res://materials/Metal-Steel.tres" type="Material" id=12]
 [ext_resource path="res://materials/Metal-Aluminum.tres" type="Material" id=13]
+
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Cone009"

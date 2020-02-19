@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://model_assets/meshes/HangarArchColumnsOpt__HangarArch_Large_LOD.mesh" type="ArrayMesh" id=1]
-[ext_resource path="res://scripts/LODElement.gd" type="Script" id=2]
+[ext_resource path="res://Utilities/LODElement.gd" type="Script" id=2]
 [ext_resource path="res://model_assets/meshes/HangarArchColumnsOpt__HangarArch_Large_Opt.mesh" type="ArrayMesh" id=3]
+
 
 [node name="Scene" type="Spatial"]
 

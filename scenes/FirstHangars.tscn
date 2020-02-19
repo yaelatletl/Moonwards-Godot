@@ -6,7 +6,7 @@
 [ext_resource path="res://model_assets/SpiderCrane.tscn" type="PackedScene" id=4]
 [ext_resource path="res://model_assets/TowerRadiator2x.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/meshes/FirstHangars__FirstHangar_LOD.mesh" type="ArrayMesh" id=6]
-[ext_resource path="res://scripts/LODElement.gd" type="Script" id=7]
+[ext_resource path="res://Utilities/LODElement.gd" type="Script" id=7]
 [ext_resource path="res://scenes/meshes/FirstHangars__HangarFoundationSmall_hangar-arches-posts001.mesh" type="ArrayMesh" id=8]
 [ext_resource path="res://scenes/cshapes/FirstHangars__HangarFoundationSmall_HangerStructure_HangarStructure_col_CollisionShape.shape" type="Shape" id=9]
 [ext_resource path="res://scenes/meshes/FirstHangars__HangarFoundationSmall_hangar-arches-posts002.mesh" type="ArrayMesh" id=10]
@@ -18,6 +18,7 @@
 [ext_resource path="res://scenes/cshapes/FirstHangars__HangarFoundationSmall_Columns_EastColumns_Col_CollisionShape4.shape" type="Shape" id=16]
 [ext_resource path="res://scenes/cshapes/FirstHangars__HangarFoundationSmall_Columns_EastColumns_Col_CollisionShape5.shape" type="Shape" id=17]
 [ext_resource path="res://scenes/cshapes/FirstHangars__HangarFoundationSmall_HangarFoundationSmall_col_CollisionShape.shape" type="Shape" id=18]
+
 
 [node name="Scene" type="Spatial"]
 

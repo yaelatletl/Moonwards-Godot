@@ -2,11 +2,12 @@
 
 [ext_resource path="res://model_assets/meshes/LightTube_Setof3__LightTube_Large_Opt003.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://model_assets/meshes/LightTube_Setof3__LightTube_Large_LOD003.mesh" type="ArrayMesh" id=2]
-[ext_resource path="res://scripts/LODElement.gd" type="Script" id=3]
+[ext_resource path="res://Utilities/LODElement.gd" type="Script" id=3]
 [ext_resource path="res://model_assets/meshes/LightTube_Setof3__LightTube_Large_Opt002.mesh" type="ArrayMesh" id=4]
 [ext_resource path="res://model_assets/meshes/LightTube_Setof3__LightTube_Large_LOD002.mesh" type="ArrayMesh" id=5]
 [ext_resource path="res://model_assets/meshes/LightTube_Setof3__LightTube_Large_Opt001.mesh" type="ArrayMesh" id=6]
 [ext_resource path="res://model_assets/meshes/LightTube_Setof3__LightTube_Large_LOD001.mesh" type="ArrayMesh" id=7]
+
 
 [node name="Scene" type="Spatial"]
 
