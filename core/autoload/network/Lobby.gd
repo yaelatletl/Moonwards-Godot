@@ -75,6 +75,17 @@ func _ready():
 
 #################
 #Track scene changes and add nodes or emit signals functions
+func connect_to_server(player_data : Dictionary, as_host: bool = true, server : String = "localhost") -> void:
+	if NetworkState == MODE.DISCONNECTED:
+		NodeUtilities.bind_signal("server_up", "_on_successful_connection", self, self, NodeUtilities.MODE.CONNECT)
+		if as_host:
+			server_set_mode()
+		else:
+			client_server_connect(server)
+			NodeUtilities.bind_signal("client_connected", "_on_successful_connection", self, self, NodeUtilities.MODE.CONNECT)
+		yield(WorldManager, "scene_change") #Wait Until the world loads
+		player_register(player_data, true) #local player
+
 
 func unreliable_call(delta : float, function : String, args : Dictionary = {}, id : int = -1):
 	if get_tree().get_network_peer():
@@ -356,6 +367,7 @@ func end_game() -> void:
 	NetworkState = MODE.DISCONNECTED
 	emit_signal("game_ended")
 	players.clear()
+	get_tree().set_network_peer(null)
 	# End networking
 
 #################
@@ -527,3 +539,7 @@ func _on_connected_to_server() -> void:
 	NodeUtilities.bind_signal("connected_to_server", '', get_tree(), self, NodeUtilities.MODE.DISCONNECT)
 	NetworkState = MODE.CLIENT
 	emit_signal("client_connected")
+
+func _on_successful_connection():
+	yield(get_tree().create_timer(2), "timeout")
+	WorldManager.change_scene(Options.scenes.default)
