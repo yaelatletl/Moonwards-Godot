@@ -59,12 +59,11 @@ var config : ConfigFile = ConfigFile.new()
 var scenes : Dictionary = {
 	loaded = null,
 	default = "WorldV2",
-	default_headless = "WorldServer",
 	WorldV2 = {
-		path = "res://WorldV2.tscn"
+		path = "res://Worlds/WorldV2.tscn"
 	},
 	Boot = {
-		path = "res://Boot.tscn"
+		path = "res://Worlds/Boot.tscn"
 	}
 }
 
