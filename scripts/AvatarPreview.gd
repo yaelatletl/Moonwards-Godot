@@ -11,8 +11,8 @@ var _shirt_mat : SpatialMaterial
 var _skin_mat : SpatialMaterial
 var _hair_mat : SpatialMaterial
 var _shoes_mat : SpatialMaterial
-var _selected_mat : SpatialMaterial = load("res://assets/UI/Options/selected.material")
-var _unselected_mat : SpatialMaterial = load("res://assets/UI/Options/unselected.material")
+var _selected_mat : SpatialMaterial = load("res://Interface/MainMenu/Options/selected.material")
+var _unselected_mat : SpatialMaterial = load("res://Interface/MainMenu/Options/unselected.material")
 
 func _ready() -> void:
 	_pants_mat = base_material.duplicate()

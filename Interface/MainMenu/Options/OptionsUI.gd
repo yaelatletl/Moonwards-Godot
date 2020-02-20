@@ -1,4 +1,4 @@
-extends Control
+extends TabContainer
 
 signal close
 signal save
@@ -6,18 +6,18 @@ var signal_close = false
 
 const id = "Options.gd"
 
-onready var t_Areas = $TabContainer/Dev/VBoxContainer/tAreas
-onready var t_CollisionShapes = $TabContainer/Dev/VBoxContainer/tCollisionShapes
-onready var t_FPSLimit = $TabContainer/Dev/VBoxContainer/tFPSLim
-onready var s_FPSLimit =  $TabContainer/Dev/VBoxContainer/sFPSLim
-onready var t_decimate = $TabContainer/Dev/VBoxContainer/tDecimate
-onready var t_decimate_percent = $TabContainer/Dev/VBoxContainer/sDecimatePercent
-onready var t_Lod_Manager = $TabContainer/Dev/VBoxContainer/tLodManager
-onready var s_HBoxAspect = $TabContainer/Dev/VBoxContainer/sHBoxAspect
-onready var t_PMonitor = $TabContainer/Dev/VBoxContainer/tPMonitor
-onready var s_PlayerSpeed = $TabContainer/Dev/VBoxContainer/sPlayerSpeed
-onready var t_flycam = $TabContainer/Dev/VBoxContainer/SelectFlyCamera
-onready var tabs = $TabContainer
+onready var t_Areas = $Dev/MarginContainer/VBoxContainer/tAreas
+onready var t_CollisionShapes = $Dev/MarginContainer/VBoxContainer/tCollisionShapes
+onready var t_FPSLimit = $Dev/MarginContainer/VBoxContainer/tFPSLim
+onready var s_FPSLimit =  $Dev/MarginContainer/VBoxContainer/sFPSLim
+onready var t_decimate = $Dev/MarginContainer/VBoxContainer/tDecimate
+onready var t_decimate_percent = $Dev/MarginContainer/VBoxContainer/sDecimatePercent
+onready var t_Lod_Manager = $Dev/MarginContainer/VBoxContainer/tLodManager
+onready var s_HBoxAspect = $Dev/MarginContainer/VBoxContainer/sHBoxAspect
+onready var t_PMonitor = $Dev/MarginContainer/VBoxContainer/tPMonitor
+onready var s_PlayerSpeed = $Dev/MarginContainer/VBoxContainer/sPlayerSpeed
+onready var t_flycam = $Dev/MarginContainer/VBoxContainer/SelectFlyCamera
+
 
 func _ready() -> void:
 	Log.hint(self, "_ready", "option control ready")
@@ -43,14 +43,16 @@ func _ready() -> void:
 		t_flycam.add_item(Options.fly_cameras[i].label, i)
 	t_flycam.button.selected = Options.get("dev", "flycamera", 0)
 	t_flycam.connect("changed", self, "set_fly_camera")
+	
+	rect_size = get_parent().rect_size
 
 
 
 func get_tab_index() -> int:
-	return tabs.current_tab
+	return current_tab
 
 func set_tab_index(index : int) -> void:
-	tabs.current_tab = index
+	current_tab = index
 
 func close() -> void:
 	Options.set("state", $TabContainer.current_tab, "menu_options_tab")
