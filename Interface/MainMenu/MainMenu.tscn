@@ -3,7 +3,7 @@
 [ext_resource path="res://Interface/MainMenu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Interface/MainMenu/Hangars_toHorizon.png" type="Texture" id=2]
 [ext_resource path="res://Themes/MainMenu.tres" type="Theme" id=3]
-[ext_resource path="res://assets/UI/Options/Options.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Interface/MainMenu/Options/Options.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Interface/MainMenu/About/About.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Interface/MainMenu/Lobby/Lobby.tscn" type="PackedScene" id=6]
 
@@ -19,20 +19,27 @@ anchor_bottom = 1.0
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="H" type="HBoxContainer" parent="."]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 64.0
-margin_top = -662.463
-margin_right = -64.0
-margin_bottom = -173.463
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -522.0
+margin_top = -316.0
+margin_right = 524.0
+margin_bottom = 130.0
 theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="T" type="TabContainer" parent="H"]
-margin_right = 1792.0
-margin_bottom = 489.0
+margin_right = 1046.0
+margin_bottom = 446.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 1 )
@@ -42,12 +49,20 @@ tabs_visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Options" parent="H/T" instance=ExtResource( 4 )]
+[node name="Options" type="MarginContainer" parent="H/T"]
 visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Options" parent="H/T/Options" instance=ExtResource( 4 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 0.0
-margin_right = 0.0
-margin_bottom = 0.0
+margin_right = 1046.0
+margin_bottom = 446.0
 theme = null
 
 [node name="About" parent="H/T" instance=ExtResource( 5 )]
@@ -81,6 +96,9 @@ grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="bJoinServer" type="Button" parent="V"]
 margin_right = 1680.0
@@ -94,22 +112,21 @@ margin_bottom = 46.0
 text = "Local Game"
 
 [node name="bOptions" type="Button" parent="V"]
-visible = false
-margin_top = 52.0
-margin_right = 1680.0
-margin_bottom = 74.0
-text = "Options"
-
-[node name="bAbout" type="Button" parent="V"]
 margin_top = 50.0
 margin_right = 1680.0
 margin_bottom = 71.0
-text = "About"
+text = "Options"
 
-[node name="bQuit" type="Button" parent="V"]
+[node name="bAbout" type="Button" parent="V"]
 margin_top = 75.0
 margin_right = 1680.0
 margin_bottom = 96.0
+text = "About"
+
+[node name="bQuit" type="Button" parent="V"]
+margin_top = 100.0
+margin_right = 1680.0
+margin_bottom = 121.0
 text = "Quit"
 [connection signal="pressed" from="V/bJoinServer" to="." method="_on_bJoinServer_pressed"]
 [connection signal="pressed" from="V/bLocalGame" to="." method="_on_bLocalGame_pressed"]
