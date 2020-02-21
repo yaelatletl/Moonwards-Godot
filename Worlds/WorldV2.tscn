@@ -4,7 +4,8 @@
 [ext_resource path="res://SharedAssets/Environments/NASA_Goddard/NASA-Goddard-SVS-starmap-LevelledDesat-8k.png" type="Texture" id=2]
 [ext_resource path="res://scenes/TerrainWithMarkers/TerrainWithMarkers.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Core/WorldNavigation.gd" type="Script" id=4]
-[ext_resource path="res://assets/Player/avatar_v2/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://LegacyPlayer/avatar_v2/player.tscn" type="PackedScene" id=5]
+
 
 
 
