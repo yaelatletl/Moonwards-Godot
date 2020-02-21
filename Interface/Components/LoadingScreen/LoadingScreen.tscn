@@ -1,8 +1,10 @@
 [gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Themes/Fonts/MainMenuFont.tres" type="DynamicFont" id=1]
-[ext_resource path="res://assets/UI/Menu/Resources/LoadingScreen.gd" type="Script" id=2]
+[ext_resource path="res://Interface/Components/LoadingScreen/LoadingScreen.gd" type="Script" id=2]
 [ext_resource path="res://Interface/MainMenu/MainBG.png" type="Texture" id=3]
+
+
 
 
 
