@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/FireParticleMesh.obj-07efb2634253823ec872f7e2a587f733.mesh"
+
+[deps]
+
+files=[ "res://.import/FireParticleMesh.obj-07efb2634253823ec872f7e2a587f733.mesh" ]
+
+source_file="res://Worlds/WorldV2/RocketDisplay/FireParticleMesh.obj"
+dest_files=[ "res://.import/FireParticleMesh.obj-07efb2634253823ec872f7e2a587f733.mesh", "res://.import/FireParticleMesh.obj-07efb2634253823ec872f7e2a587f733.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

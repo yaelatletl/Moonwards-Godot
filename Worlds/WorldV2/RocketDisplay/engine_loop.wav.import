@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/engine_loop.wav-5f5d4b0fd44d0a17c06c09a7f41f08dd.sample"
+
+[deps]
+
+source_file="res://Worlds/WorldV2/RocketDisplay/engine_loop.wav"
+dest_files=[ "res://.import/engine_loop.wav-5f5d4b0fd44d0a17c06c09a7f41f08dd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0
