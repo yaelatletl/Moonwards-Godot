@@ -5,21 +5,28 @@ extends Node
 """
 
 func _ready() -> void:
-	if OS.has_feature("Server"):
-		_ready_headless()
+#	if OS.has_feature("Server"):
+#		_ready_headless()
+#	else:
+	
+	var arguments = {}
+	for argument in OS.get_cmdline_args():
+	# Parse valid command-line arguments into a dictionary
+		if argument.find("=") > -1:
+			var key_value = argument.split("=")
+			arguments[key_value[0].lstrip("--")] = key_value[1]
+	if arguments.has("server"):
+		if arguments.server == true:
+			_ready_headless()
 	else:
-		MainMenu.show()
-	# originally registered ui in uimanager
+		MainMenu.show()	
 
 
 func _ready_headless() -> void:
 	Log.hint(self, "_ready_headless", "Initializing Headless Server")
 	
 	var player_data : Dictionary = {
-		name = "Server Bot",
+		name = "Server bot",
 		options = Options.player_opt("server_bot")
 	}
-	Lobby.player_register(player_data, true) #local player
-	Lobby.server_set_mode()
-	var worldscene : String = Options.scenes.default_multiplayer_join_server
-	Lobby.change_scene(worldscene)
+	Lobby.connect_to_server(player_data, true)
