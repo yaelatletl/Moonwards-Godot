@@ -1,9 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/UI/Options/UserSettings.gd" type="Script" id=1]
-[ext_resource path="res://assets/UI/Options/AvatarPreview/AvatarPreview.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/UI/Options/Visual_Selector.gd" type="Script" id=3]
+[ext_resource path="res://assets/UI/OptionsOld/UserSettings.gd" type="Script" id=1]
+[ext_resource path="res://assets/UI/OptionsOld/AvatarPreview/AvatarPreview.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/UI/OptionsOld/Visual_Selector.gd" type="Script" id=3]
 [ext_resource path="res://addons/HuePicker/HuePicker.tscn" type="PackedScene" id=4]
+
 
 
 
