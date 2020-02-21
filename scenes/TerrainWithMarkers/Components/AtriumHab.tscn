@@ -96,7 +96,7 @@
 [ext_resource path="res://scenes/meshes/AtriumHab__Interior_KitchenAndLaundry_OvensHeatPump.mesh" type="ArrayMesh" id=94]
 [ext_resource path="res://scenes/meshes/AtriumHab__Interior_ShimmyStairs_ShimmyStairs1.mesh" type="ArrayMesh" id=95]
 [ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ShimmyStair-Steps001_ShimmyStair-Steps001_col_CollisionShape.shape" type="Shape" id=96]
-[ext_resource path="res://assets/Stairs/StairsAreaSingle.tscn" type="PackedScene" id=97]
+[ext_resource path="res://Worlds/WorldV2/Stairs/StairsAreaSingle.tscn" type="PackedScene" id=97]
 [ext_resource path="res://scenes/meshes/AtriumHab__Interior_ShimmyStairs_ShimmyStair2.mesh" type="ArrayMesh" id=98]
 [ext_resource path="res://scenes/cshapes/AtriumHab__Interior_Shimmy-Stairs008_ShimmyStair-Step1008_ShimmyStair-Step1008_col_CollisionShape.shape" type="Shape" id=99]
 [ext_resource path="res://scenes/meshes/AtriumHab__Interior_ShimmyStairs_ShimmyStairs3.mesh" type="ArrayMesh" id=100]
@@ -106,6 +106,7 @@
 [ext_resource path="res://scenes/meshes/AtriumHab__Interior_ShimmyStairs_ShimmyStairs6.mesh" type="ArrayMesh" id=104]
 [ext_resource path="res://scenes/cshapes/AtriumHab__Interior_ShimmyStair-Step1011_ShimmyStair-Step1011_col_CollisionShape.shape" type="Shape" id=105]
 [ext_resource path="res://Utilities/AreaLod.gd" type="Script" id=106]
+
 
 
 
