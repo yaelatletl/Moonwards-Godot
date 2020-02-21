@@ -6,7 +6,7 @@ var loader : ResourceInteractiveLoader = null
 var thread : Thread = Thread.new()
 var new_scene : Resource = null
 var progress : float = 0.0
-var loading_screen_resource : PackedScene= preload("res://assets/UI/Menu/Resources/LoadingScreen.tscn")
+var loading_screen_resource : PackedScene= preload("res://Interface/Components/LoadingScreen/LoadingScreen.tscn")
 var loading_screen : Node = null
 
 func reset() -> void:
