@@ -2,7 +2,8 @@
 
 [ext_resource path="res://SharedAssets/Environments/NASA_Goddard/NASA_Goddard.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/TerrainWithMarkers/TerrainWithMarkers.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Actors/athlete_rover/AthleteRover.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Actors/AthleteRover/AthleteRover.tscn" type="PackedScene" id=3]
+
 
 
 
