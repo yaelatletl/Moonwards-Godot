@@ -21,12 +21,24 @@ var _cfg: ConfigFile = ConfigFile.new()
 
 func _init() -> void:
 	load_defaults()
+	load_useroptions()
 
 
 func load_defaults() -> void:
 	var err: int = _cfg.load(DEFAULT_OPTIONS_PATH)
 	if not err == OK:
 		print("_UserOptions: load_defaults() could not load defaults. Error Code: %s Path: %s" % [err, DEFAULT_OPTIONS_PATH])
+
+
+func load_useroptions() -> void:
+	var f: File = File.new()
+	if not f.file_exists(USER_OPTIONS_PATH):
+		print("_UserOptions: load_useroptions() could not find user options file at path %s" % USER_OPTIONS_PATH)
+		return
+	
+	var err: int = _cfg.load(USER_OPTIONS_PATH)
+	if not err == OK:
+		print("_UserOptions: load_defaults() could not load user options. Error Code: %s Path: %s" % [err, USER_OPTIONS_PATH])
 
 
 func set_option(category: String, option: String, value) -> void:
