@@ -22,7 +22,7 @@ var Debugger : bool = true
 var scene_id : String= "scene_id_30160"
 
 # scene we instance for each player
-var player_scene : PackedScene = preload("res://assets/Player/avatar_v2/player.tscn")
+var player_scene : PackedScene = preload("res://LegacyPlayer/avatar_v2/player.tscn")
 
 # Join server host
 # var join_server_host = "127.0.0.1"
@@ -60,10 +60,7 @@ var scenes : Dictionary = {
 	loaded = null,
 	default = "WorldV2",
 	WorldV2 = {
-		path = "res://Worlds/WorldV2.tscn"
-	},
-	Boot = {
-		path = "res://Worlds/Boot.tscn"
+		path = "res://Worlds//WorldV2/WorldV2.tscn"
 	}
 }
 
