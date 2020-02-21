@@ -6,9 +6,10 @@
 [ext_resource path="res://Themes/Display.tres" type="Theme" id=4]
 [ext_resource path="res://Worlds/LegacyWorld/RocketDisplay/CameraControl.gd" type="Script" id=5]
 [ext_resource path="res://Worlds/LegacyWorld/RocketDisplay/RocketEngines.wav" type="AudioStream" id=6]
-[ext_resource path="res://model_assets/Contributions/SCTR_Bucknell_Opt.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Worlds/LegacyWorld/model_assets/Contributions/SCTR_Bucknell_Opt.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Worlds/LegacyWorld/RocketDisplay/fire_particle.png" type="Texture" id=8]
 [ext_resource path="res://Worlds/LegacyWorld/RocketDisplay/FireParticleMesh.obj" type="ArrayMesh" id=9]
+
 
 
 
