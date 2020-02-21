@@ -29,7 +29,7 @@
 [ext_resource path="res://scenes/meshes/RecHab1__Interior_SwimmingPool_DivingBoard_Opt.mesh" type="ArrayMesh" id=27]
 [ext_resource path="res://scenes/meshes/RecHab1__RecHab1_RetainingWalls_SwimmingPool-Water.mesh" type="ArrayMesh" id=28]
 [ext_resource path="res://scenes/meshes/RecHab1__Interior_ShimmyStairs_ShimmyStairs_Pool_Entrance.mesh" type="ArrayMesh" id=29]
-[ext_resource path="res://Worlds/WorldV2/Stairs/StairsAreaSingle.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Worlds/LegacyWorld/Stairs/StairsAreaSingle.tscn" type="PackedScene" id=30]
 [ext_resource path="res://scenes/meshes/RecHab1__Interior_ShimmyStairs_ShimmyStairs_Pair_Pool_N.mesh" type="ArrayMesh" id=31]
 [ext_resource path="res://scenes/meshes/RecHab1__Interior_ShimmyStairs_ShimmyStairs_Pool_S.mesh" type="ArrayMesh" id=32]
 [ext_resource path="res://scenes/meshes/RecHab1__Interior_ShimmyStairs_ShimmyStairs_Top_N.mesh" type="ArrayMesh" id=33]
@@ -63,6 +63,7 @@
 [ext_resource path="res://scenes/meshes/RecHab1__Exterior_RetainingWalls_Opt.mesh" type="ArrayMesh" id=61]
 [ext_resource path="res://scenes/meshes/RecHab1__Exterior_RecHab_Opt.mesh" type="ArrayMesh" id=62]
 [ext_resource path="res://scenes/meshes/RecHab1__Exterior_TubeHabTruss_Opt.mesh" type="ArrayMesh" id=63]
+
 
 
 

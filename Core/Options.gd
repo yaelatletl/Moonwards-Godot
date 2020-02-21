@@ -60,7 +60,7 @@ var scenes : Dictionary = {
 	loaded = null,
 	default = "WorldV2",
 	WorldV2 = {
-		path = "res://Worlds//WorldV2/WorldV2.tscn"
+		path = "res://Worlds/LegacyWorld/WorldV2.tscn"
 	}
 }
 
