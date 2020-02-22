@@ -18,7 +18,7 @@ func _ready() -> void:
 
 func set_name(name : String = "") -> void:
 	if name == "":
-		name = Utilities.get_name()
+		name = NameGenerator.get_name()
 	$connect/name.text = name
 
 func state_hide() -> void:

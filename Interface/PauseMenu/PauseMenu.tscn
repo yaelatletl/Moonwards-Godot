@@ -1,8 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Interface/PauseMenu/PauseMenu.gd" type="Script" id=1]
-[ext_resource path="res://Interface/MainMenu/Options/Options.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Interface/MainMenu/OptionsOld/Options.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Interface/MainMenu/About/About.tscn" type="PackedScene" id=3]
+
 
 
 [sub_resource type="StyleBoxEmpty" id=1]
