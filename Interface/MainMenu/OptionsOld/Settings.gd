@@ -1,4 +1,4 @@
-extends MarginContainer
+extends Tabs
 
 const modes : Array = [
 	"Windowed",
@@ -6,11 +6,11 @@ const modes : Array = [
 	"Fullscreen"
 	]
 	
-onready var Quality : MenuButton = $Main/Row2/Video/ModelQuality/Quality
-onready var Resolution : MenuButton = $Main/Row2/Video/Resolution/Resolution
-onready var FPSSlider : HSlider = $Main/Row2/Video/FPSLimit/FPSSlider
-onready var FPSSpin : SpinBox = $Main/Row2/Video/FPSLimit/FPSSpin
-onready var ScreenMode : MenuButton =  $Main/Row2/Video/Resolution/ScreenMode
+onready var Quality : MenuButton = $MarginContainer/Main/Row2/Video/ModelQuality/Quality
+onready var Resolution : MenuButton = $MarginContainer/Main/Row2/Video/Resolution/Resolution
+onready var FPSSlider : HSlider = $MarginContainer/Main/Row2/Video/FPSLimit/FPSSlider
+onready var FPSSpin : SpinBox = $MarginContainer/Main/Row2/Video/FPSLimit/FPSSpin
+onready var ScreenMode : MenuButton =  $MarginContainer/Main/Row2/Video/Resolution/ScreenMode
 
 var resolutions : Array = [
 	Vector2(640, 480),

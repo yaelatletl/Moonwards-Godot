@@ -15,7 +15,7 @@ var text_edit1 : String = "VBoxContainer/UsernameContainer/UsernameTextEdit"
 var text_edit2 : String = "VBoxContainer2/UsernameTextEdit2"
 var gender_edit : String = "VBoxContainer/Gender"
 var avatar_preview : String = "VBoxContainer2/ViewportContainer/Viewport/AvatarPreview"
-var hue_picker : String = "VBoxContainer/HuePicker"
+var hue_picker : String = "CenterContainer/HuePicker"
 var button_containter : String = "VBoxContainer2/ViewportContainer"
 
 
