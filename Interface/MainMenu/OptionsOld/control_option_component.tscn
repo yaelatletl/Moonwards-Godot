@@ -1,7 +1,11 @@
 [gd_scene load_steps=2 format=2]
 
+<<<<<<< HEAD:Interface/MainMenu/OptionsOld/control_option_component.tscn
 [ext_resource path="res://Interface/MainMenu/OptionsOld/control_option_component.gd" type="Script" id=1]
 
+=======
+[ext_resource path="res://Interface/MainMenu/Options/control_option_component.gd" type="Script" id=1]
+>>>>>>> moonwards/master:Interface/MainMenu/Options/control_option_component.tscn
 
 
 [node name="ui_right" type="HBoxContainer"]
