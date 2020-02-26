@@ -8,7 +8,7 @@ func _ready() -> void:
 #	if OS.has_feature("Server"):
 #		_ready_headless()
 #	else:
-	
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	var arguments = {}
 	for argument in OS.get_cmdline_args():
 	# Parse valid command-line arguments into a dictionary
