@@ -111,7 +111,7 @@ func reliable_call(delta : float, function : String, args : Dictionary = {}, id 
 				rpc(function, args)
 			global_delta = 0
 	else:
-		print("Tried to send an RCP without a networ peer")
+		print("Tried to send an RCP without a network peer")
 
 func queue_attach(path : String, node, permanent : bool = false) -> void: #node is variant
 	Log.hint(self, "queue_attach", str("attach queue(permanent: ", str(permanent),"): ", path, "(", node, ")"))
@@ -172,15 +172,18 @@ func server_set_mode(host : String = "localhost"):
 	NetworkState = MODE.SERVER
 
 	self.host = host
-	ip = IP.resolve_hostname(host, 1) #TYPE_IPV4 - ipv4 adresses only
-	if not ip.is_valid_ip_address():
-		Log.hint(self, "server_set_mode",  str("fail to resolve host(",host,") to ip adress"))
-		NetworkState = MODE.DISCONNECTED
-		return
+	ip = IP.resolve_hostname(host, IP.TYPE_ANY) #Resolve any IP
+	print("The current ip is valid: ", ip.is_valid_ip_address()) 
+#	if not ip.is_valid_ip_address():
+#		Log.hint(self, "server_set_mode",  str("fail to resolve host(",host,") to ip adress"))
+#		NetworkState = MODE.DISCONNECTED
+#		return
 	Log.hint(self, "server_set_mode", str("prepare to listen on ", ip, ":", DEFAULT_PORT))
 	connection = NetworkedMultiplayerENet.new()
-	connection.set_bind_ip(ip)
+	connection.set_compression_mode(NetworkedMultiplayerENet.COMPRESS_FASTLZ)
+	connection.set_bind_ip("*") # Temporary debug stuff, use all available interfaces
 	var error : int = connection.create_server(DEFAULT_PORT, MAX_PEERS)
+	print("Current connection status: " + Log.error_to_string(error))
 	if error == OK:
 		emit_signal("server_up")
 		
@@ -220,7 +223,8 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 	NetworkState = MODE.CLIENT
 
 	host = host
-	ip = IP.resolve_hostname(host, 1) #TYPE_IPV4 - ipv4 adresses only
+	ip = IP.resolve_hostname(host,IP.TYPE_ANY) #TYPE_ANY, allows IPv4 and IPv6
+	print("Ip is: ", ip)
 	if not ip.is_valid_ip_address():
 		var msg = str("fail to resolve host(", host, ") to ip adress")
 		Log.error(self, "client_server_connect", msg)
@@ -232,7 +236,9 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 #	NodeUtilities.bind_signal("connection_failed", "", get_tree(), self, NodeUtilities.MODE.CONNECT)
 #	NodeUtilities.bind_signal("connected_to_server", "", get_tree(), self, NodeUtilities.MODE.CONNECT)
 	connection = NetworkedMultiplayerENet.new()
-	connection.create_client(ip, port)
+	connection.set_compression_mode(NetworkedMultiplayerENet.COMPRESS_FASTLZ) #Use lss bandwidth
+	var err = connection.create_client(ip, port)
+	print("Current connection status: " + Log.error_to_string(err))
 	emit_signal("server_up")
 	Log.hint(self, "client_server_connect", str("network id ", connection.get_unique_id()))
 	network_id = connection.get_unique_id()
@@ -241,8 +247,8 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 	yield(WorldManager, "scene_change") #Stop your horses, the world hasn't loaded in yet!
 	get_tree().set_network_peer(connection)
 	yield(get_tree().create_timer(25), "timeout") #25 is the connection timeout maximum value
-	var error = connection.get_connection_status()
-	print(error)
+	var error : int = connection.get_connection_status()
+	print("The connection status at the end of the attempt is : ", error, "(2== Connected, error otherwise)")
 	if error != 2: #if it times-out you get booted to the main menu
 		Input.MOUSE_MODE_VISIBLE
 		yield(get_tree().create_timer(5), "timeout")
@@ -369,7 +375,7 @@ func player_noinput(enable : bool = false) -> void:
 func end_game() -> void:
 	if (has_node("/root/world")): # Game is in progress
 		get_node("/root/world").queue_free()
-		WorldManager.change_scene("Boot")
+		WorldManager.change_scene("res://Boot.tscn")
 	NetworkState = MODE.DISCONNECTED
 	emit_signal("game_ended")
 	players.clear()

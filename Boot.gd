@@ -8,7 +8,7 @@ func _ready() -> void:
 #	if OS.has_feature("Server"):
 #		_ready_headless()
 #	else:
-	
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	var arguments = {}
 	for argument in OS.get_cmdline_args():
 	# Parse valid command-line arguments into a dictionary
@@ -24,6 +24,7 @@ func _ready() -> void:
 
 func _ready_headless() -> void:
 	Log.hint(self, "_ready_headless", "Initializing Headless Server")
+	print("Server started as headless")
 	
 	var player_data : Dictionary = {
 		name = "Server bot",
