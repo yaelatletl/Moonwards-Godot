@@ -172,11 +172,12 @@ func server_set_mode(host : String = "localhost"):
 	NetworkState = MODE.SERVER
 
 	self.host = host
-	ip = IP.resolve_hostname(host, 1) #TYPE_IPV4 - ipv4 adresses only
-	if not ip.is_valid_ip_address():
-		Log.hint(self, "server_set_mode",  str("fail to resolve host(",host,") to ip adress"))
-		NetworkState = MODE.DISCONNECTED
-		return
+	ip = IP.resolve_hostname(host, IP.TYPE_ANY) #Resolve any IP
+	print("The current ip is valid: ", ip.is_valid_ip_address()) 
+#	if not ip.is_valid_ip_address():
+#		Log.hint(self, "server_set_mode",  str("fail to resolve host(",host,") to ip adress"))
+#		NetworkState = MODE.DISCONNECTED
+#		return
 	Log.hint(self, "server_set_mode", str("prepare to listen on ", ip, ":", DEFAULT_PORT))
 	connection = NetworkedMultiplayerENet.new()
 	connection.set_compression_mode(NetworkedMultiplayerENet.COMPRESS_FASTLZ)
@@ -222,7 +223,8 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 	NetworkState = MODE.CLIENT
 
 	host = host
-	ip = IP.resolve_hostname(host, 1) #TYPE_IPV4 - ipv4 adresses only
+	ip = IP.resolve_hostname(host,IP.TYPE_ANY) #TYPE_ANY, allows IPv4 and IPv6
+	print("Ip is: ", ip)
 	if not ip.is_valid_ip_address():
 		var msg = str("fail to resolve host(", host, ") to ip adress")
 		Log.error(self, "client_server_connect", msg)
@@ -373,7 +375,7 @@ func player_noinput(enable : bool = false) -> void:
 func end_game() -> void:
 	if (has_node("/root/world")): # Game is in progress
 		get_node("/root/world").queue_free()
-		WorldManager.change_scene("Boot")
+		WorldManager.change_scene("res://Boot.tscn")
 	NetworkState = MODE.DISCONNECTED
 	emit_signal("game_ended")
 	players.clear()
