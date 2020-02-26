@@ -2,17 +2,11 @@
 
 [ext_resource path="res://Themes/MainMenu.tres" type="Theme" id=1]
 [ext_resource path="res://Interface/MainMenu/OptionsOld/OptionsUI.gd" type="Script" id=2]
-[ext_resource path="res://Interface/MainMenu/OptionsOld/Settings.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Interface/MainMenu/OptionsOld/UserSettings.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Interface/MainMenu/OptionsOld/Settings.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Interface/MainMenu/OptionsOld/LabelSliderMix/LabelSliderMix.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Interface/MainMenu/OptionsOld/LabelOptionButton/LabelOptionButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Interface/MainMenu/OptionsOld/Controls_settings.tscn" type="PackedScene" id=7]
-
-
-
-
-
-
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 0.0
@@ -43,10 +37,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -402.0
-margin_top = -324.0
-margin_right = 588.0
-margin_bottom = 347.0
+margin_left = -495.0
+margin_top = -335.5
+margin_right = 495.0
+margin_bottom = 335.5
 theme = ExtResource( 1 )
 tab_align = 0
 script = ExtResource( 2 )
@@ -59,19 +53,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 41.0
 
-[node name="User Settings" parent="Player" instance=ExtResource( 4 )]
-margin_left = -428.0
-margin_top = -180.0
-margin_right = 428.0
-margin_bottom = 180.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[node name="UserSettings" parent="Player" instance=ExtResource( 3 )]
 
-[node name="Settings" parent="." instance=ExtResource( 3 )]
-visible = false
+[node name="Settings" parent="." instance=ExtResource( 4 )]
 margin_top = 41.0
 
 [node name="Dev" type="Tabs" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 41.0
