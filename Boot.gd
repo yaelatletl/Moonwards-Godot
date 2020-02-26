@@ -24,6 +24,7 @@ func _ready() -> void:
 
 func _ready_headless() -> void:
 	Log.hint(self, "_ready_headless", "Initializing Headless Server")
+	print("Server started as headless")
 	
 	var player_data : Dictionary = {
 		name = "Server bot",
