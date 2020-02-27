@@ -44,7 +44,7 @@ func _ready() -> void:
 	t_flycam.button.selected = Options.get("dev", "flycamera", 0)
 	t_flycam.connect("changed", self, "set_fly_camera")
 	
-	rect_size = get_parent().rect_size
+#	rect_size = get_parent().rect_size
 
 
 
