@@ -5,10 +5,6 @@
 [ext_resource path="res://Interface/MainMenu/OptionsOld/Visual_Selector.gd" type="Script" id=3]
 [ext_resource path="res://addons/HuePicker/HuePicker.tscn" type="PackedScene" id=4]
 
-
-
-
-
 [sub_resource type="GDScript" id=1]
 script/source = "extends HBoxContainer
 
