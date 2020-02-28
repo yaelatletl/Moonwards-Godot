@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LowerWall2_Normal_Medium_Tiled.png-41224b9baf37ac64b7eba76b65e94a5e.stex"
+path="res://.import/RimNormals1_MediumTiled.png-a165771b0cfb9f8a6b1ee09dab4c9fa6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SharedAssets/Textures/Procedural_LowerWall/LowerWall2_Normal_Medium_Tiled.png"
-dest_files=[ "res://.import/LowerWall2_Normal_Medium_Tiled.png-41224b9baf37ac64b7eba76b65e94a5e.stex" ]
+source_file="res://SharedAssets/Textures/Procedural_Terrain/Procedural_CraterRim/RimNormals1_MediumTiled.png"
+dest_files=[ "res://.import/RimNormals1_MediumTiled.png-a165771b0cfb9f8a6b1ee09dab4c9fa6.stex" ]
 
 [params]
 

@@ -1,8 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Worlds/MoonTown/Constructs/First_Atrium/First_Atrium.glb" type="PackedScene" id=1]
 [ext_resource path="res://Worlds/MoonTown/Assets/Health_Centrifuge/HealthCentrifuge.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Worlds/MoonTown/Assets/Hexpane_Window/Hexpane_Window.tscn" type="PackedScene" id=3]
+
+[sub_resource type="GIProbeData" id=1]
+bounds = AABB( -8.47018, -2.5641, -4.59683, 16.9404, 5.1282, 9.19366 )
+cell_size = 0.132347
+to_cell_xform = Transform( 7.55592, 0, 0, 0, 7.55592, 0, 0, 0, 7.55592, 64, 19.3741, 34.7333 )
+dynamic_data = PoolIntArray( 0, 8, 128, 64, 128, 1, 0, 0, 2, 10, 0, 0, 8, 0, 1492137136, 32721, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
+dynamic_range = 4
+energy = 0.44
+bias = 1.5
+normal_bias = 0.0
 
 [node name="First_Atrium" instance=ExtResource( 1 )]
 
@@ -17,3 +27,18 @@
 [node name="Hexpane_Window" parent="AtriumWalls_M/HexpaneWindow_D" index="0" instance=ExtResource( 3 )]
 
 [node name="Hexpane_Window" parent="AtriumWalls_M/HexpaneWindow_E" index="0" instance=ExtResource( 3 )]
+
+[node name="GIProbe" type="GIProbe" parent="." index="22"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.18876, 0.516738, 0.639692 )
+subdiv = 2
+extents = Vector3( 8.47018, 2.5641, 4.59683 )
+energy = 0.44
+propagation = 1.0
+data = SubResource( 1 )
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="." index="23"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.108002, 0.496809, 0.885615 )
+intensity = 0.31
+extents = Vector3( 2.64577, 2.57502, 4.15224 )
+origin_offset = Vector3( 0, 0, -0.140625 )
+box_projection = true

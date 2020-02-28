@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MixedWeed1024.png-f89ad2ef18b461052452458ac3e260e3.stex"
+path="res://.import/Rim4_Normal_Medium_Tiled.png-fe5ce53efa32dc865e69280171f837bc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SharedAssets/Textures/Nature_Textures/Plant_Collage/MixedWeed1024.png"
-dest_files=[ "res://.import/MixedWeed1024.png-f89ad2ef18b461052452458ac3e260e3.stex" ]
+source_file="res://SharedAssets/Textures/Procedural_Terrain/Procedural_CraterRim/Rim4_Normal_Medium_Tiled.png"
+dest_files=[ "res://.import/Rim4_Normal_Medium_Tiled.png-fe5ce53efa32dc865e69280171f837bc.stex" ]
 
 [params]
 

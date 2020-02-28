@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LowerWall4_Normal_Medium_Tiled.png-d3502b4089f4b7aae88abe82f1432b00.stex"
+path="res://.import/UpperWall3_Normal_Medium_Tiled.png-bb9ba3089a9823113927c587d2dc004a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SharedAssets/Textures/Procedural_LowerWall/LowerWall4_Normal_Medium_Tiled.png"
-dest_files=[ "res://.import/LowerWall4_Normal_Medium_Tiled.png-d3502b4089f4b7aae88abe82f1432b00.stex" ]
+source_file="res://SharedAssets/Textures/Procedural_Terrain/Procedural_CraterUpperWall/UpperWall3_Normal_Medium_Tiled.png"
+dest_files=[ "res://.import/UpperWall3_Normal_Medium_Tiled.png-bb9ba3089a9823113927c587d2dc004a.stex" ]
 
 [params]
 
@@ -18,7 +18,7 @@ compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
-compress/normal_map=0
+compress/normal_map=1
 flags/repeat=0
 flags/filter=true
 flags/mipmaps=true
