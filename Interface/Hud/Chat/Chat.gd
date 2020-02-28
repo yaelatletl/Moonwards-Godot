@@ -1,6 +1,8 @@
 extends PanelContainer
 """
 	Chat Scene Script
+	
+	We are part of the group named Chat.
 """
 
 onready var _chat_display_node: RichTextLabel = $"V/RichTextLabel"
@@ -67,6 +69,11 @@ remotesync func _append_text_to_chat(new_text: String) -> void:
 	_chat_display_node.append_bbcode(new_text)
 
 
+func fade_chat() -> void :
+	#Cause the chat to fade into being invisible.
+	hide()
+
+
 func lower_chat() -> void :
 	#Make the chat as small as possible.
 	margin_top = CHAT_LOWER_MARGIN_TOP
@@ -77,3 +84,11 @@ func raise_chat() -> void :
 	#Bring the chat up to the maximum height.
 	margin_top = CHAT_RAISED_MARGIN_TOP
 	_chat_is_raised = true
+
+
+func show_chat() -> void :
+	#Show the chat to the player.
+	show()
+
+
+
