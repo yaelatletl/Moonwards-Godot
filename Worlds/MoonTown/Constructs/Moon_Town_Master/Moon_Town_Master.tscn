@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Worlds/MoonTown/Constructs/Moon_Town_Master/Moon_Town_Master.glb" type="PackedScene" id=1]
 [ext_resource path="res://Worlds/MoonTown/Assets/Molten_Soil_Reactor/Molten_Soil_Reactor.tscn" type="PackedScene" id=2]
@@ -28,8 +28,31 @@
 [ext_resource path="res://Worlds/MoonTown/Constructs/Lalande_Crater/Lalande_85k.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Worlds/MoonTown/Constructs/STEMP_Facilities/STEMP_Facilities.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Worlds/MoonTown/Assets/Solar_Thermal_Mirror_Sets/Solar_Thermal_Mirror_Set_Side_Circuit.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Worlds/MoonTown/Assets/Flywheel_Towers/Flywheel_Towers_AllTogether.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Worlds/MoonTown/Assets/Solar_Panel_Units/Solar_Panel_Units_All_Together.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Worlds/MoonTown/Constructs/Moon_Town_Master/MilkyWay_LalandeRegion.hdr" type="Texture" id=31]
+
+[sub_resource type="PanoramaSky" id=1]
+panorama = ExtResource( 31 )
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+ambient_light_color = Color( 0.333333, 0.333333, 0.333333, 1 )
+ambient_light_energy = 0.0
+auto_exposure_enabled = true
+auto_exposure_min_luma = 0.2
+auto_exposure_max_luma = 5.0
+auto_exposure_speed = 0.02
+ss_reflections_enabled = true
+ss_reflections_max_steps = 96
+ssao_enabled = true
 
 [node name="Moon_Town_Master" instance=ExtResource( 1 )]
+
+[node name="Flywheel_Towers_AllTogether" parent="Marker_Flywheels_AllTogether" index="0" instance=ExtResource( 29 )]
+
+[node name="Solar_Panel_Units_All_Together" parent="Marker_Flywheels_AllTogether" index="1" instance=ExtResource( 30 )]
 
 [node name="Empty" parent="." index="2"]
 transform = Transform( 0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, -8.90194, 10.1654, 14.8518 )
@@ -210,6 +233,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.292, -35.665, 28.867 )
 [node name="GalleriesOuterSurface" parent="Empty_GalleriesOuterSurface" index="0" instance=ExtResource( 9 )]
 
 [node name="Long_Dome" parent="Empty_LongDome" index="0" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.878448, 0 )
 
 [node name="Rim_Arcade" parent="Empty_LosPortalesTunnel" index="0" instance=ExtResource( 19 )]
 
@@ -228,6 +252,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.292, -35.665, 28.867 )
 [node name="South_Farm_Atrium" parent="Empty_SouthLongAtrium" index="0" instance=ExtResource( 16 )]
 
 [node name="Spaceport" parent="Empty_Spaceport" index="0" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0170898, 0.02174, 0.015564 )
 
 [node name="STEMP_Facilities" parent="Empty_STEMP-Facilities" index="0" instance=ExtResource( 27 )]
 
@@ -243,3 +268,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1033.13, -77.789, -292.667 )
 
 [node name="Foundation001" parent="." index="87"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.356, 5.54585, 45.8708 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="107"]
+environment = SubResource( 2 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="108"]
+transform = Transform( -0.0784592, 0.863356, -0.498459, 0, 0.5, 0.866025, 0.996917, 0.0679476, -0.0392296, 0, 46.5723, 0 )
+shadow_enabled = true
+shadow_color = Color( 0.364706, 0.364706, 0.364706, 1 )
