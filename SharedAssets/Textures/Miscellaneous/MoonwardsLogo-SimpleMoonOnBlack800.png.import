@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Fabric30_disp.jpg-7085080eac48f857fb7b1886a2157d7a.stex"
+path="res://.import/MoonwardsLogo-SimpleMoonOnBlack800.png-af5de7ed548ae1f0b068b09858d623d6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SharedAssets/Materials/Specials_Textured/Basalt_Fabric/Fabric30_disp.jpg"
-dest_files=[ "res://.import/Fabric30_disp.jpg-7085080eac48f857fb7b1886a2157d7a.stex" ]
+source_file="res://SharedAssets/Textures/Miscellaneous/MoonwardsLogo-SimpleMoonOnBlack800.png"
+dest_files=[ "res://.import/MoonwardsLogo-SimpleMoonOnBlack800.png-af5de7ed548ae1f0b068b09858d623d6.stex" ]
 
 [params]
 
