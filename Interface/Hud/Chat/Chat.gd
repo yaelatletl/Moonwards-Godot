@@ -71,7 +71,7 @@ remotesync func _append_text_to_chat(new_text: String) -> void:
 
 func fade_chat() -> void :
 	#Cause the chat to fade into being invisible.
-	hide()
+	$ChatAnims.play("Visibility")
 
 
 func lower_chat() -> void :
@@ -88,7 +88,7 @@ func raise_chat() -> void :
 
 func show_chat() -> void :
 	#Show the chat to the player.
-	show()
+	$ChatAnims.play_backwards("Visibility")
 
 
 
