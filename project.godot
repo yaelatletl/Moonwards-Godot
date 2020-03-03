@@ -76,7 +76,7 @@ texture={
 "flags/filter": true,
 "flags/mipmaps": true,
 "flags/repeat": 1,
-"flags/srgb": 1,
+"flags/srgb": 2,
 "process/HDR_as_SRGB": false,
 "process/fix_alpha_border": true,
 "process/invert_color": false,

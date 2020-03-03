@@ -1,5 +1,47 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Worlds/MoonTown/Constructs/First_Gallery/First_Gallery_Upper.glb" type="PackedScene" id=1]
 
+[sub_resource type="GIProbeData" id=1]
+bounds = AABB( -14.0725, -10, -4.19373, 28.145, 20, 8.38746 )
+cell_size = 0.219883
+to_cell_xform = Transform( 4.54788, 0, 0, 0, 4.54788, 0, 0, 0, 4.54788, 64, 45.4788, 19.0726 )
+dynamic_data = PoolIntArray( 0, 8, 128, 128, 64, 1, 0, 0, 0, 101, 0, 0, 7, 0, 33, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
+dynamic_range = 5
+energy = 0.54
+bias = 1.5
+normal_bias = 0.0
+propagation = 0.49
+
 [node name="First_Gallery_Upper" instance=ExtResource( 1 )]
+
+[node name="OmniLight" type="OmniLight" parent="." index="38"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.579015, -1.50082, 0 )
+omni_range = 6.0868
+omni_attenuation = 0.5
+
+[node name="OmniLight2" type="OmniLight" parent="." index="39"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75251, -2.70968, 0.0377703 )
+omni_range = 2.6
+
+[node name="OmniLight3" type="OmniLight" parent="." index="40"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.38166, -8.55074, -0.656268 )
+light_energy = 0.4
+shadow_color = Color( 0.458824, 0.454902, 0.454902, 1 )
+omni_range = 8.7
+omni_attenuation = 2.0
+
+[node name="OmniLight4" type="OmniLight" parent="." index="41"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.38166, -8.55074, -0.656268 )
+light_energy = 0.6
+shadow_color = Color( 0.458824, 0.454902, 0.454902, 1 )
+omni_range = 8.7
+omni_attenuation = 2.0
+
+[node name="GIProbe" type="GIProbe" parent="." index="42"]
+transform = Transform( 0.99175, 0, -0.12819, 0, 1, 0, 0.12819, 0, 0.99175, -5.99649, -7.56511, 0.599095 )
+extents = Vector3( 14.0725, 10, 4.19373 )
+dynamic_range = 5
+energy = 0.54
+propagation = 0.49
+data = SubResource( 1 )
