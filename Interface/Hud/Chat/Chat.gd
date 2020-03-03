@@ -15,6 +15,9 @@ const CHAT_LOWER_MARGIN_TOP = -60
 var _active: bool = false
 var _chat_is_raised : bool = false
 
+#True when chat window is active, false when chat window is minimized.
+var _chat_window_present : bool = true
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not visible or _active :
@@ -45,6 +48,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			#Scroll upwards.
 			var _v_scroll_bar : VScrollBar = _chat_display_node.get_v_scroll()
 			_v_scroll_bar.value = _v_scroll_bar.value + _v_scroll_bar.page
+		
+		elif event.scancode == KEY_Q :
+			_toggle_chat_window()
 
 
 func _on_LineEdit_text_entered(new_text: String) -> void:
@@ -67,6 +73,19 @@ remotesync func _append_text_to_chat(new_text: String) -> void:
 
 	#warning-ignore:return_value_discarded
 	_chat_display_node.append_bbcode(new_text)
+
+
+func _toggle_chat_window() -> void :
+	#This changes the chat between window active and window minimized.
+	#Chat window is visible, minimize it.
+	if _chat_window_present :
+		_chat_window_present = false
+		fade_chat()
+	
+	#Chat window is currently minimized.
+	else :
+		_chat_window_present = true
+		show_chat()
 
 
 func fade_chat() -> void :
