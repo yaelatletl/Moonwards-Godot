@@ -8,6 +8,9 @@ extends PanelContainer
 onready var _chat_display_node: RichTextLabel = $"V/RichTextLabel"
 onready var _chat_input_node: LineEdit = $"V/ChatInput"
 
+#How large I was before getting minimized.
+onready var _panel_size : Vector2 = rect_size
+
 #Where the chat box is when fully open.
 const CHAT_RAISED_MARGIN_TOP = -198
 const CHAT_LOWER_MARGIN_TOP = -60
@@ -80,16 +83,34 @@ func _toggle_chat_window() -> void :
 	#Chat window is visible, minimize it.
 	if _chat_window_present :
 		_chat_window_present = false
-		fade_chat()
+		
+		#Make Chat smaller.
+		_chat_display_node.hide()
+		_chat_input_node.hide()
+		
+		rect_size = Vector2( 0,0 )
 	
-	#Chat window is currently minimized.
+	#Chat window is currently minimized, make it have a presence again.
 	else :
 		_chat_window_present = true
-		show_chat()
+		
+		#Make Chat have a  presence again.
+		rect_size = _panel_size
+		_chat_display_node.show()
+		_chat_input_node.show()
+	
+	#If something has made me invisible before this method was called, make
+	#myself visible again.
+	visible = true
 
 
 func fade_chat() -> void :
 	#Cause the chat to fade into being invisible.
+	#Meant to be called from somewhere else. Usually from a group call.
+	#Don't play the fading animation if I am already invisible.
+	if visible == false : return
+	
+	#Make Chat invisible. 
 	$ChatAnims.play("Visibility")
 
 
@@ -107,6 +128,11 @@ func raise_chat() -> void :
 
 func show_chat() -> void :
 	#Show the chat to the player.
+	#Meant to be called from somewhere else. Usually from a group call.
+	#Don't do anything if Chat is already displayed.
+	if visible : return
+	
+	#Make chat visible.
 	$ChatAnims.play_backwards("Visibility")
 
 
