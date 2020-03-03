@@ -2,24 +2,26 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Rim3_Normal_Medium_Tiled.png-b6c96e7a3b01fa78ecc214e190b573a3.stex"
+path.s3tc="res://.import/Rim3_Normal_Medium_Tiled.png-b6c96e7a3b01fa78ecc214e190b573a3.s3tc.stex"
+path.etc2="res://.import/Rim3_Normal_Medium_Tiled.png-b6c96e7a3b01fa78ecc214e190b573a3.etc2.stex"
 metadata={
-"vram_texture": false
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://SharedAssets/Textures/Procedural_Terrain/Procedural_CraterRim/Rim3_Normal_Medium_Tiled.png"
-dest_files=[ "res://.import/Rim3_Normal_Medium_Tiled.png-b6c96e7a3b01fa78ecc214e190b573a3.stex" ]
+dest_files=[ "res://.import/Rim3_Normal_Medium_Tiled.png-b6c96e7a3b01fa78ecc214e190b573a3.s3tc.stex", "res://.import/Rim3_Normal_Medium_Tiled.png-b6c96e7a3b01fa78ecc214e190b573a3.etc2.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=1
-flags/repeat=1
+flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false

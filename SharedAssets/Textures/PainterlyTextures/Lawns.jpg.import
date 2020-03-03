@@ -2,24 +2,26 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Lawns.jpg-680e70d1fe0b1c857d09dfa79109150c.stex"
+path.s3tc="res://.import/Lawns.jpg-680e70d1fe0b1c857d09dfa79109150c.s3tc.stex"
+path.etc2="res://.import/Lawns.jpg-680e70d1fe0b1c857d09dfa79109150c.etc2.stex"
 metadata={
-"vram_texture": false
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://SharedAssets/Textures/PainterlyTextures/Lawns.jpg"
-dest_files=[ "res://.import/Lawns.jpg-680e70d1fe0b1c857d09dfa79109150c.stex" ]
+dest_files=[ "res://.import/Lawns.jpg-680e70d1fe0b1c857d09dfa79109150c.s3tc.stex", "res://.import/Lawns.jpg-680e70d1fe0b1c857d09dfa79109150c.etc2.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
