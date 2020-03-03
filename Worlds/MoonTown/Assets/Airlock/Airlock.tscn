@@ -11,3 +11,12 @@ material/3 = ExtResource( 2 )
 [node name="AirlockDoor2" parent="AirlockStructure" index="1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.157594, -0.00112188, 1.05675 )
 material/3 = ExtResource( 2 )
+
+[node name="GIProbe" type="GIProbe" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.553407 )
+extents = Vector3( 0.368771, 0.310226, 0.692977 )
+
+[node name="OmniLight" type="OmniLight" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.573486 )
+light_energy = 0.45
+omni_range = 0.511158

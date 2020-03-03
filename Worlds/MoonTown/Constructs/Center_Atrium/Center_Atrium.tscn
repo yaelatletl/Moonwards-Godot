@@ -16,3 +16,12 @@ transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0
 
 [node name="Hexpane_Window" parent="BigAtriumWalls/Empty_HexpaneWindow003" index="0" instance=ExtResource( 2 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0 )
+
+[node name="OmniLight" type="OmniLight" parent="." index="5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.49915, 0, -2.77204 )
+omni_range = 7.2
+omni_attenuation = 1.93187
+
+[node name="GIProbe" type="GIProbe" parent="." index="6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.47934 )
+extents = Vector3( 4.71117, 3.4334, 9.27659 )
