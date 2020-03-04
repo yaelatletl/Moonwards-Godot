@@ -249,6 +249,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.878448, 0 )
 [node name="North_Farm_Atrium" parent="Empty_NorthLongAtrium" index="0" instance=ExtResource( 20 )]
 
 [node name="Nuclear_Plant" parent="Empty_NuclearPlant" index="0" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.550896, -0.914402, 0.92408 )
 
 [node name="Radar_Tower" parent="Empty_RadarTower" index="0" instance=ExtResource( 7 )]
 
