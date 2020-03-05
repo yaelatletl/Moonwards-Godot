@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Worlds/MoonTown/Constructs/Moon_Town_Master/Moon_Town_Master.glb" type="PackedScene" id=1]
 [ext_resource path="res://Worlds/MoonTown/Assets/Molten_Soil_Reactor/Molten_Soil_Reactor.tscn" type="PackedScene" id=2]
@@ -33,12 +33,16 @@
 [ext_resource path="res://Worlds/MoonTown/Constructs/Moon_Town_Master/MilkyWay_LalandeRegion.hdr" type="Texture" id=31]
 [ext_resource path="res://Worlds/MoonTown/Assets/Audio_Tour_Markers/Audio_Tour_Markers.tscn" type="PackedScene" id=32]
 
-[sub_resource type="PanoramaSky" id=1]
+[sub_resource type="CylinderShape" id=1]
+radius = 2.40007
+height = 1.90651
+
+[sub_resource type="PanoramaSky" id=2]
 panorama = ExtResource( 31 )
 
-[sub_resource type="Environment" id=2]
+[sub_resource type="Environment" id=3]
 background_mode = 2
-background_sky = SubResource( 1 )
+background_sky = SubResource( 2 )
 ambient_light_color = Color( 0.686275, 0.686275, 0.686275, 1 )
 ambient_light_energy = 0.0
 ambient_light_sky_contribution = 0.0
@@ -277,8 +281,25 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1033.13, -77.789, -292.667 )
 [node name="Foundation001" parent="." index="87"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.356, 5.54585, 45.8708 )
 
+[node name="StaticBody3" type="StaticBody" parent="RadioDish-Earth-Base001/RadioDish-Earth001" index="0"]
+transform = Transform( 0.333333, 0, 0, 0, 0.333333, 0, 0, 0, 0.333333, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="RadioDish-Earth-Base001/RadioDish-Earth001/StaticBody3" index="0"]
+shape = SubResource( 1 )
+
+[node name="StaticBody2" type="StaticBody" parent="RadioDish-Earth-Base002" index="1"]
+transform = Transform( 0.333333, 0, 0, 0, 0.333333, 0, 0, 0, 0.333333, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="RadioDish-Earth-Base002/StaticBody2" index="0"]
+shape = SubResource( 1 )
+
+[node name="StaticBody" type="StaticBody" parent="RadioDish-Earth-Base/RadioDish-Earth" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="RadioDish-Earth-Base/RadioDish-Earth/StaticBody" index="0"]
+shape = SubResource( 1 )
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="107"]
-environment = SubResource( 2 )
+environment = SubResource( 3 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="." index="108"]
 transform = Transform( -0.0784592, 0.863356, -0.498459, 0, 0.5, 0.866025, 0.996917, 0.0679476, -0.0392296, 0, 46.5723, 0 )
