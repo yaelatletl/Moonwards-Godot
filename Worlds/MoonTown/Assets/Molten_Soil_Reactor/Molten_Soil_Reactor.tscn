@@ -6,4 +6,4 @@
 [node name="Molten_Soil_Reactor" instance=ExtResource( 1 )]
 
 [node name="TowerRadiator_Small" parent="MSReactor-Insulation-on-Pipes_M/Empty_TowerRadiator_M" index="0" instance=ExtResource( 2 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.0132425, 0 )
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )

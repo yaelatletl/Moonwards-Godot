@@ -3,6 +3,3 @@
 [ext_resource path="res://Worlds/MoonTown/Assets/Pressurized_Factories/PressurizedHangar_Giant.glb" type="PackedScene" id=1]
 
 [node name="PressurizedHangar_Giant" instance=ExtResource( 1 )]
-
-[node name="PressurizedFactory_Giant_Skin" parent="." index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0941772, 0.830685, -5.68732 )

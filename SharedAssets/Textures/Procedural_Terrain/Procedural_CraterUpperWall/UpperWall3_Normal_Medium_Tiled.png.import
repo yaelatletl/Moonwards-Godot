@@ -2,19 +2,21 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/UpperWall3_Normal_Medium_Tiled.png-bb9ba3089a9823113927c587d2dc004a.stex"
+path.s3tc="res://.import/UpperWall3_Normal_Medium_Tiled.png-bb9ba3089a9823113927c587d2dc004a.s3tc.stex"
+path.etc2="res://.import/UpperWall3_Normal_Medium_Tiled.png-bb9ba3089a9823113927c587d2dc004a.etc2.stex"
 metadata={
-"vram_texture": false
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://SharedAssets/Textures/Procedural_Terrain/Procedural_CraterUpperWall/UpperWall3_Normal_Medium_Tiled.png"
-dest_files=[ "res://.import/UpperWall3_Normal_Medium_Tiled.png-bb9ba3089a9823113927c587d2dc004a.stex" ]
+dest_files=[ "res://.import/UpperWall3_Normal_Medium_Tiled.png-bb9ba3089a9823113927c587d2dc004a.s3tc.stex", "res://.import/UpperWall3_Normal_Medium_Tiled.png-bb9ba3089a9823113927c587d2dc004a.etc2.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
@@ -30,5 +32,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0

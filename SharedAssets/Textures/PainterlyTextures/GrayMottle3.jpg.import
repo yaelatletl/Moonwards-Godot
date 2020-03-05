@@ -2,24 +2,26 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/GrayMottle3.jpg-3455afeecb69f279a893e4f30fe688cb.stex"
+path.s3tc="res://.import/GrayMottle3.jpg-3455afeecb69f279a893e4f30fe688cb.s3tc.stex"
+path.etc2="res://.import/GrayMottle3.jpg-3455afeecb69f279a893e4f30fe688cb.etc2.stex"
 metadata={
-"vram_texture": false
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://SharedAssets/Textures/PainterlyTextures/GrayMottle3.jpg"
-dest_files=[ "res://.import/GrayMottle3.jpg-3455afeecb69f279a893e4f30fe688cb.stex" ]
+dest_files=[ "res://.import/GrayMottle3.jpg-3455afeecb69f279a893e4f30fe688cb.s3tc.stex", "res://.import/GrayMottle3.jpg-3455afeecb69f279a893e4f30fe688cb.etc2.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
