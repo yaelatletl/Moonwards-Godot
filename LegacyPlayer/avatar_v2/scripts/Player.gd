@@ -127,7 +127,7 @@ func _ready():
 		randomize()
 		yield(get_tree().create_timer(1.0), "timeout")
 		pick_random()
-	print("My name is ", name, "I was set as puppet?: ", puppet, "I was set as bot?: ", bot, "My master is ", get_network_master())
+	print("A player has been created with id: ", get_network_master(), " 4/4 Server Correctly set up")
 func SetupMaterials():
 	shirt_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(0).duplicate()
 	pants_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(1).duplicate()

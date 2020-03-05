@@ -84,6 +84,7 @@ func connect_to_server(player_data : Dictionary, as_host: bool = true, server : 
 			client_server_connect(server)
 			NodeUtilities.bind_signal("client_connected", "_on_successful_connection", self, self, NodeUtilities.MODE.CONNECT)
 		yield(WorldManager, "scene_change") #Wait Until the world loads
+		print("World loaded, setting up server bot 3/4")
 		player_register(player_data, true) #local player
 
 
@@ -185,6 +186,7 @@ func server_set_mode(host : String = "localhost"):
 	var error : int = connection.create_server(DEFAULT_PORT, MAX_PEERS)
 	print("Current connection status: " + Log.error_to_string(error))
 	if error == OK:
+		print("Server has been connected: 2/4")
 		emit_signal("server_up")
 		
 		yield(WorldManager, "scene_change")
