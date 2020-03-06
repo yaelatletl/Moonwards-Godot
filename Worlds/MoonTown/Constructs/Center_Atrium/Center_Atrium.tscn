@@ -69,9 +69,6 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.89707 )
 shape = SubResource( 2 )
 
-[node name="BigAtriumWalls" parent="BigAtriumWalls" index="3"]
-visible = false
-
 [node name="Hexpane_Window" parent="BigAtriumWalls/Empty_HexpaneWindow" index="0" instance=ExtResource( 2 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0 )
 
@@ -91,5 +88,4 @@ omni_attenuation = 1.93187
 
 [node name="GIProbe" type="GIProbe" parent="." index="6"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.47934 )
-visible = false
 extents = Vector3( 4.71117, 3.4334, 9.27659 )
