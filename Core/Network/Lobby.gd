@@ -181,7 +181,7 @@ func server_set_mode(host : String = "localhost"):
 #		return
 	Log.hint(self, "server_set_mode", str("prepare to listen on ", ip, ":", DEFAULT_PORT))
 	connection = NetworkedMultiplayerENet.new()
-	connection.set_compression_mode(NetworkedMultiplayerENet.COMPRESS_FASTLZ)
+#	connection.set_compression_mode(NetworkedMultiplayerENet.COMPRESS_FASTLZ)
 	connection.set_bind_ip("*") # Temporary debug stuff, use all available interfaces
 	var error : int = connection.create_server(DEFAULT_PORT, MAX_PEERS)
 	print("Current connection status: " + Log.error_to_string(error))
@@ -238,7 +238,7 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 #	NodeUtilities.bind_signal("connection_failed", "", get_tree(), self, NodeUtilities.MODE.CONNECT)
 #	NodeUtilities.bind_signal("connected_to_server", "", get_tree(), self, NodeUtilities.MODE.CONNECT)
 	connection = NetworkedMultiplayerENet.new()
-	connection.set_compression_mode(NetworkedMultiplayerENet.COMPRESS_FASTLZ) #Use lss bandwidth
+#	connection.set_compression_mode(NetworkedMultiplayerENet.COMPRESS_FASTLZ) #Use lss bandwidth
 	var err = connection.create_client(ip, port)
 	print("Current connection status: " + Log.error_to_string(err))
 	emit_signal("server_up")
@@ -251,7 +251,10 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 	yield(get_tree().create_timer(25), "timeout") #25 is the connection timeout maximum value
 	var error : int = connection.get_connection_status()
 	print("The connection status at the end of the attempt is : ", error, "(2== Connected, error otherwise)")
-	if error != 2: #if it times-out you get booted to the main menu
+	print("error == 2:", error==2)
+	if error < 1.9: #if it times-out you get booted to the main menu 
+	#( I hate to do this, but it seems that the comparison is done through floats)
+		print("Error was different than 2, disconnecting")
 		Input.MOUSE_MODE_VISIBLE
 		yield(get_tree().create_timer(5), "timeout")
 		end_game()
@@ -330,6 +333,7 @@ remote func register_client(id : int, pdata : Dictionary = Options.player_data) 
 				rpc_id(id, "register_client", pid, players[p])
 
 remote func unregister_client(id : int) -> void:
+	
 	Log.hint(self, "unregister client", str("(",id,")"))
 	if players.has(id):
 		emit_signal("user_disconnected", "%s" % player_get_property("username", id))
@@ -397,7 +401,6 @@ func _connect_signals(connect : bool = true) -> void:
 		["network_peer_connected", "", tree],
 		["network_peer_disconnected", "", tree],
 		["player_scene", "", self],
-		["loading_done", "", self],
 		["player_id", "", self],
 		["server_up", "", self]
 	]
@@ -483,7 +486,7 @@ func _on_network_peer_connected(id : int) -> void:
 
 func _on_network_peer_disconnected(id : int) -> void:
 	Log.hint(self, "on_network_peer_disconnected", str("Player: ", id, " disconnected"))
-
+	unregister_client(id)
 
 func _on_server_connected() -> void:
 	Log.hint(self, "on_server_connected", "Server connected")
@@ -520,7 +523,7 @@ func _on_server_tree_user_connected(id : int) -> void:
 
 func _on_server_tree_user_disconnected(id : int) -> void:
 	Log.hint(self, "_on_server_tree_user_disconnected", "tree user disconnected %s" % id)
-	unregister_client(id)
+	
 
 
 func _on_player_scene() -> void:
