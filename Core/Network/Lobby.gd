@@ -251,13 +251,13 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 	yield(get_tree().create_timer(25), "timeout") #25 is the connection timeout maximum value
 	var error : int = connection.get_connection_status()
 	print("The connection status at the end of the attempt is : ", error, "(2== Connected, error otherwise)")
-	print("error == 2:", error==2)
-	if error < 1.9: #if it times-out you get booted to the main menu 
-	#( I hate to do this, but it seems that the comparison is done through floats)
-		print("Error was different than 2, disconnecting")
-		Input.MOUSE_MODE_VISIBLE
-		yield(get_tree().create_timer(5), "timeout")
-		end_game()
+#	print("error == 2:", error==2)
+#	if error < 1.9: #if it times-out you get booted to the main menu 
+#	#( I hate to do this, but it seems that the comparison is done through floats)
+#		print("Error was different than 2, disconnecting")
+#		Input.MOUSE_MODE_VISIBLE
+#		yield(get_tree().create_timer(5), "timeout")
+#		end_game()
 
 ################
 # Scene functions
