@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LongDomeRegion_Normals.png-5a8b314e1f5252282abf1baca801ec67.stex"
+path="res://.import/BigAtriumWalls-AO.jpg-62a106554fddc7718eb506e390d485b0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Worlds/MoonTown/Constructs/Moon_Town_Master/LongDomeRegion_Normals.png"
-dest_files=[ "res://.import/LongDomeRegion_Normals.png-5a8b314e1f5252282abf1baca801ec67.stex" ]
+source_file="res://Worlds/MoonTown/Constructs/Center_Atrium/BigAtriumWalls-AO.jpg"
+dest_files=[ "res://.import/BigAtriumWalls-AO.jpg-62a106554fddc7718eb506e390d485b0.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=1
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false

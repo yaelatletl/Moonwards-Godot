@@ -59,22 +59,25 @@ ssao_enabled = true
 
 [node name="Moon_Town_Master" instance=ExtResource( 1 )]
 
+[node name="Foundation001" parent="." index="22"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.356, 5.54585, 45.8708 )
+
 [node name="Flywheel_Towers_AllTogether" parent="Marker_Flywheels_AllTogether" index="0" instance=ExtResource( 29 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0941849, -0.152714, 0.136749 )
 
 [node name="Solar_Panel_Units_All_Together" parent="Marker_Flywheels_AllTogether" index="1" instance=ExtResource( 30 )]
 
-[node name="Empty" parent="." index="2"]
+[node name="Empty" parent="." index="37"]
 transform = Transform( 0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, -8.90194, 10.1654, 14.8518 )
 
 [node name="Boat_Radiator" parent="Empty" index="0" instance=ExtResource( 25 )]
 
-[node name="Empty001" parent="." index="3"]
+[node name="Empty001" parent="." index="38"]
 transform = Transform( 0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, -9.99363, 10.1654, 18.4428 )
 
 [node name="Boat_Radiator" parent="Empty001" index="0" instance=ExtResource( 25 )]
 
-[node name="Empty002" parent="." index="4"]
+[node name="Empty002" parent="." index="39"]
 transform = Transform( 0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, -11.4324, 10.1654, 22.2339 )
 
 [node name="Boat_Radiator" parent="Empty002" index="0" instance=ExtResource( 25 )]
@@ -84,77 +87,77 @@ transform = Transform( 0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, -11.4324, 10.1654, 22
 [node name="Boat_Radiator" parent="Empty004" index="0" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.057132, 0.057848, -0.0685272 )
 
-[node name="Empty005" parent="." index="7"]
+[node name="Empty005" parent="." index="42"]
 transform = Transform( 0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, -15.9937, 11.5513, 65.5466 )
 
 [node name="Boat_Radiator" parent="Empty005" index="0" instance=ExtResource( 25 )]
 
-[node name="Empty006" parent="." index="8"]
+[node name="Empty006" parent="." index="43"]
 transform = Transform( 0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, -11.8254, 11.5513, 65.5466 )
 
 [node name="Boat_Radiator" parent="Empty006" index="0" instance=ExtResource( 25 )]
 
-[node name="Empty007" parent="." index="9"]
+[node name="Empty007" parent="." index="44"]
 transform = Transform( 0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, -7.49845, 11.5513, 65.5035 )
 
 [node name="Boat_Radiator" parent="Empty007" index="0" instance=ExtResource( 25 )]
 
-[node name="Empty008" parent="." index="10"]
+[node name="Empty008" parent="." index="45"]
 transform = Transform( 0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, -9.45666, 11.2612, 93.8459 )
 
 [node name="Boat_Radiator" parent="Empty008" index="0" instance=ExtResource( 25 )]
 
-[node name="Empty009" parent="." index="11"]
+[node name="Empty009" parent="." index="46"]
 transform = Transform( 0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, -5.61942, 10.8413, 97.117 )
 
 [node name="Boat_Radiator" parent="Empty009" index="0" instance=ExtResource( 25 )]
 
-[node name="Empty010" parent="." index="12"]
+[node name="Empty010" parent="." index="47"]
 transform = Transform( 0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, -1.21603, 10.1231, 99.3816 )
 
 [node name="Boat_Radiator" parent="Empty010" index="0" instance=ExtResource( 25 )]
 
-[node name="Empty011" parent="." index="13"]
+[node name="Empty011" parent="." index="48"]
 transform = Transform( 0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, 3.37608, 9.32327, 100.136 )
 
 [node name="Boat_Radiator" parent="Empty011" index="0" instance=ExtResource( 25 )]
 
-[node name="Empty012" parent="." index="14"]
+[node name="Empty012" parent="." index="49"]
 transform = Transform( 0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, 8.00906, 8.62406, 99.5849 )
 
 [node name="Boat_Radiator" parent="Empty012" index="0" instance=ExtResource( 25 )]
 
-[node name="Empty013" parent="." index="15"]
+[node name="Empty013" parent="." index="50"]
 transform = Transform( 0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, 12.3663, 7.78386, 97.4891 )
 
 [node name="Boat_Radiator" parent="Empty013" index="0" instance=ExtResource( 25 )]
 
-[node name="Empty014" parent="." index="16"]
+[node name="Empty014" parent="." index="51"]
 transform = Transform( 0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, -1.75144, 11.6088, -30.4775 )
 
 [node name="Boat_Radiator" parent="Empty014" index="0" instance=ExtResource( 25 )]
 
-[node name="Empty015" parent="." index="17"]
+[node name="Empty015" parent="." index="52"]
 transform = Transform( 0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, 2.69769, 11.8377, -30.5082 )
 
 [node name="Boat_Radiator" parent="Empty015" index="0" instance=ExtResource( 25 )]
 
-[node name="Empty016" parent="." index="18"]
+[node name="Empty016" parent="." index="53"]
 transform = Transform( 0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, 6.87067, 11.355, -30.5695 )
 
 [node name="Boat_Radiator" parent="Empty016" index="0" instance=ExtResource( 25 )]
 
-[node name="Empty017" parent="." index="19"]
+[node name="Empty017" parent="." index="54"]
 transform = Transform( 0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, 11.1664, 11.2965, -30.6309 )
 
 [node name="Boat_Radiator" parent="Empty017" index="0" instance=ExtResource( 25 )]
 
-[node name="Empty018" parent="." index="20"]
+[node name="Empty018" parent="." index="55"]
 transform = Transform( 0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, 15.6827, 11.1726, -30.7441 )
 
 [node name="Boat_Radiator" parent="Empty018" index="0" instance=ExtResource( 25 )]
 
-[node name="Empty019" parent="." index="21"]
+[node name="Empty019" parent="." index="56"]
 transform = Transform( 0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, 20.5256, 11.2565, -30.8329 )
 
 [node name="Boat_Radiator" parent="Empty019" index="0" instance=ExtResource( 25 )]
@@ -230,6 +233,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0309117, 0, 0 )
 
 [node name="Fifth_Gallery" parent="Empty_FifthGallery" index="0" instance=ExtResource( 13 )]
 
+[node name="Lalande_85k" parent="." index="82" instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1033.13, -77.789, -292.667 )
+
 [node name="First_Gallery_Lower" parent="Empty_FirstGalleryLower" index="0" instance=ExtResource( 12 )]
 
 [node name="First_Gallery_Upper" parent="Empty_FirstGalleryUpper" index="0" instance=ExtResource( 15 )]
@@ -238,7 +244,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0309117, 0, 0 )
 
 [node name="Fourth_Gallery" parent="Empty_FourthGallery" index="0" instance=ExtResource( 21 )]
 
-[node name="Empty_GalleriesOuterSurface" parent="." index="51"]
+[node name="Empty_GalleriesOuterSurface" parent="." index="87"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.292, -35.665, 28.867 )
 
 [node name="GalleriesOuterSurface" parent="Empty_GalleriesOuterSurface" index="0" instance=ExtResource( 9 )]
@@ -268,18 +274,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0170898, 0.02174, 0.015564 
 
 [node name="STEMP_Facilities" parent="Empty_STEMP-Facilities" index="0" instance=ExtResource( 27 )]
 
-[node name="Empty_TeacupCrater" parent="." index="63"]
+[node name="Empty_TeacupCrater" parent="." index="99"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.395, 10.592, 82.453 )
 
 [node name="Teacup_Crater" parent="Empty_TeacupCrater" index="0" instance=ExtResource( 24 )]
 
 [node name="Third_Gallery" parent="Empty_ThirdGallery" index="0" instance=ExtResource( 23 )]
-
-[node name="Lalande_85k" parent="." index="82" instance=ExtResource( 26 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1033.13, -77.789, -292.667 )
-
-[node name="Foundation001" parent="." index="87"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.356, 5.54585, 45.8708 )
 
 [node name="StaticBody3" type="StaticBody" parent="RadioDish-Earth-Base001/RadioDish-Earth001" index="0"]
 transform = Transform( 0.333333, 0, 0, 0, 0.333333, 0, 0, 0, 0.333333, 0, 0, 0 )
