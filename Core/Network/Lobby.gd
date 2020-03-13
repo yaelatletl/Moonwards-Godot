@@ -72,6 +72,8 @@ func _ready():
 	queue_tree_signal(Options.scene_id, "player_scene", true)
 	_connect_signals()
 
+func _exit_tree():
+	get_tree().set_network_peer(null)
 
 #################
 #Track scene changes and add nodes or emit signals functions
@@ -480,7 +482,7 @@ func _on_connection_failed() -> void:
 func _on_network_peer_connected(id : int) -> void:
 	var peers = get_tree().get_network_connected_peers()
 	for peer in peers:
-		if not players.has(peer):
+		if not players.has(peer) and peer!=id:
 			unregister_client(peer)
 	if not players.has(id):
 		register_client(id)
