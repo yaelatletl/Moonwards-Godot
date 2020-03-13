@@ -478,6 +478,10 @@ func _on_connection_failed() -> void:
 	NetworkState = MODE.DISCONNECTED
 
 func _on_network_peer_connected(id : int) -> void:
+	var peers = get_tree().get_network_connected_peers()
+	for peer in peers:
+		if not players.has(peer):
+			unregister_client(peer)
 	if not players.has(id):
 		register_client(id)
 	Log.hint(self, "on_network_peer_connected", str("Player: ", id, " connected"))
@@ -494,6 +498,7 @@ func _on_server_connected() -> void:
 		NetworkState = MODE.SERVER
 
 func _on_server_disconnected() -> void:
+	print("Connection with server is lost")
 	Log.hint(self, "on_server_disconnected", "Server disconnected")
 	get_tree().set_network_peer(null)
 	#FIXME Let the player try to re-connect
