@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Worlds/MoonTown/Constructs/Moon_Town_Master/Moon_Town_Master.glb" type="PackedScene" id=1]
 [ext_resource path="res://Worlds/MoonTown/Assets/Molten_Soil_Reactor/Molten_Soil_Reactor.tscn" type="PackedScene" id=2]
@@ -31,18 +31,51 @@
 [ext_resource path="res://Worlds/MoonTown/Assets/Flywheel_Towers/Flywheel_Towers_AllTogether.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Worlds/MoonTown/Assets/Solar_Panel_Units/Solar_Panel_Units_All_Together.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Worlds/MoonTown/Constructs/Moon_Town_Master/MilkyWay_LalandeRegion.hdr" type="Texture" id=31]
-[ext_resource path="res://Worlds/MoonTown/Assets/Audio_Tour_Markers/Audio_Tour_Markers.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Worlds/MoonTown/Assets/Audio_Tour_Markers/Audio_Tour_Markers_Set.tscn" type="PackedScene" id=32]
 
-[sub_resource type="CylinderShape" id=1]
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1, 1, 1.22718 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 1.11084, 1, 1.54439 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.68645, 1, 0.800407 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 1, 1, 1.24243 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 0.876734, 0.532014, 0.91751 )
+
+[sub_resource type="BoxShape" id=6]
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 0.759875, 0.725696, 0.791494 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 0.895901, 0.878588, 0.874023 )
+
+[sub_resource type="BoxShape" id=9]
+
+[sub_resource type="BoxShape" id=10]
+
+[sub_resource type="BoxShape" id=11]
+
+[sub_resource type="CylinderShape" id=12]
 radius = 2.40007
 height = 1.90651
 
-[sub_resource type="PanoramaSky" id=2]
+[sub_resource type="CylinderShape" id=13]
+radius = 0.70034
+height = 0.739112
+
+[sub_resource type="PanoramaSky" id=14]
 panorama = ExtResource( 31 )
 
-[sub_resource type="Environment" id=3]
+[sub_resource type="Environment" id=15]
 background_mode = 2
-background_sky = SubResource( 2 )
+background_sky = SubResource( 14 )
 ambient_light_color = Color( 0.686275, 0.686275, 0.686275, 1 )
 ambient_light_energy = 0.0
 ambient_light_sky_contribution = 0.0
@@ -58,6 +91,67 @@ ss_reflections_max_steps = 96
 ssao_enabled = true
 
 [node name="Moon_Town_Master" instance=ExtResource( 1 )]
+
+[node name="StaticBody" type="StaticBody" parent="GibraltarMiddle" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="GibraltarMiddle/StaticBody" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0380024, 0.590206, -0.0741183 )
+shape = SubResource( 1 )
+
+[node name="StaticBody" type="StaticBody" parent="GibraltarRockEast" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="GibraltarRockEast/StaticBody" index="0"]
+transform = Transform( 1, 9.27685e-11, 2.23517e-08, -2.69392e-09, 1, -5.23869e-10, 0, -3.49246e-10, 1, 0.0660384, 0.133989, -0.154412 )
+shape = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="GibraltarWest" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="GibraltarWest/StaticBody" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.341187, 0.130512 )
+shape = SubResource( 3 )
+
+[node name="StaticBody" type="StaticBody" parent="Boulder008" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Boulder008/StaticBody" index="0"]
+transform = Transform( 0.923291, 0, -0.384102, 0, 1, 0, 0.384102, 0, 0.923291, -1.78814e-07, -0.177124, 0 )
+shape = SubResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="Boulder002" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Boulder002/StaticBody" index="0"]
+transform = Transform( 0.975878, 0.00185217, 0.303714, -0.0162532, 0.999901, 0.0389109, -0.15682, -0.00420667, 0.975812, -0.0352993, 0.673666, -0.00299597 )
+shape = SubResource( 5 )
+
+[node name="StaticBody" type="StaticBody" parent="Boulder003" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Boulder003/StaticBody" index="0"]
+shape = SubResource( 6 )
+
+[node name="StaticBody" type="StaticBody" parent="Boulder001" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Boulder001/StaticBody" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00542355, 0, 0.0542393 )
+shape = SubResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="Boulder004" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Boulder004/StaticBody" index="0"]
+shape = SubResource( 8 )
+
+[node name="StaticBody" type="StaticBody" parent="Boulder005" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Boulder005/StaticBody" index="0"]
+shape = SubResource( 9 )
+
+[node name="StaticBody" type="StaticBody" parent="Boulder006" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Boulder006/StaticBody" index="0"]
+shape = SubResource( 10 )
+
+[node name="StaticBody" type="StaticBody" parent="Boulder007" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Boulder007/StaticBody" index="0"]
+shape = SubResource( 11 )
 
 [node name="Foundation001" parent="." index="22"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.356, 5.54585, 45.8708 )
@@ -285,26 +379,28 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.395, 10.592, 82.453 )
 transform = Transform( 0.333333, 0, 0, 0, 0.333333, 0, 0, 0, 0.333333, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="RadioDish-Earth-Base001/RadioDish-Earth001/StaticBody3" index="0"]
-shape = SubResource( 1 )
+shape = SubResource( 12 )
 
 [node name="StaticBody2" type="StaticBody" parent="RadioDish-Earth-Base002" index="1"]
 transform = Transform( 0.333333, 0, 0, 0, 0.333333, 0, 0, 0, 0.333333, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="RadioDish-Earth-Base002/StaticBody2" index="0"]
-shape = SubResource( 1 )
+shape = SubResource( 12 )
 
 [node name="StaticBody" type="StaticBody" parent="RadioDish-Earth-Base/RadioDish-Earth" index="0"]
 
 [node name="CollisionShape" type="CollisionShape" parent="RadioDish-Earth-Base/RadioDish-Earth/StaticBody" index="0"]
-shape = SubResource( 1 )
+shape = SubResource( 13 )
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="107"]
-environment = SubResource( 3 )
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="106"]
+environment = SubResource( 15 )
 
-[node name="DirectionalLight" type="DirectionalLight" parent="." index="108"]
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="107"]
 transform = Transform( -0.0784592, 0.863356, -0.498459, 0, 0.5, 0.866025, 0.996917, 0.0679476, -0.0392296, 0, 46.5723, 0 )
-light_energy = 2.0
+light_energy = 2.5
 shadow_enabled = true
 shadow_color = Color( 0.423529, 0.423529, 0.423529, 1 )
 
-[node name="Audio_Tour_Markers" parent="." index="109" instance=ExtResource( 32 )]
+[node name="Audio_Tour_Markers" type="Spatial" parent="." index="108"]
+
+[node name="Audio_Tour_Markers_Set" parent="Audio_Tour_Markers" index="0" instance=ExtResource( 32 )]
