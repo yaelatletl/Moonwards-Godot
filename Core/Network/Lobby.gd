@@ -253,13 +253,13 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 	yield(get_tree().create_timer(25), "timeout") #25 is the connection timeout maximum value
 	var error : int = connection.get_connection_status()
 	print("The connection status at the end of the attempt is : ", error, "(2== Connected, error otherwise)")
-#	print("error == 2:", error==2)
-#	if error < 1.9: #if it times-out you get booted to the main menu 
-#	#( I hate to do this, but it seems that the comparison is done through floats)
-#		print("Error was different than 2, disconnecting")
-#		Input.MOUSE_MODE_VISIBLE
-#		yield(get_tree().create_timer(5), "timeout")
-#		end_game()
+	print("error == 2:", error==2)
+	if error < 1.9: #if it times-out you get booted to the main menu 
+	#( I hate to do this, but it seems that the comparison is done through floats)
+		print("Error was different than 2, disconnecting")
+		Input.MOUSE_MODE_VISIBLE
+		yield(get_tree().create_timer(5), "timeout")
+		end_game()
 
 ################
 # Scene functions
@@ -318,17 +318,22 @@ remote func register_client(id : int, pdata : Dictionary = Options.player_data) 
 		print("register client(%s): already exists(%s)" % [local_id, id])
 		return
 #	print("register_client: id(%s), data: %s" % [id, pdata])
+	print("setting player data id to id:", id, " pdata['id'] = id")
 	pdata["id"] = id
 	if pdata.has("Options"):
+		print("Player data has options section")
 		pdata["Options"] = Options.player_opt("puppet", pdata["Options"])
 	else:
+		print("Setting new options into the player data")
 		pdata["Options"] = Options.player_opt("puppet")
-
+	print("Registering player, using player data:", pdata)
 	player_register(pdata)
 	if NetworkState == MODE.SERVER:
+		print("mode is server, sending registration data to all pid's")
 		#sync existing players
 		rpc("register_client", id, pdata)
 		for p in players:
+			print("sending register data to ", p)
 #			print("**** %s" % players[p])
 			var pid = players[p].id
 			if pid != id:
