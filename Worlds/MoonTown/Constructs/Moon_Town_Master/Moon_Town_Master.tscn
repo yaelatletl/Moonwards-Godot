@@ -30,7 +30,7 @@
 [ext_resource path="res://Worlds/MoonTown/Assets/Solar_Thermal_Mirror_Sets/Solar_Thermal_Mirror_Set_Side_Circuit.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Worlds/MoonTown/Assets/Flywheel_Towers/Flywheel_Towers_AllTogether.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Worlds/MoonTown/Assets/Solar_Panel_Units/Solar_Panel_Units_All_Together.tscn" type="PackedScene" id=30]
-[ext_resource path="res://Worlds/MoonTown/Constructs/Moon_Town_Master/MilkyWay_LalandeRegion.hdr" type="Texture" id=31]
+[ext_resource path="res://Worlds/MoonTown/Constructs/Moon_Town_Master/MilkyWay_LalandeRegion_4k.hdr" type="Texture" id=31]
 [ext_resource path="res://Worlds/MoonTown/Assets/Audio_Tour_Markers/Audio_Tour_Markers_Set.tscn" type="PackedScene" id=32]
 
 [sub_resource type="BoxShape" id=1]
@@ -76,6 +76,7 @@ panorama = ExtResource( 31 )
 [sub_resource type="Environment" id=15]
 background_mode = 2
 background_sky = SubResource( 14 )
+background_energy = 1.5
 ambient_light_color = Color( 0.686275, 0.686275, 0.686275, 1 )
 ambient_light_energy = 0.0
 ambient_light_sky_contribution = 0.0
@@ -397,7 +398,7 @@ environment = SubResource( 15 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="." index="107"]
 transform = Transform( -0.0784592, 0.863356, -0.498459, 0, 0.5, 0.866025, 0.996917, 0.0679476, -0.0392296, 0, 46.5723, 0 )
-light_energy = 2.5
+light_energy = 1.9
 shadow_enabled = true
 shadow_color = Color( 0.423529, 0.423529, 0.423529, 1 )
 
