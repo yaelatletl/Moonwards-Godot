@@ -313,7 +313,7 @@ func has_player_scene() -> bool:
 
 
 func player_register(player_data : Dictionary, localplayer : bool = false) -> void:
-	print("registering a player, id: ", player_data.id)
+	#print("registering a player, id: ", player_data.id)
 	var id : int = 0
 	if localplayer and network_id:
 #		player_data["Options"] = Options.player_opt(opt_id, player_data) #merge name with rest of Options for Avatar

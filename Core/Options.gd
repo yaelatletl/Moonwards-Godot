@@ -166,16 +166,21 @@ func set_defaults() -> void:
 	# get("dev", "lod_manager_path", "res://scripts/TreeManager.tscn")
 
 func player_opt(type, opt : Dictionary = {}) -> Dictionary:
+	print("Entering player opt")
 	var res : Dictionary= {}
 	var filter : Dictionary = player_opt.opt_filter
 	var filter_id : String = "opt_filter_%s" % type
 	if player_opt.has(filter_id):
+		print("player has filter: ", filter_id)
 		filter = player_opt[filter_id]
 
 	var allow_unknown : bool = player_opt.opt_allow_unknown
+	print("Allow unknown: ", allow_unknown)
 	if opt != {}:
 		for k in opt:
+			print("for k in opt: ", k)
 			if filter.has(k) and filter[k] or allow_unknown:
+				print("res[k] = ", opt[k])
 				res[k] = opt[k]
 #				if not k in filter:
 #					printd("player_filter_opt, default allow unknown option %s %s" % [k, opt[k]])
@@ -183,8 +188,10 @@ func player_opt(type, opt : Dictionary = {}) -> Dictionary:
 #	if not player_opt.has(type):
 #		printd("player_filter_opt, unknown player opt type %s" % type)
 	if player_opt.has(type):
+		print("player has type: ", type)
 		var def_opt : Dictionary = player_opt[type]
 		for k in def_opt:
+			print(k, " default value is ", def_opt[k])
 			res[k] = def_opt[k]
 	return res
 
