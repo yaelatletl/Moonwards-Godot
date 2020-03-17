@@ -108,13 +108,27 @@ transform = Transform( 3.57746e-08, 0, -3, 0, 3, 0, 3, 0, 3.57746e-08, 0, 0, 0 )
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0 )
 
 [node name="OmniLight" type="OmniLight" parent="." index="13"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.177, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1773, 0.401355, -0.00354957 )
 light_energy = 0.73
 light_specular = 0.65
-omni_range = 5.86381
+omni_range = 2.0
 omni_attenuation = 0.5
 
-[node name="GIProbe" type="GIProbe" parent="." index="14"]
+[node name="OmniLight2" type="OmniLight" parent="." index="14"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38924, 0.401355, -0.00354957 )
+light_energy = 0.73
+light_specular = 0.65
+omni_range = 2.0
+omni_attenuation = 0.5
+
+[node name="OmniLight3" type="OmniLight" parent="." index="15"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38924, 0.401355, -0.00354957 )
+light_energy = 0.5
+light_specular = 0.65
+omni_range = 4.93964
+omni_attenuation = 1.6245
+
+[node name="GIProbe" type="GIProbe" parent="." index="16"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.18064, 0, 0 )
 visible = false
 extents = Vector3( 9.19743, 1.75357, 2.32657 )
