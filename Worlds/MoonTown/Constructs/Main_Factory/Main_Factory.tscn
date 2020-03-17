@@ -7,6 +7,10 @@
 
 [node name="Main_Factory" instance=ExtResource( 1 )]
 
+[node name="OmniLight" type="OmniLight" parent="MainHangars" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.91634, 17.5523 )
+omni_range = 7.34106
+
 [node name="Lava_Tank_Large" parent="Empty_LavaTank_Large004" index="0" instance=ExtResource( 3 )]
 
 [node name="Lava_Tank_Large" parent="Empty_LavaTank_Large005" index="0" instance=ExtResource( 3 )]
