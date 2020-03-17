@@ -40,6 +40,7 @@ signal game_error(what)
 const DEFAULT_PORT : int = 10567 # Default game port
 const MAX_PEERS : int = 12 # Max number of players
 
+const CONNECTION_TIMEOUT = 25
 
 
 var global_delta : float
@@ -66,6 +67,9 @@ var connection = null
 var port : int = DEFAULT_PORT
 var NetworkState : int = MODE.DISCONNECTED # 0 disconnected. 1 Connected as client. 2 Connected as server -1 Error
 
+var currently_check_id_is_connected : bool = false
+signal recieved_check_id
+signal check_or_timeout
 
 func _ready():
 	local_id = 0
@@ -74,8 +78,45 @@ func _ready():
 
 func _exit_tree():
 	get_tree().set_network_peer(null)
+	
+	
+######################## THIS BLOCK OF CODE MANAGES CONNECTION PINGS ###########
 
-#################
+
+remote func ping_user(id : int) -> void:
+	if get_tree().is_network_server():
+		#The server will send the instruction to execute this function, using
+		#the server's id
+		rpc_id(id, "ping_user", get_network_master())
+	else:
+		#The clients that recieve the order to execute the function will recieve
+		#the server's id, and will use set_current_id, true
+		rpc_id(id, "set_check_for_id", true)
+
+remote func set_check_for_id(connected : bool = false) -> void:
+	currently_check_id_is_connected = connected
+	emit_signal("recieved_check_id")
+
+func check_or_timeout():
+	#This signal is emmited whether the current timer times-out or if the
+	#connection assert is finished
+	emit_signal("check_or_timeout")
+
+remote func assert_user_connection(id : int) -> bool:
+	connect("recieved_check_id", self, "check_or_timeout")
+	ping_user(id)
+	get_tree().create_timer(4).connect("timeout", self, "check_or_timeout")
+	yield(self, "check_or_timeout")
+	if currently_check_id_is_connected:
+		currently_check_id_is_connected = false
+		return true
+	else: 
+		return false
+	
+	
+###################### END OF CONNECTION ASSERTION BLOCK #######################
+
+################################################################################
 #Track scene changes and add nodes or emit signals functions
 func connect_to_server(player_data : Dictionary, as_host: bool = true, server : String = "localhost") -> void:
 	if NetworkState == MODE.DISCONNECTED:
@@ -144,15 +185,6 @@ func queue_tree_signal(path : String, signal_name : String, permanent : bool = f
 			signal = signal_name,
 		}
 	NodeUtilities.bind_signal("tree_changed", "_on_queue_attach_on_tree_change", get_tree(), self, NodeUtilities.MODE.CONNECT)
-
-
-#################
-# general network functions
-
-
-
-
-
 
 #################
 #Server functions
@@ -250,11 +282,12 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 
 	yield(WorldManager, "scene_change") #Stop your horses, the world hasn't loaded in yet!
 	get_tree().set_network_peer(connection)
-	yield(get_tree().create_timer(25), "timeout") #25 is the connection timeout maximum value
-	var error : int = connection.get_connection_status()
+	yield(get_tree().create_timer(CONNECTION_TIMEOUT), "timeout") #25 is the connection timeout maximum value
+	var error : int = SceneTree.network_peer.get_connection_status() 
+	#Line above: checks
 	print("The connection status at the end of the attempt is : ", error, "(2== Connected, error otherwise)")
 	print("error == 2:", error==2)
-	if error < 1.9: #if it times-out you get booted to the main menu 
+	if error == NetworkedMultiplayerENet.CONNECTION_CONNECTED: #if it times-out you get booted to the main menu 
 	#( I hate to do this, but it seems that the comparison is done through floats)
 		print("Error was different than 2, disconnecting")
 		Input.MOUSE_MODE_VISIBLE
@@ -280,6 +313,7 @@ func has_player_scene() -> bool:
 
 
 func player_register(player_data : Dictionary, localplayer : bool = false) -> void:
+	print("registering a player, id: ", player_data.id)
 	var id : int = 0
 	if localplayer and network_id:
 #		player_data["Options"] = Options.player_opt(opt_id, player_data) #merge name with rest of Options for Avatar
@@ -305,8 +339,9 @@ func player_register(player_data : Dictionary, localplayer : bool = false) -> vo
 		players[id] = player_data
 
 	if has_player_scene():
+		print("creating a player!")
 		WorldManager.create_player(players[id])
-
+		
 #local player recieved network id
 
 remote func register_client(id : int, pdata : Dictionary = Options.player_data) -> void:
@@ -334,10 +369,10 @@ remote func register_client(id : int, pdata : Dictionary = Options.player_data) 
 		rpc("register_client", id, pdata)
 		for p in players:
 			print("sending register data to ", p)
-#			print("**** %s" % players[p])
-			var pid = players[p].id
-			if pid != id:
-				rpc_id(id, "register_client", pid, players[p])
+			if assert_user_connection(p):
+				var pid = players[p].id
+				if pid != id:
+					rpc_id(id, "register_client", pid, players[p])
 
 remote func unregister_client(id : int) -> void:
 	
@@ -347,14 +382,15 @@ remote func unregister_client(id : int) -> void:
 		if players[id].instance:
 			players[id].instance.queue_free()
 		players.erase(id)
-	if NetworkState == MODE.SERVER:
-		#sync existing players
-		for p in players:
-			Log.hint(self, "unregister_client", "**** %s" % players[p])
-			var pid = players[p].id
-			if pid != local_id:
-				rpc_id(pid, "unregister_client", id)
-
+		if NetworkState == MODE.SERVER:
+			#sync existing players
+			for p in players:
+				Log.hint(self, "unregister_client", "**** %s" % players[p])
+				var pid = players[p].id
+				if pid != local_id:
+					rpc_id(pid, "unregister_client", id)
+	else:
+		print("Tired to disconnect an non-existant user")
 
 func player_get_property(prop : String, id : int = -1): #Result is variant, returns null 
 	if id == -1:
