@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Worlds/MoonTown/Constructs/First_Atrium/First_Atrium.glb" type="PackedScene" id=1]
+[ext_resource path="res://Worlds/MoonTown/Assets/Health_Centrifuge/HealthCentrifuge.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Worlds/MoonTown/Assets/Hexpane_Window/Hexpane_Window.tscn" type="PackedScene" id=3]
 
 [sub_resource type="GIProbeData" id=1]
@@ -47,6 +48,8 @@ omni_range = 0.976359
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.23997, 0.229594, -0.151468 )
 light_energy = 0.25
 omni_range = 1.32653
+
+[node name="HealthCentrifuge" parent="Empty_HealthCentrifuge" index="0" instance=ExtResource( 2 )]
 
 [node name="Hexpane_Window" parent="HexpaneWindow" index="0" instance=ExtResource( 3 )]
 
