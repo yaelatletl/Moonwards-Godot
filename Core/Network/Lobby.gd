@@ -283,7 +283,7 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 	yield(WorldManager, "scene_change") #Stop your horses, the world hasn't loaded in yet!
 	get_tree().set_network_peer(connection)
 	yield(get_tree().create_timer(CONNECTION_TIMEOUT), "timeout") #25 is the connection timeout maximum value
-	var error : int = SceneTree.network_peer.get_connection_status() 
+	var error : int = get_tree().network_peer.get_connection_status() 
 	#Line above: checks
 	print("The connection status at the end of the attempt is : ", error, "(2== Connected, error otherwise)")
 	print("error == 2:", error==2)

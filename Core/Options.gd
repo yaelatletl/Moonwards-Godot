@@ -187,12 +187,16 @@ func player_opt(type, opt : Dictionary = {}) -> Dictionary:
 
 #	if not player_opt.has(type):
 #		printd("player_filter_opt, unknown player opt type %s" % type)
+
 	if player_opt.has(type):
 		print("player has type: ", type)
 		var def_opt : Dictionary = player_opt[type]
+		print("currently, player_opt = ", player_opt)
+		print("currently, def_opt = ", def_opt)
 		for k in def_opt:
-			print(k, " default value is ", def_opt[k])
-			res[k] = def_opt[k]
+			if def_opt.has(k):
+				print(k, " default value is ", def_opt[k])
+				res[k] = def_opt[k]
 	return res
 
 func update_player_data():
