@@ -24,10 +24,6 @@ var scene_id : String= "scene_id_30160"
 # scene we instance for each player
 var player_scene : PackedScene = preload("res://LegacyPlayer/avatar_v2/player.tscn")
 
-# Join server host
-# var join_server_host = "127.0.0.1"
-#
-# var join_server_host = "moonwards.hopto.org"
 var join_server_host : String = "mainhabs.moonwards.com"
 
 
@@ -182,10 +178,16 @@ func player_opt(type, opt : Dictionary = {}) -> Dictionary:
 
 #	if not player_opt.has(type):
 #		printd("player_filter_opt, unknown player opt type %s" % type)
+
 	if player_opt.has(type):
+		print("player has type: ", type)
 		var def_opt : Dictionary = player_opt[type]
+		print("currently, player_opt = ", player_opt)
+		print("currently, def_opt = ", def_opt)
 		for k in def_opt:
-			res[k] = def_opt[k]
+			if def_opt.has(k):
+				print(k, " default value is ", def_opt[k])
+				res[k] = def_opt[k]
 	return res
 
 func update_player_data():
