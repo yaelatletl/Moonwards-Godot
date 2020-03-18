@@ -287,7 +287,7 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 	#Line above: checks
 	print("The connection status at the end of the attempt is : ", error, "(2== Connected, error otherwise)")
 	print("error == 2:", error==2)
-	if error == NetworkedMultiplayerENet.CONNECTION_CONNECTED: #if it times-out you get booted to the main menu 
+	if error != NetworkedMultiplayerENet.CONNECTION_CONNECTED: #if it times-out you get booted to the main menu 
 	#( I hate to do this, but it seems that the comparison is done through floats)
 		print("Error was different than 2, disconnecting")
 		Input.MOUSE_MODE_VISIBLE
