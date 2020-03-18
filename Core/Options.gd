@@ -24,10 +24,6 @@ var scene_id : String= "scene_id_30160"
 # scene we instance for each player
 var player_scene : PackedScene = preload("res://LegacyPlayer/avatar_v2/player.tscn")
 
-# Join server host
-# var join_server_host = "127.0.0.1"
-#
-# var join_server_host = "moonwards.hopto.org"
 var join_server_host : String = "mainhabs.moonwards.com"
 
 
@@ -166,21 +162,16 @@ func set_defaults() -> void:
 	# get("dev", "lod_manager_path", "res://scripts/TreeManager.tscn")
 
 func player_opt(type, opt : Dictionary = {}) -> Dictionary:
-	print("Entering player opt")
 	var res : Dictionary= {}
 	var filter : Dictionary = player_opt.opt_filter
 	var filter_id : String = "opt_filter_%s" % type
 	if player_opt.has(filter_id):
-		print("player has filter: ", filter_id)
 		filter = player_opt[filter_id]
 
 	var allow_unknown : bool = player_opt.opt_allow_unknown
-	print("Allow unknown: ", allow_unknown)
 	if opt != {}:
 		for k in opt:
-			print("for k in opt: ", k)
 			if filter.has(k) and filter[k] or allow_unknown:
-				print("res[k] = ", opt[k])
 				res[k] = opt[k]
 #				if not k in filter:
 #					printd("player_filter_opt, default allow unknown option %s %s" % [k, opt[k]])

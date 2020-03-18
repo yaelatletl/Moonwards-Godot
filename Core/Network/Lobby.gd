@@ -269,10 +269,10 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 	self.port = port
 	Log.hint(self, "client_server_connect", "connect to server %s(%s):%s" % [host, ip, port])
 
-#	NodeUtilities.bind_signal("connection_failed", "", get_tree(), self, NodeUtilities.MODE.CONNECT)
-#	NodeUtilities.bind_signal("connected_to_server", "", get_tree(), self, NodeUtilities.MODE.CONNECT)
+	NodeUtilities.bind_signal("connection_failed", "", get_tree(), self, NodeUtilities.MODE.CONNECT)
+	NodeUtilities.bind_signal("connected_to_server", "", get_tree(), self, NodeUtilities.MODE.CONNECT)
 	connection = NetworkedMultiplayerENet.new()
-#	connection.set_compression_mode(NetworkedMultiplayerENet.COMPRESS_FASTLZ) #Use lss bandwidth
+	connection.set_compression_mode(NetworkedMultiplayerENet.COMPRESS_FASTLZ) #Use lss bandwidth
 	var err = connection.create_client(ip, port)
 	print("Current connection status: " + Log.error_to_string(err))
 	emit_signal("server_up")
@@ -345,30 +345,21 @@ func player_register(player_data : Dictionary, localplayer : bool = false) -> vo
 #local player recieved network id
 
 remote func register_client(id : int, pdata : Dictionary = Options.player_data) -> void:
-	print("remote register_client, local_id is %s, recieved id is %s" % [local_id, id])
 	if id == local_id:
-		print("Local player, skip")
 		return
 	if players.has(id):
-		print("register client(%s): already exists(%s)" % [local_id, id])
 		return
 #	print("register_client: id(%s), data: %s" % [id, pdata])
-	print("setting player data id to id:", id, " pdata['id'] = id")
 	pdata["id"] = id
 	if pdata.has("Options"):
-		print("Player data has options section")
 		pdata["Options"] = Options.player_opt("puppet", pdata["Options"])
 	else:
-		print("Setting new options into the player data")
 		pdata["Options"] = Options.player_opt("puppet")
-	print("Registering player, using player data:", pdata)
 	player_register(pdata)
 	if NetworkState == MODE.SERVER:
-		print("mode is server, sending registration data to all pid's")
 		#sync existing players
 		rpc("register_client", id, pdata)
 		for p in players:
-			print("sending register data to ", p)
 			if assert_user_connection(p):
 				var pid = players[p].id
 				if pid != id:
