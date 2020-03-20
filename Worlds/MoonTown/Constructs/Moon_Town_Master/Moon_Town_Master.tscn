@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://Worlds/MoonTown/Constructs/Moon_Town_Master/Moon_Town_Master.glb" type="PackedScene" id=1]
 [ext_resource path="res://Worlds/MoonTown/Assets/Molten_Soil_Reactor/Molten_Soil_Reactor.tscn" type="PackedScene" id=2]
@@ -31,8 +31,9 @@
 [ext_resource path="res://Worlds/MoonTown/Assets/Flywheel_Towers/Flywheel_Towers_AllTogether.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Worlds/MoonTown/Assets/Solar_Panel_Units/Solar_Panel_Units_All_Together.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Worlds/MoonTown/Constructs/Moon_Town_Master/MilkyWay_LalandeRegion_4k.hdr" type="Texture" id=31]
-[ext_resource path="res://Worlds/MoonTown/Assets/Audio_Tour_Markers/Audio_Tour_Markers_Set.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Worlds/MoonTown/Assets/Earth/Earth.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Worlds/MoonTown/Assets/Audio_Tour_Markers/Audio_Tour_Marker_Indoor.tscn" type="PackedScene" id=34]
+[ext_resource path="res://Worlds/MoonTown/Assets/Audio_Tour_Markers/Audio_Tour_Marker_Outdoor.tscn" type="PackedScene" id=35]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1, 1, 1.22718 )
@@ -405,7 +406,65 @@ shadow_color = Color( 0.423529, 0.423529, 0.423529, 1 )
 
 [node name="Audio_Tour_Markers" type="Spatial" parent="." index="108"]
 
-[node name="Audio_Tour_Markers_Set" parent="Audio_Tour_Markers" index="0" instance=ExtResource( 32 )]
+[node name="Audio_Tour_Marker_Indoor" parent="Audio_Tour_Markers" index="0" instance=ExtResource( 34 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.329642, 10.033, -18.1257 )
+
+[node name="Audio_Tour_Marker_Indoor2" parent="Audio_Tour_Markers" index="1" instance=ExtResource( 34 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.956578, 10.052, -17.4911 )
+
+[node name="Audio_Tour_Marker_Indoor2a" parent="Audio_Tour_Markers" index="2" instance=ExtResource( 34 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.956578, 11.2627, -16.8296 )
+
+[node name="Audio_Tour_Marker_Indoor2b" parent="Audio_Tour_Markers" index="3" instance=ExtResource( 34 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.87751, 11.3007, -17.96 )
+
+[node name="Audio_Tour_Marker_Indoor3" parent="Audio_Tour_Markers" index="4" instance=ExtResource( 34 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.689, 10.052, -17.14 )
+
+[node name="Audio_Tour_Marker_Indoor4" parent="Audio_Tour_Markers" index="5" instance=ExtResource( 34 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.666, 8.854, -16.965 )
+
+[node name="Audio_Tour_Marker_Indoor5" parent="Audio_Tour_Markers" index="6" instance=ExtResource( 34 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98879, 8.22996, -10.765 )
+
+[node name="Audio_Tour_Marker_Indoor6" parent="Audio_Tour_Markers" index="7" instance=ExtResource( 34 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.607, 2.596, -19.842 )
+
+[node name="Audio_Tour_Marker_Indoor7" parent="Audio_Tour_Markers" index="8" instance=ExtResource( 34 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.13, 2.423, -24.275 )
+
+[node name="Audio_Tour_Marker_Outdoor" parent="Audio_Tour_Markers" index="9" instance=ExtResource( 35 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.064, 6.687, 38.039 )
+
+[node name="Audio_Tour_Marker_Outdoor2" parent="Audio_Tour_Markers" index="10" instance=ExtResource( 35 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.872, 6.288, 86.931 )
+
+[node name="Audio_Tour_Marker_Outdoor3" parent="Audio_Tour_Markers" index="11" instance=ExtResource( 35 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.303, 8.68, 71.786 )
+
+[node name="Audio_Tour_Marker_Outdoor4" parent="Audio_Tour_Markers" index="12" instance=ExtResource( 35 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.77, 11.586, 68.841 )
+
+[node name="Audio_Tour_Marker_Outdoor5" parent="Audio_Tour_Markers" index="13" instance=ExtResource( 35 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -374.645, -157.781, -98.225 )
+
+[node name="Audio_Tour_Marker_Outdoor6" parent="Audio_Tour_Markers" index="14" instance=ExtResource( 35 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58.525, 15.282, -59.06 )
+
+[node name="Audio_Tour_Marker_Outdoor7" parent="Audio_Tour_Markers" index="15" instance=ExtResource( 35 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.734, 12.05, -35.012 )
+
+[node name="Audio_Tour_Marker_Outdoor8" parent="Audio_Tour_Markers" index="16" instance=ExtResource( 35 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 75.024, 38.534, -233.477 )
+
+[node name="Audio_Tour_Marker_Outdoor9" parent="Audio_Tour_Markers" index="17" instance=ExtResource( 35 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 350.579, -28.107, -595.797 )
+
+[node name="Audio_Tour_Marker_Outdoor10" parent="Audio_Tour_Markers" index="18" instance=ExtResource( 35 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 414.464, -41.103, -617.69 )
+
+[node name="Audio_Tour_Marker_Indoor8" parent="Audio_Tour_Markers" index="19" instance=ExtResource( 34 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 455.611, -50.513, -593.011 )
 
 [node name="Earth" parent="." index="109" instance=ExtResource( 33 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2708.66, 0 )
