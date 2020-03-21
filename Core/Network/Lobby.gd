@@ -215,7 +215,7 @@ func server_set_mode(host : String = "localhost"):
 #		return
 	Log.hint(self, "server_set_mode", str("prepare to listen on ", ip, ":", DEFAULT_PORT))
 	connection = NetworkedMultiplayerENet.new()
-#	connection.set_compression_mode(NetworkedMultiplayerENet.COMPRESS_FASTLZ)
+	connection.set_compression_mode(NetworkedMultiplayerENet.COMPRESS_FASTLZ)
 	connection.set_bind_ip("*") # Temporary debug stuff, use all available interfaces
 	var error : int = connection.create_server(DEFAULT_PORT, MAX_PEERS)
 	print("Current connection status: " + Log.error_to_string(error))
@@ -268,9 +268,9 @@ func client_server_connect(host : String, port : int = DEFAULT_PORT):
 		return
 	self.port = port
 	Log.hint(self, "client_server_connect", "connect to server %s(%s):%s" % [host, ip, port])
-
-	NodeUtilities.bind_signal("connection_failed", "", get_tree(), self, NodeUtilities.MODE.CONNECT)
-	NodeUtilities.bind_signal("connected_to_server", "", get_tree(), self, NodeUtilities.MODE.CONNECT)
+#
+#	NodeUtilities.bind_signal("connection_failed", "", get_tree(), self, NodeUtilities.MODE.CONNECT)
+#	NodeUtilities.bind_signal("connected_to_server", "", get_tree(), self, NodeUtilities.MODE.CONNECT)
 	connection = NetworkedMultiplayerENet.new()
 	connection.set_compression_mode(NetworkedMultiplayerENet.COMPRESS_FASTLZ) #Use lss bandwidth
 	var err = connection.create_client(ip, port)
