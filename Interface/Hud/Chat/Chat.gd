@@ -104,7 +104,7 @@ func _toggle_chat_window() -> void :
 	visible = true
 
 
-func fade_chat() -> void :
+func hide_chat() -> void :
 	#Cause the chat to fade into being invisible.
 	#Meant to be called from somewhere else. Usually from a group call.
 	#Don't play the fading animation if I am already invisible.
