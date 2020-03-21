@@ -16,7 +16,7 @@ func _ready() -> void:
 			var key_value = argument.split("=")
 			arguments[key_value[0].lstrip("--")] = key_value[1]
 	if arguments.has("server"):
-		if arguments.server == true:
+		if arguments.server == "true":
 			_ready_headless()
 	else:
 		MainMenu.show()	
