@@ -1,4 +1,4 @@
-extends "res://assets/Interactable/Interactable.gd"
+extends "res://Utilities/Interactable/Interactable.gd"
 
 
 export var audio_file : AudioStreamOGGVorbis = AudioStreamOGGVorbis.new()
