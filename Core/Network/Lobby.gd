@@ -578,4 +578,4 @@ func _on_connected_to_server() -> void:
 
 func _on_successful_connection():
 	yield(get_tree().create_timer(2), "timeout")
-	WorldManager.change_scene(WorldManager.scenes.default)
+	WorldManager.change_scene()

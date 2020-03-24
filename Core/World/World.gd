@@ -6,44 +6,46 @@ the scene information.
 #TODO: Implement parallel and background loadings again.
 signal scene_change(name)
 
-#############################
-#    load scene Options     #
-#############################
-
+# load scene Options
 var scenes : Dictionary = {
 	loaded = null,
-	default = "WorldV2",
-	WorldV2 = {
-		path = "res://Worlds/LegacyWorld/WorldV2.tscn"
-	}
+	WorldV2 = "res://Worlds/LegacyWorld/WorldV2.tscn"
 }
-
 
 
 var level_loader : Object = preload("res://Core/World/LevelLoader.gd").new()
 var current_world : Node = null
+
+
 func set_current_world(new_world : Node) -> void:
 	current_world = new_world
-func change_scene(scene : String = scenes.default) -> void:
+
+func change_scene(scene : String = "WorldV2") -> void:
+	#Load the scene we are intending to use.
 	var error
+	#Ensure that scenes actually has the scene.
 	if not scene in scenes:
-		Log.hint(self, "change_scene", "No such scene registered in manager, attempting to load : %s" % scene)
+		Log.hint(self, "change_scene", "No such world is registered in WorldManager, attempting to load : %s" % scene)
 		error = get_tree().change_scene(scene)
 		if error == OK:
+			scenes.loaded = scene
 			emit_signal("scene_change", scene)
 			return
 		else:
 			Log.error(self, "change_scene", "error changing scene, provided string is not a resource nor a scene")
-			return
+			assert(true == false)
 	else:
-		Log.hint(self, "change_scene", "change_scene to %s" % scene)
-		error = get_tree().change_scene(scenes[scene].path)
+		Log.hint(self, "change_scene", "WorldManager change_scene to %s" % scene)
+		error = get_tree().change_scene(scenes[scene])
 		if error == 0 :
 			Log.hint(self, "change_scene", "changing scene okay(%s)" % Log.error_to_string(error))
 			scenes.loaded = scene
 			emit_signal("scene_change", scene)
 			return
+	
+	#We should never make it here as it means we failed to load the scene.
 	Log.hint(self, "change_scene", "error changing scene %s" % Log.error_to_string(error))
+	assert( true == false )
 
 
 func create_player(player : Dictionary) -> void:

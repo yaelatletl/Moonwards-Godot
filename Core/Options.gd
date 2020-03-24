@@ -42,6 +42,7 @@ var shoes_color : Color = Color(0,0,0,1)
 const config_path : String = "user://settings.cfg"
 var config : ConfigFile = ConfigFile.new()
 
+#############################
 var fly_cameras : Array = [
 	{ "label" : "Fly Camera", 	"path" : "res://assets/Player/flycamera/FlyCamera.tscn"},
 ]
