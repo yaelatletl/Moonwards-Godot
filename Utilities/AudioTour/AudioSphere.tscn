@@ -26,3 +26,4 @@ stream = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="." index="2"]
 shape = SubResource( 2 )
+[connection signal="interacted_with" from="." to="." method="play_sound"]
