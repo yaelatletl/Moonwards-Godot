@@ -101,6 +101,7 @@ ss_reflections_max_steps = 96
 ssao_enabled = true
 
 [node name="Moon_Town_Master" instance=ExtResource( 1 )]
+script = ExtResource( 41 )
 
 [node name="StaticBody" type="StaticBody" parent="GibraltarMiddle" index="0"]
 
@@ -499,5 +500,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 455.611, -50.513, -593.011 )
 [node name="Audio_Tour_Paths" parent="." index="109" instance=ExtResource( 40 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.85657, 11.6271, -17.1318 )
 
-[node name="Earth" parent="." index="110" instance=ExtResource( 33 )]
+[node name="players" type="Spatial" parent="." index="110"]
+
+[node name="LocalPlayer" parent="players" index="0" instance=ExtResource( 40 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.296925, 10.1501, -18.3951 )
+
+[node name="Earth" parent="." index="111" instance=ExtResource( 33 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2708.66, 0 )

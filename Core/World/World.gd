@@ -9,7 +9,7 @@ signal scene_change(name)
 # load scene Options
 var scenes : Dictionary = {
 	loaded = null,
-	WorldV2 = "res://Worlds/LegacyWorld/WorldV2.tscn"
+	WorldV2 = "res://Worlds/MoonTown/Constructs/Moon_Town_Master/Moon_Town_Master.tscn"
 }
 
 
