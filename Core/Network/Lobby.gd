@@ -445,6 +445,8 @@ func _player_remap_id(old_id : int, new_id : int) -> void:
 
 
 func _on_queue_attach_on_tree_change() -> void:
+	#Called when the scene tree changes.
+	#It seems to only log things but I am not entirely sure if it has other uses.
 	if _queue_attach_on_tree_change_lock:
 		return
 	if get_tree():
@@ -458,13 +460,18 @@ func _on_queue_attach_on_tree_change() -> void:
 					Log.hint(self, "_on_queue_attach_on_tree_change", "qatc: signal %s(%s) permanent %s" % [p, _queue_attach[p].signal, _queue_attach[p].permanent])
 		else:
 			return #if scene is the same skip notifications
+
+		#This notifies us about something.
 		if get_tree().current_scene:
 			var scene = get_tree().current_scene
 			for p in _queue_attach:
 				if _queue_attach[p].has("scene") and _queue_attach[p].scene == scene:
 					continue
+				
+				#obj is something I don't understand.
+				#It is suppose to be a node referenced in the _queue_attach dictionary. 
 				var obj = scene.get_node(p)
-				if obj:
+				if obj != null:
 					#if signal emit and continue
 					if _queue_attach[p].has("signal"):
 						var sig = _queue_attach[p].signal
@@ -476,6 +483,7 @@ func _on_queue_attach_on_tree_change() -> void:
 							_queue_attach[p]["scene"] = scene
 							emit_signal(sig)
 						continue
+
 					print("==qaotc== object at(%s) - %s" % [p, obj])
 					var obj2 = _queue_attach[p].packedscene
 					_queue_attach_on_tree_change_lock = true
@@ -549,6 +557,7 @@ func _on_server_tree_user_disconnected(id : int) -> void:
 
 
 func _on_player_scene() -> void:
+	#This does not get called for the new world.
 	print("Entered _on_player_scene")
 	Log.hint(self, "_on_player_scene", "scene is player ready, checking players(%s)" % players.size())
 	for p in players:
@@ -566,7 +575,7 @@ func _on_player_id(id : int) -> void:
 		print("Local Id wasn't in the player dictionary :/, attempting to remap any ways")
 	_player_remap_id(local_id, id)
 	local_id = id
-	#scene is not active yet, payers are redistered after scene is changes sucessefully
+	#scene is not active yet, payers are registered after scene is changes sucessefully
 
 func _on_connected_to_server() -> void:
 	print("connected to server was emitted, now called _on_signal")

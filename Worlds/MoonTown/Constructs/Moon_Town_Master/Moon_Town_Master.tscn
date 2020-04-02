@@ -502,8 +502,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.85657, 11.6271, -17.1318 )
 
 [node name="players" type="Spatial" parent="." index="110"]
 
-[node name="LocalPlayer" parent="players" index="0" instance=ExtResource( 40 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.296925, 10.1501, -18.3951 )
-
 [node name="Earth" parent="." index="111" instance=ExtResource( 33 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2708.66, 0 )
+
+[node name="spawn_points" type="Spatial" parent="." index="112"]
+
+[node name="0" type="Position3D" parent="spawn_points" index="0"]
+transform = Transform( 0.58211, -0.376711, 0.720581, 0, 0.886204, 0.463296, -0.81311, -0.269689, 0.515868, -0.573117, 10.2957, -18.4549 )

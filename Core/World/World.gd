@@ -49,8 +49,12 @@ func change_scene(scene : String = "WorldV2") -> void:
 
 
 func create_player(player : Dictionary) -> void:
-	print("Creating a player, with id ", player.id)
+	#Crash if the world does not have the nodes spawn_points and players.
 	var world = get_tree().current_scene
+	assert( world.has_node( "spawn_points" ) )
+	assert( world.has_node( "players" ) )
+	
+	print("Creating a player, with id ", player.id)
 	var spawn_pcount =  world.get_node("spawn_points").get_child_count()
 	var spawn_pos = randi() % spawn_pcount
 	var player_scene = player.instance
@@ -62,6 +66,8 @@ func create_player(player : Dictionary) -> void:
 	Log.hint(self, "create_player", "select spawn point(%s/%s)" % [spawn_pos, spawn_pcount])
 	spawn_pos = world.get_node("spawn_points").get_child(spawn_pos).translation
 #	player.flies = true # MUST CHANGE WHEN COLLISIONS ARE DONE
+
+	#Check for errors in the player file.
 	if not is_instance_valid(player_scene):
 		player.instance = Options.player_scene.instance()
 		player_scene = player.instance
