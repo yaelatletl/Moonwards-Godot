@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://Worlds/MoonTown/Constructs/Moon_Town_Master/Moon_Town_Master.glb" type="PackedScene" id=1]
 [ext_resource path="res://Worlds/MoonTown/Assets/Molten_Soil_Reactor/Molten_Soil_Reactor.tscn" type="PackedScene" id=2]
@@ -41,6 +41,9 @@
 [ext_resource path="res://Worlds/MoonTown/Assets/Audio_Tour_Markers/Audio_Tour_intro.ogg" type="AudioStream" id=39]
 [ext_resource path="res://Worlds/MoonTown/Assets/Audio_Tour_Paths/Audio_Tour_Paths.glb" type="PackedScene" id=40]
 [ext_resource path="res://Worlds/MoonTown/Assets/Audio_Tour_Markers/Audio_Tour_Indoor2.ogg" type="AudioStream" id=41]
+[ext_resource path="res://Worlds/MoonTown/Assets/Audio_Tour_Markers/Audio_Tour_Indoor1b.ogg" type="AudioStream" id=42]
+[ext_resource path="res://Worlds/MoonTown/Assets/Audio_Tour_Markers/Audio_Tour_Indoor1a.ogg" type="AudioStream" id=43]
+[ext_resource path="res://Worlds/MoonTown/Assets/Audio_Tour_Markers/Audio_Tour_Indoor.ogg" type="AudioStream" id=44]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1, 1, 1.22718 )
@@ -414,55 +417,67 @@ shadow_color = Color( 0.423529, 0.423529, 0.423529, 1 )
 
 [node name="Audio_Tour_Markers" type="Spatial" parent="." index="108"]
 
-[node name="Audio_Tour_Marker_Indoor_intro" type="Spatial" parent="Audio_Tour_Markers" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2642, 10.0833, -21.0216 )
+[node name="Audio_Tour_Marker_Indoor_intro" parent="Audio_Tour_Markers" index="0" instance=ExtResource( 34 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.78409, 10.0051, -20.9595 )
 
-[node name="AudioSphere" parent="Audio_Tour_Markers/Audio_Tour_Marker_Indoor_intro" index="0" instance=ExtResource( 32 )]
-display_info = "play indoor audio tour introduction."
+[node name="AudioSphere" parent="Audio_Tour_Markers/Audio_Tour_Marker_Indoor_intro" index="1" instance=ExtResource( 32 )]
+display_info = "play indoor audio tour intro"
 audio_file = ExtResource( 39 )
 
 [node name="Audio_Tour_Marker_Indoor" parent="Audio_Tour_Markers" index="1" instance=ExtResource( 34 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.329642, 10.033, -18.1257 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.308763, 10.033, -18.2206 )
 
 [node name="AudioSphere" parent="Audio_Tour_Markers/Audio_Tour_Marker_Indoor" index="1" instance=ExtResource( 32 )]
-display_info = "Moontowns introduction"
-audio_file = ExtResource( 39 )
+display_info = "play indoor audio tour start"
+audio_file = ExtResource( 44 )
 
 [node name="Audio_Tour_Marker_Indoor1" parent="Audio_Tour_Markers" index="2" instance=ExtResource( 34 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.956578, 10.052, -17.4911 )
 
 [node name="AudioSphere" parent="Audio_Tour_Markers/Audio_Tour_Marker_Indoor1" index="1" instance=ExtResource( 32 )]
+display_info = "play indoor audio tour 1"
 audio_file = ExtResource( 38 )
 
 [node name="Audio_Tour_Marker_Indoor1a" parent="Audio_Tour_Markers" index="3" instance=ExtResource( 34 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.956578, 11.2627, -16.8296 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.954955, 11.2025, -16.9511 )
+
+[node name="AudioSphere" parent="Audio_Tour_Markers/Audio_Tour_Marker_Indoor1a" index="1" instance=ExtResource( 32 )]
+display_info = "play indoor audio tour 1a"
+audio_file = ExtResource( 43 )
 
 [node name="Audio_Tour_Marker_Indoor1b" parent="Audio_Tour_Markers" index="4" instance=ExtResource( 34 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.87751, 11.3007, -17.96 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.77835, 11.1961, -17.9718 )
+
+[node name="AudioSphere" parent="Audio_Tour_Markers/Audio_Tour_Marker_Indoor1b" index="1" instance=ExtResource( 32 )]
+display_info = "play indoor audio tour 1b"
+audio_file = ExtResource( 42 )
 
 [node name="Audio_Tour_Marker_Indoor2" parent="Audio_Tour_Markers" index="5" instance=ExtResource( 34 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.689, 10.052, -17.14 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.88284, 10.052, -17.178 )
 
 [node name="AudioSphere" parent="Audio_Tour_Markers/Audio_Tour_Marker_Indoor2" index="1" instance=ExtResource( 32 )]
+display_info = "play indoor audio tour 2"
 audio_file = ExtResource( 41 )
 
 [node name="Audio_Tour_Marker_Indoor3" parent="Audio_Tour_Markers" index="6" instance=ExtResource( 34 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.666, 8.854, -16.965 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.67953, 8.80916, -17.0219 )
 
 [node name="AudioSphere" parent="Audio_Tour_Markers/Audio_Tour_Marker_Indoor3" index="1" instance=ExtResource( 32 )]
+display_info = "play indoor audio tour 3"
 audio_file = ExtResource( 37 )
 
 [node name="Audio_Tour_Marker_Indoor4" parent="Audio_Tour_Markers" index="7" instance=ExtResource( 34 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98879, 8.22996, -10.765 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13993, 8.22996, -10.7933 )
 
 [node name="AudioSphere" parent="Audio_Tour_Markers/Audio_Tour_Marker_Indoor4" index="1" instance=ExtResource( 32 )]
+display_info = "play indoor audio tour 4"
 audio_file = ExtResource( 36 )
 
 [node name="Audio_Tour_Marker_Indoor5" parent="Audio_Tour_Markers" index="8" instance=ExtResource( 34 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.607, 2.596, -19.842 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5721, 2.55657, -19.857 )
 
 [node name="Audio_Tour_Marker_Indoor6" parent="Audio_Tour_Markers" index="9" instance=ExtResource( 34 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.13, 2.423, -24.275 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0337, 2.33928, -24.2952 )
 
 [node name="Audio_Tour_Marker_Outdoor" parent="Audio_Tour_Markers" index="10" instance=ExtResource( 35 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.064, 6.687, 38.039 )
@@ -508,4 +523,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2708.66, 0 )
 [node name="spawn_points" type="Spatial" parent="." index="112"]
 
 [node name="0" type="Position3D" parent="spawn_points" index="0"]
-transform = Transform( 0.58211, -0.376711, 0.720581, 0, 0.886204, 0.463296, -0.81311, -0.269689, 0.515868, -0.573117, 10.2957, -18.4549 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3678, 10.0473, -21.1085 )
