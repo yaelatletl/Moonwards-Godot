@@ -331,7 +331,6 @@ transform = Transform( 0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, 20.5256, 11.2565, -30
 [node name="Airlock_Bay" parent="Empty_AirlockBay" index="0" instance=ExtResource( 22 )]
 
 [node name="First_Atrium" parent="Empty_AtriumHab" index="0" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0309117, 0, 0 )
 
 [node name="Center_Atrium" parent="Empty_BigAtrium" index="0" instance=ExtResource( 11 )]
 
@@ -406,10 +405,11 @@ shape = SubResource( 13 )
 environment = SubResource( 15 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="." index="107"]
-transform = Transform( -0.0784592, 0.863356, -0.498459, 0, 0.5, 0.866025, 0.996917, 0.0679476, -0.0392296, 0, 46.5723, 0 )
+transform = Transform( -0.0784591, 0.498459, -0.863356, 0, 0.866026, 0.5, 0.996917, 0.0392296, -0.0679476, 0, 46.5723, 0 )
 light_energy = 1.9
 shadow_enabled = true
 shadow_color = Color( 0.423529, 0.423529, 0.423529, 1 )
+directional_shadow_max_distance = 400.0
 
 [node name="Audio_Tour_Markers" type="Spatial" parent="." index="108"]
 
