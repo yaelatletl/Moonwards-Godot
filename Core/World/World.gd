@@ -9,7 +9,7 @@ signal scene_change(name)
 # load scene Options
 var scenes : Dictionary = {
 	loaded = null,
-	WorldV2 = "res://Worlds/MoonTown/Constructs/Moon_Town_Master/Moon_Town_Master.tscn"
+	WorldV2 = "res://Worlds/Moon_Town_Main.tscn"
 }
 
 
@@ -72,6 +72,7 @@ func create_player(player : Dictionary) -> void:
 		player.instance = Options.player_scene.instance()
 		player_scene = player.instance
 		player_apply_opt(player, player_scene)
+	
 	if player.id == Lobby.local_id:
 		player_scene.SetRemotePlayer(false)
 	else:

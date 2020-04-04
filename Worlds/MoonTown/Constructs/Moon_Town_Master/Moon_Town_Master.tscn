@@ -515,12 +515,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 455.611, -50.513, -593.011 )
 [node name="Audio_Tour_Paths" parent="." index="109" instance=ExtResource( 40 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.85657, 11.6271, -17.1318 )
 
-[node name="players" type="Spatial" parent="." index="110"]
-
-[node name="Earth" parent="." index="111" instance=ExtResource( 33 )]
+[node name="Earth" parent="." index="110" instance=ExtResource( 33 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2708.66, 0 )
-
-[node name="spawn_points" type="Spatial" parent="." index="112"]
-
-[node name="0" type="Position3D" parent="spawn_points" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3678, 10.0473, -21.1085 )
