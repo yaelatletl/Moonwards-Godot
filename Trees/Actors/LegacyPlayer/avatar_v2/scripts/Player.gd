@@ -276,10 +276,7 @@ func ShowMouseCursor():
 func HideMouseCursor():
 	pass
 
-func Jump(var timer):
-	var new_jump_vel = max(MIN_JUMP_SPEED, min(JUMP_SPEED, timer * JUMP_SPEED / MAX_JUMP_TIMER))
-	velocity.y += new_jump_vel
-	jump_timeout = 1.0
+
 
 func _physics_process(delta):
 	if Lobby.isConnected:

@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody",
+"class": "Character",
+"language": "GDScript",
+"path": "res://Trees/Actors/Characters/Character.gd"
+}, {
 "base": "Reference",
 "class": "NameGenerator",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://Scripts/Core/WorldNavigation.gd"
 } ]
 _global_script_class_icons={
+"Character": "",
 "NameGenerator": "",
 "World_Navigator": ""
 }
