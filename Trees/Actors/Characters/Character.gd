@@ -2,8 +2,6 @@ extends KinematicBody
 class_name Character
 
 
-
-
 enum STATE {
 	WALKING
 	FLAILING
@@ -21,6 +19,8 @@ var MIN_JUMP_SPEED = 0.2
 var MAX_JUMP_TIMER = 0.5
 var SPEED_SCALE = 15 #use as 0.1*SPEED_SCALE for time being because of slider for speed setting is int, in OptionsUI.gd
 
+
+var animation_speed = 1.0
 
 var is_puppet : bool = false
 var is_bot : bool  = false
@@ -43,6 +43,8 @@ var climb_look_direction = Vector3()
 var ground_normal : Vector3 = Vector3()
 var npc_velocity : bool = false
 
+
+var current_point : Vector3
 var camera_control : Spatial
 var model : Spatial
 var motion 
@@ -52,11 +54,11 @@ func StopStairsClimb():
 	climbing_stairs = false
 	stairs = null
 	climb_point = -1
-	$KinematicBody/AnimationTree["parameters/MovementState/current"] = STATE.WALKING
+	$AnimationTree["parameters/MovementState/current"] = STATE.WALKING
 
 
 func UpdateClimbingStairs(var delta):
-	var kb_pos = $KinematicBody.global_transform.origin
+	var kb_pos = global_transform.origin
 
 	if climb_point % 2 == 0:
 		climb_progress = abs((2.0 if climb_direction > 0.0 else 0.0) - abs((kb_pos.y - stairs.climb_points[climb_point].y) / stairs.step_size))
@@ -71,7 +73,7 @@ func UpdateClimbingStairs(var delta):
 		climb_point -= 1
 
 	if climb_point == stairs.climb_points.size() - 1 and kb_pos.y > stairs.climb_points[climb_point].y and not input_direction <= 0.0:
-		$KinematicBody/AnimationTree["parameters/MovementState/current"] = STATE.WALKING
+		$AnimationTree["parameters/MovementState/current"] = STATE.WALKING
 
 		motion = motion.linear_interpolate(motion_target, MOTION_INTERPOLATE_SPEED * delta)
 
@@ -83,7 +85,7 @@ func UpdateClimbingStairs(var delta):
 		orientation.basis = model.global_transform.basis.slerp(target_transform.basis, delta * ROTATION_INTERPOLATE_SPEED)
 
 		#Retrieve the root motion from the animationtree so it can be applied to the KinematicBody.
-		root_motion = $KinematicBody/AnimationTree.get_root_motion_transform()
+		root_motion = $AnimationTree.get_root_motion_transform()
 		orientation *= root_motion
 
 		var h_velocity = (orientation.origin / delta) * 0.1 * SPEED_SCALE
@@ -103,7 +105,7 @@ func UpdateClimbingStairs(var delta):
 		if kb_pos.distance_to(stairs.climb_points[climb_point]) > 0.12:
 			StopStairsClimb()
 	else:
-		$KinematicBody/AnimationTree["parameters/MovementState/current"] = STATE.CLIMBING
+		$AnimationTree["parameters/MovementState/current"] = STATE.CLIMBING
 		#Automatically move towards the climbing point horizontally.
 		var flat_velocity = (stairs.climb_points[climb_point] - kb_pos) * delta * 150.0
 		flat_velocity.y = 0.0
@@ -118,20 +120,20 @@ func UpdateClimbingStairs(var delta):
 		StopStairsClimb()
 
 	if input_direction > 0.0:
-		if $KinematicBody/AnimationTree["parameters/ClimbDirection/current"] == 1:
-			$KinematicBody/AnimationTree["parameters/ClimbDirection/current"] = 0
+		if $AnimationTree["parameters/ClimbDirection/current"] == 1:
+			$AnimationTree["parameters/ClimbDirection/current"] = 0
 			climb_direction = 1.0
 	elif input_direction < 0.0:
-		if $KinematicBody/AnimationTree["parameters/ClimbDirection/current"] == 0:
+		if $AnimationTree["parameters/ClimbDirection/current"] == 0:
 			climb_direction = -1.0
-			$KinematicBody/AnimationTree["parameters/ClimbDirection/current"] = 1
+			$AnimationTree["parameters/ClimbDirection/current"] = 1
 
 	if climb_direction == 1.0:
-		$KinematicBody/AnimationTree["parameters/ClimbProgressUp/seek_position"] = climb_progress
+		$AnimationTree["parameters/ClimbProgressUp/seek_position"] = climb_progress
 	else:
-		$KinematicBody/AnimationTree["parameters/ClimbProgressDown/seek_position"] = climb_progress
+		$AnimationTree["parameters/ClimbProgressDown/seek_position"] = climb_progress
 
-	velocity = $KinematicBody.move_and_slide(velocity, Vector3(0,1,0), false)
+	velocity = move_and_slide(velocity, Vector3(0,1,0), false)
 
 
 func jump(var timer):
