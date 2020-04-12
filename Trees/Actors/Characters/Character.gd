@@ -28,7 +28,7 @@ var is_bot : bool  = false
 var input_direction : float = 0.0
 var jump : bool = false
 var jump_timeout : float = 0.0
-
+var username = "username" setget set_username
 var climbing_stairs : bool = false
 var in_air : bool = false
 var velocity : Vector3
@@ -41,7 +41,6 @@ var climb_progress = 0.0
 var climb_direction = 1.0
 var climb_look_direction = Vector3()
 var ground_normal : Vector3 = Vector3()
-var npc_velocity : bool = false
 
 
 var current_point : Vector3
@@ -50,14 +49,96 @@ var model : Spatial
 var motion 
 var root_motion 
 
-func StopStairsClimb():
+var network : bool = false
+var bot : bool = false
+
+#####################################
+puppet var puppet_translation
+puppet var puppet_rotation
+puppet var puppet_jump
+puppet var puppet_jump_blend
+puppet var puppet_animation_speed
+puppet var puppet_motion
+puppet var puppet_anim_state
+puppet var puppet_climb_dir
+puppet var puppet_climb_progress_up
+puppet var puppet_climb_progress_down 
+######################################
+
+
+func set_username(var _username):
+	username = _username
+
+func set_networked(if_networked):
+	
+	if if_networked:
+		rset_config("puppet_translation", MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_rotation",  MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_motion",  MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_jump",  MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_jump_blend",  MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_run",  MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_climb_progress_down",  MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_climb_progress_up",  MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_climb_dir",  MultiplayerAPI.RPC_MODE_PUPPET)
+		rset_config("puppet_anim_state",  MultiplayerAPI.RPC_MODE_PUPPET)
+	else:
+		rset_config("puppet_translation", MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_rotation",  MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_motion",  MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_jump", MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_jump_blend", MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_run", MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_climb_progress_down",  MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_climb_progress_up",  MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_climb_dir",  MultiplayerAPI.RPC_MODE_DISABLED)
+		rset_config("puppet_anim_state",  MultiplayerAPI.RPC_MODE_DISABLED)
+
+func update_networking():
+	if not network:
+		return
+	if is_puppet:
+		if puppet_translation != null:
+			global_transform.origin = puppet_translation
+		if puppet_rotation != null:
+			model.global_transform.basis = puppet_rotation
+		if puppet_jump != null:
+			jump = puppet_jump
+		if puppet_motion != null:
+			motion = puppet_motion
+		if puppet_animation_speed != null:
+			animation_speed = puppet_animation_speed
+		if puppet_jump_blend != null:
+			$AnimationTree["parameters/JumpAmount/blend_amount"] = puppet_jump_blend
+		if puppet_anim_state != null:
+			$AnimationTree["parameters/MovementState/current"] = puppet_anim_state
+		if puppet_climb_dir != null:
+			$AnimationTree["parameters/ClimbDirection/current"] = puppet_climb_dir
+		if puppet_climb_progress_up != null:
+			$AnimationTree["parameters/ClimbProgressUp/seek_position"] = puppet_climb_progress_up
+		if puppet_climb_progress_down != null:
+			$AnimationTree["parameters/ClimbProgressDown/seek_position"] = puppet_climb_progress_down
+	
+	elif is_network_master() or (bot):
+		rset_unreliable("puppet_climb_progress_down", $AnimationTree["parameters/ClimbProgressDown/seek_position"])
+		rset_unreliable("puppet_climb_progress_up", $AnimationTree["parameters/ClimbProgressUp/seek_position"] )
+		rset_unreliable("puppet_climb_dir", $AnimationTree["parameters/ClimbDirection/current"])
+		rset_unreliable("puppet_anim_state", $AnimationTree["parameters/MovementState/current"])
+		rset_unreliable("puppet_jump_blend", $AnimationTree["parameters/JumpAmount/blend_amount"])
+		rset_unreliable("puppet_translation", global_transform.origin)
+		rset_unreliable("puppet_rotation", model.global_transform.basis)
+		rset_unreliable("puppet_motion", motion)
+		rset_unreliable("puppet_jump", jump)
+		rset_unreliable("puppet_animation_speed", animation_speed)
+
+func stop_stairs_climb():
 	climbing_stairs = false
 	stairs = null
 	climb_point = -1
 	$AnimationTree["parameters/MovementState/current"] = STATE.WALKING
 
 
-func UpdateClimbingStairs(var delta):
+func update_stairs_climb(var delta):
 	var kb_pos = global_transform.origin
 
 	if climb_point % 2 == 0:
@@ -103,7 +184,7 @@ func UpdateClimbingStairs(var delta):
 
 		#Stop climbing at the top when too far away from the stairs.
 		if kb_pos.distance_to(stairs.climb_points[climb_point]) > 0.12:
-			StopStairsClimb()
+			stop_stairs_climb()
 	else:
 		$AnimationTree["parameters/MovementState/current"] = STATE.CLIMBING
 		#Automatically move towards the climbing point horizontally.
@@ -117,7 +198,7 @@ func UpdateClimbingStairs(var delta):
 
 	#When moving down and at the bottom of the stairs, then let go.
 	if input_direction < 0.0 and climb_point < 2 and not in_air:
-		StopStairsClimb()
+		stop_stairs_climb()
 
 	if input_direction > 0.0:
 		if $AnimationTree["parameters/ClimbDirection/current"] == 1:
@@ -170,7 +251,7 @@ func movement(var delta):
 		movementstate = STATE.FLAILING
 
 	if climbing_stairs:
-		UpdateClimbingStairs(delta)
+		update_stairs_climb(delta)
 		return
 
 	if in_air and movementstate == STATE.WALKING:
@@ -206,7 +287,7 @@ func movement(var delta):
 		orientation *= root_motion
 
 		var h_velocity = (orientation.origin / delta) * 0.1 * SPEED_SCALE
-		if npc_velocity:
+		if bot:
 			h_velocity.x *= abs((to_local(current_point)-translation).normalized().x)
 			h_velocity.z *= abs((to_local(current_point)-translation).normalized().z)
 			

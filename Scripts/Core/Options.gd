@@ -24,7 +24,7 @@ const opt_filter : Dictionary = {
 	}
 
 # scene we instance for each player
-var player_scene : PackedScene = preload("res://Trees/Actors/LegacyPlayer/avatar_v2/player.tscn")
+var player_scene : PackedScene = preload("res://Trees/Actors/Characters/Prefab/player.tscn")
 
 #############################
 #    user avatar Options    #

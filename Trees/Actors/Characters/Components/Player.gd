@@ -3,7 +3,13 @@ extends Node
 Component node for player input 
 """
 var actor : KinematicBody = null
+
+export(NodePath) var camera_control_path : NodePath = ""
+var camera_control : Spatial = null
+
 var mouse_sensitivity : float = 0.10
+var max_up_aim_angle : float = 55.5
+var max_down_aim_angle : float = 55.5
 
 func _ready():
 	if get_parent() is Character:
@@ -39,7 +45,7 @@ func _unhandled_input(event):
 	elif event.is_action_released("move_left"):
 		actor.motion_target.x = actor.motion_target.x + 1.0
 	elif event.is_action_pressed("move_forwards"):
-		actor.motion_target.y = motion_target.y + 1.0
+		actor.motion_target.y = actor.motion_target.y + 1.0
 	elif event.is_action_released("move_forwards"):
 		actor.motion_target.y = actor.motion_target.y - 1.0
 	elif event.is_action_pressed("move_backwards"):
@@ -62,10 +68,10 @@ func _unhandled_input(event):
 	if event.is_action("zoom_out") and not Input.is_action_pressed("move_run"):
 		actor.camera_control.IncreaseDistance()
 
-	if event.is_action_pressed("scroll_up") and Input.is_action_pressed("move_run") and animation_speed < 3.0:
-		animation_speed += 0.25
-	elif event.is_action_pressed("scroll_down") and Input.is_action_pressed("move_run") and animation_speed > 0.5:
-		animation_speed -= 0.25
+	if event.is_action_pressed("scroll_up") and Input.is_action_pressed("move_run") and actor.animation_speed < 3.0:
+		actor.animation_speed += 0.25
+	elif event.is_action_pressed("scroll_down") and Input.is_action_pressed("move_run") and actor.animation_speed > 0.5:
+		actor.animation_speed -= 0.25
 		
 	actor.input_direction = (Input.get_action_strength("move_forwards") - Input.get_action_strength("move_backwards"))
 	actor.jump = Input.is_action_pressed("jump")

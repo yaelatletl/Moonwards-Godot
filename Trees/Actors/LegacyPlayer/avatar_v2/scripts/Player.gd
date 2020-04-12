@@ -1,7 +1,6 @@
 extends Spatial
 
-var camera_control_path = "KinematicBody/PlayerCamera"
-var camera_control
+
 var stairs_class = preload("res://Trees/Worlds/LegacyWorld/Stairs/Stairs.gd")
 
 var MOTION_INTERPOLATE_SPEED = 8
@@ -44,7 +43,7 @@ var mouse_sensitivity = 0.10
 var max_up_aim_angle = 55.0
 var max_down_aim_angle = 55.0
 var root_motion = Transform()
-var orientation = Transform()
+
 var velocity = Vector3()
 var motion_target = Vector2()
 var input_direction  = 0.0
@@ -63,11 +62,13 @@ var climb_progress = 0.0
 var climb_direction = 1.0
 var climb_look_direction = Vector3()
 var movementstate = walking
-var username = "username" setget SetUsername
+
 var id setget SetID
 var nocamera = false
 var jump_timer = 0.0
 onready var model = $KinematicBody/Model
+var camera_control
+var camera_control_path
 
 const walking = 0
 const flailing = 1
@@ -76,7 +77,7 @@ const jumping = 3
 
 #################################
 ##Networking
-export(bool) var puppet = false setget SetRemotePlayer
+export(bool) var puppet = false setget set_remote_player
 puppet var puppet_translation
 puppet var puppet_rotation
 puppet var puppet_jump
@@ -97,90 +98,16 @@ var skin_mat
 var hair_mat
 var shoes_mat
 
-var colors setget SetPuppetColors
-var gender setget SetPuppetGender
+
 
 #################################
 # Init functions
+func Jump(variant):
+	pass
 func _enter_tree():
 	set_player_group()
 	if Lobby.local_id!=1 and bot:
 		puppet = true
-func _ready():
-	orientation = model.global_transform
-	orientation.origin = Vector3()
-	print("The local id is ", Lobby.local_id)
-	camera_control = get_node(camera_control_path)
-	if not puppet and not bot:
-		Options.connect("user_settings_changed", self, "ApplyUserSettings")
-		SetupMaterials()
-		ApplyUserSettings()
-	else:
-		set_process_unhandled_input(false)
-	SetRemotePlayer(puppet)
-	if bot and puppet:
-		set_network_master(1)
-		SetNetwork(true)
-	if bot and not puppet:
-		SetNetwork(true)
-		#
-		randomize()
-		yield(get_tree().create_timer(1.0), "timeout")
-		pick_random()
-	print("A player has been created with id: ", get_network_master(), " 4/4 Server Correctly set up")
-func SetupMaterials():
-	shirt_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(0).duplicate()
-	pants_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(1).duplicate()
-	skin_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(2).duplicate()
-	shoes_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(3).duplicate()
-	hair_mat = $KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.get_surface_material(3).duplicate()
-
-	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.set_surface_material(0, shirt_mat)
-	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.set_surface_material(1, pants_mat)
-	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.set_surface_material(2, skin_mat)
-	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.set_surface_material(3, shoes_mat)
-	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.set_surface_material(4, hair_mat)
-
-	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(0, shoes_mat)
-	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(1, hair_mat)
-	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(2, pants_mat)
-	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(3, shirt_mat)
-	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.set_surface_material(4, skin_mat)
-
-func SetPuppetColors(var colors):
-	SetupMaterials()
-
-	pants_mat.albedo_color = colors.pants
-	shirt_mat.albedo_color = colors.shirt
-	skin_mat.albedo_color = colors.skin
-	hair_mat.albedo_color = colors.hair
-	shoes_mat.albedo_color = colors.shoes
-
-func SetPuppetGender(var gender):
-	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.visible = (gender == Options.GENDERS.FEMALE)
-	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.visible = (gender == Options.GENDERS.MALE)
-
-	if Options.gender == Options.GENDERS.MALE:
-		$KinematicBody/Model/FemaleRig/Skeleton.scale = Vector3(1.1, 1.1, 1.1)
-	else:
-		$KinematicBody/Model/FemaleRig/Skeleton.scale = Vector3(1.0, 1.0, 1.0)
-
-func ApplyUserSettings():
-	pants_mat.albedo_color = Options.pants_color
-	shirt_mat.albedo_color = Options.shirt_color
-	skin_mat.albedo_color = Options.skin_color
-	hair_mat.albedo_color = Options.hair_color
-	shoes_mat.albedo_color = Options.shoes_color
-
-	$KinematicBody/Model/FemaleRig/Skeleton/AvatarFemale.visible = (Options.gender == Options.GENDERS.FEMALE)
-	$KinematicBody/Model/FemaleRig/Skeleton/AvatarMale.visible = (Options.gender == Options.GENDERS.MALE)
-
-	if Options.gender == Options.GENDERS.MALE:
-		$KinematicBody/Model/FemaleRig/Skeleton.scale = Vector3(1.1, 1.1, 1.1)
-	else:
-		$KinematicBody/Model/FemaleRig/Skeleton.scale = Vector3(1.0, 1.0, 1.0)
-
-	SetUsername(Options.username)
 
 
 	
@@ -199,9 +126,7 @@ func set_player_group(enable=true): # for local only
 func SetID(var _id):
 	id = _id
 
-func SetUsername(var _username):
-	username = _username
-	$KinematicBody/Nametag/Viewport/Username.text = username
+
 
 func SetPScale(scale):
 	if scale < 0.01 or scale > 100:
@@ -297,48 +222,7 @@ func _physics_process(delta):
 	HandleMovement()
 	HandleControls(delta)
 
-func pick_random():
-	var random_pos : Vector3 = Vector3()
-	var localized_pos = to_local(global_character_position)
-	random_pos.x = global_character_position.x + rand_range(-3.0,3.0)
-	random_pos.y = global_character_position.y + rand_range(-3.0,3.0)
-	random_pos.z = global_character_position.z + rand_range(-3.0,3.0)
-	bot_update_path(WorldManager.current_world.to_local(random_pos))
-	if AI_PATH.size()<1:
-		pick_random()
-	
-	
-	
-func bot_update_path(to : Vector3) -> void:
-	has_destination = false
-	AI_PATH = Array(WorldManager.current_world.get_navmesh_path(WorldManager.current_world.to_local(global_character_position), to))
-	if AI_PATH.size()>1:
-		current_point = AI_PATH[0]
-	else:
-		current_point = Vector3()
-	
 
-		
-	point_number = 0
-	has_destination = true
-	
-func bot_movement(delta : float) -> void:
-	cumulative_delta = cumulative_delta+delta
-	if has_destination:
-		if (to_local(current_point)-$KinematicBody.translation).length() < 0.5:
-			cumulative_delta = 0
-			if point_number < AI_PATH.size()-1:
-				point_number += 1
-				current_point = AI_PATH[point_number]
-			else:
-				pick_random()
-	if cumulative_delta>10:
-		cumulative_delta = 0
-		if point_number < AI_PATH.size()-1:
-			point_number += 1
-			current_point = AI_PATH[point_number]
-		else:
-			pick_random()
 
 func HandleOnGround(delta):
 	if $KinematicBody/OnGround.is_colliding() and in_air:
@@ -579,82 +463,12 @@ func DoInteractiveObjectCheck():
 
 #################################
 # networking functions
-func UpdateNetworking():
-	if nonetwork and not bot:
-		return
-	if puppet:
-		if puppet_translation != null:
-			$KinematicBody.global_transform.origin = puppet_translation
-		if puppet_rotation != null:
-			model.global_transform.basis = puppet_rotation
-		if puppet_jump != null:
-			jump = puppet_jump
-		if puppet_motion != null:
-			motion = puppet_motion
-		if puppet_animation_speed != null:
-			animation_speed = puppet_animation_speed
-		if puppet_jump_blend != null:
-			$KinematicBody/AnimationTree["parameters/JumpAmount/blend_amount"] = puppet_jump_blend
-		if puppet_anim_state != null:
-			$KinematicBody/AnimationTree["parameters/MovementState/current"] = puppet_anim_state
-		if puppet_climb_dir != null:
-			$KinematicBody/AnimationTree["parameters/ClimbDirection/current"] = puppet_climb_dir
-		if puppet_climb_progress_up != null:
-			$KinematicBody/AnimationTree["parameters/ClimbProgressUp/seek_position"] = puppet_climb_progress_up
-		if puppet_climb_progress_down != null:
-			$KinematicBody/AnimationTree["parameters/ClimbProgressDown/seek_position"] = puppet_climb_progress_down
-	elif is_network_master() or (bot and not puppet):
-		rset_unreliable("puppet_climb_progress_down", $KinematicBody/AnimationTree["parameters/ClimbProgressDown/seek_position"])
-		rset_unreliable("puppet_climb_progress_up", $KinematicBody/AnimationTree["parameters/ClimbProgressUp/seek_position"] )
-		rset_unreliable("puppet_climb_dir", $KinematicBody/AnimationTree["parameters/ClimbDirection/current"])
-		rset_unreliable("puppet_anim_state", $KinematicBody/AnimationTree["parameters/MovementState/current"])
-		rset_unreliable("puppet_jump_blend", $KinematicBody/AnimationTree["parameters/JumpAmount/blend_amount"])
-		rset_unreliable("puppet_translation", $KinematicBody.global_transform.origin)
-		rset_unreliable("puppet_rotation", model.global_transform.basis)
-		rset_unreliable("puppet_motion", motion)
-		rset_unreliable("puppet_jump", jump)
-		rset_unreliable("puppet_animation_speed", animation_speed)
+
 #	else:
 #		printd("UpdateNetworking: not a remote player(%s) and not a network_master and network(%s)" % [get_path(), network])
 
-func SetNetwork(var enabled : bool) -> void:
-	network = enabled
-	nonetwork = ! enabled
-	#printd("Player %s enable/disable networking, nonetwork(%s)" % [get_path(), nonetwork])
 
-	if network:
-		rset_config("puppet_translation", MultiplayerAPI.RPC_MODE_PUPPET)
-		rset_config("puppet_rotation",  MultiplayerAPI.RPC_MODE_PUPPET)
-		rset_config("puppet_motion",  MultiplayerAPI.RPC_MODE_PUPPET)
-		rset_config("puppet_jump",  MultiplayerAPI.RPC_MODE_PUPPET)
-		rset_config("puppet_jump_blend",  MultiplayerAPI.RPC_MODE_PUPPET)
-		rset_config("puppet_run",  MultiplayerAPI.RPC_MODE_PUPPET)
-		rset_config("puppet_climb_progress_down",  MultiplayerAPI.RPC_MODE_PUPPET)
-		rset_config("puppet_climb_progress_up",  MultiplayerAPI.RPC_MODE_PUPPET)
-		rset_config("puppet_climb_dir",  MultiplayerAPI.RPC_MODE_PUPPET)
-		rset_config("puppet_anim_state",  MultiplayerAPI.RPC_MODE_PUPPET)
-	else:
-		rset_config("puppet_translation", MultiplayerAPI.RPC_MODE_DISABLED)
-		rset_config("puppet_rotation",  MultiplayerAPI.RPC_MODE_DISABLED)
-		rset_config("puppet_motion",  MultiplayerAPI.RPC_MODE_DISABLED)
-		rset_config("puppet_jump", MultiplayerAPI.RPC_MODE_DISABLED)
-		rset_config("puppet_jump_blend", MultiplayerAPI.RPC_MODE_DISABLED)
-		rset_config("puppet_run", MultiplayerAPI.RPC_MODE_DISABLED)
-		rset_config("puppet_climb_progress_down",  MultiplayerAPI.RPC_MODE_DISABLED)
-		rset_config("puppet_climb_progress_up",  MultiplayerAPI.RPC_MODE_DISABLED)
-		rset_config("puppet_climb_dir",  MultiplayerAPI.RPC_MODE_DISABLED)
-		rset_config("puppet_anim_state",  MultiplayerAPI.RPC_MODE_DISABLED)
 
-func SetRemotePlayer(enable):
-	puppet = enable
-	set_player_group()
-	if not puppet:
-		$KinematicBody/Nametag.visible = false
-		$Camera.current = true
-	else:
-		$Camera.current = false
-	if puppet or bot:
-		$KinematicBody/Nametag.visible = true
 #################################
 # Debugger functions
 func CreateDebugLine(var from, var to):
@@ -692,6 +506,5 @@ func SaveRPoints(delta):
 							rp_points.push_front($KinematicBody.global_transform)
 							#printd("+++++%s %s %s" % [rp_points.size(), get_path(), rp_points[0]])
 
-#var debug_id = "Player2.gd"
-#func printd(s):
-#	logg.print_filtered_message(debug_id, s)
+func set_remote_player(if_remote):
+	puppet = if_remote

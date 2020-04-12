@@ -1,15 +1,15 @@
 [gd_scene load_steps=35 format=2]
 
-[ext_resource path="res://Trees/Actors/LegacyPlayer/avatar_v2/PlayerCamera.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Trees/Actors/LegacyPlayer/Avatars/AvatarRig.dae.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Trees/Actors/LegacyPlayer/avatar_v2/Nametag3D.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/SharedAssets/Materials/Miscellaneous/BrightTeal.tres" type="Material" id=4]
-[ext_resource path="res://Trees/Actors/LegacyPlayer/avatar_v2/scripts/Player.gd" type="Script" id=5]
-[ext_resource path="res://Assets/SharedAssets/Materials/Miscellaneous/SmokySkin.tres" type="Material" id=6]
-[ext_resource path="res://Assets/SharedAssets/Materials/Miscellaneous/Chestnut.tres" type="Material" id=7]
-[ext_resource path="res://Assets/SharedAssets/Materials/Miscellaneous/Black.tres" type="Material" id=8]
-[ext_resource path="res://Assets/SharedAssets/Materials/Miscellaneous/Eggplant.tres" type="Material" id=9]
-[ext_resource path="res://Trees/Actors/LegacyPlayer/avatar_v2/interactor/Interactor.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/SharedAssets/Materials/Miscellaneous/BrightTeal.tres" type="Material" id=1]
+[ext_resource path="res://Trees/Actors/Characters/Prefab/Prefab.gd" type="Script" id=2]
+[ext_resource path="res://Assets/SharedAssets/Materials/Miscellaneous/Black.tres" type="Material" id=3]
+[ext_resource path="res://Assets/SharedAssets/Materials/Miscellaneous/Eggplant.tres" type="Material" id=4]
+[ext_resource path="res://Assets/SharedAssets/Materials/Miscellaneous/SmokySkin.tres" type="Material" id=5]
+[ext_resource path="res://Assets/SharedAssets/Materials/Miscellaneous/Chestnut.tres" type="Material" id=6]
+[ext_resource path="res://Trees/Actors/LegacyPlayer/avatar_v2/Nametag3D.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Trees/Actors/LegacyPlayer/avatar_v2/interactor/Interactor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Trees/Actors/LegacyPlayer/avatar_v2/PlayerCamera.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Trees/Actors/LegacyPlayer/Avatars/AvatarRig.dae.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Trees/Actors/Characters/Components/Player.gd" type="Script" id=11]
 
 [sub_resource type="SpatialMaterial" id=1]
@@ -135,7 +135,7 @@ nodes/output/position = Vector2( 1380, 100 )
 node_connections = [ "output", 0, "Land", "MovementSpeed", 0, "Walk", "ClimbDirection", 0, "ClimbProgressUp", "ClimbDirection", 1, "ClimbProgressDown", "MovementState", 0, "MovementSpeed", "MovementState", 1, "Animation 3", "MovementState", 2, "ClimbDirection", "ClimbProgressUp", 0, "Animation 5", "ClimbProgressDown", 0, "Animation 4", "JumpAmount", 0, "MovementState", "JumpAmount", 1, "Animation", "Land", 0, "JumpAmount", "Land", 1, "Animation 2" ]
 
 [node name="LocalPlayer" type="Spatial"]
-script = ExtResource( 5 )
+script = ExtResource( 2 )
 
 [node name="Camera" type="Camera" parent="."]
 
@@ -155,7 +155,7 @@ transform = Transform( 1, 0, 0, 0, 0.0285586, -0.999592, 0, 0.999592, 0.0285586,
 visible = false
 omni_range = 1.5
 
-[node name="Nametag" parent="KinematicBody" instance=ExtResource( 3 )]
+[node name="Nametag" parent="KinematicBody" instance=ExtResource( 7 )]
 material/0 = SubResource( 3 )
 
 [node name="OnGround" type="RayCast" parent="KinematicBody"]
@@ -163,13 +163,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0 )
 enabled = true
 cast_to = Vector3( 0, -0.1, 0 )
 
-[node name="PlayerCamera" parent="KinematicBody" instance=ExtResource( 1 )]
+[node name="PlayerCamera" parent="KinematicBody" instance=ExtResource( 9 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.144089, 0 )
 kinematic_body_path = NodePath("..")
 kinematic_body_camera = NodePath("../../Camera")
 enabled = true
 
-[node name="Interactor" parent="KinematicBody" instance=ExtResource( 10 )]
+[node name="Interactor" parent="KinematicBody" instance=ExtResource( 8 )]
 
 [node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0828768, 0 )
@@ -195,26 +195,26 @@ animation_path = NodePath("../AnimationTree")
 cell_size = 0.1
 radius = 2.0
 
-[node name="Model" parent="KinematicBody" instance=ExtResource( 2 )]
+[node name="Model" parent="KinematicBody" instance=ExtResource( 10 )]
 
 [node name="AvatarFemale" parent="KinematicBody/Model/FemaleRig/Skeleton" index="0"]
 visible = false
 lod_min_distance = 5.0
 lod_max_distance = 1.0
-material/0 = ExtResource( 4 )
-material/1 = ExtResource( 7 )
-material/2 = ExtResource( 6 )
-material/3 = ExtResource( 9 )
-material/4 = ExtResource( 8 )
+material/0 = ExtResource( 1 )
+material/1 = ExtResource( 6 )
+material/2 = ExtResource( 5 )
+material/3 = ExtResource( 4 )
+material/4 = ExtResource( 3 )
 
 [node name="AvatarMale" parent="KinematicBody/Model/FemaleRig/Skeleton" index="1"]
 lod_min_distance = 5.0
 lod_max_distance = 1.0
-material/0 = ExtResource( 8 )
-material/1 = ExtResource( 9 )
-material/2 = ExtResource( 7 )
-material/3 = ExtResource( 4 )
-material/4 = ExtResource( 6 )
+material/0 = ExtResource( 3 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 6 )
+material/3 = ExtResource( 1 )
+material/4 = ExtResource( 5 )
 
 [node name="AnimationPlayer" parent="KinematicBody/Model" index="1"]
 playback_process_mode = 0
