@@ -89,15 +89,8 @@ puppet var puppet_climb_dir
 puppet var puppet_climb_progress_up
 puppet var puppet_climb_progress_down 
 
-var network = false setget SetNetwork
+var network = false setget set_network
 var nonetwork = ! network
-
-var pants_mat
-var shirt_mat
-var skin_mat
-var hair_mat
-var shoes_mat
-
 
 
 #################################
@@ -112,16 +105,6 @@ func _enter_tree():
 
 	
 
-func set_player_group(enable=true): # for local only
-	if not  is_inside_tree():
-		return
-	var pg = Options.player_data.player_group
-	if puppet == false and not is_in_group(pg):
-		#printd("add avatar(%s), puppet(%s) to %s group" % [get_path(), puppet, pg])
-		add_to_group(pg, true)
-	if puppet == true and is_in_group(pg):
-		#printd("remove avatar(%s), puppet(%s) from %s group" % [get_path(), puppet, pg])
-		remove_from_group(pg)
 
 func SetID(var _id):
 	id = _id
@@ -203,24 +186,7 @@ func HideMouseCursor():
 
 
 
-func _physics_process(delta):
-	if Lobby.isConnected:
-		UpdateNetworking()
-#	if puppet and not bot:
-#		return
-	if not puppet:
-		SaveRPoints(delta)
-	if bot and not puppet:
-		if current_point.length()<0.01:
-			motion_target = Vector2(0,0)
-		else:
-			motion_target = Vector2(0,1)
-		camera_control.look_at((current_point), Vector3(0,1,0))
-		global_character_position = to_global($KinematicBody.translation)
-		bot_movement(delta)
-	HandleOnGround(delta)
-	HandleMovement()
-	HandleControls(delta)
+
 
 
 
@@ -428,38 +394,6 @@ func StopStairsClimb():
 	climb_point = -1
 	$KinematicBody/AnimationTree["parameters/MovementState/current"] = walking
 
-func DoInteractiveObjectCheck():
-	var space_state = get_world().direct_space_state
-	var params = PhysicsShapeQueryParameters.new()
-	var sphere = SphereShape.new()
-	var kb_pos = $KinematicBody.global_transform.origin
-
-	sphere.radius = 0.03
-	params.set_shape(sphere)
-	params.collide_with_areas = true
-	params.collide_with_bodies = false
-	params.transform.origin = kb_pos
-	params.collision_mask = 2
-
-	var results = space_state.intersect_shape(params)
-
-	#Get the closest stairs to start climbing.
-	var closest_object = null
-	for result in results:
-		if closest_object == null or result.collider.global_transform.origin.distance_to(kb_pos) < closest_object.global_transform.origin.distance_to(kb_pos):
-			closest_object = result.collider
-
-	if closest_object != null:
-		if closest_object is stairs_class:
-			climbing_stairs = true
-			stairs = closest_object
-			climb_look_direction = stairs.GetLookDirection(kb_pos)
-			#Get the closest step to start climbing from.
-			for index in stairs.climb_points.size():
-				if climb_point == -1 or stairs.climb_points[index].distance_to(kb_pos) < stairs.climb_points[climb_point].distance_to(kb_pos):
-					climb_point = index
-		elif closest_object.has_method("activate"):
-			closest_object.activate()
 
 #################################
 # networking functions
@@ -478,33 +412,7 @@ func CreateDebugLine(var from, var to):
 	$KinematicBody/ImmediateGeometry.add_vertex(to)
 	$KinematicBody/ImmediateGeometry.end()
 
-## Restore Positions
-var rp_max_points = 100
-var rp_delta = 5
-var rp_delta_o = 1 #minimal offset to be recorded
-var rp_time = 0
-var rp_points = []
 
-func PopRPoint():
-	if rp_points.size() > 0:
-			#printd("-----%s %s %s" % [rp_points.size(), get_path(), rp_points[0]])
-			$KinematicBody.global_transform = rp_points.pop_front()
-			rp_time = 0
-
-func SaveRPoints(delta):
-	#save position if not in air, and if previous one is more than rp_delta
-	rp_time += delta
-	if not in_air:
-			if rp_points.size() == 0:
-					rp_points.append($KinematicBody.global_transform)
-			if rp_points.size() > rp_max_points:
-					rp_points.pop_back()
-			if rp_time > rp_delta:
-					var kbo = $KinematicBody.global_transform.origin
-					if rp_points[0].origin.distance_to(kbo) > rp_delta_o:
-							rp_time = 0
-							rp_points.push_front($KinematicBody.global_transform)
-							#printd("+++++%s %s %s" % [rp_points.size(), get_path(), rp_points[0]])
 
 func set_remote_player(if_remote):
 	puppet = if_remote

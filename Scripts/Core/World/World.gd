@@ -84,7 +84,7 @@ func create_player(player : Dictionary) -> void:
 
 	player_scene.set_name(str(player.id)) # Use unique ID as node name
 	player_scene.translation = spawn_pos
-	player_scene.SetNetwork(true)
+	player_scene.set_network(true)
 
 	if player.has("network"):
 		player_scene.nonetwork = !player.network

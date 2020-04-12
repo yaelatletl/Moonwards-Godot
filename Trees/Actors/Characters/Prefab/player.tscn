@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Assets/SharedAssets/Materials/Miscellaneous/BrightTeal.tres" type="Material" id=1]
 [ext_resource path="res://Trees/Actors/Characters/Prefab/Prefab.gd" type="Script" id=2]
@@ -10,7 +10,9 @@
 [ext_resource path="res://Trees/Actors/LegacyPlayer/avatar_v2/interactor/Interactor.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Trees/Actors/LegacyPlayer/avatar_v2/PlayerCamera.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Trees/Actors/LegacyPlayer/Avatars/AvatarRig.dae.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Trees/Actors/Characters/Components/Player.gd" type="Script" id=11]
+[ext_resource path="res://Trees/Actors/Characters/Components/Input/Player.gd" type="Script" id=11]
+[ext_resource path="res://Trees/Actors/Characters/Character.gd" type="Script" id=12]
+[ext_resource path="res://Trees/Actors/Characters/Components/Input/Interactor.gd" type="Script" id=13]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
@@ -136,15 +138,19 @@ node_connections = [ "output", 0, "Land", "MovementSpeed", 0, "Walk", "ClimbDire
 
 [node name="LocalPlayer" type="Spatial"]
 script = ExtResource( 2 )
+Character_path = NodePath("KinematicBody")
 
 [node name="Camera" type="Camera" parent="."]
 
 [node name="KinematicBody" type="KinematicBody" parent="."]
-script = ExtResource( 11 )
+script = ExtResource( 12 )
+camera_control_path = NodePath("PlayerCamera")
+
+[node name="Player_Interact" type="Spatial" parent="KinematicBody"]
+script = ExtResource( 13 )
 
 [node name="Player_Input" type="Node" parent="KinematicBody"]
 script = ExtResource( 11 )
-camera_control_path = NodePath("../PlayerCamera")
 
 [node name="ImmediateGeometry" type="ImmediateGeometry" parent="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0 )

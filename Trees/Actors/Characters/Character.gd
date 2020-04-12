@@ -1,7 +1,6 @@
 extends KinematicBody
 class_name Character
 
-
 enum STATE {
 	WALKING
 	FLAILING
@@ -32,8 +31,7 @@ var username = "username" setget set_username
 var climbing_stairs : bool = false
 var in_air : bool = false
 var velocity : Vector3
-var motion_target
-var orientation
+var orientation : Transform = Transform()
 var movementstate : int = STATE.WALKING
 var stairs = null
 var climb_point = 0
@@ -41,16 +39,16 @@ var climb_progress = 0.0
 var climb_direction = 1.0
 var climb_look_direction = Vector3()
 var ground_normal : Vector3 = Vector3()
-
-
-var current_point : Vector3
-var camera_control : Spatial
-var model : Spatial
-var motion 
+var current_point : Vector3 = Vector3()
+var look_direction : Vector2 = Vector2()
+var motion_target : Vector2 = Vector2()
+export(NodePath) var camera_control_path : NodePath = ""
+var camera_control : Spatial = null
+onready var model : Spatial = $Model
+var motion : Vector2 = Vector2()
 var root_motion 
 
 var network : bool = false
-var bot : bool = false
 
 #####################################
 puppet var puppet_translation
@@ -66,10 +64,67 @@ puppet var puppet_climb_progress_down
 ######################################
 
 
+
+
+## Restore Positions
+var rp_max_points = 100
+var rp_delta = 5
+var rp_delta_o = 1 #minimal offset to be recorded
+var rp_time = 0
+var rp_points = []
+
+func _physics_process(delta):
+	camera_control = get_node(camera_control_path)
+	if Lobby.isConnected:
+		update_networking()
+#	if puppet and not bot:
+#		return
+	if not is_puppet:
+		save_r_points(delta)
+	if camera_control!=null:
+		movement(delta)
+		
+
+
 func set_username(var _username):
 	username = _username
 
-func set_networked(if_networked):
+func pop_r_point():
+	if rp_points.size() > 0:
+			#printd("-----%s %s %s" % [rp_points.size(), get_path(), rp_points[0]])
+			global_transform = rp_points.pop_front()
+			rp_time = 0
+
+func save_r_points(delta):
+	#save position if not in air, and if previous one is more than rp_delta
+	rp_time += delta
+	if not in_air:
+			if rp_points.size() == 0:
+					rp_points.append(global_transform)
+			if rp_points.size() > rp_max_points:
+					rp_points.pop_back()
+			if rp_time > rp_delta:
+					var kbo = global_transform.origin
+					if rp_points[0].origin.distance_to(kbo) > rp_delta_o:
+							rp_time = 0
+							rp_points.push_front(global_transform)
+
+func set_player_group(enable=true): # for local only
+	if not is_inside_tree():
+		return
+	var pg = Options.player_data.player_group
+	if is_puppet == false and not is_in_group(pg):
+		#printd("add avatar(%s), puppet(%s) to %s group" % [get_path(), puppet, pg])
+		add_to_group(pg, true)
+	if is_puppet == true and is_in_group(pg):
+		#printd("remove avatar(%s), puppet(%s) from %s group" % [get_path(), puppet, pg])
+		remove_from_group(pg)
+
+
+
+
+
+func set_network(if_networked):
 	
 	if if_networked:
 		rset_config("puppet_translation", MultiplayerAPI.RPC_MODE_PUPPET)
@@ -119,7 +174,7 @@ func update_networking():
 		if puppet_climb_progress_down != null:
 			$AnimationTree["parameters/ClimbProgressDown/seek_position"] = puppet_climb_progress_down
 	
-	elif is_network_master() or (bot):
+	elif is_network_master() or (is_bot):
 		rset_unreliable("puppet_climb_progress_down", $AnimationTree["parameters/ClimbProgressDown/seek_position"])
 		rset_unreliable("puppet_climb_progress_up", $AnimationTree["parameters/ClimbProgressUp/seek_position"] )
 		rset_unreliable("puppet_climb_dir", $AnimationTree["parameters/ClimbDirection/current"])
@@ -287,9 +342,9 @@ func movement(var delta):
 		orientation *= root_motion
 
 		var h_velocity = (orientation.origin / delta) * 0.1 * SPEED_SCALE
-		if bot:
-			h_velocity.x *= abs((to_local(current_point)-translation).normalized().x)
-			h_velocity.z *= abs((to_local(current_point)-translation).normalized().z)
+		if is_bot:
+			h_velocity.x *= abs((get_parent().to_local(current_point)-translation).normalized().x)
+			h_velocity.z *= abs((get_parent().to_local(current_point)-translation).normalized().z)
 			
 		
 		var velocity_direction = h_velocity.normalized()

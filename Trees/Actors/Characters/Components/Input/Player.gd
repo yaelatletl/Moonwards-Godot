@@ -4,8 +4,7 @@ Component node for player input
 """
 var actor : KinematicBody = null
 
-export(NodePath) var camera_control_path : NodePath = ""
-var camera_control : Spatial = null
+
 
 var mouse_sensitivity : float = 0.10
 var max_up_aim_angle : float = 55.5
@@ -14,6 +13,7 @@ var max_down_aim_angle : float = 55.5
 func _ready():
 	if get_parent() is Character:
 		actor = get_parent()
+
 	
 func _unhandled_input(event):
 	if actor == null:
@@ -33,8 +33,8 @@ func _unhandled_input(event):
 			actor.look_direction.y = max_up_aim_angle
 		elif actor.look_direction.y < -max_down_aim_angle:
 			actor.look_direction.y = -max_down_aim_angle
-
-		actor.camera_control.Rotate(actor.look_direction)
+		if actor.camera_control != null:
+			actor.camera_control.Rotate(actor.look_direction)
 
 	if event.is_action_pressed("move_right"):
 		actor.motion_target.x = actor.motion_target.x + 1.0
@@ -54,13 +54,7 @@ func _unhandled_input(event):
 		actor.motion_target.y = actor.motion_target.y + 1.0
 
 	if event.is_action_pressed("player_back_in_time"):
-		actor.PopRPoint()
-
-	if event.is_action_pressed("use"):
-		if not actor.climbing_stairs:
-			actor.DoInteractiveObjectCheck()
-		else:
-			actor.StopStairsClimb()
+		actor.pop_r_point()
 
 	if event.is_action("zoom_in") and not Input.is_action_pressed("move_run"):
 		actor.camera_control.DecreaseDistance()

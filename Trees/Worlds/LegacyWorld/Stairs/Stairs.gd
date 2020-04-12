@@ -1,5 +1,6 @@
 tool
 extends Area
+class_name Stairs
 
 var climb_points = []
 var step_size = 0.0535
